@@ -1,0 +1,38 @@
+name: flutter_theme
+description: A Flutter material theme editor.
+publish_to: "none"
+version: 0.0.1+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  bloc: ^7.0.0
+  copy_with_extension: ^2.0.0
+  cupertino_icons: ^1.0.0
+  device_preview: ^0.7.3
+  enum_to_string: ^2.0.1
+  equatable: ^2.0.0
+  expandable: ^5.0.1
+  file_picker_cross: ^4.4.2
+  flex_color_picker: ^2.0.0-nullsafety.4
+  flutter_bloc: ^7.0.0
+  intl: ^0.17.0
+  json_theme: ^2.1.0+2
+  ndialog: ^4.1.0
+  path_provider: ^2.0.2
+  pretty_json: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  bloc_test: ^8.0.0
+  build_runner: ^1.12.2
+  copy_with_extension_gen: ^2.0.1
+  mocktail: ^0.1.2
+  pedantic: ^1.11.0
+
+flutter:
+  uses-material-design: true

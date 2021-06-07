@@ -28,6 +28,8 @@ class ThemePreview extends StatelessWidget {
         return DevicePreview(builder: (context) {
           return MaterialApp(
             theme: theme,
+            locale: DevicePreview.locale(context),
+            builder: DevicePreview.appBuilder,
             home: DefaultTabController(
               length: _pages.length,
               child: Scaffold(

@@ -4,6 +4,7 @@ import 'package:flutter_theme/common/common.dart';
 
 import '../list_view.dart';
 import '../paddings.dart';
+import 'card.dart';
 
 class ExpandableCard extends StatelessWidget {
   final String header;
@@ -14,7 +15,8 @@ class ExpandableCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return MyCard(
+      padding: EdgeInsets.zero,
       child: ExpandableNotifier(
         child: ExpandablePanel(
           theme: ExpandableThemeData(

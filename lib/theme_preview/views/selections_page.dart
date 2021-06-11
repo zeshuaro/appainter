@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/common/common.dart';
+import 'package:flutter_theme/theme_preview/views/preview_body.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:intl/intl.dart';
-
-import 'preview_body.dart';
 
 class SelectionsPage extends PreviewBody {
   @override

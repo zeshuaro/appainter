@@ -4,11 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
-
-import 'buttons_page.dart';
-import 'inputs_page.dart';
-import 'preview_body.dart';
-import 'selections_page.dart';
+import 'package:flutter_theme/theme_preview/views/buttons_page.dart';
+import 'package:flutter_theme/theme_preview/views/inputs_page.dart';
+import 'package:flutter_theme/theme_preview/views/preview_body.dart';
+import 'package:flutter_theme/theme_preview/views/selections_page.dart';
 
 class ThemePreview extends StatelessWidget {
   final List<PreviewBody> _pages = [

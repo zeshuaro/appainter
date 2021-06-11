@@ -7,13 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/cubits/cubits.dart';
+import 'package:flutter_theme/home/home.dart';
+import 'package:flutter_theme/src/editors/editors.dart';
+import 'package:flutter_theme/src/theme_preview/theme_preview.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:ndialog/ndialog.dart';
 import 'package:pretty_json/pretty_json.dart';
-
-import 'editors/editors.dart';
-import 'theme_preview/theme_preview.dart';
 
 class HomePage extends StatelessWidget {
   @override

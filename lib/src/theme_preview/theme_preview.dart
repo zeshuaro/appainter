@@ -1,8 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
-import 'package:flutter_theme/cubits/cubits.dart';
 import 'package:flutter_theme/home/home.dart';
 
 import 'buttons_page.dart';

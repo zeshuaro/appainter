@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/consts.dart';
-import 'package:flutter_theme/cubits/cubits.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class IconThemeEditor extends StatelessWidget {

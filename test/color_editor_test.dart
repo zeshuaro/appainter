@@ -1,7 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/cubits/cubits.dart';
-import 'package:flutter_theme/src/editors/advanced_editor/color_editor.dart';
+import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'widget_test_helper.dart';

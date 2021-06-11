@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'basic_theme/basic_theme.dart';
 import 'cubits/cubits.dart';
 import 'home/home.dart';
 

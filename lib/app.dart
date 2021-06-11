@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'cubits/cubits.dart';
-import 'src/home_page.dart';
+import 'home/home.dart';
 
 class MyApp extends StatelessWidget {
   @override

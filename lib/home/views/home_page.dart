@@ -9,7 +9,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/src/theme_preview/theme_preview.dart';
+import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:ndialog/ndialog.dart';

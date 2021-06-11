@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/common/consts.dart';
+import 'package:flutter_theme/theme_preview/views/preview_body.dart';
 import 'package:flutter_theme/widgets/paddings.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
-
-import 'preview_body.dart';
 
 const Icon _buttonIcon = Icon(Icons.favorite);
 

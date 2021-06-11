@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/common.dart';
-import 'package:flutter_theme/cubits/cubits.dart';
 import 'package:flutter_theme/models/enums/enums.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 

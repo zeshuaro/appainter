@@ -1,8 +1,14 @@
 # Flutter Theme
 
-**⚠️ WARNING: This app is developed as a proof of concept and should not be used in production. Please complete [this](https://forms.gle/yqpBtK7EssCbdnZq7) short survey to leave your feedback on this project. Depending on the survey results, this project may or may not be maintained. ⚠️**
+**⚠️ WARNING: This app is still under development so please expect bugs and missing features in the app. ⚠️**
 
 Inspired by [Panache](https://github.com/rxlabz/panache), a Flutter material theme editor for you to configure the overall visual theme of your material app.
+
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/zeshuaro/flutter_theme?color=orange&label=version)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fzeshuaro.github.io%2Fflutter_theme%2F)
+[![GitHub license](https://img.shields.io/github/license/zeshuaro/flutter_theme)](https://github.com/zeshuaro/flutter_theme/blob/main/LICENSE)
+[![GitHub Actions](https://github.com/zeshuaro/flutter_theme/actions/workflows/test_deploy_release.yml/badge.svg)](https://github.com/zeshuaro/flutter_theme/actions/workflows/test_deploy_release.yml)
+[![pedantic](https://img.shields.io/badge/code%20style-pedantic-40c4ff.svg)](https://github.com/google/pedantic)
 
 ![Flutter Theme Screenshot](images/screenshot.png)
 
@@ -10,7 +16,7 @@ Inspired by [Panache](https://github.com/rxlabz/panache), a Flutter material the
 
 Flutter Theme is developed and built with [Flutter](https://flutter.dev/), and is available for both Web and Desktop.
 
-**Disclaimer: I have only tested the app on Web and MacOS as I don't have a Windows or Linux machine. The app may not work on those platforms.**
+**Disclaimer: I've only tested the app on Web and MacOS as I don't have a Windows or Linux machine. The app may not work on those platforms.**
 
 For Web, you can access it through [here](https://zeshuaro.github.io/flutter_theme/). 
 

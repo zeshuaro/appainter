@@ -31,8 +31,8 @@ dev_dependencies:
   bloc_test: ^8.0.0
   build_runner: ^1.12.2
   copy_with_extension_gen: ^2.0.1
+  lint: ^1.5.3
   mocktail: ^0.1.2
-  pedantic: ^1.11.0
 
 flutter:
   uses-material-design: true

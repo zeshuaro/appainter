@@ -25,6 +25,7 @@ dependencies:
   ndialog: ^4.1.0
   path_provider: ^2.0.2
   pretty_json: ^2.0.0
+  random_color_scheme: ^0.1.3
 
 dev_dependencies:
   flutter_test:

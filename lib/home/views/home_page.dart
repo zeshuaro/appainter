@@ -214,15 +214,7 @@ class _EditModeHeader extends StatelessWidget {
           child: _EditModeTabBar(),
         ),
         Spacer(),
-        IconButton(
-          onPressed: () {},
-          icon: FaIcon(FontAwesomeIcons.random),
-        ),
-        HorizontalPadding(),
-        IconButton(
-          onPressed: () {},
-          icon: FaIcon(FontAwesomeIcons.redo),
-        ),
+        _RandomAndResetBtns(),
       ],
     );
   }
@@ -243,6 +235,44 @@ class _EditModeTabBar extends StatelessWidget {
       }).toList(),
       onTap: (index) {
         context.read<HomeCubit>().editModeChanged(EditMode.values[index]);
+      },
+    );
+  }
+}
+
+class _RandomAndResetBtns extends StatelessWidget {
+  const _RandomAndResetBtns({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HomeCubit, HomeState>(
+      buildWhen: (previous, current) => previous.editMode != current.editMode,
+      builder: (context, state) {
+        return Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                if (state.editMode == EditMode.basic) {
+                  context.read<BasicThemeCubit>().randomizedThemeRequested();
+                } else {
+                  context.read<AdvancedThemeCubit>().randomizedThemeRequested();
+                }
+              },
+              icon: FaIcon(FontAwesomeIcons.random),
+            ),
+            HorizontalPadding(),
+            IconButton(
+              onPressed: () {
+                if (state.editMode == EditMode.basic) {
+                  context.read<BasicThemeCubit>().defaultThemeRequested();
+                } else {
+                  context.read<AdvancedThemeCubit>().defaultThemeRequested();
+                }
+              },
+              icon: FaIcon(FontAwesomeIcons.redo),
+            ),
+          ],
+        );
       },
     );
   }

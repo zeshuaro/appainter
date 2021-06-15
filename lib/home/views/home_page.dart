@@ -11,6 +11,7 @@ import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:ndialog/ndialog.dart';
 import 'package:pretty_json/pretty_json.dart';
@@ -132,7 +133,7 @@ class _EditorPreview extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: _Editors(),
+          child: _EditorsContainer(),
         ),
         HorizontalPadding(),
         Expanded(
@@ -148,7 +149,7 @@ class _EditorPreview extends StatelessWidget {
   }
 }
 
-class _Editors extends StatelessWidget {
+class _EditorsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -172,20 +173,7 @@ class _Editors extends StatelessWidget {
             listener: (context, state) {
               controller.animateTo(EditMode.values.indexOf(state.editMode));
             },
-            child: Column(
-              children: [
-                _EditModeTabBar(),
-                VerticalPadding(),
-                Expanded(
-                  child: TabBarView(
-                    children: [
-                      BasicEditor(),
-                      AdvancedEditor(),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            child: _Editors(),
           );
         },
       ),
@@ -193,25 +181,99 @@ class _Editors extends StatelessWidget {
   }
 }
 
+class _Editors extends StatelessWidget {
+  const _Editors({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        _EditModeHeader(),
+        VerticalPadding(),
+        Expanded(
+          child: TabBarView(
+            children: [
+              BasicEditor(),
+              AdvancedEditor(),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _EditModeHeader extends StatelessWidget {
+  const _EditModeHeader({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: _EditModeTabBar(),
+        ),
+        Spacer(),
+        _RandomAndResetBtns(),
+      ],
+    );
+  }
+}
+
 class _EditModeTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 200),
-      child: TabBar(
-        tabs: EditMode.values.map((mode) {
-          final text = EnumToString.convertToString(mode, camelCase: true);
-          return Tab(
-            child: Text(
-              text,
-              style: TextStyle(color: Colors.black),
+    return TabBar(
+      tabs: EditMode.values.map((mode) {
+        final text = EnumToString.convertToString(mode, camelCase: true);
+        return Tab(
+          child: Text(
+            text,
+            style: TextStyle(color: Colors.black),
+          ),
+        );
+      }).toList(),
+      onTap: (index) {
+        context.read<HomeCubit>().editModeChanged(EditMode.values[index]);
+      },
+    );
+  }
+}
+
+class _RandomAndResetBtns extends StatelessWidget {
+  const _RandomAndResetBtns({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HomeCubit, HomeState>(
+      buildWhen: (previous, current) => previous.editMode != current.editMode,
+      builder: (context, state) {
+        return Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                if (state.editMode == EditMode.basic) {
+                  context.read<BasicThemeCubit>().randomizedThemeRequested();
+                } else {
+                  context.read<AdvancedThemeCubit>().randomizedThemeRequested();
+                }
+              },
+              icon: FaIcon(FontAwesomeIcons.random),
             ),
-          );
-        }).toList(),
-        onTap: (index) {
-          context.read<HomeCubit>().editModeChanged(EditMode.values[index]);
-        },
-      ),
+            HorizontalPadding(),
+            IconButton(
+              onPressed: () {
+                if (state.editMode == EditMode.basic) {
+                  context.read<BasicThemeCubit>().defaultThemeRequested();
+                } else {
+                  context.read<AdvancedThemeCubit>().defaultThemeRequested();
+                }
+              },
+              icon: FaIcon(FontAwesomeIcons.redo),
+            ),
+          ],
+        );
+      },
     );
   }
 }

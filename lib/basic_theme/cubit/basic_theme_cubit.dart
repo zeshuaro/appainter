@@ -5,12 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:meta/meta.dart';
+import 'package:random_color_scheme/random_color_scheme.dart';
 
 part 'basic_theme_cubit.g.dart';
 part 'basic_theme_state.dart';
 
 class BasicThemeCubit extends Cubit<BasicThemeState> {
   BasicThemeCubit() : super(BasicThemeState());
+
+  void randomizedThemeRequested() {
+    _emitState(
+      randomColorSchemeLight(seed: DateTime.now().millisecondsSinceEpoch),
+    );
+  }
+
+  void defaultThemeRequested() => _emitState(const ColorScheme.light());
 
   void primaryColorChanged(Color color) {
     final isDark = UtilService.isColorDark(color);

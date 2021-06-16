@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
+import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class BasicEditor extends StatelessWidget {
@@ -33,18 +34,21 @@ class _PrimaryColorPicker extends StatelessWidget {
       child: BlocBuilder<BasicThemeCubit, BasicThemeState>(
         buildWhen: (previous, current) {
           return previous.colorScheme.primary != current.colorScheme.primary ||
-              previous.isPrimaryColorDark != current.isPrimaryColorDark;
+              previous.colorScheme.onPrimary != current.colorScheme.onPrimary;
         },
         builder: (context, state) {
           return ColorAndBrightness(
             title: 'Primary Color',
             color: state.colorScheme.primary,
-            onColorChanged: (color) =>
-                context.read<BasicThemeCubit>().primaryColorChanged(color),
-            isColorDark: state.isPrimaryColorDark,
-            onBrightnessChanged: (isDark) => context
-                .read<BasicThemeCubit>()
-                .primaryColorBrightnessChanged(isDark),
+            onColorChanged: (color) {
+              context.read<BasicThemeCubit>().primaryColorChanged(color);
+            },
+            isColorDark: UtilService.isColorDark(state.colorScheme.onPrimary),
+            onBrightnessChanged: (isDark) {
+              context
+                  .read<BasicThemeCubit>()
+                  .primaryColorBrightnessChanged(isDark);
+            },
           );
         },
       ),
@@ -80,18 +84,21 @@ class _AccentColorPicker extends StatelessWidget {
       buildWhen: (previous, current) {
         return previous.colorScheme.secondary !=
                 current.colorScheme.secondary ||
-            previous.isAccentColorDark != current.isAccentColorDark;
+            previous.colorScheme.onSecondary != current.colorScheme.onSecondary;
       },
       builder: (context, state) {
         return ColorAndBrightness(
           title: 'Accent Color',
           color: state.colorScheme.secondary,
-          onColorChanged: (color) =>
-              context.read<BasicThemeCubit>().accentColorChanged(color),
-          isColorDark: state.isAccentColorDark,
-          onBrightnessChanged: (isDark) => context
-              .read<BasicThemeCubit>()
-              .accentColorBrightnessChanged(isDark),
+          onColorChanged: (color) {
+            context.read<BasicThemeCubit>().accentColorChanged(color);
+          },
+          isColorDark: UtilService.isColorDark(state.colorScheme.onSecondary),
+          onBrightnessChanged: (isDark) {
+            context
+                .read<BasicThemeCubit>()
+                .accentColorBrightnessChanged(isDark);
+          },
         );
       },
     );
@@ -125,18 +132,21 @@ class _SurfaceColorPicker extends StatelessWidget {
     return BlocBuilder<BasicThemeCubit, BasicThemeState>(
       buildWhen: (previous, current) {
         return previous.colorScheme.surface != current.colorScheme.surface ||
-            previous.isSurfaceColorDark != current.isSurfaceColorDark;
+            previous.colorScheme.onSurface != current.colorScheme.onSurface;
       },
       builder: (context, state) {
         return ColorAndBrightness(
           title: 'Surface Color',
           color: state.colorScheme.surface,
-          onColorChanged: (color) =>
-              context.read<BasicThemeCubit>().surfaceColorChanged(color),
-          isColorDark: state.isSurfaceColorDark,
-          onBrightnessChanged: (isDark) => context
-              .read<BasicThemeCubit>()
-              .surfaceColorBrightnessChanged(isDark),
+          onColorChanged: (color) {
+            context.read<BasicThemeCubit>().surfaceColorChanged(color);
+          },
+          isColorDark: UtilService.isColorDark(state.colorScheme.onSurface),
+          onBrightnessChanged: (isDark) {
+            context
+                .read<BasicThemeCubit>()
+                .surfaceColorBrightnessChanged(isDark);
+          },
         );
       },
     );
@@ -150,18 +160,20 @@ class _BackgroundColorPicker extends StatelessWidget {
       buildWhen: (previous, current) {
         return previous.colorScheme.background !=
                 current.colorScheme.background ||
-            previous.isBackgroundColorDark != current.isBackgroundColorDark;
+            previous.colorScheme.onBackground !=
+                current.colorScheme.onBackground;
       },
       builder: (context, state) {
         return ColorAndBrightness(
           title: 'Background Color',
           color: state.colorScheme.background,
-          onColorChanged: (color) =>
-              context.read<BasicThemeCubit>().backgroundColorChanged(color),
-          isColorDark: state.isBackgroundColorDark,
-          onBrightnessChanged: (isDark) => context
-              .read<BasicThemeCubit>()
-              .backgroundColorBrightnessChanged(isDark),
+          onColorChanged: (color) {
+            context.read<BasicThemeCubit>().bgColorChanged(color);
+          },
+          isColorDark: UtilService.isColorDark(state.colorScheme.onBackground),
+          onBrightnessChanged: (isDark) {
+            context.read<BasicThemeCubit>().bgColorBrightnessChanged(isDark);
+          },
         );
       },
     );
@@ -174,18 +186,19 @@ class _ErrorColorPicker extends StatelessWidget {
     return BlocBuilder<BasicThemeCubit, BasicThemeState>(
       buildWhen: (previous, current) {
         return previous.colorScheme.error != current.colorScheme.error ||
-            previous.isErrorColorDark != current.isErrorColorDark;
+            previous.colorScheme.onError != current.colorScheme.onError;
       },
       builder: (context, state) {
         return ColorAndBrightness(
           title: 'Error Color',
           color: state.colorScheme.error,
-          onColorChanged: (color) =>
-              context.read<BasicThemeCubit>().errorColorChanged(color),
-          isColorDark: state.isErrorColorDark,
-          onBrightnessChanged: (isDark) => context
-              .read<BasicThemeCubit>()
-              .errorColorBrightnessChanged(isDark),
+          onColorChanged: (color) {
+            context.read<BasicThemeCubit>().errorColorChanged(color);
+          },
+          isColorDark: UtilService.isColorDark(state.colorScheme.onError),
+          onBrightnessChanged: (isDark) {
+            context.read<BasicThemeCubit>().errorColorBrightnessChanged(isDark);
+          },
         );
       },
     );

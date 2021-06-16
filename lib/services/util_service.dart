@@ -21,14 +21,6 @@ class UtilService {
     return swatch;
   }
 
-  static Color getOnColor({Color? color, bool? isColorDark}) {
-    assert(color != null || isColorDark != null);
-    final isDark = isColorDark ??
-        ThemeData.estimateBrightnessForColor(color!) == Brightness.dark;
-
-    return isDark ? Colors.white : Colors.black;
-  }
-
   static bool isColorDark(Color color) {
     return ThemeData.estimateBrightnessForColor(color) == Brightness.dark;
   }

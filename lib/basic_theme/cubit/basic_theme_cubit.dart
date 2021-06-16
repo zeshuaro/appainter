@@ -22,10 +22,9 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
   void defaultThemeRequested() => _emitState(const ColorScheme.light());
 
   void primaryColorChanged(Color color) {
-    final isDark = UtilService.isColorDark(color);
     final swatch = UtilService.getColorSwatch(color);
     final colorDark = swatch[kSwatchDark]!;
-    final onColor = UtilService.getOnColor(color: color);
+    final onColor = _getOnColor(color);
     final colorScheme = state.colorScheme.copyWith(
       primary: color,
       primaryVariant: colorDark,
@@ -35,18 +34,14 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
       onSecondary: onColor,
     );
 
-    _emitState(
-      colorScheme,
-      isPrimaryColorDark: isDark,
-      isAccentColorDark: isDark,
-    );
+    _emitState(colorScheme);
   }
 
   void primaryColorBrightnessChanged(bool isDark) {
-    final color = UtilService.getOnColor(isColorDark: isDark);
+    final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onPrimary: color);
 
-    _emitState(colorScheme, isPrimaryColorDark: isDark);
+    _emitState(colorScheme);
   }
 
   void primaryColorDarkChanged(Color color) {
@@ -55,23 +50,22 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
   }
 
   void accentColorChanged(Color color) {
-    final isDark = UtilService.isColorDark(color);
     final swatch = UtilService.getColorSwatch(color);
-    final onColor = UtilService.getOnColor(color: color);
+    final onColor = _getOnColor(color);
     final colorScheme = state.colorScheme.copyWith(
       secondary: color,
       secondaryVariant: swatch[kSwatchDark],
       onSecondary: onColor,
     );
 
-    _emitState(colorScheme, isAccentColorDark: isDark);
+    _emitState(colorScheme);
   }
 
   void accentColorBrightnessChanged(bool isDark) {
-    final color = UtilService.getOnColor(isColorDark: isDark);
+    final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onSecondary: color);
 
-    _emitState(colorScheme, isAccentColorDark: isDark);
+    _emitState(colorScheme);
   }
 
   void accentColorDarkChanged(Color color) {
@@ -80,76 +74,71 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
   }
 
   void surfaceColorChanged(Color color) {
-    final isDark = UtilService.isColorDark(color);
-    final onColor = UtilService.getOnColor(color: color);
+    final onColor = _getOnColor(color);
     final colorScheme = state.colorScheme.copyWith(
       surface: color,
       onSurface: onColor,
     );
 
-    _emitState(colorScheme, isSurfaceColorDark: isDark);
+    _emitState(colorScheme);
   }
 
   void surfaceColorBrightnessChanged(bool isDark) {
-    final color = UtilService.getOnColor(isColorDark: isDark);
+    final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onSurface: color);
 
-    _emitState(colorScheme, isSurfaceColorDark: isDark);
+    _emitState(colorScheme);
   }
 
-  void backgroundColorChanged(Color color) {
-    final isDark = UtilService.isColorDark(color);
-    final onColor = UtilService.getOnColor(color: color);
+  void bgColorChanged(Color color) {
+    final onColor = _getOnColor(color);
     final colorScheme = state.colorScheme.copyWith(
       background: color,
       onBackground: onColor,
     );
 
-    _emitState(colorScheme, isBackgroundColorDark: isDark);
+    _emitState(colorScheme);
   }
 
-  void backgroundColorBrightnessChanged(bool isDark) {
-    final color = UtilService.getOnColor(isColorDark: isDark);
+  void bgColorBrightnessChanged(bool isDark) {
+    final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onBackground: color);
 
-    _emitState(colorScheme, isBackgroundColorDark: isDark);
+    _emitState(colorScheme);
   }
 
   void errorColorChanged(Color color) {
-    final isDark = UtilService.isColorDark(color);
-    final onColor = UtilService.getOnColor(color: color);
+    final onColor = _getOnColor(color);
     final colorScheme = state.colorScheme.copyWith(
       error: color,
       onError: onColor,
     );
 
-    _emitState(colorScheme, isErrorColorDark: isDark);
+    _emitState(colorScheme);
   }
 
   void errorColorBrightnessChanged(bool isDark) {
-    final color = UtilService.getOnColor(isColorDark: isDark);
+    final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onError: color);
 
-    _emitState(colorScheme, isErrorColorDark: isDark);
+    _emitState(colorScheme);
   }
 
-  void _emitState(
-    ColorScheme colorScheme, {
-    bool? isPrimaryColorDark,
-    bool? isAccentColorDark,
-    bool? isSurfaceColorDark,
-    bool? isBackgroundColorDark,
-    bool? isErrorColorDark,
-  }) {
+  Color _getOnColor(Color color) {
+    return ThemeData.estimateBrightnessForColor(color) == Brightness.dark
+        ? Colors.white
+        : Colors.black;
+  }
+
+  Color _getLightOrDarkColor(bool isDark) {
+    return isDark ? Colors.black : Colors.white;
+  }
+
+  void _emitState(ColorScheme colorScheme) {
     emit(
       state.copyWith(
         themeData: ThemeData.from(colorScheme: colorScheme),
         colorScheme: colorScheme,
-        isPrimaryColorDark: isPrimaryColorDark,
-        isAccentColorDark: isAccentColorDark,
-        isSurfaceColorDark: isSurfaceColorDark,
-        isBackgroundColorDark: isBackgroundColorDark,
-        isErrorColorDark: isErrorColorDark,
       ),
     );
   }

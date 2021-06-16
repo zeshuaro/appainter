@@ -1,0 +1,20 @@
+{
+  "extends": ["config:base"],
+  "ignorePaths": ["**/Podfile", "**/gradle-wrapper.properties"],
+  "labels": ["dependencies"],
+  "stabilityDays": 3,
+  "prCreation": "not-pending",
+  "schedule": ["after 6pm every weekday", "every weekend"],
+  "timezone": "Australia/Sydney",
+  "packageRules": [
+    {
+      "groupName": "Dev Dependencies",
+      "matchDepTypes": ["dev_dependencies"]
+    },
+    {
+      "groupName": "GitHub Actions",
+      "matchPaths": [".github/workflows/*.yml"],
+      "labels": ["github-actions"]
+    }
+  ]
+}

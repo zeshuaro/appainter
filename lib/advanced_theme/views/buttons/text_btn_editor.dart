@@ -10,7 +10,8 @@ class TextBtnEditor extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.textButtonTheme.style !=
-            current.themeData.textButtonTheme.style;
+                current.themeData.textButtonTheme.style ||
+            previous.themeData.colorScheme != current.themeData.colorScheme;
       },
       builder: (context, state) {
         final style = state.themeData.textButtonTheme.style;

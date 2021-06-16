@@ -61,13 +61,15 @@ class _BgColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.bottomNavigationBarTheme.backgroundColor !=
-            current.themeData.bottomNavigationBarTheme.backgroundColor;
+                current.themeData.bottomNavigationBarTheme.backgroundColor ||
+            previous.themeData.backgroundColor !=
+                current.themeData.backgroundColor;
       },
       builder: (context, state) {
         return ColorListTile(
           title: 'Background Color',
           color: state.themeData.bottomNavigationBarTheme.backgroundColor ??
-              state.themeData.bottomAppBarColor,
+              state.themeData.backgroundColor,
           onColorChanged: (color) {
             context
                 .read<AdvancedThemeCubit>()
@@ -85,7 +87,8 @@ class _SelectedItemColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.bottomNavigationBarTheme.selectedItemColor !=
-            current.themeData.bottomNavigationBarTheme.selectedItemColor;
+                current.themeData.bottomNavigationBarTheme.selectedItemColor ||
+            previous.themeData.primaryColor != current.themeData.primaryColor;
       },
       builder: (context, state) {
         return ColorListTile(
@@ -109,8 +112,11 @@ class _UnselectedItemColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous
-                .themeData.bottomNavigationBarTheme.unselectedItemColor !=
-            current.themeData.bottomNavigationBarTheme.unselectedItemColor;
+                    .themeData.bottomNavigationBarTheme.unselectedItemColor !=
+                current
+                    .themeData.bottomNavigationBarTheme.unselectedItemColor ||
+            previous.themeData.unselectedWidgetColor !=
+                current.themeData.unselectedWidgetColor;
       },
       builder: (context, state) {
         return ColorListTile(

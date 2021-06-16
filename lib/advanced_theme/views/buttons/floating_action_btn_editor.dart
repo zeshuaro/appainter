@@ -39,7 +39,9 @@ class _BgColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.floatingActionButtonTheme.backgroundColor !=
-            current.themeData.floatingActionButtonTheme.backgroundColor;
+                current.themeData.floatingActionButtonTheme.backgroundColor ||
+            previous.themeData.colorScheme.secondary !=
+                current.themeData.colorScheme.secondary;
       },
       builder: (context, state) {
         return ColorListTile(
@@ -63,7 +65,9 @@ class _FgColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.floatingActionButtonTheme.foregroundColor !=
-            current.themeData.floatingActionButtonTheme.foregroundColor;
+                current.themeData.floatingActionButtonTheme.foregroundColor ||
+            previous.themeData.colorScheme.onSecondary !=
+                current.themeData.colorScheme.onSecondary;
       },
       builder: (context, state) {
         return ColorListTile(
@@ -87,7 +91,8 @@ class _FocusColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.floatingActionButtonTheme.focusColor !=
-            current.themeData.floatingActionButtonTheme.focusColor;
+                current.themeData.floatingActionButtonTheme.focusColor ||
+            previous.themeData.focusColor != current.themeData.focusColor;
       },
       builder: (context, state) {
         return ColorListTile(
@@ -111,7 +116,8 @@ class _HoverColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.floatingActionButtonTheme.hoverColor !=
-            current.themeData.floatingActionButtonTheme.hoverColor;
+                current.themeData.floatingActionButtonTheme.hoverColor ||
+            previous.themeData.hoverColor != current.themeData.hoverColor;
       },
       builder: (context, state) {
         return ColorListTile(
@@ -135,7 +141,8 @@ class _SplashColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.floatingActionButtonTheme.splashColor !=
-            current.themeData.floatingActionButtonTheme.splashColor;
+                current.themeData.floatingActionButtonTheme.splashColor ||
+            previous.themeData.splashColor != current.themeData.splashColor;
       },
       builder: (context, state) {
         return ColorListTile(

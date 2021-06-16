@@ -2,7 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/models/models.dart';
+import 'package:flutter_theme/services/services.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 part 'advanced_theme_cubit.g.dart';
@@ -17,12 +19,22 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
   }
 
   void randomizedThemeRequested() {
+    final theme = ThemeData.from(
+      colorScheme: randomColorSchemeLight(
+        seed: DateTime.now().millisecondsSinceEpoch,
+      ),
+    );
+    final primaryColor = theme.primaryColor;
+    final swatch = UtilService.getColorSwatch(primaryColor);
+
     emit(
       state.copyWith(
-        themeData: ThemeData.from(
-          colorScheme: randomColorSchemeLight(
-            seed: DateTime.now().millisecondsSinceEpoch,
+        themeData: ThemeData.localize(
+          theme.copyWith(
+            primaryColorLight: swatch[kSwatchLight],
+            primaryColorDark: swatch[kSwatchDark],
           ),
+          Typography.englishLike2018,
         ),
       ),
     );

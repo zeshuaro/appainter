@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const kSwatchLight = 100;
 const kSwatchDark = 700;
 
 const kMargin = 16.0;

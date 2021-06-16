@@ -10,7 +10,8 @@ class ElevatedBtnEditor extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.elevatedButtonTheme.style !=
-            current.themeData.elevatedButtonTheme.style;
+                current.themeData.elevatedButtonTheme.style ||
+            previous.themeData.colorScheme != current.themeData.colorScheme;
       },
       builder: (context, state) {
         final style = state.themeData.elevatedButtonTheme.style;

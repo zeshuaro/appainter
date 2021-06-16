@@ -29,7 +29,9 @@ class _LabelColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.tabBarTheme.labelColor !=
-            current.themeData.tabBarTheme.labelColor;
+                current.themeData.tabBarTheme.labelColor ||
+            previous.themeData.primaryTextTheme.bodyText1?.color !=
+                current.themeData.primaryTextTheme.bodyText1?.color;
       },
       builder: (context, state) {
         return ColorListTile(
@@ -51,7 +53,9 @@ class _UnselectedLabelColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.tabBarTheme.unselectedLabelColor !=
-            current.themeData.tabBarTheme.unselectedLabelColor;
+                current.themeData.tabBarTheme.unselectedLabelColor ||
+            previous.themeData.primaryTextTheme.bodyText1?.color !=
+                current.themeData.primaryTextTheme.bodyText1?.color;
       },
       builder: (context, state) {
         final labelColor = state.themeData.tabBarTheme.labelColor ??

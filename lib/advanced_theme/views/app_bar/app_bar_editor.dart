@@ -36,7 +36,8 @@ class _ColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.appBarTheme.color !=
-            current.themeData.appBarTheme.color;
+                current.themeData.appBarTheme.color ||
+            previous.themeData.primaryColor != current.themeData.primaryColor;
       },
       builder: (context, state) {
         return ColorListTile(
@@ -58,7 +59,8 @@ class _ShadowColorPicker extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.appBarTheme.shadowColor !=
-            current.themeData.appBarTheme.shadowColor;
+                current.themeData.appBarTheme.shadowColor ||
+            previous.themeData.shadowColor != current.themeData.shadowColor;
       },
       builder: (context, state) {
         return ColorListTile(

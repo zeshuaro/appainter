@@ -10,7 +10,8 @@ class OutlinedBtnEditor extends StatelessWidget {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
       buildWhen: (previous, current) {
         return previous.themeData.outlinedButtonTheme.style !=
-            current.themeData.outlinedButtonTheme.style;
+                current.themeData.outlinedButtonTheme.style ||
+            previous.themeData.colorScheme != current.themeData.colorScheme;
       },
       builder: (context, state) {
         final style = state.themeData.outlinedButtonTheme.style;

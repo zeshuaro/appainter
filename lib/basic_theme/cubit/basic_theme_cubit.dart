@@ -13,13 +13,16 @@ part 'basic_theme_state.dart';
 class BasicThemeCubit extends Cubit<BasicThemeState> {
   BasicThemeCubit() : super(BasicThemeState());
 
-  void randomizedThemeRequested() {
+  void randomizedThemeRequested([int? seed]) {
     _emitState(
-      randomColorSchemeLight(seed: DateTime.now().millisecondsSinceEpoch),
+      randomColorSchemeLight(
+        seed: seed ?? DateTime.now().millisecondsSinceEpoch,
+        shouldPrint: false,
+      ),
     );
   }
 
-  void defaultThemeRequested() => _emitState(const ColorScheme.light());
+  void defaultThemeRequested() => emit(BasicThemeState());
 
   void primaryColorChanged(Color color) {
     final swatch = UtilService.getColorSwatch(color);

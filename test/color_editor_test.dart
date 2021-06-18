@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'widget_test_helper.dart';
+import 'pump_app.dart';
 
 class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
     implements AdvancedThemeCubit {}

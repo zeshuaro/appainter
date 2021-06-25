@@ -67,13 +67,13 @@ void main() {
       'emits on primary color black',
       build: () => cubit,
       act: (cubit) => cubit.primaryColorBrightnessChanged(true),
-      verify: (cubit) {
+      expect: () {
         final colorScheme = BasicThemeState().colorScheme.copyWith(
               onPrimary: Colors.black,
             );
         final state = _getState(colorScheme);
 
-        return cubit.state == state;
+        return [state];
       },
     );
 
@@ -81,13 +81,13 @@ void main() {
       'emits on primary color white',
       build: () => cubit,
       act: (cubit) => cubit.primaryColorBrightnessChanged(false),
-      verify: (cubit) {
+      expect: () {
         final colorScheme = BasicThemeState().colorScheme.copyWith(
               onPrimary: Colors.white,
             );
         final state = _getState(colorScheme);
 
-        return cubit.state == state;
+        return [state];
       },
     );
   });
@@ -131,13 +131,13 @@ void main() {
       'emits on accent color black',
       build: () => cubit,
       act: (cubit) => cubit.accentColorBrightnessChanged(true),
-      verify: (cubit) {
+      expect: () {
         final colorScheme = BasicThemeState().colorScheme.copyWith(
               onSecondary: Colors.black,
             );
         final state = _getState(colorScheme);
 
-        return cubit.state == state;
+        return [state];
       },
     );
 
@@ -145,13 +145,13 @@ void main() {
       'emits on accent color white',
       build: () => cubit,
       act: (cubit) => cubit.accentColorBrightnessChanged(false),
-      verify: (cubit) {
+      expect: () {
         final colorScheme = BasicThemeState().colorScheme.copyWith(
               onSecondary: Colors.white,
             );
         final state = _getState(colorScheme);
 
-        return cubit.state == state;
+        return [state];
       },
     );
   });
@@ -193,13 +193,13 @@ void main() {
       'emits on surface color black',
       build: () => cubit,
       act: (cubit) => cubit.surfaceColorBrightnessChanged(true),
-      verify: (cubit) {
+      expect: () {
         final colorScheme = BasicThemeState().colorScheme.copyWith(
               onSurface: Colors.black,
             );
         final state = _getState(colorScheme);
 
-        return cubit.state == state;
+        return [state];
       },
     );
 
@@ -207,13 +207,13 @@ void main() {
       'emits on surface color white',
       build: () => cubit,
       act: (cubit) => cubit.surfaceColorBrightnessChanged(false),
-      verify: (cubit) {
+      expect: () {
         final colorScheme = BasicThemeState().colorScheme.copyWith(
               onSurface: Colors.white,
             );
         final state = _getState(colorScheme);
 
-        return cubit.state == state;
+        return [state];
       },
     );
   });
@@ -240,13 +240,13 @@ void main() {
       'emits on background color black',
       build: () => cubit,
       act: (cubit) => cubit.bgColorBrightnessChanged(true),
-      verify: (cubit) {
+      expect: () {
         final colorScheme = BasicThemeState().colorScheme.copyWith(
               onBackground: Colors.black,
             );
         final state = _getState(colorScheme);
 
-        return cubit.state == state;
+        return [state];
       },
     );
 
@@ -254,13 +254,13 @@ void main() {
       'emits on background color white',
       build: () => cubit,
       act: (cubit) => cubit.bgColorBrightnessChanged(false),
-      verify: (cubit) {
+      expect: () {
         final colorScheme = BasicThemeState().colorScheme.copyWith(
               onBackground: Colors.white,
             );
         final state = _getState(colorScheme);
 
-        return cubit.state == state;
+        return [state];
       },
     );
   });

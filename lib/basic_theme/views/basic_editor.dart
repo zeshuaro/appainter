@@ -38,6 +38,7 @@ class _PrimaryColorPicker extends StatelessWidget {
         },
         builder: (context, state) {
           return ColorAndBrightness(
+            key: const Key('basicEditor_primaryColorPicker'),
             title: 'Primary Color',
             color: state.colorScheme.primary,
             onColorChanged: (color) {
@@ -66,6 +67,7 @@ class _PrimaryColorDarkPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('basicEditor_primaryColorDarkPicker'),
           title: 'Primary Color Dark',
           color: state.colorScheme.primaryVariant,
           onColorChanged: (color) {
@@ -88,6 +90,7 @@ class _AccentColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorAndBrightness(
+          key: const Key('basicEditor_accentColorPicker'),
           title: 'Accent Color',
           color: state.colorScheme.secondary,
           onColorChanged: (color) {
@@ -115,6 +118,7 @@ class _AccentColorDarkPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('basicEditor_accentColorDarkPicker'),
           title: 'Accent Color Dark',
           color: state.colorScheme.secondaryVariant,
           onColorChanged: (color) {
@@ -136,6 +140,7 @@ class _SurfaceColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorAndBrightness(
+          key: const Key('basicEditor_surfaceColorPicker'),
           title: 'Surface Color',
           color: state.colorScheme.surface,
           onColorChanged: (color) {
@@ -165,6 +170,7 @@ class _BackgroundColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorAndBrightness(
+          key: const Key('basicEditor_backgroundColorPicker'),
           title: 'Background Color',
           color: state.colorScheme.background,
           onColorChanged: (color) {
@@ -190,6 +196,7 @@ class _ErrorColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorAndBrightness(
+          key: const Key('basicEditor_errorColorPicker'),
           title: 'Error Color',
           color: state.colorScheme.error,
           onColorChanged: (color) {

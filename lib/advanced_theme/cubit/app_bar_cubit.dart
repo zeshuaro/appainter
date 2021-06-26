@@ -90,7 +90,7 @@ extension AppBarCubit on AdvancedThemeCubit {
   }
 
   void appBarTitleTextStyleFontStyleChanged(String value) {
-    final fontStyle = MyFontStyle().enumFromString(value);
+    final fontStyle = EnumToString.fromString(FontStyle.values, value);
     final textStyle = _getAppBarTitleTextStyle().copyWith(
       fontStyle: fontStyle,
     );
@@ -153,7 +153,10 @@ extension AppBarCubit on AdvancedThemeCubit {
   }
 
   void appBarTitleTextStyleDecorationStyleChanged(String value) {
-    final textDecorationStyle = MyTextDecorationStyle().enumFromString(value);
+    final textDecorationStyle = EnumToString.fromString(
+      TextDecorationStyle.values,
+      value,
+    );
     final textStyle = _getAppBarTitleTextStyle().copyWith(
       decorationStyle: textDecorationStyle,
     );

@@ -1,8 +1,9 @@
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/common.dart';
-import 'package:flutter_theme/models/models.dart';
+import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class TabBarEditor extends StatelessWidget {
@@ -89,8 +90,8 @@ class _IndicatorSizeDropdown extends StatelessWidget {
             TabBarIndicatorSize.tab;
         return DropdownListTile(
           title: 'Type',
-          value: MyTabBarIndicatorSize().stringFromEnum(size),
-          values: MyTabBarIndicatorSize().names,
+          value: EnumToString.convertToString(size),
+          values: UtilService.getEnumStrings(TabBarIndicatorSize.values),
           onChanged: (value) {
             context
                 .read<AdvancedThemeCubit>()

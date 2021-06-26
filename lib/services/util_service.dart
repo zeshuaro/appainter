@@ -1,3 +1,4 @@
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 
 class UtilService {
@@ -23,5 +24,11 @@ class UtilService {
 
   static bool isColorDark(Color color) {
     return ThemeData.estimateBrightnessForColor(color) == Brightness.dark;
+  }
+
+  static List<String> getEnumStrings(List<dynamic> values) {
+    return values.map((value) {
+      return EnumToString.convertToString(value, camelCase: true);
+    }).toList();
   }
 }

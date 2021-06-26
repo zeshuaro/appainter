@@ -1,5 +1,7 @@
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/models/models.dart';
+import 'package:flutter_theme/services/services.dart';
 
 import '..//list_tiles/list_tiles.dart';
 import '../side_by_side_list.dart';
@@ -99,8 +101,8 @@ class TextStyleCard extends StatelessWidget {
             ),
             DropdownListTile(
               title: 'Font Style',
-              value: MyFontStyle().stringFromEnum(fontStyle),
-              values: MyFontStyle().names,
+              value: EnumToString.convertToString(fontStyle),
+              values: UtilService.getEnumStrings(FontStyle.values),
               onChanged: onFontStyleChanged,
             ),
           ],
@@ -146,8 +148,8 @@ class TextStyleCard extends StatelessWidget {
             ),
             DropdownListTile(
               title: 'Decoration Style',
-              value: MyTextDecorationStyle().stringFromEnum(decorationStyle),
-              values: MyTextDecorationStyle().names,
+              value: EnumToString.convertToString(decorationStyle),
+              values: UtilService.getEnumStrings(TextDecorationStyle.values),
               onChanged: onDecorationStyleChanged,
             ),
             MyTextFormField(

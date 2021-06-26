@@ -1,5 +1,5 @@
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/models/models.dart';
 
 import '../advanced_theme_cubit.dart';
 
@@ -19,7 +19,7 @@ extension TabBarCubit on AdvancedThemeCubit {
   }
 
   void tabBarIndicatorSizeChanged(String value) {
-    final size = MyTabBarIndicatorSize().enumFromString(value);
+    final size = EnumToString.fromString(TabBarIndicatorSize.values, value);
     final theme = state.themeData.tabBarTheme.copyWith(indicatorSize: size);
     _emitStateWithTabBarTheme(theme);
   }

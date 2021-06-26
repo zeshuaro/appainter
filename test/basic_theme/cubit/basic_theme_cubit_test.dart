@@ -9,6 +9,7 @@ import 'package:random_color_scheme/random_color_scheme.dart';
 import '../../utils.dart';
 
 void main() {
+  final brightnessTests = {true: Colors.black, false: Colors.white};
   late BasicThemeCubit cubit;
 
   setUp(() => cubit = BasicThemeCubit());
@@ -20,13 +21,12 @@ void main() {
   group('randomizedThemeRequested', () {
     final seed = 0;
     final colorScheme = randomColorSchemeLight(seed: seed, shouldPrint: false);
-    final state = _getState(colorScheme);
 
     blocTest<BasicThemeCubit, BasicThemeState>(
       'emits randomized theme',
       build: () => cubit,
       act: (cubit) => cubit.randomizedThemeRequested(seed),
-      expect: () => [state],
+      expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
 
@@ -42,68 +42,47 @@ void main() {
   group('primaryColorChanged', () {
     final color = getRandomColor();
     final swatch = UtilService.getColorSwatch(color);
-    final colorDark = swatch[700];
+    final colorDark = swatch[700]!;
     final onColor = _getOnColor(color);
-    final colorScheme = BasicThemeState().colorScheme.copyWith(
-          primary: color,
-          primaryVariant: colorDark,
-          onPrimary: onColor,
-          secondary: color,
-          secondaryVariant: colorDark,
-          onSecondary: onColor,
-        );
-    final state = _getState(colorScheme);
+    final colorScheme = ColorScheme.light(
+      primary: color,
+      primaryVariant: colorDark,
+      onPrimary: onColor,
+      secondary: color,
+      secondaryVariant: colorDark,
+      onSecondary: onColor,
+    );
 
     blocTest<BasicThemeCubit, BasicThemeState>(
       'emits primary color',
       build: () => cubit,
       act: (cubit) => cubit.primaryColorChanged(color),
-      expect: () => [state],
+      expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
 
   group('primaryColorBrightnessChanged', () {
-    blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits on primary color black',
-      build: () => cubit,
-      act: (cubit) => cubit.primaryColorBrightnessChanged(true),
-      expect: () {
-        final colorScheme = BasicThemeState().colorScheme.copyWith(
-              onPrimary: Colors.black,
-            );
-        final state = _getState(colorScheme);
+    brightnessTests.forEach((isDark, color) {
+      final colorScheme = ColorScheme.light(onPrimary: color);
 
-        return [state];
-      },
-    );
-
-    blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits on primary color white',
-      build: () => cubit,
-      act: (cubit) => cubit.primaryColorBrightnessChanged(false),
-      expect: () {
-        final colorScheme = BasicThemeState().colorScheme.copyWith(
-              onPrimary: Colors.white,
-            );
-        final state = _getState(colorScheme);
-
-        return [state];
-      },
-    );
+      blocTest<BasicThemeCubit, BasicThemeState>(
+        'emits on primary isDark=$isDark',
+        build: () => cubit,
+        act: (cubit) => cubit.primaryColorBrightnessChanged(isDark),
+        expect: () => [BasicThemeState(colorScheme: colorScheme)],
+      );
+    });
   });
 
   group('primaryColorDarkChanged', () {
     final color = getRandomColor();
-    final colorScheme = BasicThemeState().colorScheme.copyWith(
-          primaryVariant: color,
-        );
-    final state = _getState(colorScheme);
+    final colorScheme = ColorScheme.light(primaryVariant: color);
 
     blocTest<BasicThemeCubit, BasicThemeState>(
       'emits primary color dark',
       build: () => cubit,
       act: (cubit) => cubit.primaryColorDarkChanged(color),
-      expect: () => [state],
+      expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
 
@@ -111,213 +90,131 @@ void main() {
     final color = getRandomColor();
     final swatch = UtilService.getColorSwatch(color);
     final onColor = _getOnColor(color);
-    final colorScheme = BasicThemeState().colorScheme.copyWith(
-          secondary: color,
-          secondaryVariant: swatch[700],
-          onSecondary: onColor,
-        );
-    final state = _getState(colorScheme);
+    final colorScheme = ColorScheme.light(
+      secondary: color,
+      secondaryVariant: swatch[700]!,
+      onSecondary: onColor,
+    );
 
     blocTest<BasicThemeCubit, BasicThemeState>(
       'emits accent color',
       build: () => cubit,
       act: (cubit) => cubit.accentColorChanged(color),
-      expect: () => [state],
+      expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
 
   group('accentColorBrightnessChanged', () {
-    blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits on accent color black',
-      build: () => cubit,
-      act: (cubit) => cubit.accentColorBrightnessChanged(true),
-      expect: () {
-        final colorScheme = BasicThemeState().colorScheme.copyWith(
-              onSecondary: Colors.black,
-            );
-        final state = _getState(colorScheme);
+    brightnessTests.forEach((isDark, color) {
+      final colorScheme = ColorScheme.light(onSecondary: color);
 
-        return [state];
-      },
-    );
-
-    blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits on accent color white',
-      build: () => cubit,
-      act: (cubit) => cubit.accentColorBrightnessChanged(false),
-      expect: () {
-        final colorScheme = BasicThemeState().colorScheme.copyWith(
-              onSecondary: Colors.white,
-            );
-        final state = _getState(colorScheme);
-
-        return [state];
-      },
-    );
+      blocTest<BasicThemeCubit, BasicThemeState>(
+        'emits on accent isDark=$isDark',
+        build: () => cubit,
+        act: (cubit) => cubit.accentColorBrightnessChanged(isDark),
+        expect: () => [BasicThemeState(colorScheme: colorScheme)],
+      );
+    });
   });
 
   group('accentColorDarkChanged', () {
     final color = getRandomColor();
-    final colorScheme = BasicThemeState().colorScheme.copyWith(
-          secondaryVariant: color,
-        );
-    final state = _getState(colorScheme);
+    final colorScheme = ColorScheme.light(secondaryVariant: color);
 
     blocTest<BasicThemeCubit, BasicThemeState>(
       'emits accent color dark',
       build: () => cubit,
       act: (cubit) => cubit.accentColorDarkChanged(color),
-      expect: () => [state],
+      expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
 
   group('surfaceColorChanged', () {
     final color = getRandomColor();
     final onColor = _getOnColor(color);
-    final colorScheme = BasicThemeState().colorScheme.copyWith(
-          surface: color,
-          onSurface: onColor,
-        );
-    final state = _getState(colorScheme);
+    final colorScheme = ColorScheme.light(
+      surface: color,
+      onSurface: onColor,
+    );
 
     blocTest<BasicThemeCubit, BasicThemeState>(
       'emits surface color',
       build: () => cubit,
       act: (cubit) => cubit.surfaceColorChanged(color),
-      expect: () => [state],
+      expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
 
   group('surfaceColorBrightnessChanged', () {
-    blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits on surface color black',
-      build: () => cubit,
-      act: (cubit) => cubit.surfaceColorBrightnessChanged(true),
-      expect: () {
-        final colorScheme = BasicThemeState().colorScheme.copyWith(
-              onSurface: Colors.black,
-            );
-        final state = _getState(colorScheme);
+    brightnessTests.forEach((isDark, color) {
+      final colorScheme = ColorScheme.light(onSurface: color);
 
-        return [state];
-      },
-    );
-
-    blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits on surface color white',
-      build: () => cubit,
-      act: (cubit) => cubit.surfaceColorBrightnessChanged(false),
-      expect: () {
-        final colorScheme = BasicThemeState().colorScheme.copyWith(
-              onSurface: Colors.white,
-            );
-        final state = _getState(colorScheme);
-
-        return [state];
-      },
-    );
+      blocTest<BasicThemeCubit, BasicThemeState>(
+        'emits on surface isDark=$isDark',
+        build: () => cubit,
+        act: (cubit) => cubit.surfaceColorBrightnessChanged(isDark),
+        expect: () => [BasicThemeState(colorScheme: colorScheme)],
+      );
+    });
   });
 
   group('bgColorChanged', () {
     final color = getRandomColor();
     final onColor = _getOnColor(color);
-    final colorScheme = BasicThemeState().colorScheme.copyWith(
-          background: color,
-          onBackground: onColor,
-        );
-    final state = _getState(colorScheme);
+    final colorScheme = ColorScheme.light(
+      background: color,
+      onBackground: onColor,
+    );
 
     blocTest<BasicThemeCubit, BasicThemeState>(
       'emits background color',
       build: () => cubit,
       act: (cubit) => cubit.bgColorChanged(color),
-      expect: () => [state],
+      expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
 
   group('bgColorBrightnessChanged', () {
-    blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits on background color black',
-      build: () => cubit,
-      act: (cubit) => cubit.bgColorBrightnessChanged(true),
-      expect: () {
-        final colorScheme = BasicThemeState().colorScheme.copyWith(
-              onBackground: Colors.black,
-            );
-        final state = _getState(colorScheme);
+    brightnessTests.forEach((isDark, color) {
+      final colorScheme = ColorScheme.light(onBackground: color);
 
-        return [state];
-      },
-    );
-
-    blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits on background color white',
-      build: () => cubit,
-      act: (cubit) => cubit.bgColorBrightnessChanged(false),
-      expect: () {
-        final colorScheme = BasicThemeState().colorScheme.copyWith(
-              onBackground: Colors.white,
-            );
-        final state = _getState(colorScheme);
-
-        return [state];
-      },
-    );
+      blocTest<BasicThemeCubit, BasicThemeState>(
+        'emits on background isDark=$isDark',
+        build: () => cubit,
+        act: (cubit) => cubit.bgColorBrightnessChanged(isDark),
+        expect: () => [BasicThemeState(colorScheme: colorScheme)],
+      );
+    });
   });
 
   group('errorColorChanged', () {
     final color = getRandomColor();
     final onColor = _getOnColor(color);
-    final colorScheme = BasicThemeState().colorScheme.copyWith(
-          error: color,
-          onError: onColor,
-        );
-    final state = _getState(colorScheme);
+    final colorScheme = ColorScheme.light(
+      error: color,
+      onError: onColor,
+    );
 
     blocTest<BasicThemeCubit, BasicThemeState>(
       'emits error color',
       build: () => cubit,
       act: (cubit) => cubit.errorColorChanged(color),
-      expect: () => [state],
+      expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
 
   group('errorColorBrightnessChanged', () {
-    blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits on error color black',
-      build: () => cubit,
-      act: (cubit) => cubit.errorColorBrightnessChanged(true),
-      verify: (cubit) {
-        final colorScheme = BasicThemeState().colorScheme.copyWith(
-              onError: Colors.black,
-            );
-        final state = _getState(colorScheme);
+    brightnessTests.forEach((isDark, color) {
+      final colorScheme = ColorScheme.light(onError: color);
 
-        return cubit.state == state;
-      },
-    );
-
-    blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits on error color white',
-      build: () => cubit,
-      act: (cubit) => cubit.errorColorBrightnessChanged(false),
-      verify: (cubit) {
-        final colorScheme = BasicThemeState().colorScheme.copyWith(
-              onError: Colors.white,
-            );
-        final state = _getState(colorScheme);
-
-        return cubit.state == state;
-      },
-    );
+      blocTest<BasicThemeCubit, BasicThemeState>(
+        'emits on error isDark=$isDark',
+        build: () => cubit,
+        act: (cubit) => cubit.errorColorBrightnessChanged(isDark),
+        expect: () => [BasicThemeState(colorScheme: colorScheme)],
+      );
+    });
   });
-}
-
-BasicThemeState _getState(ColorScheme colorScheme) {
-  return BasicThemeState(
-    themeData: ThemeData.from(colorScheme: colorScheme),
-    colorScheme: colorScheme,
-  );
 }
 
 Color _getOnColor(Color color) {

@@ -18,10 +18,11 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     emit(state.copyWith(themeData: theme));
   }
 
-  void randomizedThemeRequested() {
+  void randomizedThemeRequested([int? seed]) {
     final theme = ThemeData.from(
       colorScheme: randomColorSchemeLight(
-        seed: DateTime.now().millisecondsSinceEpoch,
+        seed: seed ?? DateTime.now().millisecondsSinceEpoch,
+        shouldPrint: false,
       ),
     );
     final primaryColor = theme.primaryColor;

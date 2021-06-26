@@ -1,5 +1,5 @@
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/models/models.dart';
 
 import '../advanced_theme_cubit.dart';
 
@@ -7,9 +7,9 @@ part 'bottom_nav_bar_icon_theme_cubit.dart';
 
 extension BottomNavBarCubit on AdvancedThemeCubit {
   void bottomNavBarTypeChanged(String value) {
-    final type = MyBottomNavBarType().enumFromString(value);
+    final type = EnumToString.fromString(BottomNavigationBarType.values, value);
     final showUnselectedLabels =
-        type == BottomNavigationBarType.shifting ? false : null;
+        type == BottomNavigationBarType.shifting ? false : true;
     final theme = state.themeData.bottomNavigationBarTheme.copyWith(
       type: type,
       showUnselectedLabels: showUnselectedLabels,

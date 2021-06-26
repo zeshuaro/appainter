@@ -14,7 +14,7 @@ void main() {
   setUp(() => cubit = BasicThemeCubit());
 
   test('initial state is BasicThemeState', () {
-    expect(BasicThemeCubit().state, equals(BasicThemeState()));
+    expect(cubit.state, equals(BasicThemeState()));
   });
 
   group('randomizedThemeRequested', () {

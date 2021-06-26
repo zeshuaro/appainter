@@ -50,15 +50,16 @@ void main() {
     final color = getRandomColor();
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-        'emits primary color light',
-        build: () => cubit,
-        act: (cubit) => cubit.primaryColorLightChanged(color),
-        expect: () {
-          final theme = state.themeData.copyWith(primaryColorLight: color);
-          final expected = getAdvancedThemeState(theme);
+      'emits primary color light',
+      build: () => cubit,
+      act: (cubit) => cubit.primaryColorLightChanged(color),
+      expect: () {
+        final theme = state.themeData.copyWith(primaryColorLight: color);
+        final expected = getAdvancedThemeState(theme);
 
-          return [expected];
-        });
+        return [expected];
+      },
+    );
   });
 
   group('primaryColorDarkChanged', () {
@@ -85,7 +86,10 @@ void main() {
       build: () => cubit,
       act: (cubit) => cubit.accentColorChanged(color),
       expect: () {
-        final theme = state.themeData.copyWith(accentColor: color);
+        final theme = state.themeData.copyWith(
+          accentColor: color,
+          accentColorBrightness: ThemeData.estimateBrightnessForColor(color),
+        );
         final expected = getAdvancedThemeState(theme);
 
         return [expected];

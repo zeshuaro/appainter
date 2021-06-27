@@ -336,3 +336,4 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,androidstudio,flutter,dart,android
 
 *.g.dart
+debug_theme*.json

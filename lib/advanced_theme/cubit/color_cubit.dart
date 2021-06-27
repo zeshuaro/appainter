@@ -30,9 +30,15 @@ extension ColorCubit on AdvancedThemeCubit {
 
   void primaryColorBrightnessChanged(bool isDark) {
     final brightness = isDark ? Brightness.dark : Brightness.light;
+    final theme = ThemeData(primaryColorBrightness: brightness);
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(primaryColorBrightness: brightness),
+        themeData: state.themeData.copyWith(
+          primaryColorBrightness: brightness,
+          primaryIconTheme: theme.primaryIconTheme,
+          primaryTextTheme: theme.primaryTextTheme,
+        ),
       ),
     );
   }
@@ -46,19 +52,41 @@ extension ColorCubit on AdvancedThemeCubit {
   }
 
   void primaryColorDarkChanged(Color color) {
+    final colorScheme = state.themeData.colorScheme.copyWith(
+      primaryVariant: color,
+    );
+    final buttonTheme = state.themeData.buttonTheme.copyWith(
+      colorScheme: colorScheme,
+    );
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(primaryColorDark: color),
+        themeData: state.themeData.copyWith(
+          primaryColorDark: color,
+          buttonTheme: buttonTheme,
+          colorScheme: colorScheme,
+        ),
       ),
     );
   }
 
   void accentColorChanged(Color color) {
+    final colorScheme = state.themeData.colorScheme.copyWith(
+      secondary: color,
+    );
+    final buttonTheme = state.themeData.buttonTheme.copyWith(
+      colorScheme: colorScheme,
+    );
+
     emit(
       state.copyWith(
         themeData: state.themeData.copyWith(
           accentColor: color,
           accentColorBrightness: ThemeData.estimateBrightnessForColor(color),
+          buttonTheme: buttonTheme,
+          colorScheme: colorScheme,
+          indicatorColor: color,
+          toggleableActiveColor: color,
         ),
       ),
     );
@@ -66,17 +94,34 @@ extension ColorCubit on AdvancedThemeCubit {
 
   void accentColorBrightnessChanged(bool isDark) {
     final brightness = isDark ? Brightness.dark : Brightness.light;
+    final theme = ThemeData(accentColorBrightness: brightness);
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(accentColorBrightness: brightness),
+        themeData: state.themeData.copyWith(
+          accentColorBrightness: brightness,
+          accentIconTheme: theme.accentIconTheme,
+          accentTextTheme: theme.accentTextTheme,
+        ),
       ),
     );
   }
 
   void bgColorChanged(Color color) {
+    final colorScheme = state.themeData.colorScheme.copyWith(
+      background: color,
+    );
+    final buttonTheme = state.themeData.buttonTheme.copyWith(
+      colorScheme: colorScheme,
+    );
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(backgroundColor: color),
+        themeData: state.themeData.copyWith(
+          backgroundColor: color,
+          buttonTheme: buttonTheme,
+          colorScheme: colorScheme,
+        ),
       ),
     );
   }
@@ -92,15 +137,29 @@ extension ColorCubit on AdvancedThemeCubit {
   void canvasColorChanged(Color color) {
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(canvasColor: color),
+        themeData: state.themeData.copyWith(
+          canvasColor: color,
+          scaffoldBackgroundColor: color,
+        ),
       ),
     );
   }
 
   void cardColorChanged(Color color) {
+    final colorScheme = state.themeData.colorScheme.copyWith(
+      surface: color,
+    );
+    final buttonTheme = state.themeData.buttonTheme.copyWith(
+      colorScheme: colorScheme,
+    );
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(cardColor: color),
+        themeData: state.themeData.copyWith(
+          cardColor: color,
+          buttonTheme: buttonTheme,
+          colorScheme: colorScheme,
+        ),
       ),
     );
   }
@@ -114,9 +173,16 @@ extension ColorCubit on AdvancedThemeCubit {
   }
 
   void disabledColorChanged(Color color) {
+    final buttonTheme = state.themeData.buttonTheme.copyWith(
+      disabledColor: color,
+    );
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(disabledColor: color),
+        themeData: state.themeData.copyWith(
+          disabledColor: color,
+          buttonTheme: buttonTheme,
+        ),
       ),
     );
   }
@@ -130,25 +196,50 @@ extension ColorCubit on AdvancedThemeCubit {
   }
 
   void errorColorChanged(Color color) {
+    final colorScheme = state.themeData.colorScheme.copyWith(
+      error: color,
+    );
+    final buttonTheme = state.themeData.buttonTheme.copyWith(
+      colorScheme: colorScheme,
+    );
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(errorColor: color),
+        themeData: state.themeData.copyWith(
+          errorColor: color,
+          buttonTheme: buttonTheme,
+          colorScheme: colorScheme,
+        ),
       ),
     );
   }
 
   void focusColorChanged(Color color) {
+    final buttonTheme = state.themeData.buttonTheme.copyWith(
+      focusColor: color,
+    );
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(focusColor: color),
+        themeData: state.themeData.copyWith(
+          focusColor: color,
+          buttonTheme: buttonTheme,
+        ),
       ),
     );
   }
 
   void highlightColorChanged(Color color) {
+    final buttonTheme = state.themeData.buttonTheme.copyWith(
+      highlightColor: color,
+    );
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(highlightColor: color),
+        themeData: state.themeData.copyWith(
+          highlightColor: color,
+          buttonTheme: buttonTheme,
+        ),
       ),
     );
   }
@@ -162,9 +253,16 @@ extension ColorCubit on AdvancedThemeCubit {
   }
 
   void hoverColorChanged(Color color) {
+    final buttonTheme = state.themeData.buttonTheme.copyWith(
+      hoverColor: color,
+    );
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(hoverColor: color),
+        themeData: state.themeData.copyWith(
+          hoverColor: color,
+          buttonTheme: buttonTheme,
+        ),
       ),
     );
   }
@@ -210,9 +308,16 @@ extension ColorCubit on AdvancedThemeCubit {
   }
 
   void splashColorChanged(Color color) {
+    final buttonTheme = state.themeData.buttonTheme.copyWith(
+      splashColor: color,
+    );
+
     emit(
       state.copyWith(
-        themeData: state.themeData.copyWith(splashColor: color),
+        themeData: state.themeData.copyWith(
+          splashColor: color,
+          buttonTheme: buttonTheme,
+        ),
       ),
     );
   }

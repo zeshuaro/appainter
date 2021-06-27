@@ -5,126 +5,93 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 
+import '../../brightness.dart';
 import '../../utils.dart';
 
 void main() {
   late AdvancedThemeCubit cubit;
-  late AdvancedThemeState state;
 
   setUp(() {
     cubit = AdvancedThemeCubit();
-    state = AdvancedThemeState();
   });
 
   group('appBarColorChanged', () {
     final color = getRandomColor();
+    final appBarTheme = AppBarTheme(color: color);
+    final theme = ThemeData(appBarTheme: appBarTheme);
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
       'emits app bar color',
       build: () => cubit,
       act: (cubit) => cubit.appBarColorChanged(color),
-      expect: () {
-        final appBarTheme = state.themeData.appBarTheme.copyWith(color: color);
-        final expected = _getState(state.themeData, appBarTheme);
-
-        return [expected];
-      },
+      expect: () => [AdvancedThemeState(themeData: theme)],
     );
   });
 
   group('appBarShadowColorChanged', () {
     final color = getRandomColor();
+    final appBarTheme = AppBarTheme(shadowColor: color);
+    final theme = ThemeData(appBarTheme: appBarTheme);
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
       'emits app bar shadow color',
       build: () => cubit,
       act: (cubit) => cubit.appBarShadowColorChanged(color),
-      expect: () {
-        final appBarTheme = state.themeData.appBarTheme.copyWith(
-          shadowColor: color,
-        );
-        final expected = _getState(state.themeData, appBarTheme);
-
-        return [expected];
-      },
+      expect: () => [AdvancedThemeState(themeData: theme)],
     );
   });
 
   group('appBarBrightnessChanged', () {
-    final tests = {true: Brightness.dark, false: Brightness.light};
-    tests.forEach((isDark, brightness) {
-      blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-        'emits app bar $brightness',
-        build: () => cubit,
-        act: (cubit) => cubit.appBarBrightnessChanged(isDark),
-        expect: () {
-          final appBarTheme = state.themeData.appBarTheme.copyWith(
-            brightness: brightness,
-          );
-          final expected = _getState(state.themeData, appBarTheme);
+    for (var test in BrightnessTest.testCases) {
+      final appBarTheme = AppBarTheme(brightness: test.brightness);
+      final theme = ThemeData(appBarTheme: appBarTheme);
 
-          return [expected];
-        },
+      blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+        'emits app bar ${test.brightness}',
+        build: () => cubit,
+        act: (cubit) => cubit.appBarBrightnessChanged(test.isDark),
+        expect: () => [AdvancedThemeState(themeData: theme)],
       );
-    });
+    }
   });
 
   group('appBarCenterTitleChanged', () {
     for (var isCenter in [true, false]) {
+      final appBarTheme = AppBarTheme(centerTitle: isCenter);
+      final theme = ThemeData(appBarTheme: appBarTheme);
+
       blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-        'emits app bar center title $isCenter',
+        'emits app bar centerTitle=$isCenter',
         build: () => cubit,
         act: (cubit) => cubit.appBarCenterTitleChanged(isCenter),
-        expect: () {
-          final appBarTheme = state.themeData.appBarTheme.copyWith(
-            centerTitle: isCenter,
-          );
-          final expected = _getState(state.themeData, appBarTheme);
-
-          return [expected];
-        },
+        expect: () => [AdvancedThemeState(themeData: theme)],
       );
     }
   });
 
   group('appBarElevationChanged', () {
     final value = Random().nextDouble();
+    final appBarTheme = AppBarTheme(elevation: value);
+    final theme = ThemeData(appBarTheme: appBarTheme);
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
       'emits app bar elevation',
       build: () => cubit,
       act: (cubit) => cubit.appBarElevationChanged(value.toString()),
-      expect: () {
-        final appBarTheme = state.themeData.appBarTheme.copyWith(
-          elevation: value,
-        );
-        final expected = _getState(state.themeData, appBarTheme);
-
-        return [expected];
-      },
+      expect: () => [AdvancedThemeState(themeData: theme)],
     );
   });
 
   group('appBarTitleSpacingChanged', () {
     final value = Random().nextDouble();
+    final appBarTheme = AppBarTheme(titleSpacing: value);
+    final theme = ThemeData(appBarTheme: appBarTheme);
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
       'emits app bar title spacing',
       build: () => cubit,
       act: (cubit) => cubit.appBarTitleSpacingChanged(value.toString()),
-      expect: () {
-        final appBarTheme = state.themeData.appBarTheme.copyWith(
-          titleSpacing: value,
-        );
-        final expected = _getState(state.themeData, appBarTheme);
-
-        return [expected];
-      },
+      expect: () => [AdvancedThemeState(themeData: theme)],
     );
   });
-}
-
-AdvancedThemeState _getState(ThemeData themeData, AppBarTheme appBarTheme) {
-  final theme = themeData.copyWith(appBarTheme: appBarTheme);
-  return AdvancedThemeState(themeData: theme);
 }

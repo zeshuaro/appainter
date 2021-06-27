@@ -71,6 +71,7 @@ extension ColorCubit on AdvancedThemeCubit {
   }
 
   void accentColorChanged(Color color) {
+    final theme = ThemeData(accentColor: color);
     final colorScheme = state.themeData.colorScheme.copyWith(
       secondary: color,
     );
@@ -83,6 +84,8 @@ extension ColorCubit on AdvancedThemeCubit {
         themeData: state.themeData.copyWith(
           accentColor: color,
           accentColorBrightness: ThemeData.estimateBrightnessForColor(color),
+          accentIconTheme: theme.accentIconTheme,
+          accentTextTheme: theme.accentTextTheme,
           buttonTheme: buttonTheme,
           colorScheme: colorScheme,
           indicatorColor: color,

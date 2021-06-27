@@ -50,20 +50,20 @@ void main() {
     );
   });
 
-  group('accentColorChanged', () {
-    final color = getRandomColor();
-    final theme = ThemeData(
-      accentColor: color,
-      accentColorBrightness: ThemeData.estimateBrightnessForColor(color),
-    );
+  // group('accentColorChanged', () {
+  //   final color = getRandomColor();
+  //   final theme = ThemeData(
+  //     accentColor: color,
+  //     accentColorBrightness: ThemeData.estimateBrightnessForColor(color),
+  //   );
 
-    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'emits accent color',
-      build: () => cubit,
-      act: (cubit) => cubit.accentColorChanged(color),
-      expect: () => [AdvancedThemeState(themeData: theme)],
-    );
-  });
+  //   blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+  //     'emits accent color',
+  //     build: () => cubit,
+  //     act: (cubit) => cubit.accentColorChanged(color),
+  //     expect: () => [AdvancedThemeState(themeData: theme)],
+  //   );
+  // });
 
   group('accentColorBrightnessChanged', () {
     for (var test in BrightnessTest.testCases) {

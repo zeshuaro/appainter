@@ -5,8 +5,10 @@ import 'package:flutter_theme/basic_theme/cubit/basic_theme_cubit.dart';
 import 'package:flutter_theme/basic_theme/views/basic_editor.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../brightness.dart';
 import '../../pump_app.dart';
 import '../../utils.dart';
+import '../../widget_testers.dart';
 
 class MockBasicThemeCubit extends MockCubit<BasicThemeState>
     implements BasicThemeCubit {}
@@ -54,43 +56,26 @@ void main() {
       },
     );
 
-    testWidgets(
-      'brightness switch should be toggled with false',
-      (tester) async {
-        when(() => cubit.state).thenReturn(
-          BasicThemeState(
-            colorScheme: ColorScheme.light(onPrimary: Colors.black),
-          ),
-        );
+    for (var test in BrightnessTest.testCases) {
+      testWidgets(
+        'brightness switch should be toggled with ${test.isDark}',
+        (tester) async {
+          when(() => cubit.state).thenReturn(
+            BasicThemeState(
+              colorScheme: ColorScheme.light(onPrimary: test.color),
+            ),
+          );
 
-        await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkBrightnessSwitch(tester, key, true);
+          await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
+          await checkBrightnessSwitch(tester, key, test.isDark);
 
-        final captured = verify(() {
-          cubit.primaryColorBrightnessChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(false));
-      },
-    );
-
-    testWidgets(
-      'brightness switch should be toggled with true',
-      (tester) async {
-        when(() => cubit.state).thenReturn(
-          BasicThemeState(
-            colorScheme: ColorScheme.light(onPrimary: Colors.white),
-          ),
-        );
-
-        await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkBrightnessSwitch(tester, key, false);
-
-        final captured = verify(() {
-          cubit.primaryColorBrightnessChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(true));
-      },
-    );
+          final captured = verify(() {
+            cubit.primaryColorBrightnessChanged(captureAny());
+          }).captured;
+          expect(captured.last, equals(!test.isDark));
+        },
+      );
+    }
   });
 
   group('primary color dark picker', () {
@@ -141,53 +126,31 @@ void main() {
       },
     );
 
-    testWidgets(
-      'brightness switch should be toggled with false',
-      (tester) async {
-        when(() => cubit.state).thenReturn(
-          BasicThemeState(
-            colorScheme: ColorScheme.light(onSecondary: Colors.black),
-          ),
-        );
+    for (var test in BrightnessTest.testCases) {
+      testWidgets(
+        'brightness switch should be toggled with ${test.isDark}',
+        (tester) async {
+          when(() => cubit.state).thenReturn(
+            BasicThemeState(
+              colorScheme: ColorScheme.light(onSecondary: test.color),
+            ),
+          );
 
-        await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkBrightnessSwitch(
-          tester,
-          key,
-          true,
-          expandText: 'More Colors',
-        );
+          await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
+          await checkBrightnessSwitch(
+            tester,
+            key,
+            test.isDark,
+            expandText: 'More Colors',
+          );
 
-        final captured = verify(() {
-          cubit.accentColorBrightnessChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(false));
-      },
-    );
-
-    testWidgets(
-      'brightness switch should be toggled with true',
-      (tester) async {
-        when(() => cubit.state).thenReturn(
-          BasicThemeState(
-            colorScheme: ColorScheme.light(onSecondary: Colors.white),
-          ),
-        );
-
-        await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkBrightnessSwitch(
-          tester,
-          key,
-          false,
-          expandText: 'More Colors',
-        );
-
-        final captured = verify(() {
-          cubit.accentColorBrightnessChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(true));
-      },
-    );
+          final captured = verify(() {
+            cubit.accentColorBrightnessChanged(captureAny());
+          }).captured;
+          expect(captured.last, equals(!test.isDark));
+        },
+      );
+    }
   });
 
   group('accent color dark picker', () {
@@ -238,53 +201,31 @@ void main() {
       },
     );
 
-    testWidgets(
-      'brightness switch should be toggled with false',
-      (tester) async {
-        when(() => cubit.state).thenReturn(
-          BasicThemeState(
-            colorScheme: ColorScheme.light(onSurface: Colors.black),
-          ),
-        );
+    for (var test in BrightnessTest.testCases) {
+      testWidgets(
+        'brightness switch should be toggled with ${test.isDark}',
+        (tester) async {
+          when(() => cubit.state).thenReturn(
+            BasicThemeState(
+              colorScheme: ColorScheme.light(onSurface: test.color),
+            ),
+          );
 
-        await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkBrightnessSwitch(
-          tester,
-          key,
-          true,
-          expandText: 'More Colors',
-        );
+          await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
+          await checkBrightnessSwitch(
+            tester,
+            key,
+            test.isDark,
+            expandText: 'More Colors',
+          );
 
-        final captured = verify(() {
-          cubit.surfaceColorBrightnessChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(false));
-      },
-    );
-
-    testWidgets(
-      'brightness switch should be toggled with true',
-      (tester) async {
-        when(() => cubit.state).thenReturn(
-          BasicThemeState(
-            colorScheme: ColorScheme.light(onSurface: Colors.white),
-          ),
-        );
-
-        await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkBrightnessSwitch(
-          tester,
-          key,
-          false,
-          expandText: 'More Colors',
-        );
-
-        final captured = verify(() {
-          cubit.surfaceColorBrightnessChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(true));
-      },
-    );
+          final captured = verify(() {
+            cubit.surfaceColorBrightnessChanged(captureAny());
+          }).captured;
+          expect(captured.last, equals(!test.isDark));
+        },
+      );
+    }
   });
 
   group('background color picker', () {
@@ -308,53 +249,31 @@ void main() {
       },
     );
 
-    testWidgets(
-      'brightness switch should be toggled with false',
-      (tester) async {
-        when(() => cubit.state).thenReturn(
-          BasicThemeState(
-            colorScheme: ColorScheme.light(onBackground: Colors.black),
-          ),
-        );
+    for (var test in BrightnessTest.testCases) {
+      testWidgets(
+        'brightness switch should be toggled with ${test.isDark}',
+        (tester) async {
+          when(() => cubit.state).thenReturn(
+            BasicThemeState(
+              colorScheme: ColorScheme.light(onBackground: test.color),
+            ),
+          );
 
-        await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkBrightnessSwitch(
-          tester,
-          key,
-          true,
-          expandText: 'More Colors',
-        );
+          await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
+          await checkBrightnessSwitch(
+            tester,
+            key,
+            test.isDark,
+            expandText: 'More Colors',
+          );
 
-        final captured = verify(() {
-          cubit.bgColorBrightnessChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(false));
-      },
-    );
-
-    testWidgets(
-      'brightness switch should be toggled with true',
-      (tester) async {
-        when(() => cubit.state).thenReturn(
-          BasicThemeState(
-            colorScheme: ColorScheme.light(onBackground: Colors.white),
-          ),
-        );
-
-        await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkBrightnessSwitch(
-          tester,
-          key,
-          false,
-          expandText: 'More Colors',
-        );
-
-        final captured = verify(() {
-          cubit.bgColorBrightnessChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(true));
-      },
-    );
+          final captured = verify(() {
+            cubit.bgColorBrightnessChanged(captureAny());
+          }).captured;
+          expect(captured.last, equals(!test.isDark));
+        },
+      );
+    }
   });
 
   group('error color picker', () {
@@ -378,52 +297,30 @@ void main() {
       },
     );
 
-    testWidgets(
-      'brightness switch should be toggled with false',
-      (tester) async {
-        when(() => cubit.state).thenReturn(
-          BasicThemeState(
-            colorScheme: ColorScheme.light(onError: Colors.black),
-          ),
-        );
+    for (var test in BrightnessTest.testCases) {
+      testWidgets(
+        'brightness switch should be toggled with ${test.isDark}',
+        (tester) async {
+          when(() => cubit.state).thenReturn(
+            BasicThemeState(
+              colorScheme: ColorScheme.light(onError: test.color),
+            ),
+          );
 
-        await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkBrightnessSwitch(
-          tester,
-          key,
-          true,
-          expandText: 'More Colors',
-        );
+          await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
+          await checkBrightnessSwitch(
+            tester,
+            key,
+            test.isDark,
+            expandText: 'More Colors',
+          );
 
-        final captured = verify(() {
-          cubit.errorColorBrightnessChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(false));
-      },
-    );
-
-    testWidgets(
-      'brightness switch should be toggled with true',
-      (tester) async {
-        when(() => cubit.state).thenReturn(
-          BasicThemeState(
-            colorScheme: ColorScheme.light(onError: Colors.white),
-          ),
-        );
-
-        await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkBrightnessSwitch(
-          tester,
-          key,
-          false,
-          expandText: 'More Colors',
-        );
-
-        final captured = verify(() {
-          cubit.errorColorBrightnessChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(true));
-      },
-    );
+          final captured = verify(() {
+            cubit.errorColorBrightnessChanged(captureAny());
+          }).captured;
+          expect(captured.last, equals(!test.isDark));
+        },
+      );
+    }
   });
 }

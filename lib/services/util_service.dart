@@ -26,9 +26,11 @@ class UtilService {
     return ThemeData.estimateBrightnessForColor(color) == Brightness.dark;
   }
 
+  static String enumToString(dynamic value) {
+    return EnumToString.convertToString(value, camelCase: true);
+  }
+
   static List<String> getEnumStrings(List<dynamic> values) {
-    return values.map((value) {
-      return EnumToString.convertToString(value, camelCase: true);
-    }).toList();
+    return values.map((value) => enumToString(value)).toList();
   }
 }

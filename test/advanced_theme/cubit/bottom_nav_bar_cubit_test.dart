@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:bloc_test/bloc_test.dart';
-import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/services/services.dart';
 
 import '../../utils.dart';
 
@@ -29,7 +29,7 @@ void main() {
         'emits bottom navigation bar $type',
         build: () => cubit,
         act: (cubit) {
-          cubit.bottomNavBarTypeChanged(EnumToString.convertToString(type));
+          cubit.bottomNavBarTypeChanged(UtilService.enumToString(type));
         },
         expect: () => [AdvancedThemeState(themeData: theme)],
       );

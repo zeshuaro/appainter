@@ -18,6 +18,7 @@ class FakeBasicThemeState extends Fake implements BasicThemeState {}
 class FakeColor extends Fake implements Color {}
 
 void main() {
+  final widgetTesters = WidgetTesters(expandText: 'More Colors');
   late BasicThemeCubit cubit;
 
   setUpAll(() {
@@ -47,12 +48,9 @@ void main() {
         );
 
         await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkColorPicker(tester, key, color);
 
-        final captured = verify(() {
-          cubit.primaryColorChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(color));
+        await widgetTesters.checkColorPicker(tester, key, color);
+        verify(() => cubit.primaryColorChanged(color)).called(1);
       },
     );
 
@@ -67,12 +65,11 @@ void main() {
           );
 
           await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-          await checkBrightnessSwitch(tester, key, test.isDark);
 
-          final captured = verify(() {
-            cubit.primaryColorBrightnessChanged(captureAny());
-          }).captured;
-          expect(captured.last, equals(!test.isDark));
+          await widgetTesters.checkBrightnessSwitch(tester, key, test.isDark);
+          verify(() {
+            cubit.primaryColorBrightnessChanged(!test.isDark);
+          }).called(1);
         },
       );
     }
@@ -90,17 +87,13 @@ void main() {
         );
 
         await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkColorPicker(
+
+        await widgetTesters.checkColorPicker(
           tester,
           'basicEditor_primaryColorDarkPicker',
           color,
-          expandText: 'More Colors',
         );
-
-        final captured = verify(() {
-          cubit.primaryColorDarkChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(color));
+        verify(() => cubit.primaryColorDarkChanged(color)).called(1);
       },
     );
   });
@@ -117,12 +110,9 @@ void main() {
         );
 
         await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkColorPicker(tester, key, color, expandText: 'More Colors');
 
-        final captured = verify(() {
-          cubit.accentColorChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(color));
+        await widgetTesters.checkColorPicker(tester, key, color);
+        verify(() => cubit.accentColorChanged(color)).called(1);
       },
     );
 
@@ -137,17 +127,11 @@ void main() {
           );
 
           await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-          await checkBrightnessSwitch(
-            tester,
-            key,
-            test.isDark,
-            expandText: 'More Colors',
-          );
 
-          final captured = verify(() {
-            cubit.accentColorBrightnessChanged(captureAny());
-          }).captured;
-          expect(captured.last, equals(!test.isDark));
+          await widgetTesters.checkBrightnessSwitch(tester, key, test.isDark);
+          verify(() {
+            cubit.accentColorBrightnessChanged(!test.isDark);
+          }).called(1);
         },
       );
     }
@@ -165,17 +149,13 @@ void main() {
         );
 
         await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkColorPicker(
+
+        await widgetTesters.checkColorPicker(
           tester,
           'basicEditor_accentColorDarkPicker',
           color,
-          expandText: 'More Colors',
         );
-
-        final captured = verify(() {
-          cubit.accentColorDarkChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(color));
+        verify(() => cubit.accentColorDarkChanged(color)).called(1);
       },
     );
   });
@@ -192,12 +172,9 @@ void main() {
         );
 
         await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkColorPicker(tester, key, color, expandText: 'More Colors');
 
-        final captured = verify(() {
-          cubit.surfaceColorChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(color));
+        await widgetTesters.checkColorPicker(tester, key, color);
+        verify(() => cubit.surfaceColorChanged(color)).called(1);
       },
     );
 
@@ -212,17 +189,11 @@ void main() {
           );
 
           await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-          await checkBrightnessSwitch(
-            tester,
-            key,
-            test.isDark,
-            expandText: 'More Colors',
-          );
 
-          final captured = verify(() {
-            cubit.surfaceColorBrightnessChanged(captureAny());
-          }).captured;
-          expect(captured.last, equals(!test.isDark));
+          await widgetTesters.checkBrightnessSwitch(tester, key, test.isDark);
+          verify(() {
+            cubit.surfaceColorBrightnessChanged(!test.isDark);
+          }).called(1);
         },
       );
     }
@@ -240,12 +211,9 @@ void main() {
         );
 
         await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkColorPicker(tester, key, color, expandText: 'More Colors');
 
-        final captured = verify(() {
-          cubit.bgColorChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(color));
+        await widgetTesters.checkColorPicker(tester, key, color);
+        verify(() => cubit.bgColorChanged(color)).called(1);
       },
     );
 
@@ -260,17 +228,11 @@ void main() {
           );
 
           await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-          await checkBrightnessSwitch(
-            tester,
-            key,
-            test.isDark,
-            expandText: 'More Colors',
-          );
 
-          final captured = verify(() {
-            cubit.bgColorBrightnessChanged(captureAny());
-          }).captured;
-          expect(captured.last, equals(!test.isDark));
+          await widgetTesters.checkBrightnessSwitch(tester, key, test.isDark);
+          verify(() {
+            cubit.bgColorBrightnessChanged(!test.isDark);
+          }).called(1);
         },
       );
     }
@@ -288,12 +250,9 @@ void main() {
         );
 
         await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-        await checkColorPicker(tester, key, color, expandText: 'More Colors');
 
-        final captured = verify(() {
-          cubit.errorColorChanged(captureAny());
-        }).captured;
-        expect(captured.last, equals(color));
+        await widgetTesters.checkColorPicker(tester, key, color);
+        verify(() => cubit.errorColorChanged(color)).called(1);
       },
     );
 
@@ -308,17 +267,10 @@ void main() {
           );
 
           await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-          await checkBrightnessSwitch(
-            tester,
-            key,
-            test.isDark,
-            expandText: 'More Colors',
-          );
-
-          final captured = verify(() {
-            cubit.errorColorBrightnessChanged(captureAny());
-          }).captured;
-          expect(captured.last, equals(!test.isDark));
+          await widgetTesters.checkBrightnessSwitch(tester, key, test.isDark);
+          verify(() {
+            cubit.errorColorBrightnessChanged(!test.isDark);
+          }).called(1);
         },
       );
     }

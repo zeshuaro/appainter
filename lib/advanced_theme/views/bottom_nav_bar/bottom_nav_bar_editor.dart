@@ -1,9 +1,8 @@
-import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/common.dart';
-import 'package:flutter_theme/services/util_service.dart';
+import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 part 'bottom_nav_bar_icon_theme.dart';
@@ -45,7 +44,7 @@ class _TypeDropdown extends StatelessWidget {
             BottomNavigationBarType.fixed;
         return DropdownListTile(
           title: 'Type',
-          value: EnumToString.convertToString(type, camelCase: true),
+          value: UtilService.enumToString(type),
           values: UtilService.getEnumStrings(BottomNavigationBarType.values),
           onChanged: (value) {
             context.read<AdvancedThemeCubit>().bottomNavBarTypeChanged(value!);

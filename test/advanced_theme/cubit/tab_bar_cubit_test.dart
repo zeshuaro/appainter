@@ -1,8 +1,8 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/services/services.dart';
 
 import '../../utils.dart';
 
@@ -48,7 +48,7 @@ void main() {
         'emits tab bar $size',
         build: () => cubit,
         act: (cubit) {
-          cubit.tabBarIndicatorSizeChanged(EnumToString.convertToString(size));
+          cubit.tabBarIndicatorSizeChanged(UtilService.enumToString(size));
         },
         expect: () => [AdvancedThemeState(themeData: theme)],
       );

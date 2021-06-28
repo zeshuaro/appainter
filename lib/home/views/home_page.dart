@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:enum_to_string/enum_to_string.dart';
 import 'package:file_picker_cross/file_picker_cross.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +8,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/home/home.dart';
+import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -225,7 +225,7 @@ class _EditModeTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBar(
       tabs: EditMode.values.map((mode) {
-        final text = EnumToString.convertToString(mode, camelCase: true);
+        final text = UtilService.enumToString(mode);
         return Tab(
           child: Text(
             text,

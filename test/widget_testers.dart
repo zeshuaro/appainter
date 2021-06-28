@@ -24,7 +24,18 @@ class WidgetTesters {
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Wheel'));
-    await tester.enterText(find.byType(TextField), '#${color.hex}');
+    await tester.pumpAndSettle();
+
+    final colorPicker = find.byKey(Key("widgetService_showColorPicker"));
+    await tester.enterText(
+      find.descendant(
+        of: colorPicker,
+        matching: find.byType(TextField),
+      ),
+      '#${color.hex}',
+    );
+    await tester.pumpAndSettle();
+
     await tester.tap(find.text('OK'));
     await tester.pumpAndSettle();
 

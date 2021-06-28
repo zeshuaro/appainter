@@ -8,6 +8,7 @@ class WidgetService {
     required void Function(Color) onColorChanged,
   }) async {
     ColorPicker(
+      key: Key('widgetService_showColorPicker'),
       color: color,
       borderRadius: 22,
       showColorCode: true,

@@ -57,6 +57,7 @@ class _PrimaryColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorAndBrightness(
           title: 'Primary Color',
+          key: const Key('colorEditor_primaryColorPicker'),
           color: state.themeData.primaryColor,
           onColorChanged: (color) {
             context.read<AdvancedThemeCubit>().primaryColorChanged(color);
@@ -83,6 +84,7 @@ class _PrimaryColorLightPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_primaryColorLightPicker'),
           title: 'Primary Color Light',
           color: state.themeData.primaryColorLight,
           onColorChanged: (color) {
@@ -104,6 +106,7 @@ class _PrimaryColorDarkPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_primaryColorDarkPicker'),
           title: 'Primary Color Dark',
           color: state.themeData.primaryColorDark,
           onColorChanged: (color) {
@@ -154,6 +157,7 @@ class _BackgroundColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_backgroundColorPicker'),
           title: 'Background Color',
           color: state.themeData.backgroundColor,
           onColorChanged: (color) {
@@ -175,6 +179,7 @@ class _BottomAppBarColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_bottomAppBarColorPicker'),
           title: 'Bottom App Bar Color',
           color: state.themeData.bottomAppBarColor,
           onColorChanged: (color) {
@@ -195,6 +200,7 @@ class _CanvasColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_canvasColorPicker'),
           title: 'Canvas Color',
           color: state.themeData.canvasColor,
           onColorChanged: (color) {
@@ -215,6 +221,7 @@ class _CardColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_cardColorPicker'),
           title: 'Card Color',
           color: state.themeData.cardColor,
           onColorChanged: (color) {
@@ -236,6 +243,7 @@ class _DialogBackgroundColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_dialogBackgroundColorPicker'),
           title: 'Dialog Background Color',
           color: state.themeData.dialogBackgroundColor,
           onColorChanged: (color) {
@@ -257,6 +265,7 @@ class _DisabledColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_disabledColorPicker'),
           title: 'Disabled Color',
           color: state.themeData.disabledColor,
           onColorChanged: (color) {
@@ -278,6 +287,7 @@ class _DividerColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_dividerColorPicker'),
           title: 'Divider Color',
           color: state.themeData.dividerColor,
           onColorChanged: (color) {
@@ -298,6 +308,7 @@ class _ErrorColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_errorColorPicker'),
           title: 'Error Color',
           color: state.themeData.errorColor,
           onColorChanged: (color) {
@@ -318,6 +329,7 @@ class _FocusColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_focusColorPicker'),
           title: 'Focus Color',
           color: state.themeData.focusColor,
           onColorChanged: (color) {
@@ -339,6 +351,7 @@ class _HighlightColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_highlightColorPicker'),
           title: 'Highlight Color',
           color: state.themeData.highlightColor,
           onColorChanged: (color) {
@@ -359,6 +372,7 @@ class _HintColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_hintColorPicker'),
           title: 'Hint Color',
           color: state.themeData.hintColor,
           onColorChanged: (color) {
@@ -379,6 +393,7 @@ class _HoverColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_hoverColorPicker'),
           title: 'Hover Color',
           color: state.themeData.hoverColor,
           onColorChanged: (color) {
@@ -400,6 +415,7 @@ class _IndicatorColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_indicatorColorPicker'),
           title: 'Indicator Color',
           color: state.themeData.indicatorColor,
           onColorChanged: (color) {
@@ -421,6 +437,7 @@ class _ScaffoldBackgroundColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_scaffoldBackgroundColorPicker'),
           title: 'Scaffold Background Color',
           color: state.themeData.scaffoldBackgroundColor,
           onColorChanged: (color) {
@@ -442,6 +459,7 @@ class _SecondaryHeaderColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_secondaryHeaderColorPicker'),
           title: 'Secondary Header Color',
           color: state.themeData.secondaryHeaderColor,
           onColorChanged: (color) {
@@ -465,6 +483,7 @@ class _SelectedRowColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_selectedRowColorPicker'),
           title: 'Selected Row Color',
           color: state.themeData.selectedRowColor,
           onColorChanged: (color) {
@@ -485,6 +504,7 @@ class _ShadowColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_shadowColorPicker'),
           title: 'Shadow Color',
           color: state.themeData.shadowColor,
           onColorChanged: (color) {
@@ -505,6 +525,7 @@ class _SplashColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_splashColorPicker'),
           title: 'Splash Color',
           color: state.themeData.splashColor,
           onColorChanged: (color) {
@@ -526,6 +547,7 @@ class _ToggleableActiveColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_toggleableActiveColorPicker'),
           title: 'Toggleable Active Color',
           color: state.themeData.toggleableActiveColor,
           onColorChanged: (color) {
@@ -549,6 +571,7 @@ class _UnselectedWidgetColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('colorEditor_unselectedWidgetColorPicker'),
           title: 'Unselected Widget Color',
           color: state.themeData.unselectedWidgetColor,
           onColorChanged: (color) {

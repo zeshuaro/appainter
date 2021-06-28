@@ -18,8 +18,11 @@ Future<void> checkColorPicker(
     ),
   );
   await tester.pumpAndSettle();
+
   await tester.tap(find.text('Wheel'));
   await tester.enterText(find.byType(TextField), '#${color.hex}');
+  await tester.tap(find.text('OK'));
+  await tester.pumpAndSettle();
 
   final widget = find.descendant(
     of: parentWidget,

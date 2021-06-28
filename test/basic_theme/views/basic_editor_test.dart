@@ -15,15 +15,12 @@ class MockBasicThemeCubit extends MockCubit<BasicThemeState>
 
 class FakeBasicThemeState extends Fake implements BasicThemeState {}
 
-class FakeColor extends Fake implements Color {}
-
 void main() {
   final widgetTesters = WidgetTesters(expandText: 'More Colors');
   late BasicThemeCubit cubit;
 
   setUpAll(() {
     registerFallbackValue<BasicThemeState>(FakeBasicThemeState());
-    registerFallbackValue<Color>(FakeColor());
   });
 
   setUp(() {

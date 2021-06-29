@@ -48,7 +48,7 @@ class WidgetTesters {
     expect(widget, findsOneWidget);
   }
 
-  Future<void> checkBrightnessSwitch(
+  Future<void> checkSwitch(
     WidgetTester tester,
     String key,
     bool isActive,
@@ -65,6 +65,27 @@ class WidgetTesters {
       matching: find.byWidgetPredicate((widget) {
         return widget is Switch && widget.value == isActive;
       }),
+    );
+    expect(widget, findsOneWidget);
+  }
+
+  Future<void> checkTextField(
+    WidgetTester tester,
+    String key,
+    double value,
+  ) async {
+    final valueStr = value.toString();
+    await _expandWidget(tester, expandText);
+
+    final parentWidget = await _findParentWidget(tester, key);
+    await tester.enterText(
+      find.descendant(of: parentWidget, matching: find.byType(TextFormField)),
+      valueStr,
+    );
+
+    final widget = find.descendant(
+      of: parentWidget,
+      matching: find.text(valueStr),
     );
     expect(widget, findsOneWidget);
   }

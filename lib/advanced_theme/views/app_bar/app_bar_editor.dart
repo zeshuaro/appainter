@@ -41,6 +41,7 @@ class _ColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('appbarEditor_colorPicker'),
           title: 'Color',
           color:
               state.themeData.appBarTheme.color ?? state.themeData.primaryColor,
@@ -64,6 +65,7 @@ class _ShadowColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('appbarEditor_shadowColorPicker'),
           title: 'Shadow Color',
           color: state.themeData.appBarTheme.shadowColor ??
               state.themeData.shadowColor,
@@ -89,6 +91,7 @@ class _BrightnessSwitch extends StatelessWidget {
             state.themeData.appBarTheme.brightness == Brightness.dark;
 
         return MySwitchListTile(
+          key: const Key('appbarEditor_brightnessSwitch'),
           title: 'Brightness',
           value: isDark,
           onChanged: (value) {
@@ -111,6 +114,7 @@ class _CenterTitleSwitch extends StatelessWidget {
       },
       builder: (context, state) {
         return MySwitchListTile(
+          key: const Key('appbarEditor_centerTitleSwitch'),
           title: 'Center Title',
           value: state.themeData.appBarTheme.centerTitle ?? true,
           onChanged: (value) {
@@ -132,6 +136,7 @@ class _ElevationTextField extends StatelessWidget {
       },
       builder: (context, state) {
         return MyTextFormField(
+          key: const Key('appbarEditor_elevationTextField'),
           labelText: 'Elevation',
           initialValue: state.themeData.appBarTheme.elevation?.toString() ??
               kAppBarElevation.toString(),
@@ -154,6 +159,7 @@ class _TitleSpacingTextField extends StatelessWidget {
       },
       builder: (context, state) {
         return MyTextFormField(
+          key: const Key('appbarEditor_titleSpacingTextField'),
           labelText: 'Title Spacing',
           initialValue: state.themeData.appBarTheme.titleSpacing?.toString() ??
               kAppBarTitleSpacing.toString(),

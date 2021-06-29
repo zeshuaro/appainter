@@ -94,7 +94,7 @@ class TextStyleCard extends StatelessWidget {
             ),
             DropdownListTile(
               title: 'Font Weight',
-              value: MyFontWeight().stringFromEnum(fontWeight),
+              value: MyFontWeight().stringFromEnum(fontWeight)!,
               values: MyFontWeight().names,
               onChanged: onFontWeightChanged,
             ),
@@ -136,7 +136,7 @@ class TextStyleCard extends StatelessWidget {
           children: [
             DropdownListTile(
               title: 'Decoration',
-              value: MyTextDecoration().stringFromEnum(decoration),
+              value: MyTextDecoration().stringFromEnum(decoration)!,
               values: MyTextDecoration().names,
               onChanged: onDecorationChanged,
             ),

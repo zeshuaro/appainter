@@ -152,31 +152,37 @@ class _EditorPreview extends StatelessWidget {
 class _EditorsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: EditMode.values.length,
-      child: Builder(
-        builder: (context) {
-          final controller = DefaultTabController.of(context)!;
-          controller.addListener(() {
-            if (!controller.indexIsChanging &&
-                controller.index != controller.previousIndex) {
-              context
-                  .read<HomeCubit>()
-                  .editModeChanged(EditMode.values[controller.index]);
-            }
-          });
+    return BlocBuilder<HomeCubit, HomeState>(
+      buildWhen: (previous, current) => previous.editMode != current.editMode,
+      builder: (context, state) {
+        return DefaultTabController(
+          initialIndex: EditMode.values.indexOf(state.editMode),
+          length: EditMode.values.length,
+          child: Builder(
+            builder: (context) {
+              final controller = DefaultTabController.of(context)!;
+              controller.addListener(() {
+                if (!controller.indexIsChanging &&
+                    controller.index != controller.previousIndex) {
+                  context
+                      .read<HomeCubit>()
+                      .editModeChanged(EditMode.values[controller.index]);
+                }
+              });
 
-          return BlocListener<HomeCubit, HomeState>(
-            listenWhen: (previous, current) {
-              return previous.editMode != current.editMode;
+              return BlocListener<HomeCubit, HomeState>(
+                listenWhen: (previous, current) {
+                  return previous.editMode != current.editMode;
+                },
+                listener: (context, state) {
+                  controller.animateTo(EditMode.values.indexOf(state.editMode));
+                },
+                child: _Editors(),
+              );
             },
-            listener: (context, state) {
-              controller.animateTo(EditMode.values.indexOf(state.editMode));
-            },
-            child: _Editors(),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
@@ -251,6 +257,7 @@ class _RandomAndResetBtns extends StatelessWidget {
         return Row(
           children: [
             IconButton(
+              key: const Key('homePage_randomizeThemeButton'),
               onPressed: () {
                 if (state.editMode == EditMode.basic) {
                   context.read<BasicThemeCubit>().randomizedThemeRequested();
@@ -262,6 +269,7 @@ class _RandomAndResetBtns extends StatelessWidget {
             ),
             HorizontalPadding(),
             IconButton(
+              key: const Key('homePage_resetThemeButton'),
               onPressed: () {
                 if (state.editMode == EditMode.basic) {
                   context.read<BasicThemeCubit>().defaultThemeRequested();

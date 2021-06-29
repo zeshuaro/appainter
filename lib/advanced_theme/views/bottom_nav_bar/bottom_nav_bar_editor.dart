@@ -67,6 +67,7 @@ class _BgColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('bottomNavBarEditor_bgColorPicker'),
           title: 'Background Color',
           color: state.themeData.bottomNavigationBarTheme.backgroundColor ??
               state.themeData.backgroundColor,
@@ -92,6 +93,7 @@ class _SelectedItemColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('bottomNavBarEditor_selectedItemColorPicker'),
           title: 'Selected Item Color',
           color: state.themeData.bottomNavigationBarTheme.selectedItemColor ??
               state.themeData.primaryColor,
@@ -120,6 +122,7 @@ class _UnselectedItemColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('bottomNavBarEditor_unselectedItemColorPicker'),
           title: 'Unselected Item Color',
           color: state.themeData.bottomNavigationBarTheme.unselectedItemColor ??
               state.themeData.unselectedWidgetColor,
@@ -145,6 +148,7 @@ class _ShowSelectedLabelsSwitch extends StatelessWidget {
       builder: (context, state) {
         return MySwitchListTile(
           title: 'Show Selected Labels',
+          key: const Key('bottomNavBarEditor_showSelectedLabelsSwitch'),
           value: state.themeData.bottomNavigationBarTheme.showSelectedLabels ??
               true,
           onChanged: (value) {
@@ -169,6 +173,7 @@ class _ShowUnselectedLabelsSwitch extends StatelessWidget {
       },
       builder: (context, state) {
         return MySwitchListTile(
+          key: const Key('bottomNavBarEditor_showUnselectedLabelsSwitch'),
           title: 'Show Unselected Labels',
           value:
               state.themeData.bottomNavigationBarTheme.showUnselectedLabels ??
@@ -194,6 +199,7 @@ class _ElevationTextField extends StatelessWidget {
       },
       builder: (context, state) {
         return MyTextFormField(
+          key: const Key('bottomNavBarEditor_elevationTextField'),
           labelText: 'Elevation',
           initialValue:
               state.themeData.bottomNavigationBarTheme.elevation?.toString() ??

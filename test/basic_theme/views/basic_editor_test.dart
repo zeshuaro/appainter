@@ -63,7 +63,7 @@ void main() {
 
           await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
 
-          await widgetTesters.checkBrightnessSwitch(tester, key, test.isDark);
+          await widgetTesters.checkSwitch(tester, key, test.isDark);
           verify(() {
             cubit.primaryColorBrightnessChanged(!test.isDark);
           }).called(1);
@@ -125,7 +125,7 @@ void main() {
 
           await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
 
-          await widgetTesters.checkBrightnessSwitch(tester, key, test.isDark);
+          await widgetTesters.checkSwitch(tester, key, test.isDark);
           verify(() {
             cubit.accentColorBrightnessChanged(!test.isDark);
           }).called(1);
@@ -187,7 +187,7 @@ void main() {
 
           await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
 
-          await widgetTesters.checkBrightnessSwitch(tester, key, test.isDark);
+          await widgetTesters.checkSwitch(tester, key, test.isDark);
           verify(() {
             cubit.surfaceColorBrightnessChanged(!test.isDark);
           }).called(1);
@@ -226,7 +226,7 @@ void main() {
 
           await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
 
-          await widgetTesters.checkBrightnessSwitch(tester, key, test.isDark);
+          await widgetTesters.checkSwitch(tester, key, test.isDark);
           verify(() {
             cubit.bgColorBrightnessChanged(!test.isDark);
           }).called(1);
@@ -264,7 +264,7 @@ void main() {
           );
 
           await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
-          await widgetTesters.checkBrightnessSwitch(tester, key, test.isDark);
+          await widgetTesters.checkSwitch(tester, key, test.isDark);
           verify(() {
             cubit.errorColorBrightnessChanged(!test.isDark);
           }).called(1);

@@ -45,6 +45,7 @@ class _BgColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('floatingActionBtnEditor_bgColorPicker'),
           title: 'Background Color',
           color: state.themeData.floatingActionButtonTheme.backgroundColor ??
               state.themeData.colorScheme.secondary,
@@ -71,6 +72,7 @@ class _FgColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('floatingActionBtnEditor_fgColorPicker'),
           title: 'Foreground Color',
           color: state.themeData.floatingActionButtonTheme.foregroundColor ??
               state.themeData.colorScheme.onSecondary,
@@ -96,6 +98,7 @@ class _FocusColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('floatingActionBtnEditor_focusColorPicker'),
           title: 'Focus Color',
           color: state.themeData.floatingActionButtonTheme.focusColor ??
               state.themeData.focusColor,
@@ -121,6 +124,7 @@ class _HoverColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('floatingActionBtnEditor_hoverColorPicker'),
           title: 'Hover Color',
           color: state.themeData.floatingActionButtonTheme.hoverColor ??
               state.themeData.hoverColor,
@@ -146,6 +150,7 @@ class _SplashColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('floatingActionBtnEditor_splashColorPicker'),
           title: 'Splash Color',
           color: state.themeData.floatingActionButtonTheme.splashColor ??
               state.themeData.splashColor,
@@ -170,6 +175,7 @@ class _ElevationTextField extends StatelessWidget {
       },
       builder: (context, state) {
         return MyTextFormField(
+          key: const Key('floatingActionBtnEditor_elevationTextField'),
           labelText: 'Elevation',
           initialValue:
               state.themeData.floatingActionButtonTheme.elevation?.toString() ??
@@ -195,6 +201,7 @@ class _DisabledElevationTextField extends StatelessWidget {
       },
       builder: (context, state) {
         return MyTextFormField(
+          key: const Key('floatingActionBtnEditor_disabledElevationTextField'),
           labelText: 'Disabled Elevation',
           initialValue: state
                   .themeData.floatingActionButtonTheme.disabledElevation
@@ -221,6 +228,7 @@ class _FocusElevationTextField extends StatelessWidget {
       },
       builder: (context, state) {
         return MyTextFormField(
+          key: const Key('floatingActionBtnEditor_focusElevationTextField'),
           labelText: 'Focus Elevation',
           initialValue: state.themeData.floatingActionButtonTheme.focusElevation
                   ?.toString() ??
@@ -247,6 +255,7 @@ class _HighlightElevationTextField extends StatelessWidget {
       },
       builder: (context, state) {
         return MyTextFormField(
+          key: const Key('floatingActionBtnEditor_highlightElevationTextField'),
           labelText: 'Highlight Elevation',
           initialValue: state
                   .themeData.floatingActionButtonTheme.highlightElevation
@@ -273,6 +282,7 @@ class _HoverElevationTextField extends StatelessWidget {
       },
       builder: (context, state) {
         return MyTextFormField(
+          key: const Key('floatingActionBtnEditor_hoverElevationTextField'),
           labelText: 'Hover Elevation',
           initialValue: state.themeData.floatingActionButtonTheme.hoverElevation
                   ?.toString() ??

@@ -35,6 +35,7 @@ class _LabelColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
+          key: const Key('tabBarEditor_labelColorPicker'),
           title: 'Label Color',
           color: state.themeData.tabBarTheme.labelColor ??
               state.themeData.primaryTextTheme.bodyText1!.color!,
@@ -62,6 +63,7 @@ class _UnselectedLabelColorPicker extends StatelessWidget {
             state.themeData.primaryTextTheme.bodyText1!.color!;
 
         return ColorListTile(
+          key: const Key('tabBarEditor_unselectedLabelColorPicker'),
           title: 'Unselected Label Color',
           color: state.themeData.tabBarTheme.unselectedLabelColor ??
               labelColor.withOpacity(kTabBarUnselectedColorOpacity),
@@ -88,7 +90,8 @@ class _IndicatorSizeDropdown extends StatelessWidget {
         final size = state.themeData.tabBarTheme.indicatorSize ??
             TabBarIndicatorSize.tab;
         return DropdownListTile(
-          title: 'Type',
+          key: const Key('tabBarEditor_indicatorSizeDropdown'),
+          title: 'Indicator Size',
           value: UtilService.enumToString(size),
           values: UtilService.getEnumStrings(TabBarIndicatorSize.values),
           onChanged: (value) {

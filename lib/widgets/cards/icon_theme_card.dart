@@ -41,11 +41,13 @@ class IconThemeCard extends StatelessWidget {
         ),
         SideBySide(
           left: MyTextFormField(
+            key: const Key('iconThemeCard_sizeTextField'),
             labelText: 'Size',
             onChanged: onSizeChanged,
             initialValue: size.toString(),
           ),
           right: MyTextFormField(
+            key: const Key('iconThemeCard_opacityTextField'),
             labelText: 'Opacity',
             onChanged: onOpacityChanged,
             initialValue: opacity.toString(),

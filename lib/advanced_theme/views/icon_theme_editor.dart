@@ -14,6 +14,7 @@ class IconThemeEditor extends StatelessWidget {
       builder: (context, state) {
         final theme = state.themeData.iconTheme;
         return IconThemeCard(
+          key: const Key('iconThemeEditor_iconThemeCard'),
           color: theme.color ?? kIconThemeColor,
           onColorChanged: (color) {
             context.read<AdvancedThemeCubit>().iconThemeColorChanged(color);

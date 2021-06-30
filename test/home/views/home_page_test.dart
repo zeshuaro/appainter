@@ -19,6 +19,8 @@ class MockBasicThemeCubit extends MockCubit<BasicThemeState>
 class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
     implements AdvancedThemeCubit {}
 
+class MockThemeService extends Mock implements ThemeService {}
+
 class FakeHomeState extends Fake implements HomeState {}
 
 class FakeBasicThemeState extends Fake implements BasicThemeState {}
@@ -29,17 +31,20 @@ void main() {
   late HomeCubit homeCubit;
   late BasicThemeCubit basicThemeCubit;
   late AdvancedThemeCubit advancedThemeCubit;
+  late ThemeService themeService;
 
   setUpAll(() {
     registerFallbackValue<HomeState>(FakeHomeState());
     registerFallbackValue<BasicThemeState>(FakeBasicThemeState());
     registerFallbackValue<AdvancedThemeState>(FakeAdvancedThemeState());
+    registerFallbackValue<ThemeData>(ThemeData());
   });
 
   setUp(() {
     homeCubit = MockHomeCubit();
     basicThemeCubit = MockBasicThemeCubit();
     advancedThemeCubit = MockAdvancedThemeCubit();
+    themeService = MockThemeService();
 
     when(() => homeCubit.state).thenReturn(HomeState());
     when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
@@ -186,4 +191,90 @@ void main() {
       },
     );
   });
+
+  group('export theme', () {
+    testWidgets(
+      'export button should export theme from basic editor',
+      (tester) async {
+        when(() => homeCubit.state).thenReturn(
+          HomeState(editMode: EditMode.basic),
+        );
+        when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
+        when(() => themeService.export(any())).thenAnswer((_) async => {});
+
+        await tester.pumpApp(
+          HomePage(
+            themeService: themeService,
+          ),
+          homeCubit: homeCubit,
+          basicThemeCubit: basicThemeCubit,
+          advancedThemeCubit: advancedThemeCubit,
+        );
+
+        final finder = find.byKey(Key('homePage_exportBtn'));
+        await tester.ensureVisible(finder);
+        await tester.tap(finder);
+
+        verify(() {
+          return themeService.export(basicThemeCubit.state.themeData);
+        }).called(greaterThan(0));
+      },
+    );
+
+    testWidgets(
+      'export button should export theme from advanced editor',
+      (tester) async {
+        when(() => homeCubit.state).thenReturn(
+          HomeState(editMode: EditMode.advanced),
+        );
+        when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
+        when(() => themeService.export(any())).thenAnswer((_) async => {});
+
+        await tester.pumpApp(
+          HomePage(
+            themeService: themeService,
+          ),
+          homeCubit: homeCubit,
+          basicThemeCubit: basicThemeCubit,
+          advancedThemeCubit: advancedThemeCubit,
+        );
+
+        final finder = find.byKey(Key('homePage_exportBtn'));
+        await tester.ensureVisible(finder);
+        await tester.tap(finder);
+
+        verify(() {
+          return themeService.export(advancedThemeCubit.state.themeData);
+        }).called(greaterThan(0));
+      },
+    );
+  });
+
+  testWidgets(
+    'import button should import theme to advanced editor',
+    (tester) async {
+      final theme = ThemeData();
+      when(() => homeCubit.state).thenReturn(
+        HomeState(editMode: EditMode.basic),
+      );
+      when(() => themeService.import()).thenAnswer((_) async => theme);
+
+      await tester.pumpApp(
+        HomePage(
+          themeService: themeService,
+        ),
+        homeCubit: homeCubit,
+        basicThemeCubit: basicThemeCubit,
+        advancedThemeCubit: advancedThemeCubit,
+      );
+
+      final finder = find.byKey(Key('homePage_importBtn'));
+      await tester.ensureVisible(finder);
+      await tester.tap(finder);
+
+      verify(() => themeService.import()).called(greaterThan(0));
+      verify(() => advancedThemeCubit.themeDataChanged(theme)).called(1);
+      verify(() => homeCubit.editModeChanged(EditMode.advanced)).called(1);
+    },
+  );
 }

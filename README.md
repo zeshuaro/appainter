@@ -8,6 +8,7 @@ Inspired by [Panache](https://github.com/rxlabz/panache), a Flutter material the
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fzeshuaro.github.io%2Fflutter_theme%2F)](https://zeshuaro.github.io/flutter_theme/)
 [![GitHub license](https://img.shields.io/github/license/zeshuaro/flutter_theme)](https://github.com/zeshuaro/flutter_theme/blob/main/LICENSE)
 [![GitHub Actions](https://github.com/zeshuaro/flutter_theme/actions/workflows/test_deploy_release.yml/badge.svg)](https://github.com/zeshuaro/flutter_theme/actions/workflows/test_deploy_release.yml)
+[![codecov](https://codecov.io/gh/zeshuaro/flutter_theme/branch/main/graph/badge.svg?token=4YM0WZFH3I)](https://codecov.io/gh/zeshuaro/flutter_theme)
 [![style: lint](https://img.shields.io/badge/style-lint-4BC0F5.svg)](https://pub.dev/packages/lint)
 
 ![Flutter Theme Screenshot](images/screenshot.png)

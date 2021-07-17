@@ -770,6 +770,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.3"
+  remove_from_coverage:
+    dependency: "direct dev"
+    description:
+      name: remove_from_coverage
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   rest_client:
     dependency: transitive
     description:

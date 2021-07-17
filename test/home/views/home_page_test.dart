@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/cubit/basic_theme_cubit.dart';
@@ -47,6 +48,7 @@ void main() {
     themeService = MockThemeService();
 
     when(() => homeCubit.state).thenReturn(HomeState());
+    when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
     when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
     when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
   });
@@ -277,4 +279,111 @@ void main() {
       verify(() => homeCubit.editModeChanged(EditMode.advanced)).called(1);
     },
   );
+
+  group('usage button', () {
+    testWidgets(
+      'should show usage dialog when usage data is available',
+      (tester) async {
+        final usageData = "usageData";
+        when(() => homeCubit.state).thenReturn(
+          HomeState(themeUsage: ThemeUsage(usageData)),
+        );
+
+        await tester.pumpApp(
+          HomePage(
+            themeService: themeService,
+          ),
+          homeCubit: homeCubit,
+          basicThemeCubit: basicThemeCubit,
+          advancedThemeCubit: advancedThemeCubit,
+        );
+
+        final finder = find.byKey(Key('homePage_usageBtn'));
+        await tester.ensureVisible(finder);
+        await tester.tap(finder);
+        await tester.pumpAndSettle();
+
+        expect(
+          find.byWidgetPredicate((widget) {
+            return widget is Markdown && widget.data == usageData;
+          }),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'should show usage dialog with warning when usage data is unavailable',
+      (tester) async {
+        when(() => homeCubit.state).thenReturn(
+          HomeState(themeUsage: ThemeUsage()),
+        );
+
+        await tester.pumpApp(
+          HomePage(
+            themeService: themeService,
+          ),
+          homeCubit: homeCubit,
+          basicThemeCubit: basicThemeCubit,
+          advancedThemeCubit: advancedThemeCubit,
+        );
+
+        final finder = find.byKey(Key('homePage_usageBtn'));
+        await tester.ensureVisible(finder);
+        await tester.tap(finder);
+        await tester.pumpAndSettle();
+
+        expect(find.byKey(const Key('usageBtn_usageFallback')), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'should show usage dialog with loading when usage data is loading',
+      (tester) async {
+        when(() => homeCubit.state).thenReturn(HomeState(themeUsage: null));
+
+        await tester.pumpApp(
+          HomePage(
+            themeService: themeService,
+          ),
+          homeCubit: homeCubit,
+          basicThemeCubit: basicThemeCubit,
+          advancedThemeCubit: advancedThemeCubit,
+        );
+
+        final finder = find.byKey(Key('homePage_usageBtn'));
+        await tester.ensureVisible(finder);
+        await tester.tap(finder);
+        await tester.pump();
+
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'should close usage dialog with close button',
+      (tester) async {
+        await tester.pumpApp(
+          HomePage(
+            themeService: themeService,
+          ),
+          homeCubit: homeCubit,
+          basicThemeCubit: basicThemeCubit,
+          advancedThemeCubit: advancedThemeCubit,
+        );
+
+        final usageBtn = find.byKey(Key('homePage_usageBtn'));
+        await tester.ensureVisible(usageBtn);
+        await tester.tap(usageBtn);
+        await tester.pump();
+
+        final closeBtn = find.byKey(Key('usageBtn_closeBtn'));
+        await tester.ensureVisible(closeBtn);
+        await tester.tap(closeBtn);
+        await tester.pump();
+
+        expect(find.byType(AlertDialog), findsNothing);
+      },
+    );
+  });
 }

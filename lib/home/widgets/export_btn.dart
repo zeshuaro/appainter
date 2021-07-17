@@ -4,6 +4,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ExportBtn extends StatelessWidget {
   final ThemeService themeService;
@@ -29,9 +30,10 @@ class ExportBtn extends StatelessWidget {
         final theme = editMode == EditMode.basic ? basicTheme : advancedTheme;
         themeService.export(theme);
       },
-      icon: Icon(
-        Icons.download,
+      icon: FaIcon(
+        FontAwesomeIcons.download,
         color: Colors.white,
+        size: 20,
       ),
       label: Text(
         'Export',

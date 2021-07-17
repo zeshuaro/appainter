@@ -225,6 +225,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.7.3"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   disk_space:
     dependency: transitive
     description:
@@ -361,6 +368,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_markdown:
+    dependency: "direct main"
+    description:
+      name: flutter_markdown
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.6.2"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -511,6 +525,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  markdown:
+    dependency: transitive
+    description:
+      name: markdown
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   matcher:
     dependency: transitive
     description:
@@ -979,12 +1000,12 @@ packages:
     source: hosted
     version: "1.0.0"
   url_launcher:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.6"
+    version: "6.0.9"
   url_launcher_linux:
     dependency: transitive
     description:

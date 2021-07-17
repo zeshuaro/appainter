@@ -4,9 +4,6 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-part 'app_bar_icon_theme.dart';
-part 'app_bar_title_text_style.dart';
-
 class AppBarEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,8 +20,6 @@ class AppBarEditor extends StatelessWidget {
             _TitleSpacingTextField(),
           ],
         ),
-        // _IconThemeEditor(),
-        // _TitleTextStyleEditor(),
       ],
     );
   }

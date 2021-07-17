@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../advanced_theme_cubit.dart';
 
-part 'bottom_nav_bar_icon_theme_cubit.dart';
-
 extension BottomNavBarCubit on AdvancedThemeCubit {
   void bottomNavBarTypeChanged(String value) {
     final type = EnumToString.fromString(BottomNavigationBarType.values, value);

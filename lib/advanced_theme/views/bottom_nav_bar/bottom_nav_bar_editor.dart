@@ -5,8 +5,6 @@ import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-part 'bottom_nav_bar_icon_theme.dart';
-
 class BottomNavBarEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,8 +22,6 @@ class BottomNavBarEditor extends StatelessWidget {
             _ElevationTextField(),
           ],
         ),
-        // _SelectedIconThemeEditor(),
-        // _UnselectedIconThemeEditor(),
       ],
     );
   }

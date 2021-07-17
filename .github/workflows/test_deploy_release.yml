@@ -38,7 +38,13 @@ jobs:
           flutter pub get
           flutter pub run build_runner build --delete-conflicting-outputs
           flutter analyze
-          flutter test --no-test-assets
+          flutter test --coverage --no-test-assets
+          flutter pub run remove_from_coverage -f coverage/lcov.info -r '\.g\.dart$'
+
+      - name: Upload coverage report 📡
+        uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
 
   build-web-deploy:
     name: Build Web and Deploy

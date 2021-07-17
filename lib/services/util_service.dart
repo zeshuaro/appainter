@@ -1,5 +1,6 @@
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class UtilService {
   static Map<int, Color> getColorSwatch(Color color) {
@@ -32,5 +33,9 @@ class UtilService {
 
   static List<String> getEnumStrings(List<dynamic> values) {
     return values.map((value) => enumToString(value)).toList();
+  }
+
+  static Future<void> launchUrl(String url) async {
+    await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
   }
 }

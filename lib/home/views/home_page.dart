@@ -11,12 +11,23 @@ import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   final ThemeService themeService;
 
   const HomePage({Key? key, ThemeService? themeService})
       : themeService = themeService ?? const ThemeService(),
         super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<HomeCubit>().themeUsageFetched();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +37,8 @@ class HomePage extends StatelessWidget {
         title: const Text('Flutter Theme'),
         centerTitle: false,
         actions: [
-          _ImportExportBtns(
-            themeService: themeService,
+          _ActionBtns(
+            themeService: widget.themeService,
           ),
           HorizontalPadding(),
         ],
@@ -40,11 +51,10 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class _ImportExportBtns extends StatelessWidget {
+class _ActionBtns extends StatelessWidget {
   final ThemeService themeService;
 
-  const _ImportExportBtns({Key? key, required this.themeService})
-      : super(key: key);
+  const _ActionBtns({Key? key, required this.themeService}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +68,10 @@ class _ImportExportBtns extends StatelessWidget {
         ExportBtn(
           key: const Key('homePage_exportBtn'),
           themeService: themeService,
+        ),
+        HorizontalPadding(),
+        UsageBtn(
+          key: const Key('homePage_usageBtn'),
         ),
       ],
     );
@@ -212,7 +226,10 @@ class _RandomAndResetBtns extends StatelessWidget {
                   context.read<AdvancedThemeCubit>().randomizedThemeRequested();
                 }
               },
-              icon: FaIcon(FontAwesomeIcons.random),
+              icon: FaIcon(
+                FontAwesomeIcons.random,
+                size: 20,
+              ),
             ),
             HorizontalPadding(),
             IconButton(
@@ -224,7 +241,10 @@ class _RandomAndResetBtns extends StatelessWidget {
                   context.read<AdvancedThemeCubit>().defaultThemeRequested();
                 }
               },
-              icon: FaIcon(FontAwesomeIcons.redo),
+              icon: FaIcon(
+                FontAwesomeIcons.redo,
+                size: 20,
+              ),
             ),
           ],
         );

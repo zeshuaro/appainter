@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ndialog/ndialog.dart';
 
 class ImportBtn extends StatelessWidget {
@@ -14,9 +15,10 @@ class ImportBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton.icon(
       onPressed: () => _onPressed(context),
-      icon: Icon(
-        Icons.upload,
+      icon: FaIcon(
+        FontAwesomeIcons.upload,
         color: Colors.white,
+        size: 20,
       ),
       label: Text(
         'Import',

@@ -40,4 +40,4 @@ Flutter Theme allows you to export your generated theme as a `json` file using [
     );
     ```
 
-For a complete example app using the generated `json` theme file, see the app under the `example/` folder.
+For a complete example app using the generated `json` theme file, see the app under the [example](https://github.com/zeshuaro/flutter_theme/tree/main/example) folder.

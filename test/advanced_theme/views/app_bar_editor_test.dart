@@ -34,21 +34,33 @@ void main() {
     expect(find.byType(AppBarEditor), findsOneWidget);
   });
 
+  Future<void> _pumpApp(WidgetTester tester, AdvancedThemeState state) async {
+    whenListen(
+      cubit,
+      Stream.fromIterable([AdvancedThemeState(), state]),
+    );
+
+    await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+  }
+
   testWidgets(
     'color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final appBarTheme = AppBarTheme(color: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(appBarTheme: appBarTheme)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          appBarTheme: AppBarTheme(color: color),
+        ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'appbarEditor_colorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -56,17 +68,20 @@ void main() {
     'shadow color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final appBarTheme = AppBarTheme(shadowColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(appBarTheme: appBarTheme)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          appBarTheme: AppBarTheme(shadowColor: color),
+        ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'appbarEditor_shadowColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -74,17 +89,25 @@ void main() {
     testWidgets(
       'brightness should be toggled to ${test.isDark}',
       (tester) async {
-        final appBarTheme = AppBarTheme(brightness: test.brightness);
-        when(() => cubit.state).thenReturn(
-          AdvancedThemeState(themeData: ThemeData(appBarTheme: appBarTheme)),
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            appBarTheme: AppBarTheme(brightness: test.brightness),
+          ),
         );
 
-        await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+        await _pumpApp(tester, state);
+
         await widgetTesters.checkSwitch(
           tester,
           'appbarEditor_brightnessSwitch',
           test.isDark,
         );
+        final expectedState = AdvancedThemeState(
+          themeData: ThemeData(
+            appBarTheme: AppBarTheme(brightness: test.brightnessComplement),
+          ),
+        );
+        verify(() => cubit.emit(expectedState)).called(1);
       },
     );
   }
@@ -93,17 +116,26 @@ void main() {
     testWidgets(
       'center title should be toggled to $isCenter',
       (tester) async {
-        final appBarTheme = AppBarTheme(centerTitle: isCenter);
-        when(() => cubit.state).thenReturn(
-          AdvancedThemeState(themeData: ThemeData(appBarTheme: appBarTheme)),
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            appBarTheme: AppBarTheme(centerTitle: isCenter),
+          ),
         );
 
-        await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+        await _pumpApp(tester, state);
+
         await widgetTesters.checkSwitch(
           tester,
           'appbarEditor_centerTitleSwitch',
           isCenter,
         );
+
+        final expectedState = AdvancedThemeState(
+          themeData: ThemeData(
+            appBarTheme: AppBarTheme(centerTitle: !isCenter),
+          ),
+        );
+        verify(() => cubit.emit(expectedState)).called(1);
       },
     );
   }
@@ -112,17 +144,20 @@ void main() {
     'elevation should update with value',
     (tester) async {
       final value = Random().nextDouble();
-      final appBarTheme = AppBarTheme(elevation: value);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(appBarTheme: appBarTheme)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          appBarTheme: AppBarTheme(elevation: value),
+        ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkTextField(
         tester,
         'appbarEditor_elevationTextField',
         value,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -130,17 +165,20 @@ void main() {
     'title spacing should update with value',
     (tester) async {
       final value = Random().nextDouble();
-      final appBarTheme = AppBarTheme(titleSpacing: value);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(appBarTheme: appBarTheme)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          appBarTheme: AppBarTheme(titleSpacing: value),
+        ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkTextField(
         tester,
         'appbarEditor_titleSpacingTextField',
         value,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 }

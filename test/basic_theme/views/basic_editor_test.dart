@@ -28,6 +28,18 @@ void main() {
     when(() => cubit.state).thenReturn(BasicThemeState());
   });
 
+  Future<void> _pumpApp(WidgetTester tester, ColorScheme colorScheme) async {
+    whenListen(
+      cubit,
+      Stream.fromIterable([
+        BasicThemeState(),
+        BasicThemeState(colorScheme: colorScheme),
+      ]),
+    );
+
+    await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
+  }
+
   testWidgets('displays BasicEditor', (tester) async {
     await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
     expect(find.byType(BasicEditor), findsOneWidget);
@@ -44,7 +56,7 @@ void main() {
         final colorScheme = ColorScheme.light(primary: color);
 
         // When
-        await _pumpApp(tester, cubit, colorScheme);
+        await _pumpApp(tester, colorScheme);
 
         // Then
         await widgetTesters.checkColorPicker(tester, key, color);
@@ -60,7 +72,7 @@ void main() {
           final colorScheme = ColorScheme.light(onPrimary: test.color);
 
           // When
-          await _pumpApp(tester, cubit, colorScheme);
+          await _pumpApp(tester, colorScheme);
 
           // Then
           await widgetTesters.checkSwitch(tester, key, test.isDark);
@@ -81,7 +93,7 @@ void main() {
         final colorScheme = ColorScheme.light(primaryVariant: color);
 
         // When
-        await _pumpApp(tester, cubit, colorScheme);
+        await _pumpApp(tester, colorScheme);
 
         // Then
         await widgetTesters.checkColorPicker(
@@ -105,7 +117,7 @@ void main() {
         final colorScheme = ColorScheme.light(secondary: color);
 
         // When
-        await _pumpApp(tester, cubit, colorScheme);
+        await _pumpApp(tester, colorScheme);
 
         // Then
         await widgetTesters.checkColorPicker(tester, key, color);
@@ -121,7 +133,7 @@ void main() {
           final colorScheme = ColorScheme.light(onSecondary: test.color);
 
           // When
-          await _pumpApp(tester, cubit, colorScheme);
+          await _pumpApp(tester, colorScheme);
 
           // Then
           await widgetTesters.checkSwitch(tester, key, test.isDark);
@@ -142,7 +154,7 @@ void main() {
         final colorScheme = ColorScheme.light(secondaryVariant: color);
 
         // When
-        await _pumpApp(tester, cubit, colorScheme);
+        await _pumpApp(tester, colorScheme);
 
         // Then
         await widgetTesters.checkColorPicker(
@@ -166,7 +178,7 @@ void main() {
         final colorScheme = ColorScheme.light(surface: color);
 
         // When
-        await _pumpApp(tester, cubit, colorScheme);
+        await _pumpApp(tester, colorScheme);
 
         // Then
         await widgetTesters.checkColorPicker(tester, key, color);
@@ -182,7 +194,7 @@ void main() {
           final colorScheme = ColorScheme.light(onSurface: test.color);
 
           // When
-          await _pumpApp(tester, cubit, colorScheme);
+          await _pumpApp(tester, colorScheme);
 
           // Then
           await widgetTesters.checkSwitch(tester, key, test.isDark);
@@ -205,7 +217,7 @@ void main() {
         final colorScheme = ColorScheme.light(background: color);
 
         // When
-        await _pumpApp(tester, cubit, colorScheme);
+        await _pumpApp(tester, colorScheme);
 
         // Then
         await widgetTesters.checkColorPicker(tester, key, color);
@@ -221,7 +233,7 @@ void main() {
           final colorScheme = ColorScheme.light(onBackground: test.color);
 
           // When
-          await _pumpApp(tester, cubit, colorScheme);
+          await _pumpApp(tester, colorScheme);
 
           // Then
           await widgetTesters.checkSwitch(tester, key, test.isDark);
@@ -244,7 +256,7 @@ void main() {
         final colorScheme = ColorScheme.light(error: color);
 
         // When
-        await _pumpApp(tester, cubit, colorScheme);
+        await _pumpApp(tester, colorScheme);
 
         // Then
         await widgetTesters.checkColorPicker(tester, key, color);
@@ -260,7 +272,7 @@ void main() {
           final colorScheme = ColorScheme.light(onError: test.color);
 
           // When
-          await _pumpApp(tester, cubit, colorScheme);
+          await _pumpApp(tester, colorScheme);
 
           // Then
           await widgetTesters.checkSwitch(tester, key, test.isDark);
@@ -271,20 +283,4 @@ void main() {
       );
     }
   });
-}
-
-Future<void> _pumpApp(
-  WidgetTester tester,
-  BasicThemeCubit cubit,
-  ColorScheme colorScheme,
-) async {
-  whenListen(
-    cubit,
-    Stream.fromIterable([
-      BasicThemeState(),
-      BasicThemeState(colorScheme: colorScheme),
-    ]),
-  );
-
-  await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
 }

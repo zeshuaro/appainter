@@ -28,6 +28,17 @@ class FakeBasicThemeState extends Fake implements BasicThemeState {}
 
 class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
 
+mixin DiagnosticableToStringMixin on Object {
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return super.toString();
+  }
+}
+
+class FakeThemeData extends Fake
+    with DiagnosticableToStringMixin
+    implements ThemeData {}
+
 void main() {
   late HomeCubit homeCubit;
   late BasicThemeCubit basicThemeCubit;
@@ -38,7 +49,7 @@ void main() {
     registerFallbackValue<HomeState>(FakeHomeState());
     registerFallbackValue<BasicThemeState>(FakeBasicThemeState());
     registerFallbackValue<AdvancedThemeState>(FakeAdvancedThemeState());
-    registerFallbackValue<ThemeData>(ThemeData());
+    registerFallbackValue<ThemeData>(FakeThemeData());
   });
 
   setUp(() {
@@ -53,13 +64,19 @@ void main() {
     when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
   });
 
-  testWidgets('displays HomePage', (tester) async {
+  Future<void> _pumpApp(WidgetTester tester) async {
     await tester.pumpApp(
-      HomePage(),
+      HomePage(
+        themeService: themeService,
+      ),
       homeCubit: homeCubit,
       basicThemeCubit: basicThemeCubit,
       advancedThemeCubit: advancedThemeCubit,
     );
+  }
+
+  testWidgets('displays HomePage', (tester) async {
+    await _pumpApp(tester);
 
     expect(find.byType(HomePage), findsOneWidget);
     expect(find.byType(BasicEditor), findsOneWidget);
@@ -71,14 +88,10 @@ void main() {
       testWidgets(
         'editor should change to $mode',
         (tester) async {
-          when(() => homeCubit.state).thenReturn(HomeState(editMode: mode));
+          final state = HomeState(editMode: mode);
+          whenListen(homeCubit, Stream.fromIterable([HomeState(), state]));
 
-          await tester.pumpApp(
-            HomePage(),
-            homeCubit: homeCubit,
-            basicThemeCubit: basicThemeCubit,
-            advancedThemeCubit: advancedThemeCubit,
-          );
+          await _pumpApp(tester);
 
           final finder = find.text(UtilService.enumToString(mode));
           await tester.ensureVisible(finder);
@@ -104,12 +117,7 @@ void main() {
           return homeCubit.state;
         }).thenReturn(HomeState(editMode: EditMode.basic));
 
-        await tester.pumpApp(
-          HomePage(),
-          homeCubit: homeCubit,
-          basicThemeCubit: basicThemeCubit,
-          advancedThemeCubit: advancedThemeCubit,
-        );
+        await _pumpApp(tester);
 
         final finder = find.byKey(const Key('homePage_randomizeThemeButton'));
         await tester.ensureVisible(finder);
@@ -127,12 +135,7 @@ void main() {
           return homeCubit.state;
         }).thenReturn(HomeState(editMode: EditMode.advanced));
 
-        await tester.pumpApp(
-          HomePage(),
-          homeCubit: homeCubit,
-          basicThemeCubit: basicThemeCubit,
-          advancedThemeCubit: advancedThemeCubit,
-        );
+        await _pumpApp(tester);
 
         final finder = find.byKey(
           const Key('homePage_randomizeThemeButton'),
@@ -154,12 +157,7 @@ void main() {
           return homeCubit.state;
         }).thenReturn(HomeState(editMode: EditMode.basic));
 
-        await tester.pumpApp(
-          HomePage(),
-          homeCubit: homeCubit,
-          basicThemeCubit: basicThemeCubit,
-          advancedThemeCubit: advancedThemeCubit,
-        );
+        await _pumpApp(tester);
 
         final finder = find.byKey(const Key('homePage_resetThemeButton'));
         await tester.ensureVisible(finder);
@@ -177,12 +175,7 @@ void main() {
           return homeCubit.state;
         }).thenReturn(HomeState(editMode: EditMode.advanced));
 
-        await tester.pumpApp(
-          HomePage(),
-          homeCubit: homeCubit,
-          basicThemeCubit: basicThemeCubit,
-          advancedThemeCubit: advancedThemeCubit,
-        );
+        await _pumpApp(tester);
 
         final finder = find.byKey(const Key('homePage_resetThemeButton'));
         await tester.ensureVisible(finder);
@@ -204,14 +197,7 @@ void main() {
         when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
         when(() => themeService.export(any())).thenAnswer((_) async => {});
 
-        await tester.pumpApp(
-          HomePage(
-            themeService: themeService,
-          ),
-          homeCubit: homeCubit,
-          basicThemeCubit: basicThemeCubit,
-          advancedThemeCubit: advancedThemeCubit,
-        );
+        await _pumpApp(tester);
 
         final finder = find.byKey(Key('homePage_exportBtn'));
         await tester.ensureVisible(finder);
@@ -232,14 +218,7 @@ void main() {
         when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
         when(() => themeService.export(any())).thenAnswer((_) async => {});
 
-        await tester.pumpApp(
-          HomePage(
-            themeService: themeService,
-          ),
-          homeCubit: homeCubit,
-          basicThemeCubit: basicThemeCubit,
-          advancedThemeCubit: advancedThemeCubit,
-        );
+        await _pumpApp(tester);
 
         final finder = find.byKey(Key('homePage_exportBtn'));
         await tester.ensureVisible(finder);
@@ -261,14 +240,7 @@ void main() {
       );
       when(() => themeService.import()).thenAnswer((_) async => theme);
 
-      await tester.pumpApp(
-        HomePage(
-          themeService: themeService,
-        ),
-        homeCubit: homeCubit,
-        basicThemeCubit: basicThemeCubit,
-        advancedThemeCubit: advancedThemeCubit,
-      );
+      await _pumpApp(tester);
 
       final finder = find.byKey(Key('homePage_importBtn'));
       await tester.ensureVisible(finder);
@@ -289,14 +261,7 @@ void main() {
           HomeState(themeUsage: ThemeUsage(usageData)),
         );
 
-        await tester.pumpApp(
-          HomePage(
-            themeService: themeService,
-          ),
-          homeCubit: homeCubit,
-          basicThemeCubit: basicThemeCubit,
-          advancedThemeCubit: advancedThemeCubit,
-        );
+        await _pumpApp(tester);
 
         final finder = find.byKey(Key('homePage_usageBtn'));
         await tester.ensureVisible(finder);
@@ -319,14 +284,7 @@ void main() {
           HomeState(themeUsage: ThemeUsage()),
         );
 
-        await tester.pumpApp(
-          HomePage(
-            themeService: themeService,
-          ),
-          homeCubit: homeCubit,
-          basicThemeCubit: basicThemeCubit,
-          advancedThemeCubit: advancedThemeCubit,
-        );
+        await _pumpApp(tester);
 
         final finder = find.byKey(Key('homePage_usageBtn'));
         await tester.ensureVisible(finder);
@@ -342,14 +300,7 @@ void main() {
       (tester) async {
         when(() => homeCubit.state).thenReturn(HomeState(themeUsage: null));
 
-        await tester.pumpApp(
-          HomePage(
-            themeService: themeService,
-          ),
-          homeCubit: homeCubit,
-          basicThemeCubit: basicThemeCubit,
-          advancedThemeCubit: advancedThemeCubit,
-        );
+        await _pumpApp(tester);
 
         final finder = find.byKey(Key('homePage_usageBtn'));
         await tester.ensureVisible(finder);
@@ -363,14 +314,7 @@ void main() {
     testWidgets(
       'should close usage dialog with close button',
       (tester) async {
-        await tester.pumpApp(
-          HomePage(
-            themeService: themeService,
-          ),
-          homeCubit: homeCubit,
-          basicThemeCubit: basicThemeCubit,
-          advancedThemeCubit: advancedThemeCubit,
-        );
+        await _pumpApp(tester);
 
         final usageBtn = find.byKey(Key('homePage_usageBtn'));
         await tester.ensureVisible(usageBtn);

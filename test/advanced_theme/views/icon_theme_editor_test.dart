@@ -28,6 +28,15 @@ void main() {
     when(() => cubit.state).thenReturn(AdvancedThemeState());
   });
 
+  Future<void> _pumpApp(WidgetTester tester, AdvancedThemeState state) async {
+    whenListen(
+      cubit,
+      Stream.fromIterable([AdvancedThemeState(), state]),
+    );
+
+    await tester.pumpApp(IconThemeEditor(), advancedThemeCubit: cubit);
+  }
+
   testWidgets('displays IconThemeEditor', (tester) async {
     await tester.pumpApp(IconThemeEditor(), advancedThemeCubit: cubit);
     expect(find.byType(IconThemeEditor), findsOneWidget);
@@ -37,17 +46,20 @@ void main() {
     'color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final theme = IconThemeData(color: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(iconTheme: theme)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          iconTheme: IconThemeData(color: color),
+        ),
       );
 
-      await tester.pumpApp(IconThemeEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'iconThemeEditor_iconThemeCard',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -55,17 +67,20 @@ void main() {
     'size text field should update with value',
     (tester) async {
       final value = Random().nextDouble();
-      final theme = IconThemeData(size: value);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(iconTheme: theme)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          iconTheme: IconThemeData(size: value),
+        ),
       );
 
-      await tester.pumpApp(IconThemeEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkTextField(
         tester,
         'iconThemeCard_sizeTextField',
         value,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -73,17 +88,20 @@ void main() {
     'opacity text field should update with value',
     (tester) async {
       final value = Random().nextDouble();
-      final theme = IconThemeData(opacity: value);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(iconTheme: theme)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          iconTheme: IconThemeData(opacity: value),
+        ),
       );
 
-      await tester.pumpApp(IconThemeEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkTextField(
         tester,
         'iconThemeCard_opacityTextField',
         value,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 }

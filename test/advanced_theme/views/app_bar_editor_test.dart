@@ -29,19 +29,19 @@ void main() {
     when(() => cubit.state).thenReturn(AdvancedThemeState());
   });
 
-  testWidgets('displays AppBarEditor', (tester) async {
-    await tester.pumpApp(AppBarEditor(), advancedThemeCubit: cubit);
-    expect(find.byType(AppBarEditor), findsOneWidget);
-  });
-
   Future<void> _pumpApp(WidgetTester tester, AdvancedThemeState state) async {
     whenListen(
       cubit,
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(AppBarEditor(), advancedThemeCubit: cubit);
   }
+
+  testWidgets('displays AppBarEditor', (tester) async {
+    await tester.pumpApp(AppBarEditor(), advancedThemeCubit: cubit);
+    expect(find.byType(AppBarEditor), findsOneWidget);
+  });
 
   testWidgets(
     'color picker should update with selected color',

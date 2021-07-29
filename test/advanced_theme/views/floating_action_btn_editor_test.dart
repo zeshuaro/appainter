@@ -27,6 +27,15 @@ Future<void> main() async {
     when(() => cubit.state).thenReturn(AdvancedThemeState());
   });
 
+  Future<void> _pumpApp(WidgetTester tester, AdvancedThemeState state) async {
+    whenListen(
+      cubit,
+      Stream.fromIterable([AdvancedThemeState(), state]),
+    );
+
+    await tester.pumpApp(FloatingActionBtnEditor(), advancedThemeCubit: cubit);
+  }
+
   testWidgets('displays FloatingActionBtnEditor', (tester) async {
     await tester.pumpApp(FloatingActionBtnEditor(), advancedThemeCubit: cubit);
     expect(find.byType(FloatingActionBtnEditor), findsOneWidget);
@@ -36,19 +45,22 @@ Future<void> main() async {
     'background color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final theme = FloatingActionButtonThemeData(backgroundColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(floatingActionButtonTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: color,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await _widgetTesters.checkColorPicker(
         tester,
         'floatingActionBtnEditor_bgColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -56,19 +68,22 @@ Future<void> main() async {
     'foregound color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final theme = FloatingActionButtonThemeData(foregroundColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(floatingActionButtonTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            foregroundColor: color,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await _widgetTesters.checkColorPicker(
         tester,
         'floatingActionBtnEditor_fgColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -76,19 +91,22 @@ Future<void> main() async {
     'focus color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final theme = FloatingActionButtonThemeData(focusColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(floatingActionButtonTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            focusColor: color,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await _widgetTesters.checkColorPicker(
         tester,
         'floatingActionBtnEditor_focusColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -96,19 +114,22 @@ Future<void> main() async {
     'hover color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final theme = FloatingActionButtonThemeData(hoverColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(floatingActionButtonTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            hoverColor: color,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await _widgetTesters.checkColorPicker(
         tester,
         'floatingActionBtnEditor_hoverColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -116,19 +137,22 @@ Future<void> main() async {
     'splash color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final theme = FloatingActionButtonThemeData(splashColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(floatingActionButtonTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            splashColor: color,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await _widgetTesters.checkColorPicker(
         tester,
         'floatingActionBtnEditor_splashColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -136,19 +160,22 @@ Future<void> main() async {
     'elevation should update with value',
     (tester) async {
       final value = Random().nextDouble();
-      final theme = FloatingActionButtonThemeData(elevation: value);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(floatingActionButtonTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            elevation: value,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await _widgetTesters.checkTextField(
         tester,
         'floatingActionBtnEditor_elevationTextField',
         value,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -156,19 +183,22 @@ Future<void> main() async {
     'disabled elevation should update with value',
     (tester) async {
       final value = Random().nextDouble();
-      final theme = FloatingActionButtonThemeData(disabledElevation: value);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(floatingActionButtonTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            disabledElevation: value,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await _widgetTesters.checkTextField(
         tester,
         'floatingActionBtnEditor_disabledElevationTextField',
         value,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -176,19 +206,22 @@ Future<void> main() async {
     'focus elevation should update with value',
     (tester) async {
       final value = Random().nextDouble();
-      final theme = FloatingActionButtonThemeData(focusElevation: value);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(floatingActionButtonTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            focusElevation: value,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await _widgetTesters.checkTextField(
         tester,
         'floatingActionBtnEditor_focusElevationTextField',
         value,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -196,19 +229,22 @@ Future<void> main() async {
     'highlight elevation should update with value',
     (tester) async {
       final value = Random().nextDouble();
-      final theme = FloatingActionButtonThemeData(highlightElevation: value);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(floatingActionButtonTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            highlightElevation: value,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await _widgetTesters.checkTextField(
         tester,
         'floatingActionBtnEditor_highlightElevationTextField',
         value,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -216,19 +252,22 @@ Future<void> main() async {
     'hover elevation should update with value',
     (tester) async {
       final value = Random().nextDouble();
-      final theme = FloatingActionButtonThemeData(hoverElevation: value);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(floatingActionButtonTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            hoverElevation: value,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await _widgetTesters.checkTextField(
         tester,
         'floatingActionBtnEditor_hoverElevationTextField',
         value,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 }

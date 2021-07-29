@@ -26,6 +26,15 @@ void main() {
     when(() => cubit.state).thenReturn(AdvancedThemeState());
   });
 
+  Future<void> _pumpApp(WidgetTester tester, AdvancedThemeState state) async {
+    whenListen(
+      cubit,
+      Stream.fromIterable([AdvancedThemeState(), state]),
+    );
+
+    await tester.pumpApp(TabBarEditor(), advancedThemeCubit: cubit);
+  }
+
   testWidgets('displays TabBarEditor', (tester) async {
     await tester.pumpApp(TabBarEditor(), advancedThemeCubit: cubit);
     expect(find.byType(TabBarEditor), findsOneWidget);
@@ -35,17 +44,20 @@ void main() {
     'label color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final tabBarTheme = TabBarTheme(labelColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(tabBarTheme: tabBarTheme)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          tabBarTheme: TabBarTheme(labelColor: color),
+        ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'tabBarEditor_labelColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -53,17 +65,20 @@ void main() {
     'unselected label color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final tabBarTheme = TabBarTheme(unselectedLabelColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(tabBarTheme: tabBarTheme)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          tabBarTheme: TabBarTheme(unselectedLabelColor: color),
+        ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'tabBarEditor_unselectedLabelColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 }

@@ -26,6 +26,15 @@ void main() {
     when(() => cubit.state).thenReturn(AdvancedThemeState());
   });
 
+  Future<void> _pumpApp(WidgetTester tester, AdvancedThemeState state) async {
+    whenListen(
+      cubit,
+      Stream.fromIterable([AdvancedThemeState(), state]),
+    );
+
+    await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+  }
+
   testWidgets('displays ColorEditor', (tester) async {
     await tester.pumpApp(ColorEditor(), advancedThemeCubit: cubit);
     expect(find.byType(ColorEditor), findsOneWidget);
@@ -35,16 +44,18 @@ void main() {
     'primary color light picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(primaryColorLight: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(primaryColorLight: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_primaryColorLightPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -52,16 +63,18 @@ void main() {
     'primary color dark picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(primaryColorDark: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(primaryColorDark: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_primaryColorDarkPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -69,16 +82,18 @@ void main() {
     'background color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(backgroundColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(backgroundColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_backgroundColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -86,16 +101,18 @@ void main() {
     'bottom app bar color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(bottomAppBarColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(bottomAppBarColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_bottomAppBarColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -103,16 +120,18 @@ void main() {
     'canvas color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(canvasColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(canvasColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_canvasColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -120,16 +139,18 @@ void main() {
     'card color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(cardColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(cardColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_cardColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -137,16 +158,18 @@ void main() {
     'dialog background color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(dialogBackgroundColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(dialogBackgroundColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_dialogBackgroundColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -154,16 +177,18 @@ void main() {
     'disabled color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(disabledColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(disabledColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_disabledColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -171,16 +196,18 @@ void main() {
     'divider color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(dividerColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(dividerColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_dividerColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -188,16 +215,18 @@ void main() {
     'error color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(errorColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(errorColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_errorColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -205,16 +234,18 @@ void main() {
     'focus color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(focusColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(focusColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_focusColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -222,16 +253,18 @@ void main() {
     'highlight color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(highlightColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(highlightColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_highlightColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -239,16 +272,18 @@ void main() {
     'hint color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(hintColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(hintColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_hintColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -256,16 +291,18 @@ void main() {
     'hover color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(hoverColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(hoverColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_hoverColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -273,16 +310,18 @@ void main() {
     'indicator color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(indicatorColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(indicatorColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_indicatorColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -290,18 +329,18 @@ void main() {
     'scaffold background color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(scaffoldBackgroundColor: color),
-        ),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(scaffoldBackgroundColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_scaffoldBackgroundColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -309,16 +348,18 @@ void main() {
     'secondary header color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(secondaryHeaderColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(secondaryHeaderColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_secondaryHeaderColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -326,16 +367,18 @@ void main() {
     'selected row color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(selectedRowColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(selectedRowColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_selectedRowColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -343,16 +386,18 @@ void main() {
     'shadow color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(shadowColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(shadowColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_shadowColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -360,16 +405,18 @@ void main() {
     'splash color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(splashColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(splashColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_splashColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -377,16 +424,18 @@ void main() {
     'toggleable active color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(toggleableActiveColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(toggleableActiveColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_toggleableActiveColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -394,16 +443,18 @@ void main() {
     'unselected widget color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(themeData: ThemeData(unselectedWidgetColor: color)),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(unselectedWidgetColor: color),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'colorEditor_unselectedWidgetColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 }

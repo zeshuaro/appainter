@@ -28,6 +28,15 @@ void main() {
     when(() => cubit.state).thenReturn(AdvancedThemeState());
   });
 
+  Future<void> _pumpApp(WidgetTester tester, AdvancedThemeState state) async {
+    whenListen(
+      cubit,
+      Stream.fromIterable([AdvancedThemeState(), state]),
+    );
+
+    await tester.pumpApp(BottomNavBarEditor(), advancedThemeCubit: cubit);
+  }
+
   testWidgets('displays BottomNavBarEditor', (tester) async {
     await tester.pumpApp(BottomNavBarEditor(), advancedThemeCubit: cubit);
     expect(find.byType(BottomNavBarEditor), findsOneWidget);
@@ -37,19 +46,22 @@ void main() {
     'background color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final theme = BottomNavigationBarThemeData(backgroundColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(bottomNavigationBarTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            backgroundColor: color,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'bottomNavBarEditor_bgColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -57,19 +69,22 @@ void main() {
     'selected item color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final theme = BottomNavigationBarThemeData(selectedItemColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(bottomNavigationBarTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            selectedItemColor: color,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'bottomNavBarEditor_selectedItemColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -77,19 +92,22 @@ void main() {
     'unselected item color picker should update with selected color',
     (tester) async {
       final color = getRandomColor();
-      final theme = BottomNavigationBarThemeData(unselectedItemColor: color);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(bottomNavigationBarTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            unselectedItemColor: color,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkColorPicker(
         tester,
         'bottomNavBarEditor_unselectedItemColorPicker',
         color,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 
@@ -97,40 +115,59 @@ void main() {
     testWidgets(
       'show selected labels switch should be toggled with $isShow',
       (tester) async {
-        final theme = BottomNavigationBarThemeData(showSelectedLabels: isShow);
-        when(() => cubit.state).thenReturn(
-          AdvancedThemeState(
-            themeData: ThemeData(bottomNavigationBarTheme: theme),
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              showSelectedLabels: isShow,
+            ),
           ),
         );
 
-        await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+        await _pumpApp(tester, state);
+
         await widgetTesters.checkSwitch(
           tester,
           'bottomNavBarEditor_showSelectedLabelsSwitch',
           isShow,
         );
+
+        final expectedState = AdvancedThemeState(
+          themeData: ThemeData(
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              showSelectedLabels: !isShow,
+            ),
+          ),
+        );
+        verify(() => cubit.emit(expectedState)).called(1);
       },
     );
 
     testWidgets(
       'show unselected labels switch should be toggled with $isShow',
       (tester) async {
-        final theme = BottomNavigationBarThemeData(
-          showUnselectedLabels: isShow,
-        );
-        when(() => cubit.state).thenReturn(
-          AdvancedThemeState(
-            themeData: ThemeData(bottomNavigationBarTheme: theme),
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              showUnselectedLabels: isShow,
+            ),
           ),
         );
 
-        await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+        await _pumpApp(tester, state);
+
         await widgetTesters.checkSwitch(
           tester,
           'bottomNavBarEditor_showUnselectedLabelsSwitch',
           isShow,
         );
+        final expectedState = AdvancedThemeState(
+          themeData: ThemeData(
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              showUnselectedLabels: !isShow,
+            ),
+          ),
+        );
+        verify(() => cubit.emit(expectedState)).called(1);
       },
     );
   }
@@ -139,19 +176,22 @@ void main() {
     'elevation text field should update with value',
     (tester) async {
       final value = Random().nextDouble();
-      final theme = BottomNavigationBarThemeData(elevation: value);
-      when(() => cubit.state).thenReturn(
-        AdvancedThemeState(
-          themeData: ThemeData(bottomNavigationBarTheme: theme),
+      final state = AdvancedThemeState(
+        themeData: ThemeData(
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            elevation: value,
+          ),
         ),
       );
 
-      await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+      await _pumpApp(tester, state);
+
       await widgetTesters.checkTextField(
         tester,
         'bottomNavBarEditor_elevationTextField',
         value,
       );
+      verify(() => cubit.emit(state)).called(1);
     },
   );
 }

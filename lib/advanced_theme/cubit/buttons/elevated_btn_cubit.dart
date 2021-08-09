@@ -26,7 +26,11 @@ extension ElevatedBtnCubit on AdvancedThemeCubit {
 
   void elevatedBtnOverlayColorChanged(Color color) {
     final overlayColor = MaterialStateProperty.resolveWith((states) {
-      if (states.any(kInteractiveStates.contains)) return color;
+      if (states.contains(MaterialState.hovered))
+        return color.withOpacity(0.08);
+      if (states.contains(MaterialState.focused) ||
+          states.contains(MaterialState.pressed))
+        return color.withOpacity(0.24);
       return null;
     });
     final style = _getElevatedBtnStyle().copyWith(overlayColor: overlayColor);
@@ -78,7 +82,6 @@ extension ElevatedBtnCubit on AdvancedThemeCubit {
       final size =
           _getElevatedBtnStyle().minimumSize?.resolve(kInteractiveStates) ??
               kBtnMinSize;
-      print(size);
       final style = _getElevatedBtnStyle().copyWith(
         minimumSize: MaterialStateProperty.all(Size(size.width, height)),
       );

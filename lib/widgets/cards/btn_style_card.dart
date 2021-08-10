@@ -8,8 +8,8 @@ import 'expandable_card.dart';
 class BtnStyleCard extends StatelessWidget {
   final String header;
 
-  final Color? bgColor;
-  final ValueChanged<Color>? onBgColorChanged;
+  final Color bgColor;
+  final ValueChanged<Color> onBgColorChanged;
 
   final Color fgColor;
   final ValueChanged<Color> onFgColorChanged;
@@ -32,8 +32,8 @@ class BtnStyleCard extends StatelessWidget {
   const BtnStyleCard({
     Key? key,
     required this.header,
-    this.bgColor,
-    this.onBgColorChanged,
+    required this.bgColor,
+    required this.onBgColorChanged,
     required this.fgColor,
     required this.onFgColorChanged,
     required this.overlayColor,
@@ -55,23 +55,26 @@ class BtnStyleCard extends StatelessWidget {
       children: [
         SideBySideList(
           children: [
-            if (bgColor != null && onBgColorChanged != null)
-              ColorListTile(
-                title: 'Background Color',
-                color: bgColor!,
-                onColorChanged: onBgColorChanged!,
-              ),
             ColorListTile(
+              key: const Key('bgColorPicker'),
+              title: 'Background Color',
+              color: bgColor,
+              onColorChanged: onBgColorChanged,
+            ),
+            ColorListTile(
+              key: const Key('fgColorPicker'),
               title: 'Foreground Color',
               color: fgColor,
               onColorChanged: onFgColorChanged,
             ),
             ColorListTile(
+              key: const Key('overlayColorPicker'),
               title: 'Overlay Color',
               color: overlayColor,
               onColorChanged: onOverlayColorChanged,
             ),
             ColorListTile(
+              key: const Key('shadowColorPicker'),
               title: 'Shadow Color',
               color: shadowColor,
               onColorChanged: onShadowColorChanged,
@@ -87,6 +90,7 @@ class BtnStyleCard extends StatelessWidget {
             //   initialValue: minHeight.toString(),
             // ),
             MyTextFormField(
+              key: const Key('elevationTextField'),
               labelText: 'Elevation',
               onChanged: onElevationChanged,
               initialValue: elevation.toString(),

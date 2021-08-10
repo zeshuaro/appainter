@@ -17,6 +17,11 @@ class TextBtnEditor extends StatelessWidget {
         final style = state.themeData.textButtonTheme.style;
         return BtnStyleCard(
           header: 'Text Button',
+          bgColor: style?.backgroundColor?.resolve(kFocusState) ??
+              Colors.transparent,
+          onBgColorChanged: (color) {
+            context.read<AdvancedThemeCubit>().textBtnBgColorChanged(color);
+          },
           fgColor: style?.foregroundColor?.resolve(kFocusState) ??
               state.themeData.colorScheme.primary,
           onFgColorChanged: (color) {

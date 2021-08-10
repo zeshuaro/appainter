@@ -4,6 +4,13 @@ import 'package:flutter_theme/common/common.dart';
 import '../advanced_theme_cubit.dart';
 
 extension TextBtnCubit on AdvancedThemeCubit {
+  void textBtnBgColorChanged(Color color) {
+    final style = _getTextBtnStyle().copyWith(
+      backgroundColor: MaterialStateProperty.all(color),
+    );
+    _emitStateWithtextBtnStyle(style);
+  }
+
   void textBtnFgColorChanged(Color color) {
     final fgColor = MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.disabled))
@@ -16,7 +23,11 @@ extension TextBtnCubit on AdvancedThemeCubit {
 
   void textBtnOverlayColorChanged(Color color) {
     final overlayColor = MaterialStateProperty.resolveWith((states) {
-      if (states.any(kInteractiveStates.contains)) return color;
+      if (states.contains(MaterialState.hovered))
+        return color.withOpacity(0.04);
+      if (states.contains(MaterialState.focused) ||
+          states.contains(MaterialState.pressed))
+        return color.withOpacity(0.12);
       return null;
     });
     final style = _getTextBtnStyle().copyWith(overlayColor: overlayColor);
@@ -33,11 +44,8 @@ extension TextBtnCubit on AdvancedThemeCubit {
   void textBtnElevationChanged(String value) {
     final elevation = double.tryParse(value);
     if (elevation != null) {
-      final elevationProperty = MaterialStateProperty.resolveWith<double>(
-        (_) => elevation,
-      );
       final style = _getTextBtnStyle().copyWith(
-        elevation: elevationProperty,
+        elevation: MaterialStateProperty.all(elevation),
       );
       _emitStateWithtextBtnStyle(style);
     }
@@ -62,7 +70,6 @@ extension TextBtnCubit on AdvancedThemeCubit {
       final size =
           _getTextBtnStyle().minimumSize?.resolve(kInteractiveStates) ??
               kBtnMinSize;
-      print(size);
       final style = _getTextBtnStyle().copyWith(
         minimumSize: MaterialStateProperty.all(Size(size.width, height)),
       );

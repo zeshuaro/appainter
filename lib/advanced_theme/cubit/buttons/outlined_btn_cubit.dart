@@ -5,12 +5,9 @@ import '../advanced_theme_cubit.dart';
 
 extension OutlinedBtnCubit on AdvancedThemeCubit {
   void outlinedBtnBgColorChanged(Color color) {
-    final bgColor = MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled))
-        return state.themeData.colorScheme.onSurface.withOpacity(0.12);
-      return color;
-    });
-    final style = _getOutlinedBtnStyle().copyWith(backgroundColor: bgColor);
+    final style = _getOutlinedBtnStyle().copyWith(
+      backgroundColor: MaterialStateProperty.all(color),
+    );
     _emitStateWithoutlinedBtnStyle(style);
   }
 
@@ -26,7 +23,11 @@ extension OutlinedBtnCubit on AdvancedThemeCubit {
 
   void outlinedBtnOverlayColorChanged(Color color) {
     final overlayColor = MaterialStateProperty.resolveWith((states) {
-      if (states.any(kInteractiveStates.contains)) return color;
+      if (states.contains(MaterialState.hovered))
+        return color.withOpacity(0.04);
+      if (states.contains(MaterialState.focused) ||
+          states.contains(MaterialState.pressed))
+        return color.withOpacity(0.12);
       return null;
     });
     final style = _getOutlinedBtnStyle().copyWith(overlayColor: overlayColor);
@@ -72,7 +73,6 @@ extension OutlinedBtnCubit on AdvancedThemeCubit {
       final size =
           _getOutlinedBtnStyle().minimumSize?.resolve(kInteractiveStates) ??
               kBtnMinSize;
-      print(size);
       final style = _getOutlinedBtnStyle().copyWith(
         minimumSize: MaterialStateProperty.all(Size(size.width, height)),
       );

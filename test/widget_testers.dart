@@ -10,8 +10,9 @@ class WidgetTesters {
   Future<void> checkColorPicker(
     WidgetTester tester,
     String key,
-    Color color,
-  ) async {
+    Color color, {
+    Color? expectedColor,
+  }) async {
     await _expandWidget(tester, expandText);
 
     final parentWidget = await _findParentWidget(tester, key);
@@ -42,7 +43,9 @@ class WidgetTesters {
     final widget = find.descendant(
       of: parentWidget,
       matching: find.byWidgetPredicate((widget) {
-        return widget is ColorIndicator && widget.color == color;
+        return widget is ColorIndicator &&
+            ((expectedColor == null && widget.color == color) ||
+                (expectedColor != null && widget.color == expectedColor));
       }),
     );
     expect(widget, findsOneWidget);

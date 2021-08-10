@@ -41,7 +41,7 @@ jobs:
           flutter pub run remove_from_coverage -f coverage/lcov.info -r '\.g\.dart$'
 
       - name: Upload coverage report 📡
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v2.0.2
         with:
           fail_ci_if_error: true
 

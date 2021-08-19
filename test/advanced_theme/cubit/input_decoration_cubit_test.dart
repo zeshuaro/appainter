@@ -101,6 +101,23 @@ void main() {
     }
   });
 
+  group('inputDecorationFilledChanged', () {
+    for (var value in [true, false]) {
+      final theme = ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          filled: value,
+        ),
+      );
+
+      blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+        'emits input decoration is filled $value',
+        build: () => cubit,
+        act: (cubit) => cubit.inputDecorationFilledChanged(value),
+        expect: () => [AdvancedThemeState(themeData: theme)],
+      );
+    }
+  });
+
   group('inputDecorationIsCollapsedChanged', () {
     for (var value in [true, false]) {
       final theme = ThemeData(

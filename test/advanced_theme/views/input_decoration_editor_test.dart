@@ -250,7 +250,7 @@ void main() {
         'inputDecorationEditor_errorMaxLinesTextField',
         value,
       );
-      verify(() => cubit.emit(state)).called(1);
+      verify(() => cubit.emit(state)).called(greaterThanOrEqualTo(1));
     },
   );
 
@@ -271,7 +271,7 @@ void main() {
         'inputDecorationEditor_helperMaxLinesTextField',
         value,
       );
-      verify(() => cubit.emit(state)).called(1);
+      verify(() => cubit.emit(state)).called(greaterThanOrEqualTo(1));
     },
   );
 }

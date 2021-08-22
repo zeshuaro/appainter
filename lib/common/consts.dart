@@ -51,3 +51,7 @@ const kInteractiveStates = {
   MaterialState.focused,
 };
 const kFocusState = {MaterialState.focused};
+
+const kInputDecorationFillColor = Color(0x0A000000);
+const kInputDecorationErrorMaxLines = 1;
+const kInputDecorationHelperMaxLines = 1;

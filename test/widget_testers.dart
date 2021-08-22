@@ -75,7 +75,7 @@ class WidgetTesters {
   Future<void> checkTextField(
     WidgetTester tester,
     String key,
-    double value,
+    num value,
   ) async {
     final valueStr = value.toString();
     await _expandWidget(tester, expandText);

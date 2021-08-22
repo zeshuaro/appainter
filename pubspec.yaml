@@ -7,8 +7,6 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
   bloc: ^7.0.0
   copy_with_extension: ^2.0.0
   cupertino_icons: ^1.0.0
@@ -18,7 +16,9 @@ dependencies:
   equatable: ^2.0.0
   expandable: ^5.0.1
   file_picker_cross: ^4.4.2
-  flex_color_picker: ^2.0.0-nullsafety.4
+  flex_color_picker: ^2.1.2
+  flutter:
+    sdk: flutter
   flutter_bloc: ^7.0.0
   flutter_markdown: ^0.6.2
   font_awesome_flutter: ^9.1.0
@@ -31,11 +31,11 @@ dependencies:
   url_launcher: ^6.0.9
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   bloc_test: ^8.0.0
   build_runner: ^2.0.0
   copy_with_extension_gen: ^2.0.1
+  flutter_test:
+    sdk: flutter
   lint: ^1.5.3
   mocktail: ^0.1.2
   remove_from_coverage: ^2.0.0

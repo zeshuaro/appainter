@@ -5,3 +5,4 @@ export 'buttons/buttons.dart';
 export 'icon_theme_cubit.dart';
 export 'color_cubit.dart';
 export 'input_decoration_cubit.dart';
+export 'text_theme/text_theme.dart';

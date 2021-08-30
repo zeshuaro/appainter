@@ -41,7 +41,7 @@ jobs:
           flutter pub run remove_from_coverage -f coverage/lcov.info -r '\.g\.dart$'
 
       - name: Upload coverage report 📡
-        uses: codecov/codecov-action@v2.0.2
+        uses: codecov/codecov-action@v2.0.3
         with:
           fail_ci_if_error: true
 
@@ -109,7 +109,7 @@ jobs:
           sed -i "s/\"\/\",//g" build/web/flutter_service_worker.js
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
           folder: build/web

@@ -1,6 +1,11 @@
 {
   "extends": ["config:base"],
-  "ignorePaths": ["android/**", "ios/**"],
+  "ignorePaths": [
+    "android/**",
+    "ios/**",
+    "example/android/**",
+    "example/ios/**"
+  ],
   "labels": ["dependencies"],
   "semanticCommits": "enabled",
   "stabilityDays": 3,

@@ -1,6 +1,6 @@
 {
   "extends": ["config:base"],
-  "ignorePaths": ["**/Podfile", "**/gradle-wrapper.properties"],
+  "ignorePaths": ["android/**", "ios/**"],
   "labels": ["dependencies"],
   "semanticCommits": "enabled",
   "stabilityDays": 3,

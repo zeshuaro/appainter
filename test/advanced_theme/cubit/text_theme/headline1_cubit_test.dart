@@ -32,6 +32,22 @@ void main() {
     );
   });
 
+  group('headline1BackgroundColorChanged', () {
+    final color = getRandomColor();
+    final theme = ThemeData(
+      textTheme: TextTheme(
+        headline1: TextStyle(backgroundColor: color),
+      ),
+    );
+
+    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+      'should emit headline 1 background color changed',
+      build: () => cubit,
+      act: (cubit) => cubit.headline1BackgroundColorChanged(color),
+      expect: () => [AdvancedThemeState(themeData: theme)],
+    );
+  });
+
   group('headline1FontSizeChanged', () {
     final size = Random().nextDouble();
     final theme = ThemeData(

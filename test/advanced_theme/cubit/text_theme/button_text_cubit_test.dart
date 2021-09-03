@@ -32,6 +32,22 @@ void main() {
     );
   });
 
+  group('buttonTextBackgroundColorChanged', () {
+    final color = getRandomColor();
+    final theme = ThemeData(
+      textTheme: TextTheme(
+        button: TextStyle(backgroundColor: color),
+      ),
+    );
+
+    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+      'should emit button text background color changed',
+      build: () => cubit,
+      act: (cubit) => cubit.buttonTextBackgroundColorChanged(color),
+      expect: () => [AdvancedThemeState(themeData: theme)],
+    );
+  });
+
   group('buttonTextFontSizeChanged', () {
     final size = Random().nextDouble();
     final theme = ThemeData(

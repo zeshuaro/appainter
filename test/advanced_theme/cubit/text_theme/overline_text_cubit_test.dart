@@ -32,6 +32,22 @@ void main() {
     );
   });
 
+  group('overlineTextBackgroundColorChanged', () {
+    final color = getRandomColor();
+    final theme = ThemeData(
+      textTheme: TextTheme(
+        overline: TextStyle(backgroundColor: color),
+      ),
+    );
+
+    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+      'should emit overline text background color changed',
+      build: () => cubit,
+      act: (cubit) => cubit.overlineTextBackgroundColorChanged(color),
+      expect: () => [AdvancedThemeState(themeData: theme)],
+    );
+  });
+
   group('overlineTextFontSizeChanged', () {
     final size = Random().nextDouble();
     final theme = ThemeData(

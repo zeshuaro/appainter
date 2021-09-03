@@ -32,6 +32,22 @@ void main() {
     );
   });
 
+  group('subtitle2BackgroundColorChanged', () {
+    final color = getRandomColor();
+    final theme = ThemeData(
+      textTheme: TextTheme(
+        subtitle2: TextStyle(backgroundColor: color),
+      ),
+    );
+
+    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+      'should emit subtitle 2 background color changed',
+      build: () => cubit,
+      act: (cubit) => cubit.subtitle2BackgroundColorChanged(color),
+      expect: () => [AdvancedThemeState(themeData: theme)],
+    );
+  });
+
   group('subtitle2FontSizeChanged', () {
     final size = Random().nextDouble();
     final theme = ThemeData(

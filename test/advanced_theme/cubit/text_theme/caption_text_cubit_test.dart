@@ -32,6 +32,22 @@ void main() {
     );
   });
 
+  group('captionTextBackgroundColorChanged', () {
+    final color = getRandomColor();
+    final theme = ThemeData(
+      textTheme: TextTheme(
+        caption: TextStyle(backgroundColor: color),
+      ),
+    );
+
+    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+      'should emit caption text background color changed',
+      build: () => cubit,
+      act: (cubit) => cubit.captionTextBackgroundColorChanged(color),
+      expect: () => [AdvancedThemeState(themeData: theme)],
+    );
+  });
+
   group('captionTextFontSizeChanged', () {
     final size = Random().nextDouble();
     final theme = ThemeData(

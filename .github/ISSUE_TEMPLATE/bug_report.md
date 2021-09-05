@@ -13,6 +13,10 @@ Use this template to notify us if you found a bug.
 To make it easier for us to help you please enter detailed information below.
 -->
 
+**Platform**
+
+Web/MacOS/Windows/Linux
+
 **Steps To Reproduce**
 
 1. 

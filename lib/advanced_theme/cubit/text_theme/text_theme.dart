@@ -6,6 +6,8 @@ export 'headline5_cubit.dart';
 export 'headline6_cubit.dart';
 export 'subtitle1_cubit.dart';
 export 'subtitle2_cubit.dart';
+export 'body_text1_cubit.dart';
+export 'body_text2_cubit.dart';
 export 'button_text_cubit.dart';
 export 'caption_text_cubit.dart';
 export 'overline_text_cubit.dart';

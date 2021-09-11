@@ -6,3 +6,4 @@ export 'bottom_nav_bar/bottom_nav_bar_editor.dart';
 export 'buttons/buttons.dart';
 export 'icon_theme_editor.dart';
 export 'input_decoration_editor.dart';
+export 'text_theme/text_theme.dart';

@@ -1,6 +1,7 @@
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/models/models.dart';
 
 extension Headline1Cubit on AdvancedThemeCubit {
@@ -94,15 +95,22 @@ extension Headline1Cubit on AdvancedThemeCubit {
   }
 
   void headline1DecorationStyleChanged(String value) {
-    final decorationStyle = EnumToString.fromString(
-      TextDecorationStyle.values,
-      value,
-    );
-    if (decorationStyle != null) {
-      final style = _getHeadline1TextStyle().copyWith(
-        decorationStyle: decorationStyle,
+    if (value == kNone) {
+      final style = _getHeadline1TextStyle().copyWithNull(
+        decorationStyle: true,
       );
       _emitWithHeadline1TextStyle(style);
+    } else {
+      final decorationStyle = EnumToString.fromString(
+        TextDecorationStyle.values,
+        value,
+      );
+      if (decorationStyle != null) {
+        final style = _getHeadline1TextStyle().copyWith(
+          decorationStyle: decorationStyle,
+        );
+        _emitWithHeadline1TextStyle(style);
+      }
     }
   }
 

@@ -4,6 +4,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/models/enums/enums.dart';
 import 'package:flutter_theme/services/services.dart';
 
@@ -231,8 +232,23 @@ void main() {
     );
   });
 
-  for (var style in TextDecorationStyle.values) {
-    group('headline1DecorationStyleChanged', () {
+  group('headline1DecorationStyleChanged', () {
+    final theme = ThemeData(
+      textTheme: TextTheme(
+        headline1: TextStyle(decorationStyle: null),
+      ),
+    );
+
+    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+      'should emit headline 1 decoration style changed to None',
+      build: () => cubit,
+      act: (cubit) {
+        cubit.headline1DecorationStyleChanged(kNone);
+      },
+      expect: () => [AdvancedThemeState(themeData: theme)],
+    );
+
+    for (var style in TextDecorationStyle.values) {
       final theme = ThemeData(
         textTheme: TextTheme(
           headline1: TextStyle(decorationStyle: style),
@@ -249,8 +265,8 @@ void main() {
         },
         expect: () => [AdvancedThemeState(themeData: theme)],
       );
-    });
-  }
+    }
+  });
 
   group('headline1DecorationThicknessChanged', () {
     final thickness = Random().nextDouble();

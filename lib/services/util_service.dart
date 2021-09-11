@@ -1,5 +1,6 @@
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_theme/common/consts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UtilService {
@@ -28,11 +29,21 @@ class UtilService {
   }
 
   static String enumToString(dynamic value) {
-    return EnumToString.convertToString(value, camelCase: true);
+    return value == null
+        ? kNone
+        : EnumToString.convertToString(value, camelCase: true);
   }
 
-  static List<String> getEnumStrings(List<dynamic> values) {
-    return values.map((value) => enumToString(value)).toList();
+  static List<String> getEnumStrings(
+    List<dynamic> values, {
+    bool withNull = false,
+  }) {
+    final strings = values.map((value) => enumToString(value)).toList();
+    if (withNull) {
+      strings.insert(0, kNone);
+    }
+
+    return strings;
   }
 
   static Future<void> launchUrl(String url) async {

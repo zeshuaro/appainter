@@ -1,4 +1,3 @@
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -7,19 +6,7 @@ import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockHomeCubit extends MockCubit<HomeState> implements HomeCubit {}
-
-class FakeHomeState extends Fake implements HomeState {}
-
-class MockBasicThemeCubit extends MockCubit<BasicThemeState>
-    implements BasicThemeCubit {}
-
-class FakeBasicThemeState extends Fake implements BasicThemeState {}
-
-class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
-    implements AdvancedThemeCubit {}
-
-class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
+import 'mocks.dart';
 
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(

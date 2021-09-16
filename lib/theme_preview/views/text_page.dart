@@ -16,27 +16,27 @@ class TextPage extends PreviewBody {
       padding: kPaddingAll,
       children: [
         Text(
-          'Headline 1',
+          'H1',
           style: Theme.of(context).textTheme.headline1,
         ),
         Text(
-          'Headline 2',
+          'H2',
           style: Theme.of(context).textTheme.headline2,
         ),
         Text(
-          'Headline 3',
+          'H3',
           style: Theme.of(context).textTheme.headline3,
         ),
         Text(
-          'Headline 4',
+          'H4',
           style: Theme.of(context).textTheme.headline4,
         ),
         Text(
-          'Headline 5',
+          'H5',
           style: Theme.of(context).textTheme.headline5,
         ),
         Text(
-          'Headline 6',
+          'H6',
           style: Theme.of(context).textTheme.headline6,
         ),
         Text(

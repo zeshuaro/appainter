@@ -9,6 +9,11 @@ class TextThemeEditor extends StatelessWidget {
       header: 'Text Theme',
       children: [
         Headline1Editor(),
+        Headline2Editor(),
+        Headline3Editor(),
+        Headline4Editor(),
+        Headline5Editor(),
+        Headline6Editor(),
       ],
     );
   }

@@ -16,6 +16,11 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        total-shards: [12]
+        shard-index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
@@ -37,7 +42,7 @@ jobs:
         run: |
           flutter pub get
           flutter pub run build_runner build --delete-conflicting-outputs
-          flutter test --coverage --no-test-assets
+          flutter test --coverage --no-test-assets --total-shards ${{ matrix.total-shards }} --shard-index ${{ matrix.shard-index }}
           flutter pub run remove_from_coverage -f coverage/lcov.info -r '\.g\.dart$' -r 'extensions\.dart'
 
       - name: Upload coverage report 📡

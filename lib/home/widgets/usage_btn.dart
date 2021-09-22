@@ -75,6 +75,7 @@ class _UsageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return usage.markdownData != null
         ? Markdown(
+            selectable: true,
             data: usage.markdownData!,
             onTapLink: (String text, String? href, String title) {
               if (href != null) UtilService.launchUrl(href);

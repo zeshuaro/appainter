@@ -4,8 +4,8 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/models/models.dart';
 
-import '../../brightness.dart';
 import '../../utils.dart';
 
 void main() {
@@ -15,15 +15,41 @@ void main() {
     cubit = AdvancedThemeCubit();
   });
 
-  group('appBarColorChanged', () {
+  group('appBarBackgroundColorChanged', () {
     final color = getRandomColor();
-    final appBarTheme = AppBarTheme(color: color);
+    final appBarTheme = AppBarTheme(backgroundColor: color);
     final theme = ThemeData(appBarTheme: appBarTheme);
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'emits app bar color',
+      'should emit app bar background color',
       build: () => cubit,
-      act: (cubit) => cubit.appBarColorChanged(color),
+      act: (cubit) => cubit.appBarBackgroundColorChanged(color),
+      expect: () => [AdvancedThemeState(themeData: theme)],
+    );
+  });
+
+  group('appBarForegroundColorChanged', () {
+    final color = getRandomColor();
+    final appBarTheme = AppBarTheme(foregroundColor: color);
+    final theme = ThemeData(appBarTheme: appBarTheme);
+
+    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+      'should emit app bar foreground color',
+      build: () => cubit,
+      act: (cubit) => cubit.appBarForegroundColorChanged(color),
+      expect: () => [AdvancedThemeState(themeData: theme)],
+    );
+  });
+
+  group('appBarElevationChanged', () {
+    final value = Random().nextDouble();
+    final appBarTheme = AppBarTheme(elevation: value);
+    final theme = ThemeData(appBarTheme: appBarTheme);
+
+    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+      'should emit app bar elevation',
+      build: () => cubit,
+      act: (cubit) => cubit.appBarElevationChanged(value.toString()),
       expect: () => [AdvancedThemeState(themeData: theme)],
     );
   });
@@ -34,25 +60,11 @@ void main() {
     final theme = ThemeData(appBarTheme: appBarTheme);
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'emits app bar shadow color',
+      'should emit app bar shadow color',
       build: () => cubit,
       act: (cubit) => cubit.appBarShadowColorChanged(color),
       expect: () => [AdvancedThemeState(themeData: theme)],
     );
-  });
-
-  group('appBarBrightnessChanged', () {
-    for (var test in BrightnessTest.testCases) {
-      final appBarTheme = AppBarTheme(brightness: test.brightness);
-      final theme = ThemeData(appBarTheme: appBarTheme);
-
-      blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-        'emits app bar ${test.brightness}',
-        build: () => cubit,
-        act: (cubit) => cubit.appBarBrightnessChanged(test.isDark),
-        expect: () => [AdvancedThemeState(themeData: theme)],
-      );
-    }
   });
 
   group('appBarCenterTitleChanged', () {
@@ -61,25 +73,12 @@ void main() {
       final theme = ThemeData(appBarTheme: appBarTheme);
 
       blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-        'emits app bar centerTitle=$isCenter',
+        'should emit app bar centerTitle=$isCenter',
         build: () => cubit,
         act: (cubit) => cubit.appBarCenterTitleChanged(isCenter),
         expect: () => [AdvancedThemeState(themeData: theme)],
       );
     }
-  });
-
-  group('appBarElevationChanged', () {
-    final value = Random().nextDouble();
-    final appBarTheme = AppBarTheme(elevation: value);
-    final theme = ThemeData(appBarTheme: appBarTheme);
-
-    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'emits app bar elevation',
-      build: () => cubit,
-      act: (cubit) => cubit.appBarElevationChanged(value.toString()),
-      expect: () => [AdvancedThemeState(themeData: theme)],
-    );
   });
 
   group('appBarTitleSpacingChanged', () {
@@ -88,10 +87,41 @@ void main() {
     final theme = ThemeData(appBarTheme: appBarTheme);
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'emits app bar title spacing',
+      'should emit app bar title spacing',
       build: () => cubit,
       act: (cubit) => cubit.appBarTitleSpacingChanged(value.toString()),
       expect: () => [AdvancedThemeState(themeData: theme)],
     );
+  });
+
+  group('appBarToolBarHeightChanged', () {
+    final value = Random().nextDouble();
+    final appBarTheme = AppBarTheme(toolbarHeight: value);
+    final theme = ThemeData(appBarTheme: appBarTheme);
+
+    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+      'should emit app bar tool bar height',
+      build: () => cubit,
+      act: (cubit) => cubit.appBarToolBarHeightChanged(value.toString()),
+      expect: () => [AdvancedThemeState(themeData: theme)],
+    );
+  });
+
+  group('appBarSystemUiOverlayStyleChanged', () {
+    for (var style in MySystemUiOverlayStyle().values) {
+      final appBarTheme = AppBarTheme(systemOverlayStyle: style);
+      final theme = ThemeData(appBarTheme: appBarTheme);
+
+      blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+        'should emit app bar ${style.statusBarBrightness}',
+        build: () => cubit,
+        act: (cubit) {
+          cubit.appBarSystemUiOverlayStyleChanged(
+            MySystemUiOverlayStyle().stringFromEnum(style)!,
+          );
+        },
+        expect: () => [AdvancedThemeState(themeData: theme)],
+      );
+    }
   });
 }

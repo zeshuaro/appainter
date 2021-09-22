@@ -24,7 +24,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const _sdkVersion = '2.2.3';
+  static const _sdkVersion = '2.5.1';
   @override
   void initState() {
     super.initState();

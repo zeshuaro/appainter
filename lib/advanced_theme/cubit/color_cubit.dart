@@ -16,8 +16,6 @@ extension ColorCubit on AdvancedThemeCubit {
           primaryColorBrightness: primaryColorBrightness,
           primaryColorLight: swatch[100],
           primaryColorDark: swatch[700],
-          accentColor: color,
-          accentColorBrightness: primaryColorBrightness,
           backgroundColor: swatch[200],
           indicatorColor: color,
           secondaryHeaderColor: swatch[50],
@@ -65,46 +63,6 @@ extension ColorCubit on AdvancedThemeCubit {
           primaryColorDark: color,
           buttonTheme: buttonTheme,
           colorScheme: colorScheme,
-        ),
-      ),
-    );
-  }
-
-  void accentColorChanged(Color color) {
-    final theme = ThemeData(accentColor: color);
-    final colorScheme = state.themeData.colorScheme.copyWith(
-      secondary: color,
-    );
-    final buttonTheme = state.themeData.buttonTheme.copyWith(
-      colorScheme: colorScheme,
-    );
-
-    emit(
-      state.copyWith(
-        themeData: state.themeData.copyWith(
-          accentColor: color,
-          accentColorBrightness: ThemeData.estimateBrightnessForColor(color),
-          accentIconTheme: theme.accentIconTheme,
-          accentTextTheme: theme.accentTextTheme,
-          buttonTheme: buttonTheme,
-          colorScheme: colorScheme,
-          indicatorColor: color,
-          toggleableActiveColor: color,
-        ),
-      ),
-    );
-  }
-
-  void accentColorBrightnessChanged(bool isDark) {
-    final brightness = isDark ? Brightness.dark : Brightness.light;
-    final theme = ThemeData(accentColorBrightness: brightness);
-
-    emit(
-      state.copyWith(
-        themeData: state.themeData.copyWith(
-          accentColorBrightness: brightness,
-          accentIconTheme: theme.accentIconTheme,
-          accentTextTheme: theme.accentTextTheme,
         ),
       ),
     );

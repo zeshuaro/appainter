@@ -23,7 +23,7 @@ dependencies:
   flutter_markdown: ^0.6.2
   font_awesome_flutter: ^9.1.0
   intl: ^0.17.0
-  json_theme: ^2.1.0+2
+  json_theme: ^3.0.0
   motion_toast: ^1.4.0
   ndialog: ^4.1.0
   path_provider: ^2.0.2

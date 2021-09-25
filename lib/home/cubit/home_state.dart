@@ -7,15 +7,20 @@ enum EditMode { basic, advanced }
 class HomeState extends Equatable {
   final EditMode editMode;
   final ThemeUsage? themeUsage;
+  final bool isSdkShowed;
 
-  const HomeState({this.editMode = EditMode.basic, this.themeUsage});
+  const HomeState({
+    this.editMode = EditMode.basic,
+    this.themeUsage,
+    this.isSdkShowed = false,
+  });
 
   @override
-  List<Object?> get props => [editMode, themeUsage];
+  List<Object?> get props => [editMode, themeUsage, isSdkShowed];
 
   @override
   String toString() {
     return 'HomeState { editMode: $editMode, '
-        'themeUsage: ${themeUsage != null} }';
+        'themeUsage: ${themeUsage != null}, isSdkShowed: $isSdkShowed }';
   }
 }

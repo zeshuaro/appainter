@@ -18,4 +18,6 @@ class HomeCubit extends Cubit<HomeState> {
     final thtmeUsage = await repo.fetchThemeUsage();
     emit(state.copyWith(themeUsage: thtmeUsage));
   }
+
+  void sdkShowed() => emit(state.copyWith(isSdkShowed: true));
 }

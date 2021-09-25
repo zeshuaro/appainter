@@ -11,14 +11,14 @@ void main() {
 
   setUp(() => cubit = HomeCubit(homeRepo));
 
-  test('initial state is HomeState', () {
+  test('initial state should equal to HomeState', () {
     expect(cubit.state, equals(HomeState()));
   });
 
   group('editModeChanged', () {
     for (var mode in EditMode.values) {
       blocTest<HomeCubit, HomeState>(
-        'emits edit mode',
+        'should emit $mode',
         build: () => cubit,
         act: (cubit) => cubit.editModeChanged(mode),
         expect: () => [HomeState(editMode: mode)],
@@ -33,10 +33,19 @@ void main() {
     });
 
     blocTest<HomeCubit, HomeState>(
-      'emits theme usage',
+      'should emit theme usage fetched',
       build: () => cubit,
       act: (cubit) => cubit.themeUsageFetched(),
       expect: () => [HomeState(themeUsage: themeUsage)],
+    );
+  });
+
+  group('sdkShowed', () {
+    blocTest<HomeCubit, HomeState>(
+      'should emit sdk showed',
+      build: () => cubit,
+      act: (cubit) => cubit.sdkShowed(),
+      expect: () => [HomeState(isSdkShowed: true)],
     );
   });
 }

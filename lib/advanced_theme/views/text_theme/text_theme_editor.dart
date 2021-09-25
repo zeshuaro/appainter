@@ -14,6 +14,13 @@ class TextThemeEditor extends StatelessWidget {
         Headline4Editor(),
         Headline5Editor(),
         Headline6Editor(),
+        Subtitle1Editor(),
+        Subtitle2Editor(),
+        BodyText1Editor(),
+        BodyText2Editor(),
+        ButtonTextEditor(),
+        CaptionTextEditor(),
+        OverlineTextEditor(),
       ],
     );
   }

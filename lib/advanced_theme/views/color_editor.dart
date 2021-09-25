@@ -14,6 +14,7 @@ class ColorEditor extends StatelessWidget {
           left: _PrimaryColorLightPicker(),
           right: _PrimaryColorDarkPicker(),
         ),
+        _AccentColorPicker(),
         SideBySideList(
           children: [
             _BackgroundColorPicker(),
@@ -110,6 +111,35 @@ class _PrimaryColorDarkPicker extends StatelessWidget {
           color: state.themeData.primaryColorDark,
           onColorChanged: (color) {
             context.read<AdvancedThemeCubit>().primaryColorDarkChanged(color);
+          },
+        );
+      },
+    );
+  }
+}
+
+class _AccentColorPicker extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
+      buildWhen: (previous, current) {
+        return previous.themeData.accentColor !=
+                current.themeData.accentColor ||
+            previous.themeData.accentColorBrightness !=
+                current.themeData.accentColorBrightness;
+      },
+      builder: (context, state) {
+        return ColorAndBrightness(
+          title: 'Accent Color',
+          color: state.themeData.accentColor,
+          onColorChanged: (color) {
+            context.read<AdvancedThemeCubit>().accentColorChanged(color);
+          },
+          isColorDark: state.isAccentColorDark,
+          onBrightnessChanged: (isDark) {
+            context
+                .read<AdvancedThemeCubit>()
+                .accentColorBrightnessChanged(isDark);
           },
         );
       },

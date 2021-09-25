@@ -1,18 +1,31 @@
 part of 'advanced_theme_cubit.dart';
 
 extension AppBarCubit on AdvancedThemeCubit {
-  void appBarBackgroundColorChanged(Color color) {
-    final appBarTheme = state.themeData.appBarTheme.copyWith(
-      backgroundColor: color,
-    );
-    _emitWithAppBarTheme(appBarTheme);
+  void appBarColorChanged(Color color) {
+    final appBarTheme = state.themeData.appBarTheme.copyWith(color: color);
+    _emitStateWithAppBarTheme(appBarTheme);
   }
 
-  void appBarForegroundColorChanged(Color color) {
+  void appBarShadowColorChanged(Color color) {
     final appBarTheme = state.themeData.appBarTheme.copyWith(
-      foregroundColor: color,
+      shadowColor: color,
     );
-    _emitWithAppBarTheme(appBarTheme);
+    _emitStateWithAppBarTheme(appBarTheme);
+  }
+
+  void appBarBrightnessChanged(bool isDark) {
+    final brightness = isDark ? Brightness.dark : Brightness.light;
+    final appBarTheme = state.themeData.appBarTheme.copyWith(
+      brightness: brightness,
+    );
+    _emitStateWithAppBarTheme(appBarTheme);
+  }
+
+  void appBarCenterTitleChanged(bool isCenter) {
+    final appBarTheme = state.themeData.appBarTheme.copyWith(
+      centerTitle: isCenter,
+    );
+    _emitStateWithAppBarTheme(appBarTheme);
   }
 
   void appBarElevationChanged(String value) {
@@ -21,22 +34,8 @@ extension AppBarCubit on AdvancedThemeCubit {
       final appBarTheme = state.themeData.appBarTheme.copyWith(
         elevation: elevation,
       );
-      _emitWithAppBarTheme(appBarTheme);
+      _emitStateWithAppBarTheme(appBarTheme);
     }
-  }
-
-  void appBarShadowColorChanged(Color color) {
-    final appBarTheme = state.themeData.appBarTheme.copyWith(
-      shadowColor: color,
-    );
-    _emitWithAppBarTheme(appBarTheme);
-  }
-
-  void appBarCenterTitleChanged(bool isCenter) {
-    final appBarTheme = state.themeData.appBarTheme.copyWith(
-      centerTitle: isCenter,
-    );
-    _emitWithAppBarTheme(appBarTheme);
   }
 
   void appBarTitleSpacingChanged(String value) {
@@ -45,33 +44,11 @@ extension AppBarCubit on AdvancedThemeCubit {
       final appBarTheme = state.themeData.appBarTheme.copyWith(
         titleSpacing: spacing,
       );
-      _emitWithAppBarTheme(appBarTheme);
+      _emitStateWithAppBarTheme(appBarTheme);
     }
   }
 
-  void appBarToolBarHeightChanged(String value) {
-    final height = double.tryParse(value);
-    if (height != null) {
-      final appBarTheme = state.themeData.appBarTheme.copyWith(
-        toolbarHeight: height,
-      );
-      _emitWithAppBarTheme(appBarTheme);
-    }
-  }
-
-  void appBarSystemUiOverlayStyleChanged(String value) {
-    print(value);
-    final style = MySystemUiOverlayStyle().enumFromString(value);
-    print(style);
-    if (style != null) {
-      final appBarTheme = state.themeData.appBarTheme.copyWith(
-        systemOverlayStyle: style,
-      );
-      _emitWithAppBarTheme(appBarTheme);
-    }
-  }
-
-  void _emitWithAppBarTheme(AppBarTheme appBarTheme) {
+  void _emitStateWithAppBarTheme(AppBarTheme appBarTheme) {
     emit(
       state.copyWith(
         themeData: state.themeData.copyWith(appBarTheme: appBarTheme),

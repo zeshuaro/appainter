@@ -9,7 +9,7 @@ on:
   pull_request:
 
 env:
-  flutter-version: 2.5.1
+  flutter-version: 2.2.3
 
 jobs:
   test:

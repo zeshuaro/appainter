@@ -1,4 +1,3 @@
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,34 +9,8 @@ import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../mocks.dart';
 import '../../pump_app.dart';
-
-class MockHomeCubit extends MockCubit<HomeState> implements HomeCubit {}
-
-class MockBasicThemeCubit extends MockCubit<BasicThemeState>
-    implements BasicThemeCubit {}
-
-class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
-    implements AdvancedThemeCubit {}
-
-class MockThemeService extends Mock implements ThemeService {}
-
-class FakeHomeState extends Fake implements HomeState {}
-
-class FakeBasicThemeState extends Fake implements BasicThemeState {}
-
-class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
-
-mixin DiagnosticableToStringMixin on Object {
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return super.toString();
-  }
-}
-
-class FakeThemeData extends Fake
-    with DiagnosticableToStringMixin
-    implements ThemeData {}
 
 void main() {
   late HomeCubit homeCubit;
@@ -75,7 +48,7 @@ void main() {
     );
   }
 
-  testWidgets('displays HomePage', (tester) async {
+  testWidgets('should display HomePage', (tester) async {
     await _pumpApp(tester);
 
     expect(find.byType(HomePage), findsOneWidget);
@@ -88,8 +61,7 @@ void main() {
       testWidgets(
         'editor should change to $mode',
         (tester) async {
-          final state = HomeState(editMode: mode);
-          whenListen(homeCubit, Stream.fromIterable([HomeState(), state]));
+          when(() => homeCubit.state).thenReturn(HomeState(editMode: mode));
 
           await _pumpApp(tester);
 
@@ -101,9 +73,7 @@ void main() {
           final editorType =
               mode == EditMode.basic ? BasicEditor : AdvancedEditor;
           expect(find.byType(editorType), findsOneWidget);
-          verify(() {
-            homeCubit.editModeChanged(mode);
-          }).called(greaterThanOrEqualTo(1));
+          verify(() => homeCubit.editModeChanged(mode)).called(1);
         },
       );
     }

@@ -10,6 +10,7 @@ import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:motion_toast/motion_toast.dart';
 
 class HomePage extends StatefulWidget {
   final ThemeService themeService;
@@ -23,6 +24,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  static const _sdkVersion = '2.2.3';
   @override
   void initState() {
     super.initState();
@@ -43,11 +45,30 @@ class _HomePageState extends State<HomePage> {
           HorizontalPadding(),
         ],
       ),
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: _ScaffoldBody(),
+      body: BlocListener<HomeCubit, HomeState>(
+        listener: _listener,
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: _ScaffoldBody(),
+        ),
       ),
     );
+  }
+
+  void _listener(BuildContext context, HomeState state) {
+    if (!state.isSdkShowed) {
+      MotionToast(
+        color: Colors.blue,
+        icon: Icons.info,
+        toastDuration: Duration(seconds: 7),
+        title: "Supported Flutter SDK",
+        description:
+            "Flutter Theme currently supports Flutter SDK: $_sdkVersion",
+        titleStyle: Theme.of(context).textTheme.subtitle1!,
+        descriptionStyle: Theme.of(context).textTheme.bodyText1!,
+      ).show(context);
+      context.read<HomeCubit>().sdkShowed();
+    }
   }
 }
 

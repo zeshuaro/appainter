@@ -8,7 +8,7 @@
   ],
   "labels": ["dependencies"],
   "semanticCommits": "enabled",
-  "stabilityDays": 3,
+  "stabilityDays": 7,
   "prCreation": "not-pending",
   "schedule": ["after 6pm every weekday", "every weekend"],
   "timezone": "Australia/Sydney",
@@ -19,9 +19,8 @@
     },
     {
       "groupName": "GitHub Actions",
-      "semanticCommitType": "ci",
       "matchPaths": [".github/workflows/*.yml"],
-      "labels": ["ci"]
+      "addLabels": ["ci"]
     }
   ]
 }

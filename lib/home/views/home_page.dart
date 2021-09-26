@@ -10,7 +10,6 @@ import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:motion_toast/motion_toast.dart';
 
 class HomePage extends StatefulWidget {
   final ThemeService themeService;
@@ -25,6 +24,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   static const _sdkVersion = '2.2.3';
+
   @override
   void initState() {
     super.initState();
@@ -57,18 +57,38 @@ class _HomePageState extends State<HomePage> {
 
   void _listener(BuildContext context, HomeState state) {
     if (!state.isSdkShowed) {
-      MotionToast(
-        color: Colors.blue,
-        icon: Icons.info,
-        toastDuration: Duration(seconds: 7),
-        title: "Supported Flutter SDK",
-        description:
-            "Flutter Theme currently supports Flutter SDK: $_sdkVersion",
-        titleStyle: Theme.of(context).textTheme.subtitle1!,
-        descriptionStyle: Theme.of(context).textTheme.bodyText1!,
-      ).show(context);
+      ScaffoldMessenger.of(context).showSnackBar(_buildSdkSnackBar());
       context.read<HomeCubit>().sdkShowed();
     }
+  }
+
+  SnackBar _buildSdkSnackBar() {
+    return SnackBar(
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.white,
+      duration: const Duration(seconds: 7),
+      margin: EdgeInsets.only(
+        left: kMargin,
+        bottom: kMargin,
+        right: MediaQuery.of(context).size.width * 0.7,
+      ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Supported Flutter SDK',
+            style: Theme.of(context).textTheme.subtitle1,
+          ),
+          VerticalPadding(),
+          Text(
+            'Flutter Theme currently supports Flutter SDK: $_sdkVersion',
+            style: Theme.of(context).textTheme.bodyText1,
+          )
+        ],
+      ),
+    );
   }
 }
 

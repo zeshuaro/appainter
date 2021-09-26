@@ -122,7 +122,7 @@ packages:
       name: json_theme
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0+2"
+    version: "3.0.1"
   logging:
     dependency: transitive
     description:

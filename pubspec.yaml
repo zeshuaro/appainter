@@ -24,7 +24,6 @@ dependencies:
   font_awesome_flutter: ^9.1.0
   intl: ^0.17.0
   json_theme: ^2.1.0+2
-  motion_toast: ^1.4.0
   ndialog: ^4.1.0
   path_provider: ^2.0.2
   pretty_json: ^2.0.0

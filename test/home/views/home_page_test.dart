@@ -1,3 +1,4 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -297,6 +298,40 @@ void main() {
         await tester.pump();
 
         expect(find.byType(AlertDialog), findsNothing);
+      },
+    );
+  });
+
+  group('SDK snack bar', () {
+    testWidgets(
+      'should show',
+      (tester) async {
+        whenListen(
+          homeCubit,
+          Stream.fromIterable([HomeState(isSdkShowed: false)]),
+        );
+
+        await _pumpApp(tester);
+        await tester.pumpAndSettle(Duration(seconds: 1));
+
+        expect(find.byType(SnackBar), findsOneWidget);
+        expect(find.text('Supported Flutter SDK'), findsOneWidget);
+      },
+    );
+
+    testWidgets(
+      'should not show',
+      (tester) async {
+        whenListen(
+          homeCubit,
+          Stream.fromIterable([HomeState(isSdkShowed: true)]),
+        );
+
+        await _pumpApp(tester);
+        await tester.pumpAndSettle(Duration(seconds: 1));
+
+        expect(find.byType(SnackBar), findsNothing);
+        expect(find.text('Supported Flutter SDK'), findsNothing);
       },
     );
   });

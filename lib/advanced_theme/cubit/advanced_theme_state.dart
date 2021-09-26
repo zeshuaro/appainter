@@ -19,10 +19,4 @@ class AdvancedThemeState extends Equatable {
   }
 
   bool get isPrimaryColorDark => !isPrimaryColorLight;
-
-  bool get isAccentColorLight {
-    return themeData.accentColorBrightness == Brightness.light;
-  }
-
-  bool get isAccentColorDark => !isAccentColorLight;
 }

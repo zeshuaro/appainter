@@ -17,6 +17,7 @@ class AdvancedEditor extends StatelessWidget {
         TextBtnEditor(),
         IconThemeEditor(),
         InputDecorationEditor(),
+        SwitchEditor(),
         TextThemeEditor(),
       ],
     );

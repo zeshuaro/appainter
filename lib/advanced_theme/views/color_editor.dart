@@ -4,6 +4,8 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class ColorEditor extends StatelessWidget {
+  const ColorEditor({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ExpandableCard(

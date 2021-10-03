@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/models/models.dart';
 
-extension buttonTextCubit on AdvancedThemeCubit {
+extension ButtonTextCubit on AdvancedThemeCubit {
   void buttonTextColorChanged(Color color) {
     final style = _getButtonTextTextStyle().copyWith(color: color);
     _emitWithButtonTextTextStyle(style);
@@ -124,6 +124,6 @@ extension buttonTextCubit on AdvancedThemeCubit {
   }
 
   TextStyle _getButtonTextTextStyle() {
-    return state.themeData.textTheme.button ?? TextStyle();
+    return state.themeData.textTheme.button ?? const TextStyle();
   }
 }

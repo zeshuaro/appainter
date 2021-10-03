@@ -307,6 +307,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.0.0"
+  flutter_lints:
+    dependency: "direct dev"
+    description:
+      name: flutter_lints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.4"
   flutter_localizations:
     dependency: transitive
     description: flutter
@@ -462,13 +469,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
-  lint:
-    dependency: "direct dev"
+  lints:
+    dependency: transitive
     description:
-      name: lint
+      name: lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.3"
+    version: "1.0.1"
   logging:
     dependency: transitive
     description:

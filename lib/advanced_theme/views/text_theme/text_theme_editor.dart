@@ -3,9 +3,11 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class TextThemeEditor extends StatelessWidget {
+  const TextThemeEditor({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
+    return const ExpandableCard(
       header: 'Text Theme',
       children: [
         Headline1Editor(),

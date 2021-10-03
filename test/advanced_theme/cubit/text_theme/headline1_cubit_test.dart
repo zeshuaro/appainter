@@ -234,7 +234,7 @@ void main() {
 
   group('headline1DecorationStyleChanged', () {
     final theme = ThemeData(
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         headline1: TextStyle(decorationStyle: null),
       ),
     );

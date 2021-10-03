@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/models/models.dart';
 
-extension overlineTextCubit on AdvancedThemeCubit {
+extension OverlineTextCubit on AdvancedThemeCubit {
   void overlineTextColorChanged(Color color) {
     final style = _getOverlineTextTextStyle().copyWith(color: color);
     _emitWithOverlineTextTextStyle(style);
@@ -127,6 +127,6 @@ extension overlineTextCubit on AdvancedThemeCubit {
   }
 
   TextStyle _getOverlineTextTextStyle() {
-    return state.themeData.textTheme.overline ?? TextStyle();
+    return state.themeData.textTheme.overline ?? const TextStyle();
   }
 }

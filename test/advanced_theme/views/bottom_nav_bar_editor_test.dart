@@ -34,11 +34,11 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(BottomNavBarEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const BottomNavBarEditor(), advancedThemeCubit: cubit);
   }
 
   testWidgets('displays BottomNavBarEditor', (tester) async {
-    await tester.pumpApp(BottomNavBarEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const BottomNavBarEditor(), advancedThemeCubit: cubit);
     expect(find.byType(BottomNavBarEditor), findsOneWidget);
   });
 

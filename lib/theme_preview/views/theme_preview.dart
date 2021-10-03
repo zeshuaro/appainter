@@ -7,12 +7,14 @@ import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 
 class ThemePreview extends StatelessWidget {
-  final List<PreviewBody> _pages = [
+  final List<PreviewBody> _pages = const [
     ButtonsPage(),
     InputsPage(),
     SelectionsPage(),
     TextPage(),
   ];
+
+  const ThemePreview({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +35,10 @@ class ThemePreview extends StatelessWidget {
               length: _pages.length,
               child: Scaffold(
                 appBar: AppBar(
-                  title: Text('Theme Preview'),
+                  title: const Text('Theme Preview'),
                   actions: [
                     IconButton(
-                      icon: Icon(Icons.notifications),
+                      icon: const Icon(Icons.notifications),
                       onPressed: () {},
                     )
                   ],
@@ -55,7 +57,7 @@ class ThemePreview extends StatelessWidget {
                 ),
                 floatingActionButton: FloatingActionButton(
                   onPressed: () {},
-                  child: Icon(Icons.add),
+                  child: const Icon(Icons.add),
                 ),
                 bottomNavigationBar: _BottomNavigationBar(),
               ),
@@ -78,7 +80,7 @@ class _Drawer extends StatelessWidget {
             decoration: BoxDecoration(
               color: Theme.of(context).primaryColor,
             ),
-            child: Text(
+            child: const Text(
               'Drawer Header',
               style: TextStyle(
                 color: Colors.white,
@@ -86,15 +88,15 @@ class _Drawer extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(Icons.message),
             title: Text('Messages'),
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(Icons.account_circle),
             title: Text('Profile'),
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
           ),

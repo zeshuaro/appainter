@@ -132,6 +132,6 @@ extension Headline1Cubit on AdvancedThemeCubit {
   }
 
   TextStyle _getHeadline1TextStyle() {
-    return state.themeData.textTheme.headline1 ?? TextStyle();
+    return state.themeData.textTheme.headline1 ?? const TextStyle();
   }
 }

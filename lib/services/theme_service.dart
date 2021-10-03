@@ -23,7 +23,7 @@ class ThemeService {
 
     if (result != null) {
       final platformFile = result.files.single;
-      late final themeStr;
+      late final String themeStr;
 
       if (platformFile.bytes != null) {
         themeStr = String.fromCharCodes(platformFile.bytes!);

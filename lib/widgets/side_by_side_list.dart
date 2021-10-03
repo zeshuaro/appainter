@@ -14,7 +14,7 @@ class SideBySideList extends StatelessWidget {
     final chunks = _getChunks();
     return ListView.separated(
       shrinkWrap: true,
-      physics: ScrollPhysics(),
+      physics: const ScrollPhysics(),
       itemCount: chunks.length,
       itemBuilder: (context, index) {
         final chunk = chunks[index];
@@ -25,7 +25,7 @@ class SideBySideList extends StatelessWidget {
               )
             : chunk[0];
       },
-      separatorBuilder: (context, index) => VerticalPadding(),
+      separatorBuilder: (context, index) => const VerticalPadding(),
     );
   }
 

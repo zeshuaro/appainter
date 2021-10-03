@@ -33,11 +33,11 @@ Future<void> main() async {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(TextBtnEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const TextBtnEditor(), advancedThemeCubit: cubit);
   }
 
   testWidgets('displays TextBtnEditor', (tester) async {
-    await tester.pumpApp(TextBtnEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const TextBtnEditor(), advancedThemeCubit: cubit);
     expect(find.byType(TextBtnEditor), findsOneWidget);
   });
 
@@ -64,7 +64,7 @@ Future<void> main() async {
       final color = getRandomColor();
       final style = TextButton.styleFrom(
         primary: color,
-        onSurface: ColorScheme.light().onSurface,
+        onSurface: const ColorScheme.light().onSurface,
       );
       final state = AdvancedThemeState(
         themeData: ThemeData(

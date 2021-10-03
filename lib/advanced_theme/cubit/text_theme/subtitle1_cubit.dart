@@ -124,6 +124,6 @@ extension Subtitle1Cubit on AdvancedThemeCubit {
   }
 
   TextStyle _getsubtitle1TextStyle() {
-    return state.themeData.textTheme.subtitle1 ?? TextStyle();
+    return state.themeData.textTheme.subtitle1 ?? const TextStyle();
   }
 }

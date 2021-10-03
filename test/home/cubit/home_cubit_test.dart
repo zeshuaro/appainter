@@ -12,7 +12,7 @@ void main() {
   setUp(() => cubit = HomeCubit(homeRepo));
 
   test('initial state should equal to HomeState', () {
-    expect(cubit.state, equals(HomeState()));
+    expect(cubit.state, equals(const HomeState()));
   });
 
   group('editModeChanged', () {
@@ -27,7 +27,7 @@ void main() {
   });
 
   group('themeUsageFetched', () {
-    final themeUsage = ThemeUsage();
+    const themeUsage = ThemeUsage();
     when(() => homeRepo.fetchThemeUsage()).thenAnswer((invocation) {
       return Future.value(themeUsage);
     });
@@ -36,7 +36,7 @@ void main() {
       'should emit theme usage fetched',
       build: () => cubit,
       act: (cubit) => cubit.themeUsageFetched(),
-      expect: () => [HomeState(themeUsage: themeUsage)],
+      expect: () => [const HomeState(themeUsage: themeUsage)],
     );
   });
 
@@ -45,7 +45,7 @@ void main() {
       'should emit sdk showed',
       build: () => cubit,
       act: (cubit) => cubit.sdkShowed(),
-      expect: () => [HomeState(isSdkShowed: true)],
+      expect: () => [const HomeState(isSdkShowed: true)],
     );
   });
 }

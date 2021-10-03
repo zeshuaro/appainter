@@ -37,16 +37,16 @@ void main() {
       ]),
     );
 
-    await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
+    await tester.pumpApp(const BasicEditor(), basicThemeCubit: cubit);
   }
 
   testWidgets('displays BasicEditor', (tester) async {
-    await tester.pumpApp(BasicEditor(), basicThemeCubit: cubit);
+    await tester.pumpApp(const BasicEditor(), basicThemeCubit: cubit);
     expect(find.byType(BasicEditor), findsOneWidget);
   });
 
   group('primary color picker', () {
-    final key = 'basicEditor_primaryColorPicker';
+    const key = 'basicEditor_primaryColorPicker';
 
     testWidgets(
       'color picker should update with selected color',
@@ -107,7 +107,7 @@ void main() {
   });
 
   group('accent color picker', () {
-    final key = 'basicEditor_accentColorPicker';
+    const key = 'basicEditor_accentColorPicker';
 
     testWidgets(
       'color picker should update with selected color',
@@ -168,7 +168,7 @@ void main() {
   });
 
   group('surface color picker', () {
-    final key = 'basicEditor_surfaceColorPicker';
+    const key = 'basicEditor_surfaceColorPicker';
 
     testWidgets(
       'color picker should update with selected color',
@@ -207,7 +207,7 @@ void main() {
   });
 
   group('background color picker', () {
-    final key = 'basicEditor_backgroundColorPicker';
+    const key = 'basicEditor_backgroundColorPicker';
 
     testWidgets(
       'color picker should update with selected color',
@@ -246,7 +246,7 @@ void main() {
   });
 
   group('error color picker', () {
-    final key = 'basicEditor_errorColorPicker';
+    const key = 'basicEditor_errorColorPicker';
 
     testWidgets(
       'color picker should update with selected color',

@@ -6,6 +6,8 @@ import 'package:flutter_theme/models/models.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class AppBarEditor extends StatelessWidget {
+  const AppBarEditor({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ExpandableCard(

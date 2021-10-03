@@ -13,7 +13,7 @@ class SideBySide extends StatelessWidget {
       child: Row(
         children: [
           Expanded(child: left),
-          VerticalDivider(),
+          const VerticalDivider(),
           Expanded(child: right),
         ],
       ),

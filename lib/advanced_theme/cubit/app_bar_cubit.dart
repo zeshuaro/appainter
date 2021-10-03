@@ -60,9 +60,7 @@ extension AppBarCubit on AdvancedThemeCubit {
   }
 
   void appBarSystemUiOverlayStyleChanged(String value) {
-    print(value);
     final style = MySystemUiOverlayStyle().enumFromString(value);
-    print(style);
     if (style != null) {
       final appBarTheme = state.themeData.appBarTheme.copyWith(
         systemOverlayStyle: style,

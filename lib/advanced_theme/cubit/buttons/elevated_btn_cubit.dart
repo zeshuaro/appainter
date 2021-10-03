@@ -6,8 +6,9 @@ import '../advanced_theme_cubit.dart';
 extension ElevatedBtnCubit on AdvancedThemeCubit {
   void elevatedBtnBgColorChanged(Color color) {
     final bgColor = MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled))
+      if (states.contains(MaterialState.disabled)) {
         return state.themeData.colorScheme.onSurface.withOpacity(0.12);
+      }
       return color;
     });
     final style = _getElevatedBtnStyle().copyWith(backgroundColor: bgColor);
@@ -16,8 +17,9 @@ extension ElevatedBtnCubit on AdvancedThemeCubit {
 
   void elevatedBtnFgColorChanged(Color color) {
     final fgColor = MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled))
+      if (states.contains(MaterialState.disabled)) {
         return state.themeData.colorScheme.onSurface.withOpacity(0.38);
+      }
       return color;
     });
     final style = _getElevatedBtnStyle().copyWith(foregroundColor: fgColor);
@@ -26,11 +28,13 @@ extension ElevatedBtnCubit on AdvancedThemeCubit {
 
   void elevatedBtnOverlayColorChanged(Color color) {
     final overlayColor = MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.hovered))
+      if (states.contains(MaterialState.hovered)) {
         return color.withOpacity(0.08);
+      }
       if (states.contains(MaterialState.focused) ||
-          states.contains(MaterialState.pressed))
+          states.contains(MaterialState.pressed)) {
         return color.withOpacity(0.24);
+      }
       return null;
     });
     final style = _getElevatedBtnStyle().copyWith(overlayColor: overlayColor);

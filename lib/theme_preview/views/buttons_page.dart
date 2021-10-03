@@ -7,6 +7,8 @@ import 'package:flutter_theme/widgets/widgets.dart';
 const Icon _buttonIcon = Icon(Icons.favorite);
 
 class ButtonsPage extends PreviewBody {
+  const ButtonsPage({Key? key}) : super(key: key);
+
   @override
   IconData get icon => Icons.touch_app;
 
@@ -22,9 +24,9 @@ class ButtonsPage extends PreviewBody {
           children: [
             ElevatedButton(
               onPressed: () {},
-              child: Text('Elevated Button'),
+              child: const Text('Elevated Button'),
             ),
-            ElevatedButton(
+            const ElevatedButton(
               onPressed: null,
               child: Text('Disabled'),
             ),
@@ -35,12 +37,12 @@ class ButtonsPage extends PreviewBody {
             ElevatedButton.icon(
               onPressed: () {},
               icon: _buttonIcon,
-              label: Text('Elevated Button Icon'),
+              label: const Text('Elevated Button Icon'),
             ),
             ElevatedButton.icon(
               onPressed: null,
               icon: _buttonIcon,
-              label: Text('Disabled'),
+              label: const Text('Disabled'),
             ),
           ],
         ),
@@ -48,9 +50,9 @@ class ButtonsPage extends PreviewBody {
           children: [
             OutlinedButton(
               onPressed: () {},
-              child: Text('Outlined Button'),
+              child: const Text('Outlined Button'),
             ),
-            OutlinedButton(
+            const OutlinedButton(
               onPressed: null,
               child: Text('Disabled'),
             ),
@@ -61,12 +63,12 @@ class ButtonsPage extends PreviewBody {
             OutlinedButton.icon(
               onPressed: () {},
               icon: _buttonIcon,
-              label: Text('Outlined Button Icon'),
+              label: const Text('Outlined Button Icon'),
             ),
             OutlinedButton.icon(
               onPressed: null,
               icon: _buttonIcon,
-              label: Text('Disabled'),
+              label: const Text('Disabled'),
             ),
           ],
         ),
@@ -74,9 +76,9 @@ class ButtonsPage extends PreviewBody {
           children: [
             TextButton(
               onPressed: () {},
-              child: Text('Text Button'),
+              child: const Text('Text Button'),
             ),
-            TextButton(
+            const TextButton(
               onPressed: null,
               child: Text('Disabled'),
             ),
@@ -87,18 +89,18 @@ class ButtonsPage extends PreviewBody {
             TextButton.icon(
               onPressed: () {},
               icon: _buttonIcon,
-              label: Text('Text Button Icon'),
+              label: const Text('Text Button Icon'),
             ),
             TextButton.icon(
               onPressed: null,
               icon: _buttonIcon,
-              label: Text('Disabled'),
+              label: const Text('Disabled'),
             ),
           ],
         ),
-        Divider(),
+        const Divider(),
         _IconButtons(),
-        SizedBox(height: 50),
+        const SizedBox(height: 50),
       ],
     );
   }
@@ -116,7 +118,7 @@ class _ButtonsRow extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => children[index],
-        separatorBuilder: (context, index) => HorizontalPadding(),
+        separatorBuilder: (context, index) => const HorizontalPadding(),
         itemCount: children.length,
       ),
     );
@@ -130,7 +132,7 @@ class _IconButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
+        const Text(
           'Icon Buttons',
           style: kListTileTitleStyle,
         ),
@@ -144,12 +146,12 @@ class _IconButtons extends StatelessWidget {
               icon: _buttonIcon,
               onPressed: () {},
             ),
-            HorizontalPadding(),
+            const HorizontalPadding(),
             Text(
               'Disabled',
               style: labelStyle,
             ),
-            IconButton(
+            const IconButton(
               icon: _buttonIcon,
               onPressed: null,
             ),

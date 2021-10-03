@@ -30,14 +30,14 @@ class ExportBtn extends StatelessWidget {
         final theme = editMode == EditMode.basic ? basicTheme : advancedTheme;
         themeService.export(theme);
       },
-      icon: FaIcon(
+      icon: const FaIcon(
         FontAwesomeIcons.download,
         color: Colors.white,
         size: 20,
       ),
-      label: Text(
+      label: const Text(
         'Export',
-        style: const TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.white),
       ),
     );
   }

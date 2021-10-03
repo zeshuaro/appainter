@@ -26,7 +26,7 @@ void main() {
     basicThemeCubit = MockBasicThemeCubit();
     advancedThemeCubit = MockAdvancedThemeCubit();
 
-    when(() => homeCubit.state).thenReturn(HomeState());
+    when(() => homeCubit.state).thenReturn(const HomeState());
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
     when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
     when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
@@ -34,7 +34,7 @@ void main() {
 
   Future<void> _pumpApp(WidgetTester tester) async {
     await tester.pumpApp(
-      ThemePreview(),
+      const ThemePreview(),
       homeCubit: homeCubit,
       basicThemeCubit: basicThemeCubit,
       advancedThemeCubit: advancedThemeCubit,

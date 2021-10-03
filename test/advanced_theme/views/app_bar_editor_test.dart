@@ -34,11 +34,11 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(AppBarEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const AppBarEditor(), advancedThemeCubit: cubit);
   }
 
   testWidgets('should display AppBarEditor', (tester) async {
-    await tester.pumpApp(AppBarEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const AppBarEditor(), advancedThemeCubit: cubit);
     expect(find.byType(AppBarEditor), findsOneWidget);
   });
 

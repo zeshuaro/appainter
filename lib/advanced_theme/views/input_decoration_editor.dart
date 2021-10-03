@@ -6,6 +6,8 @@ import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class InputDecorationEditor extends StatelessWidget {
+  const InputDecorationEditor({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ExpandableCard(

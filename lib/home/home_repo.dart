@@ -14,7 +14,7 @@ class HomeRepo {
       final response = await _dio.get(_usageFileUrl);
       return ThemeUsage(response.data);
     } catch (e) {
-      return ThemeUsage();
+      return const ThemeUsage();
     }
   }
 }

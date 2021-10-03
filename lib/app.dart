@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => BasicThemeCubit()),
         BlocProvider(create: (_) => AdvancedThemeCubit()),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         title: 'Flutter Theme',
         home: HomePage(),
       ),

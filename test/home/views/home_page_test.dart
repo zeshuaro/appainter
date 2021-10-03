@@ -32,7 +32,7 @@ void main() {
     advancedThemeCubit = MockAdvancedThemeCubit();
     themeService = MockThemeService();
 
-    when(() => homeCubit.state).thenReturn(HomeState());
+    when(() => homeCubit.state).thenReturn(const HomeState());
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
     when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
     when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
@@ -86,7 +86,7 @@ void main() {
       (tester) async {
         when(() {
           return homeCubit.state;
-        }).thenReturn(HomeState(editMode: EditMode.basic));
+        }).thenReturn(const HomeState(editMode: EditMode.basic));
 
         await _pumpApp(tester);
 
@@ -104,7 +104,7 @@ void main() {
       (tester) async {
         when(() {
           return homeCubit.state;
-        }).thenReturn(HomeState(editMode: EditMode.advanced));
+        }).thenReturn(const HomeState(editMode: EditMode.advanced));
 
         await _pumpApp(tester);
 
@@ -126,7 +126,7 @@ void main() {
       (tester) async {
         when(() {
           return homeCubit.state;
-        }).thenReturn(HomeState(editMode: EditMode.basic));
+        }).thenReturn(const HomeState(editMode: EditMode.basic));
 
         await _pumpApp(tester);
 
@@ -144,7 +144,7 @@ void main() {
       (tester) async {
         when(() {
           return homeCubit.state;
-        }).thenReturn(HomeState(editMode: EditMode.advanced));
+        }).thenReturn(const HomeState(editMode: EditMode.advanced));
 
         await _pumpApp(tester);
 
@@ -163,14 +163,14 @@ void main() {
       'export button should export theme from basic editor',
       (tester) async {
         when(() => homeCubit.state).thenReturn(
-          HomeState(editMode: EditMode.basic),
+          const HomeState(editMode: EditMode.basic),
         );
         when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
         when(() => themeService.export(any())).thenAnswer((_) async => {});
 
         await _pumpApp(tester);
 
-        final finder = find.byKey(Key('homePage_exportBtn'));
+        final finder = find.byKey(const Key('homePage_exportBtn'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
 
@@ -184,14 +184,14 @@ void main() {
       'export button should export theme from advanced editor',
       (tester) async {
         when(() => homeCubit.state).thenReturn(
-          HomeState(editMode: EditMode.advanced),
+          const HomeState(editMode: EditMode.advanced),
         );
         when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
         when(() => themeService.export(any())).thenAnswer((_) async => {});
 
         await _pumpApp(tester);
 
-        final finder = find.byKey(Key('homePage_exportBtn'));
+        final finder = find.byKey(const Key('homePage_exportBtn'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
 
@@ -207,13 +207,13 @@ void main() {
     (tester) async {
       final theme = ThemeData();
       when(() => homeCubit.state).thenReturn(
-        HomeState(editMode: EditMode.basic),
+        const HomeState(editMode: EditMode.basic),
       );
       when(() => themeService.import()).thenAnswer((_) async => theme);
 
       await _pumpApp(tester);
 
-      final finder = find.byKey(Key('homePage_importBtn'));
+      final finder = find.byKey(const Key('homePage_importBtn'));
       await tester.ensureVisible(finder);
       await tester.tap(finder);
 
@@ -227,14 +227,14 @@ void main() {
     testWidgets(
       'should show usage dialog when usage data is available',
       (tester) async {
-        final usageData = "usageData";
+        const usageData = "usageData";
         when(() => homeCubit.state).thenReturn(
-          HomeState(themeUsage: ThemeUsage(usageData)),
+          const HomeState(themeUsage: ThemeUsage(usageData)),
         );
 
         await _pumpApp(tester);
 
-        final finder = find.byKey(Key('homePage_usageBtn'));
+        final finder = find.byKey(const Key('homePage_usageBtn'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
         await tester.pumpAndSettle();
@@ -252,12 +252,12 @@ void main() {
       'should show usage dialog with warning when usage data is unavailable',
       (tester) async {
         when(() => homeCubit.state).thenReturn(
-          HomeState(themeUsage: ThemeUsage()),
+          const HomeState(themeUsage: ThemeUsage()),
         );
 
         await _pumpApp(tester);
 
-        final finder = find.byKey(Key('homePage_usageBtn'));
+        final finder = find.byKey(const Key('homePage_usageBtn'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
         await tester.pumpAndSettle();
@@ -269,11 +269,12 @@ void main() {
     testWidgets(
       'should show usage dialog with loading when usage data is loading',
       (tester) async {
-        when(() => homeCubit.state).thenReturn(HomeState(themeUsage: null));
+        when(() => homeCubit.state)
+            .thenReturn(const HomeState(themeUsage: null));
 
         await _pumpApp(tester);
 
-        final finder = find.byKey(Key('homePage_usageBtn'));
+        final finder = find.byKey(const Key('homePage_usageBtn'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
         await tester.pump();
@@ -287,12 +288,12 @@ void main() {
       (tester) async {
         await _pumpApp(tester);
 
-        final usageBtn = find.byKey(Key('homePage_usageBtn'));
+        final usageBtn = find.byKey(const Key('homePage_usageBtn'));
         await tester.ensureVisible(usageBtn);
         await tester.tap(usageBtn);
         await tester.pump();
 
-        final closeBtn = find.byKey(Key('usageBtn_closeBtn'));
+        final closeBtn = find.byKey(const Key('usageBtn_closeBtn'));
         await tester.ensureVisible(closeBtn);
         await tester.tap(closeBtn);
         await tester.pump();
@@ -308,11 +309,11 @@ void main() {
       (tester) async {
         whenListen(
           homeCubit,
-          Stream.fromIterable([HomeState(isSdkShowed: false)]),
+          Stream.fromIterable([const HomeState(isSdkShowed: false)]),
         );
 
         await _pumpApp(tester);
-        await tester.pumpAndSettle(Duration(seconds: 1));
+        await tester.pumpAndSettle(const Duration(seconds: 1));
 
         expect(find.byType(SnackBar), findsOneWidget);
         expect(find.text('Supported Flutter SDK'), findsOneWidget);
@@ -324,11 +325,11 @@ void main() {
       (tester) async {
         whenListen(
           homeCubit,
-          Stream.fromIterable([HomeState(isSdkShowed: true)]),
+          Stream.fromIterable([const HomeState(isSdkShowed: true)]),
         );
 
         await _pumpApp(tester);
-        await tester.pumpAndSettle(Duration(seconds: 1));
+        await tester.pumpAndSettle(const Duration(seconds: 1));
 
         expect(find.byType(SnackBar), findsNothing);
         expect(find.text('Supported Flutter SDK'), findsNothing);

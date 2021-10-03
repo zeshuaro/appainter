@@ -32,11 +32,11 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(AdvancedEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const AdvancedEditor(), advancedThemeCubit: cubit);
   }
 
   testWidgets('displays ColorEditor', (tester) async {
-    await tester.pumpApp(ColorEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const ColorEditor(), advancedThemeCubit: cubit);
     expect(find.byType(ColorEditor), findsOneWidget);
   });
 

@@ -124,6 +124,6 @@ extension Headline5Cubit on AdvancedThemeCubit {
   }
 
   TextStyle _getheadline5TextStyle() {
-    return state.themeData.textTheme.headline5 ?? TextStyle();
+    return state.themeData.textTheme.headline5 ?? const TextStyle();
   }
 }

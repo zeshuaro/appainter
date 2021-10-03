@@ -5,6 +5,8 @@ import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:intl/intl.dart';
 
 class SelectionsPage extends PreviewBody {
+  const SelectionsPage({Key? key}) : super(key: key);
+
   @override
   IconData get icon => Icons.select_all;
 
@@ -18,20 +20,20 @@ class SelectionsPage extends PreviewBody {
       children: [
         _CheckboxEnabled(),
         _CheckboxDisabled(),
-        Divider(height: 0),
+        const Divider(height: 0),
         _Radio(),
-        Divider(height: 0),
-        Text(
+        const Divider(height: 0),
+        const Text(
           'Sliders',
           style: kListTileTitleStyle,
         ),
         _SliderEnabled(),
         _SliderEnabledDivisions(),
         _SliderDisabled(),
-        Divider(height: 0),
+        const Divider(height: 0),
         _DatePicker(),
         _TimePicker(),
-        SizedBox(height: 50),
+        const SizedBox(height: 50),
       ],
     );
   }
@@ -63,7 +65,7 @@ class _CheckboxDisabled extends StatelessWidget {
     return MyListTile(
       title: 'Checkbox Disabled',
       titleColor: Theme.of(context).disabledColor,
-      trailing: Checkbox(
+      trailing: const Checkbox(
         value: true,
         onChanged: null,
       ),
@@ -100,7 +102,7 @@ class _RadioState extends State<_Radio> {
           MyListTile(
             title: 'Radio Disabled',
             titleColor: Theme.of(context).disabledColor,
-            trailing: Radio(
+            trailing: const Radio(
               value: null,
               groupValue: null,
               onChanged: null,
@@ -155,7 +157,7 @@ class _SliderEnabledDivisionsState extends State<_SliderEnabledDivisions> {
 class _SliderDisabled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Slider(
+    return const Slider(
       value: 20,
       min: 0,
       max: 100,
@@ -189,7 +191,7 @@ class _DatePickerState extends State<_DatePicker> {
 
           if (dateTime != null) setState(() => _dateTime = dateTime);
         },
-        child: Text('Pick Date'),
+        child: const Text('Pick Date'),
       ),
     );
   }
@@ -214,7 +216,7 @@ class _TimePickerState extends State<_TimePicker> {
 
           if (timeOfDay != null) setState(() => _timeOfDay = timeOfDay);
         },
-        child: Text('Pick Time'),
+        child: const Text('Pick Time'),
       ),
     );
   }

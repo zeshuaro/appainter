@@ -32,7 +32,7 @@ class MyListTile extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               if (subtitle != null)
                 Text(
                   subtitle!,

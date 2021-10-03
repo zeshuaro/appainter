@@ -27,7 +27,7 @@ void main() {
   });
 
   group('randomizedThemeRequested', () {
-    final seed = 0;
+    const seed = 0;
     final colorScheme = randomColorSchemeLight(seed: seed, shouldPrint: false);
     final swatch = UtilService.getColorSwatch(colorScheme.primary);
     final theme = ThemeData.from(colorScheme: colorScheme).copyWith(

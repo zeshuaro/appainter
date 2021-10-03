@@ -24,7 +24,7 @@ class MyListView extends StatelessWidget {
       shrinkWrap: shrinkwrap,
       itemCount: children.length,
       itemBuilder: (context, index) => children[index],
-      separatorBuilder: (context, index) => VerticalPadding(),
+      separatorBuilder: (context, index) => const VerticalPadding(),
     );
   }
 }

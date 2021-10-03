@@ -5,6 +5,8 @@ import 'package:flutter_theme/common/consts.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class IconThemeEditor extends StatelessWidget {
+  const IconThemeEditor({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(

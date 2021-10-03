@@ -33,11 +33,11 @@ Future<void> main() async {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(ElevatedBtnEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const ElevatedBtnEditor(), advancedThemeCubit: cubit);
   }
 
   testWidgets('displays ElevatedBtnEditor', (tester) async {
-    await tester.pumpApp(ElevatedBtnEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const ElevatedBtnEditor(), advancedThemeCubit: cubit);
     expect(find.byType(ElevatedBtnEditor), findsOneWidget);
   });
 
@@ -47,7 +47,7 @@ Future<void> main() async {
       final color = getRandomColor();
       final style = ElevatedButton.styleFrom(
         primary: color,
-        onSurface: ColorScheme.light().onSurface,
+        onSurface: const ColorScheme.light().onSurface,
       );
       final state = AdvancedThemeState(
         themeData: ThemeData(
@@ -67,7 +67,7 @@ Future<void> main() async {
       final color = getRandomColor();
       final style = ElevatedButton.styleFrom(
         onPrimary: color,
-        onSurface: ColorScheme.light().onSurface,
+        onSurface: const ColorScheme.light().onSurface,
       );
       final state = AdvancedThemeState(
         themeData: ThemeData(

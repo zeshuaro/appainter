@@ -34,11 +34,11 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(BodyText1Editor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const BodyText1Editor(), advancedThemeCubit: cubit);
   }
 
   testWidgets('should display BodyText1Editor', (tester) async {
-    await tester.pumpApp(BodyText1Editor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const BodyText1Editor(), advancedThemeCubit: cubit);
     expect(find.byType(BodyText1Editor), findsOneWidget);
   });
 

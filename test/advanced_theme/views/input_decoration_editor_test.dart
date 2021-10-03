@@ -33,11 +33,17 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(InputDecorationEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(
+      const InputDecorationEditor(),
+      advancedThemeCubit: cubit,
+    );
   }
 
   testWidgets('displays InputDecorationEditor', (tester) async {
-    await tester.pumpApp(InputDecorationEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(
+      const InputDecorationEditor(),
+      advancedThemeCubit: cubit,
+    );
     expect(find.byType(InputDecorationEditor), findsOneWidget);
   });
 
@@ -235,10 +241,12 @@ void main() {
   testWidgets(
     'error max lines should update with value',
     (tester) async {
-      final value = kInputDecorationErrorMaxLines + 1;
+      const value = kInputDecorationErrorMaxLines + 1;
       final state = AdvancedThemeState(
         themeData: ThemeData(
-          inputDecorationTheme: InputDecorationTheme(errorMaxLines: value),
+          inputDecorationTheme: const InputDecorationTheme(
+            errorMaxLines: value,
+          ),
         ),
       );
 
@@ -256,10 +264,12 @@ void main() {
   testWidgets(
     'helper max lines should update with value',
     (tester) async {
-      final value = kInputDecorationHelperMaxLines + 1;
+      const value = kInputDecorationHelperMaxLines + 1;
       final state = AdvancedThemeState(
         themeData: ThemeData(
-          inputDecorationTheme: InputDecorationTheme(helperMaxLines: value),
+          inputDecorationTheme: const InputDecorationTheme(
+            helperMaxLines: value,
+          ),
         ),
       );
 

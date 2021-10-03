@@ -30,7 +30,7 @@ class ColorAndBrightness extends StatelessWidget {
               onColorChanged: onColorChanged,
             ),
           ),
-          VerticalDivider(),
+          const VerticalDivider(),
           _BrightnessSwitch(
             isColorDark: isColorDark,
             onBrightnessChanged: onBrightnessChanged,
@@ -55,9 +55,9 @@ class _BrightnessSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
+        const Text(
           'Brightness',
-          style: const TextStyle(fontWeight: FontWeight.w500),
+          style: TextStyle(fontWeight: FontWeight.w500),
         ),
         Row(
           children: [
@@ -66,7 +66,7 @@ class _BrightnessSwitch extends StatelessWidget {
               activeColor: Colors.blueGrey,
               onChanged: onBrightnessChanged,
             ),
-            Text('Dark'),
+            const Text('Dark'),
           ],
         ),
       ],

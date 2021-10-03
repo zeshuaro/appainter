@@ -48,7 +48,7 @@ void main() {
       if (states.contains(MaterialState.selected)) {
         return color.withAlpha(0x80);
       }
-      return Color(0x52000000);
+      return const Color(0x52000000);
     });
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(

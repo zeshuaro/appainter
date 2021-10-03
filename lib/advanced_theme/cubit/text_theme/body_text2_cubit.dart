@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/models/models.dart';
 
-extension bodyText2Cubit on AdvancedThemeCubit {
+extension BodyText2Cubit on AdvancedThemeCubit {
   void bodyText2ColorChanged(Color color) {
     final style = _getBodyText2TextStyle().copyWith(color: color);
     _emitWithBodyText2TextStyle(style);
@@ -124,6 +124,6 @@ extension bodyText2Cubit on AdvancedThemeCubit {
   }
 
   TextStyle _getBodyText2TextStyle() {
-    return state.themeData.textTheme.bodyText2 ?? TextStyle();
+    return state.themeData.textTheme.bodyText2 ?? const TextStyle();
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/models/models.dart';
 
-extension captionTextCubit on AdvancedThemeCubit {
+extension CaptionTextCubit on AdvancedThemeCubit {
   void captionTextColorChanged(Color color) {
     final style = _getCaptionTextTextStyle().copyWith(color: color);
     _emitWithCaptionTextTextStyle(style);
@@ -124,6 +124,6 @@ extension captionTextCubit on AdvancedThemeCubit {
   }
 
   TextStyle _getCaptionTextTextStyle() {
-    return state.themeData.textTheme.caption ?? TextStyle();
+    return state.themeData.textTheme.caption ?? const TextStyle();
   }
 }

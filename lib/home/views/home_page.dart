@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           _ActionBtns(
             themeService: widget.themeService,
           ),
-          HorizontalPadding(),
+          const HorizontalPadding(),
         ],
       ),
       body: BlocListener<HomeCubit, HomeState>(
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
             'Supported Flutter SDK',
             style: Theme.of(context).textTheme.subtitle1,
           ),
-          VerticalPadding(),
+          const VerticalPadding(),
           Text(
             'Flutter Theme currently supports Flutter SDK: $_sdkVersion',
             style: Theme.of(context).textTheme.bodyText1,
@@ -105,14 +105,14 @@ class _ActionBtns extends StatelessWidget {
           key: const Key('homePage_importBtn'),
           themeService: themeService,
         ),
-        HorizontalPadding(),
+        const HorizontalPadding(),
         ExportBtn(
           key: const Key('homePage_exportBtn'),
           themeService: themeService,
         ),
-        HorizontalPadding(),
-        UsageBtn(
-          key: const Key('homePage_usageBtn'),
+        const HorizontalPadding(),
+        const UsageBtn(
+          key: Key('homePage_usageBtn'),
         ),
       ],
     );
@@ -137,12 +137,12 @@ class _EditorPreview extends StatelessWidget {
         Expanded(
           child: _EditorsContainer(),
         ),
-        HorizontalPadding(),
+        const HorizontalPadding(),
         Expanded(
           child: Card(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(4),
-              child: ThemePreview(),
+              child: const ThemePreview(),
             ),
           ),
         )
@@ -179,7 +179,7 @@ class _EditorsContainer extends StatelessWidget {
                 listener: (context, state) {
                   controller.animateTo(EditMode.values.indexOf(state.editMode));
                 },
-                child: _Editors(),
+                child: const _Editors(),
               );
             },
           ),
@@ -195,7 +195,7 @@ class _Editors extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: const [
         _EditModeHeader(),
         VerticalPadding(),
         Expanded(
@@ -221,8 +221,8 @@ class _EditModeHeader extends StatelessWidget {
         Expanded(
           child: _EditModeTabBar(),
         ),
-        Spacer(),
-        _RandomAndResetBtns(),
+        const Spacer(),
+        const _RandomAndResetBtns(),
       ],
     );
   }
@@ -237,7 +237,7 @@ class _EditModeTabBar extends StatelessWidget {
         return Tab(
           child: Text(
             text,
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           ),
         );
       }).toList(),
@@ -267,12 +267,12 @@ class _RandomAndResetBtns extends StatelessWidget {
                   context.read<AdvancedThemeCubit>().randomizedThemeRequested();
                 }
               },
-              icon: FaIcon(
+              icon: const FaIcon(
                 FontAwesomeIcons.random,
                 size: 20,
               ),
             ),
-            HorizontalPadding(),
+            const HorizontalPadding(),
             IconButton(
               key: const Key('homePage_resetThemeButton'),
               onPressed: () {
@@ -282,7 +282,7 @@ class _RandomAndResetBtns extends StatelessWidget {
                   context.read<AdvancedThemeCubit>().defaultThemeRequested();
                 }
               },
-              icon: FaIcon(
+              icon: const FaIcon(
                 FontAwesomeIcons.redo,
                 size: 20,
               ),

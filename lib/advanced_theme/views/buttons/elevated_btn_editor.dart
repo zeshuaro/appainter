@@ -5,6 +5,8 @@ import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class ElevatedBtnEditor extends StatelessWidget {
+  const ElevatedBtnEditor({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(

@@ -18,7 +18,7 @@ void main() {
 
   group('fetchThemeUsage', () {
     test('should return usage with data on success', () async {
-      final data = 'data';
+      const data = 'data';
       final response = MockResponse();
       when(() => response.data).thenReturn(data);
       when(() => dio.get(usageFileUrl)).thenAnswer((invocation) {
@@ -27,7 +27,7 @@ void main() {
 
       final actual = await repo.fetchThemeUsage();
 
-      expect(actual, equals(ThemeUsage(data)));
+      expect(actual, equals(const ThemeUsage(data)));
     });
 
     test('should return usage with null on failure', () async {
@@ -35,7 +35,7 @@ void main() {
 
       final actual = await repo.fetchThemeUsage();
 
-      expect(actual, equals(ThemeUsage()));
+      expect(actual, equals(const ThemeUsage()));
     });
   });
 }

@@ -6,6 +6,8 @@ import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class BottomNavBarEditor extends StatelessWidget {
+  const BottomNavBarEditor({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ExpandableCard(

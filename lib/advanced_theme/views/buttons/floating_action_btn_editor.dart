@@ -5,6 +5,8 @@ import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class FloatingActionBtnEditor extends StatelessWidget {
+  const FloatingActionBtnEditor({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ExpandableCard(

@@ -5,12 +5,14 @@ import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class BasicEditor extends StatelessWidget {
+  const BasicEditor({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
         _PrimaryColorPicker(),
-        VerticalPadding(),
+        const VerticalPadding(),
         ExpandableCard(
           header: 'More Colors',
           children: [

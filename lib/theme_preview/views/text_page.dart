@@ -4,6 +4,8 @@ import 'package:flutter_theme/theme_preview/views/views.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class TextPage extends PreviewBody {
+  const TextPage({Key? key}) : super(key: key);
+
   @override
   IconData get icon => Icons.text_fields;
 

@@ -23,7 +23,7 @@ void main() {
   });
 
   testWidgets('should display TextThemeEditor', (tester) async {
-    await tester.pumpApp(TextThemeEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const TextThemeEditor(), advancedThemeCubit: cubit);
     expect(find.byType(TextThemeEditor), findsOneWidget);
   });
 }

@@ -15,14 +15,14 @@ class ImportBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton.icon(
       onPressed: () => _onPressed(context),
-      icon: FaIcon(
+      icon: const FaIcon(
         FontAwesomeIcons.upload,
         color: Colors.white,
         size: 20,
       ),
-      label: Text(
+      label: const Text(
         'Import',
-        style: const TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.white),
       ),
     );
   }

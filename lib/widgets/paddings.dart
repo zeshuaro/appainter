@@ -2,29 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_theme/common/common.dart';
 
 class VerticalPadding extends StatelessWidget {
+  const VerticalPadding({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: kMargin);
+    return const SizedBox(height: kMargin);
   }
 }
 
 class VerticalPaddingSm extends StatelessWidget {
+  const VerticalPaddingSm({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(height: kMarginSm);
+    return const SizedBox(height: kMarginSm);
   }
 }
 
 class HorizontalPadding extends StatelessWidget {
+  const HorizontalPadding({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: kMargin);
+    return const SizedBox(width: kMargin);
   }
 }
 
 class HorizontalPaddingSm extends StatelessWidget {
+  const HorizontalPaddingSm({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: kMarginSm);
+    return const SizedBox(width: kMarginSm);
   }
 }

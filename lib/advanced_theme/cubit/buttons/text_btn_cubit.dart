@@ -13,8 +13,9 @@ extension TextBtnCubit on AdvancedThemeCubit {
 
   void textBtnFgColorChanged(Color color) {
     final fgColor = MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled))
+      if (states.contains(MaterialState.disabled)) {
         return state.themeData.colorScheme.onSurface.withOpacity(0.38);
+      }
       return color;
     });
     final style = _getTextBtnStyle().copyWith(foregroundColor: fgColor);
@@ -23,11 +24,13 @@ extension TextBtnCubit on AdvancedThemeCubit {
 
   void textBtnOverlayColorChanged(Color color) {
     final overlayColor = MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.hovered))
+      if (states.contains(MaterialState.hovered)) {
         return color.withOpacity(0.04);
+      }
       if (states.contains(MaterialState.focused) ||
-          states.contains(MaterialState.pressed))
+          states.contains(MaterialState.pressed)) {
         return color.withOpacity(0.12);
+      }
       return null;
     });
     final style = _getTextBtnStyle().copyWith(overlayColor: overlayColor);

@@ -14,14 +14,14 @@ class UsageBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton.icon(
       onPressed: () => _onPressed(context),
-      icon: FaIcon(
+      icon: const FaIcon(
         FontAwesomeIcons.question,
         color: Colors.white,
         size: 20,
       ),
-      label: Text(
+      label: const Text(
         'Usage',
-        style: const TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.white),
       ),
     );
   }
@@ -29,7 +29,7 @@ class UsageBtn extends StatelessWidget {
   void _onPressed(BuildContext context) {
     showDialog(
       context: context,
-      builder: (_) => _UsageDialog(),
+      builder: (_) => const _UsageDialog(),
     );
   }
 }
@@ -49,7 +49,7 @@ class _UsageDialog extends StatelessWidget {
             height: size.height * 0.6,
             child: state.themeUsage != null
                 ? _UsageContent(usage: state.themeUsage!)
-                : Center(child: CircularProgressIndicator()),
+                : const Center(child: CircularProgressIndicator()),
           ),
           actions: [
             TextButton(
@@ -81,8 +81,8 @@ class _UsageContent extends StatelessWidget {
               if (href != null) UtilService.launchUrl(href);
             },
           )
-        : _UsageFallback(
-            key: const Key('usageBtn_usageFallback'),
+        : const _UsageFallback(
+            key: Key('usageBtn_usageFallback'),
           );
   }
 }
@@ -95,12 +95,12 @@ class _UsageFallback extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        FaIcon(
+        const FaIcon(
           FontAwesomeIcons.exclamationTriangle,
           color: Colors.yellow,
           size: 48,
         ),
-        VerticalPadding(),
+        const VerticalPadding(),
         RichText(
           text: TextSpan(
             text: 'Failed to fetch usage details. Please visit ',
@@ -110,12 +110,12 @@ class _UsageFallback extends StatelessWidget {
                 text: 'this',
                 recognizer: TapGestureRecognizer()
                   ..onTap = () => UtilService.launchUrl(ThemeUsage.markdownUrl),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.blue,
                   decoration: TextDecoration.underline,
                 ),
               ),
-              TextSpan(text: ' page instead.'),
+              const TextSpan(text: ' page instead.'),
             ],
           ),
         ),

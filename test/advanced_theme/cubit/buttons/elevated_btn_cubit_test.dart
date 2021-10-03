@@ -18,7 +18,7 @@ void main() {
     final color = getRandomColor();
     final style = ElevatedButton.styleFrom(
       primary: color,
-      onSurface: ColorScheme.light().onSurface,
+      onSurface: const ColorScheme.light().onSurface,
     );
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
@@ -38,7 +38,7 @@ void main() {
     final color = getRandomColor();
     final style = ElevatedButton.styleFrom(
       onPrimary: color,
-      onSurface: ColorScheme.light().onSurface,
+      onSurface: const ColorScheme.light().onSurface,
     );
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(

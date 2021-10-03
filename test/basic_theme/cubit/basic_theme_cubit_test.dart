@@ -19,7 +19,7 @@ void main() {
   });
 
   group('randomizedThemeRequested', () {
-    final seed = 0;
+    const seed = 0;
     final colorScheme = randomColorSchemeLight(seed: seed, shouldPrint: false);
 
     blocTest<BasicThemeCubit, BasicThemeState>(

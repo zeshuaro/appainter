@@ -19,7 +19,7 @@ class ExpandableCard extends StatelessWidget {
       padding: EdgeInsets.zero,
       child: ExpandableNotifier(
         child: ExpandablePanel(
-          theme: ExpandableThemeData(
+          theme: const ExpandableThemeData(
             headerAlignment: ExpandablePanelHeaderAlignment.center,
           ),
           header: Padding(
@@ -35,15 +35,16 @@ class ExpandableCard extends StatelessWidget {
               ),
             ),
           ),
-          collapsed: SizedBox.shrink(),
+          collapsed: const SizedBox.shrink(),
           expanded: Padding(
             padding: const EdgeInsets.fromLTRB(kMargin, 0, kMargin, kMargin),
             child: MyListView(
               shrinkwrap: true,
-              physics: ScrollPhysics(),
+              physics: const ScrollPhysics(),
               children: [
-                VerticalPaddingSm(),
-              ]..addAll(children),
+                const VerticalPaddingSm(),
+                ...children,
+              ],
             ),
           ),
         ),

@@ -34,11 +34,11 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(OverlineTextEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const OverlineTextEditor(), advancedThemeCubit: cubit);
   }
 
   testWidgets('should display OverlineTextEditor', (tester) async {
-    await tester.pumpApp(OverlineTextEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const OverlineTextEditor(), advancedThemeCubit: cubit);
     expect(find.byType(OverlineTextEditor), findsOneWidget);
   });
 

@@ -35,7 +35,7 @@ void main() {
     final color = getRandomColor();
     final style = TextButton.styleFrom(
       primary: color,
-      onSurface: ColorScheme.light().onSurface,
+      onSurface: const ColorScheme.light().onSurface,
     );
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(

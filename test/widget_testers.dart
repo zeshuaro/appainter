@@ -27,7 +27,7 @@ class WidgetTesters {
     await tester.tap(find.text('Wheel'));
     await tester.pumpAndSettle();
 
-    final colorPicker = find.byKey(Key("widgetService_showColorPicker"));
+    final colorPicker = find.byKey(const Key("widgetService_showColorPicker"));
     await tester.enterText(
       find.descendant(
         of: colorPicker,

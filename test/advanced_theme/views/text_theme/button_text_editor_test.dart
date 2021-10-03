@@ -34,11 +34,11 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(ButtonTextEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const ButtonTextEditor(), advancedThemeCubit: cubit);
   }
 
   testWidgets('should display ButtonTextEditor', (tester) async {
-    await tester.pumpApp(ButtonTextEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const ButtonTextEditor(), advancedThemeCubit: cubit);
     expect(find.byType(ButtonTextEditor), findsOneWidget);
   });
 

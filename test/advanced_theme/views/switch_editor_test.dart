@@ -34,11 +34,11 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(SwitchEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const SwitchEditor(), advancedThemeCubit: cubit);
   }
 
   testWidgets('shoud display SwitchEditor', (tester) async {
-    await tester.pumpApp(SwitchEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const SwitchEditor(), advancedThemeCubit: cubit);
     expect(find.byType(SwitchEditor), findsOneWidget);
   });
 
@@ -82,7 +82,7 @@ void main() {
         if (states.contains(MaterialState.selected)) {
           return color.withAlpha(0x80);
         }
-        return Color(0x52000000);
+        return const Color(0x52000000);
       });
       final state = AdvancedThemeState(
         themeData: ThemeData(

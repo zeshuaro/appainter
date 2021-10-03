@@ -10,7 +10,7 @@ part 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepo repo;
 
-  HomeCubit(this.repo) : super(HomeState());
+  HomeCubit(this.repo) : super(const HomeState());
 
   void editModeChanged(EditMode mode) => emit(state.copyWith(editMode: mode));
 

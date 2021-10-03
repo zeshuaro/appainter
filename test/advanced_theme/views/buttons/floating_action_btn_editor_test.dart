@@ -33,11 +33,17 @@ Future<void> main() async {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(FloatingActionBtnEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(
+      const FloatingActionBtnEditor(),
+      advancedThemeCubit: cubit,
+    );
   }
 
   testWidgets('displays FloatingActionBtnEditor', (tester) async {
-    await tester.pumpApp(FloatingActionBtnEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(
+      const FloatingActionBtnEditor(),
+      advancedThemeCubit: cubit,
+    );
     expect(find.byType(FloatingActionBtnEditor), findsOneWidget);
   });
 

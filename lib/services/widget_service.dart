@@ -8,7 +8,7 @@ class WidgetService {
     required void Function(Color) onColorChanged,
   }) async {
     ColorPicker(
-      key: Key('widgetService_showColorPicker'),
+      key: const Key('widgetService_showColorPicker'),
       color: color,
       borderRadius: 22,
       showColorCode: true,
@@ -23,13 +23,13 @@ class WidgetService {
         'Select color shade',
         style: Theme.of(context).textTheme.subtitle1,
       ),
-      pickersEnabled: {
+      pickersEnabled: const {
         ColorPickerType.primary: true,
         ColorPickerType.accent: true,
         ColorPickerType.bw: true,
         ColorPickerType.wheel: true,
       },
-      copyPasteBehavior: ColorPickerCopyPasteBehavior(
+      copyPasteBehavior: const ColorPickerCopyPasteBehavior(
         copyFormat: ColorPickerCopyFormat.numHexRRGGBB,
         copyButton: true,
         pasteButton: true,

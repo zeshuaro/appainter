@@ -4,6 +4,8 @@ import 'package:flutter_theme/theme_preview/views/preview_body.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class InputsPage extends PreviewBody {
+  const InputsPage({Key? key}) : super(key: key);
+
   @override
   IconData get icon => Icons.keyboard;
 
@@ -24,7 +26,7 @@ class InputsPage extends PreviewBody {
           _TextFieldError(),
           _SwitchEnabled(),
           _SwitchDisabled(),
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
         ],
       ),
     );
@@ -34,7 +36,7 @@ class InputsPage extends PreviewBody {
 class _TextFieldEnabled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return const TextField(
       decoration: InputDecoration(labelText: 'Label'),
     );
   }
@@ -43,7 +45,7 @@ class _TextFieldEnabled extends StatelessWidget {
 class _TextFieldDisabled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return const TextField(
       enabled: false,
       decoration: InputDecoration(labelText: 'Disabled'),
     );
@@ -53,7 +55,7 @@ class _TextFieldDisabled extends StatelessWidget {
 class _TextFieldHintHelperCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return const TextField(
       decoration: InputDecoration(
         hintText: 'Hint',
         helperText: 'Helper',
@@ -68,7 +70,7 @@ class _TextFieldPrefixSuffix extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       initialValue: 'Input',
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         prefixText: 'Prefix: ',
         suffixText: 'Suffix',
       ),
@@ -79,7 +81,7 @@ class _TextFieldPrefixSuffix extends StatelessWidget {
 class _TextFieldError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return const TextField(
       decoration: InputDecoration(
         labelText: 'Label',
         errorText: 'Error',
@@ -114,7 +116,7 @@ class _SwitchDisabled extends StatelessWidget {
     return MyListTile(
       title: 'Switch Disabled',
       titleColor: Theme.of(context).disabledColor,
-      trailing: Switch(
+      trailing: const Switch(
         value: true,
         onChanged: null,
       ),

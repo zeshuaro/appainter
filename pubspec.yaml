@@ -1,5 +1,5 @@
 name: flutter_theme
-description: A Flutter material theme editor.
+description: A material theme editor/generator for Flutter
 publish_to: "none"
 version: 0.0.1-dev.8
 

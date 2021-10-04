@@ -1,7 +1,7 @@
 name: flutter_theme
 description: A material theme editor/generator for Flutter
 publish_to: "none"
-version: 0.0.1-dev.8
+version: 0.0.1
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -35,6 +35,7 @@ dependencies:
 dev_dependencies:
   bloc_test: ^8.0.0
   build_runner: ^2.0.0
+  cider: ^0.1.0
   copy_with_extension_gen: ^2.0.1
   flutter_lints: ^1.0.4
   flutter_test:

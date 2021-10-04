@@ -24,7 +24,7 @@
   "ignore_labels": ["ignore", "ci", "style"],
   "sort": "ASC",
   "template": "${{CHANGELOG}}",
-  "pr_template": "- ${{TITLE}} #${{NUMBER}}",
+  "pr_template": "- ${{TITLE}} (#${{NUMBER}})",
   "empty_template": "- no changes",
   "label_extractor": [
     {

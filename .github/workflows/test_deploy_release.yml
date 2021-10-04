@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - main
-    tags:
-      - "v*.*.*"
   pull_request:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: "Release type"
+        required: true
 
 env:
   flutter-version: 2.5.1
@@ -116,7 +119,7 @@ jobs:
     name: Build Desktop
     runs-on: ${{ matrix.os }}
     needs: [lint, test]
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' }}
 
     strategy:
       matrix:
@@ -168,6 +171,8 @@ jobs:
           flutter config --enable-${{ matrix.type }}-desktop
           flutter pub get
           flutter pub run build_runner build --delete-conflicting-outputs
+          # Bump app version, the new version is committed in the release step
+          flutter pub run cider bump ${{ github.event.inputs.release-type }}
           flutter build ${{ matrix.type }}
 
       - name: Compress app 🗜️
@@ -182,18 +187,67 @@ jobs:
           if-no-files-found: error
 
   release:
-    name: Create GitHub Release
+    name: Release
     runs-on: ubuntu-latest
     needs: build-desktop
-    if: startsWith(github.ref, 'refs/tags/v')
 
     steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
+
+      - name: Setup Flutter 💻
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: ${{ env.flutter-version }}
+
+      - name: Cache Pub 💾
+        uses: actions/cache@v2
+        with:
+          path: /opt/hostedtoolcache/flutter/*-stable/x64/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      - name: Get previous tag 🏷️
+        id: previous-tag
+        uses: WyriHaximus/github-action-get-previous-tag@v1
+
+      - name: Bump app version 🔼
+        id: bump-version
+        run: |
+          flutter pub get
+          echo "::set-output name=version::v$(flutter pub run cider bump ${{ github.event.inputs.release-type }})"
+
+      - name: Commit new version 🆕
+        uses: stefanzweifel/git-auto-commit-action@v4.12.0
+        env:
+          version: ${{ steps.bump-version.outputs.version }}
+        with:
+          commit_message: "chore(release): ${{ env.version }} [skip ci]"
+          tagging_message: ${{ env.version }}
+          file_pattern: pubspec.yaml
+          push_options: --force
+
+      - name: Generate changelog 📝
+        id: generate-changelog
+        uses: mikepenz/release-changelog-builder-action@v2.4.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          configuration: changelog_config.json
+          fromTag: ${{ steps.previous-tag.outputs.tag }}
+          toTag: ${{ steps.bump-version.outputs.version }}
+
       - name: Download artifacts ⬇️
         uses: actions/download-artifact@v2
 
       - name: Release 🚀
-        uses: softprops/action-gh-release@v1
+        uses: ncipollo/release-action@v1
         with:
-          files: "**/flutter_theme*.tar.gz"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.bump-version.outputs.version }}
+          artifacts: "**/flutter_theme*.tar.gz"
+          body: ${{ steps.generate-changelog.outputs.changelog }}
+          token: ${{ secrets.GITHUB_TOKEN }}

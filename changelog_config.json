@@ -18,7 +18,7 @@
     },
     {
       "title": "## 💬 Other",
-      "labels": ["refactor"]
+      "labels": ["refactor", "dependencies"]
     }
   ],
   "ignore_labels": ["ignore", "ci", "style"],

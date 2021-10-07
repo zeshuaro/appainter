@@ -11,9 +11,6 @@ on:
         description: "Release type"
         required: true
 
-env:
-  flutter-version: 2.5.1
-
 jobs:
   test:
     name: Test
@@ -23,10 +20,13 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
       - name: Setup Flutter 💻
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: ${{ env.flutter-version }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
 
       - name: Cache Pub 💾
         uses: actions/cache@v2
@@ -54,10 +54,13 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
       - name: Setup Flutter 💻
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: ${{ env.flutter-version }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
 
       - name: Cache Pub 💾
         uses: actions/cache@v2
@@ -83,10 +86,13 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
       - name: Setup Flutter 💻
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: ${{ env.flutter-version }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
 
       - name: Cache Pub 💾
         uses: actions/cache@v2
@@ -147,10 +153,13 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
 
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
       - name: Setup Flutter 💻
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: ${{ env.flutter-version }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
 
       - name: Cache Pub 💾
         uses: actions/cache@v2
@@ -198,10 +207,13 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.PAT }}
 
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
       - name: Setup Flutter 💻
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: ${{ env.flutter-version }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
 
       - name: Cache Pub 💾
         uses: actions/cache@v2

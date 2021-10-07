@@ -1,0 +1,33 @@
+name: Update Dependencies
+
+on:
+  schedule:
+    - cron: "0 8 * * 3"
+
+jobs:
+  update-dependencies:
+    name: Update Dependencies
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
+      - name: Setup Flutter 💻
+        uses: subosito/flutter-action@v1
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
+      - name: Update dependencies 🔼
+        run: flutter pub upgrade
+
+      - name: Create pull request 🆕
+        uses: peter-evans/create-pull-request@v3.10.1
+        with:
+          commit-message: "chore(deps): update dependencies"
+          title: "chore(deps): update dependencies"
+          body: "- [ ] Update `Podfile.lock`"
+          labels: dependencies

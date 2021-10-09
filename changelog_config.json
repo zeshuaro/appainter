@@ -18,7 +18,7 @@
     },
     {
       "title": "## 💬 Other",
-      "labels": ["refactor", "dependencies"]
+      "labels": ["refactor", "dependencies", "fluttersdk"]
     }
   ],
   "ignore_labels": ["ignore", "ci", "style"],

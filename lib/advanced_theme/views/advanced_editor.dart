@@ -21,6 +21,7 @@ class AdvancedEditor extends StatelessWidget {
         InputDecorationEditor(),
         SwitchEditor(),
         CheckboxEditor(),
+        RadioEditor(),
         TextThemeEditor(),
       ],
     );

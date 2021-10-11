@@ -59,35 +59,6 @@ void main() {
     );
   });
 
-  group('checkboxOverlayColorChanged', () {
-    final color = getRandomColor();
-    final theme = ThemeData();
-    final overlayColor = MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.pressed)) {
-        return theme.toggleableActiveColor.withAlpha(kRadialReactionAlpha);
-      }
-      if (states.contains(MaterialState.focused)) {
-        return theme.focusColor;
-      }
-      if (states.contains(MaterialState.hovered)) {
-        return theme.hoverColor;
-      }
-      return color;
-    });
-
-    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'should emit overlay color changed',
-      build: () => cubit,
-      act: (cubit) => cubit.checkboxOverlayColorChanged(color),
-      verify: (cubit) {
-        verifyMaterialProperty(
-          cubit.state.themeData.checkboxTheme.overlayColor!,
-          overlayColor,
-        );
-      },
-    );
-  });
-
   group('switchSplashRadiusChanged', () {
     final value = Random().nextDouble();
     final theme = ThemeData(

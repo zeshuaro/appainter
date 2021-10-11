@@ -27,26 +27,6 @@ extension CheckboxCubit on AdvancedThemeCubit {
     _emitWithCheckboxThemeData(theme);
   }
 
-  void checkboxOverlayColorChanged(Color color) {
-    final overlayColor = MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.pressed)) {
-        return state.themeData.toggleableActiveColor
-            .withAlpha(kRadialReactionAlpha);
-      }
-      if (states.contains(MaterialState.focused)) {
-        return state.themeData.focusColor;
-      }
-      if (states.contains(MaterialState.hovered)) {
-        return state.themeData.hoverColor;
-      }
-      return color;
-    });
-    final theme = state.themeData.checkboxTheme.copyWith(
-      overlayColor: overlayColor,
-    );
-    _emitWithCheckboxThemeData(theme);
-  }
-
   void checkboxSplashRadiusChanged(String value) {
     final radius = double.tryParse(value);
     if (radius != null) {

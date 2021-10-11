@@ -7,3 +7,4 @@ export 'color_cubit.dart';
 export 'input_decoration_cubit.dart';
 export 'text_theme/text_theme.dart';
 export 'switch_cubit.dart';
+export 'checkbox_cubit.dart';

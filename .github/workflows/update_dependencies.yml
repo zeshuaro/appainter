@@ -1,6 +1,7 @@
 name: Update Dependencies
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 8 * * 3"
 
@@ -12,6 +13,8 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
 
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1

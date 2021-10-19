@@ -96,16 +96,6 @@ extension SliderCubit on AdvancedThemeCubit {
     _emitWithSliderTheme(theme);
   }
 
-  void sliderMinThumbSeparationChanged(String value) {
-    final separation = double.tryParse(value);
-    if (separation != null) {
-      final theme = state.themeData.sliderTheme.copyWith(
-        minThumbSeparation: separation,
-      );
-      _emitWithSliderTheme(theme);
-    }
-  }
-
   void _emitWithSliderTheme(SliderThemeData theme) {
     emit(
       state.copyWith(themeData: state.themeData.copyWith(sliderTheme: theme)),

@@ -203,20 +203,4 @@ void main() {
       expect: () => [AdvancedThemeState(themeData: theme)],
     );
   });
-
-  group('sliderMinThumbSeparationChanged', () {
-    final separation = Random().nextDouble();
-    final theme = ThemeData(
-      sliderTheme: SliderThemeData(minThumbSeparation: separation),
-    );
-
-    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'should emit slider min thumb separation changed',
-      build: () => cubit,
-      act: (cubit) {
-        cubit.sliderMinThumbSeparationChanged(separation.toString());
-      },
-      expect: () => [AdvancedThemeState(themeData: theme)],
-    );
-  });
 }

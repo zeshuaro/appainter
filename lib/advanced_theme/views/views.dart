@@ -10,3 +10,4 @@ export 'text_theme/text_theme.dart';
 export 'switch_editor.dart';
 export 'checkbox_editor.dart';
 export 'radio_editor.dart';
+export 'slider_editor.dart';

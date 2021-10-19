@@ -58,3 +58,5 @@ const kInputDecorationErrorMaxLines = 1;
 const kInputDecorationHelperMaxLines = 1;
 
 const kNone = 'None';
+
+const kSliderTrackHeight = 4.0;

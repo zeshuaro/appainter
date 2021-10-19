@@ -9,3 +9,4 @@ export 'text_theme/text_theme.dart';
 export 'switch_cubit.dart';
 export 'checkbox_cubit.dart';
 export 'radio_cubit.dart';
+export 'slider_cubit.dart';

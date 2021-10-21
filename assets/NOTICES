@@ -1884,6 +1884,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 async
 cli_util
+mime
 shelf_static
 
 Copyright 2015, the Dart project authors. 
@@ -5235,7 +5236,6 @@ quiver
    limitations under the License.
 --------------------------------------------------------------------------------
 collection
-mime
 source_map_stack_trace
 stream_channel
 typed_data

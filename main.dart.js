@@ -101620,7 +101620,7 @@ q.toString
 q=L.aY("Supported Flutter SDK",o,o,o,o,K.Q(q).J.r,o,o,o)
 p=this.c
 p.toString
-s.f.P0(N.b_l(o,o,C.o,C.fS,T.c8(H.b([q,C.h6,L.aY("Flutter Theme currently supports Flutter SDK: 2.5.2",o,o,o,o,K.Q(p).J.y,o,o,o)],t.p),C.bI,C.cO,C.aJ),C.jV,C.alE,o,o,new V.a8(16,0,r.a.a*0.7,16),o,o,o,o))
+s.f.P0(N.b_l(o,o,C.o,C.fS,T.c8(H.b([q,C.h6,L.aY("Flutter Theme currently supports Flutter SDK: 2.5.3",o,o,o,o,K.Q(p).J.y,o,o,o)],t.p),C.bI,C.cO,C.aJ),C.jV,C.alE,o,o,new V.a8(16,0,r.a.a*0.7,16),o,o,o,o))
 r=Y.n(a,!1,t.H9)
 r.cg(Z.Uz(r.b,o,!0,o))}}}
 X.aMa.prototype={

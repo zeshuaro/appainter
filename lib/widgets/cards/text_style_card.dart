@@ -50,6 +50,7 @@ class TextStyleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ExpandableCard(
       header: header,
+      color: Colors.grey[100],
       children: [
         SideBySideList(
           children: [

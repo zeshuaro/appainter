@@ -106,8 +106,8 @@ void main() {
     );
   });
 
-  group('accent color picker', () {
-    const key = 'basicEditor_accentColorPicker';
+  group('secondary color picker', () {
+    const key = 'basicEditor_secondaryColorPicker';
 
     testWidgets(
       'color picker should update with selected color',
@@ -121,7 +121,7 @@ void main() {
 
         // Then
         await widgetTesters.checkColorPicker(tester, key, color);
-        verify(() => cubit.accentColorChanged(color)).called(1);
+        verify(() => cubit.secondaryColorChanged(color)).called(1);
       },
     );
 
@@ -138,14 +138,14 @@ void main() {
           // Then
           await widgetTesters.checkSwitch(tester, key, test.isDark);
           verify(() {
-            cubit.accentColorBrightnessChanged(!test.isDark);
+            cubit.secondaryColorBrightnessChanged(!test.isDark);
           }).called(1);
         },
       );
     }
   });
 
-  group('accent color dark picker', () {
+  group('secondary color dark picker', () {
     testWidgets(
       'color picker should update with selected color',
       (tester) async {
@@ -159,10 +159,10 @@ void main() {
         // Then
         await widgetTesters.checkColorPicker(
           tester,
-          'basicEditor_accentColorDarkPicker',
+          'basicEditor_secondaryColorDarkPicker',
           color,
         );
-        verify(() => cubit.accentColorDarkChanged(color)).called(1);
+        verify(() => cubit.secondaryColorDarkChanged(color)).called(1);
       },
     );
   });
@@ -221,7 +221,7 @@ void main() {
 
         // Then
         await widgetTesters.checkColorPicker(tester, key, color);
-        verify(() => cubit.bgColorChanged(color)).called(1);
+        verify(() => cubit.backgroundColorChanged(color)).called(1);
       },
     );
 
@@ -238,7 +238,7 @@ void main() {
           // Then
           await widgetTesters.checkSwitch(tester, key, test.isDark);
           verify(() {
-            cubit.bgColorBrightnessChanged(!test.isDark);
+            cubit.backgroundColorBrightnessChanged(!test.isDark);
           }).called(1);
         },
       );

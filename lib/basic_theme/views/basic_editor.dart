@@ -17,8 +17,8 @@ class BasicEditor extends StatelessWidget {
           header: 'More Colors',
           children: [
             _PrimaryColorDarkPicker(),
-            _AccentColorPicker(),
-            _AccentColorDarkPicker(),
+            _SecondaryColorPicker(),
+            _SecondaryColorDarkPicker(),
             _SurfaceColorPicker(),
             _BackgroundColorPicker(),
             _ErrorColorPicker(),
@@ -81,7 +81,7 @@ class _PrimaryColorDarkPicker extends StatelessWidget {
   }
 }
 
-class _AccentColorPicker extends StatelessWidget {
+class _SecondaryColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BasicThemeCubit, BasicThemeState>(
@@ -92,17 +92,17 @@ class _AccentColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorAndBrightness(
-          key: const Key('basicEditor_accentColorPicker'),
-          title: 'Accent Color',
+          key: const Key('basicEditor_secondaryColorPicker'),
+          title: 'Secondary Color',
           color: state.colorScheme.secondary,
           onColorChanged: (color) {
-            context.read<BasicThemeCubit>().accentColorChanged(color);
+            context.read<BasicThemeCubit>().secondaryColorChanged(color);
           },
           isColorDark: UtilService.isColorDark(state.colorScheme.onSecondary),
           onBrightnessChanged: (isDark) {
             context
                 .read<BasicThemeCubit>()
-                .accentColorBrightnessChanged(isDark);
+                .secondaryColorBrightnessChanged(isDark);
           },
         );
       },
@@ -110,7 +110,7 @@ class _AccentColorPicker extends StatelessWidget {
   }
 }
 
-class _AccentColorDarkPicker extends StatelessWidget {
+class _SecondaryColorDarkPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BasicThemeCubit, BasicThemeState>(
@@ -120,11 +120,11 @@ class _AccentColorDarkPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('basicEditor_accentColorDarkPicker'),
-          title: 'Accent Color Dark',
+          key: const Key('basicEditor_secondaryColorDarkPicker'),
+          title: 'Secondary Color Dark',
           color: state.colorScheme.secondaryVariant,
           onColorChanged: (color) {
-            context.read<BasicThemeCubit>().accentColorDarkChanged(color);
+            context.read<BasicThemeCubit>().secondaryColorDarkChanged(color);
           },
         );
       },
@@ -176,11 +176,13 @@ class _BackgroundColorPicker extends StatelessWidget {
           title: 'Background Color',
           color: state.colorScheme.background,
           onColorChanged: (color) {
-            context.read<BasicThemeCubit>().bgColorChanged(color);
+            context.read<BasicThemeCubit>().backgroundColorChanged(color);
           },
           isColorDark: UtilService.isColorDark(state.colorScheme.onBackground),
           onBrightnessChanged: (isDark) {
-            context.read<BasicThemeCubit>().bgColorBrightnessChanged(isDark);
+            context
+                .read<BasicThemeCubit>()
+                .backgroundColorBrightnessChanged(isDark);
           },
         );
       },

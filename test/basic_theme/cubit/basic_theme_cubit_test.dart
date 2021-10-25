@@ -86,7 +86,7 @@ void main() {
     );
   });
 
-  group('accentColorChanged', () {
+  group('secondaryColorChanged', () {
     final color = getRandomColor();
     final swatch = UtilService.getColorSwatch(color);
     final onColor = _getOnColor(color);
@@ -97,34 +97,34 @@ void main() {
     );
 
     blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits accent color',
+      'emits secondary color',
       build: () => cubit,
-      act: (cubit) => cubit.accentColorChanged(color),
+      act: (cubit) => cubit.secondaryColorChanged(color),
       expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
 
-  group('accentColorBrightnessChanged', () {
+  group('secondaryColorBrightnessChanged', () {
     brightnessTests.forEach((isDark, color) {
       final colorScheme = ColorScheme.light(onSecondary: color);
 
       blocTest<BasicThemeCubit, BasicThemeState>(
-        'emits on accent isDark=$isDark',
+        'emits on secondary isDark=$isDark',
         build: () => cubit,
-        act: (cubit) => cubit.accentColorBrightnessChanged(isDark),
+        act: (cubit) => cubit.secondaryColorBrightnessChanged(isDark),
         expect: () => [BasicThemeState(colorScheme: colorScheme)],
       );
     });
   });
 
-  group('accentColorDarkChanged', () {
+  group('secondaryColorDarkChanged', () {
     final color = getRandomColor();
     final colorScheme = ColorScheme.light(secondaryVariant: color);
 
     blocTest<BasicThemeCubit, BasicThemeState>(
-      'emits accent color dark',
+      'emits secondary color dark',
       build: () => cubit,
-      act: (cubit) => cubit.accentColorDarkChanged(color),
+      act: (cubit) => cubit.secondaryColorDarkChanged(color),
       expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
@@ -158,7 +158,7 @@ void main() {
     });
   });
 
-  group('bgColorChanged', () {
+  group('backgroundColorChanged', () {
     final color = getRandomColor();
     final onColor = _getOnColor(color);
     final colorScheme = ColorScheme.light(
@@ -169,19 +169,19 @@ void main() {
     blocTest<BasicThemeCubit, BasicThemeState>(
       'emits background color',
       build: () => cubit,
-      act: (cubit) => cubit.bgColorChanged(color),
+      act: (cubit) => cubit.backgroundColorChanged(color),
       expect: () => [BasicThemeState(colorScheme: colorScheme)],
     );
   });
 
-  group('bgColorBrightnessChanged', () {
+  group('backgroundColorBrightnessChanged', () {
     brightnessTests.forEach((isDark, color) {
       final colorScheme = ColorScheme.light(onBackground: color);
 
       blocTest<BasicThemeCubit, BasicThemeState>(
         'emits on background isDark=$isDark',
         build: () => cubit,
-        act: (cubit) => cubit.bgColorBrightnessChanged(isDark),
+        act: (cubit) => cubit.backgroundColorBrightnessChanged(isDark),
         expect: () => [BasicThemeState(colorScheme: colorScheme)],
       );
     });

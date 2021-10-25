@@ -24,7 +24,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v1.5.3
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
@@ -58,7 +58,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v1.5.3
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
@@ -90,7 +90,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v1.5.3
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
@@ -157,7 +157,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v1.5.3
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
@@ -211,7 +211,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v1.5.3
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
@@ -225,7 +225,7 @@ jobs:
 
       - name: Get previous tag 🏷️
         id: previous-tag
-        uses: WyriHaximus/github-action-get-previous-tag@v1
+        uses: WyriHaximus/github-action-get-previous-tag@v1.1.0
 
       - name: Bump app version 🔼
         id: bump-version
@@ -257,7 +257,7 @@ jobs:
         uses: actions/download-artifact@v2
 
       - name: Release 🚀
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@v1.8.10
         with:
           tag: ${{ steps.bump-version.outputs.version }}
           artifacts: "**/flutter_theme*.tar.gz"

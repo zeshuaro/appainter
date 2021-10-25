@@ -1,10 +1,7 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/common/common.dart';
-
-import '../list_view.dart';
-import '../paddings.dart';
-import 'card.dart';
+import 'package:flutter_theme/widgets/widgets.dart';
 
 class ExpandableCard extends StatelessWidget {
   final String header;
@@ -48,7 +45,7 @@ class ExpandableCard extends StatelessWidget {
               shrinkwrap: true,
               physics: const ScrollPhysics(),
               children: [
-                const VerticalPaddingSm(),
+                const VerticalPadding(size: PaddingSize.small),
                 ...children,
               ],
             ),

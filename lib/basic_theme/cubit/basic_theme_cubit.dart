@@ -52,7 +52,7 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
     _emitState(colorScheme);
   }
 
-  void accentColorChanged(Color color) {
+  void secondaryColorChanged(Color color) {
     final swatch = UtilService.getColorSwatch(color);
     final onColor = _getOnColor(color);
     final colorScheme = state.colorScheme.copyWith(
@@ -64,14 +64,14 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
     _emitState(colorScheme);
   }
 
-  void accentColorBrightnessChanged(bool isDark) {
+  void secondaryColorBrightnessChanged(bool isDark) {
     final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onSecondary: color);
 
     _emitState(colorScheme);
   }
 
-  void accentColorDarkChanged(Color color) {
+  void secondaryColorDarkChanged(Color color) {
     final colorScheme = state.colorScheme.copyWith(secondaryVariant: color);
     _emitState(colorScheme);
   }
@@ -93,7 +93,7 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
     _emitState(colorScheme);
   }
 
-  void bgColorChanged(Color color) {
+  void backgroundColorChanged(Color color) {
     final onColor = _getOnColor(color);
     final colorScheme = state.colorScheme.copyWith(
       background: color,
@@ -103,7 +103,7 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
     _emitState(colorScheme);
   }
 
-  void bgColorBrightnessChanged(bool isDark) {
+  void backgroundColorBrightnessChanged(bool isDark) {
     final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onBackground: color);
 

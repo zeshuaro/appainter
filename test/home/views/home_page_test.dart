@@ -170,7 +170,7 @@ void main() {
 
         await _pumpApp(tester);
 
-        final finder = find.byKey(const Key('homePage_exportBtn'));
+        final finder = find.byKey(const Key('homePage_exportButton'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
 
@@ -191,7 +191,7 @@ void main() {
 
         await _pumpApp(tester);
 
-        final finder = find.byKey(const Key('homePage_exportBtn'));
+        final finder = find.byKey(const Key('homePage_exportButton'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
 
@@ -213,7 +213,7 @@ void main() {
 
       await _pumpApp(tester);
 
-      final finder = find.byKey(const Key('homePage_importBtn'));
+      final finder = find.byKey(const Key('homePage_importButton'));
       await tester.ensureVisible(finder);
       await tester.tap(finder);
 
@@ -234,7 +234,7 @@ void main() {
 
         await _pumpApp(tester);
 
-        final finder = find.byKey(const Key('homePage_usageBtn'));
+        final finder = find.byKey(const Key('homePage_usageButton'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
         await tester.pumpAndSettle();
@@ -257,12 +257,13 @@ void main() {
 
         await _pumpApp(tester);
 
-        final finder = find.byKey(const Key('homePage_usageBtn'));
+        final finder = find.byKey(const Key('homePage_usageButton'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
         await tester.pumpAndSettle();
 
-        expect(find.byKey(const Key('usageBtn_usageFallback')), findsOneWidget);
+        expect(
+            find.byKey(const Key('usageButton_usageFallback')), findsOneWidget);
       },
     );
 
@@ -274,7 +275,7 @@ void main() {
 
         await _pumpApp(tester);
 
-        final finder = find.byKey(const Key('homePage_usageBtn'));
+        final finder = find.byKey(const Key('homePage_usageButton'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
         await tester.pump();
@@ -288,12 +289,12 @@ void main() {
       (tester) async {
         await _pumpApp(tester);
 
-        final usageBtn = find.byKey(const Key('homePage_usageBtn'));
+        final usageBtn = find.byKey(const Key('homePage_usageButton'));
         await tester.ensureVisible(usageBtn);
         await tester.tap(usageBtn);
         await tester.pump();
 
-        final closeBtn = find.byKey(const Key('usageBtn_closeBtn'));
+        final closeBtn = find.byKey(const Key('usageButton_closeButton'));
         await tester.ensureVisible(closeBtn);
         await tester.tap(closeBtn);
         await tester.pump();
@@ -302,6 +303,14 @@ void main() {
       },
     );
   });
+
+  testWidgets(
+    'should show github button',
+    (tester) async {
+      await _pumpApp(tester);
+      expect(find.byKey(const Key('homePage_githubButton')), findsOneWidget);
+    },
+  );
 
   group('SDK snack bar', () {
     testWidgets(

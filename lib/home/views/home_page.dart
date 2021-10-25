@@ -4,8 +4,6 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/home/widgets/import_btn.dart';
-import 'package:flutter_theme/home/widgets/widgets.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
@@ -39,7 +37,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Flutter Theme'),
         centerTitle: false,
         actions: [
-          _ActionBtns(
+          _ActionButtons(
             themeService: widget.themeService,
           ),
           const HorizontalPadding(),
@@ -92,27 +90,32 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class _ActionBtns extends StatelessWidget {
+class _ActionButtons extends StatelessWidget {
   final ThemeService themeService;
 
-  const _ActionBtns({Key? key, required this.themeService}) : super(key: key);
+  const _ActionButtons({Key? key, required this.themeService})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ImportBtn(
-          key: const Key('homePage_importBtn'),
+        ImportButton(
+          key: const Key('homePage_importButton'),
           themeService: themeService,
         ),
         const HorizontalPadding(),
-        ExportBtn(
-          key: const Key('homePage_exportBtn'),
+        ExportButton(
+          key: const Key('homePage_exportButton'),
           themeService: themeService,
         ),
         const HorizontalPadding(),
-        const UsageBtn(
-          key: Key('homePage_usageBtn'),
+        const UsageButton(
+          key: Key('homePage_usageButton'),
+        ),
+        const HorizontalPadding(),
+        const GithubButton(
+          key: Key('homePage_githubButton'),
         ),
       ],
     );
@@ -222,7 +225,7 @@ class _EditModeHeader extends StatelessWidget {
           child: _EditModeTabBar(),
         ),
         const Spacer(),
-        const _RandomAndResetBtns(),
+        const _RandomAndResetButtons(),
       ],
     );
   }
@@ -248,8 +251,8 @@ class _EditModeTabBar extends StatelessWidget {
   }
 }
 
-class _RandomAndResetBtns extends StatelessWidget {
-  const _RandomAndResetBtns({Key? key}) : super(key: key);
+class _RandomAndResetButtons extends StatelessWidget {
+  const _RandomAndResetButtons({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

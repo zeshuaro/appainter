@@ -6,12 +6,10 @@ import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class ExportBtn extends StatelessWidget {
+class ExportButton extends StatelessWidget {
   final ThemeService themeService;
 
-  const ExportBtn({Key? key, required this.themeService}) : super(key: key);
-
-  static const exportFileName = 'flutter_theme.json';
+  const ExportButton({Key? key, required this.themeService}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

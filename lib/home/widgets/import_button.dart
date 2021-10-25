@@ -6,10 +6,10 @@ import 'package:flutter_theme/services/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ndialog/ndialog.dart';
 
-class ImportBtn extends StatelessWidget {
+class ImportButton extends StatelessWidget {
   final ThemeService themeService;
 
-  const ImportBtn({Key? key, required this.themeService}) : super(key: key);
+  const ImportButton({Key? key, required this.themeService}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

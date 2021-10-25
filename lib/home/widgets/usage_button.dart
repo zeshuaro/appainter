@@ -7,8 +7,8 @@ import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class UsageBtn extends StatelessWidget {
-  const UsageBtn({Key? key}) : super(key: key);
+class UsageButton extends StatelessWidget {
+  const UsageButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class _UsageDialog extends StatelessWidget {
           ),
           actions: [
             TextButton(
-              key: const Key('usageBtn_closeBtn'),
+              key: const Key('usageButton_closeButton'),
               child: const Text('Close'),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -82,7 +82,7 @@ class _UsageContent extends StatelessWidget {
             },
           )
         : const _UsageFallback(
-            key: Key('usageBtn_usageFallback'),
+            key: Key('usageButton_usageFallback'),
           );
   }
 }

@@ -104,16 +104,16 @@ class _ActionButtons extends StatelessWidget {
           key: const Key('homePage_importButton'),
           themeService: themeService,
         ),
-        const HorizontalPadding(),
+        const HorizontalPadding(size: PaddingSize.medium),
         ExportButton(
           key: const Key('homePage_exportButton'),
           themeService: themeService,
         ),
-        const HorizontalPadding(),
+        const HorizontalPadding(size: PaddingSize.medium),
         const UsageButton(
           key: Key('homePage_usageButton'),
         ),
-        const HorizontalPadding(),
+        const HorizontalPadding(size: PaddingSize.medium),
         const GithubButton(
           key: Key('homePage_githubButton'),
         ),

@@ -9,14 +9,20 @@ import 'card.dart';
 class ExpandableCard extends StatelessWidget {
   final String header;
   final List<Widget> children;
+  final Color? color;
 
-  const ExpandableCard({Key? key, required this.header, required this.children})
-      : super(key: key);
+  const ExpandableCard({
+    Key? key,
+    required this.header,
+    required this.children,
+    this.color,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MyCard(
       padding: EdgeInsets.zero,
+      color: color,
       child: ExpandableNotifier(
         child: ExpandablePanel(
           theme: const ExpandableThemeData(

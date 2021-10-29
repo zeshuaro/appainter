@@ -238,7 +238,7 @@ packages:
       name: device_preview
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.5"
+    version: "0.8.0"
   dio:
     dependency: "direct main"
     description:

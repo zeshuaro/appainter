@@ -30,7 +30,6 @@ class ThemePreview extends StatelessWidget {
           return MaterialApp(
             theme: theme,
             locale: DevicePreview.locale(context),
-            builder: DevicePreview.appBuilder,
             useInheritedMediaQuery: true,
             home: DefaultTabController(
               length: _pages.length,

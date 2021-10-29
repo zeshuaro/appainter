@@ -10,7 +10,7 @@ dependencies:
   bloc: ^7.0.0
   copy_with_extension: ^2.0.0
   cupertino_icons: ^1.0.0
-  device_preview: ^0.7.4
+  device_preview: ^0.8.0
   dio: ^4.0.0
   enum_to_string: ^2.0.1
   equatable: ^2.0.0

@@ -37,7 +37,7 @@ const kBtnMinHeight = 36.0;
 const kBtnMinSize = Size(kBtnMinWidth, kBtnMinHeight);
 
 const kElevatedBtnOverlayOpacity = 0.24;
-const kElevatedBtnElevation = 2.0;
+const kElevatedButtonElevation = 2.0;
 
 const kOutlinedBtnOverlayOpacity = 0.12;
 const kOutlinedBtnElevation = 0.0;

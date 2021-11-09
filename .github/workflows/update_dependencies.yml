@@ -26,7 +26,7 @@ jobs:
         run: flutter pub upgrade
 
       - name: Create pull request 🆕
-        uses: peter-evans/create-pull-request@v3.10.1
+        uses: peter-evans/create-pull-request@v3.11.0
         with:
           commit-message: "chore(deps): update dependencies"
           title: "chore(deps): update dependencies"

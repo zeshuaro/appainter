@@ -16,7 +16,7 @@ Future<void> main() async {
   late AdvancedThemeCubit cubit;
 
   setUpAll(() {
-    registerFallbackValue<AdvancedThemeState>(FakeAdvancedThemeState());
+    registerFallbackValue(FakeAdvancedThemeState());
   });
 
   setUp(() {

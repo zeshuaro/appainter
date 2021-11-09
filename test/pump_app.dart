@@ -15,9 +15,9 @@ extension PumpApp on WidgetTester {
     BasicThemeCubit? basicThemeCubit,
     AdvancedThemeCubit? advancedThemeCubit,
   }) async {
-    registerFallbackValue<HomeState>(FakeHomeState());
-    registerFallbackValue<BasicThemeState>(FakeBasicThemeState());
-    registerFallbackValue<AdvancedThemeState>(FakeAdvancedThemeState());
+    registerFallbackValue(FakeHomeState());
+    registerFallbackValue(FakeBasicThemeState());
+    registerFallbackValue(FakeAdvancedThemeState());
 
     return pumpWidget(
       MultiBlocProvider(

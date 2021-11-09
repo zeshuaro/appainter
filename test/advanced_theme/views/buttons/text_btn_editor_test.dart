@@ -19,7 +19,7 @@ Future<void> main() async {
   final _widgetTesters = WidgetTesters(expandText: 'Text Button');
   late AdvancedThemeCubit cubit;
   setUpAll(() {
-    registerFallbackValue<AdvancedThemeState>(FakeAdvancedThemeState());
+    registerFallbackValue(FakeAdvancedThemeState());
   });
 
   setUp(() {

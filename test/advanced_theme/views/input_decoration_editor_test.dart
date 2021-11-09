@@ -19,7 +19,7 @@ void main() {
   late AdvancedThemeCubit cubit;
 
   setUpAll(() {
-    registerFallbackValue<AdvancedThemeState>(FakeAdvancedThemeState());
+    registerFallbackValue(FakeAdvancedThemeState());
   });
 
   setUp(() {

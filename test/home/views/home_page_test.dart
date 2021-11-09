@@ -20,10 +20,10 @@ void main() {
   late ThemeService themeService;
 
   setUpAll(() {
-    registerFallbackValue<HomeState>(FakeHomeState());
-    registerFallbackValue<BasicThemeState>(FakeBasicThemeState());
-    registerFallbackValue<AdvancedThemeState>(FakeAdvancedThemeState());
-    registerFallbackValue<ThemeData>(FakeThemeData());
+    registerFallbackValue(FakeHomeState());
+    registerFallbackValue(FakeBasicThemeState());
+    registerFallbackValue(FakeAdvancedThemeState());
+    registerFallbackValue(FakeThemeData());
   });
 
   setUp(() {

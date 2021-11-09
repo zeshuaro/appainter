@@ -20,7 +20,7 @@ void main() {
   late BasicThemeCubit cubit;
 
   setUpAll(() {
-    registerFallbackValue<BasicThemeState>(FakeBasicThemeState());
+    registerFallbackValue(FakeBasicThemeState());
   });
 
   setUp(() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_theme/advanced_theme/cubit/buttons/utils.dart';
 import 'package:flutter_theme/common/common.dart';
 
 import '../advanced_theme_cubit.dart';
@@ -6,14 +7,17 @@ import '../advanced_theme_cubit.dart';
 extension ElevatedButtonCubit on AdvancedThemeCubit {
   void elevatedButtonBackgroundEnabledColorChanged(Color color) {
     final style = _getButtonStyle();
-    final bgColor = _getBasicColor(style.backgroundColor!, enabledColor: color);
+    final bgColor = getButtonBasicColor(
+      style.backgroundColor!,
+      enabledColor: color,
+    );
 
     _emitWithButtonStyle(style.copyWith(backgroundColor: bgColor));
   }
 
   void elevatedButtonBackgroundDisabledColorChanged(Color color) {
     final style = _getButtonStyle();
-    final bgColor = _getBasicColor(
+    final bgColor = getButtonBasicColor(
       style.backgroundColor!,
       disabledColor: color,
     );
@@ -23,14 +27,17 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
 
   void elevatedButtonForegroundEnabledColorChanged(Color color) {
     final style = _getButtonStyle();
-    final fgColor = _getBasicColor(style.foregroundColor!, enabledColor: color);
+    final fgColor = getButtonBasicColor(
+      style.foregroundColor!,
+      enabledColor: color,
+    );
 
     _emitWithButtonStyle(style.copyWith(foregroundColor: fgColor));
   }
 
   void elevatedButtonForegroundDisabledColorChanged(Color color) {
     final style = _getButtonStyle();
-    final fgColor = _getBasicColor(
+    final fgColor = getButtonBasicColor(
       style.foregroundColor!,
       disabledColor: color,
     );
@@ -40,7 +47,7 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
 
   void elevatedButtonOverlayHoveredColorChanged(Color color) {
     final style = _getButtonStyle();
-    final overlayColor = _getOverlayColor(
+    final overlayColor = getButtonOverlayColor(
       style.overlayColor!,
       hoveredColor: color,
     );
@@ -50,7 +57,7 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
 
   void elevatedButtonOverlayFocusedColorChanged(Color color) {
     final style = _getButtonStyle();
-    final overlayColor = _getOverlayColor(
+    final overlayColor = getButtonOverlayColor(
       style.overlayColor!,
       focusedColor: color,
     );
@@ -60,7 +67,7 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
 
   void elevatedButtonOverlayPressedColorChanged(Color color) {
     final style = _getButtonStyle();
-    final overlayColor = _getOverlayColor(
+    final overlayColor = getButtonOverlayColor(
       style.overlayColor!,
       pressedColor: color,
     );
@@ -160,39 +167,6 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
           elevation: kElevatedButtonElevation,
           minimumSize: kBtnMinSize,
         );
-  }
-
-  MaterialStateProperty<Color?> _getBasicColor(
-    MaterialStateProperty<Color?> color, {
-    Color? enabledColor,
-    Color? disabledColor,
-  }) {
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
-        return disabledColor ?? color.resolve({MaterialState.disabled});
-      }
-      return enabledColor ?? color.resolve({});
-    });
-  }
-
-  MaterialStateProperty<Color?> _getOverlayColor(
-    MaterialStateProperty<Color?> overlayColor, {
-    Color? hoveredColor,
-    Color? focusedColor,
-    Color? pressedColor,
-  }) {
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.hovered)) {
-        return hoveredColor ?? overlayColor.resolve({MaterialState.hovered});
-      }
-      if (states.contains(MaterialState.focused)) {
-        return focusedColor ?? overlayColor.resolve({MaterialState.focused});
-      }
-      if (states.contains(MaterialState.pressed)) {
-        return pressedColor ?? overlayColor.resolve({MaterialState.pressed});
-      }
-      return null;
-    });
   }
 
   MaterialStateProperty<double?> _getElevation(

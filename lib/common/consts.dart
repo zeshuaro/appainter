@@ -40,7 +40,7 @@ const kElevatedBtnOverlayOpacity = 0.24;
 const kElevatedButtonElevation = 2.0;
 
 const kOutlinedBtnOverlayOpacity = 0.12;
-const kOutlinedBtnElevation = 0.0;
+const kOutlinedButtonElevation = 0.0;
 
 const kTextBtnOverlayOpacity = 0.12;
 const kTextBtnElevation = 0.0;

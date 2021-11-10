@@ -43,7 +43,7 @@ const kOutlinedBtnOverlayOpacity = 0.12;
 const kOutlinedButtonElevation = 0.0;
 
 const kTextBtnOverlayOpacity = 0.12;
-const kTextBtnElevation = 0.0;
+const kTextButtonElevation = 0.0;
 
 const kInteractiveStates = {
   MaterialState.pressed,

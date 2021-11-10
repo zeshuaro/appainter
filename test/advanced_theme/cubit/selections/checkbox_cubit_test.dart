@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 
-import '../../utils.dart';
+import '../../../utils.dart';
 
 void main() {
   late AdvancedThemeCubit cubit;
@@ -14,51 +14,46 @@ void main() {
     cubit = AdvancedThemeCubit();
   });
 
-  group('switchThumbColorChanged', () {
+  group('checkboxFillColorChanged', () {
     final color = getRandomColor();
-    final thumbColor = MaterialStateProperty.resolveWith((states) {
+    final theme = ThemeData();
+    final fillColor = MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
-        return Colors.grey.shade400;
+        return theme.disabledColor;
       }
       if (states.contains(MaterialState.selected)) {
         return color;
       }
-      return Colors.grey.shade50;
+      return theme.unselectedWidgetColor;
     });
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'should emit thumb color changed',
+      'should emit fill color changed',
       build: () => cubit,
-      act: (cubit) => cubit.switchThumbColorChanged(color),
+      act: (cubit) => cubit.checkboxFillColorChanged(color),
       verify: (cubit) {
         verifyMaterialProperty(
-          cubit.state.themeData.switchTheme.thumbColor!,
-          thumbColor,
+          cubit.state.themeData.checkboxTheme.fillColor!,
+          fillColor,
         );
       },
     );
   });
 
-  group('switchTrackColorChanged', () {
+  group('checkboxCheckColorChanged', () {
     final color = getRandomColor();
-    final trackColor = MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
-        return Colors.black12;
-      }
-      if (states.contains(MaterialState.selected)) {
-        return color.withAlpha(0x80);
-      }
-      return const Color(0x52000000);
+    final checkColor = MaterialStateProperty.resolveWith((_) {
+      return color;
     });
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'should emit track color changed',
+      'should emit check color changed',
       build: () => cubit,
-      act: (cubit) => cubit.switchTrackColorChanged(color),
+      act: (cubit) => cubit.checkboxCheckColorChanged(color),
       verify: (cubit) {
         verifyMaterialProperty(
-          cubit.state.themeData.switchTheme.trackColor!,
-          trackColor,
+          cubit.state.themeData.checkboxTheme.checkColor!,
+          checkColor,
         );
       },
     );
@@ -66,12 +61,14 @@ void main() {
 
   group('switchSplashRadiusChanged', () {
     final value = Random().nextDouble();
-    final theme = ThemeData(switchTheme: SwitchThemeData(splashRadius: value));
+    final theme = ThemeData(
+      checkboxTheme: CheckboxThemeData(splashRadius: value),
+    );
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
       'should emit splash radius changed',
       build: () => cubit,
-      act: (cubit) => cubit.switchSplashRadiusChanged(value.toString()),
+      act: (cubit) => cubit.checkboxSplashRadiusChanged(value.toString()),
       expect: () => [AdvancedThemeState(themeData: theme)],
     );
   });

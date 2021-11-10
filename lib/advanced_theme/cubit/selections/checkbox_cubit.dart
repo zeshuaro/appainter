@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'advanced_theme_cubit.dart';
+import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 
 extension CheckboxCubit on AdvancedThemeCubit {
   void checkboxFillColorChanged(Color color) {

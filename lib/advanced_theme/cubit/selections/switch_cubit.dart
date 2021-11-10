@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'advanced_theme_cubit.dart';
+import '../advanced_theme_cubit.dart';
 
 extension SwitchCubit on AdvancedThemeCubit {
   void switchThumbColorChanged(Color color) {

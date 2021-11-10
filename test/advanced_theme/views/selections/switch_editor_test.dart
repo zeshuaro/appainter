@@ -6,9 +6,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../pump_app.dart';
-import '../../utils.dart';
-import '../../widget_testers.dart';
+import '../../../pump_app.dart';
+import '../../../utils.dart';
+import '../../../widget_testers.dart';
 
 class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
     implements AdvancedThemeCubit {}

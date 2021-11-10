@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 
-import '../../utils.dart';
+import '../../../utils.dart';
 
 void main() {
   late AdvancedThemeCubit cubit;

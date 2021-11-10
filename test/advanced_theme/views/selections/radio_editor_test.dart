@@ -6,9 +6,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../pump_app.dart';
-import '../../utils.dart';
-import '../../widget_testers.dart';
+import '../../../pump_app.dart';
+import '../../../utils.dart';
+import '../../../widget_testers.dart';
 
 class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
     implements AdvancedThemeCubit {}
@@ -16,7 +16,7 @@ class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
 class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Checkbox');
+  final widgetTesters = WidgetTesters(expandText: 'Radio');
   late AdvancedThemeCubit cubit;
 
   setUpAll(() {
@@ -34,12 +34,12 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(const CheckboxEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(const RadioEditor(), advancedThemeCubit: cubit);
   }
 
-  testWidgets('shoud display CheckboxEditor', (tester) async {
-    await tester.pumpApp(const CheckboxEditor(), advancedThemeCubit: cubit);
-    expect(find.byType(CheckboxEditor), findsOneWidget);
+  testWidgets('shoud display RadioEditor', (tester) async {
+    await tester.pumpApp(const RadioEditor(), advancedThemeCubit: cubit);
+    expect(find.byType(RadioEditor), findsOneWidget);
   });
 
   testWidgets(
@@ -58,7 +58,7 @@ void main() {
       });
       final state = AdvancedThemeState(
         themeData: ThemeData(
-          checkboxTheme: CheckboxThemeData(fillColor: fillColor),
+          radioTheme: RadioThemeData(fillColor: fillColor),
         ),
       );
 
@@ -66,30 +66,7 @@ void main() {
 
       await widgetTesters.checkColorPicker(
         tester,
-        'checkboxEditor_fillColorPicker',
-        color,
-      );
-    },
-  );
-
-  testWidgets(
-    'check color picker should update with selected color',
-    (tester) async {
-      final color = getRandomColor();
-      final checkColor = MaterialStateProperty.resolveWith((_) {
-        return color;
-      });
-      final state = AdvancedThemeState(
-        themeData: ThemeData(
-          checkboxTheme: CheckboxThemeData(checkColor: checkColor),
-        ),
-      );
-
-      await _pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'checkboxEditor_checkColorPicker',
+        'radioEditor_fillColorPicker',
         color,
       );
     },
@@ -101,7 +78,7 @@ void main() {
       final value = Random().nextDouble();
       final state = AdvancedThemeState(
         themeData: ThemeData(
-          checkboxTheme: CheckboxThemeData(splashRadius: value),
+          radioTheme: RadioThemeData(splashRadius: value),
         ),
       );
 
@@ -109,7 +86,7 @@ void main() {
 
       await widgetTesters.checkTextField(
         tester,
-        'checkboxEditor_splashRadiusTextField',
+        'radioEditor_splashRadiusTextField',
         value,
       );
       verify(() => cubit.emit(state)).called(1);

@@ -18,6 +18,9 @@ class SelectionsPage extends PreviewBody {
     return MyListView(
       padding: kPaddingAll,
       children: [
+        _SwitchEnabled(),
+        _SwitchDisabled(),
+        const Divider(height: 0),
         _CheckboxEnabled(),
         _CheckboxDisabled(),
         const Divider(height: 0),
@@ -35,6 +38,40 @@ class SelectionsPage extends PreviewBody {
         _TimePicker(),
         const SizedBox(height: 50),
       ],
+    );
+  }
+}
+
+class _SwitchEnabled extends StatefulWidget {
+  @override
+  _SwitchEnabledState createState() => _SwitchEnabledState();
+}
+
+class _SwitchEnabledState extends State<_SwitchEnabled> {
+  bool _value = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return MyListTile(
+      title: 'Switch Enabled',
+      trailing: Switch(
+        value: _value,
+        onChanged: (value) => setState(() => _value = value),
+      ),
+    );
+  }
+}
+
+class _SwitchDisabled extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MyListTile(
+      title: 'Switch Disabled',
+      titleColor: Theme.of(context).disabledColor,
+      trailing: const Switch(
+        value: true,
+        onChanged: null,
+      ),
     );
   }
 }

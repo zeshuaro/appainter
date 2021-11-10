@@ -16,7 +16,7 @@ class AdvancedEditor extends StatelessWidget {
         FloatingActionBtnEditor(),
         ElevatedButtonEditor(),
         OutlinedButtonEditor(),
-        TextBtnEditor(),
+        TextButtonEditor(),
         IconThemeEditor(),
         InputDecorationEditor(),
         SwitchEditor(),

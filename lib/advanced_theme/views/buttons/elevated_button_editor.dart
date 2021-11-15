@@ -41,12 +41,12 @@ class _BackgroundColorPickers extends StatelessWidget {
           header: 'Background Color',
           items: [
             MaterialStateItem(
-              key: const Key('elevatedButtonEditor_backgroundColor_enabled'),
-              title: 'Enabled',
+              key: const Key('elevatedButtonEditor_backgroundColor_default'),
+              title: 'Default',
               value: backgroundColor?.resolve({}) ?? colorScheme.primary,
               onValueChanged: (color) => context
                   .read<AdvancedThemeCubit>()
-                  .elevatedButtonBackgroundEnabledColorChanged(color),
+                  .elevatedButtonBackgroundDefaultColorChanged(color),
             ),
             MaterialStateItem(
               key: const Key('elevatedButtonEditor_backgroundColor_disabled'),
@@ -83,12 +83,12 @@ class _ForegroundColorPickers extends StatelessWidget {
           header: 'Foreground Color',
           items: [
             MaterialStateItem(
-              key: const Key('elevatedButtonEditor_foregroundColor_enabled'),
-              title: 'Enabled',
+              key: const Key('elevatedButtonEditor_foregroundColor_default'),
+              title: 'Default',
               value: foregroundColor?.resolve({}) ?? colorScheme.onPrimary,
               onValueChanged: (color) => context
                   .read<AdvancedThemeCubit>()
-                  .elevatedButtonForegroundEnabledColorChanged(color),
+                  .elevatedButtonForegroundDefaultColorChanged(color),
             ),
             MaterialStateItem(
               key: const Key('elevatedButtonEditor_foregroundColor_disabled'),
@@ -174,8 +174,8 @@ class _ShadowColorPickers extends StatelessWidget {
           header: 'Shadow Color',
           items: [
             MaterialStateItem(
-              key: const Key('elevatedButtonEditor_shadowColor_allStates'),
-              title: 'All States',
+              key: const Key('elevatedButtonEditor_shadowColor_default'),
+              title: 'Default',
               value: shadowColor?.resolve({}) ?? themeData.shadowColor,
               onValueChanged: (color) => context
                   .read<AdvancedThemeCubit>()
@@ -204,13 +204,13 @@ class _ElevationTextFields extends StatelessWidget {
           header: 'Elevation',
           items: [
             MaterialStateItem(
-              key: const Key('elevatedButtonEditor_elevationTextField_enabled'),
-              title: 'Enabled',
+              key: const Key('elevatedButtonEditor_elevationTextField_default'),
+              title: 'Default',
               value: (elevation?.resolve({}) ?? kElevatedButtonElevation)
                   .toString(),
               onValueChanged: (value) => context
                   .read<AdvancedThemeCubit>()
-                  .elevatedButtonEnabledElevationChanged(value),
+                  .elevatedButtonDefaultElevationChanged(value),
             ),
             MaterialStateItem(
               key: const Key(

@@ -6,14 +6,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../../mocks.dart';
 import '../../../pump_app.dart';
 import '../../../utils.dart';
 import '../../../widget_testers.dart';
-
-class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
-    implements AdvancedThemeCubit {}
-
-class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
 
 Future<void> main() async {
   final _widgetTesters = WidgetTesters(expandText: 'Text Button');
@@ -53,7 +49,7 @@ Future<void> main() async {
 
   group('background color pickers', () {
     testWidgets(
-      'all states color picker should update with selected color',
+      'default color picker should update with selected color',
       (tester) async {
         final color = getRandomColor();
         final prop = getMaterialStateProperty({null: color});
@@ -69,7 +65,7 @@ Future<void> main() async {
 
         await _widgetTesters.checkColorPicker(
           tester,
-          'textButtonEditor_backgroundColor_allStates',
+          'textButtonEditor_backgroundColor_default',
           color,
         );
       },
@@ -78,7 +74,7 @@ Future<void> main() async {
 
   group('foreground color pickers', () {
     testWidgets(
-      'enabled color picker should update with selected color',
+      'default color picker should update with selected color',
       (tester) async {
         final color = getRandomColor();
         final prop = getMaterialStateProperty({null: color});
@@ -94,7 +90,7 @@ Future<void> main() async {
 
         await _widgetTesters.checkColorPicker(
           tester,
-          'textButtonEditor_foregroundColor_enabled',
+          'textButtonEditor_foregroundColor_default',
           color,
         );
       },
@@ -197,7 +193,7 @@ Future<void> main() async {
 
   group('shadow color pickers', () {
     testWidgets(
-      'all states color picker should update with selected color',
+      'default color picker should update with selected color',
       (tester) async {
         final color = getRandomColor();
         final prop = getMaterialStateProperty({null: color});
@@ -213,7 +209,7 @@ Future<void> main() async {
 
         await _widgetTesters.checkColorPicker(
           tester,
-          'textButtonEditor_shadowColor_allStates',
+          'textButtonEditor_shadowColor_default',
           color,
         );
       },
@@ -222,7 +218,7 @@ Future<void> main() async {
 
   group('elevation text fields', () {
     testWidgets(
-      'all states text field should update with value',
+      'default text field should update with value',
       (tester) async {
         final value = Random().nextDouble();
         final prop = getMaterialStateProperty({null: value});
@@ -238,7 +234,7 @@ Future<void> main() async {
 
         await _widgetTesters.checkTextField(
           tester,
-          'textButtonEditor_elevationTextField_allStates',
+          'textButtonEditor_elevationTextField_default',
           value,
         );
       },

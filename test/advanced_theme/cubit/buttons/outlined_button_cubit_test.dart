@@ -35,14 +35,14 @@ void main() {
     );
   });
 
-  group('outlinedButtonForegroundEnabledColorChanged', () {
+  group('outlinedButtonForegroundDefaultColorChanged', () {
     final color = getRandomColor();
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'should emit outlined button foreground enabled color',
+      'should emit outlined button foreground default color',
       build: () => cubit,
       act: (cubit) {
-        cubit.outlinedButtonForegroundEnabledColorChanged(color);
+        cubit.outlinedButtonForegroundDefaultColorChanged(color);
       },
       verify: (cubit) {
         final props = {

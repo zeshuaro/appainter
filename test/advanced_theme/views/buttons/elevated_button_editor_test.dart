@@ -50,7 +50,7 @@ Future<void> main() async {
 
   group('background color pickers', () {
     testWidgets(
-      'enabled color picker should update with selected color',
+      'default color picker should update with selected color',
       (tester) async {
         final color = getRandomColor();
         final prop = getMaterialStateProperty({null: color});
@@ -66,7 +66,7 @@ Future<void> main() async {
 
         await _widgetTesters.checkColorPicker(
           tester,
-          'elevatedButtonEditor_backgroundColor_enabled',
+          'elevatedButtonEditor_backgroundColor_default',
           color,
         );
       },
@@ -98,7 +98,7 @@ Future<void> main() async {
 
   group('foreground color pickers', () {
     testWidgets(
-      'enabled color picker should update with selected color',
+      'default color picker should update with selected color',
       (tester) async {
         final color = getRandomColor();
         final prop = getMaterialStateProperty({null: color});
@@ -114,7 +114,7 @@ Future<void> main() async {
 
         await _widgetTesters.checkColorPicker(
           tester,
-          'elevatedButtonEditor_foregroundColor_enabled',
+          'elevatedButtonEditor_foregroundColor_default',
           color,
         );
       },
@@ -217,7 +217,7 @@ Future<void> main() async {
 
   group('shadow color pickers', () {
     testWidgets(
-      'all states color picker should update with selected color',
+      'default color picker should update with selected color',
       (tester) async {
         final color = getRandomColor();
         final prop = getMaterialStateProperty({null: color});
@@ -233,7 +233,7 @@ Future<void> main() async {
 
         await _widgetTesters.checkColorPicker(
           tester,
-          'elevatedButtonEditor_shadowColor_allStates',
+          'elevatedButtonEditor_shadowColor_default',
           color,
         );
       },
@@ -242,7 +242,7 @@ Future<void> main() async {
 
   group('elevation text fields', () {
     testWidgets(
-      'enabled text field should update with value',
+      'default text field should update with value',
       (tester) async {
         final value = Random().nextDouble();
         final prop = getMaterialStateProperty({null: value});
@@ -258,7 +258,7 @@ Future<void> main() async {
 
         await _widgetTesters.checkTextField(
           tester,
-          'elevatedButtonEditor_elevationTextField_enabled',
+          'elevatedButtonEditor_elevationTextField_default',
           value,
         );
       },

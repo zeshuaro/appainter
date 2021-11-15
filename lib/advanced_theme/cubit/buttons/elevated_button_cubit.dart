@@ -5,11 +5,11 @@ import 'package:flutter_theme/common/common.dart';
 import '../advanced_theme_cubit.dart';
 
 extension ElevatedButtonCubit on AdvancedThemeCubit {
-  void elevatedButtonBackgroundEnabledColorChanged(Color color) {
+  void elevatedButtonBackgroundDefaultColorChanged(Color color) {
     final style = _getButtonStyle();
     final bgColor = getButtonBasicColor(
       style.backgroundColor!,
-      enabledColor: color,
+      defaultColor: color,
     );
 
     _emitWithButtonStyle(style.copyWith(backgroundColor: bgColor));
@@ -25,11 +25,11 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(backgroundColor: bgColor));
   }
 
-  void elevatedButtonForegroundEnabledColorChanged(Color color) {
+  void elevatedButtonForegroundDefaultColorChanged(Color color) {
     final style = _getButtonStyle();
     final fgColor = getButtonBasicColor(
       style.foregroundColor!,
-      enabledColor: color,
+      defaultColor: color,
     );
 
     _emitWithButtonStyle(style.copyWith(foregroundColor: fgColor));
@@ -82,13 +82,13 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style);
   }
 
-  void elevatedButtonEnabledElevationChanged(String value) {
+  void elevatedButtonDefaultElevationChanged(String value) {
     final elevation = double.tryParse(value);
     if (elevation != null) {
       final style = _getButtonStyle();
       final elevationProp = _getElevation(
         style.elevation!,
-        enabledElevation: elevation,
+        defaultElevation: elevation,
       );
 
       _emitWithButtonStyle(style.copyWith(elevation: elevationProp));
@@ -171,7 +171,7 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
 
   MaterialStateProperty<double?> _getElevation(
     MaterialStateProperty<double?> elevation, {
-    double? enabledElevation,
+    double? defaultElevation,
     double? disabledElevation,
     double? hoveredElevation,
     double? focusedElevation,
@@ -193,7 +193,7 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
           return pressedElevation ?? elevation.resolve({MaterialState.pressed});
         }
 
-        return enabledElevation ?? elevation.resolve({});
+        return defaultElevation ?? elevation.resolve({});
       },
     );
   }

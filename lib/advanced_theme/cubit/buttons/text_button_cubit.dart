@@ -12,11 +12,11 @@ extension TextButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style);
   }
 
-  void textButtonForegroundEnabledColorChanged(Color color) {
+  void textButtonForegroundDefaultColorChanged(Color color) {
     final style = _getButtonStyle();
     final fgColor = getButtonBasicColor(
       style.foregroundColor!,
-      enabledColor: color,
+      defaultColor: color,
     );
 
     _emitWithButtonStyle(style.copyWith(foregroundColor: fgColor));

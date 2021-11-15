@@ -36,6 +36,10 @@ class UtilService {
         : EnumToString.convertToString(value, camelCase: true);
   }
 
+  static T? stringToEnum<T>(List<T> enumValues, String value) {
+    return EnumToString.fromString<T>(enumValues, value, camelCase: true);
+  }
+
   static List<String> getEnumStrings(
     List<dynamic> values, {
     bool withNull = false,

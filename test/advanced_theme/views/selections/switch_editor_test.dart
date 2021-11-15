@@ -6,18 +6,16 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../../mocks.dart';
 import '../../../pump_app.dart';
 import '../../../utils.dart';
 import '../../../widget_testers.dart';
 
-class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
-    implements AdvancedThemeCubit {}
-
-class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
-
 void main() {
   final widgetTesters = WidgetTesters(expandText: 'Switch');
+
   late AdvancedThemeCubit cubit;
+  late Color testColor;
 
   setUpAll(() {
     registerFallbackValue(FakeAdvancedThemeState());
@@ -26,6 +24,8 @@ void main() {
   setUp(() {
     cubit = MockAdvancedThemeCubit();
     when(() => cubit.state).thenReturn(AdvancedThemeState());
+
+    testColor = getRandomColor();
   });
 
   Future<void> _pumpApp(WidgetTester tester, AdvancedThemeState state) async {
@@ -34,7 +34,14 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(const SwitchEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(
+      ListView(
+        children: const [
+          SwitchEditor(),
+        ],
+      ),
+      advancedThemeCubit: cubit,
+    );
   }
 
   testWidgets('shoud display SwitchEditor', (tester) async {
@@ -42,64 +49,205 @@ void main() {
     expect(find.byType(SwitchEditor), findsOneWidget);
   });
 
-  testWidgets(
-    'thumb color picker should update with selected color',
-    (tester) async {
-      final color = getRandomColor();
-      final thumbColor = MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.disabled)) {
-          return Colors.grey.shade400;
-        }
-        if (states.contains(MaterialState.selected)) {
-          return color;
-        }
-        return Colors.grey.shade50;
-      });
-      final state = AdvancedThemeState(
-        themeData: ThemeData(
-          switchTheme: SwitchThemeData(thumbColor: thumbColor),
-        ),
-      );
+  group('thumb color pickers', () {
+    testWidgets(
+      'default color picker should update with selected color',
+      (tester) async {
+        final prop = getMaterialStateProperty({null: testColor});
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            switchTheme: SwitchThemeData(thumbColor: prop),
+          ),
+        );
 
-      await _pumpApp(tester, state);
+        await _pumpApp(tester, state);
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'switchEditor_thumbColorPicker',
-        color,
-      );
-    },
-  );
+        await widgetTesters.checkColorPicker(
+          tester,
+          'switchEditor_thumbColor_default',
+          testColor,
+        );
+      },
+    );
 
-  testWidgets(
-    'track color picker should update with selected color',
-    (tester) async {
-      final color = getRandomColor();
-      final trackColor = MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.disabled)) {
-          return Colors.black12;
-        }
-        if (states.contains(MaterialState.selected)) {
-          return color.withAlpha(0x80);
-        }
-        return const Color(0x52000000);
-      });
-      final state = AdvancedThemeState(
-        themeData: ThemeData(
-          switchTheme: SwitchThemeData(trackColor: trackColor),
-        ),
-      );
+    testWidgets(
+      'selected color picker should update with selected color',
+      (tester) async {
+        final prop = getMaterialStateProperty({
+          MaterialState.selected: testColor,
+        });
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            switchTheme: SwitchThemeData(thumbColor: prop),
+          ),
+        );
 
-      await _pumpApp(tester, state);
+        await _pumpApp(tester, state);
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'switchEditor_trackColorPicker',
-        color,
-        expectedColor: color.withAlpha(0x80),
-      );
-    },
-  );
+        await widgetTesters.checkColorPicker(
+          tester,
+          'switchEditor_thumbColor_selected',
+          testColor,
+        );
+      },
+    );
+
+    testWidgets(
+      'disabled color picker should update with selected color',
+      (tester) async {
+        final prop = getMaterialStateProperty({
+          MaterialState.disabled: testColor,
+        });
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            switchTheme: SwitchThemeData(thumbColor: prop),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkColorPicker(
+          tester,
+          'switchEditor_thumbColor_disabled',
+          testColor,
+        );
+      },
+    );
+  });
+
+  group('track color pickers', () {
+    testWidgets(
+      'default color picker should update with selected color',
+      (tester) async {
+        final prop = getMaterialStateProperty({null: testColor});
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            switchTheme: SwitchThemeData(trackColor: prop),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkColorPicker(
+          tester,
+          'switchEditor_trackColor_default',
+          testColor,
+        );
+      },
+    );
+
+    testWidgets(
+      'selected color picker should update with selected color',
+      (tester) async {
+        final prop = getMaterialStateProperty({
+          MaterialState.selected: testColor,
+        });
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            switchTheme: SwitchThemeData(trackColor: prop),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkColorPicker(
+          tester,
+          'switchEditor_trackColor_selected',
+          testColor,
+        );
+      },
+    );
+
+    testWidgets(
+      'disabled color picker should update with selected color',
+      (tester) async {
+        final prop = getMaterialStateProperty({
+          MaterialState.disabled: testColor,
+        });
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            switchTheme: SwitchThemeData(trackColor: prop),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkColorPicker(
+          tester,
+          'switchEditor_trackColor_disabled',
+          testColor,
+        );
+      },
+    );
+  });
+
+  group('overlay color pickers', () {
+    testWidgets(
+      'pressed color picker should update with selected color',
+      (tester) async {
+        final prop = getMaterialStateProperty({
+          MaterialState.pressed: testColor,
+        });
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            switchTheme: SwitchThemeData(overlayColor: prop),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkColorPicker(
+          tester,
+          'switchEditor_overlayColor_pressed',
+          testColor,
+        );
+      },
+    );
+
+    testWidgets(
+      'hovered color picker should update with selected color',
+      (tester) async {
+        final prop = getMaterialStateProperty({
+          MaterialState.hovered: testColor,
+        });
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            switchTheme: SwitchThemeData(overlayColor: prop),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkColorPicker(
+          tester,
+          'switchEditor_overlayColor_hovered',
+          testColor,
+        );
+      },
+    );
+
+    testWidgets(
+      'focused color picker should update with selected color',
+      (tester) async {
+        final prop = getMaterialStateProperty({
+          MaterialState.focused: testColor,
+        });
+        final state = AdvancedThemeState(
+          themeData: ThemeData(
+            switchTheme: SwitchThemeData(overlayColor: prop),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkColorPicker(
+          tester,
+          'switchEditor_overlayColor_focused',
+          testColor,
+        );
+      },
+    );
+  });
 
   testWidgets(
     'splash radius text field should update with value',

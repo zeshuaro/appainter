@@ -39,8 +39,8 @@ class _BackgroundColorPickers extends StatelessWidget {
           header: 'Background Color',
           items: [
             MaterialStateItem(
-              key: const Key('outlinedButtonEditor_backgroundColor_allStates'),
-              title: 'All States',
+              key: const Key('outlinedButtonEditor_backgroundColor_default'),
+              title: 'Default',
               value: themeData.outlinedButtonTheme.style?.backgroundColor
                       ?.resolve({}) ??
                   themeData.colorScheme.primary,
@@ -74,12 +74,12 @@ class _ForegroundColorPickers extends StatelessWidget {
           header: 'Foreground Color',
           items: [
             MaterialStateItem(
-              key: const Key('outlinedButtonEditor_foregroundColor_enabled'),
-              title: 'Enabled',
+              key: const Key('outlinedButtonEditor_foregroundColor_default'),
+              title: 'Default',
               value: foregroundColor?.resolve({}) ?? colorScheme.primary,
               onValueChanged: (color) => context
                   .read<AdvancedThemeCubit>()
-                  .outlinedButtonForegroundEnabledColorChanged(color),
+                  .outlinedButtonForegroundDefaultColorChanged(color),
             ),
             MaterialStateItem(
               key: const Key('outlinedButtonEditor_foregroundColor_disabled'),
@@ -164,8 +164,8 @@ class _ShadowColorPickers extends StatelessWidget {
           header: 'Shadow Color',
           items: [
             MaterialStateItem(
-              key: const Key('outlinedButtonEditor_shadowColor_allStates'),
-              title: 'All States',
+              key: const Key('outlinedButtonEditor_shadowColor_default'),
+              title: 'Default',
               value: themeData.outlinedButtonTheme.style?.shadowColor
                       ?.resolve({}) ??
                   themeData.shadowColor,
@@ -194,9 +194,9 @@ class _ElevationTextFields extends StatelessWidget {
           items: [
             MaterialStateItem(
               key: const Key(
-                'outlinedButtonEditor_elevationTextField_allStates',
+                'outlinedButtonEditor_elevationTextField_default',
               ),
-              title: 'All States',
+              title: 'Default',
               value: (state.themeData.outlinedButtonTheme.style?.elevation
                           ?.resolve({}) ??
                       kOutlinedButtonElevation)

@@ -39,8 +39,8 @@ class _BackgroundColorPickers extends StatelessWidget {
           header: 'Background Color',
           items: [
             MaterialStateItem(
-              key: const Key('textButtonEditor_backgroundColor_allStates'),
-              title: 'All States',
+              key: const Key('textButtonEditor_backgroundColor_default'),
+              title: 'Default',
               value: themeData.textButtonTheme.style?.backgroundColor
                       ?.resolve({}) ??
                   themeData.colorScheme.primary,
@@ -74,12 +74,12 @@ class _ForegroundColorPickers extends StatelessWidget {
           header: 'Foreground Color',
           items: [
             MaterialStateItem(
-              key: const Key('textButtonEditor_foregroundColor_enabled'),
-              title: 'Enabled',
+              key: const Key('textButtonEditor_foregroundColor_default'),
+              title: 'Default',
               value: foregroundColor?.resolve({}) ?? colorScheme.primary,
               onValueChanged: (color) => context
                   .read<AdvancedThemeCubit>()
-                  .textButtonForegroundEnabledColorChanged(color),
+                  .textButtonForegroundDefaultColorChanged(color),
             ),
             MaterialStateItem(
               key: const Key('textButtonEditor_foregroundColor_disabled'),
@@ -164,8 +164,8 @@ class _ShadowColorPickers extends StatelessWidget {
           header: 'Shadow Color',
           items: [
             MaterialStateItem(
-              key: const Key('textButtonEditor_shadowColor_allStates'),
-              title: 'All States',
+              key: const Key('textButtonEditor_shadowColor_default'),
+              title: 'Default',
               value:
                   themeData.textButtonTheme.style?.shadowColor?.resolve({}) ??
                       themeData.shadowColor,
@@ -194,9 +194,9 @@ class _ElevationTextFields extends StatelessWidget {
           items: [
             MaterialStateItem(
               key: const Key(
-                'textButtonEditor_elevationTextField_allStates',
+                'textButtonEditor_elevationTextField_default',
               ),
-              title: 'All States',
+              title: 'Default',
               value: (state.themeData.textButtonTheme.style?.elevation
                           ?.resolve({}) ??
                       kTextButtonElevation)

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 MaterialStateProperty<Color?> getButtonBasicColor(
   MaterialStateProperty<Color?> color, {
-  Color? enabledColor,
+  Color? defaultColor,
   Color? disabledColor,
 }) {
   return MaterialStateProperty.resolveWith((states) {
     if (states.contains(MaterialState.disabled)) {
       return disabledColor ?? color.resolve({MaterialState.disabled});
     }
-    return enabledColor ?? color.resolve({});
+    return defaultColor ?? color.resolve({});
   });
 }
 

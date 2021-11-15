@@ -16,14 +16,14 @@ void main() {
     cubit = AdvancedThemeCubit();
   });
 
-  group('elevatedButtonBackgroundEnabledColorChanged', () {
+  group('elevatedButtonBackgroundDefaultColorChanged', () {
     final color = getRandomColor();
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'should emit elevated button background enabled color',
+      'should emit elevated button background default color',
       build: () => cubit,
       act: (cubit) {
-        cubit.elevatedButtonBackgroundEnabledColorChanged(color);
+        cubit.elevatedButtonBackgroundDefaultColorChanged(color);
       },
       verify: (cubit) {
         final props = {
@@ -62,14 +62,14 @@ void main() {
     );
   });
 
-  group('elevatedButtonForegroundEnabledColorChanged', () {
+  group('elevatedButtonForegroundDefaultColorChanged', () {
     final color = getRandomColor();
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'should emit elevated button foreground enabled color',
+      'should emit elevated button foreground default color',
       build: () => cubit,
       act: (cubit) {
-        cubit.elevatedButtonForegroundEnabledColorChanged(color);
+        cubit.elevatedButtonForegroundDefaultColorChanged(color);
       },
       verify: (cubit) {
         final props = {
@@ -200,14 +200,14 @@ void main() {
     );
   });
 
-  group('elevatedButtonEnabledElevationChanged', () {
+  group('elevatedButtonDefaultElevationChanged', () {
     final value = Random().nextDouble();
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'should emit elevated button enabled elevation',
+      'should emit elevated button default elevation',
       build: () => cubit,
       act: (cubit) {
-        cubit.elevatedButtonEnabledElevationChanged(value.toString());
+        cubit.elevatedButtonDefaultElevationChanged(value.toString());
       },
       verify: (cubit) {
         final props = {

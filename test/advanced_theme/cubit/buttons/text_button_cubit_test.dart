@@ -35,14 +35,14 @@ void main() {
     );
   });
 
-  group('textButtonForegroundEnabledColorChanged', () {
+  group('textButtonForegroundDefaultColorChanged', () {
     final color = getRandomColor();
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'should emit text button foreground enabled color',
+      'should emit text button foreground default color',
       build: () => cubit,
       act: (cubit) {
-        cubit.textButtonForegroundEnabledColorChanged(color);
+        cubit.textButtonForegroundDefaultColorChanged(color);
       },
       verify: (cubit) {
         final props = {

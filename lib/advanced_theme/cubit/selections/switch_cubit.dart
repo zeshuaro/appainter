@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/advanced_theme/cubit/selections/utils.dart';
 import 'package:flutter_theme/services/services.dart';
 
 extension SwitchCubit on AdvancedThemeCubit {
@@ -69,7 +70,7 @@ extension SwitchCubit on AdvancedThemeCubit {
     Color? disabledColor,
   }) {
     final theme = state.themeData.switchTheme;
-    final color = _getSwitchColor(
+    final color = getSelectionBasicColor(
       theme.thumbColor ?? _defaultThumbColor,
       defaultColor: defaultColor,
       selectedColor: selectedColor,
@@ -85,7 +86,7 @@ extension SwitchCubit on AdvancedThemeCubit {
     Color? disabledColor,
   }) {
     final theme = state.themeData.switchTheme;
-    final color = _getSwitchColor(
+    final color = getSelectionBasicColor(
       theme.trackColor ?? _defaultTrackColor,
       defaultColor: defaultColor,
       selectedColor: selectedColor,
@@ -101,7 +102,7 @@ extension SwitchCubit on AdvancedThemeCubit {
     Color? focusedColor,
   }) {
     final theme = state.themeData.switchTheme;
-    final color = _getOverlayColor(
+    final color = getSelectionOverlayColor(
       theme.overlayColor ?? _defaultOverlayColor,
       pressedColor: pressedColor,
       hoveredColor: hoveredColor,
@@ -146,43 +147,6 @@ extension SwitchCubit on AdvancedThemeCubit {
       }
       if (states.contains(MaterialState.focused)) {
         return themeData.focusColor;
-      }
-      return null;
-    });
-  }
-
-  MaterialStateProperty<Color?> _getSwitchColor(
-    MaterialStateProperty<Color?> color, {
-    Color? defaultColor,
-    Color? selectedColor,
-    Color? disabledColor,
-  }) {
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.selected)) {
-        return selectedColor ?? color.resolve({MaterialState.selected});
-      }
-      if (states.contains(MaterialState.disabled)) {
-        return disabledColor ?? color.resolve({MaterialState.disabled});
-      }
-      return defaultColor ?? color.resolve({});
-    });
-  }
-
-  MaterialStateProperty<Color?> _getOverlayColor(
-    MaterialStateProperty<Color?> color, {
-    Color? pressedColor,
-    Color? hoveredColor,
-    Color? focusedColor,
-  }) {
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.pressed)) {
-        return pressedColor ?? color.resolve({MaterialState.pressed});
-      }
-      if (states.contains(MaterialState.hovered)) {
-        return hoveredColor ?? color.resolve({MaterialState.hovered});
-      }
-      if (states.contains(MaterialState.focused)) {
-        return focusedColor ?? color.resolve({MaterialState.focused});
       }
       return null;
     });

@@ -3,23 +3,23 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
+  "manifest.json": "6babd0b8352b23e237350e91113d11b4",
+"version.json": "14e905bc6e25bbec064ae72aeb30e045",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
+"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"index.html": "ad85c945511125e6ada3b9c8ec31b095",
-"/": "ad85c945511125e6ada3b9c8ec31b095",
-"manifest.json": "6babd0b8352b23e237350e91113d11b4",
-"version.json": "b4d6719bab495c03298a5fe18331b267",
-"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
+"main.dart.js": "6a67680872f66872140ae154876dfc9d",
+"index.html": "1f2a6f3494987cb09f05f43a299a2787",
+"/": "1f2a6f3494987cb09f05f43a299a2787",
 "assets/NOTICES": "379c9b4590c9e89fbc39d8ed9ae2d7d0",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
-"assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "aa1ec80f1b30a51d64c72f669c1326a7",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "5178af1d278432bec8fc830d50996d6f",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "b37ae0f14cbc958316fac4635383b6e8",
-"assets/FontManifest.json": "5a32d4310a6f5d9a6b651e75ba0d7372",
+"assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "aa1ec80f1b30a51d64c72f669c1326a7",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
+"assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
 "assets/AssetManifest.json": "4e597e2960a8863f883676c924ef86f5",
-"main.dart.js": "6a67680872f66872140ae154876dfc9d"
+"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
+"assets/FontManifest.json": "5a32d4310a6f5d9a6b651e75ba0d7372"
 };
 
 // The application shell files that are downloaded before a service worker can

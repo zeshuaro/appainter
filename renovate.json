@@ -15,7 +15,13 @@
   "packageRules": [
     {
       "groupName": "Dev Dependencies",
+      "matchPaths": ["pubspec.yaml"],
       "matchDepTypes": ["dev_dependencies"]
+    },
+    {
+      "groupName": "Bloc Dependencies",
+      "matchPaths": ["pubspec.yaml"],
+      "matchPackageNames": ["bloc", "flutter_bloc", "bloc_test"]
     },
     {
       "groupName": "GitHub Actions Dependencies",

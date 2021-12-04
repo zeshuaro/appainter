@@ -1,0 +1,78 @@
+name: Test example app
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    name: Test
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
+      - name: Setup Flutter 💻
+        uses: subosito/flutter-action@v1.5.3
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
+      - name: Cache Pub 💾
+        uses: actions/cache@v2
+        with:
+          path: /opt/hostedtoolcache/flutter/*-stable/x64/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      - name: Cache build 💾
+        uses: mikehardy/buildcache-action@v1.2.2
+        with:
+          cache_key: ${{ runner.os }}-build-example
+
+      - name: Start iOS simulator 📱
+        uses: futureware-tech/simulator-action@v1
+        with:
+          model: "iPhone 12"
+
+      - name: Run end-to-end tests 🧪
+        run: |
+          cd example/
+          flutter pub get
+          flutter test integration_test
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
+      - name: Setup Flutter 💻
+        uses: subosito/flutter-action@v1.5.3
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
+      - name: Cache Pub 💾
+        uses: actions/cache@v2
+        with:
+          path: /opt/hostedtoolcache/flutter/*-stable/x64/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      - name: Run linting 🧪
+        run: |
+          cd example/
+          flutter pub get
+          flutter analyze

@@ -1,4 +1,4 @@
-name: Update Dependencies
+name: Update dependencies
 
 on:
   workflow_dispatch:

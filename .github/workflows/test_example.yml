@@ -18,18 +18,18 @@ jobs:
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
+      - name: Cache Flutter 💾
+        uses: actions/cache@v1
+        with:
+          path: /Users/runner/hostedtoolcache/flutter
+          key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-
+
       - name: Setup Flutter 💻
         uses: subosito/flutter-action@v1.5.3
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
-
-      - name: Cache Pub 💾
-        uses: actions/cache@v2
-        with:
-          path: /opt/hostedtoolcache/flutter/*-stable/x64/.pub-cache
-          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pub-
 
       - name: Cache build 💾
         uses: mikehardy/buildcache-action@v1.2.2
@@ -58,18 +58,18 @@ jobs:
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
+      - name: Cache Flutter 💾
+        uses: actions/cache@v2
+        with:
+          path: /opt/hostedtoolcache/flutter
+          key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-
+
       - name: Setup Flutter 💻
         uses: subosito/flutter-action@v1.5.3
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
-
-      - name: Cache Pub 💾
-        uses: actions/cache@v2
-        with:
-          path: /opt/hostedtoolcache/flutter/*-stable/x64/.pub-cache
-          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pub-
 
       - name: Run linting 🧪
         run: |

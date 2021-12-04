@@ -6,8 +6,8 @@ on:
     - cron: "0 8 * * 3"
 
 jobs:
-  update-dependencies:
-    name: Update Dependencies
+  update:
+    name: Update
     runs-on: ubuntu-latest
 
     steps:
@@ -28,6 +28,7 @@ jobs:
       - name: Create pull request 🆕
         uses: peter-evans/create-pull-request@v3.11.0
         with:
+          branch: "chore/update-deps"
           commit-message: "chore(deps): update dependencies"
           title: "chore(deps): update dependencies"
           body: "- [ ] Update `Podfile.lock`"

@@ -1,4 +1,4 @@
-name: Test example app
+name: Example app
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Cache Flutter 💾
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: /Users/runner/hostedtoolcache/flutter
           key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}

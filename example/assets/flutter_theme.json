@@ -1,94 +1,8 @@
 {
-  "accentColor": "#ff03dac6",
-  "accentColorBrightness": "light",
-  "accentIconTheme": {
-    "color": "#ff000000"
-  },
-  "accentTextTheme": {
-    "bodyText1": {
-      "color": "#dd000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "bodyText2": {
-      "color": "#dd000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "button": {
-      "color": "#dd000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "caption": {
-      "color": "#8a000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "headline1": {
-      "color": "#8a000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "headline2": {
-      "color": "#8a000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "headline3": {
-      "color": "#8a000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "headline4": {
-      "color": "#8a000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "headline5": {
-      "color": "#dd000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "headline6": {
-      "color": "#dd000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "overline": {
-      "color": "#ff000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "subtitle1": {
-      "color": "#dd000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    },
-    "subtitle2": {
-      "color": "#ff000000",
-      "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
-    }
-  },
   "applyElevationOverlayColor": false,
   "backgroundColor": "#ffffffff",
   "bottomAppBarColor": "#ffffffff",
   "brightness": "light",
-  "buttonColor": "#ffe0e0e0",
   "buttonTheme": {
     "alignedDropdown": false,
     "colorScheme": {
@@ -106,43 +20,43 @@
       "secondaryVariant": "#ff018786",
       "surface": "#ffffffff"
     },
-    "height": 36.0,
+    "height": 36,
     "layoutBehavior": "padded",
-    "minWidth": 88.0,
+    "minWidth": 88,
     "padding": {
-      "bottom": 0.0,
-      "left": 16.0,
-      "right": 16.0,
-      "top": 0.0
+      "bottom": 0,
+      "left": 16,
+      "right": 16,
+      "top": 0
     },
     "shape": {
       "borderRadius": {
         "bottomLeft": {
           "type": "elliptical",
-          "x": 2.0,
-          "y": 2.0
+          "x": 2,
+          "y": 2
         },
         "bottomRight": {
           "type": "elliptical",
-          "x": 2.0,
-          "y": 2.0
+          "x": 2,
+          "y": 2
         },
         "topLeft": {
           "type": "elliptical",
-          "x": 2.0,
-          "y": 2.0
+          "x": 2,
+          "y": 2
         },
         "topRight": {
           "type": "elliptical",
-          "x": 2.0,
-          "y": 2.0
+          "x": 2,
+          "y": 2
         },
         "type": "only"
       },
       "side": {
         "color": "#ff000000",
         "style": "none",
-        "width": 0.0
+        "width": 0
       },
       "type": "rounded"
     },
@@ -162,10 +76,10 @@
       "inherit": true
     },
     "padding": {
-      "bottom": 4.0,
-      "left": 4.0,
-      "right": 4.0,
-      "top": 4.0
+      "bottom": 4,
+      "left": 4,
+      "right": 4,
+      "top": 4
     },
     "secondaryLabelStyle": {
       "color": "#de6200ee",
@@ -195,7 +109,6 @@
   "disabledColor": "#61000000",
   "dividerColor": "#1f000000",
   "errorColor": "#ffb00020",
-  "fixTextFieldOutlineLabel": false,
   "focusColor": "#1f000000",
   "highlightColor": "#66bcbcbc",
   "hintColor": "#99000000",
@@ -471,79 +384,79 @@
     "dense": {
       "bodyText1": {
         "fontWeight": "w500",
-        "fontSize": 15.0,
+        "fontSize": 15,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "bodyText2": {
         "fontWeight": "w400",
-        "fontSize": 15.0,
+        "fontSize": 15,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "button": {
         "fontWeight": "w500",
-        "fontSize": 15.0,
+        "fontSize": 15,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "caption": {
         "fontWeight": "w400",
-        "fontSize": 13.0,
+        "fontSize": 13,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline1": {
         "fontWeight": "w100",
-        "fontSize": 112.0,
+        "fontSize": 112,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline2": {
         "fontWeight": "w400",
-        "fontSize": 56.0,
+        "fontSize": 56,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline3": {
         "fontWeight": "w400",
-        "fontSize": 45.0,
+        "fontSize": 45,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline4": {
         "fontWeight": "w400",
-        "fontSize": 34.0,
+        "fontSize": 34,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline5": {
         "fontWeight": "w400",
-        "fontSize": 24.0,
+        "fontSize": 24,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline6": {
         "fontWeight": "w500",
-        "fontSize": 21.0,
+        "fontSize": 21,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "overline": {
         "fontWeight": "w400",
-        "fontSize": 11.0,
+        "fontSize": 11,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "subtitle1": {
         "fontWeight": "w400",
-        "fontSize": 17.0,
+        "fontSize": 17,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "subtitle2": {
         "fontWeight": "w500",
-        "fontSize": 15.0,
+        "fontSize": 15,
         "inherit": false,
         "textBaseline": "ideographic"
       }
@@ -551,80 +464,80 @@
     "englishLike": {
       "bodyText1": {
         "fontWeight": "w500",
-        "fontSize": 14.0,
+        "fontSize": 14,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "bodyText2": {
         "fontWeight": "w400",
-        "fontSize": 14.0,
+        "fontSize": 14,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "button": {
         "fontWeight": "w500",
-        "fontSize": 14.0,
+        "fontSize": 14,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "caption": {
         "fontWeight": "w400",
-        "fontSize": 12.0,
+        "fontSize": 12,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline1": {
         "fontWeight": "w100",
-        "fontSize": 112.0,
+        "fontSize": 112,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline2": {
         "fontWeight": "w400",
-        "fontSize": 56.0,
+        "fontSize": 56,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline3": {
         "fontWeight": "w400",
-        "fontSize": 45.0,
+        "fontSize": 45,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline4": {
         "fontWeight": "w400",
-        "fontSize": 34.0,
+        "fontSize": 34,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline5": {
         "fontWeight": "w400",
-        "fontSize": 24.0,
+        "fontSize": 24,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline6": {
         "fontWeight": "w500",
-        "fontSize": 20.0,
+        "fontSize": 20,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "overline": {
         "fontWeight": "w400",
-        "fontSize": 10.0,
+        "fontSize": 10,
         "inherit": false,
         "letterSpacing": 1.5,
         "textBaseline": "alphabetic"
       },
       "subtitle1": {
         "fontWeight": "w400",
-        "fontSize": 16.0,
+        "fontSize": 16,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "subtitle2": {
         "fontWeight": "w500",
-        "fontSize": 14.0,
+        "fontSize": 14,
         "inherit": false,
         "letterSpacing": 0.1,
         "textBaseline": "alphabetic"
@@ -633,79 +546,79 @@
     "tall": {
       "bodyText1": {
         "fontWeight": "w700",
-        "fontSize": 15.0,
+        "fontSize": 15,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "bodyText2": {
         "fontWeight": "w400",
-        "fontSize": 15.0,
+        "fontSize": 15,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "button": {
         "fontWeight": "w700",
-        "fontSize": 15.0,
+        "fontSize": 15,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "caption": {
         "fontWeight": "w400",
-        "fontSize": 13.0,
+        "fontSize": 13,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline1": {
         "fontWeight": "w400",
-        "fontSize": 112.0,
+        "fontSize": 112,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline2": {
         "fontWeight": "w400",
-        "fontSize": 56.0,
+        "fontSize": 56,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline3": {
         "fontWeight": "w400",
-        "fontSize": 45.0,
+        "fontSize": 45,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline4": {
         "fontWeight": "w400",
-        "fontSize": 34.0,
+        "fontSize": 34,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline5": {
         "fontWeight": "w400",
-        "fontSize": 24.0,
+        "fontSize": 24,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline6": {
         "fontWeight": "w700",
-        "fontSize": 21.0,
+        "fontSize": 21,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "overline": {
         "fontWeight": "w400",
-        "fontSize": 11.0,
+        "fontSize": 11,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "subtitle1": {
         "fontWeight": "w400",
-        "fontSize": 17.0,
+        "fontSize": 17,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "subtitle2": {
         "fontWeight": "w500",
-        "fontSize": 15.0,
+        "fontSize": 15,
         "inherit": false,
         "textBaseline": "alphabetic"
       }

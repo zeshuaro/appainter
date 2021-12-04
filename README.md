@@ -7,7 +7,7 @@ Inspired by [Panache](https://github.com/rxlabz/panache), a material theme edito
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/zeshuaro/flutter_theme?color=orange&label=version)](https://github.com/zeshuaro/flutter_theme/releases)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fzeshuaro.github.io%2Fflutter_theme%2F)](https://zeshuaro.github.io/flutter_theme/)
 [![GitHub license](https://img.shields.io/github/license/zeshuaro/flutter_theme)](https://github.com/zeshuaro/flutter_theme/blob/main/LICENSE)
-[![GitHub Actions](https://github.com/zeshuaro/flutter_theme/actions/workflows/test_deploy_release.yml/badge.svg)](https://github.com/zeshuaro/flutter_theme/actions/workflows/test_deploy_release.yml)
+[![GitHub Actions](https://github.com/zeshuaro/flutter_theme/actions/workflows/github_actions.yml/badge.svg)](https://github.com/zeshuaro/flutter_theme/actions/workflows/github_actions.yml)
 [![codecov](https://codecov.io/gh/zeshuaro/flutter_theme/branch/main/graph/badge.svg?token=4YM0WZFH3I)](https://codecov.io/gh/zeshuaro/flutter_theme)
 [![style: flutter_lints](https://img.shields.io/badge/style-flutter__lints-4BC0F5.svg)](https://pub.dev/packages/flutter_lints)
 

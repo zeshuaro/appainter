@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class OverlineTextEditor extends StatelessWidget {
+class OverlineTextEditor extends ExpansionPanelItem {
   const OverlineTextEditor({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Overline Text';
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,6 @@ class OverlineTextEditor extends StatelessWidget {
           current.themeData.textTheme.overline,
       builder: (context, state) {
         return TextStyleCard(
-          header: 'Overline Text',
           style: state.themeData.textTheme.overline!,
           onColorChanged: (color) {
             context.read<AdvancedThemeCubit>().overlineTextColorChanged(color);

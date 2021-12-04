@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class ButtonTextEditor extends StatelessWidget {
+class ButtonTextEditor extends ExpansionPanelItem {
   const ButtonTextEditor({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Button Text';
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,6 @@ class ButtonTextEditor extends StatelessWidget {
           current.themeData.textTheme.button,
       builder: (context, state) {
         return TextStyleCard(
-          header: 'Button Text',
           style: state.themeData.textTheme.button!,
           onColorChanged: (color) {
             context.read<AdvancedThemeCubit>().buttonTextColorChanged(color);

@@ -4,32 +4,31 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class SliderEditor extends StatelessWidget {
+class SliderEditor extends ExpansionPanelItem {
   const SliderEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Slider';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Slider',
+    return SideBySideList(
+      padding: kPaddingAll,
       children: [
-        SideBySideList(
-          children: [
-            _ActiveTrackColorPicker(),
-            _InactiveTrackColorPicker(),
-            _DisabledActiveTrackColorPicker(),
-            _DisabledInactiveTrackColorPicker(),
-            _ActiveTickMarkColorPicker(),
-            _InactiveTickMarkColorPicker(),
-            _DisabledActiveTickMarkColorPicker(),
-            _DisabledInactiveTickMarkColorPicker(),
-            _ThumbColorPicker(),
-            _DisabledThumbColorPicker(),
-            _OverlappingShapeStrokeColorPicker(),
-            _OverlayColorPicker(),
-            _ValueIndicatorColorPicker(),
-            _TrackHeightTextField(),
-          ],
-        ),
+        _ActiveTrackColorPicker(),
+        _InactiveTrackColorPicker(),
+        _DisabledActiveTrackColorPicker(),
+        _DisabledInactiveTrackColorPicker(),
+        _ActiveTickMarkColorPicker(),
+        _InactiveTickMarkColorPicker(),
+        _DisabledActiveTickMarkColorPicker(),
+        _DisabledInactiveTickMarkColorPicker(),
+        _ThumbColorPicker(),
+        _DisabledThumbColorPicker(),
+        _OverlappingShapeStrokeColorPicker(),
+        _OverlayColorPicker(),
+        _ValueIndicatorColorPicker(),
+        _TrackHeightTextField(),
       ],
     );
   }

@@ -5,21 +5,20 @@ import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class TabBarEditor extends StatelessWidget {
+class TabBarEditor extends ExpansionPanelItem {
   const TabBarEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Tab Bar';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Tab Bar',
+    return SideBySideList(
+      padding: kPaddingAll,
       children: [
-        SideBySideList(
-          children: [
-            _LabelColorPicker(),
-            _UnselectedLabelColorPicker(),
-            _IndicatorSizeDropdown(),
-          ],
-        ),
+        _LabelColorPicker(),
+        _UnselectedLabelColorPicker(),
+        _IndicatorSizeDropdown(),
       ],
     );
   }

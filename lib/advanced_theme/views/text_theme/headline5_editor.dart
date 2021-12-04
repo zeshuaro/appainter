@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class Headline5Editor extends StatelessWidget {
+class Headline5Editor extends ExpansionPanelItem {
   const Headline5Editor({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Headline 5';
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,6 @@ class Headline5Editor extends StatelessWidget {
           current.themeData.textTheme.headline5,
       builder: (context, state) {
         return TextStyleCard(
-          header: 'Headline 5',
           style: state.themeData.textTheme.headline5!,
           onColorChanged: (color) {
             context.read<AdvancedThemeCubit>().headline5ColorChanged(color);

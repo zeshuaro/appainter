@@ -4,13 +4,15 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class CheckboxEditor extends StatelessWidget {
+class CheckboxEditor extends ExpansionPanelItem {
   const CheckboxEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Checkbox';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Checkbox',
+    return NestedListView(
       children: [
         _FillColorPickers(),
         _CheckColorPickers(),

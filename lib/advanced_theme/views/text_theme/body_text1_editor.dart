@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class BodyText1Editor extends StatelessWidget {
+class BodyText1Editor extends ExpansionPanelItem {
   const BodyText1Editor({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Body Text 1';
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,6 @@ class BodyText1Editor extends StatelessWidget {
           current.themeData.textTheme.bodyText1,
       builder: (context, state) {
         return TextStyleCard(
-          header: 'Body Text 1',
           style: state.themeData.textTheme.bodyText1!,
           onColorChanged: (color) {
             context.read<AdvancedThemeCubit>().bodyText1ColorChanged(color);

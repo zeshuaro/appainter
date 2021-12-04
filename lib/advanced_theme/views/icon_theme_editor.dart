@@ -4,8 +4,11 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/consts.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class IconThemeEditor extends StatelessWidget {
+class IconThemeEditor extends ExpansionPanelItem {
   const IconThemeEditor({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Icon Theme';
 
   @override
   Widget build(BuildContext context) {

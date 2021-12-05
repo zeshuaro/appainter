@@ -16,7 +16,7 @@ class MockBasicThemeCubit extends MockCubit<BasicThemeState>
 class FakeBasicThemeState extends Fake implements BasicThemeState {}
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'More Colors');
+  final widgetTesters = WidgetTesters();
   late BasicThemeCubit cubit;
 
   setUpAll(() {

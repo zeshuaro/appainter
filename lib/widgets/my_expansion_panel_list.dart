@@ -12,11 +12,14 @@ class MyExpansionPanelList extends StatefulWidget {
   final List<ExpansionPanelItem> items;
   final Color? color;
 
-  const MyExpansionPanelList({
+  MyExpansionPanelList({
     Key? key,
-    required this.items,
+    List<ExpansionPanelItem>? items,
+    ExpansionPanelItem? item,
     this.color,
-  }) : super(key: key);
+  })  : assert(items != null || item != null),
+        items = items ?? [item!],
+        super(key: key);
 
   @override
   State<MyExpansionPanelList> createState() => _MyExpansionPanelListState();
@@ -33,34 +36,47 @@ class _MyExpansionPanelListState extends State<MyExpansionPanelList> {
 
   @override
   Widget build(BuildContext context) {
-    return ExpansionPanelList(
-      expandedHeaderPadding: EdgeInsets.zero,
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() => _expandStates[index] = !isExpanded);
-      },
-      children: widget.items.mapIndexed((index, item) {
-        return ExpansionPanel(
-          headerBuilder: (context, isExpanded) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: kMargin * 1.5,
-                horizontal: kMargin,
-              ),
-              child: Text(
-                item.header,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            );
-          },
-          body: item,
-          isExpanded: _expandStates[index],
-          canTapOnHeader: true,
-          backgroundColor: widget.color,
-        );
-      }).toList(),
+    return SingleChildScrollView(
+      child: ExpansionPanelList(
+        expandedHeaderPadding: EdgeInsets.zero,
+        expansionCallback: (int index, bool isExpanded) {
+          setState(() => _expandStates[index] = !isExpanded);
+        },
+        children: widget.items.mapIndexed((index, item) {
+          return ExpansionPanel(
+            headerBuilder: (context, isExpanded) {
+              return _Header(header: item.header);
+            },
+            body: item,
+            isExpanded: _expandStates[index],
+            canTapOnHeader: true,
+            backgroundColor: widget.color,
+          );
+        }).toList(),
+      ),
+    );
+  }
+}
+
+class _Header extends StatelessWidget {
+  final String header;
+
+  const _Header({Key? key, required this.header}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: kMargin * 1.5,
+        horizontal: kMargin,
+      ),
+      child: Text(
+        header,
+        style: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     );
   }
 }

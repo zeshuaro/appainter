@@ -13,25 +13,23 @@ class TextThemeEditor extends ExpansionPanelItem {
   Widget build(BuildContext context) {
     return Padding(
       padding: kPaddingAll,
-      child: SingleChildScrollView(
-        child: MyExpansionPanelList(
-          color: Colors.grey[100],
-          items: const [
-            Headline1Editor(),
-            Headline2Editor(),
-            Headline3Editor(),
-            Headline4Editor(),
-            Headline5Editor(),
-            Headline6Editor(),
-            Subtitle1Editor(),
-            Subtitle2Editor(),
-            BodyText1Editor(),
-            BodyText2Editor(),
-            ButtonTextEditor(),
-            CaptionTextEditor(),
-            OverlineTextEditor(),
-          ],
-        ),
+      child: MyExpansionPanelList(
+        color: Colors.grey[100],
+        items: const [
+          Headline1Editor(),
+          Headline2Editor(),
+          Headline3Editor(),
+          Headline4Editor(),
+          Headline5Editor(),
+          Headline6Editor(),
+          Subtitle1Editor(),
+          Subtitle2Editor(),
+          BodyText1Editor(),
+          BodyText2Editor(),
+          ButtonTextEditor(),
+          CaptionTextEditor(),
+          OverlineTextEditor(),
+        ],
       ),
     );
   }

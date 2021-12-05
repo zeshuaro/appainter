@@ -7,26 +7,24 @@ class AdvancedEditor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: MyExpansionPanelList(
-        items: [
-          ColorEditor(),
-          AppBarEditor(),
-          TabBarEditor(),
-          BottomNavBarEditor(),
-          FloatingActionBtnEditor(),
-          ElevatedButtonEditor(),
-          OutlinedButtonEditor(),
-          TextButtonEditor(),
-          IconThemeEditor(),
-          InputDecorationEditor(),
-          SwitchEditor(),
-          CheckboxEditor(),
-          RadioEditor(),
-          SliderEditor(),
-          TextThemeEditor(),
-        ],
-      ),
+    return MyExpansionPanelList(
+      items: const [
+        ColorEditor(),
+        AppBarEditor(),
+        TabBarEditor(),
+        BottomNavBarEditor(),
+        FloatingActionBtnEditor(),
+        ElevatedButtonEditor(),
+        OutlinedButtonEditor(),
+        TextButtonEditor(),
+        IconThemeEditor(),
+        InputDecorationEditor(),
+        SwitchEditor(),
+        CheckboxEditor(),
+        RadioEditor(),
+        SliderEditor(),
+        TextThemeEditor(),
+      ],
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../mocks.dart';
@@ -12,6 +13,7 @@ import '../../../utils.dart';
 import '../../../widget_testers.dart';
 
 Future<void> main() async {
+  final widget = MyExpansionPanelList(item: const ElevatedButtonEditor());
   final _widgetTesters = WidgetTesters(expandText: 'Elevated Button');
   late AdvancedThemeCubit cubit;
 
@@ -30,21 +32,11 @@ Future<void> main() async {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(
-      ListView(
-        children: const [
-          ElevatedButtonEditor(),
-        ],
-      ),
-      advancedThemeCubit: cubit,
-    );
+    await tester.pumpApp(widget, advancedThemeCubit: cubit);
   }
 
   testWidgets('should display ElevatedButtonEditor', (tester) async {
-    await tester.pumpApp(
-      const ElevatedButtonEditor(),
-      advancedThemeCubit: cubit,
-    );
+    await tester.pumpApp(widget, advancedThemeCubit: cubit);
     expect(find.byType(ElevatedButtonEditor), findsOneWidget);
   });
 

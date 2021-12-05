@@ -4,18 +4,16 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../mocks.dart';
 import '../../pump_app.dart';
 import '../../utils.dart';
 import '../../widget_testers.dart';
 
-class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
-    implements AdvancedThemeCubit {}
-
-class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
-
 void main() {
+  final widget = MyExpansionPanelList(item: const BottomNavBarEditor());
   final widgetTesters = WidgetTesters(expandText: 'Bottom Navigation Bar');
   late AdvancedThemeCubit cubit;
 
@@ -34,11 +32,11 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(const BottomNavBarEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(widget, advancedThemeCubit: cubit);
   }
 
   testWidgets('displays BottomNavBarEditor', (tester) async {
-    await tester.pumpApp(const BottomNavBarEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(widget, advancedThemeCubit: cubit);
     expect(find.byType(BottomNavBarEditor), findsOneWidget);
   });
 

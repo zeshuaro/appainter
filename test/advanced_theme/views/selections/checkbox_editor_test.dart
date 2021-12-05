@@ -4,6 +4,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../mocks.dart';
@@ -12,6 +13,7 @@ import '../../../utils.dart';
 import '../../../widget_testers.dart';
 
 void main() {
+  final widget = MyExpansionPanelList(item: const CheckboxEditor());
   final widgetTesters = WidgetTesters(expandText: 'Checkbox');
 
   late AdvancedThemeCubit cubit;
@@ -34,14 +36,11 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(
-      const SingleChildScrollView(child: CheckboxEditor()),
-      advancedThemeCubit: cubit,
-    );
+    await tester.pumpApp(widget, advancedThemeCubit: cubit);
   }
 
   testWidgets('shoud display CheckboxEditor', (tester) async {
-    await tester.pumpApp(const CheckboxEditor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(widget, advancedThemeCubit: cubit);
     expect(find.byType(CheckboxEditor), findsOneWidget);
   });
 

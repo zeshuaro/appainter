@@ -4,6 +4,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../mocks.dart';
@@ -12,8 +13,10 @@ import '../../../utils.dart';
 import '../../../widget_testers.dart';
 
 Future<void> main() async {
+  final widget = MyExpansionPanelList(item: const OutlinedButtonEditor());
   final _widgetTesters = WidgetTesters(expandText: 'Outlined Button');
   late AdvancedThemeCubit cubit;
+
   setUpAll(() {
     registerFallbackValue(FakeAdvancedThemeState());
   });
@@ -29,21 +32,11 @@ Future<void> main() async {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(
-      ListView(
-        children: const [
-          OutlinedButtonEditor(),
-        ],
-      ),
-      advancedThemeCubit: cubit,
-    );
+    await tester.pumpApp(widget, advancedThemeCubit: cubit);
   }
 
   testWidgets('should display OutlinedButtonEditor', (tester) async {
-    await tester.pumpApp(
-      const OutlinedButtonEditor(),
-      advancedThemeCubit: cubit,
-    );
+    await tester.pumpApp(widget, advancedThemeCubit: cubit);
     expect(find.byType(OutlinedButtonEditor), findsOneWidget);
   });
 

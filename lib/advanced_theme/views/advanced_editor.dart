@@ -7,8 +7,8 @@ class AdvancedEditor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MyListView(
-      children: [
+    return MyExpansionPanelList(
+      items: const [
         ColorEditor(),
         AppBarEditor(),
         TabBarEditor(),

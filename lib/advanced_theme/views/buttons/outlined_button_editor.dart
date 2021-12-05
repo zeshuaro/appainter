@@ -4,13 +4,15 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class OutlinedButtonEditor extends StatelessWidget {
+class OutlinedButtonEditor extends ExpansionPanelItem {
   const OutlinedButtonEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Outlined Button';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Outlined Button',
+    return NestedListView(
       children: [
         _BackgroundColorPickers(),
         _ForegroundColorPickers(),

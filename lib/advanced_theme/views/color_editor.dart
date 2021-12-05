@@ -3,21 +3,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class ColorEditor extends StatelessWidget {
+class ColorEditor extends ExpansionPanelItem {
   const ColorEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Colors';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Colors',
+    return NestedListView(
       children: [
         _PrimaryColorPicker(),
-        SideBySide(
-          left: _PrimaryColorLightPicker(),
-          right: _PrimaryColorDarkPicker(),
-        ),
         SideBySideList(
           children: [
+            _PrimaryColorLightPicker(),
+            _PrimaryColorDarkPicker(),
             _BackgroundColorPicker(),
             _BottomAppBarColorPicker(),
             _CanvasColorPicker(),

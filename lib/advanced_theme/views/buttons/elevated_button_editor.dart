@@ -4,13 +4,15 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class ElevatedButtonEditor extends StatelessWidget {
+class ElevatedButtonEditor extends ExpansionPanelItem {
   const ElevatedButtonEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Elevated Button';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Elevated Button',
+    return NestedListView(
       children: [
         _BackgroundColorPickers(),
         _ForegroundColorPickers(),

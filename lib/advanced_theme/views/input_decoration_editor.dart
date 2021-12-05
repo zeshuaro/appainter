@@ -5,28 +5,27 @@ import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class InputDecorationEditor extends StatelessWidget {
+class InputDecorationEditor extends ExpansionPanelItem {
   const InputDecorationEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Input Decoration';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Input Decoration',
+    return SideBySideList(
+      padding: kPaddingAll,
       children: [
-        SideBySideList(
-          children: [
-            _FloatingLabelBehaviorDropdown(),
-            _FillColorPicker(),
-            _FocusColorPicker(),
-            _HoverColorPicker(),
-            _AlignLabelWithHintSwitch(),
-            _FilledSwitch(),
-            _IsCollapsedSwitch(),
-            _IsDenseSwitch(),
-            _ErrorMaxLinesTextField(),
-            _HelperMaxLinesTextField(),
-          ],
-        ),
+        _FloatingLabelBehaviorDropdown(),
+        _FillColorPicker(),
+        _FocusColorPicker(),
+        _HoverColorPicker(),
+        _AlignLabelWithHintSwitch(),
+        _FilledSwitch(),
+        _IsCollapsedSwitch(),
+        _IsDenseSwitch(),
+        _ErrorMaxLinesTextField(),
+        _HelperMaxLinesTextField(),
       ],
     );
   }

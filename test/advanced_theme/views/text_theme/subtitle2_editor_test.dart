@@ -4,18 +4,16 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../../../mocks.dart';
 import '../../../widget_testers.dart';
 import '../../../pump_app.dart';
 import '../../../utils.dart';
 
-class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
-    implements AdvancedThemeCubit {}
-
-class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
-
 void main() {
+  final widget = MyExpansionPanelList(item: const Subtitle2Editor());
   final widgetTesters = WidgetTesters(expandText: 'Subtitle 2');
   late AdvancedThemeCubit cubit;
 
@@ -34,11 +32,11 @@ void main() {
       Stream.fromIterable([AdvancedThemeState(), state]),
     );
 
-    await tester.pumpApp(const Subtitle2Editor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(widget, advancedThemeCubit: cubit);
   }
 
   testWidgets('should display Subtitle2Editor', (tester) async {
-    await tester.pumpApp(const Subtitle2Editor(), advancedThemeCubit: cubit);
+    await tester.pumpApp(widget, advancedThemeCubit: cubit);
     expect(find.byType(Subtitle2Editor), findsOneWidget);
   });
 

@@ -4,8 +4,10 @@ import 'package:flutter_theme/widgets/side_by_side.dart';
 
 class SideBySideList extends StatelessWidget {
   final List<Widget> children;
+  final EdgeInsets? padding;
 
-  const SideBySideList({Key? key, required this.children}) : super(key: key);
+  const SideBySideList({Key? key, required this.children, this.padding})
+      : super(key: key);
 
   static const _chunkSize = 2;
 
@@ -15,6 +17,7 @@ class SideBySideList extends StatelessWidget {
     return ListView.separated(
       shrinkWrap: true,
       physics: const ScrollPhysics(),
+      padding: padding,
       itemCount: chunks.length,
       itemBuilder: (context, index) {
         final chunk = chunks[index];

@@ -4,13 +4,15 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class SwitchEditor extends StatelessWidget {
+class SwitchEditor extends ExpansionPanelItem {
   const SwitchEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Switch';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Switch',
+    return NestedListView(
       children: [
         _ThumbColorPickers(),
         _TrackColorPickers(),

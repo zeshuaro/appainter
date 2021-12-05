@@ -4,13 +4,15 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class FloatingActionBtnEditor extends StatelessWidget {
+class FloatingActionBtnEditor extends ExpansionPanelItem {
   const FloatingActionBtnEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Floating Action Button';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Floating Action Button',
+    return NestedListView(
       children: [
         _BgColorPicker(),
         SideBySideList(

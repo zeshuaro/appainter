@@ -4,13 +4,15 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class RadioEditor extends StatelessWidget {
+class RadioEditor extends ExpansionPanelItem {
   const RadioEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Radio';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Radio',
+    return NestedListView(
       children: [
         _FillColorPickers(),
         _OverlayColorPickers(),

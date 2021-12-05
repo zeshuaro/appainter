@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class Subtitle1Editor extends StatelessWidget {
+class Subtitle1Editor extends ExpansionPanelItem {
   const Subtitle1Editor({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Subtitle 1';
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,6 @@ class Subtitle1Editor extends StatelessWidget {
           current.themeData.textTheme.subtitle1,
       builder: (context, state) {
         return TextStyleCard(
-          header: 'Subtitle 1',
           style: state.themeData.textTheme.subtitle1!,
           onColorChanged: (color) {
             context.read<AdvancedThemeCubit>().subtitle1ColorChanged(color);

@@ -5,25 +5,24 @@ import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class BottomNavBarEditor extends StatelessWidget {
+class BottomNavBarEditor extends ExpansionPanelItem {
   const BottomNavBarEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Bottom Navigation Bar';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Bottom Navigation Bar',
+    return SideBySideList(
+      padding: kPaddingAll,
       children: [
-        SideBySideList(
-          children: [
-            _TypeDropdown(),
-            _BgColorPicker(),
-            _SelectedItemColorPicker(),
-            _UnselectedItemColorPicker(),
-            _ShowSelectedLabelsSwitch(),
-            _ShowUnselectedLabelsSwitch(),
-            _ElevationTextField(),
-          ],
-        ),
+        _TypeDropdown(),
+        _BgColorPicker(),
+        _SelectedItemColorPicker(),
+        _UnselectedItemColorPicker(),
+        _ShowSelectedLabelsSwitch(),
+        _ShowUnselectedLabelsSwitch(),
+        _ElevationTextField(),
       ],
     );
   }

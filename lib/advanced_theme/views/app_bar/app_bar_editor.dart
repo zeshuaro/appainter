@@ -5,26 +5,25 @@ import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/models/models.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class AppBarEditor extends StatelessWidget {
+class AppBarEditor extends ExpansionPanelItem {
   const AppBarEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'App Bar';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'App Bar',
+    return SideBySideList(
+      padding: kPaddingAll,
       children: [
-        SideBySideList(
-          children: [
-            _BackgroundColorPicker(),
-            _ForegroundColorPicker(),
-            _ShadowColorPicker(),
-            _SystemUiOverlayStyleDropdown(),
-            _ElevationTextField(),
-            _CenterTitleSwitch(),
-            _TitleSpacingTextField(),
-            _ToolBarHeightTextField(),
-          ],
-        ),
+        _BackgroundColorPicker(),
+        _ForegroundColorPicker(),
+        _ShadowColorPicker(),
+        _SystemUiOverlayStyleDropdown(),
+        _ElevationTextField(),
+        _CenterTitleSwitch(),
+        _TitleSpacingTextField(),
+        _ToolBarHeightTextField(),
       ],
     );
   }

@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../list_tiles/list_tiles.dart';
-import '../side_by_side.dart';
-import '../text_form_field.dart';
-import 'expandable_card.dart';
+import 'package:flutter_theme/widgets/widgets.dart';
 
 class IconThemeCard extends StatelessWidget {
   final String? headerKey;
@@ -30,9 +26,7 @@ class IconThemeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final headerPrefix = headerKey != null ? '$headerKey ' : '';
-    return ExpandableCard(
-      header: '${headerPrefix}Icon Theme',
+    return NestedListView(
       children: [
         ColorListTile(
           title: 'Color',

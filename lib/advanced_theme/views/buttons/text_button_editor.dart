@@ -4,13 +4,15 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class TextButtonEditor extends StatelessWidget {
+class TextButtonEditor extends ExpansionPanelItem {
   const TextButtonEditor({Key? key}) : super(key: key);
 
   @override
+  String get header => 'Text Button';
+
+  @override
   Widget build(BuildContext context) {
-    return ExpandableCard(
-      header: 'Text Button',
+    return NestedListView(
       children: [
         _BackgroundColorPickers(),
         _ForegroundColorPickers(),

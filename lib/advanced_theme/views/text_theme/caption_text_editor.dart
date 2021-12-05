@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
-class CaptionTextEditor extends StatelessWidget {
+class CaptionTextEditor extends ExpansionPanelItem {
   const CaptionTextEditor({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Caption Text';
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +17,6 @@ class CaptionTextEditor extends StatelessWidget {
           current.themeData.textTheme.caption,
       builder: (context, state) {
         return TextStyleCard(
-          header: 'Caption Text',
           style: state.themeData.textTheme.caption!,
           onColorChanged: (color) {
             context.read<AdvancedThemeCubit>().captionTextColorChanged(color);

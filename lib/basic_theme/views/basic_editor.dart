@@ -9,22 +9,18 @@ class BasicEditor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        _PrimaryColorPicker(),
-        const VerticalPadding(),
-        ExpandableCard(
-          header: 'More Colors',
-          children: [
-            _PrimaryColorDarkPicker(),
-            _SecondaryColorPicker(),
-            _SecondaryColorDarkPicker(),
-            _SurfaceColorPicker(),
-            _BackgroundColorPicker(),
-            _ErrorColorPicker(),
-          ],
-        ),
-      ],
+    return MyCard(
+      child: MyListView(
+        children: [
+          _PrimaryColorPicker(),
+          _PrimaryColorDarkPicker(),
+          _SecondaryColorPicker(),
+          _SecondaryColorDarkPicker(),
+          _SurfaceColorPicker(),
+          _BackgroundColorPicker(),
+          _ErrorColorPicker(),
+        ],
+      ),
     );
   }
 }
@@ -32,29 +28,27 @@ class BasicEditor extends StatelessWidget {
 class _PrimaryColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MyCard(
-      child: BlocBuilder<BasicThemeCubit, BasicThemeState>(
-        buildWhen: (previous, current) {
-          return previous.colorScheme.primary != current.colorScheme.primary ||
-              previous.colorScheme.onPrimary != current.colorScheme.onPrimary;
-        },
-        builder: (context, state) {
-          return ColorAndBrightness(
-            key: const Key('basicEditor_primaryColorPicker'),
-            title: 'Primary Color',
-            color: state.colorScheme.primary,
-            onColorChanged: (color) {
-              context.read<BasicThemeCubit>().primaryColorChanged(color);
-            },
-            isColorDark: UtilService.isColorDark(state.colorScheme.onPrimary),
-            onBrightnessChanged: (isDark) {
-              context
-                  .read<BasicThemeCubit>()
-                  .primaryColorBrightnessChanged(isDark);
-            },
-          );
-        },
-      ),
+    return BlocBuilder<BasicThemeCubit, BasicThemeState>(
+      buildWhen: (previous, current) {
+        return previous.colorScheme.primary != current.colorScheme.primary ||
+            previous.colorScheme.onPrimary != current.colorScheme.onPrimary;
+      },
+      builder: (context, state) {
+        return ColorAndBrightness(
+          key: const Key('basicEditor_primaryColorPicker'),
+          title: 'Primary Color',
+          color: state.colorScheme.primary,
+          onColorChanged: (color) {
+            context.read<BasicThemeCubit>().primaryColorChanged(color);
+          },
+          isColorDark: UtilService.isColorDark(state.colorScheme.onPrimary),
+          onBrightnessChanged: (isDark) {
+            context
+                .read<BasicThemeCubit>()
+                .primaryColorBrightnessChanged(isDark);
+          },
+        );
+      },
     );
   }
 }

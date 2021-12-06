@@ -61,27 +61,6 @@ void main() {
   );
 
   testWidgets(
-    'focus color picker should update with color',
-    (tester) async {
-      final color = getRandomColor();
-      final state = AdvancedThemeState(
-        themeData: ThemeData(
-          inputDecorationTheme: InputDecorationTheme(focusColor: color),
-        ),
-      );
-
-      await _pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'inputDecorationEditor_focusColorPicker',
-        color,
-      );
-      verify(() => cubit.emit(state)).called(1);
-    },
-  );
-
-  testWidgets(
     'hover color picker should update with color',
     (tester) async {
       final color = getRandomColor();

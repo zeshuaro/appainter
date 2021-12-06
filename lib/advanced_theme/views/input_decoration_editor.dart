@@ -18,7 +18,6 @@ class InputDecorationEditor extends ExpansionPanelItem {
       children: [
         _FloatingLabelBehaviorDropdown(),
         _FillColorPicker(),
-        _FocusColorPicker(),
         _HoverColorPicker(),
         _AlignLabelWithHintSwitch(),
         _FilledSwitch(),
@@ -76,31 +75,6 @@ class _FillColorPicker extends StatelessWidget {
             context
                 .read<AdvancedThemeCubit>()
                 .inputDecorationFillColorChanged(color);
-          },
-        );
-      },
-    );
-  }
-}
-
-class _FocusColorPicker extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
-      buildWhen: (previous, current) {
-        return previous.themeData.inputDecorationTheme.focusColor !=
-            current.themeData.inputDecorationTheme.focusColor;
-      },
-      builder: (context, state) {
-        return ColorListTile(
-          key: const Key('inputDecorationEditor_focusColorPicker'),
-          title: 'Focus Color',
-          color: state.themeData.inputDecorationTheme.focusColor ??
-              state.themeData.focusColor,
-          onColorChanged: (color) {
-            context
-                .read<AdvancedThemeCubit>()
-                .inputDecorationFocusColorChanged(color);
           },
         );
       },

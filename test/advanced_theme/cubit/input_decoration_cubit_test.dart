@@ -52,22 +52,6 @@ void main() {
     );
   });
 
-  group('inputDecorationFocusColorChanged', () {
-    final color = getRandomColor();
-    final theme = ThemeData(
-      inputDecorationTheme: InputDecorationTheme(
-        focusColor: color,
-      ),
-    );
-
-    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'emits input decoration focus color',
-      build: () => cubit,
-      act: (cubit) => cubit.inputDecorationFocusColorChanged(color),
-      expect: () => [AdvancedThemeState(themeData: theme)],
-    );
-  });
-
   group('inputDecorationHoverColorChanged', () {
     final color = getRandomColor();
     final theme = ThemeData(

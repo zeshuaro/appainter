@@ -24,13 +24,6 @@ extension InputDecorationCubit on AdvancedThemeCubit {
     _emitStateWithIconTheme(theme);
   }
 
-  void inputDecorationFocusColorChanged(Color color) {
-    final theme = state.themeData.inputDecorationTheme.copyWith(
-      focusColor: color,
-    );
-    _emitStateWithIconTheme(theme);
-  }
-
   void inputDecorationHoverColorChanged(Color color) {
     final theme = state.themeData.inputDecorationTheme.copyWith(
       hoverColor: color,

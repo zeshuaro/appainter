@@ -55711,12 +55711,12 @@ case 6:case 1:return P.ai(q,r)
 case 2:return P.ah(o,r)}})
 return P.aj($async$vJ,r)},
 KU(a,b){switch(a){case C.nM:return""
-case C.nQ:return"*.mp3 *.wav *.midi *.ogg *.aac"
+case C.nQ:return"*.aac *.midi *.mp3 *.ogg *.wav"
 case C.hL:b.toString
 return"*."+C.c.cD(b," *.")
-case C.nO:return"*.bmp *.gif *.jpg *.jpeg *.png"
-case C.nN:return"*.webm *.mpeg *.mkv *.mp4 *.avi *.mov *.flv *.jpg *.jpeg *.bmp *.gif *.png"
-case C.nP:return"*.webm *.mpeg *.mkv *.mp4 *.avi *.mov *.flv"
+case C.nO:return"*.bmp *.gif *.jpeg *.jpg *.png"
+case C.nN:return"*.avi *.flv *.mkv *.mov *.mp4 *.mpeg *.webm *.wmv *.bmp *.gif *.jpeg *.jpg *.png"
+case C.nP:return"*.avi *.flv *.mkv *.mov *.mp4 *.mpeg *.webm *.wmv"
 default:throw H.d(P.cp("unknown file type"))}},
 DS(a,b,c,d,e,f){var s=H.b(["--file-selection","--title",a],t.s)
 if(f){s.push("--save")
@@ -55747,12 +55747,12 @@ break
 case 1:return P.ai(q,r)}})
 return P.aj($async$hD,r)},
 KU(a,b){switch(a){case C.nM:return""
-case C.nQ:return'"", "mp3", "wav", "midi", "ogg", "aac"'
+case C.nQ:return'"aac", "midi", "mp3", "ogg", "wav"'
 case C.hL:b.toString
 return'"", "'+C.c.cD(b,'", "')+'"'
-case C.nO:return'"", "jpg", "jpeg", "bmp", "gif", "png"'
-case C.nN:return'"", "webm", "mpeg", "mkv", "mp4", "avi", "mov", "flv", "jpg", "jpeg", "bmp", "gif", "png"'
-case C.nP:return'"", "webm", "mpeg", "mkv", "mp4", "avi", "mov", "flv"'
+case C.nO:return'"bmp", "gif", "jpeg", "jpg", "png"'
+case C.nN:return'"avi", "flv", "mkv", "mov", "mp4", "mpeg", "webm", "wmv", "bmp", "gif", "jpeg", "jpg", "png"'
+case C.nP:return'"avi", "flv", "mkv", "mov", "mp4", "mpeg", "webm", "wmv"'
 default:throw H.d(P.cp("unknown file type"))}},
 DS(a,b,c,d,e,f){var s,r="choose file name ",q=H.b(["-e"],t.s)
 if(f)s=c.length!==0?r+('default name "'+c+'" '):r

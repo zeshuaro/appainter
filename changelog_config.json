@@ -2,7 +2,7 @@
   "categories": [
     {
       "title": "## 🚀 Features",
-      "labels": ["enhancement"]
+      "labels": ["enhancement", "fluttersdk"]
     },
     {
       "title": "## 🐛 Fixes",
@@ -18,7 +18,7 @@
     },
     {
       "title": "## 💬 Other",
-      "labels": ["refactor", "dependencies", "fluttersdk"]
+      "labels": ["refactor", "dependencies"]
     }
   ],
   "ignore_labels": ["ignore", "ci", "style"],

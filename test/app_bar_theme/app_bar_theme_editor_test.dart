@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
+import 'package:flutter_theme/models/models.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -50,7 +51,7 @@ void main() {
     );
   }
 
-  testWidgets('should display AppBarEditor', (tester) async {
+  testWidgets('should display appBarThemeEditor', (tester) async {
     await tester.pumpApp(
       widget,
       advancedThemeCubit: advancedThemeCubit,
@@ -70,7 +71,7 @@ void main() {
 
       await widgetTesters.checkColorPicker(
         tester,
-        'appbarEditor_backgroundColorPicker',
+        'appBarThemeEditor_backgroundColorPicker',
         color,
       );
       verify(() => appBarThemeCubit.backgroundColorChanged(color)).called(1);
@@ -88,7 +89,7 @@ void main() {
 
       await widgetTesters.checkColorPicker(
         tester,
-        'appbarEditor_foregroundColorPicker',
+        'appBarThemeEditor_foregroundColorPicker',
         color,
       );
       verify(() => appBarThemeCubit.foregroundColorChanged(color)).called(1);
@@ -106,7 +107,7 @@ void main() {
 
       await widgetTesters.checkTextField(
         tester,
-        'appbarEditor_elevationTextField',
+        'appBarThemeEditor_elevationTextField',
         doubleValue,
       );
       verify(() {
@@ -124,7 +125,7 @@ void main() {
 
       await widgetTesters.checkColorPicker(
         tester,
-        'appbarEditor_shadowColorPicker',
+        'appBarThemeEditor_shadowColorPicker',
         color,
       );
       verify(() => appBarThemeCubit.shadowColorChanged(color)).called(1);
@@ -134,7 +135,7 @@ void main() {
   group('test center title switch', () {
     for (var isCenter in [true, false]) {
       testWidgets(
-        'center title should be toggled to $isCenter',
+        'should be toggled to $isCenter',
         (tester) async {
           final state = AppBarThemeState(
             theme: AppBarTheme(centerTitle: isCenter),
@@ -144,7 +145,7 @@ void main() {
 
           await widgetTesters.checkSwitch(
             tester,
-            'appbarEditor_centerTitleSwitch',
+            'appBarThemeEditor_centerTitleSwitch',
             isCenter,
           );
           verify(() {
@@ -166,7 +167,7 @@ void main() {
 
       await widgetTesters.checkTextField(
         tester,
-        'appbarEditor_titleSpacingTextField',
+        'appBarThemeEditor_titleSpacingTextField',
         doubleValue,
       );
       verify(() {
@@ -186,7 +187,7 @@ void main() {
 
       await widgetTesters.checkTextField(
         tester,
-        'appbarEditor_toolBarHeightTextField',
+        'appBarThemeEditor_toolBarHeightTextField',
         doubleValue,
       );
       verify(() {
@@ -194,4 +195,29 @@ void main() {
       }).called(1);
     },
   );
+
+  group('test system UI overlay style dropdown', () {
+    for (var style in MySystemUiOverlayStyle().values) {
+      final styleStr = MySystemUiOverlayStyle().stringFromEnum(style)!;
+      testWidgets(
+        'should update to ${style.statusBarBrightness}',
+        (tester) async {
+          final state = AppBarThemeState(
+            theme: AppBarTheme(systemOverlayStyle: style),
+          );
+
+          await _pumpApp(tester, state);
+
+          await widgetTesters.checkDropbox(
+            tester,
+            'appbarThemeEditor_systemUiOverlayStyleDropdown',
+            styleStr,
+          );
+          verify(() {
+            appBarThemeCubit.systemUiOverlayStyleChanged(styleStr);
+          }).called(1);
+        },
+      );
+    }
+  });
 }

@@ -40,6 +40,7 @@ class _TypeDropdown extends StatelessWidget {
       builder: (context, state) {
         final type = state.theme.type ?? BottomNavigationBarType.fixed;
         return DropdownListTile(
+          key: const Key('bottomNavigationBarThemeEditor_typeDropdown'),
           title: 'Type',
           value: UtilService.enumToString(type),
           values: UtilService.getEnumStrings(BottomNavigationBarType.values),

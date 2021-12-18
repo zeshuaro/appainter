@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/services/util_service.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -196,4 +197,30 @@ void main() {
       }).called(1);
     },
   );
+
+  group('test type dropdown', () {
+    for (var type in BottomNavigationBarType.values) {
+      final typeStr = UtilService.enumToString(type);
+
+      testWidgets(
+        'should update to $type',
+        (tester) async {
+          final state = BottomNavigationBarThemeState(
+            theme: BottomNavigationBarThemeData(type: type),
+          );
+
+          await _pumpApp(tester, state);
+
+          await widgetTesters.checkDropbox(
+            tester,
+            'bottomNavigationBarThemeEditor_typeDropdown',
+            typeStr,
+          );
+          verify(() {
+            bottomNavigationBarThemeCubit.typeChanged(typeStr);
+          }).called(1);
+        },
+      );
+    }
+  });
 }

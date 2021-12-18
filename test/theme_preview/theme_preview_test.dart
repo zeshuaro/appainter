@@ -57,6 +57,7 @@ void main() {
       advancedThemeCubit: advancedThemeCubit,
       appBarThemeCubit: appBarThemeCubit,
       tabBarThemeCubit: tabBarThemeCubit,
+      bottomNavigationBarThemeCubit: bottomNavigationBarThemeCubit,
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
+import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
@@ -14,7 +15,7 @@ class AdvancedEditor extends StatelessWidget {
         ColorEditor(),
         AppBarThemeEditor(),
         TabBarThemeEditor(),
-        BottomNavBarEditor(),
+        BottomNavigationBarThemeEditor(),
         FloatingActionBtnEditor(),
         ElevatedButtonEditor(),
         OutlinedButtonEditor(),

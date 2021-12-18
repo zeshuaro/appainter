@@ -5,6 +5,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
+import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'mocks.dart';
@@ -16,11 +17,13 @@ extension PumpApp on WidgetTester {
     BasicThemeCubit? basicThemeCubit,
     AdvancedThemeCubit? advancedThemeCubit,
     AppBarThemeCubit? appBarThemeCubit,
+    TabBarThemeCubit? tabBarThemeCubit,
   }) async {
     registerFallbackValue(FakeHomeState());
     registerFallbackValue(FakeBasicThemeState());
     registerFallbackValue(FakeAdvancedThemeState());
     registerFallbackValue(FakeAppBarThemeState());
+    registerFallbackValue(FakeTabBarThemeState());
 
     return pumpWidget(
       MultiBlocProvider(
@@ -31,6 +34,7 @@ extension PumpApp on WidgetTester {
             value: advancedThemeCubit ?? MockAdvancedThemeCubit(),
           ),
           BlocProvider.value(value: appBarThemeCubit ?? MockAppBarThemeCubit()),
+          BlocProvider.value(value: tabBarThemeCubit ?? MockTabBarThemeCubit()),
         ],
         child: MaterialApp(
           home: widget,

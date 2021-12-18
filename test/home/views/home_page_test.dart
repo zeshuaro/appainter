@@ -4,8 +4,8 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
-import 'package:flutter_theme/basic_theme/cubit/basic_theme_cubit.dart';
-import 'package:flutter_theme/basic_theme/views/basic_editor.dart';
+import 'package:flutter_theme/basic_theme/basic_theme.dart';
+import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
@@ -21,6 +21,7 @@ void main() {
   late AdvancedThemeCubit advancedThemeCubit;
   late AppBarThemeCubit appBarThemeCubit;
   late TabBarThemeCubit tabBarThemeCubit;
+  late BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
   late ThemeService themeService;
 
   setUpAll(() {
@@ -29,6 +30,7 @@ void main() {
     registerFallbackValue(FakeAdvancedThemeState());
     registerFallbackValue(FakeAppBarThemeState());
     registerFallbackValue(FakeTabBarThemeState());
+    registerFallbackValue(FakeBottomNavigationBarThemeState());
     registerFallbackValue(FakeThemeData());
   });
 
@@ -38,6 +40,7 @@ void main() {
     advancedThemeCubit = MockAdvancedThemeCubit();
     appBarThemeCubit = MockAppBarThemeCubit();
     tabBarThemeCubit = MockTabBarThemeCubit();
+    bottomNavigationBarThemeCubit = MockBottomNavigationBarThemeCubit();
     themeService = MockThemeService();
 
     when(() => homeCubit.state).thenReturn(const HomeState());
@@ -46,6 +49,9 @@ void main() {
     when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
     when(() => appBarThemeCubit.state).thenReturn(const AppBarThemeState());
     when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());
+    when(() {
+      return bottomNavigationBarThemeCubit.state;
+    }).thenReturn(const BottomNavigationBarThemeState());
   });
 
   Future<void> _pumpApp(WidgetTester tester) async {
@@ -58,6 +64,7 @@ void main() {
       advancedThemeCubit: advancedThemeCubit,
       appBarThemeCubit: appBarThemeCubit,
       tabBarThemeCubit: tabBarThemeCubit,
+      bottomNavigationBarThemeCubit: bottomNavigationBarThemeCubit,
     );
   }
 

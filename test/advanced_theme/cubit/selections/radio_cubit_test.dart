@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/services/services.dart';
 
+import '../../../mocks.dart';
 import '../../../utils.dart';
 
 void main() {
@@ -34,7 +35,7 @@ void main() {
   });
 
   setUp(() {
-    cubit = AdvancedThemeCubit();
+    cubit = AdvancedThemeCubit(appBarThemeCubit: MockAppBarThemeCubit());
     testColor = getRandomColor();
   });
 

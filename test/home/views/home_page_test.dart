@@ -23,6 +23,7 @@ void main() {
     registerFallbackValue(FakeHomeState());
     registerFallbackValue(FakeBasicThemeState());
     registerFallbackValue(FakeAdvancedThemeState());
+    registerFallbackValue(FakeAppBarThemeState());
     registerFallbackValue(FakeThemeData());
   });
 

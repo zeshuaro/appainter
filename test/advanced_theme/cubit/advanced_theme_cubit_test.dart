@@ -2,13 +2,16 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
-import 'package:flutter_theme/services/services.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
+
+import '../../mocks.dart';
 
 void main() {
   late AdvancedThemeCubit cubit;
 
-  setUp(() => cubit = AdvancedThemeCubit());
+  setUp(() {
+    cubit = AdvancedThemeCubit(appBarThemeCubit: MockAppBarThemeCubit());
+  });
 
   test('initial state is AdvancedThemeState', () {
     expect(cubit.state, equals(AdvancedThemeState()));
@@ -29,11 +32,7 @@ void main() {
   group('randomizedThemeRequested', () {
     const seed = 0;
     final colorScheme = randomColorSchemeLight(seed: seed, shouldPrint: false);
-    final swatch = UtilService.getColorSwatch(colorScheme.primary);
-    final theme = ThemeData.from(colorScheme: colorScheme).copyWith(
-      primaryColorLight: swatch[100],
-      primaryColorDark: swatch[700],
-    );
+    final theme = ThemeData.from(colorScheme: colorScheme);
 
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
       'emits randomizedThemeRequested',

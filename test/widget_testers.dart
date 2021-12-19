@@ -93,35 +93,6 @@ class WidgetTesters {
     expect(widget, findsOneWidget);
   }
 
-  Future<void> checkDropbox(
-    WidgetTester tester,
-    String key,
-    String value,
-  ) async {
-    await _expandWidget(tester, expandText);
-
-    final parentWidget = await _findParentWidget(tester, key);
-    await tester.tap(
-      find.descendant(
-        of: parentWidget,
-        matching: find.byKey(const Key('dropdownListTile_dropdownButton')),
-      ),
-    );
-
-    final dropdownItem = find.byKey(ValueKey(value)).last;
-    await tester.ensureVisible(dropdownItem);
-    await tester.pumpAndSettle();
-    await tester.tap(dropdownItem);
-
-    final widget = find.descendant(
-      of: parentWidget,
-      matching: find.byWidgetPredicate((widget) {
-        return widget is DropdownButton && widget.value == value;
-      }),
-    );
-    expect(widget, findsOneWidget);
-  }
-
   Future<void> _expandWidget(WidgetTester tester, String? expandText) async {
     if (expandText != null) {
       await tester.tap(find.text(expandText));

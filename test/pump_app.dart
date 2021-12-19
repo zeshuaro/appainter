@@ -20,15 +20,23 @@ extension PumpApp on WidgetTester {
     registerFallbackValue(FakeBasicThemeState());
     registerFallbackValue(FakeAdvancedThemeState());
 
+    final mockHomeCubit = MockHomeCubit();
+    final mockBasicThemeCubit = MockBasicThemeCubit();
+    final mockAdvancedThemeCubit = MockAdvancedThemeCubit();
+
+    when(() => mockHomeCubit.state).thenReturn(const HomeState());
+    when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
+    when(() => mockAdvancedThemeCubit.state).thenReturn(AdvancedThemeState());
+
     return pumpWidget(
       RepositoryProvider(
         create: (context) => homeRepo ?? MockHomeRepository(),
         child: MultiBlocProvider(
           providers: [
-            BlocProvider.value(value: homeCubit ?? MockHomeCubit()),
-            BlocProvider.value(value: basicThemeCubit ?? MockBasicThemeCubit()),
+            BlocProvider.value(value: homeCubit ?? mockHomeCubit),
+            BlocProvider.value(value: basicThemeCubit ?? mockBasicThemeCubit),
             BlocProvider.value(
-              value: advancedThemeCubit ?? MockAdvancedThemeCubit(),
+              value: advancedThemeCubit ?? mockAdvancedThemeCubit,
             ),
           ],
           child: MaterialApp(

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
-import 'package:flutter_theme/basic_theme/cubit/basic_theme_cubit.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:mocktail/mocktail.dart';
@@ -11,34 +9,20 @@ import '../pump_app.dart';
 
 void main() {
   late HomeCubit homeCubit;
-  late BasicThemeCubit basicThemeCubit;
-  late AdvancedThemeCubit advancedThemeCubit;
 
   setUpAll(() {
     registerFallbackValue(FakeHomeState());
-    registerFallbackValue(FakeBasicThemeState());
-    registerFallbackValue(FakeAdvancedThemeState());
     registerFallbackValue(FakeThemeData());
   });
 
   setUp(() {
     homeCubit = MockHomeCubit();
-    basicThemeCubit = MockBasicThemeCubit();
-    advancedThemeCubit = MockAdvancedThemeCubit();
-
     when(() => homeCubit.state).thenReturn(const HomeState());
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
-    when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
-    when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
   });
 
   Future<void> _pumpApp(WidgetTester tester) async {
-    await tester.pumpApp(
-      const ThemePreview(),
-      homeCubit: homeCubit,
-      basicThemeCubit: basicThemeCubit,
-      advancedThemeCubit: advancedThemeCubit,
-    );
+    await tester.pumpApp(const ThemePreview(), homeCubit: homeCubit);
   }
 
   testWidgets('should display ThemePreview', (tester) async {

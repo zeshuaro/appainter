@@ -13,6 +13,7 @@ import 'mocks.dart';
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(
     Widget widget, {
+    HomeRepository? homeRepo,
     HomeCubit? homeCubit,
     BasicThemeCubit? basicThemeCubit,
     AdvancedThemeCubit? advancedThemeCubit,
@@ -25,19 +26,33 @@ extension PumpApp on WidgetTester {
     registerFallbackValue(FakeAppBarThemeState());
     registerFallbackValue(FakeTabBarThemeState());
 
+    final mockHomeCubit = MockHomeCubit();
+    final mockBasicThemeCubit = MockBasicThemeCubit();
+    final mockAdvancedThemeCubit = MockAdvancedThemeCubit();
+    final mockAppBarThemeCubit = MockAppBarThemeCubit();
+
+    when(() => mockHomeCubit.state).thenReturn(const HomeState());
+    when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
+    when(() => mockAdvancedThemeCubit.state).thenReturn(AdvancedThemeState());
+    when(() => mockAppBarThemeCubit.state).thenReturn(const AppBarThemeState());
+
     return pumpWidget(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider.value(value: homeCubit ?? MockHomeCubit()),
-          BlocProvider.value(value: basicThemeCubit ?? MockBasicThemeCubit()),
-          BlocProvider.value(
-            value: advancedThemeCubit ?? MockAdvancedThemeCubit(),
+      RepositoryProvider(
+        create: (context) => homeRepo ?? MockHomeRepository(),
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: homeCubit ?? mockHomeCubit),
+            BlocProvider.value(value: basicThemeCubit ?? mockBasicThemeCubit),
+            BlocProvider.value(
+              value: advancedThemeCubit ?? mockAdvancedThemeCubit,
+            ),
+            BlocProvider.value(
+              value: appBarThemeCubit ?? mockAppBarThemeCubit,
+            ),
+          ],
+          child: MaterialApp(
+            home: widget,
           ),
-          BlocProvider.value(value: appBarThemeCubit ?? MockAppBarThemeCubit()),
-          BlocProvider.value(value: tabBarThemeCubit ?? MockTabBarThemeCubit()),
-        ],
-        child: MaterialApp(
-          home: widget,
         ),
       ),
     );

@@ -7,18 +7,23 @@ import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 
 class MyApp extends StatelessWidget {
-  final HomeRepo homeRepo;
+  final HomeRepository homeRepo;
 
   const MyApp({Key? key, required this.homeRepo}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final appBarThemeCubit = AppBarThemeCubit();
+    final advancedThemeCubit = AdvancedThemeCubit(
+      appBarThemeCubit: appBarThemeCubit,
+    );
+
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => HomeCubit(homeRepo)),
+        BlocProvider(create: (_) => HomeCubit(homeRepo, advancedThemeCubit)),
         BlocProvider(create: (_) => BasicThemeCubit()),
-        BlocProvider(create: (_) => AdvancedThemeCubit()),
-        BlocProvider(create: (_) => AppBarThemeCubit()),
+        BlocProvider(create: (_) => advancedThemeCubit),
+        BlocProvider(create: (_) => appBarThemeCubit),
         BlocProvider(create: (_) => TabBarThemeCubit()),
       ],
       child: const MaterialApp(

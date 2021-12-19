@@ -3,13 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/services/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ExportButton extends StatelessWidget {
-  final ThemeService themeService;
-
-  const ExportButton({Key? key, required this.themeService}) : super(key: key);
+  const ExportButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +23,7 @@ class ExportButton extends StatelessWidget {
     return TextButton.icon(
       onPressed: () {
         final theme = editMode == EditMode.basic ? basicTheme : advancedTheme;
-        themeService.export(theme);
+        context.read<HomeCubit>().themeExported(theme);
       },
       icon: const FaIcon(
         FontAwesomeIcons.download,

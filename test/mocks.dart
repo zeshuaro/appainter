@@ -4,7 +4,6 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -15,8 +14,6 @@ class MockBasicThemeCubit extends MockCubit<BasicThemeState>
 
 class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
     implements AdvancedThemeCubit {}
-
-class MockThemeService extends Mock implements ThemeService {}
 
 class FakeHomeState extends Fake implements HomeState {}
 
@@ -44,3 +41,5 @@ mixin DiagnosticableToStringMixin on Object {
 class FakeThemeData extends Fake
     with DiagnosticableToStringMixin
     implements ThemeData {}
+
+class MockHomeRepository extends Mock implements HomeRepository {}

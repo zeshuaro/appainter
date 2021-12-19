@@ -10,6 +10,8 @@ part 'app_bar_theme_state.dart';
 class AppBarThemeCubit extends Cubit<AppBarThemeState> {
   AppBarThemeCubit() : super(const AppBarThemeState());
 
+  void themeChanged(AppBarTheme theme) => emit(state.copyWith(theme: theme));
+
   void backgroundColorChanged(Color color) {
     final theme = state.theme.copyWith(backgroundColor: color);
     emit(state.copyWith(theme: theme));

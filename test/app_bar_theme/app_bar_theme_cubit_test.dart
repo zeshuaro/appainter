@@ -5,19 +5,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/models/models.dart';
+import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';
 
 void main() {
   late AppBarThemeCubit cubit;
+  late AppBarTheme theme;
   late Color color;
   late double doubleValue;
 
   setUp(() {
     cubit = AppBarThemeCubit();
+    final colorScheme = randomColorSchemeLight(shouldPrint: false);
+    theme = ThemeData.from(colorScheme: colorScheme).appBarTheme;
     color = getRandomColor();
     doubleValue = Random().nextDouble();
   });
+
+  blocTest<AppBarThemeCubit, AppBarThemeState>(
+    'should emit theme',
+    build: () => cubit,
+    act: (cubit) => cubit.themeChanged(theme),
+    expect: () => [AppBarThemeState(theme: theme)],
+  );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
     'should emit background color',
@@ -55,10 +66,10 @@ void main() {
     },
   );
 
-  group('centerTitleChanged', () {
+  group('test center title', () {
     for (var isCenter in [true, false]) {
       blocTest<AppBarThemeCubit, AppBarThemeState>(
-        'should emit centerTitle=$isCenter',
+        'should emit $isCenter',
         build: () => cubit,
         act: (cubit) => cubit.centerTitleChanged(isCenter),
         expect: () {
@@ -86,7 +97,7 @@ void main() {
     },
   );
 
-  group('systemUiOverlayStyleChanged', () {
+  group('test system UI overlay style', () {
     for (var style in MySystemUiOverlayStyle().values) {
       blocTest<AppBarThemeCubit, AppBarThemeState>(
         'should emit ${style.statusBarBrightness}',

@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:dio/dio.dart';
+import 'package:flutter_theme/home/home.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -9,14 +11,30 @@ import 'package:pretty_json/pretty_json.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:universal_io/io.dart' as io;
 
-class ThemeService {
-  const ThemeService();
+class HomeRepository {
+  final Dio _dio;
+  final FilePicker _filePicker;
 
-  static const exportFileName = 'flutter_theme.json';
+  HomeRepository({Dio? dio, FilePicker? filePicker})
+      : _dio = dio ?? Dio(),
+        _filePicker = filePicker ?? FilePicker.platform;
 
-  Future<ThemeData?> import() async {
+  static const _usageFileUrl =
+      'https://raw.githubusercontent.com/zeshuaro/flutter_theme/main/USAGE.md';
+  static const _exportFileName = 'flutter_theme.json';
+
+  Future<ThemeUsage> fetchThemeUsage() async {
+    try {
+      final response = await _dio.get(_usageFileUrl);
+      return ThemeUsage(response.data);
+    } catch (e) {
+      return const ThemeUsage();
+    }
+  }
+
+  Future<ThemeData?> importTheme() async {
     ThemeData? theme;
-    final result = await FilePicker.platform.pickFiles(
+    final result = await _filePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['json'],
     );
@@ -39,25 +57,25 @@ class ThemeService {
     return theme;
   }
 
-  Future<void> export(ThemeData theme) async {
+  Future<void> exportTheme(ThemeData theme) async {
     final themeJson = ThemeEncoder.encodeThemeData(theme);
     final themeStr = prettyJson(themeJson);
     final themeBytes = Uint8List.fromList(themeStr.codeUnits);
 
     if (kIsWeb) {
-      _exportWeb(themeBytes);
+      _exportThemeOnWeb(themeBytes);
     } else {
-      _exportDesktop(themeBytes);
+      _exportThemeOnDesktop(themeBytes);
     }
   }
 
-  void _exportWeb(Uint8List bytes) {
+  void _exportThemeOnWeb(Uint8List bytes) {
     final blob = html.Blob([bytes]);
     final url = html.Url.createObjectUrlFromBlob(blob);
     final anchor = html.document.createElement('a') as html.AnchorElement
       ..href = url
       ..style.display = 'none'
-      ..download = exportFileName;
+      ..download = _exportFileName;
 
     html.document.body?.children.add(anchor);
     anchor.click();
@@ -65,10 +83,10 @@ class ThemeService {
     html.Url.revokeObjectUrl(url);
   }
 
-  Future<void> _exportDesktop(Uint8List bytes) async {
-    final path = await FilePicker.platform.saveFile(
+  Future<void> _exportThemeOnDesktop(Uint8List bytes) async {
+    final path = await _filePicker.saveFile(
       dialogTitle: 'Please select an output file:',
-      fileName: exportFileName,
+      fileName: _exportFileName,
     );
 
     if (path != null) {

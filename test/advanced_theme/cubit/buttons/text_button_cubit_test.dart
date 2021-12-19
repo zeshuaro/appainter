@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 
+import '../../../mocks.dart';
 import '../../../utils.dart';
 
 void main() {
@@ -12,7 +13,7 @@ void main() {
   late AdvancedThemeCubit cubit;
 
   setUp(() {
-    cubit = AdvancedThemeCubit();
+    cubit = AdvancedThemeCubit(appBarThemeCubit: MockAppBarThemeCubit());
   });
 
   group('textButtonBackgroundColorChanged', () {

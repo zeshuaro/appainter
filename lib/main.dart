@@ -9,9 +9,11 @@ import 'bloc_observer.dart';
 
 void main() {
   EquatableConfig.stringify = kDebugMode;
-  Bloc.observer = MyBlocObserver();
 
-  runApp(MyApp(
-    homeRepo: HomeRepository(),
-  ));
+  BlocOverrides.runZoned(
+    () => runApp(MyApp(
+      homeRepo: HomeRepository(),
+    )),
+    blocObserver: MyBlocObserver(),
+  );
 }

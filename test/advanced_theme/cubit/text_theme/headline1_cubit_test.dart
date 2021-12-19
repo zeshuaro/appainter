@@ -8,13 +8,14 @@ import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/models/enums/enums.dart';
 import 'package:flutter_theme/services/services.dart';
 
+import '../../../mocks.dart';
 import '../../../utils.dart';
 
 void main() {
   late AdvancedThemeCubit cubit;
 
   setUp(() {
-    cubit = AdvancedThemeCubit();
+    cubit = AdvancedThemeCubit(appBarThemeCubit: MockAppBarThemeCubit());
   });
 
   group('headline1ColorChanged', () {

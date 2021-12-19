@@ -12,14 +12,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final advancedThemeCubit = AdvancedThemeCubit();
+    final appBarThemeCubit = AppBarThemeCubit();
+    final advancedThemeCubit = AdvancedThemeCubit(
+      appBarThemeCubit: appBarThemeCubit,
+    );
 
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => HomeCubit(homeRepo, advancedThemeCubit)),
         BlocProvider(create: (_) => BasicThemeCubit()),
         BlocProvider(create: (_) => advancedThemeCubit),
-        BlocProvider(create: (_) => AppBarThemeCubit()),
+        BlocProvider(create: (_) => appBarThemeCubit),
       ],
       child: const MaterialApp(
         title: 'Flutter Theme',

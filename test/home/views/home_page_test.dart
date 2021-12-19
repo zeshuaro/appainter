@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
-import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/cubit/basic_theme_cubit.dart';
 import 'package:flutter_theme/basic_theme/views/basic_editor.dart';
 import 'package:flutter_theme/home/home.dart';

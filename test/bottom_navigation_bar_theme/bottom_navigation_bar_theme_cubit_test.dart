@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:flutter_theme/services/services.dart';
+import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';
 
 void main() {
   late BottomNavigationBarThemeCubit cubit;
+  late BottomNavigationBarThemeData theme;
   late Color color;
   late double doubleValue;
 
@@ -17,7 +19,17 @@ void main() {
     cubit = BottomNavigationBarThemeCubit();
     color = getRandomColor();
     doubleValue = Random().nextDouble();
+
+    final colorScheme = randomColorSchemeLight(shouldPrint: false);
+    theme = ThemeData.from(colorScheme: colorScheme).bottomNavigationBarTheme;
   });
+
+  blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
+    'should emit theme',
+    build: () => cubit,
+    act: (cubit) => cubit.themeChanged(theme),
+    expect: () => [BottomNavigationBarThemeState(theme: theme)],
+  );
 
   group('test type', () {
     for (var type in BottomNavigationBarType.values) {

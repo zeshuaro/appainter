@@ -12,6 +12,10 @@ class BottomNavigationBarThemeCubit
   BottomNavigationBarThemeCubit()
       : super(const BottomNavigationBarThemeState());
 
+  void themeChanged(BottomNavigationBarThemeData theme) {
+    emit(state.copyWith(theme: theme));
+  }
+
   void typeChanged(String value) {
     final type = UtilService.stringToEnum(
       BottomNavigationBarType.values,

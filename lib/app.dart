@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
     final advancedThemeCubit = AdvancedThemeCubit(
       appBarThemeCubit: appBarThemeCubit,
       tabBarThemeCubit: tabBarThemeCubit,
+      bottomNavBarThemeCubit: bottomNavBarThemeCubit,
     );
 
     return MultiBlocProvider(

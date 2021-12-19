@@ -21,8 +21,8 @@ const RESOURCES = {
 "assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "aa1ec80f1b30a51d64c72f669c1326a7",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"index.html": "0aa79d1b43c754fbb01e868a8249685a",
-"/": "0aa79d1b43c754fbb01e868a8249685a",
+"index.html": "bf980c6e07f80c9fd4b68b7bd76fbc78",
+"/": "bf980c6e07f80c9fd4b68b7bd76fbc78",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796"
 };
 

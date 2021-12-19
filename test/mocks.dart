@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/services/services.dart';
+import 'package:flutter_theme/theme_repository/theme_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockHomeCubit extends MockCubit<HomeState> implements HomeCubit {}
@@ -14,7 +14,7 @@ class MockBasicThemeCubit extends MockCubit<BasicThemeState>
 class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
     implements AdvancedThemeCubit {}
 
-class MockThemeService extends Mock implements ThemeService {}
+class MockThemeRepository extends Mock implements ThemeRepository {}
 
 class FakeHomeState extends Fake implements HomeState {}
 

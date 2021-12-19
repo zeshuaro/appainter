@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/services/services.dart';
+import 'package:flutter_theme/theme_repository/theme_repository.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ndialog/ndialog.dart';
 
 class ImportButton extends StatelessWidget {
-  final ThemeService themeService;
-
-  const ImportButton({Key? key, required this.themeService}) : super(key: key);
+  const ImportButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +32,7 @@ class ImportButton extends StatelessWidget {
       message: const Text('Importing theme data'),
       dismissable: false,
     )..show();
-    final theme = await themeService.import();
+    final theme = await context.read<ThemeRepository>().import();
     if (theme != null) {
       context.read<AdvancedThemeCubit>().themeDataChanged(theme);
       context.read<HomeCubit>().editModeChanged(EditMode.advanced);

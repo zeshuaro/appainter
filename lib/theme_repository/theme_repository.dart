@@ -9,14 +9,17 @@ import 'package:pretty_json/pretty_json.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:universal_io/io.dart' as io;
 
-class ThemeService {
-  const ThemeService();
+class ThemeRepository {
+  final FilePicker _filePicker;
 
-  static const exportFileName = 'flutter_theme.json';
+  ThemeRepository({FilePicker? filePicker})
+      : _filePicker = filePicker ?? FilePicker.platform;
+
+  static const _exportFileName = 'flutter_theme.json';
 
   Future<ThemeData?> import() async {
     ThemeData? theme;
-    final result = await FilePicker.platform.pickFiles(
+    final result = await _filePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['json'],
     );
@@ -57,7 +60,7 @@ class ThemeService {
     final anchor = html.document.createElement('a') as html.AnchorElement
       ..href = url
       ..style.display = 'none'
-      ..download = exportFileName;
+      ..download = _exportFileName;
 
     html.document.body?.children.add(anchor);
     anchor.click();
@@ -66,9 +69,9 @@ class ThemeService {
   }
 
   Future<void> _exportDesktop(Uint8List bytes) async {
-    final path = await FilePicker.platform.saveFile(
+    final path = await _filePicker.saveFile(
       dialogTitle: 'Please select an output file:',
-      fileName: exportFileName,
+      fileName: _exportFileName,
     );
 
     if (path != null) {

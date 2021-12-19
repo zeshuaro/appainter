@@ -25,6 +25,7 @@ void main() {
     registerFallbackValue(FakeAdvancedThemeState());
     registerFallbackValue(FakeAppBarThemeState());
     registerFallbackValue(FakeTabBarThemeState());
+    registerFallbackValue(FakeBottomNavigationBarThemeState());
     registerFallbackValue(FakeThemeData());
   });
 

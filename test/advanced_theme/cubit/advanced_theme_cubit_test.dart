@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
+import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
@@ -13,15 +14,31 @@ void main() {
   late AdvancedThemeCubit advancedThemeCubit;
   late AppBarThemeCubit appBarThemeCubit;
   late TabBarThemeCubit tabBarThemeCubit;
+  late BottomNavigationBarThemeCubit bottomNavBarThemeCubit;
 
   setUp(() {
     appBarThemeCubit = MockAppBarThemeCubit();
     tabBarThemeCubit = MockTabBarThemeCubit();
+    bottomNavBarThemeCubit = MockBottomNavigationBarThemeCubit();
+
     advancedThemeCubit = AdvancedThemeCubit(
       appBarThemeCubit: appBarThemeCubit,
       tabBarThemeCubit: tabBarThemeCubit,
+      bottomNavBarThemeCubit: bottomNavBarThemeCubit,
     );
   });
+
+  void _verifyThemeChanged(ThemeData theme) {
+    verify(() {
+      appBarThemeCubit.themeChanged(theme.appBarTheme);
+    }).called(1);
+    verify(() {
+      tabBarThemeCubit.themeChanged(theme.tabBarTheme);
+    }).called(1);
+    verify(() {
+      bottomNavBarThemeCubit.themeChanged(theme.bottomNavigationBarTheme);
+    }).called(1);
+  }
 
   test('initial state is AdvancedThemeState', () {
     expect(advancedThemeCubit.state, equals(AdvancedThemeState()));
@@ -36,14 +53,7 @@ void main() {
       build: () => advancedThemeCubit,
       act: (cubit) => cubit.themeDataChanged(theme),
       expect: () => [AdvancedThemeState(themeData: theme)],
-      verify: (cubit) {
-        verify(() {
-          appBarThemeCubit.themeChanged(theme.appBarTheme);
-        }).called(1);
-        verify(() {
-          tabBarThemeCubit.themeChanged(theme.tabBarTheme);
-        }).called(1);
-      },
+      verify: (cubit) => _verifyThemeChanged(theme),
     );
   });
 
@@ -57,14 +67,7 @@ void main() {
       build: () => advancedThemeCubit,
       act: (cubit) => cubit.randomizedThemeRequested(seed),
       expect: () => [AdvancedThemeState(themeData: theme)],
-      verify: (cubit) {
-        verify(() {
-          appBarThemeCubit.themeChanged(theme.appBarTheme);
-        }).called(1);
-        verify(() {
-          tabBarThemeCubit.themeChanged(theme.tabBarTheme);
-        }).called(1);
-      },
+      verify: (cubit) => _verifyThemeChanged(theme),
     );
   });
 

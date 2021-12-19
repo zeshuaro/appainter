@@ -10,11 +10,7 @@ import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
-  final ThemeService themeService;
-
-  const HomePage({Key? key, ThemeService? themeService})
-      : themeService = themeService ?? const ThemeService(),
-        super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -37,9 +33,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Flutter Theme'),
         centerTitle: false,
         actions: [
-          _ActionButtons(
-            themeService: widget.themeService,
-          ),
+          _ActionButtons(),
           const HorizontalPadding(),
         ],
       ),
@@ -91,30 +85,19 @@ class _HomePageState extends State<HomePage> {
 }
 
 class _ActionButtons extends StatelessWidget {
-  final ThemeService themeService;
-
-  const _ActionButtons({Key? key, required this.themeService})
-      : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
-        ImportButton(
-          key: const Key('homePage_importButton'),
-          themeService: themeService,
-        ),
-        const HorizontalPadding(size: PaddingSize.medium),
-        ExportButton(
-          key: const Key('homePage_exportButton'),
-          themeService: themeService,
-        ),
-        const HorizontalPadding(size: PaddingSize.medium),
-        const UsageButton(
+      children: const [
+        ImportButton(key: Key('homePage_importButton')),
+        HorizontalPadding(size: PaddingSize.medium),
+        ExportButton(key: Key('homePage_exportButton')),
+        HorizontalPadding(size: PaddingSize.medium),
+        UsageButton(
           key: Key('homePage_usageButton'),
         ),
-        const HorizontalPadding(size: PaddingSize.medium),
-        const GithubButton(
+        HorizontalPadding(size: PaddingSize.medium),
+        GithubButton(
           key: Key('homePage_githubButton'),
         ),
       ],

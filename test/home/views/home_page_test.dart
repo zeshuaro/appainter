@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
-import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
-import 'package:flutter_theme/basic_theme/basic_theme.dart';
-import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/basic_theme/cubit/basic_theme_cubit.dart';
+import 'package:flutter_theme/basic_theme/views/basic_editor.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -16,13 +14,10 @@ import '../../mocks.dart';
 import '../../pump_app.dart';
 
 void main() {
+  late HomeRepository homeRepo;
   late HomeCubit homeCubit;
   late BasicThemeCubit basicThemeCubit;
   late AdvancedThemeCubit advancedThemeCubit;
-  late AppBarThemeCubit appBarThemeCubit;
-  late TabBarThemeCubit tabBarThemeCubit;
-  late BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
-  late ThemeService themeService;
 
   setUpAll(() {
     registerFallbackValue(FakeHomeState());
@@ -35,36 +30,24 @@ void main() {
   });
 
   setUp(() {
+    homeRepo = MockHomeRepository();
     homeCubit = MockHomeCubit();
     basicThemeCubit = MockBasicThemeCubit();
     advancedThemeCubit = MockAdvancedThemeCubit();
-    appBarThemeCubit = MockAppBarThemeCubit();
-    tabBarThemeCubit = MockTabBarThemeCubit();
-    bottomNavigationBarThemeCubit = MockBottomNavigationBarThemeCubit();
-    themeService = MockThemeService();
 
     when(() => homeCubit.state).thenReturn(const HomeState());
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
     when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
     when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
-    when(() => appBarThemeCubit.state).thenReturn(const AppBarThemeState());
-    when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());
-    when(() {
-      return bottomNavigationBarThemeCubit.state;
-    }).thenReturn(const BottomNavigationBarThemeState());
   });
 
   Future<void> _pumpApp(WidgetTester tester) async {
     await tester.pumpApp(
-      HomePage(
-        themeService: themeService,
-      ),
+      const HomePage(),
+      homeRepo: homeRepo,
       homeCubit: homeCubit,
       basicThemeCubit: basicThemeCubit,
       advancedThemeCubit: advancedThemeCubit,
-      appBarThemeCubit: appBarThemeCubit,
-      tabBarThemeCubit: tabBarThemeCubit,
-      bottomNavigationBarThemeCubit: bottomNavigationBarThemeCubit,
     );
   }
 
@@ -185,7 +168,7 @@ void main() {
           const HomeState(editMode: EditMode.basic),
         );
         when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
-        when(() => themeService.export(any())).thenAnswer((_) async => {});
+        when(() => homeRepo.exportTheme(any())).thenAnswer((_) async => {});
 
         await _pumpApp(tester);
 
@@ -194,7 +177,7 @@ void main() {
         await tester.tap(finder);
 
         verify(() {
-          return themeService.export(basicThemeCubit.state.themeData);
+          return homeRepo.exportTheme(basicThemeCubit.state.themeData);
         }).called(greaterThan(0));
       },
     );
@@ -206,7 +189,7 @@ void main() {
           const HomeState(editMode: EditMode.advanced),
         );
         when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
-        when(() => themeService.export(any())).thenAnswer((_) async => {});
+        when(() => homeRepo.exportTheme(any())).thenAnswer((_) async => {});
 
         await _pumpApp(tester);
 
@@ -215,7 +198,7 @@ void main() {
         await tester.tap(finder);
 
         verify(() {
-          return themeService.export(advancedThemeCubit.state.themeData);
+          return homeRepo.exportTheme(advancedThemeCubit.state.themeData);
         }).called(greaterThan(0));
       },
     );
@@ -224,21 +207,13 @@ void main() {
   testWidgets(
     'import button should import theme to advanced editor',
     (tester) async {
-      final theme = ThemeData();
-      when(() => homeCubit.state).thenReturn(
-        const HomeState(editMode: EditMode.basic),
-      );
-      when(() => themeService.import()).thenAnswer((_) async => theme);
-
       await _pumpApp(tester);
 
       final finder = find.byKey(const Key('homePage_importButton'));
       await tester.ensureVisible(finder);
       await tester.tap(finder);
 
-      verify(() => themeService.import()).called(greaterThan(0));
-      verify(() => advancedThemeCubit.themeDataChanged(theme)).called(1);
-      verify(() => homeCubit.editModeChanged(EditMode.advanced)).called(1);
+      verify(() => homeCubit.themeImported()).called(1);
     },
   );
 

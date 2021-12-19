@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/models/models.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
@@ -18,23 +17,15 @@ void main() {
   final widget = MyExpansionPanelList(item: const AppBarThemeEditor());
   final widgetTesters = WidgetTesters(expandText: 'App Bar');
 
-  late MockAdvancedThemeCubit advancedThemeCubit;
   late MockAppBarThemeCubit appBarThemeCubit;
   late Color color;
   late double doubleValue;
 
-  setUpAll(() {
-    registerFallbackValue(FakeAdvancedThemeState());
-    registerFallbackValue(FakeAppBarThemeState());
-  });
-
   setUp(() {
-    advancedThemeCubit = MockAdvancedThemeCubit();
     appBarThemeCubit = MockAppBarThemeCubit();
     color = getRandomColor();
     doubleValue = Random().nextDouble();
 
-    when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
     when(() => appBarThemeCubit.state).thenReturn(const AppBarThemeState());
   });
 
@@ -44,21 +35,8 @@ void main() {
       Stream.fromIterable([const AppBarThemeState(), state]),
     );
 
-    await tester.pumpApp(
-      widget,
-      advancedThemeCubit: advancedThemeCubit,
-      appBarThemeCubit: appBarThemeCubit,
-    );
+    await tester.pumpApp(widget, appBarThemeCubit: appBarThemeCubit);
   }
-
-  testWidgets('should display appBarThemeEditor', (tester) async {
-    await tester.pumpApp(
-      widget,
-      advancedThemeCubit: advancedThemeCubit,
-      appBarThemeCubit: appBarThemeCubit,
-    );
-    expect(find.byType(AppBarThemeEditor), findsOneWidget);
-  });
 
   testWidgets(
     'background color picker should update with selected color',
@@ -96,25 +74,22 @@ void main() {
     },
   );
 
-  testWidgets(
-    'elevation should update with value',
-    (tester) async {
-      final state = AppBarThemeState(
-        theme: AppBarTheme(elevation: doubleValue),
-      );
+  testWidgets('elevation should update with value', (tester) async {
+    final state = AppBarThemeState(
+      theme: AppBarTheme(elevation: doubleValue),
+    );
 
-      await _pumpApp(tester, state);
+    await _pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'appBarThemeEditor_elevationTextField',
-        doubleValue,
-      );
-      verify(() {
-        appBarThemeCubit.elevationChanged(doubleValue.toString());
-      }).called(1);
-    },
-  );
+    await widgetTesters.checkTextField(
+      tester,
+      'appBarThemeEditor_elevationTextField',
+      doubleValue,
+    );
+    verify(() {
+      appBarThemeCubit.elevationChanged(doubleValue.toString());
+    }).called(1);
+  });
 
   testWidgets(
     'shadow color picker should update with selected color',
@@ -134,67 +109,58 @@ void main() {
 
   group('test center title switch', () {
     for (var isCenter in [true, false]) {
-      testWidgets(
-        'should be toggled to $isCenter',
-        (tester) async {
-          final state = AppBarThemeState(
-            theme: AppBarTheme(centerTitle: isCenter),
-          );
+      testWidgets('should be toggled to $isCenter', (tester) async {
+        final state = AppBarThemeState(
+          theme: AppBarTheme(centerTitle: isCenter),
+        );
 
-          await _pumpApp(tester, state);
+        await _pumpApp(tester, state);
 
-          await widgetTesters.checkSwitch(
-            tester,
-            'appBarThemeEditor_centerTitleSwitch',
-            isCenter,
-          );
-          verify(() {
-            appBarThemeCubit.centerTitleChanged(!isCenter);
-          }).called(1);
-        },
-      );
+        await widgetTesters.checkSwitch(
+          tester,
+          'appBarThemeEditor_centerTitleSwitch',
+          isCenter,
+        );
+        verify(() {
+          appBarThemeCubit.centerTitleChanged(!isCenter);
+        }).called(1);
+      });
     }
   });
 
-  testWidgets(
-    'title spacing should update with value',
-    (tester) async {
-      final state = AppBarThemeState(
-        theme: AppBarTheme(titleSpacing: doubleValue),
-      );
+  testWidgets('title spacing should update with value', (tester) async {
+    final state = AppBarThemeState(
+      theme: AppBarTheme(titleSpacing: doubleValue),
+    );
 
-      await _pumpApp(tester, state);
+    await _pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'appBarThemeEditor_titleSpacingTextField',
-        doubleValue,
-      );
-      verify(() {
-        appBarThemeCubit.titleSpacingChanged(doubleValue.toString());
-      }).called(1);
-    },
-  );
+    await widgetTesters.checkTextField(
+      tester,
+      'appBarThemeEditor_titleSpacingTextField',
+      doubleValue,
+    );
+    verify(() {
+      appBarThemeCubit.titleSpacingChanged(doubleValue.toString());
+    }).called(1);
+  });
 
-  testWidgets(
-    'tool bar height should update with value',
-    (tester) async {
-      final state = AppBarThemeState(
-        theme: AppBarTheme(toolbarHeight: doubleValue),
-      );
+  testWidgets('tool bar height should update with value', (tester) async {
+    final state = AppBarThemeState(
+      theme: AppBarTheme(toolbarHeight: doubleValue),
+    );
 
-      await _pumpApp(tester, state);
+    await _pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'appBarThemeEditor_toolBarHeightTextField',
-        doubleValue,
-      );
-      verify(() {
-        appBarThemeCubit.toolBarHeightChanged(doubleValue.toString());
-      }).called(1);
-    },
-  );
+    await widgetTesters.checkTextField(
+      tester,
+      'appBarThemeEditor_toolBarHeightTextField',
+      doubleValue,
+    );
+    verify(() {
+      appBarThemeCubit.toolBarHeightChanged(doubleValue.toString());
+    }).called(1);
+  });
 
   group('test system UI overlay style dropdown', () {
     for (var style in MySystemUiOverlayStyle().values) {

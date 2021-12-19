@@ -10,6 +10,8 @@ part 'tab_bar_theme_state.dart';
 class TabBarThemeCubit extends Cubit<TabBarThemeState> {
   TabBarThemeCubit() : super(const TabBarThemeState());
 
+  void themeChanged(TabBarTheme theme) => emit(state.copyWith(theme: theme));
+
   void labelColorChanged(Color color) {
     final theme = state.theme.copyWith(labelColor: color);
     emit(state.copyWith(theme: theme));

@@ -5,7 +5,6 @@ import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockHomeCubit extends MockCubit<HomeState> implements HomeCubit {}
@@ -28,11 +27,6 @@ class MockAppBarThemeCubit extends MockCubit<AppBarThemeState>
     implements AppBarThemeCubit {}
 
 class FakeAppBarThemeState extends Fake implements AppBarThemeState {}
-
-class MockTabBarThemeCubit extends MockCubit<TabBarThemeState>
-    implements TabBarThemeCubit {}
-
-class FakeTabBarThemeState extends Fake implements TabBarThemeState {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

@@ -8,7 +8,6 @@ import 'package:flutter_theme/basic_theme/cubit/basic_theme_cubit.dart';
 import 'package:flutter_theme/basic_theme/views/basic_editor.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -20,7 +19,6 @@ void main() {
   late BasicThemeCubit basicThemeCubit;
   late AdvancedThemeCubit advancedThemeCubit;
   late AppBarThemeCubit appBarThemeCubit;
-  late TabBarThemeCubit tabBarThemeCubit;
   late ThemeService themeService;
 
   setUpAll(() {
@@ -28,7 +26,6 @@ void main() {
     registerFallbackValue(FakeBasicThemeState());
     registerFallbackValue(FakeAdvancedThemeState());
     registerFallbackValue(FakeAppBarThemeState());
-    registerFallbackValue(FakeTabBarThemeState());
     registerFallbackValue(FakeThemeData());
   });
 
@@ -37,7 +34,6 @@ void main() {
     basicThemeCubit = MockBasicThemeCubit();
     advancedThemeCubit = MockAdvancedThemeCubit();
     appBarThemeCubit = MockAppBarThemeCubit();
-    tabBarThemeCubit = MockTabBarThemeCubit();
     themeService = MockThemeService();
 
     when(() => homeCubit.state).thenReturn(const HomeState());
@@ -45,7 +41,6 @@ void main() {
     when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
     when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
     when(() => appBarThemeCubit.state).thenReturn(const AppBarThemeState());
-    when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());
   });
 
   Future<void> _pumpApp(WidgetTester tester) async {
@@ -57,7 +52,6 @@ void main() {
       basicThemeCubit: basicThemeCubit,
       advancedThemeCubit: advancedThemeCubit,
       appBarThemeCubit: appBarThemeCubit,
-      tabBarThemeCubit: tabBarThemeCubit,
     );
   }
 

@@ -210,7 +210,7 @@ void main() {
 
           await widgetTesters.checkDropbox(
             tester,
-            'appBarThemeEditor_systemUiOverlayStyleDropdown',
+            'appbarThemeEditor_systemUiOverlayStyleDropdown',
             styleStr,
           );
           verify(() {

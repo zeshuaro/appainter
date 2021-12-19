@@ -188,7 +188,7 @@ class _SystemUiOverlayStyleDropdown extends StatelessWidget {
       },
       builder: (context, state) {
         return DropdownListTile(
-          key: const Key('appBarThemeEditor_systemUiOverlayStyleDropdown'),
+          key: const Key('appbarThemeEditor_systemUiOverlayStyleDropdown'),
           title: 'System UI Overlay Style',
           value: MySystemUiOverlayStyle()
                   .stringFromEnum(state.theme.systemOverlayStyle) ??

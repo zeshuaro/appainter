@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/theme_repository/theme_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockHomeCubit extends MockCubit<HomeState> implements HomeCubit {}
@@ -13,8 +12,6 @@ class MockBasicThemeCubit extends MockCubit<BasicThemeState>
 
 class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
     implements AdvancedThemeCubit {}
-
-class MockThemeRepository extends Mock implements ThemeRepository {}
 
 class FakeHomeState extends Fake implements HomeState {}
 
@@ -32,3 +29,5 @@ mixin DiagnosticableToStringMixin on Object {
 class FakeThemeData extends Fake
     with DiagnosticableToStringMixin
     implements ThemeData {}
+
+class MockHomeRepository extends Mock implements HomeRepository {}

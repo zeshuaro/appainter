@@ -1,27 +1,33 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/theme_repository/theme_repository.dart';
+import 'package:flutter_theme/home/home.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:universal_io/io.dart' as io;
+
+class MockDio extends Mock implements Dio {}
+
+class MockResponse extends Mock implements Response {}
 
 class MockFilePicker extends Mock implements FilePicker {}
 
 class MockPlatformFile extends Mock implements PlatformFile {}
 
 void main() {
+  late Dio dio;
+  late HomeRepository repo;
   late String filePath;
   late FilePicker filePicker;
-  late ThemeRepository repo;
   late ThemeData themeData;
   late Uint8List themeBytes;
 
   setUpAll(() {
-    filePath = './test/theme_repository/test_files/theme.json';
+    filePath = './test/home/test_files/theme.json';
     final file = io.File(filePath);
     final themeStr = file.readAsStringSync();
     final themeJson = jsonDecode(themeStr);
@@ -31,8 +37,32 @@ void main() {
   });
 
   setUp(() {
+    dio = MockDio();
     filePicker = MockFilePicker();
-    repo = ThemeRepository(filePicker: filePicker);
+    repo = HomeRepository(dio: dio, filePicker: filePicker);
+  });
+
+  group('test fetch theme usage', () {
+    test('should return usage with data on success', () async {
+      const data = 'data';
+      final response = MockResponse();
+      when(() => response.data).thenReturn(data);
+      when(() => dio.get(any())).thenAnswer((invocation) {
+        return Future.value(response);
+      });
+
+      final actual = await repo.fetchThemeUsage();
+
+      expect(actual, equals(const ThemeUsage(data)));
+    });
+
+    test('should return usage with null on failure', () async {
+      when(() => dio.get(any())).thenThrow(Exception());
+
+      final actual = await repo.fetchThemeUsage();
+
+      expect(actual, equals(const ThemeUsage()));
+    });
   });
 
   group('test import', () {
@@ -49,7 +79,7 @@ void main() {
         return Future.value(FilePickerResult([file]));
       });
 
-      final actual = await repo.import();
+      final actual = await repo.importTheme();
 
       expect(actual, equals(themeData));
     });
@@ -67,7 +97,7 @@ void main() {
         return Future.value(FilePickerResult([file]));
       });
 
-      final actual = await repo.import();
+      final actual = await repo.importTheme();
 
       expect(actual, equals(themeData));
     });
@@ -82,7 +112,7 @@ void main() {
         return Future.value(null);
       });
 
-      final actual = await repo.import();
+      final actual = await repo.importTheme();
 
       expect(actual, equals(null));
     });

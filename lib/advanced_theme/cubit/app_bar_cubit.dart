@@ -70,6 +70,7 @@ extension AppBarCubit on AdvancedThemeCubit {
   }
 
   void _emitWithAppBarTheme(AppBarTheme appBarTheme) {
+    // ignore: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
     emit(
       state.copyWith(
         themeData: state.themeData.copyWith(appBarTheme: appBarTheme),

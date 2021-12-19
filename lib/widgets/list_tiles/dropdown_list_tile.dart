@@ -21,12 +21,10 @@ class DropdownListTile extends StatelessWidget {
     return MyListTile(
       title: title,
       trailing: DropdownButton(
-        key: const Key('dropdownListTile_dropdownButton'),
         value: value,
         onChanged: onChanged,
         items: values.map((String value) {
           return DropdownMenuItem(
-            key: ValueKey(value),
             value: value,
             child: Text(value),
           );

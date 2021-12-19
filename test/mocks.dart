@@ -1,7 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
-import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
@@ -22,11 +21,6 @@ class FakeHomeState extends Fake implements HomeState {}
 class FakeBasicThemeState extends Fake implements BasicThemeState {}
 
 class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
-
-class MockAppBarThemeCubit extends MockCubit<AppBarThemeState>
-    implements AppBarThemeCubit {}
-
-class FakeAppBarThemeState extends Fake implements AppBarThemeState {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

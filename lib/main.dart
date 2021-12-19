@@ -14,6 +14,6 @@ void main() {
 
   runApp(MyApp(
     homeRepo: HomeRepo(),
-    themeRepo: const ThemeRepository(),
+    themeRepo: ThemeRepository(),
   ));
 }

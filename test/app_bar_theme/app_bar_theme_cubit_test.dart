@@ -17,10 +17,11 @@ void main() {
 
   setUp(() {
     cubit = AppBarThemeCubit();
-    final colorScheme = randomColorSchemeLight(shouldPrint: false);
-    theme = ThemeData.from(colorScheme: colorScheme).appBarTheme;
     color = getRandomColor();
     doubleValue = Random().nextDouble();
+
+    final colorScheme = randomColorSchemeLight(shouldPrint: false);
+    theme = ThemeData.from(colorScheme: colorScheme).appBarTheme;
   });
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(

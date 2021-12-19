@@ -4,6 +4,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
+import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 
 class MyApp extends StatelessWidget {
   final HomeRepository homeRepo;
@@ -13,8 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appBarThemeCubit = AppBarThemeCubit();
+    final tabBarThemeCubit = TabBarThemeCubit();
     final advancedThemeCubit = AdvancedThemeCubit(
       appBarThemeCubit: appBarThemeCubit,
+      tabBarThemeCubit: tabBarThemeCubit,
     );
 
     return MultiBlocProvider(
@@ -23,6 +26,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => BasicThemeCubit()),
         BlocProvider(create: (_) => advancedThemeCubit),
         BlocProvider(create: (_) => appBarThemeCubit),
+        BlocProvider(create: (_) => tabBarThemeCubit),
       ],
       child: const MaterialApp(
         title: 'Flutter Theme',

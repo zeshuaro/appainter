@@ -35,7 +35,10 @@ void main() {
   });
 
   setUp(() {
-    cubit = AdvancedThemeCubit(appBarThemeCubit: MockAppBarThemeCubit());
+    cubit = AdvancedThemeCubit(
+      appBarThemeCubit: MockAppBarThemeCubit(),
+      tabBarThemeCubit: MockTabBarThemeCubit(),
+    );
     testColor = getRandomColor();
   });
 

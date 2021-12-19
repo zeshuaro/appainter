@@ -14,7 +14,10 @@ void main() {
   late AdvancedThemeCubit cubit;
 
   setUp(() {
-    cubit = AdvancedThemeCubit(appBarThemeCubit: MockAppBarThemeCubit());
+    cubit = AdvancedThemeCubit(
+      appBarThemeCubit: MockAppBarThemeCubit(),
+      tabBarThemeCubit: MockTabBarThemeCubit(),
+    );
   });
 
   group('subtitle2ColorChanged', () {

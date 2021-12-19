@@ -5,6 +5,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
+import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'mocks.dart';
@@ -17,21 +18,25 @@ extension PumpApp on WidgetTester {
     BasicThemeCubit? basicThemeCubit,
     AdvancedThemeCubit? advancedThemeCubit,
     AppBarThemeCubit? appBarThemeCubit,
+    TabBarThemeCubit? tabBarThemeCubit,
   }) async {
     registerFallbackValue(FakeHomeState());
     registerFallbackValue(FakeBasicThemeState());
     registerFallbackValue(FakeAdvancedThemeState());
     registerFallbackValue(FakeAppBarThemeState());
+    registerFallbackValue(FakeTabBarThemeState());
 
     final mockHomeCubit = MockHomeCubit();
     final mockBasicThemeCubit = MockBasicThemeCubit();
     final mockAdvancedThemeCubit = MockAdvancedThemeCubit();
     final mockAppBarThemeCubit = MockAppBarThemeCubit();
+    final mockTabBarThemeCubit = MockTabBarThemeCubit();
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
     when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
     when(() => mockAdvancedThemeCubit.state).thenReturn(AdvancedThemeState());
     when(() => mockAppBarThemeCubit.state).thenReturn(const AppBarThemeState());
+    when(() => mockTabBarThemeCubit.state).thenReturn(const TabBarThemeState());
 
     return pumpWidget(
       RepositoryProvider(
@@ -45,6 +50,9 @@ extension PumpApp on WidgetTester {
             ),
             BlocProvider.value(
               value: appBarThemeCubit ?? mockAppBarThemeCubit,
+            ),
+            BlocProvider.value(
+              value: tabBarThemeCubit ?? mockTabBarThemeCubit,
             ),
           ],
           child: MaterialApp(

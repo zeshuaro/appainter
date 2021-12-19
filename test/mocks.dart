@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
-import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
@@ -34,13 +33,6 @@ class MockTabBarThemeCubit extends MockCubit<TabBarThemeState>
     implements TabBarThemeCubit {}
 
 class FakeTabBarThemeState extends Fake implements TabBarThemeState {}
-
-class MockBottomNavigationBarThemeCubit
-    extends MockCubit<BottomNavigationBarThemeState>
-    implements BottomNavigationBarThemeCubit {}
-
-class FakeBottomNavigationBarThemeState extends Fake
-    implements BottomNavigationBarThemeState {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

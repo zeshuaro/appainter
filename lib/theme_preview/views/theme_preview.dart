@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/cubit/app_bar_theme_cubit.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
-import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
@@ -27,13 +26,10 @@ class ThemePreview extends StatelessWidget {
 
         final appBarTheme = context.watch<AppBarThemeCubit>().state.theme;
         final tabBarTheme = context.watch<TabBarThemeCubit>().state.theme;
-        final bottomNavigationBarTheme =
-            context.watch<BottomNavigationBarThemeCubit>().state.theme;
         final advancedTheme =
             context.watch<AdvancedThemeCubit>().state.themeData.copyWith(
                   appBarTheme: appBarTheme,
                   tabBarTheme: tabBarTheme,
-                  bottomNavigationBarTheme: bottomNavigationBarTheme,
                 );
         final theme =
             state.editMode == EditMode.basic ? basicTheme : advancedTheme;

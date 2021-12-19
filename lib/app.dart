@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
-import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 
@@ -21,7 +20,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => AdvancedThemeCubit()),
         BlocProvider(create: (_) => AppBarThemeCubit()),
         BlocProvider(create: (_) => TabBarThemeCubit()),
-        BlocProvider(create: (_) => BottomNavigationBarThemeCubit()),
       ],
       child: const MaterialApp(
         title: 'Flutter Theme',

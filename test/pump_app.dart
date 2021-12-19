@@ -30,11 +30,13 @@ extension PumpApp on WidgetTester {
     final mockBasicThemeCubit = MockBasicThemeCubit();
     final mockAdvancedThemeCubit = MockAdvancedThemeCubit();
     final mockAppBarThemeCubit = MockAppBarThemeCubit();
+    final mockTabBarThemeCubit = MockTabBarThemeCubit();
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
     when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
     when(() => mockAdvancedThemeCubit.state).thenReturn(AdvancedThemeState());
     when(() => mockAppBarThemeCubit.state).thenReturn(const AppBarThemeState());
+    when(() => mockTabBarThemeCubit.state).thenReturn(const TabBarThemeState());
 
     return pumpWidget(
       RepositoryProvider(
@@ -48,6 +50,9 @@ extension PumpApp on WidgetTester {
             ),
             BlocProvider.value(
               value: appBarThemeCubit ?? mockAppBarThemeCubit,
+            ),
+            BlocProvider.value(
+              value: tabBarThemeCubit ?? mockTabBarThemeCubit,
             ),
           ],
           child: MaterialApp(

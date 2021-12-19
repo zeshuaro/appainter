@@ -9,8 +9,8 @@ import 'package:pretty_json/pretty_json.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:universal_io/io.dart' as io;
 
-class ThemeService {
-  const ThemeService();
+class ThemeRepository {
+  const ThemeRepository();
 
   static const exportFileName = 'flutter_theme.json';
 

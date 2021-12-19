@@ -8,16 +8,17 @@ import 'package:flutter_theme/basic_theme/views/basic_editor.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
+import 'package:flutter_theme/theme_repository/theme_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mocks.dart';
 import '../../pump_app.dart';
 
 void main() {
+  late ThemeRepository themeRepo;
   late HomeCubit homeCubit;
   late BasicThemeCubit basicThemeCubit;
   late AdvancedThemeCubit advancedThemeCubit;
-  late ThemeService themeService;
 
   setUpAll(() {
     registerFallbackValue(FakeHomeState());
@@ -27,10 +28,10 @@ void main() {
   });
 
   setUp(() {
+    themeRepo = MockThemeRepository();
     homeCubit = MockHomeCubit();
     basicThemeCubit = MockBasicThemeCubit();
     advancedThemeCubit = MockAdvancedThemeCubit();
-    themeService = MockThemeService();
 
     when(() => homeCubit.state).thenReturn(const HomeState());
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
@@ -40,9 +41,8 @@ void main() {
 
   Future<void> _pumpApp(WidgetTester tester) async {
     await tester.pumpApp(
-      HomePage(
-        themeService: themeService,
-      ),
+      const HomePage(),
+      themeRepo: themeRepo,
       homeCubit: homeCubit,
       basicThemeCubit: basicThemeCubit,
       advancedThemeCubit: advancedThemeCubit,
@@ -166,7 +166,7 @@ void main() {
           const HomeState(editMode: EditMode.basic),
         );
         when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
-        when(() => themeService.export(any())).thenAnswer((_) async => {});
+        when(() => themeRepo.export(any())).thenAnswer((_) async => {});
 
         await _pumpApp(tester);
 
@@ -175,7 +175,7 @@ void main() {
         await tester.tap(finder);
 
         verify(() {
-          return themeService.export(basicThemeCubit.state.themeData);
+          return themeRepo.export(basicThemeCubit.state.themeData);
         }).called(greaterThan(0));
       },
     );
@@ -187,7 +187,7 @@ void main() {
           const HomeState(editMode: EditMode.advanced),
         );
         when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
-        when(() => themeService.export(any())).thenAnswer((_) async => {});
+        when(() => themeRepo.export(any())).thenAnswer((_) async => {});
 
         await _pumpApp(tester);
 
@@ -196,7 +196,7 @@ void main() {
         await tester.tap(finder);
 
         verify(() {
-          return themeService.export(advancedThemeCubit.state.themeData);
+          return themeRepo.export(advancedThemeCubit.state.themeData);
         }).called(greaterThan(0));
       },
     );
@@ -209,7 +209,7 @@ void main() {
       when(() => homeCubit.state).thenReturn(
         const HomeState(editMode: EditMode.basic),
       );
-      when(() => themeService.import()).thenAnswer((_) async => theme);
+      when(() => themeRepo.import()).thenAnswer((_) async => theme);
 
       await _pumpApp(tester);
 
@@ -217,7 +217,7 @@ void main() {
       await tester.ensureVisible(finder);
       await tester.tap(finder);
 
-      verify(() => themeService.import()).called(greaterThan(0));
+      verify(() => themeRepo.import()).called(greaterThan(0));
       verify(() => advancedThemeCubit.themeDataChanged(theme)).called(1);
       verify(() => homeCubit.editModeChanged(EditMode.advanced)).called(1);
     },

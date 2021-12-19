@@ -8,14 +8,13 @@ import 'package:flutter_theme/basic_theme/views/basic_editor.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
-import 'package:flutter_theme/theme_repository/theme_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mocks.dart';
 import '../../pump_app.dart';
 
 void main() {
-  late ThemeRepository themeRepo;
+  late HomeRepository homeRepo;
   late HomeCubit homeCubit;
   late BasicThemeCubit basicThemeCubit;
   late AdvancedThemeCubit advancedThemeCubit;
@@ -28,7 +27,7 @@ void main() {
   });
 
   setUp(() {
-    themeRepo = MockThemeRepository();
+    homeRepo = MockHomeRepository();
     homeCubit = MockHomeCubit();
     basicThemeCubit = MockBasicThemeCubit();
     advancedThemeCubit = MockAdvancedThemeCubit();
@@ -42,7 +41,7 @@ void main() {
   Future<void> _pumpApp(WidgetTester tester) async {
     await tester.pumpApp(
       const HomePage(),
-      themeRepo: themeRepo,
+      homeRepo: homeRepo,
       homeCubit: homeCubit,
       basicThemeCubit: basicThemeCubit,
       advancedThemeCubit: advancedThemeCubit,
@@ -166,7 +165,7 @@ void main() {
           const HomeState(editMode: EditMode.basic),
         );
         when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
-        when(() => themeRepo.export(any())).thenAnswer((_) async => {});
+        when(() => homeRepo.exportTheme(any())).thenAnswer((_) async => {});
 
         await _pumpApp(tester);
 
@@ -175,7 +174,7 @@ void main() {
         await tester.tap(finder);
 
         verify(() {
-          return themeRepo.export(basicThemeCubit.state.themeData);
+          return homeRepo.exportTheme(basicThemeCubit.state.themeData);
         }).called(greaterThan(0));
       },
     );
@@ -187,7 +186,7 @@ void main() {
           const HomeState(editMode: EditMode.advanced),
         );
         when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
-        when(() => themeRepo.export(any())).thenAnswer((_) async => {});
+        when(() => homeRepo.exportTheme(any())).thenAnswer((_) async => {});
 
         await _pumpApp(tester);
 
@@ -196,7 +195,7 @@ void main() {
         await tester.tap(finder);
 
         verify(() {
-          return themeRepo.export(advancedThemeCubit.state.themeData);
+          return homeRepo.exportTheme(advancedThemeCubit.state.themeData);
         }).called(greaterThan(0));
       },
     );
@@ -205,21 +204,13 @@ void main() {
   testWidgets(
     'import button should import theme to advanced editor',
     (tester) async {
-      final theme = ThemeData();
-      when(() => homeCubit.state).thenReturn(
-        const HomeState(editMode: EditMode.basic),
-      );
-      when(() => themeRepo.import()).thenAnswer((_) async => theme);
-
       await _pumpApp(tester);
 
       final finder = find.byKey(const Key('homePage_importButton'));
       await tester.ensureVisible(finder);
       await tester.tap(finder);
 
-      verify(() => themeRepo.import()).called(greaterThan(0));
-      verify(() => advancedThemeCubit.themeDataChanged(theme)).called(1);
-      verify(() => homeCubit.editModeChanged(EditMode.advanced)).called(1);
+      verify(() => homeCubit.themeImported()).called(1);
     },
   );
 

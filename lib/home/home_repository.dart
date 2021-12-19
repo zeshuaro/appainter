@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:dio/dio.dart';
+import 'package:flutter_theme/home/home.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -9,15 +11,28 @@ import 'package:pretty_json/pretty_json.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:universal_io/io.dart' as io;
 
-class ThemeRepository {
+class HomeRepository {
+  final Dio _dio;
   final FilePicker _filePicker;
 
-  ThemeRepository({FilePicker? filePicker})
-      : _filePicker = filePicker ?? FilePicker.platform;
+  HomeRepository({Dio? dio, FilePicker? filePicker})
+      : _dio = dio ?? Dio(),
+        _filePicker = filePicker ?? FilePicker.platform;
 
+  static const _usageFileUrl =
+      'https://raw.githubusercontent.com/zeshuaro/flutter_theme/main/USAGE.md';
   static const _exportFileName = 'flutter_theme.json';
 
-  Future<ThemeData?> import() async {
+  Future<ThemeUsage> fetchThemeUsage() async {
+    try {
+      final response = await _dio.get(_usageFileUrl);
+      return ThemeUsage(response.data);
+    } catch (e) {
+      return const ThemeUsage();
+    }
+  }
+
+  Future<ThemeData?> importTheme() async {
     ThemeData? theme;
     final result = await _filePicker.pickFiles(
       type: FileType.custom,
@@ -42,19 +57,19 @@ class ThemeRepository {
     return theme;
   }
 
-  Future<void> export(ThemeData theme) async {
+  Future<void> exportTheme(ThemeData theme) async {
     final themeJson = ThemeEncoder.encodeThemeData(theme);
     final themeStr = prettyJson(themeJson);
     final themeBytes = Uint8List.fromList(themeStr.codeUnits);
 
     if (kIsWeb) {
-      _exportWeb(themeBytes);
+      _exportThemeOnWeb(themeBytes);
     } else {
-      _exportDesktop(themeBytes);
+      _exportThemeOnDesktop(themeBytes);
     }
   }
 
-  void _exportWeb(Uint8List bytes) {
+  void _exportThemeOnWeb(Uint8List bytes) {
     final blob = html.Blob([bytes]);
     final url = html.Url.createObjectUrlFromBlob(blob);
     final anchor = html.document.createElement('a') as html.AnchorElement
@@ -68,7 +83,7 @@ class ThemeRepository {
     html.Url.revokeObjectUrl(url);
   }
 
-  Future<void> _exportDesktop(Uint8List bytes) async {
+  Future<void> _exportThemeOnDesktop(Uint8List bytes) async {
     final path = await _filePicker.saveFile(
       dialogTitle: 'Please select an output file:',
       fileName: _exportFileName,

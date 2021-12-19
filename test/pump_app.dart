@@ -4,7 +4,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/theme_repository/theme_repository.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'mocks.dart';
@@ -12,7 +11,7 @@ import 'mocks.dart';
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(
     Widget widget, {
-    ThemeRepository? themeRepo,
+    HomeRepository? homeRepo,
     HomeCubit? homeCubit,
     BasicThemeCubit? basicThemeCubit,
     AdvancedThemeCubit? advancedThemeCubit,
@@ -23,7 +22,7 @@ extension PumpApp on WidgetTester {
 
     return pumpWidget(
       RepositoryProvider(
-        create: (context) => themeRepo ?? MockThemeRepository(),
+        create: (context) => homeRepo ?? MockHomeRepository(),
         child: MultiBlocProvider(
           providers: [
             BlocProvider.value(value: homeCubit ?? MockHomeCubit()),

@@ -57,6 +57,19 @@ void main() {
   );
 
   blocTest<FloatingActionButtonThemeCubit, FloatingActionButtonThemeState>(
+    'should emit focus color',
+    build: () => cubit,
+    act: (cubit) => cubit.focusColorChanged(color),
+    expect: () {
+      return [
+        FloatingActionButtonThemeState(
+          theme: FloatingActionButtonThemeData(focusColor: color),
+        )
+      ];
+    },
+  );
+
+  blocTest<FloatingActionButtonThemeCubit, FloatingActionButtonThemeState>(
     'should emit hover color',
     build: () => cubit,
     act: (cubit) => cubit.hoverColorChanged(color),

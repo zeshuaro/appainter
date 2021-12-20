@@ -156,18 +156,17 @@ class _SplashColorPicker extends StatelessWidget {
 class _ElevationTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
+    return BlocBuilder<FloatingActionButtonThemeCubit,
+        FloatingActionButtonThemeState>(
       buildWhen: (previous, current) {
-        return previous.themeData.floatingActionButtonTheme.elevation !=
-            current.themeData.floatingActionButtonTheme.elevation;
+        return previous.theme.elevation != current.theme.elevation;
       },
       builder: (context, state) {
         return MyTextFormField(
           key: const Key('floatingActionButtonThemeEditor_elevationTextField'),
           labelText: 'Elevation',
           initialValue:
-              state.themeData.floatingActionButtonTheme.elevation?.toString() ??
-                  kFloatingActionBtnElevation.toString(),
+              (state.theme.elevation ?? kFloatingActionBtnElevation).toString(),
           onChanged: (value) {
             context
                 .read<FloatingActionButtonThemeCubit>()
@@ -182,20 +181,21 @@ class _ElevationTextField extends StatelessWidget {
 class _DisabledElevationTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
+    return BlocBuilder<FloatingActionButtonThemeCubit,
+        FloatingActionButtonThemeState>(
       buildWhen: (previous, current) {
-        return previous.themeData.floatingActionButtonTheme.disabledElevation !=
-            current.themeData.floatingActionButtonTheme.disabledElevation;
+        return previous.theme.disabledElevation !=
+            current.theme.disabledElevation;
       },
       builder: (context, state) {
         return MyTextFormField(
           key: const Key(
-              'floatingActionButtonThemeEditor_disabledElevationTextField'),
+            'floatingActionButtonThemeEditor_disabledElevationTextField',
+          ),
           labelText: 'Disabled Elevation',
-          initialValue: state
-                  .themeData.floatingActionButtonTheme.disabledElevation
-                  ?.toString() ??
-              kFloatingActionBtnElevation.toString(),
+          initialValue:
+              (state.theme.disabledElevation ?? kFloatingActionBtnElevation)
+                  .toString(),
           onChanged: (value) {
             context
                 .read<FloatingActionButtonThemeCubit>()
@@ -210,19 +210,20 @@ class _DisabledElevationTextField extends StatelessWidget {
 class _FocusElevationTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
+    return BlocBuilder<FloatingActionButtonThemeCubit,
+        FloatingActionButtonThemeState>(
       buildWhen: (previous, current) {
-        return previous.themeData.floatingActionButtonTheme.focusElevation !=
-            current.themeData.floatingActionButtonTheme.focusElevation;
+        return previous.theme.focusElevation != current.theme.focusElevation;
       },
       builder: (context, state) {
         return MyTextFormField(
           key: const Key(
-              'floatingActionButtonThemeEditor_focusElevationTextField'),
+            'floatingActionButtonThemeEditor_focusElevationTextField',
+          ),
           labelText: 'Focus Elevation',
-          initialValue: state.themeData.floatingActionButtonTheme.focusElevation
-                  ?.toString() ??
-              kFloatingActionBtnFocusElevation.toString(),
+          initialValue:
+              (state.theme.focusElevation ?? kFloatingActionBtnFocusElevation)
+                  .toString(),
           onChanged: (value) {
             context
                 .read<FloatingActionButtonThemeCubit>()
@@ -237,21 +238,21 @@ class _FocusElevationTextField extends StatelessWidget {
 class _HighlightElevationTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
+    return BlocBuilder<FloatingActionButtonThemeCubit,
+        FloatingActionButtonThemeState>(
       buildWhen: (previous, current) {
-        return previous
-                .themeData.floatingActionButtonTheme.highlightElevation !=
-            current.themeData.floatingActionButtonTheme.highlightElevation;
+        return previous.theme.highlightElevation !=
+            current.theme.highlightElevation;
       },
       builder: (context, state) {
         return MyTextFormField(
           key: const Key(
-              'floatingActionButtonThemeEditor_highlightElevationTextField'),
+            'floatingActionButtonThemeEditor_highlightElevationTextField',
+          ),
           labelText: 'Highlight Elevation',
-          initialValue: state
-                  .themeData.floatingActionButtonTheme.highlightElevation
-                  ?.toString() ??
-              kFloatingActionBtnHighlightElevation.toString(),
+          initialValue: (state.theme.highlightElevation ??
+                  kFloatingActionBtnHighlightElevation)
+              .toString(),
           onChanged: (value) {
             context
                 .read<FloatingActionButtonThemeCubit>()
@@ -266,19 +267,20 @@ class _HighlightElevationTextField extends StatelessWidget {
 class _HoverElevationTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
+    return BlocBuilder<FloatingActionButtonThemeCubit,
+        FloatingActionButtonThemeState>(
       buildWhen: (previous, current) {
-        return previous.themeData.floatingActionButtonTheme.hoverElevation !=
-            current.themeData.floatingActionButtonTheme.hoverElevation;
+        return previous.theme.hoverElevation != current.theme.hoverElevation;
       },
       builder: (context, state) {
         return MyTextFormField(
           key: const Key(
-              'floatingActionButtonThemeEditor_hoverElevationTextField'),
+            'floatingActionButtonThemeEditor_hoverElevationTextField',
+          ),
           labelText: 'Hover Elevation',
-          initialValue: state.themeData.floatingActionButtonTheme.hoverElevation
-                  ?.toString() ??
-              kFloatingActionBtnHoverElevation.toString(),
+          initialValue:
+              (state.theme.hoverElevation ?? kFloatingActionBtnHoverElevation)
+                  .toString(),
           onChanged: (value) {
             context
                 .read<FloatingActionButtonThemeCubit>()

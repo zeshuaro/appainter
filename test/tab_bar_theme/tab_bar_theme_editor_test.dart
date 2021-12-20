@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/services/util_service.dart';
@@ -8,22 +9,15 @@ import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
-import '../pump_app.dart';
 import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widget = MyExpansionPanelList(item: const TabBarThemeEditor());
   final widgetTesters = WidgetTesters(expandText: 'Tab Bar');
 
-  late MockAdvancedThemeCubit advancedThemeCubit;
-  late MockTabBarThemeCubit tabBarThemeCubit;
+  late AdvancedThemeCubit advancedThemeCubit;
+  late TabBarThemeCubit tabBarThemeCubit;
   late Color color;
-
-  setUpAll(() {
-    registerFallbackValue(FakeAdvancedThemeState());
-    registerFallbackValue(FakeTabBarThemeState());
-  });
 
   setUp(() {
     advancedThemeCubit = MockAdvancedThemeCubit();
@@ -40,21 +34,18 @@ void main() {
       Stream.fromIterable([const TabBarThemeState(), state]),
     );
 
-    await tester.pumpApp(
-      widget,
-      advancedThemeCubit: advancedThemeCubit,
-      tabBarThemeCubit: tabBarThemeCubit,
+    await tester.pumpWidget(
+      MultiBlocProvider(
+        providers: [
+          BlocProvider.value(value: advancedThemeCubit),
+          BlocProvider.value(value: tabBarThemeCubit),
+        ],
+        child: MaterialApp(
+          home: MyExpansionPanelList(item: const TabBarThemeEditor()),
+        ),
+      ),
     );
   }
-
-  testWidgets('should display TabBarThemeEditor', (tester) async {
-    await tester.pumpApp(
-      widget,
-      advancedThemeCubit: advancedThemeCubit,
-      tabBarThemeCubit: tabBarThemeCubit,
-    );
-    expect(find.byType(TabBarThemeEditor), findsOneWidget);
-  });
 
   testWidgets(
     'label color picker should update with selected color',

@@ -2,32 +2,35 @@ import 'dart:math';
 
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
-import '../pump_app.dart';
 import '../utils.dart';
 import '../widget_testers.dart';
 
 Future<void> main() async {
-  final widget = MyExpansionPanelList(
-    item: const FloatingActionButtonThemeEditor(),
-  );
   final _widgetTesters = WidgetTesters(expandText: 'Floating Action Button');
 
-  late FloatingActionButtonThemeCubit cubit;
+  late AdvancedThemeCubit advancedThemeCubit;
+  late FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
   late Color color;
   late double doubleValue;
 
   setUp(() {
-    cubit = MockFloatingActionButtonThemeCubit();
+    advancedThemeCubit = MockAdvancedThemeCubit();
+    floatingActionButtonThemeCubit = MockFloatingActionButtonThemeCubit();
     color = getRandomColor();
     doubleValue = Random().nextDouble();
 
-    when(() => cubit.state).thenReturn(const FloatingActionButtonThemeState());
+    when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
+    when(() {
+      return floatingActionButtonThemeCubit.state;
+    }).thenReturn(const FloatingActionButtonThemeState());
   });
 
   Future<void> _pumpApp(
@@ -35,11 +38,23 @@ Future<void> main() async {
     FloatingActionButtonThemeState state,
   ) async {
     whenListen(
-      cubit,
+      floatingActionButtonThemeCubit,
       Stream.fromIterable([const FloatingActionButtonThemeState(), state]),
     );
 
-    await tester.pumpApp(widget, floatingActionButtonThemeCubit: cubit);
+    await tester.pumpWidget(
+      MultiBlocProvider(
+        providers: [
+          BlocProvider.value(value: advancedThemeCubit),
+          BlocProvider.value(value: floatingActionButtonThemeCubit),
+        ],
+        child: MaterialApp(
+          home: MyExpansionPanelList(
+            item: const FloatingActionButtonThemeEditor(),
+          ),
+        ),
+      ),
+    );
   }
 
   testWidgets(
@@ -56,7 +71,9 @@ Future<void> main() async {
         'floatingActionButtonThemeEditor_backgroundColorPicker',
         color,
       );
-      verify(() => cubit.backgroundColorChanged(color)).called(1);
+      verify(() {
+        floatingActionButtonThemeCubit.backgroundColorChanged(color);
+      }).called(1);
     },
   );
 
@@ -74,7 +91,9 @@ Future<void> main() async {
         'floatingActionButtonThemeEditor_foregroundColorPicker',
         color,
       );
-      verify(() => cubit.foregroundColorChanged(color)).called(1);
+      verify(() {
+        floatingActionButtonThemeCubit.foregroundColorChanged(color);
+      }).called(1);
     },
   );
 
@@ -92,7 +111,9 @@ Future<void> main() async {
         'floatingActionButtonThemeEditor_focusColorPicker',
         color,
       );
-      verify(() => cubit.focusColorChanged(color)).called(1);
+      verify(() {
+        floatingActionButtonThemeCubit.focusColorChanged(color);
+      }).called(1);
     },
   );
 
@@ -110,7 +131,9 @@ Future<void> main() async {
         'floatingActionButtonThemeEditor_hoverColorPicker',
         color,
       );
-      verify(() => cubit.hoverColorChanged(color)).called(1);
+      verify(() {
+        floatingActionButtonThemeCubit.hoverColorChanged(color);
+      }).called(1);
     },
   );
 
@@ -128,7 +151,9 @@ Future<void> main() async {
         'floatingActionButtonThemeEditor_splashColorPicker',
         color,
       );
-      verify(() => cubit.splashColorChanged(color)).called(1);
+      verify(() {
+        floatingActionButtonThemeCubit.splashColorChanged(color);
+      }).called(1);
     },
   );
 
@@ -146,7 +171,9 @@ Future<void> main() async {
         'floatingActionButtonThemeEditor_elevationTextField',
         doubleValue,
       );
-      verify(() => cubit.elevationChanged(doubleValue.toString())).called(1);
+      verify(() {
+        floatingActionButtonThemeCubit.elevationChanged(doubleValue.toString());
+      }).called(1);
     },
   );
 
@@ -165,7 +192,9 @@ Future<void> main() async {
         doubleValue,
       );
       verify(() {
-        cubit.disabledElevationChanged(doubleValue.toString());
+        floatingActionButtonThemeCubit.disabledElevationChanged(
+          doubleValue.toString(),
+        );
       }).called(1);
     },
   );
@@ -185,7 +214,9 @@ Future<void> main() async {
         doubleValue,
       );
       verify(() {
-        cubit.focusElevationChanged(doubleValue.toString());
+        floatingActionButtonThemeCubit.focusElevationChanged(
+          doubleValue.toString(),
+        );
       }).called(1);
     },
   );
@@ -205,7 +236,9 @@ Future<void> main() async {
         doubleValue,
       );
       verify(() {
-        cubit.highlightElevationChanged(doubleValue.toString());
+        floatingActionButtonThemeCubit.highlightElevationChanged(
+          doubleValue.toString(),
+        );
       }).called(1);
     },
   );
@@ -225,7 +258,9 @@ Future<void> main() async {
         doubleValue,
       );
       verify(() {
-        cubit.hoverElevationChanged(doubleValue.toString());
+        floatingActionButtonThemeCubit.hoverElevationChanged(
+          doubleValue.toString(),
+        );
       }).called(1);
     },
   );

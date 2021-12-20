@@ -2,30 +2,33 @@ import 'dart:math';
 
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/models/models.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
-import '../pump_app.dart';
 import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widget = MyExpansionPanelList(item: const AppBarThemeEditor());
   final widgetTesters = WidgetTesters(expandText: 'App Bar');
 
-  late MockAppBarThemeCubit appBarThemeCubit;
+  late AdvancedThemeCubit advancedThemeCubit;
+  late AppBarThemeCubit appBarThemeCubit;
   late Color color;
   late double doubleValue;
 
   setUp(() {
+    advancedThemeCubit = MockAdvancedThemeCubit();
     appBarThemeCubit = MockAppBarThemeCubit();
     color = getRandomColor();
     doubleValue = Random().nextDouble();
 
+    when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
     when(() => appBarThemeCubit.state).thenReturn(const AppBarThemeState());
   });
 
@@ -35,7 +38,17 @@ void main() {
       Stream.fromIterable([const AppBarThemeState(), state]),
     );
 
-    await tester.pumpApp(widget, appBarThemeCubit: appBarThemeCubit);
+    await tester.pumpWidget(
+      MultiBlocProvider(
+        providers: [
+          BlocProvider.value(value: advancedThemeCubit),
+          BlocProvider.value(value: appBarThemeCubit),
+        ],
+        child: MaterialApp(
+          home: MyExpansionPanelList(item: const AppBarThemeEditor()),
+        ),
+      ),
+    );
   }
 
   testWidgets(

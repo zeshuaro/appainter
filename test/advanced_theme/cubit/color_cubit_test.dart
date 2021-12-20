@@ -14,7 +14,8 @@ void main() {
     cubit = AdvancedThemeCubit(
       appBarThemeCubit: MockAppBarThemeCubit(),
       tabBarThemeCubit: MockTabBarThemeCubit(),
-      bottomNavBarThemeCubit: MockBottomNavigationBarThemeCubit(),
+      bottomNavigationBarThemeCubit: MockBottomNavigationBarThemeCubit(),
+      floatingActionButtonThemeCubit: MockFloatingActionButtonThemeCubit(),
     );
   });
 

@@ -5,6 +5,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:mocktail/mocktail.dart';
@@ -21,6 +22,7 @@ extension PumpApp on WidgetTester {
     AppBarThemeCubit? appBarThemeCubit,
     TabBarThemeCubit? tabBarThemeCubit,
     BottomNavigationBarThemeCubit? bottomNavigationBarThemeCubit,
+    FloatingActionButtonThemeCubit? floatingActionButtonThemeCubit,
   }) async {
     registerFallbackValue(FakeHomeState());
     registerFallbackValue(FakeBasicThemeState());
@@ -35,6 +37,8 @@ extension PumpApp on WidgetTester {
     final mockAppBarThemeCubit = MockAppBarThemeCubit();
     final mockTabBarThemeCubit = MockTabBarThemeCubit();
     final mockBottomNavBarThemeCubit = MockBottomNavigationBarThemeCubit();
+    final mockFloatingActionButtonThemeCubit =
+        MockFloatingActionButtonThemeCubit();
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
     when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
@@ -44,6 +48,9 @@ extension PumpApp on WidgetTester {
     when(() {
       return mockBottomNavBarThemeCubit.state;
     }).thenReturn(const BottomNavigationBarThemeState());
+    when(() {
+      return mockFloatingActionButtonThemeCubit.state;
+    }).thenReturn(const FloatingActionButtonThemeState());
 
     return pumpWidget(
       RepositoryProvider(
@@ -64,6 +71,10 @@ extension PumpApp on WidgetTester {
             BlocProvider.value(
               value:
                   bottomNavigationBarThemeCubit ?? mockBottomNavBarThemeCubit,
+            ),
+            BlocProvider.value(
+              value: floatingActionButtonThemeCubit ??
+                  mockFloatingActionButtonThemeCubit,
             ),
           ],
           child: MaterialApp(

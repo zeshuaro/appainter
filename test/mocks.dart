@@ -4,6 +4,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:mocktail/mocktail.dart';
@@ -38,6 +39,13 @@ class MockBottomNavigationBarThemeCubit
 
 class FakeBottomNavigationBarThemeState extends Fake
     implements BottomNavigationBarThemeState {}
+
+class MockFloatingActionButtonThemeCubit
+    extends MockCubit<FloatingActionButtonThemeState>
+    implements FloatingActionButtonThemeCubit {}
+
+class FakeFloatinActionButtonThemeState extends Fake
+    implements FloatingActionButtonThemeState {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

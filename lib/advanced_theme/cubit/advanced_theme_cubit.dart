@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
@@ -13,18 +14,24 @@ part 'advanced_theme_state.dart';
 class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
   final AppBarThemeCubit appBarThemeCubit;
   final TabBarThemeCubit tabBarThemeCubit;
-  final BottomNavigationBarThemeCubit bottomNavBarThemeCubit;
+  final BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
+  final FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
 
   AdvancedThemeCubit({
     required this.appBarThemeCubit,
     required this.tabBarThemeCubit,
-    required this.bottomNavBarThemeCubit,
+    required this.bottomNavigationBarThemeCubit,
+    required this.floatingActionButtonThemeCubit,
   }) : super(AdvancedThemeState());
 
   void themeDataChanged(ThemeData theme) {
     appBarThemeCubit.themeChanged(theme.appBarTheme);
     tabBarThemeCubit.themeChanged(theme.tabBarTheme);
-    bottomNavBarThemeCubit.themeChanged(theme.bottomNavigationBarTheme);
+    bottomNavigationBarThemeCubit.themeChanged(theme.bottomNavigationBarTheme);
+    floatingActionButtonThemeCubit.themeChanged(
+      theme.floatingActionButtonTheme,
+    );
+
     emit(state.copyWith(themeData: theme));
   }
 

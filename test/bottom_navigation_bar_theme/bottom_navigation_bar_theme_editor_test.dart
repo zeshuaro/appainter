@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
@@ -10,25 +11,16 @@ import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
-import '../pump_app.dart';
 import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widget = MyExpansionPanelList(
-    item: const BottomNavigationBarThemeEditor(),
-  );
   final widgetTesters = WidgetTesters(expandText: 'Bottom Navigation Bar');
 
-  late MockAdvancedThemeCubit advancedThemeCubit;
-  late MockBottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
+  late AdvancedThemeCubit advancedThemeCubit;
+  late BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
   late Color color;
   late double doubleValue;
-
-  setUpAll(() {
-    registerFallbackValue(FakeAdvancedThemeState());
-    registerFallbackValue(FakeBottomNavigationBarThemeState());
-  });
 
   setUp(() {
     advancedThemeCubit = MockAdvancedThemeCubit();
@@ -51,24 +43,20 @@ void main() {
       Stream.fromIterable([const BottomNavigationBarThemeState(), state]),
     );
 
-    await tester.pumpApp(
-      widget,
-      advancedThemeCubit: advancedThemeCubit,
-      bottomNavigationBarThemeCubit: bottomNavigationBarThemeCubit,
+    await tester.pumpWidget(
+      MultiBlocProvider(
+        providers: [
+          BlocProvider.value(value: advancedThemeCubit),
+          BlocProvider.value(value: bottomNavigationBarThemeCubit),
+        ],
+        child: MaterialApp(
+          home: MyExpansionPanelList(
+            item: const BottomNavigationBarThemeEditor(),
+          ),
+        ),
+      ),
     );
   }
-
-  testWidgets(
-    'should display BottomNavigationBarThemeEditor',
-    (tester) async {
-      await tester.pumpApp(
-        widget,
-        advancedThemeCubit: advancedThemeCubit,
-        bottomNavigationBarThemeCubit: bottomNavigationBarThemeCubit,
-      );
-      expect(find.byType(BottomNavigationBarThemeEditor), findsOneWidget);
-    },
-  );
 
   testWidgets(
     'background color picker should update with selected color',

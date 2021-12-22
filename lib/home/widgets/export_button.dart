@@ -4,6 +4,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
@@ -20,6 +21,7 @@ class ExportButton extends StatelessWidget {
     final basicTheme = context.select((BasicThemeCubit cubit) {
       return cubit.state.themeData;
     });
+
     final appBarTheme = context.select((AppBarThemeCubit cubit) {
       return cubit.state.theme;
     });
@@ -32,6 +34,9 @@ class ExportButton extends StatelessWidget {
     final floatingActionButtonTheme = context.select(
       (FloatingActionButtonThemeCubit cubit) => cubit.state.theme,
     );
+    final elevatedButtonTheme = context.select(
+      (ElevatedButtonThemeCubit cubit) => cubit.state.theme,
+    );
     final advancedTheme = context.select((AdvancedThemeCubit cubit) {
       return cubit.state.themeData;
     }).copyWith(
@@ -39,6 +44,7 @@ class ExportButton extends StatelessWidget {
       tabBarTheme: tabBarTheme,
       bottomNavigationBarTheme: bottomNavBarTheme,
       floatingActionButtonTheme: floatingActionButtonTheme,
+      elevatedButtonTheme: elevatedButtonTheme,
     );
 
     return TextButton.icon(

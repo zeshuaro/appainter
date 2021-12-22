@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:mocktail/mocktail.dart';
@@ -17,18 +18,21 @@ void main() {
   late TabBarThemeCubit tabBarThemeCubit;
   late BottomNavigationBarThemeCubit bottomNavBarThemeCubit;
   late FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
+  late ElevatedButtonThemeCubit elevatedButtonThemeCubit;
 
   setUp(() {
     appBarThemeCubit = MockAppBarThemeCubit();
     tabBarThemeCubit = MockTabBarThemeCubit();
     bottomNavBarThemeCubit = MockBottomNavigationBarThemeCubit();
     floatingActionButtonThemeCubit = MockFloatingActionButtonThemeCubit();
+    elevatedButtonThemeCubit = MockElevatedButtonThemeCubit();
 
     advancedThemeCubit = AdvancedThemeCubit(
       appBarThemeCubit: appBarThemeCubit,
       tabBarThemeCubit: tabBarThemeCubit,
       bottomNavigationBarThemeCubit: bottomNavBarThemeCubit,
       floatingActionButtonThemeCubit: floatingActionButtonThemeCubit,
+      elevatedButtonThemeCubit: elevatedButtonThemeCubit,
     );
   });
 
@@ -46,6 +50,9 @@ void main() {
       floatingActionButtonThemeCubit.themeChanged(
         theme.floatingActionButtonTheme,
       );
+    }).called(1);
+    verify(() {
+      elevatedButtonThemeCubit.themeChanged(theme.elevatedButtonTheme);
     }).called(1);
   }
 

@@ -1,15 +1,24 @@
-// ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-
+import 'package:bloc/bloc.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/advanced_theme/cubit/buttons/utils.dart';
-import 'package:flutter_theme/common/common.dart';
+import 'package:flutter_theme/utils/utils.dart';
 
-import '../advanced_theme_cubit.dart';
+part 'elevated_button_theme_cubit.g.dart';
+part 'elevated_button_theme_state.dart';
 
-extension ElevatedButtonCubit on AdvancedThemeCubit {
-  void elevatedButtonBackgroundDefaultColorChanged(Color color) {
-    final style = _getButtonStyle();
-    final bgColor = getButtonBasicColor(
+class ElevatedButtonThemeCubit extends Cubit<ElevatedButtonThemeState> {
+  final _buttonUtils = const ButtonUtils();
+
+  ElevatedButtonThemeCubit() : super(const ElevatedButtonThemeState());
+
+  void themeChanged(ElevatedButtonThemeData theme) {
+    emit(state.copyWith(theme: theme));
+  }
+
+  void backgroundDefaultColorChanged(Color color) {
+    final style = _getStyle();
+    final bgColor = _buttonUtils.getBasicColor(
       style.backgroundColor!,
       defaultColor: color,
     );
@@ -17,9 +26,9 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(backgroundColor: bgColor));
   }
 
-  void elevatedButtonBackgroundDisabledColorChanged(Color color) {
-    final style = _getButtonStyle();
-    final bgColor = getButtonBasicColor(
+  void backgroundDisabledColorChanged(Color color) {
+    final style = _getStyle();
+    final bgColor = _buttonUtils.getBasicColor(
       style.backgroundColor!,
       disabledColor: color,
     );
@@ -27,9 +36,9 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(backgroundColor: bgColor));
   }
 
-  void elevatedButtonForegroundDefaultColorChanged(Color color) {
-    final style = _getButtonStyle();
-    final fgColor = getButtonBasicColor(
+  void foregroundDefaultColorChanged(Color color) {
+    final style = _getStyle();
+    final fgColor = _buttonUtils.getBasicColor(
       style.foregroundColor!,
       defaultColor: color,
     );
@@ -37,9 +46,9 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(foregroundColor: fgColor));
   }
 
-  void elevatedButtonForegroundDisabledColorChanged(Color color) {
-    final style = _getButtonStyle();
-    final fgColor = getButtonBasicColor(
+  void foregroundDisabledColorChanged(Color color) {
+    final style = _getStyle();
+    final fgColor = _buttonUtils.getBasicColor(
       style.foregroundColor!,
       disabledColor: color,
     );
@@ -47,9 +56,9 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(foregroundColor: fgColor));
   }
 
-  void elevatedButtonOverlayHoveredColorChanged(Color color) {
-    final style = _getButtonStyle();
-    final overlayColor = getButtonOverlayColor(
+  void overlayHoveredColorChanged(Color color) {
+    final style = _getStyle();
+    final overlayColor = _buttonUtils.getOverlayColor(
       style.overlayColor!,
       hoveredColor: color,
     );
@@ -57,9 +66,9 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(overlayColor: overlayColor));
   }
 
-  void elevatedButtonOverlayFocusedColorChanged(Color color) {
-    final style = _getButtonStyle();
-    final overlayColor = getButtonOverlayColor(
+  void overlayFocusedColorChanged(Color color) {
+    final style = _getStyle();
+    final overlayColor = _buttonUtils.getOverlayColor(
       style.overlayColor!,
       focusedColor: color,
     );
@@ -67,9 +76,9 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(overlayColor: overlayColor));
   }
 
-  void elevatedButtonOverlayPressedColorChanged(Color color) {
-    final style = _getButtonStyle();
-    final overlayColor = getButtonOverlayColor(
+  void overlayPressedColorChanged(Color color) {
+    final style = _getStyle();
+    final overlayColor = _buttonUtils.getOverlayColor(
       style.overlayColor!,
       pressedColor: color,
     );
@@ -77,17 +86,17 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(overlayColor: overlayColor));
   }
 
-  void elevatedButtonShadowColorChanged(Color color) {
-    final style = _getButtonStyle().copyWith(
+  void shadowColorChanged(Color color) {
+    final style = _getStyle().copyWith(
       shadowColor: MaterialStateProperty.all(color),
     );
     _emitWithButtonStyle(style);
   }
 
-  void elevatedButtonDefaultElevationChanged(String value) {
+  void defaultElevationChanged(String value) {
     final elevation = double.tryParse(value);
     if (elevation != null) {
-      final style = _getButtonStyle();
+      final style = _getStyle();
       final elevationProp = _getElevation(
         style.elevation!,
         defaultElevation: elevation,
@@ -97,10 +106,10 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     }
   }
 
-  void elevatedButtonDisabledElevationChanged(String value) {
+  void disabledElevationChanged(String value) {
     final elevation = double.tryParse(value);
     if (elevation != null) {
-      final style = _getButtonStyle();
+      final style = _getStyle();
       final elevationProp = _getElevation(
         style.elevation!,
         disabledElevation: elevation,
@@ -110,10 +119,10 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     }
   }
 
-  void elevatedButtonHoveredElevationChanged(String value) {
+  void hoveredElevationChanged(String value) {
     final elevation = double.tryParse(value);
     if (elevation != null) {
-      final style = _getButtonStyle();
+      final style = _getStyle();
       final elevationProp = _getElevation(
         style.elevation!,
         hoveredElevation: elevation,
@@ -123,10 +132,10 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     }
   }
 
-  void elevatedButtonFocusedElevationChanged(String value) {
+  void focusedElevationChanged(String value) {
     final elevation = double.tryParse(value);
     if (elevation != null) {
-      final style = _getButtonStyle();
+      final style = _getStyle();
       final elevationProp = _getElevation(
         style.elevation!,
         focusedElevation: elevation,
@@ -136,10 +145,10 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
     }
   }
 
-  void elevatedButtonPressedElevationChanged(String value) {
+  void pressedElevationChanged(String value) {
     final elevation = double.tryParse(value);
     if (elevation != null) {
-      final style = _getButtonStyle();
+      final style = _getStyle();
       final elevationProp = _getElevation(
         style.elevation!,
         pressedElevation: elevation,
@@ -150,24 +159,21 @@ extension ElevatedButtonCubit on AdvancedThemeCubit {
   }
 
   void _emitWithButtonStyle(ButtonStyle style) {
-    emit(
-      state.copyWith(
-        themeData: state.themeData.copyWith(
-          elevatedButtonTheme: ElevatedButtonThemeData(style: style),
-        ),
-      ),
-    );
+    emit(state.copyWith(theme: ElevatedButtonThemeData(style: style)));
   }
 
-  ButtonStyle _getButtonStyle() {
-    return state.themeData.elevatedButtonTheme.style ??
+  ButtonStyle _getStyle() {
+    final themeData = ThemeData();
+    final colorScheme = themeData.colorScheme;
+
+    return state.theme.style ??
         ElevatedButton.styleFrom(
-          primary: state.themeData.colorScheme.primary,
-          onPrimary: state.themeData.colorScheme.onPrimary,
-          onSurface: state.themeData.colorScheme.onSurface,
-          shadowColor: state.themeData.shadowColor,
-          elevation: kElevatedButtonElevation,
-          minimumSize: kBtnMinSize,
+          primary: colorScheme.primary,
+          onPrimary: colorScheme.onPrimary,
+          onSurface: colorScheme.onSurface,
+          shadowColor: themeData.shadowColor,
+          elevation: 2,
+          minimumSize: const Size(64, 36),
         );
   }
 

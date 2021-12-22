@@ -4,6 +4,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
@@ -19,12 +20,14 @@ class MyApp extends StatelessWidget {
     final tabBarThemeCubit = TabBarThemeCubit();
     final bottomNavBarThemeCubit = BottomNavigationBarThemeCubit();
     final floatingActionButtonThemeCubit = FloatingActionButtonThemeCubit();
+    final elevatedButtonThemeCubit = ElevatedButtonThemeCubit();
 
     final advancedThemeCubit = AdvancedThemeCubit(
       appBarThemeCubit: appBarThemeCubit,
       tabBarThemeCubit: tabBarThemeCubit,
       bottomNavigationBarThemeCubit: bottomNavBarThemeCubit,
       floatingActionButtonThemeCubit: floatingActionButtonThemeCubit,
+      elevatedButtonThemeCubit: elevatedButtonThemeCubit,
     );
 
     return MultiBlocProvider(

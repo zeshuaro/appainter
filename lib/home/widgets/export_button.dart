@@ -7,6 +7,7 @@ import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
+import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -37,6 +38,9 @@ class ExportButton extends StatelessWidget {
     final elevatedButtonTheme = context.select(
       (ElevatedButtonThemeCubit cubit) => cubit.state.theme,
     );
+    final outlinedButtonTheme = context.select(
+      (OutlinedButtonThemeCubit cubit) => cubit.state.theme,
+    );
     final advancedTheme = context.select((AdvancedThemeCubit cubit) {
       return cubit.state.themeData;
     }).copyWith(
@@ -45,6 +49,7 @@ class ExportButton extends StatelessWidget {
       bottomNavigationBarTheme: bottomNavBarTheme,
       floatingActionButtonTheme: floatingActionButtonTheme,
       elevatedButtonTheme: elevatedButtonTheme,
+      outlinedButtonTheme: outlinedButtonTheme,
     );
 
     return TextButton.icon(

@@ -6,6 +6,7 @@ import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
+import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:mocktail/mocktail.dart';
@@ -47,6 +48,9 @@ class MockFloatingActionButtonThemeCubit
 
 class MockElevatedButtonThemeCubit extends MockCubit<ElevatedButtonThemeState>
     implements ElevatedButtonThemeCubit {}
+
+class MockOutlinedButtonThemeCubit extends MockCubit<OutlinedButtonThemeState>
+    implements OutlinedButtonThemeCubit {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

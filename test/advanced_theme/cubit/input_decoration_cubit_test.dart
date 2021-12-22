@@ -19,6 +19,7 @@ void main() {
       bottomNavigationBarThemeCubit: MockBottomNavigationBarThemeCubit(),
       floatingActionButtonThemeCubit: MockFloatingActionButtonThemeCubit(),
       elevatedButtonThemeCubit: MockElevatedButtonThemeCubit(),
+      outlinedButtonThemeCubit: MockOutlinedButtonThemeCubit(),
     );
   });
 

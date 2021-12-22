@@ -201,27 +201,25 @@ Future<void> main() async {
     );
   });
 
-  group('shadow color pickers', () {
-    testWidgets(
-      'default color picker should update with selected color',
-      (tester) async {
-        final prop = getMaterialStateProperty({null: color});
-        final state = ElevatedButtonThemeState(
-          theme: ElevatedButtonThemeData(
-            style: ButtonStyle(shadowColor: prop),
-          ),
-        );
+  testWidgets(
+    'shadow default color picker should update with selected color',
+    (tester) async {
+      final prop = getMaterialStateProperty({null: color});
+      final state = ElevatedButtonThemeState(
+        theme: ElevatedButtonThemeData(
+          style: ButtonStyle(shadowColor: prop),
+        ),
+      );
 
-        await _pumpApp(tester, state);
+      await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
-          tester,
-          'elevatedButtonThemeEditor_shadowColor_default',
-          color,
-        );
-      },
-    );
-  });
+      await _widgetTesters.checkColorPicker(
+        tester,
+        'elevatedButtonThemeEditor_shadowColor_default',
+        color,
+      );
+    },
+  );
 
   group('test elevation', () {
     testWidgets(

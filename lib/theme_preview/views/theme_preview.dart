@@ -8,6 +8,7 @@ import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
+import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 
@@ -35,6 +36,8 @@ class ThemePreview extends StatelessWidget {
             context.watch<FloatingActionButtonThemeCubit>().state.theme;
         final elevatedButtonTheme =
             context.watch<ElevatedButtonThemeCubit>().state.theme;
+        final outlinedButtonTheme =
+            context.watch<OutlinedButtonThemeCubit>().state.theme;
         final advancedTheme =
             context.watch<AdvancedThemeCubit>().state.themeData.copyWith(
                   appBarTheme: appBarTheme,
@@ -42,6 +45,7 @@ class ThemePreview extends StatelessWidget {
                   bottomNavigationBarTheme: bottomNavigationBarTheme,
                   floatingActionButtonTheme: floatingActionButtonTheme,
                   elevatedButtonTheme: elevatedButtonTheme,
+                  outlinedButtonTheme: outlinedButtonTheme,
                 );
 
         final theme =

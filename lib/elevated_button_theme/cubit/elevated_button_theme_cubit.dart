@@ -8,9 +8,9 @@ part 'elevated_button_theme_cubit.g.dart';
 part 'elevated_button_theme_state.dart';
 
 class ElevatedButtonThemeCubit extends Cubit<ElevatedButtonThemeState> {
-  final _buttonUtils = const ButtonUtils();
-
   ElevatedButtonThemeCubit() : super(const ElevatedButtonThemeState());
+
+  final _buttonUtils = const ButtonUtils();
 
   void themeChanged(ElevatedButtonThemeData theme) {
     emit(state.copyWith(theme: theme));

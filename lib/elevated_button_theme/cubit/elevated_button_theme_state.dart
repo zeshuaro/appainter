@@ -9,5 +9,5 @@ class ElevatedButtonThemeState extends Equatable {
   });
 
   @override
-  List<Object> get props => [theme.hashCode];
+  List<Object> get props => [theme];
 }

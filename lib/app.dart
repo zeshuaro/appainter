@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => tabBarThemeCubit),
         BlocProvider(create: (_) => bottomNavBarThemeCubit),
         BlocProvider(create: (_) => floatingActionButtonThemeCubit),
+        BlocProvider(create: (_) => elevatedButtonThemeCubit),
       ],
       child: const MaterialApp(
         title: 'Flutter Theme',

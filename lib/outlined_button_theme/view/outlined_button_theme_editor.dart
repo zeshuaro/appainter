@@ -178,10 +178,10 @@ class _ShadowColorPickers extends StatelessWidget {
 class _ElevationTextFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdvancedThemeCubit, AdvancedThemeState>(
+    return BlocBuilder<OutlinedButtonThemeCubit, OutlinedButtonThemeState>(
       buildWhen: (previous, current) {
-        return previous.themeData.outlinedButtonTheme.style?.elevation !=
-            current.themeData.outlinedButtonTheme.style?.elevation;
+        return previous.theme.style?.elevation !=
+            current.theme.style?.elevation;
       },
       builder: (context, state) {
         return MaterialStatePropertyCard<String>(
@@ -192,8 +192,7 @@ class _ElevationTextFields extends StatelessWidget {
                 'outlinedButtonThemeEditor_elevationTextField_default',
               ),
               title: 'Default',
-              value: (state.themeData.outlinedButtonTheme.style?.elevation
-                          ?.resolve({}) ??
+              value: (state.theme.style?.elevation?.resolve({}) ??
                       kOutlinedButtonElevation)
                   .toString(),
               onValueChanged: (value) => context

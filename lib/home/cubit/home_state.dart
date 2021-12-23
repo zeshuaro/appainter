@@ -2,7 +2,7 @@ part of 'home_cubit.dart';
 
 enum EditMode { basic, advanced }
 
-@CopyWith(generateCopyWithNull: true)
+@CopyWith(copyWithNull: true)
 @immutable
 class HomeState extends Equatable {
   final EditMode editMode;

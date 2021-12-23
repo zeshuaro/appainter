@@ -8,6 +8,7 @@ import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
+import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
@@ -21,6 +22,7 @@ void main() {
   late FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
   late ElevatedButtonThemeCubit elevatedButtonThemeCubit;
   late OutlinedButtonThemeCubit outlinedButtonThemeCubit;
+  late TextButtonThemeCubit textButtonThemeCubit;
 
   setUp(() {
     appBarThemeCubit = MockAppBarThemeCubit();
@@ -29,6 +31,7 @@ void main() {
     floatingActionButtonThemeCubit = MockFloatingActionButtonThemeCubit();
     elevatedButtonThemeCubit = MockElevatedButtonThemeCubit();
     outlinedButtonThemeCubit = MockOutlinedButtonThemeCubit();
+    textButtonThemeCubit = MockTextButtonThemeCubit();
 
     advancedThemeCubit = AdvancedThemeCubit(
       appBarThemeCubit: appBarThemeCubit,
@@ -37,6 +40,7 @@ void main() {
       floatingActionButtonThemeCubit: floatingActionButtonThemeCubit,
       elevatedButtonThemeCubit: elevatedButtonThemeCubit,
       outlinedButtonThemeCubit: outlinedButtonThemeCubit,
+      textButtonThemeCubit: textButtonThemeCubit,
     );
   });
 
@@ -60,6 +64,9 @@ void main() {
     }).called(1);
     verify(() {
       outlinedButtonThemeCubit.themeChanged(theme.outlinedButtonTheme);
+    }).called(1);
+    verify(() {
+      textButtonThemeCubit.themeChanged(theme.textButtonTheme);
     }).called(1);
   }
 

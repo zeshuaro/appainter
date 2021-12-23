@@ -18,6 +18,7 @@ void main() {
       floatingActionButtonThemeCubit: MockFloatingActionButtonThemeCubit(),
       elevatedButtonThemeCubit: MockElevatedButtonThemeCubit(),
       outlinedButtonThemeCubit: MockOutlinedButtonThemeCubit(),
+      textButtonThemeCubit: MockTextButtonThemeCubit(),
     );
   });
 

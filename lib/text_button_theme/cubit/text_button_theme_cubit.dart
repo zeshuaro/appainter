@@ -1,22 +1,31 @@
-// ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-
+import 'package:bloc/bloc.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/advanced_theme/cubit/buttons/utils.dart';
-import 'package:flutter_theme/common/common.dart';
+import 'package:flutter_theme/utils/utils.dart';
 
-import '../advanced_theme_cubit.dart';
+part 'text_button_theme_cubit.g.dart';
+part 'text_button_theme_state.dart';
 
-extension TextButtonCubit on AdvancedThemeCubit {
-  void textButtonBackgroundColorChanged(Color color) {
+class TextButtonThemeCubit extends Cubit<TextButtonThemeState> {
+  TextButtonThemeCubit() : super(const TextButtonThemeState());
+
+  final _buttonUtils = const ButtonUtils();
+
+  void themeChanged(TextButtonThemeData theme) {
+    emit(state.copyWith(theme: theme));
+  }
+
+  void backgroundColorChanged(Color color) {
     final style = _getButtonStyle().copyWith(
       backgroundColor: MaterialStateProperty.all(color),
     );
     _emitWithButtonStyle(style);
   }
 
-  void textButtonForegroundDefaultColorChanged(Color color) {
+  void foregroundDefaultColorChanged(Color color) {
     final style = _getButtonStyle();
-    final fgColor = getButtonBasicColor(
+    final fgColor = _buttonUtils.getBasicColor(
       style.foregroundColor!,
       defaultColor: color,
     );
@@ -24,9 +33,9 @@ extension TextButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(foregroundColor: fgColor));
   }
 
-  void textButtonForegroundDisabledColorChanged(Color color) {
+  void foregroundDisabledColorChanged(Color color) {
     final style = _getButtonStyle();
-    final fgColor = getButtonBasicColor(
+    final fgColor = _buttonUtils.getBasicColor(
       style.foregroundColor!,
       disabledColor: color,
     );
@@ -34,9 +43,9 @@ extension TextButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(foregroundColor: fgColor));
   }
 
-  void textButtonOverlayHoveredColorChanged(Color color) {
+  void overlayHoveredColorChanged(Color color) {
     final style = _getButtonStyle();
-    final overlayColor = getButtonOverlayColor(
+    final overlayColor = _buttonUtils.getOverlayColor(
       style.overlayColor!,
       hoveredColor: color,
     );
@@ -44,9 +53,9 @@ extension TextButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(overlayColor: overlayColor));
   }
 
-  void textButtonOverlayFocusedColorChanged(Color color) {
+  void overlayFocusedColorChanged(Color color) {
     final style = _getButtonStyle();
-    final overlayColor = getButtonOverlayColor(
+    final overlayColor = _buttonUtils.getOverlayColor(
       style.overlayColor!,
       focusedColor: color,
     );
@@ -54,9 +63,9 @@ extension TextButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(overlayColor: overlayColor));
   }
 
-  void textButtonOverlayPressedColorChanged(Color color) {
+  void overlayPressedColorChanged(Color color) {
     final style = _getButtonStyle();
-    final overlayColor = getButtonOverlayColor(
+    final overlayColor = _buttonUtils.getOverlayColor(
       style.overlayColor!,
       pressedColor: color,
     );
@@ -64,14 +73,14 @@ extension TextButtonCubit on AdvancedThemeCubit {
     _emitWithButtonStyle(style.copyWith(overlayColor: overlayColor));
   }
 
-  void textButtonShadowColorChanged(Color color) {
+  void shadowColorChanged(Color color) {
     final style = _getButtonStyle().copyWith(
       shadowColor: MaterialStateProperty.all(color),
     );
     _emitWithButtonStyle(style);
   }
 
-  void textButtonElevationChanged(String value) {
+  void elevationChanged(String value) {
     final elevation = double.tryParse(value);
     if (elevation != null) {
       final elevationProp = MaterialStateProperty.all(elevation);
@@ -84,24 +93,21 @@ extension TextButtonCubit on AdvancedThemeCubit {
   }
 
   void _emitWithButtonStyle(ButtonStyle style) {
-    emit(
-      state.copyWith(
-        themeData: state.themeData.copyWith(
-          textButtonTheme: TextButtonThemeData(style: style),
-        ),
-      ),
-    );
+    emit(state.copyWith(theme: TextButtonThemeData(style: style)));
   }
 
   ButtonStyle _getButtonStyle() {
-    return state.themeData.textButtonTheme.style ??
+    final themeData = ThemeData();
+    final colorScheme = themeData.colorScheme;
+
+    return state.theme.style ??
         TextButton.styleFrom(
-          primary: state.themeData.colorScheme.primary,
-          onSurface: state.themeData.colorScheme.onSurface,
+          primary: colorScheme.primary,
+          onSurface: colorScheme.onSurface,
           backgroundColor: Colors.transparent,
-          shadowColor: state.themeData.shadowColor,
-          elevation: kTextButtonElevation,
-          minimumSize: kBtnMinSize,
+          shadowColor: themeData.shadowColor,
+          elevation: 0,
+          minimumSize: const Size(64, 36),
         );
   }
 }

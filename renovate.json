@@ -12,17 +12,22 @@
   "timezone": "Australia/Sydney",
   "packageRules": [
     {
-      "groupName": "Dev Dependencies",
+      "groupName": "Dev dependencies",
       "matchPaths": ["pubspec.yaml"],
       "matchDepTypes": ["dev_dependencies"]
     },
     {
-      "groupName": "Bloc Dependencies",
+      "groupName": "Bloc dependencies",
       "matchPaths": ["pubspec.yaml"],
-      "matchPackageNames": ["bloc", "flutter_bloc", "bloc_test"]
+      "matchPackagePrefixes": ["bloc", "flutter_bloc"]
     },
     {
-      "groupName": "GitHub Actions Dependencies",
+      "groupName": "Copy with extension dependencies",
+      "matchPaths": ["pubspec.yaml"],
+      "matchPackagePrefixes": ["copy_with_extension"]
+    },
+    {
+      "groupName": "GitHub Actions dependencies",
       "matchPaths": [".github/workflows/*.yml"],
       "addLabels": ["ci"]
     }

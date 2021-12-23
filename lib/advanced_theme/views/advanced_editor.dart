@@ -6,6 +6,7 @@ import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
+import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 
 class AdvancedEditor extends StatelessWidget {
@@ -22,7 +23,7 @@ class AdvancedEditor extends StatelessWidget {
         FloatingActionButtonThemeEditor(),
         ElevatedButtonThemeEditor(),
         OutlinedButtonThemeEditor(),
-        TextButtonEditor(),
+        TextButtonThemeEditor(),
         IconThemeEditor(),
         InputDecorationEditor(),
         SwitchEditor(),

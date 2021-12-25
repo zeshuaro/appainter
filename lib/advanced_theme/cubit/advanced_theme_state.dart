@@ -13,10 +13,4 @@ class AdvancedThemeState extends Equatable {
 
   @override
   List<Object> get props => [themeData];
-
-  bool get isPrimaryColorLight {
-    return themeData.primaryColorBrightness == Brightness.light;
-  }
-
-  bool get isPrimaryColorDark => !isPrimaryColorLight;
 }

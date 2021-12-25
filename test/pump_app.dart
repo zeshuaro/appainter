@@ -73,6 +73,7 @@ extension PumpApp on WidgetTester {
             BlocProvider.value(
               value: advancedThemeCubit ?? mockAdvancedThemeCubit,
             ),
+            BlocProvider.value(value: colorThemeCubit),
             BlocProvider.value(value: appBarThemeCubit),
             BlocProvider.value(value: tabBarThemeCubit),
             BlocProvider.value(value: bottomNavigationBarThemeCubit),

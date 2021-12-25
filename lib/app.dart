@@ -4,6 +4,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
@@ -20,16 +21,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final appBarThemeCubit = AppBarThemeCubit();
     final tabBarThemeCubit = TabBarThemeCubit();
-    final bottomNavBarThemeCubit = BottomNavigationBarThemeCubit();
+    final bottomNavigationBarThemeCubit = BottomNavigationBarThemeCubit();
     final floatingActionButtonThemeCubit = FloatingActionButtonThemeCubit();
     final elevatedButtonThemeCubit = ElevatedButtonThemeCubit();
     final outlinedButtonThemeCubit = OutlinedButtonThemeCubit();
     final textButtonThemeCubit = TextButtonThemeCubit();
 
+    final colorThemeCubit = ColorThemeCubit(
+      appBarThemeCubit: appBarThemeCubit,
+      bottomNavigationBarThemeCubit: bottomNavigationBarThemeCubit,
+      floatingActionButtonThemeCubit: floatingActionButtonThemeCubit,
+      elevatedButtonThemeCubit: elevatedButtonThemeCubit,
+      outlinedButtonThemeCubit: outlinedButtonThemeCubit,
+      textButtonThemeCubit: textButtonThemeCubit,
+    );
+
     final advancedThemeCubit = AdvancedThemeCubit(
+      colorThemeCubit: colorThemeCubit,
       appBarThemeCubit: appBarThemeCubit,
       tabBarThemeCubit: tabBarThemeCubit,
-      bottomNavigationBarThemeCubit: bottomNavBarThemeCubit,
+      bottomNavigationBarThemeCubit: bottomNavigationBarThemeCubit,
       floatingActionButtonThemeCubit: floatingActionButtonThemeCubit,
       elevatedButtonThemeCubit: elevatedButtonThemeCubit,
       outlinedButtonThemeCubit: outlinedButtonThemeCubit,
@@ -41,9 +52,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => HomeCubit(homeRepo, advancedThemeCubit)),
         BlocProvider(create: (_) => BasicThemeCubit()),
         BlocProvider(create: (_) => advancedThemeCubit),
+        BlocProvider(create: (_) => colorThemeCubit),
         BlocProvider(create: (_) => appBarThemeCubit),
         BlocProvider(create: (_) => tabBarThemeCubit),
-        BlocProvider(create: (_) => bottomNavBarThemeCubit),
+        BlocProvider(create: (_) => bottomNavigationBarThemeCubit),
         BlocProvider(create: (_) => floatingActionButtonThemeCubit),
         BlocProvider(create: (_) => elevatedButtonThemeCubit),
         BlocProvider(create: (_) => outlinedButtonThemeCubit),

@@ -13,6 +13,7 @@ void main() {
 
   setUp(() {
     cubit = AdvancedThemeCubit(
+      colorThemeCubit: MockColorThemeCubit(),
       appBarThemeCubit: MockAppBarThemeCubit(),
       tabBarThemeCubit: MockTabBarThemeCubit(),
       bottomNavigationBarThemeCubit: MockBottomNavigationBarThemeCubit(),

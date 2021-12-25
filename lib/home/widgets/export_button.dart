@@ -4,6 +4,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
@@ -17,52 +18,8 @@ class ExportButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final editMode = context.select((HomeCubit cubit) {
-      return cubit.state.editMode;
-    });
-    final basicTheme = context.select((BasicThemeCubit cubit) {
-      return cubit.state.themeData;
-    });
-
-    final appBarTheme = context.select((AppBarThemeCubit cubit) {
-      return cubit.state.theme;
-    });
-    final tabBarTheme = context.select((TabBarThemeCubit cubit) {
-      return cubit.state.theme;
-    });
-    final bottomNavBarTheme = context.select(
-      (BottomNavigationBarThemeCubit cubit) => cubit.state.theme,
-    );
-    final floatingActionButtonTheme = context.select(
-      (FloatingActionButtonThemeCubit cubit) => cubit.state.theme,
-    );
-    final elevatedButtonTheme = context.select(
-      (ElevatedButtonThemeCubit cubit) => cubit.state.theme,
-    );
-    final outlinedButtonTheme = context.select(
-      (OutlinedButtonThemeCubit cubit) => cubit.state.theme,
-    );
-    final textButtonTheme = context.select((TextButtonThemeCubit cubit) {
-      return cubit.state.theme;
-    });
-
-    final advancedTheme = context.select((AdvancedThemeCubit cubit) {
-      return cubit.state.themeData;
-    }).copyWith(
-      appBarTheme: appBarTheme,
-      tabBarTheme: tabBarTheme,
-      bottomNavigationBarTheme: bottomNavBarTheme,
-      floatingActionButtonTheme: floatingActionButtonTheme,
-      elevatedButtonTheme: elevatedButtonTheme,
-      outlinedButtonTheme: outlinedButtonTheme,
-      textButtonTheme: textButtonTheme,
-    );
-
     return TextButton.icon(
-      onPressed: () {
-        final theme = editMode == EditMode.basic ? basicTheme : advancedTheme;
-        context.read<HomeCubit>().themeExported(theme);
-      },
+      onPressed: () => _onPressed(context),
       icon: const FaIcon(
         FontAwesomeIcons.download,
         color: Colors.white,
@@ -73,5 +30,67 @@ class ExportButton extends StatelessWidget {
         style: TextStyle(color: Colors.white),
       ),
     );
+  }
+
+  void _onPressed(BuildContext context) {
+    final editMode = context.read<HomeCubit>().state.editMode;
+    late final ThemeData theme;
+
+    if (editMode == EditMode.basic) {
+      theme = context.read<BasicThemeCubit>().state.themeData;
+    } else {
+      theme = _getAdvancedTheme(context);
+    }
+
+    context.read<HomeCubit>().themeExported(theme);
+  }
+
+  ThemeData _getAdvancedTheme(BuildContext context) {
+    final colorTheme = context.read<ColorThemeCubit>().state;
+    final appBarTheme = context.read<AppBarThemeCubit>().state.theme;
+    final tabBarTheme = context.read<TabBarThemeCubit>().state.theme;
+    final bottomNavBarTheme =
+        context.read<BottomNavigationBarThemeCubit>().state.theme;
+    final floatingActionButtonTheme =
+        context.read<FloatingActionButtonThemeCubit>().state.theme;
+    final elevatedButtonTheme =
+        context.read<ElevatedButtonThemeCubit>().state.theme;
+    final outlinedButtonTheme =
+        context.read<OutlinedButtonThemeCubit>().state.theme;
+    final textButtonTheme = context.read<TextButtonThemeCubit>().state.theme;
+
+    return context.read<AdvancedThemeCubit>().state.themeData.copyWith(
+          primaryColor: colorTheme.primaryColor,
+          primaryColorBrightness: colorTheme.primaryColorBrightness,
+          primaryColorLight: colorTheme.primaryColorLight,
+          primaryColorDark: colorTheme.primaryColorDark,
+          backgroundColor: colorTheme.backgroundColor,
+          bottomAppBarColor: colorTheme.bottomAppBarColor,
+          canvasColor: colorTheme.canvasColor,
+          cardColor: colorTheme.cardColor,
+          dialogBackgroundColor: colorTheme.dialogBackgroundColor,
+          disabledColor: colorTheme.disabledColor,
+          dividerColor: colorTheme.dividerColor,
+          errorColor: colorTheme.errorColor,
+          focusColor: colorTheme.focusColor,
+          highlightColor: colorTheme.highlightColor,
+          hintColor: colorTheme.hintColor,
+          hoverColor: colorTheme.hoverColor,
+          indicatorColor: colorTheme.indicatorColor,
+          scaffoldBackgroundColor: colorTheme.scaffoldBackgroundColor,
+          secondaryHeaderColor: colorTheme.secondaryHeaderColor,
+          selectedRowColor: colorTheme.selectedRowColor,
+          shadowColor: colorTheme.shadowColor,
+          splashColor: colorTheme.splashColor,
+          toggleableActiveColor: colorTheme.toggleableActiveColor,
+          unselectedWidgetColor: colorTheme.unselectedWidgetColor,
+          appBarTheme: appBarTheme,
+          tabBarTheme: tabBarTheme,
+          bottomNavigationBarTheme: bottomNavBarTheme,
+          floatingActionButtonTheme: floatingActionButtonTheme,
+          elevatedButtonTheme: elevatedButtonTheme,
+          outlinedButtonTheme: outlinedButtonTheme,
+          textButtonTheme: textButtonTheme,
+        );
   }
 }

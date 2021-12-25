@@ -4,6 +4,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
@@ -25,6 +26,9 @@ class FakeHomeState extends Fake implements HomeState {}
 class FakeBasicThemeState extends Fake implements BasicThemeState {}
 
 class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
+
+class MockColorThemeCubit extends MockCubit<ColorThemeState>
+    implements ColorThemeCubit {}
 
 class MockAppBarThemeCubit extends MockCubit<AppBarThemeState>
     implements AppBarThemeCubit {}

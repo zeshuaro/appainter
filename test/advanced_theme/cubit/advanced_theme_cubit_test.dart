@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
@@ -16,6 +17,7 @@ import '../../mocks.dart';
 
 void main() {
   late AdvancedThemeCubit advancedThemeCubit;
+  late ColorThemeCubit colorThemeCubit;
   late AppBarThemeCubit appBarThemeCubit;
   late TabBarThemeCubit tabBarThemeCubit;
   late BottomNavigationBarThemeCubit bottomNavBarThemeCubit;
@@ -24,7 +26,12 @@ void main() {
   late OutlinedButtonThemeCubit outlinedButtonThemeCubit;
   late TextButtonThemeCubit textButtonThemeCubit;
 
+  setUpAll(() {
+    registerFallbackValue(FakeThemeData());
+  });
+
   setUp(() {
+    colorThemeCubit = MockColorThemeCubit();
     appBarThemeCubit = MockAppBarThemeCubit();
     tabBarThemeCubit = MockTabBarThemeCubit();
     bottomNavBarThemeCubit = MockBottomNavigationBarThemeCubit();
@@ -34,6 +41,7 @@ void main() {
     textButtonThemeCubit = MockTextButtonThemeCubit();
 
     advancedThemeCubit = AdvancedThemeCubit(
+      colorThemeCubit: colorThemeCubit,
       appBarThemeCubit: appBarThemeCubit,
       tabBarThemeCubit: tabBarThemeCubit,
       bottomNavigationBarThemeCubit: bottomNavBarThemeCubit,
@@ -45,6 +53,7 @@ void main() {
   });
 
   void _verifyThemeChanged(ThemeData theme) {
+    verify(() => colorThemeCubit.themeChanged(any())).called(1);
     verify(() {
       appBarThemeCubit.themeChanged(theme.appBarTheme);
     }).called(1);

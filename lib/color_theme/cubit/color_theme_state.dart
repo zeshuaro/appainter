@@ -28,7 +28,6 @@ class ColorThemeState extends Equatable {
   late final Color unselectedWidgetColor;
 
   ColorThemeState({
-    ThemeData? theme,
     Color? primaryColor,
     Brightness? primaryColorBrightness,
     Color? primaryColorLight,
@@ -54,37 +53,70 @@ class ColorThemeState extends Equatable {
     Color? toggleableActiveColor,
     Color? unselectedWidgetColor,
   }) {
-    final themeData = theme ?? ThemeData();
-    this.primaryColor = primaryColor ?? themeData.primaryColor;
+    final theme = ThemeData();
+    this.primaryColor = primaryColor ?? theme.primaryColor;
     this.primaryColorBrightness =
-        primaryColorBrightness ?? themeData.primaryColorBrightness;
-    this.primaryColorLight = primaryColorLight ?? themeData.primaryColorLight;
-    this.primaryColorDark = primaryColorDark ?? themeData.primaryColorDark;
-    this.backgroundColor = backgroundColor ?? themeData.backgroundColor;
-    this.bottomAppBarColor = bottomAppBarColor ?? themeData.bottomAppBarColor;
-    this.canvasColor = canvasColor ?? themeData.canvasColor;
-    this.cardColor = cardColor ?? themeData.cardColor;
+        primaryColorBrightness ?? theme.primaryColorBrightness;
+    this.primaryColorLight = primaryColorLight ?? theme.primaryColorLight;
+    this.primaryColorDark = primaryColorDark ?? theme.primaryColorDark;
+    this.backgroundColor = backgroundColor ?? theme.backgroundColor;
+    this.bottomAppBarColor = bottomAppBarColor ?? theme.bottomAppBarColor;
+    this.canvasColor = canvasColor ?? theme.canvasColor;
+    this.cardColor = cardColor ?? theme.cardColor;
     this.dialogBackgroundColor =
-        dialogBackgroundColor ?? themeData.dialogBackgroundColor;
-    this.disabledColor = disabledColor ?? themeData.disabledColor;
-    this.dividerColor = dividerColor ?? themeData.dividerColor;
-    this.errorColor = errorColor ?? themeData.errorColor;
-    this.focusColor = focusColor ?? themeData.focusColor;
-    this.highlightColor = highlightColor ?? themeData.highlightColor;
-    this.hintColor = hintColor ?? themeData.hintColor;
-    this.hoverColor = hoverColor ?? themeData.hoverColor;
-    this.indicatorColor = indicatorColor ?? themeData.indicatorColor;
+        dialogBackgroundColor ?? theme.dialogBackgroundColor;
+    this.disabledColor = disabledColor ?? theme.disabledColor;
+    this.dividerColor = dividerColor ?? theme.dividerColor;
+    this.errorColor = errorColor ?? theme.errorColor;
+    this.focusColor = focusColor ?? theme.focusColor;
+    this.highlightColor = highlightColor ?? theme.highlightColor;
+    this.hintColor = hintColor ?? theme.hintColor;
+    this.hoverColor = hoverColor ?? theme.hoverColor;
+    this.indicatorColor = indicatorColor ?? theme.indicatorColor;
     this.scaffoldBackgroundColor =
-        scaffoldBackgroundColor ?? themeData.scaffoldBackgroundColor;
+        scaffoldBackgroundColor ?? theme.scaffoldBackgroundColor;
     this.secondaryHeaderColor =
-        secondaryHeaderColor ?? themeData.secondaryHeaderColor;
-    this.selectedRowColor = selectedRowColor ?? themeData.selectedRowColor;
-    this.shadowColor = shadowColor ?? themeData.shadowColor;
-    this.splashColor = splashColor ?? themeData.splashColor;
+        secondaryHeaderColor ?? theme.secondaryHeaderColor;
+    this.selectedRowColor = selectedRowColor ?? theme.selectedRowColor;
+    this.shadowColor = shadowColor ?? theme.shadowColor;
+    this.splashColor = splashColor ?? theme.splashColor;
     this.toggleableActiveColor =
-        toggleableActiveColor ?? themeData.toggleableActiveColor;
+        toggleableActiveColor ?? theme.toggleableActiveColor;
     this.unselectedWidgetColor =
-        unselectedWidgetColor ?? themeData.unselectedWidgetColor;
+        unselectedWidgetColor ?? theme.unselectedWidgetColor;
+  }
+
+  factory ColorThemeState.defaultState() {
+    return ColorThemeState.fromTheme(ThemeData());
+  }
+
+  factory ColorThemeState.fromTheme(ThemeData theme) {
+    return ColorThemeState(
+      primaryColor: theme.primaryColor,
+      primaryColorBrightness: theme.primaryColorBrightness,
+      primaryColorLight: theme.primaryColorLight,
+      primaryColorDark: theme.primaryColorDark,
+      backgroundColor: theme.backgroundColor,
+      bottomAppBarColor: theme.bottomAppBarColor,
+      canvasColor: theme.canvasColor,
+      cardColor: theme.cardColor,
+      dialogBackgroundColor: theme.dialogBackgroundColor,
+      disabledColor: theme.disabledColor,
+      dividerColor: theme.dividerColor,
+      errorColor: theme.errorColor,
+      focusColor: theme.focusColor,
+      highlightColor: theme.highlightColor,
+      hintColor: theme.hintColor,
+      hoverColor: theme.hoverColor,
+      indicatorColor: theme.indicatorColor,
+      scaffoldBackgroundColor: theme.scaffoldBackgroundColor,
+      secondaryHeaderColor: theme.secondaryHeaderColor,
+      selectedRowColor: theme.selectedRowColor,
+      shadowColor: theme.shadowColor,
+      splashColor: theme.splashColor,
+      toggleableActiveColor: theme.toggleableActiveColor,
+      unselectedWidgetColor: theme.unselectedWidgetColor,
+    );
   }
 
   @override

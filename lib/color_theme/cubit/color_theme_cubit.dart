@@ -28,7 +28,7 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
     required this.elevatedButtonThemeCubit,
     required this.outlinedButtonThemeCubit,
     required this.textButtonThemeCubit,
-  }) : super(ColorThemeState());
+  }) : super(ColorThemeState.defaultState());
 
   void themeChanged(ThemeData themeData) {
     emit(state.copyWith(

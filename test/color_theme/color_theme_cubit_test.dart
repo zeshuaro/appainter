@@ -58,7 +58,7 @@ void main() {
     },
     build: () => colorThemeCubit,
     act: (cubit) => cubit.themeChanged(theme),
-    expect: () => [ColorThemeState(theme: theme)],
+    expect: () => [ColorThemeState.fromTheme(theme)],
   );
 
   blocTest<ColorThemeCubit, ColorThemeState>(

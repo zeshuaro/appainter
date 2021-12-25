@@ -20,43 +20,43 @@
       "secondaryVariant": "#ff018786",
       "surface": "#ffffffff"
     },
-    "height": 36,
+    "height": 36.0,
     "layoutBehavior": "padded",
-    "minWidth": 88,
+    "minWidth": 88.0,
     "padding": {
-      "bottom": 0,
-      "left": 16,
-      "right": 16,
-      "top": 0
+      "bottom": 0.0,
+      "left": 16.0,
+      "right": 16.0,
+      "top": 0.0
     },
     "shape": {
       "borderRadius": {
         "bottomLeft": {
           "type": "elliptical",
-          "x": 2,
-          "y": 2
+          "x": 2.0,
+          "y": 2.0
         },
         "bottomRight": {
           "type": "elliptical",
-          "x": 2,
-          "y": 2
+          "x": 2.0,
+          "y": 2.0
         },
         "topLeft": {
           "type": "elliptical",
-          "x": 2,
-          "y": 2
+          "x": 2.0,
+          "y": 2.0
         },
         "topRight": {
           "type": "elliptical",
-          "x": 2,
-          "y": 2
+          "x": 2.0,
+          "y": 2.0
         },
         "type": "only"
       },
       "side": {
         "color": "#ff000000",
         "style": "none",
-        "width": 0
+        "width": 0.0
       },
       "type": "rounded"
     },
@@ -76,10 +76,10 @@
       "inherit": true
     },
     "padding": {
-      "bottom": 4,
-      "left": 4,
-      "right": 4,
-      "top": 4
+      "bottom": 4.0,
+      "left": 4.0,
+      "right": 4.0,
+      "top": 4.0
     },
     "secondaryLabelStyle": {
       "color": "#de6200ee",
@@ -384,79 +384,79 @@
     "dense": {
       "bodyText1": {
         "fontWeight": "w500",
-        "fontSize": 15,
+        "fontSize": 15.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "bodyText2": {
         "fontWeight": "w400",
-        "fontSize": 15,
+        "fontSize": 15.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "button": {
         "fontWeight": "w500",
-        "fontSize": 15,
+        "fontSize": 15.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "caption": {
         "fontWeight": "w400",
-        "fontSize": 13,
+        "fontSize": 13.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline1": {
         "fontWeight": "w100",
-        "fontSize": 112,
+        "fontSize": 112.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline2": {
         "fontWeight": "w400",
-        "fontSize": 56,
+        "fontSize": 56.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline3": {
         "fontWeight": "w400",
-        "fontSize": 45,
+        "fontSize": 45.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline4": {
         "fontWeight": "w400",
-        "fontSize": 34,
+        "fontSize": 34.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline5": {
         "fontWeight": "w400",
-        "fontSize": 24,
+        "fontSize": 24.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headline6": {
         "fontWeight": "w500",
-        "fontSize": 21,
+        "fontSize": 21.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "overline": {
         "fontWeight": "w400",
-        "fontSize": 11,
+        "fontSize": 11.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "subtitle1": {
         "fontWeight": "w400",
-        "fontSize": 17,
+        "fontSize": 17.0,
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "subtitle2": {
         "fontWeight": "w500",
-        "fontSize": 15,
+        "fontSize": 15.0,
         "inherit": false,
         "textBaseline": "ideographic"
       }
@@ -464,80 +464,80 @@
     "englishLike": {
       "bodyText1": {
         "fontWeight": "w500",
-        "fontSize": 14,
+        "fontSize": 14.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "bodyText2": {
         "fontWeight": "w400",
-        "fontSize": 14,
+        "fontSize": 14.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "button": {
         "fontWeight": "w500",
-        "fontSize": 14,
+        "fontSize": 14.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "caption": {
         "fontWeight": "w400",
-        "fontSize": 12,
+        "fontSize": 12.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline1": {
         "fontWeight": "w100",
-        "fontSize": 112,
+        "fontSize": 112.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline2": {
         "fontWeight": "w400",
-        "fontSize": 56,
+        "fontSize": 56.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline3": {
         "fontWeight": "w400",
-        "fontSize": 45,
+        "fontSize": 45.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline4": {
         "fontWeight": "w400",
-        "fontSize": 34,
+        "fontSize": 34.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline5": {
         "fontWeight": "w400",
-        "fontSize": 24,
+        "fontSize": 24.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline6": {
         "fontWeight": "w500",
-        "fontSize": 20,
+        "fontSize": 20.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "overline": {
         "fontWeight": "w400",
-        "fontSize": 10,
+        "fontSize": 10.0,
         "inherit": false,
         "letterSpacing": 1.5,
         "textBaseline": "alphabetic"
       },
       "subtitle1": {
         "fontWeight": "w400",
-        "fontSize": 16,
+        "fontSize": 16.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "subtitle2": {
         "fontWeight": "w500",
-        "fontSize": 14,
+        "fontSize": 14.0,
         "inherit": false,
         "letterSpacing": 0.1,
         "textBaseline": "alphabetic"
@@ -546,79 +546,79 @@
     "tall": {
       "bodyText1": {
         "fontWeight": "w700",
-        "fontSize": 15,
+        "fontSize": 15.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "bodyText2": {
         "fontWeight": "w400",
-        "fontSize": 15,
+        "fontSize": 15.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "button": {
         "fontWeight": "w700",
-        "fontSize": 15,
+        "fontSize": 15.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "caption": {
         "fontWeight": "w400",
-        "fontSize": 13,
+        "fontSize": 13.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline1": {
         "fontWeight": "w400",
-        "fontSize": 112,
+        "fontSize": 112.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline2": {
         "fontWeight": "w400",
-        "fontSize": 56,
+        "fontSize": 56.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline3": {
         "fontWeight": "w400",
-        "fontSize": 45,
+        "fontSize": 45.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline4": {
         "fontWeight": "w400",
-        "fontSize": 34,
+        "fontSize": 34.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline5": {
         "fontWeight": "w400",
-        "fontSize": 24,
+        "fontSize": 24.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headline6": {
         "fontWeight": "w700",
-        "fontSize": 21,
+        "fontSize": 21.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "overline": {
         "fontWeight": "w400",
-        "fontSize": 11,
+        "fontSize": 11.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "subtitle1": {
         "fontWeight": "w400",
-        "fontSize": 17,
+        "fontSize": 17.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "subtitle2": {
         "fontWeight": "w500",
-        "fontSize": 15,
+        "fontSize": 15.0,
         "inherit": false,
         "textBaseline": "alphabetic"
       }

@@ -9,6 +9,7 @@ import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
+import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
     final outlinedButtonThemeCubit = OutlinedButtonThemeCubit();
     final textButtonThemeCubit = TextButtonThemeCubit();
     final iconThemeCubit = IconThemeCubit();
+    final inputDecorationThemeCubit = InputDecorationThemeCubit();
 
     final colorThemeCubit = ColorThemeCubit(
       appBarThemeCubit: appBarThemeCubit,
@@ -48,6 +50,7 @@ class MyApp extends StatelessWidget {
       outlinedButtonThemeCubit: outlinedButtonThemeCubit,
       textButtonThemeCubit: textButtonThemeCubit,
       iconThemeCubit: iconThemeCubit,
+      inputDecorationThemeCubit: inputDecorationThemeCubit,
     );
 
     return MultiBlocProvider(
@@ -64,6 +67,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => outlinedButtonThemeCubit),
         BlocProvider(create: (_) => textButtonThemeCubit),
         BlocProvider(create: (_) => iconThemeCubit),
+        BlocProvider(create: (_) => inputDecorationThemeCubit),
       ],
       child: const MaterialApp(
         title: 'Flutter Theme',

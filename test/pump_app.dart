@@ -10,6 +10,7 @@ import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
+import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -42,6 +43,8 @@ extension PumpApp on WidgetTester {
     final TextButtonThemeCubit textButtonThemeCubit =
         MockTextButtonThemeCubit();
     final IconThemeCubit iconThemeCubit = MockIconThemeCubit();
+    final InputDecorationThemeCubit inputDecorationThemeCubit =
+        MockInputDecorationThemeCubit();
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
     when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
@@ -49,22 +52,25 @@ extension PumpApp on WidgetTester {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
     when(() => appBarThemeCubit.state).thenReturn(const AppBarThemeState());
     when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());
-    when(() {
-      return bottomNavigationBarThemeCubit.state;
-    }).thenReturn(const BottomNavigationBarThemeState());
-    when(() {
-      return floatingActionButtonThemeCubit.state;
-    }).thenReturn(const FloatingActionButtonThemeState());
-    when(() {
-      return elevatedButtonThemeCubit.state;
-    }).thenReturn(const ElevatedButtonThemeState());
-    when(() {
-      return outlinedButtonThemeCubit.state;
-    }).thenReturn(const OutlinedButtonThemeState());
-    when(() {
-      return textButtonThemeCubit.state;
-    }).thenReturn(const TextButtonThemeState());
+    when(() => bottomNavigationBarThemeCubit.state).thenReturn(
+      const BottomNavigationBarThemeState(),
+    );
+    when(() => floatingActionButtonThemeCubit.state).thenReturn(
+      const FloatingActionButtonThemeState(),
+    );
+    when(() => elevatedButtonThemeCubit.state).thenReturn(
+      const ElevatedButtonThemeState(),
+    );
+    when(() => outlinedButtonThemeCubit.state).thenReturn(
+      const OutlinedButtonThemeState(),
+    );
+    when(() => textButtonThemeCubit.state).thenReturn(
+      const TextButtonThemeState(),
+    );
     when(() => iconThemeCubit.state).thenReturn(const IconThemeState());
+    when(() => inputDecorationThemeCubit.state).thenReturn(
+      const InputDecorationThemeState(),
+    );
 
     return pumpWidget(
       RepositoryProvider(
@@ -85,6 +91,7 @@ extension PumpApp on WidgetTester {
             BlocProvider.value(value: outlinedButtonThemeCubit),
             BlocProvider.value(value: textButtonThemeCubit),
             BlocProvider.value(value: iconThemeCubit),
+            BlocProvider.value(value: inputDecorationThemeCubit),
           ],
           child: MaterialApp(
             home: widget,

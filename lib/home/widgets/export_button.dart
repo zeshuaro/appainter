@@ -9,6 +9,7 @@ import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
+import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -59,7 +60,9 @@ class ExportButton extends StatelessWidget {
     final outlinedButtonTheme =
         context.read<OutlinedButtonThemeCubit>().state.theme;
     final textButtonTheme = context.read<TextButtonThemeCubit>().state.theme;
-    final iconThemeCubit = context.read<IconThemeCubit>().state.theme;
+    final iconTheme = context.read<IconThemeCubit>().state.theme;
+    final inputDecorationTheme =
+        context.read<InputDecorationThemeCubit>().state.theme;
 
     return context.read<AdvancedThemeCubit>().state.themeData.copyWith(
           primaryColor: colorTheme.primaryColor,
@@ -93,7 +96,8 @@ class ExportButton extends StatelessWidget {
           elevatedButtonTheme: elevatedButtonTheme,
           outlinedButtonTheme: outlinedButtonTheme,
           textButtonTheme: textButtonTheme,
-          iconTheme: iconThemeCubit,
+          iconTheme: iconTheme,
+          inputDecorationTheme: inputDecorationTheme,
         );
   }
 }

@@ -8,6 +8,7 @@ import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
+import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -27,6 +28,7 @@ void main() {
   late OutlinedButtonThemeCubit outlinedButtonThemeCubit;
   late TextButtonThemeCubit textButtonThemeCubit;
   late IconThemeCubit iconThemeCubit;
+  late InputDecorationThemeCubit inputDecorationThemeCubit;
 
   setUpAll(() {
     registerFallbackValue(FakeThemeData());
@@ -42,6 +44,7 @@ void main() {
     outlinedButtonThemeCubit = MockOutlinedButtonThemeCubit();
     textButtonThemeCubit = MockTextButtonThemeCubit();
     iconThemeCubit = MockIconThemeCubit();
+    inputDecorationThemeCubit = MockInputDecorationThemeCubit();
 
     advancedThemeCubit = AdvancedThemeCubit(
       colorThemeCubit: colorThemeCubit,
@@ -53,35 +56,35 @@ void main() {
       outlinedButtonThemeCubit: outlinedButtonThemeCubit,
       textButtonThemeCubit: textButtonThemeCubit,
       iconThemeCubit: iconThemeCubit,
+      inputDecorationThemeCubit: inputDecorationThemeCubit,
     );
   });
 
   void _verifyThemeChanged(ThemeData theme) {
     verify(() => colorThemeCubit.themeChanged(any())).called(1);
-    verify(() {
-      appBarThemeCubit.themeChanged(theme.appBarTheme);
-    }).called(1);
-    verify(() {
-      tabBarThemeCubit.themeChanged(theme.tabBarTheme);
-    }).called(1);
-    verify(() {
-      bottomNavBarThemeCubit.themeChanged(theme.bottomNavigationBarTheme);
-    }).called(1);
+    verify(() => appBarThemeCubit.themeChanged(theme.appBarTheme)).called(1);
+    verify(() => tabBarThemeCubit.themeChanged(theme.tabBarTheme)).called(1);
+    verify(
+      () => bottomNavBarThemeCubit.themeChanged(theme.bottomNavigationBarTheme),
+    ).called(1);
     verify(() {
       floatingActionButtonThemeCubit.themeChanged(
         theme.floatingActionButtonTheme,
       );
     }).called(1);
-    verify(() {
-      elevatedButtonThemeCubit.themeChanged(theme.elevatedButtonTheme);
-    }).called(1);
-    verify(() {
-      outlinedButtonThemeCubit.themeChanged(theme.outlinedButtonTheme);
-    }).called(1);
-    verify(() {
-      textButtonThemeCubit.themeChanged(theme.textButtonTheme);
-    }).called(1);
+    verify(
+      () => elevatedButtonThemeCubit.themeChanged(theme.elevatedButtonTheme),
+    ).called(1);
+    verify(
+      () => outlinedButtonThemeCubit.themeChanged(theme.outlinedButtonTheme),
+    ).called(1);
+    verify(
+      () => textButtonThemeCubit.themeChanged(theme.textButtonTheme),
+    ).called(1);
     verify(() => iconThemeCubit.themeChanged(theme.iconTheme)).called(1);
+    verify(
+      () => inputDecorationThemeCubit.themeChanged(theme.inputDecorationTheme),
+    ).called(1);
   }
 
   test('initial state is AdvancedThemeState', () {

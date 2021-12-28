@@ -7,9 +7,10 @@ import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_
 import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
-import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
+import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
+import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
 import 'package:mocktail/mocktail.dart';
@@ -63,6 +64,9 @@ class MockTextButtonThemeCubit extends MockCubit<TextButtonThemeState>
 
 class MockIconThemeCubit extends MockCubit<IconThemeState>
     implements IconThemeCubit {}
+
+class MockInputDecorationThemeCubit extends MockCubit<InputDecorationThemeState>
+    implements InputDecorationThemeCubit {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

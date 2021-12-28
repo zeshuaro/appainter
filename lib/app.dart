@@ -11,6 +11,7 @@ import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
+import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
 
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
     final textButtonThemeCubit = TextButtonThemeCubit();
     final iconThemeCubit = IconThemeCubit();
     final inputDecorationThemeCubit = InputDecorationThemeCubit();
+    final switchThemeCubit = SwitchThemeCubit();
 
     final colorThemeCubit = ColorThemeCubit(
       appBarThemeCubit: appBarThemeCubit,
@@ -51,6 +53,7 @@ class MyApp extends StatelessWidget {
       textButtonThemeCubit: textButtonThemeCubit,
       iconThemeCubit: iconThemeCubit,
       inputDecorationThemeCubit: inputDecorationThemeCubit,
+      switchThemeCubit: switchThemeCubit,
     );
 
     return MultiBlocProvider(
@@ -68,6 +71,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => textButtonThemeCubit),
         BlocProvider(create: (_) => iconThemeCubit),
         BlocProvider(create: (_) => inputDecorationThemeCubit),
+        BlocProvider(create: (_) => switchThemeCubit),
       ],
       child: const MaterialApp(
         title: 'Flutter Theme',

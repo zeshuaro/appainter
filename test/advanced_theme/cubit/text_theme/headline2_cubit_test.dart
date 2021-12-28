@@ -25,6 +25,7 @@ void main() {
       textButtonThemeCubit: MockTextButtonThemeCubit(),
       iconThemeCubit: MockIconThemeCubit(),
       inputDecorationThemeCubit: MockInputDecorationThemeCubit(),
+      switchThemeCubit: MockSwitchThemeCubit(),
     );
   });
 

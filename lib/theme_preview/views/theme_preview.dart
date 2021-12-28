@@ -5,6 +5,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/cubit/app_bar_theme_cubit.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/checkbox_theme/checkbox_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
@@ -48,6 +49,7 @@ class ThemePreview extends StatelessWidget {
         final inputDecorationTheme =
             context.watch<InputDecorationThemeCubit>().state.theme;
         final switchTheme = context.watch<SwitchThemeCubit>().state.theme;
+        final checkboxTheme = context.watch<CheckboxThemeCubit>().state.theme;
         final advancedTheme =
             context.watch<AdvancedThemeCubit>().state.themeData.copyWith(
                   appBarTheme: appBarTheme,
@@ -60,6 +62,7 @@ class ThemePreview extends StatelessWidget {
                   iconTheme: iconTheme,
                   inputDecorationTheme: inputDecorationTheme,
                   switchTheme: switchTheme,
+                  checkboxTheme: checkboxTheme,
                 );
 
         final theme =

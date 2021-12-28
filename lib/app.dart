@@ -4,6 +4,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/checkbox_theme/checkbox_theme.dart';
 import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
     final iconThemeCubit = IconThemeCubit();
     final inputDecorationThemeCubit = InputDecorationThemeCubit();
     final switchThemeCubit = SwitchThemeCubit();
+    final checkboxThemeCubit = CheckboxThemeCubit();
 
     final colorThemeCubit = ColorThemeCubit(
       appBarThemeCubit: appBarThemeCubit,
@@ -54,6 +56,7 @@ class MyApp extends StatelessWidget {
       iconThemeCubit: iconThemeCubit,
       inputDecorationThemeCubit: inputDecorationThemeCubit,
       switchThemeCubit: switchThemeCubit,
+      checkboxThemeCubit: checkboxThemeCubit,
     );
 
     return MultiBlocProvider(
@@ -72,6 +75,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => iconThemeCubit),
         BlocProvider(create: (_) => inputDecorationThemeCubit),
         BlocProvider(create: (_) => switchThemeCubit),
+        BlocProvider(create: (_) => checkboxThemeCubit),
       ],
       child: const MaterialApp(
         title: 'Flutter Theme',

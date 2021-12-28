@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/checkbox_theme/checkbox_theme.dart';
 import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
@@ -31,6 +32,7 @@ void main() {
   late IconThemeCubit iconThemeCubit;
   late InputDecorationThemeCubit inputDecorationThemeCubit;
   late SwitchThemeCubit switchThemeCubit;
+  late CheckboxThemeCubit checkboxThemeCubit;
 
   setUpAll(() {
     registerFallbackValue(FakeThemeData());
@@ -48,6 +50,7 @@ void main() {
     iconThemeCubit = MockIconThemeCubit();
     inputDecorationThemeCubit = MockInputDecorationThemeCubit();
     switchThemeCubit = MockSwitchThemeCubit();
+    checkboxThemeCubit = MockCheckboxThemeCubit();
 
     advancedThemeCubit = AdvancedThemeCubit(
       colorThemeCubit: colorThemeCubit,
@@ -61,6 +64,7 @@ void main() {
       iconThemeCubit: iconThemeCubit,
       inputDecorationThemeCubit: inputDecorationThemeCubit,
       switchThemeCubit: switchThemeCubit,
+      checkboxThemeCubit: checkboxThemeCubit,
     );
   });
 
@@ -90,6 +94,9 @@ void main() {
       () => inputDecorationThemeCubit.themeChanged(theme.inputDecorationTheme),
     ).called(1);
     verify(() => switchThemeCubit.themeChanged(theme.switchTheme)).called(1);
+    verify(
+      () => checkboxThemeCubit.themeChanged(theme.checkboxTheme),
+    ).called(1);
   }
 
   test('initial state is AdvancedThemeState', () {

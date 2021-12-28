@@ -4,6 +4,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/checkbox_theme/checkbox_theme.dart';
 import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
@@ -71,6 +72,9 @@ class MockInputDecorationThemeCubit extends MockCubit<InputDecorationThemeState>
 
 class MockSwitchThemeCubit extends MockCubit<SwitchThemeState>
     implements SwitchThemeCubit {}
+
+class MockCheckboxThemeCubit extends MockCubit<CheckboxThemeState>
+    implements CheckboxThemeCubit {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

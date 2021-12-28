@@ -5,6 +5,7 @@ import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/checkbox_theme/checkbox_theme.dart';
 import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
@@ -47,6 +48,7 @@ extension PumpApp on WidgetTester {
     final InputDecorationThemeCubit inputDecorationThemeCubit =
         MockInputDecorationThemeCubit();
     final SwitchThemeCubit switchThemeCubit = MockSwitchThemeCubit();
+    final CheckboxThemeCubit checkboxThemeCubit = MockCheckboxThemeCubit();
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
     when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
@@ -74,6 +76,7 @@ extension PumpApp on WidgetTester {
       const InputDecorationThemeState(),
     );
     when(() => switchThemeCubit.state).thenReturn(const SwitchThemeState());
+    when(() => checkboxThemeCubit.state).thenReturn(const CheckboxThemeState());
 
     return pumpWidget(
       RepositoryProvider(
@@ -96,6 +99,7 @@ extension PumpApp on WidgetTester {
             BlocProvider.value(value: iconThemeCubit),
             BlocProvider.value(value: inputDecorationThemeCubit),
             BlocProvider.value(value: switchThemeCubit),
+            BlocProvider.value(value: checkboxThemeCubit),
           ],
           child: MaterialApp(
             home: widget,

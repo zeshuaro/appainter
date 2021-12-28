@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
+import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';
 
 void main() {
   late SwitchThemeCubit cubit;
+  late SwitchThemeData theme;
   late Color color;
   late double doubleValue;
 
@@ -46,6 +48,17 @@ void main() {
     color = getRandomColor();
     doubleValue = Random().nextDouble();
   });
+
+  blocTest<SwitchThemeCubit, SwitchThemeState>(
+    'should emit theme',
+    setUp: () {
+      final colorScheme = randomColorSchemeLight(shouldPrint: false);
+      theme = ThemeData.from(colorScheme: colorScheme).switchTheme;
+    },
+    build: () => cubit,
+    act: (cubit) => cubit.themeChanged(theme),
+    expect: () => [SwitchThemeState(theme: theme)],
+  );
 
   group('test thumb colors', () {
     blocTest<SwitchThemeCubit, SwitchThemeState>(

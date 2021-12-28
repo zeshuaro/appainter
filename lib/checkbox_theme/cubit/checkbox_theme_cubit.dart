@@ -1,66 +1,67 @@
-// ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-
+import 'package:bloc/bloc.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
-import 'package:flutter_theme/advanced_theme/cubit/selections/utils.dart';
 import 'package:flutter_theme/services/services.dart';
+import 'package:flutter_theme/utils/utils.dart';
 
-extension CheckboxCubit on AdvancedThemeCubit {
-  void checkboxFillDefaultColorChanged(Color color) {
+part 'checkbox_theme_cubit.g.dart';
+part 'checkbox_theme_state.dart';
+
+class CheckboxThemeCubit extends Cubit<CheckboxThemeState> {
+  CheckboxThemeCubit() : super(const CheckboxThemeState());
+
+  final _utils = const SelectionUtils();
+
+  void themeChanged(CheckboxThemeData theme) {
+    emit(state.copyWith(theme: theme));
+  }
+
+  void fillDefaultColorChanged(Color color) {
     _emitWithNewFillColor(defaultColor: color);
   }
 
-  void checkboxFillSelectedColorChanged(Color color) {
+  void fillSelectedColorChanged(Color color) {
     _emitWithNewFillColor(selectedColor: color);
   }
 
-  void checkboxFillDisabledColorChanged(Color color) {
+  void fillDisabledColorChanged(Color color) {
     _emitWithNewFillColor(disabledColor: color);
   }
 
-  void checkboxCheckColorChanged(Color color) {
-    final theme = state.themeData.checkboxTheme.copyWith(
+  void checkColorChanged(Color color) {
+    final theme = state.theme.copyWith(
       checkColor: MaterialStateProperty.all(color),
     );
-    _emitWithCheckboxThemeData(theme);
+    emit(state.copyWith(theme: theme));
   }
 
-  void checkboxOverlayPressedColorChanged(Color color) {
+  void overlayPressedColorChanged(Color color) {
     _emitWithNewOverlayColor(pressedColor: color);
   }
 
-  void checkboxOverlayHoveredColorChanged(Color color) {
+  void overlayHoveredColorChanged(Color color) {
     _emitWithNewOverlayColor(hoveredColor: color);
   }
 
-  void checkboxOverlayFocusedColorChanged(Color color) {
+  void overlayFocusedColorChanged(Color color) {
     _emitWithNewOverlayColor(focusedColor: color);
   }
 
-  void checkboxMaterialTapTargetSize(String value) {
+  void materialTapTargetSize(String value) {
     final size = UtilService.stringToEnum(MaterialTapTargetSize.values, value);
     if (size != null) {
-      final theme = state.themeData.checkboxTheme.copyWith(
-        materialTapTargetSize: size,
-      );
-      _emitWithCheckboxThemeData(theme);
+      final theme = state.theme.copyWith(materialTapTargetSize: size);
+      emit(state.copyWith(theme: theme));
     }
   }
 
-  void checkboxSplashRadiusChanged(String value) {
+  void splashRadiusChanged(String value) {
     final radius = double.tryParse(value);
     if (radius != null) {
-      final theme = state.themeData.checkboxTheme.copyWith(
-        splashRadius: radius,
-      );
-      _emitWithCheckboxThemeData(theme);
+      final theme = state.theme.copyWith(splashRadius: radius);
+      emit(state.copyWith(theme: theme));
     }
-  }
-
-  void _emitWithCheckboxThemeData(CheckboxThemeData theme) {
-    emit(
-      state.copyWith(themeData: state.themeData.copyWith(checkboxTheme: theme)),
-    );
   }
 
   void _emitWithNewFillColor({
@@ -68,15 +69,14 @@ extension CheckboxCubit on AdvancedThemeCubit {
     Color? selectedColor,
     Color? disabledColor,
   }) {
-    final theme = state.themeData.checkboxTheme;
-    final color = getSelectionBasicColor(
-      theme.fillColor ?? _defaultFillColor,
+    final color = _utils.getBasicColor(
+      state.theme.fillColor ?? _defaultFillColor,
       defaultColor: defaultColor,
       selectedColor: selectedColor,
       disabledColor: disabledColor,
     );
-
-    _emitWithCheckboxThemeData(theme.copyWith(fillColor: color));
+    final theme = state.theme.copyWith(fillColor: color);
+    emit(state.copyWith(theme: theme));
   }
 
   void _emitWithNewOverlayColor({
@@ -84,19 +84,18 @@ extension CheckboxCubit on AdvancedThemeCubit {
     Color? hoveredColor,
     Color? focusedColor,
   }) {
-    final theme = state.themeData.checkboxTheme;
-    final color = getSelectionOverlayColor(
-      theme.overlayColor ?? _defaultOverlayColor,
+    final color = _utils.getOverlayColor(
+      state.theme.overlayColor ?? _defaultOverlayColor,
       pressedColor: pressedColor,
       hoveredColor: hoveredColor,
       focusedColor: focusedColor,
     );
-
-    _emitWithCheckboxThemeData(theme.copyWith(overlayColor: color));
+    final theme = state.theme.copyWith(overlayColor: color);
+    emit(state.copyWith(theme: theme));
   }
 
   MaterialStateProperty<Color> get _defaultFillColor {
-    final themeData = state.themeData;
+    final themeData = ThemeData();
     return MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
         return themeData.disabledColor;
@@ -109,7 +108,7 @@ extension CheckboxCubit on AdvancedThemeCubit {
   }
 
   MaterialStateProperty<Color?> get _defaultOverlayColor {
-    final themeData = state.themeData;
+    final themeData = ThemeData();
     return MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.pressed)) {
         return themeData.toggleableActiveColor.withAlpha(kRadialReactionAlpha);

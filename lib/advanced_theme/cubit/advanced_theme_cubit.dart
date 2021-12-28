@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/checkbox_theme/checkbox_theme.dart';
 import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
@@ -30,6 +31,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
   final IconThemeCubit iconThemeCubit;
   final InputDecorationThemeCubit inputDecorationThemeCubit;
   final SwitchThemeCubit switchThemeCubit;
+  final CheckboxThemeCubit checkboxThemeCubit;
 
   AdvancedThemeCubit({
     required this.colorThemeCubit,
@@ -43,6 +45,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     required this.iconThemeCubit,
     required this.inputDecorationThemeCubit,
     required this.switchThemeCubit,
+    required this.checkboxThemeCubit,
   }) : super(AdvancedThemeState());
 
   void themeDataChanged(ThemeData theme) {
@@ -59,6 +62,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     iconThemeCubit.themeChanged(theme.iconTheme);
     inputDecorationThemeCubit.themeChanged(theme.inputDecorationTheme);
     switchThemeCubit.themeChanged(theme.switchTheme);
+    checkboxThemeCubit.themeChanged(theme.checkboxTheme);
 
     emit(state.copyWith(themeData: theme));
   }

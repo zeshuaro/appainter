@@ -11,6 +11,7 @@ import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
+import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
@@ -46,6 +47,7 @@ class ThemePreview extends StatelessWidget {
         final iconTheme = context.watch<IconThemeCubit>().state.theme;
         final inputDecorationTheme =
             context.watch<InputDecorationThemeCubit>().state.theme;
+        final switchTheme = context.watch<SwitchThemeCubit>().state.theme;
         final advancedTheme =
             context.watch<AdvancedThemeCubit>().state.themeData.copyWith(
                   appBarTheme: appBarTheme,
@@ -57,6 +59,7 @@ class ThemePreview extends StatelessWidget {
                   textButtonTheme: textButtonTheme,
                   iconTheme: iconTheme,
                   inputDecorationTheme: inputDecorationTheme,
+                  switchTheme: switchTheme,
                 );
 
         final theme =

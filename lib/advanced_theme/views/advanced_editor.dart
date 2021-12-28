@@ -8,6 +8,7 @@ import 'package:flutter_theme/floating_action_button_theme/floating_action_butto
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
+import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
@@ -29,7 +30,7 @@ class AdvancedEditor extends StatelessWidget {
         TextButtonThemeEditor(),
         IconThemeEditor(),
         InputDecorationThemeEditor(),
-        SwitchEditor(),
+        SwitchThemeEditor(),
         CheckboxEditor(),
         RadioEditor(),
         SliderEditor(),

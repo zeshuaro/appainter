@@ -11,6 +11,7 @@ import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
+import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -63,6 +64,7 @@ class ExportButton extends StatelessWidget {
     final iconTheme = context.read<IconThemeCubit>().state.theme;
     final inputDecorationTheme =
         context.read<InputDecorationThemeCubit>().state.theme;
+    final switchTheme = context.read<SwitchThemeCubit>().state.theme;
 
     return context.read<AdvancedThemeCubit>().state.themeData.copyWith(
           primaryColor: colorTheme.primaryColor,
@@ -98,6 +100,7 @@ class ExportButton extends StatelessWidget {
           textButtonTheme: textButtonTheme,
           iconTheme: iconTheme,
           inputDecorationTheme: inputDecorationTheme,
+          switchTheme: switchTheme,
         );
   }
 }

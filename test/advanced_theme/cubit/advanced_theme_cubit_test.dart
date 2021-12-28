@@ -10,6 +10,7 @@ import 'package:flutter_theme/floating_action_button_theme/floating_action_butto
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
+import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
 import 'package:mocktail/mocktail.dart';
@@ -29,6 +30,7 @@ void main() {
   late TextButtonThemeCubit textButtonThemeCubit;
   late IconThemeCubit iconThemeCubit;
   late InputDecorationThemeCubit inputDecorationThemeCubit;
+  late SwitchThemeCubit switchThemeCubit;
 
   setUpAll(() {
     registerFallbackValue(FakeThemeData());
@@ -45,6 +47,7 @@ void main() {
     textButtonThemeCubit = MockTextButtonThemeCubit();
     iconThemeCubit = MockIconThemeCubit();
     inputDecorationThemeCubit = MockInputDecorationThemeCubit();
+    switchThemeCubit = MockSwitchThemeCubit();
 
     advancedThemeCubit = AdvancedThemeCubit(
       colorThemeCubit: colorThemeCubit,
@@ -57,6 +60,7 @@ void main() {
       textButtonThemeCubit: textButtonThemeCubit,
       iconThemeCubit: iconThemeCubit,
       inputDecorationThemeCubit: inputDecorationThemeCubit,
+      switchThemeCubit: switchThemeCubit,
     );
   });
 
@@ -85,6 +89,7 @@ void main() {
     verify(
       () => inputDecorationThemeCubit.themeChanged(theme.inputDecorationTheme),
     ).called(1);
+    verify(() => switchThemeCubit.themeChanged(theme.switchTheme)).called(1);
   }
 
   test('initial state is AdvancedThemeState', () {

@@ -7,6 +7,7 @@ import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_
 import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
+import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -25,6 +26,7 @@ void main() {
   late ElevatedButtonThemeCubit elevatedButtonThemeCubit;
   late OutlinedButtonThemeCubit outlinedButtonThemeCubit;
   late TextButtonThemeCubit textButtonThemeCubit;
+  late IconThemeCubit iconThemeCubit;
 
   setUpAll(() {
     registerFallbackValue(FakeThemeData());
@@ -39,6 +41,7 @@ void main() {
     elevatedButtonThemeCubit = MockElevatedButtonThemeCubit();
     outlinedButtonThemeCubit = MockOutlinedButtonThemeCubit();
     textButtonThemeCubit = MockTextButtonThemeCubit();
+    iconThemeCubit = MockIconThemeCubit();
 
     advancedThemeCubit = AdvancedThemeCubit(
       colorThemeCubit: colorThemeCubit,
@@ -49,6 +52,7 @@ void main() {
       elevatedButtonThemeCubit: elevatedButtonThemeCubit,
       outlinedButtonThemeCubit: outlinedButtonThemeCubit,
       textButtonThemeCubit: textButtonThemeCubit,
+      iconThemeCubit: iconThemeCubit,
     );
   });
 
@@ -77,6 +81,7 @@ void main() {
     verify(() {
       textButtonThemeCubit.themeChanged(theme.textButtonTheme);
     }).called(1);
+    verify(() => iconThemeCubit.themeChanged(theme.iconTheme)).called(1);
   }
 
   test('initial state is AdvancedThemeState', () {

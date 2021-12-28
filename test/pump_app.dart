@@ -9,6 +9,7 @@ import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
+import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -40,6 +41,7 @@ extension PumpApp on WidgetTester {
         MockOutlinedButtonThemeCubit();
     final TextButtonThemeCubit textButtonThemeCubit =
         MockTextButtonThemeCubit();
+    final IconThemeCubit iconThemeCubit = MockIconThemeCubit();
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
     when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
@@ -62,6 +64,7 @@ extension PumpApp on WidgetTester {
     when(() {
       return textButtonThemeCubit.state;
     }).thenReturn(const TextButtonThemeState());
+    when(() => iconThemeCubit.state).thenReturn(const IconThemeState());
 
     return pumpWidget(
       RepositoryProvider(
@@ -81,6 +84,7 @@ extension PumpApp on WidgetTester {
             BlocProvider.value(value: elevatedButtonThemeCubit),
             BlocProvider.value(value: outlinedButtonThemeCubit),
             BlocProvider.value(value: textButtonThemeCubit),
+            BlocProvider.value(value: iconThemeCubit),
           ],
           child: MaterialApp(
             home: widget,

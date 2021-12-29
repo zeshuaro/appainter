@@ -85,7 +85,7 @@ extension PumpApp on WidgetTester {
     final OverlineTextStyleCubit overlinetextStyleCubit =
         MockOverlineTextStyleCubit();
 
-    final style = TextStyle();
+    const style = TextStyle();
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
     when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
@@ -119,45 +119,45 @@ extension PumpApp on WidgetTester {
     when(() => textThemeCubit.state).thenReturn(const TextThemeState());
 
     when(() => headline1textStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
     when(() => headline2textStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
     when(() => headline3textStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
     when(() => headline4textStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
     when(() => headline5textStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
     when(() => headline6textStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
 
     when(() => subtitle1textStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
     when(() => subtitle2textStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
     when(() => bodyText1textStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
     when(() => bodyText2textStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
 
     when(() => buttontextStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
     when(() => captiontextStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
     when(() => overlinetextStyleCubit.state).thenReturn(
-      TextStyleState(style: style),
+      const TextStyleState(style: style),
     );
 
     return pumpWidget(

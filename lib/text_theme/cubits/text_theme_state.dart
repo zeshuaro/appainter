@@ -1,8 +1,5 @@
 part of 'text_theme_cubit.dart';
 
-class TextThemeState extends Equatable {
+class TextThemeState {
   const TextThemeState();
-
-  @override
-  List<Object> get props => [];
 }

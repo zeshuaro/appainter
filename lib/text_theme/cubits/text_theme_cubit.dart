@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/text_theme/text_theme.dart';
 
@@ -54,23 +53,5 @@ class TextThemeCubit extends Cubit<TextThemeState> {
     buttonTextStyleCubit.styleChanged(theme.button);
     captionTextStyleCubit.styleChanged(theme.caption);
     overlineTextStyleCubit.styleChanged(theme.overline);
-  }
-
-  TextTheme get textTheme {
-    return TextTheme(
-      headline1: headline1TextStyleCubit.state.style,
-      headline2: headline2TextStyleCubit.state.style,
-      headline3: headline3TextStyleCubit.state.style,
-      headline4: headline4TextStyleCubit.state.style,
-      headline5: headline5TextStyleCubit.state.style,
-      headline6: headline6TextStyleCubit.state.style,
-      subtitle1: subtitle1TextStyleCubit.state.style,
-      subtitle2: subtitle2TextStyleCubit.state.style,
-      bodyText1: bodyText1TextStyleCubit.state.style,
-      bodyText2: bodyText2TextStyleCubit.state.style,
-      button: buttonTextStyleCubit.state.style,
-      caption: captionTextStyleCubit.state.style,
-      overline: overlineTextStyleCubit.state.style,
-    );
   }
 }

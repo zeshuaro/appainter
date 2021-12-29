@@ -121,7 +121,6 @@ extension PumpApp on WidgetTester {
     when(() => sliderThemeCubit.state).thenReturn(const SliderThemeState());
 
     when(() => textThemeCubit.state).thenReturn(const TextThemeState());
-    when(() => textThemeCubit.textTheme).thenReturn(const TextTheme());
 
     when(() => headline1textStyleCubit.state).thenReturn(textStyleState);
     when(() => headline2textStyleCubit.state).thenReturn(textStyleState);

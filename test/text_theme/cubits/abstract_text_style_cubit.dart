@@ -30,6 +30,13 @@ class AbstractTextStyleCubitTest<T extends AbstractTextStyleCubit> {
     });
 
     blocTest<T, TextStyleState>(
+      'should emit style',
+      build: () => cubit,
+      act: (cubit) => cubit.styleChanged(style),
+      expect: () => [TextStyleState(style: style)],
+    );
+
+    blocTest<T, TextStyleState>(
       'should emit color',
       build: () => cubit,
       act: (cubit) => cubit.colorChanged(color),

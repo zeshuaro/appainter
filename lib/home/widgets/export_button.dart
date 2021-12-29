@@ -72,7 +72,33 @@ class ExportButton extends StatelessWidget {
     final checkboxTheme = context.read<CheckboxThemeCubit>().state.theme;
     final radioTheme = context.read<RadioThemeCubit>().state.theme;
     final sliderTheme = context.read<SliderThemeCubit>().state.theme;
-    final textTheme = context.read<TextThemeCubit>().textTheme;
+
+    final headline1TextStyle =
+        context.read<Headline1TextStyleCubit>().state.style;
+    final headline2TextStyle =
+        context.read<Headline2TextStyleCubit>().state.style;
+    final headline3TextStyle =
+        context.read<Headline3TextStyleCubit>().state.style;
+    final headline4TextStyle =
+        context.read<Headline4TextStyleCubit>().state.style;
+    final headline5TextStyle =
+        context.read<Headline5TextStyleCubit>().state.style;
+    final headline6TextStyle =
+        context.read<Headline6TextStyleCubit>().state.style;
+
+    final subtitle1TextStyle =
+        context.read<Subtitle1TextStyleCubit>().state.style;
+    final subtitle2TextStyle =
+        context.read<Subtitle2TextStyleCubit>().state.style;
+    final bodyText1TextStyle =
+        context.read<BodyText1TextStyleCubit>().state.style;
+    final bodyText2TextStyle =
+        context.read<BodyText2TextStyleCubit>().state.style;
+
+    final buttonTextStyle = context.read<ButtonTextStyleCubit>().state.style;
+    final captionTextStyle = context.read<CaptionTextStyleCubit>().state.style;
+    final overlineTextStyle =
+        context.read<OverlineTextStyleCubit>().state.style;
 
     return context.read<AdvancedThemeCubit>().state.themeData.copyWith(
           primaryColor: colorTheme.primaryColor,
@@ -112,7 +138,21 @@ class ExportButton extends StatelessWidget {
           checkboxTheme: checkboxTheme,
           radioTheme: radioTheme,
           sliderTheme: sliderTheme,
-          textTheme: textTheme,
+          textTheme: TextTheme(
+            headline1: headline1TextStyle,
+            headline2: headline2TextStyle,
+            headline3: headline3TextStyle,
+            headline4: headline4TextStyle,
+            headline5: headline5TextStyle,
+            headline6: headline6TextStyle,
+            subtitle1: subtitle1TextStyle,
+            subtitle2: subtitle2TextStyle,
+            bodyText1: bodyText1TextStyle,
+            bodyText2: bodyText2TextStyle,
+            button: buttonTextStyle,
+            caption: captionTextStyle,
+            overline: overlineTextStyle,
+          ),
         );
   }
 }

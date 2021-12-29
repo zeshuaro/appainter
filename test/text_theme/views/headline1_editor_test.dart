@@ -5,7 +5,7 @@ import '../../mocks.dart';
 import 'abstract_text_style_editor_test.dart';
 
 void main() {
-  AbstractTextStyleEditorTest(
+  AbstractTextStyleEditorTest<Headline1TextStyleCubit>(
     editor: const Headline1TextStyleEditor(),
     initializer: () => MockHeadline1TextStyleCubit(),
     style: Typography.englishLike2018

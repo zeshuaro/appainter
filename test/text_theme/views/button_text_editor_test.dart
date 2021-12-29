@@ -5,7 +5,7 @@ import '../../mocks.dart';
 import 'abstract_text_style_editor_test.dart';
 
 void main() {
-  AbstractTextStyleEditorTest(
+  AbstractTextStyleEditorTest<ButtonTextStyleCubit>(
     editor: const ButtonTextStyleEditor(),
     initializer: () => MockButtonTextStyleCubit(),
     style:

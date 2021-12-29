@@ -5,7 +5,7 @@ import '../../mocks.dart';
 import 'abstract_text_style_editor_test.dart';
 
 void main() {
-  AbstractTextStyleEditorTest(
+  AbstractTextStyleEditorTest<BodyText2TextStyleCubit>(
     editor: const BodyText2TextStyleEditor(),
     initializer: () => MockBodyText2TextStyleCubit(),
     style: Typography.englishLike2018

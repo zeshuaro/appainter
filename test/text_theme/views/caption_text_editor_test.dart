@@ -5,7 +5,7 @@ import '../../mocks.dart';
 import 'abstract_text_style_editor_test.dart';
 
 void main() {
-  AbstractTextStyleEditorTest(
+  AbstractTextStyleEditorTest<CaptionTextStyleCubit>(
     editor: const CaptionTextStyleEditor(),
     initializer: () => MockCaptionTextStyleCubit(),
     style:

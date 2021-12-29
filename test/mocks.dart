@@ -139,3 +139,7 @@ class FakeThemeData extends Fake
     implements ThemeData {}
 
 class MockHomeRepository extends Mock implements HomeRepository {}
+
+class FakeTextTheme extends Fake
+    with DiagnosticableToStringMixin
+    implements TextTheme {}

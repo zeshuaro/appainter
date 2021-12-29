@@ -42,6 +42,7 @@ void main() {
 
   setUpAll(() {
     registerFallbackValue(FakeThemeData());
+    registerFallbackValue(FakeTextTheme());
   });
 
   setUp(() {
@@ -111,7 +112,7 @@ void main() {
     ).called(1);
     verify(() => radioThemeCubit.themeChanged(theme.radioTheme)).called(1);
     verify(() => sliderThemeCubit.themeChanged(theme.sliderTheme)).called(1);
-    verify(() => textThemeCubit.themeChanged(theme.textTheme)).called(1);
+    verify(() => textThemeCubit.themeChanged(any())).called(1);
   }
 
   test('initial state is AdvancedThemeState', () {

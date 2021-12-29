@@ -12,6 +12,7 @@ import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/radio_theme/radio_theme.dart';
+import 'package:flutter_theme/slider_theme/slider_theme.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -34,6 +35,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
   final SwitchThemeCubit switchThemeCubit;
   final CheckboxThemeCubit checkboxThemeCubit;
   final RadioThemeCubit radioThemeCubit;
+  final SliderThemeCubit sliderThemeCubit;
 
   AdvancedThemeCubit({
     required this.colorThemeCubit,
@@ -49,6 +51,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     required this.switchThemeCubit,
     required this.checkboxThemeCubit,
     required this.radioThemeCubit,
+    required this.sliderThemeCubit,
   }) : super(AdvancedThemeState());
 
   void themeDataChanged(ThemeData theme) {
@@ -67,6 +70,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     switchThemeCubit.themeChanged(theme.switchTheme);
     checkboxThemeCubit.themeChanged(theme.checkboxTheme);
     radioThemeCubit.themeChanged(theme.radioTheme);
+    sliderThemeCubit.themeChanged(theme.sliderTheme);
 
     emit(state.copyWith(themeData: theme));
   }

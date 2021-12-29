@@ -13,6 +13,7 @@ import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/radio_theme/radio_theme.dart';
+import 'package:flutter_theme/slider_theme/slider_theme.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -52,6 +53,7 @@ class ThemePreview extends StatelessWidget {
         final switchTheme = context.watch<SwitchThemeCubit>().state.theme;
         final checkboxTheme = context.watch<CheckboxThemeCubit>().state.theme;
         final radioTheme = context.watch<RadioThemeCubit>().state.theme;
+        final sliderTheme = context.watch<SliderThemeCubit>().state.theme;
 
         final advancedTheme =
             context.watch<AdvancedThemeCubit>().state.themeData.copyWith(
@@ -67,6 +69,7 @@ class ThemePreview extends StatelessWidget {
                   switchTheme: switchTheme,
                   checkboxTheme: checkboxTheme,
                   radioTheme: radioTheme,
+                  sliderTheme: sliderTheme,
                 );
 
         final theme =

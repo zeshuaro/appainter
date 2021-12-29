@@ -13,6 +13,7 @@ import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/radio_theme/radio_theme.dart';
+import 'package:flutter_theme/slider_theme/slider_theme.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -79,6 +80,9 @@ class MockCheckboxThemeCubit extends MockCubit<CheckboxThemeState>
 
 class MockRadioThemeCubit extends MockCubit<RadioThemeState>
     implements RadioThemeCubit {}
+
+class MockSliderThemeCubit extends MockCubit<SliderThemeState>
+    implements SliderThemeCubit {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

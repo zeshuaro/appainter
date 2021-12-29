@@ -13,6 +13,7 @@ import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/radio_theme/radio_theme.dart';
+import 'package:flutter_theme/slider_theme/slider_theme.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -69,6 +70,7 @@ class ExportButton extends StatelessWidget {
     final switchTheme = context.read<SwitchThemeCubit>().state.theme;
     final checkboxTheme = context.read<CheckboxThemeCubit>().state.theme;
     final radioTheme = context.read<RadioThemeCubit>().state.theme;
+    final sliderTheme = context.read<SliderThemeCubit>().state.theme;
 
     return context.read<AdvancedThemeCubit>().state.themeData.copyWith(
           primaryColor: colorTheme.primaryColor,
@@ -107,6 +109,7 @@ class ExportButton extends StatelessWidget {
           switchTheme: switchTheme,
           checkboxTheme: checkboxTheme,
           radioTheme: radioTheme,
+          sliderTheme: sliderTheme,
         );
   }
 }

@@ -17,6 +17,7 @@ import 'package:flutter_theme/slider_theme/slider_theme.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
+import 'package:flutter_theme/text_theme/text_theme.dart';
 import 'package:flutter_theme/theme_preview/theme_preview.dart';
 
 class ThemePreview extends StatelessWidget {
@@ -55,6 +56,35 @@ class ThemePreview extends StatelessWidget {
         final radioTheme = context.watch<RadioThemeCubit>().state.theme;
         final sliderTheme = context.watch<SliderThemeCubit>().state.theme;
 
+        final headline1TextStyle =
+            context.watch<Headline1TextStyleCubit>().state.style;
+        final headline2TextStyle =
+            context.watch<Headline2TextStyleCubit>().state.style;
+        final headline3TextStyle =
+            context.watch<Headline3TextStyleCubit>().state.style;
+        final headline4TextStyle =
+            context.watch<Headline4TextStyleCubit>().state.style;
+        final headline5TextStyle =
+            context.watch<Headline5TextStyleCubit>().state.style;
+        final headline6TextStyle =
+            context.watch<Headline6TextStyleCubit>().state.style;
+
+        final subtitle1TextStyle =
+            context.watch<Subtitle1TextStyleCubit>().state.style;
+        final subtitle2TextStyle =
+            context.watch<Subtitle2TextStyleCubit>().state.style;
+        final bodyText1TextStyle =
+            context.watch<BodyText1TextStyleCubit>().state.style;
+        final bodyText2TextStyle =
+            context.watch<BodyText2TextStyleCubit>().state.style;
+
+        final buttonTextStyle =
+            context.watch<ButtonTextStyleCubit>().state.style;
+        final captionTextStyle =
+            context.watch<CaptionTextStyleCubit>().state.style;
+        final overlineTextStyle =
+            context.watch<OverlineTextStyleCubit>().state.style;
+
         final advancedTheme =
             context.watch<AdvancedThemeCubit>().state.themeData.copyWith(
                   appBarTheme: appBarTheme,
@@ -70,6 +100,21 @@ class ThemePreview extends StatelessWidget {
                   checkboxTheme: checkboxTheme,
                   radioTheme: radioTheme,
                   sliderTheme: sliderTheme,
+                  textTheme: TextTheme(
+                    headline1: headline1TextStyle,
+                    headline2: headline2TextStyle,
+                    headline3: headline3TextStyle,
+                    headline4: headline4TextStyle,
+                    headline5: headline5TextStyle,
+                    headline6: headline6TextStyle,
+                    subtitle1: subtitle1TextStyle,
+                    subtitle2: subtitle2TextStyle,
+                    bodyText1: bodyText1TextStyle,
+                    bodyText2: bodyText2TextStyle,
+                    button: buttonTextStyle,
+                    caption: captionTextStyle,
+                    overline: overlineTextStyle,
+                  ),
                 );
 
         final theme =

@@ -17,6 +17,7 @@ import 'package:flutter_theme/slider_theme/slider_theme.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
+import 'package:flutter_theme/text_theme/text_theme.dart';
 
 class MyApp extends StatelessWidget {
   final HomeRepository homeRepo;
@@ -48,6 +49,38 @@ class MyApp extends StatelessWidget {
       textButtonThemeCubit: textButtonThemeCubit,
     );
 
+    final headline1TextStyleCubit = Headline1TextStyleCubit();
+    final headline2TextStyleCubit = Headline2TextStyleCubit();
+    final headline3TextStyleCubit = Headline3TextStyleCubit();
+    final headline4TextStyleCubit = Headline4TextStyleCubit();
+    final headline5TextStyleCubit = Headline5TextStyleCubit();
+    final headline6TextStyleCubit = Headline6TextStyleCubit();
+
+    final subtitle1TextStyleCubit = Subtitle1TextStyleCubit();
+    final subtitle2TextStyleCubit = Subtitle2TextStyleCubit();
+    final bodyText1TextStyleCubit = BodyText1TextStyleCubit();
+    final bodyText2TextStyleCubit = BodyText2TextStyleCubit();
+
+    final buttonTextStyleCubit = ButtonTextStyleCubit();
+    final captionTextStyleCubit = CaptionTextStyleCubit();
+    final overlineTextStyleCubit = OverlineTextStyleCubit();
+
+    final textThemeCubit = TextThemeCubit(
+      headline1TextStyleCubit: headline1TextStyleCubit,
+      headline2TextStyleCubit: headline2TextStyleCubit,
+      headline3TextStyleCubit: headline3TextStyleCubit,
+      headline4TextStyleCubit: headline4TextStyleCubit,
+      headline5TextStyleCubit: headline5TextStyleCubit,
+      headline6TextStyleCubit: headline6TextStyleCubit,
+      subtitle1TextStyleCubit: subtitle1TextStyleCubit,
+      subtitle2TextStyleCubit: subtitle2TextStyleCubit,
+      bodyText1TextStyleCubit: bodyText1TextStyleCubit,
+      bodyText2TextStyleCubit: bodyText2TextStyleCubit,
+      buttonTextStyleCubit: buttonTextStyleCubit,
+      captionTextStyleCubit: captionTextStyleCubit,
+      overlineTextStyleCubit: overlineTextStyleCubit,
+    );
+
     final advancedThemeCubit = AdvancedThemeCubit(
       colorThemeCubit: colorThemeCubit,
       appBarThemeCubit: appBarThemeCubit,
@@ -63,6 +96,7 @@ class MyApp extends StatelessWidget {
       checkboxThemeCubit: checkboxThemeCubit,
       radioThemeCubit: radioThemeCubit,
       sliderThemeCubit: sliderThemeCubit,
+      textThemeCubit: textThemeCubit,
     );
 
     return MultiBlocProvider(
@@ -84,6 +118,20 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => checkboxThemeCubit),
         BlocProvider(create: (_) => radioThemeCubit),
         BlocProvider(create: (_) => sliderThemeCubit),
+        BlocProvider(create: (_) => textThemeCubit),
+        BlocProvider(create: (_) => headline1TextStyleCubit),
+        BlocProvider(create: (_) => headline2TextStyleCubit),
+        BlocProvider(create: (_) => headline3TextStyleCubit),
+        BlocProvider(create: (_) => headline4TextStyleCubit),
+        BlocProvider(create: (_) => headline5TextStyleCubit),
+        BlocProvider(create: (_) => headline6TextStyleCubit),
+        BlocProvider(create: (_) => subtitle1TextStyleCubit),
+        BlocProvider(create: (_) => subtitle2TextStyleCubit),
+        BlocProvider(create: (_) => bodyText1TextStyleCubit),
+        BlocProvider(create: (_) => bodyText2TextStyleCubit),
+        BlocProvider(create: (_) => buttonTextStyleCubit),
+        BlocProvider(create: (_) => captionTextStyleCubit),
+        BlocProvider(create: (_) => overlineTextStyleCubit),
       ],
       child: const MaterialApp(
         title: 'Flutter Theme',

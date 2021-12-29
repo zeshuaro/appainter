@@ -12,6 +12,7 @@ import 'package:flutter_theme/home/home.dart';
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
+import 'package:flutter_theme/radio_theme/radio_theme.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
     final inputDecorationThemeCubit = InputDecorationThemeCubit();
     final switchThemeCubit = SwitchThemeCubit();
     final checkboxThemeCubit = CheckboxThemeCubit();
+    final radioThemeCubit = RadioThemeCubit();
 
     final colorThemeCubit = ColorThemeCubit(
       appBarThemeCubit: appBarThemeCubit,
@@ -57,6 +59,7 @@ class MyApp extends StatelessWidget {
       inputDecorationThemeCubit: inputDecorationThemeCubit,
       switchThemeCubit: switchThemeCubit,
       checkboxThemeCubit: checkboxThemeCubit,
+      radioThemeCubit: radioThemeCubit,
     );
 
     return MultiBlocProvider(
@@ -76,6 +79,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => inputDecorationThemeCubit),
         BlocProvider(create: (_) => switchThemeCubit),
         BlocProvider(create: (_) => checkboxThemeCubit),
+        BlocProvider(create: (_) => radioThemeCubit),
       ],
       child: const MaterialApp(
         title: 'Flutter Theme',

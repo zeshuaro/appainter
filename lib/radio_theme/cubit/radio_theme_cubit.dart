@@ -1,57 +1,58 @@
-// ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
-
+import 'package:bloc/bloc.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
-import 'package:flutter_theme/advanced_theme/cubit/selections/utils.dart';
 import 'package:flutter_theme/services/services.dart';
+import 'package:flutter_theme/utils/utils.dart';
 
-extension RadioCubit on AdvancedThemeCubit {
-  void radioFillDefaultColorChanged(Color color) {
+part 'radio_theme_cubit.g.dart';
+part 'radio_theme_state.dart';
+
+class RadioThemeCubit extends Cubit<RadioThemeState> {
+  RadioThemeCubit() : super(const RadioThemeState());
+
+  final _utils = const SelectionUtils();
+
+  void themeChanged(RadioThemeData theme) => emit(state.copyWith(theme: theme));
+
+  void fillDefaultColorChanged(Color color) {
     _emitWithNewFillColor(defaultColor: color);
   }
 
-  void radioFillSelectedColorChanged(Color color) {
+  void fillSelectedColorChanged(Color color) {
     _emitWithNewFillColor(selectedColor: color);
   }
 
-  void radioFillDisabledColorChanged(Color color) {
+  void fillDisabledColorChanged(Color color) {
     _emitWithNewFillColor(disabledColor: color);
   }
 
-  void radioOverlayPressedColorChanged(Color color) {
+  void overlayPressedColorChanged(Color color) {
     _emitWithNewOverlayColor(pressedColor: color);
   }
 
-  void radioOverlayHoveredColorChanged(Color color) {
+  void overlayHoveredColorChanged(Color color) {
     _emitWithNewOverlayColor(hoveredColor: color);
   }
 
-  void radioOverlayFocusedColorChanged(Color color) {
+  void overlayFocusedColorChanged(Color color) {
     _emitWithNewOverlayColor(focusedColor: color);
   }
 
-  void radioMaterialTapTargetSize(String value) {
+  void materialTapTargetSize(String value) {
     final size = UtilService.stringToEnum(MaterialTapTargetSize.values, value);
     if (size != null) {
-      final theme = state.themeData.radioTheme.copyWith(
-        materialTapTargetSize: size,
-      );
-      _emitWithRadioThemeData(theme);
+      final theme = state.theme.copyWith(materialTapTargetSize: size);
+      emit(state.copyWith(theme: theme));
     }
   }
 
-  void radioSplashRadiusChanged(String value) {
+  void splashRadiusChanged(String value) {
     final radius = double.tryParse(value);
     if (radius != null) {
-      final theme = state.themeData.radioTheme.copyWith(splashRadius: radius);
-      _emitWithRadioThemeData(theme);
+      final theme = state.theme.copyWith(splashRadius: radius);
+      emit(state.copyWith(theme: theme));
     }
-  }
-
-  void _emitWithRadioThemeData(RadioThemeData theme) {
-    emit(
-      state.copyWith(themeData: state.themeData.copyWith(radioTheme: theme)),
-    );
   }
 
   void _emitWithNewFillColor({
@@ -59,15 +60,14 @@ extension RadioCubit on AdvancedThemeCubit {
     Color? selectedColor,
     Color? disabledColor,
   }) {
-    final theme = state.themeData.radioTheme;
-    final color = getSelectionBasicColor(
-      theme.fillColor ?? _defaultFillColor,
+    final color = _utils.getBasicColor(
+      state.theme.fillColor ?? _defaultFillColor,
       defaultColor: defaultColor,
       selectedColor: selectedColor,
       disabledColor: disabledColor,
     );
-
-    _emitWithRadioThemeData(theme.copyWith(fillColor: color));
+    final theme = state.theme.copyWith(fillColor: color);
+    emit(state.copyWith(theme: theme));
   }
 
   void _emitWithNewOverlayColor({
@@ -75,19 +75,18 @@ extension RadioCubit on AdvancedThemeCubit {
     Color? hoveredColor,
     Color? focusedColor,
   }) {
-    final theme = state.themeData.radioTheme;
-    final color = getSelectionOverlayColor(
-      theme.overlayColor ?? _defaultOverlayColor,
+    final color = _utils.getOverlayColor(
+      state.theme.overlayColor ?? _defaultOverlayColor,
       pressedColor: pressedColor,
       hoveredColor: hoveredColor,
       focusedColor: focusedColor,
     );
-
-    _emitWithRadioThemeData(theme.copyWith(overlayColor: color));
+    final theme = state.theme.copyWith(overlayColor: color);
+    emit(state.copyWith(theme: theme));
   }
 
   MaterialStateProperty<Color> get _defaultFillColor {
-    final themeData = state.themeData;
+    final themeData = ThemeData();
     return MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
         return themeData.disabledColor;
@@ -100,7 +99,7 @@ extension RadioCubit on AdvancedThemeCubit {
   }
 
   MaterialStateProperty<Color?> get _defaultOverlayColor {
-    final themeData = state.themeData;
+    final themeData = ThemeData();
     return MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.pressed)) {
         return themeData.toggleableActiveColor.withAlpha(kRadialReactionAlpha);

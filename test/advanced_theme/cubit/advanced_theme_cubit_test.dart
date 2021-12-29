@@ -11,6 +11,7 @@ import 'package:flutter_theme/floating_action_button_theme/floating_action_butto
 import 'package:flutter_theme/icon_theme/icon_theme.dart';
 import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
+import 'package:flutter_theme/radio_theme/radio_theme.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
@@ -33,6 +34,7 @@ void main() {
   late InputDecorationThemeCubit inputDecorationThemeCubit;
   late SwitchThemeCubit switchThemeCubit;
   late CheckboxThemeCubit checkboxThemeCubit;
+  late RadioThemeCubit radioThemeCubit;
 
   setUpAll(() {
     registerFallbackValue(FakeThemeData());
@@ -51,6 +53,7 @@ void main() {
     inputDecorationThemeCubit = MockInputDecorationThemeCubit();
     switchThemeCubit = MockSwitchThemeCubit();
     checkboxThemeCubit = MockCheckboxThemeCubit();
+    radioThemeCubit = MockRadioThemeCubit();
 
     advancedThemeCubit = AdvancedThemeCubit(
       colorThemeCubit: colorThemeCubit,
@@ -65,6 +68,7 @@ void main() {
       inputDecorationThemeCubit: inputDecorationThemeCubit,
       switchThemeCubit: switchThemeCubit,
       checkboxThemeCubit: checkboxThemeCubit,
+      radioThemeCubit: radioThemeCubit,
     );
   });
 
@@ -97,6 +101,7 @@ void main() {
     verify(
       () => checkboxThemeCubit.themeChanged(theme.checkboxTheme),
     ).called(1);
+    verify(() => radioThemeCubit.themeChanged(theme.radioTheme)).called(1);
   }
 
   test('initial state is AdvancedThemeState', () {

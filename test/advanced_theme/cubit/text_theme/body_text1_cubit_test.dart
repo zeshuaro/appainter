@@ -28,6 +28,7 @@ void main() {
       inputDecorationThemeCubit: MockInputDecorationThemeCubit(),
       switchThemeCubit: MockSwitchThemeCubit(),
       checkboxThemeCubit: MockCheckboxThemeCubit(),
+      radioThemeCubit: MockRadioThemeCubit(),
     );
   });
 

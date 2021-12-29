@@ -96,7 +96,7 @@ class Subtitle2TextStyleEditor
   const Subtitle2TextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Subtitle2';
+  String get header => 'Subtitle 2';
 }
 
 class BodyText1TextStyleEditor
@@ -120,7 +120,7 @@ class ButtonTextStyleEditor
   const ButtonTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Button';
+  String get header => 'Button Text';
 }
 
 class CaptionTextStyleEditor
@@ -128,7 +128,7 @@ class CaptionTextStyleEditor
   const CaptionTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Caption';
+  String get header => 'Caption Text';
 }
 
 class OverlineTextStyleEditor
@@ -136,5 +136,5 @@ class OverlineTextStyleEditor
   const OverlineTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Overline';
+  String get header => 'Overline Text';
 }

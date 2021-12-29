@@ -17,6 +17,7 @@ import 'package:flutter_theme/slider_theme/slider_theme.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
+import 'package:flutter_theme/text_theme/text_theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ExportButton extends StatelessWidget {
@@ -71,6 +72,7 @@ class ExportButton extends StatelessWidget {
     final checkboxTheme = context.read<CheckboxThemeCubit>().state.theme;
     final radioTheme = context.read<RadioThemeCubit>().state.theme;
     final sliderTheme = context.read<SliderThemeCubit>().state.theme;
+    final textTheme = context.read<TextThemeCubit>().textTheme;
 
     return context.read<AdvancedThemeCubit>().state.themeData.copyWith(
           primaryColor: colorTheme.primaryColor,
@@ -110,6 +112,7 @@ class ExportButton extends StatelessWidget {
           checkboxTheme: checkboxTheme,
           radioTheme: radioTheme,
           sliderTheme: sliderTheme,
+          textTheme: textTheme,
         );
   }
 }

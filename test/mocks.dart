@@ -17,6 +17,7 @@ import 'package:flutter_theme/slider_theme/slider_theme.dart';
 import 'package:flutter_theme/switch_theme/switch_theme.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
+import 'package:flutter_theme/text_theme/text_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockHomeCubit extends MockCubit<HomeState> implements HomeCubit {}
@@ -83,6 +84,48 @@ class MockRadioThemeCubit extends MockCubit<RadioThemeState>
 
 class MockSliderThemeCubit extends MockCubit<SliderThemeState>
     implements SliderThemeCubit {}
+
+class MockTextThemeCubit extends MockCubit<TextThemeState>
+    implements TextThemeCubit {}
+
+class MockHeadline1TextStyleCubit extends MockCubit<TextStyleState>
+    implements Headline1TextStyleCubit {}
+
+class MockHeadline2TextStyleCubit extends MockCubit<TextStyleState>
+    implements Headline2TextStyleCubit {}
+
+class MockHeadline3TextStyleCubit extends MockCubit<TextStyleState>
+    implements Headline3TextStyleCubit {}
+
+class MockHeadline4TextStyleCubit extends MockCubit<TextStyleState>
+    implements Headline4TextStyleCubit {}
+
+class MockHeadline5TextStyleCubit extends MockCubit<TextStyleState>
+    implements Headline5TextStyleCubit {}
+
+class MockHeadline6TextStyleCubit extends MockCubit<TextStyleState>
+    implements Headline6TextStyleCubit {}
+
+class MockSubtitle1TextStyleCubit extends MockCubit<TextStyleState>
+    implements Subtitle1TextStyleCubit {}
+
+class MockSubtitle2TextStyleCubit extends MockCubit<TextStyleState>
+    implements Subtitle2TextStyleCubit {}
+
+class MockBodyText1TextStyleCubit extends MockCubit<TextStyleState>
+    implements BodyText1TextStyleCubit {}
+
+class MockBodyText2TextStyleCubit extends MockCubit<TextStyleState>
+    implements BodyText2TextStyleCubit {}
+
+class MockButtonTextStyleCubit extends MockCubit<TextStyleState>
+    implements ButtonTextStyleCubit {}
+
+class MockCaptionTextStyleCubit extends MockCubit<TextStyleState>
+    implements CaptionTextStyleCubit {}
+
+class MockOverlineTextStyleCubit extends MockCubit<TextStyleState>
+    implements OverlineTextStyleCubit {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

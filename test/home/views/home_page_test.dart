@@ -175,9 +175,9 @@ void main() {
         await tester.ensureVisible(finder);
         await tester.tap(finder);
 
-        verify(() {
-          return homeRepo.exportTheme(basicThemeCubit.state.themeData);
-        }).called(greaterThan(0));
+        verify(
+          () => homeCubit.themeExported(basicThemeCubit.state.themeData),
+        ).called(greaterThan(0));
       },
     );
 
@@ -194,8 +194,9 @@ void main() {
         final finder = find.byKey(const Key('homePage_exportButton'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
+        await tester.pumpAndSettle();
 
-        verify(() => homeRepo.exportTheme(any())).called(greaterThan(0));
+        verify(() => homeCubit.themeExported(any())).called(1);
       },
     );
   });

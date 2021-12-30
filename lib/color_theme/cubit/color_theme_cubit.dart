@@ -2,33 +2,13 @@ import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
-import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
-import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
-import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
-import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
 
 part 'color_theme_cubit.g.dart';
 part 'color_theme_state.dart';
 
 class ColorThemeCubit extends Cubit<ColorThemeState> {
-  final AppBarThemeCubit appBarThemeCubit;
-  final BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
-  final FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
-  final ElevatedButtonThemeCubit elevatedButtonThemeCubit;
-  final OutlinedButtonThemeCubit outlinedButtonThemeCubit;
-  final TextButtonThemeCubit textButtonThemeCubit;
-
-  ColorThemeCubit({
-    required this.appBarThemeCubit,
-    required this.bottomNavigationBarThemeCubit,
-    required this.floatingActionButtonThemeCubit,
-    required this.elevatedButtonThemeCubit,
-    required this.outlinedButtonThemeCubit,
-    required this.textButtonThemeCubit,
-  }) : super(ColorThemeState.defaultState());
+  ColorThemeCubit() : super(ColorThemeState.defaultState());
 
   void themeChanged(ThemeData themeData) {
     emit(state.copyWith(
@@ -63,13 +43,6 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
     final swatch = UtilService.getColorSwatch(color);
     final backgroundColor = swatch[200]!;
     final brightness = ThemeData.estimateBrightnessForColor(color);
-
-    appBarThemeCubit.backgroundColorChanged(color);
-    bottomNavigationBarThemeCubit.selectedItemColorChanged(color);
-    floatingActionButtonThemeCubit.backgroundColorChanged(color);
-    elevatedButtonThemeCubit.backgroundDefaultColorChanged(color);
-    outlinedButtonThemeCubit.foregroundDefaultColorChanged(color);
-    textButtonThemeCubit.foregroundDefaultColorChanged(color);
 
     emit(
       state.copyWith(

@@ -149,7 +149,7 @@ class ColorThemeState extends Equatable {
     ];
   }
 
-  Color get onPrimaryColor => Colors.black;
+  Color get onPrimaryColor => Colors.white;
 
   Color get surfaceColor => Colors.white;
 

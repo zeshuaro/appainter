@@ -267,4 +267,4 @@ jobs:
           tag: ${{ steps.bump-version.outputs.version }}
           artifacts: "**/flutter_theme*.tar.gz"
           body: ${{ steps.generate-changelog.outputs.changelog }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}

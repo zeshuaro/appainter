@@ -4,7 +4,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
@@ -16,21 +16,21 @@ import '../widget_testers.dart';
 Future<void> main() async {
   final _widgetTesters = WidgetTesters(expandText: 'Floating Action Button');
 
-  late AdvancedThemeCubit advancedThemeCubit;
   late FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
+  late ColorThemeCubit colorThemeCubit;
   late Color color;
   late double doubleValue;
 
   setUp(() {
-    advancedThemeCubit = MockAdvancedThemeCubit();
     floatingActionButtonThemeCubit = MockFloatingActionButtonThemeCubit();
+    colorThemeCubit = MockColorThemeCubit();
     color = getRandomColor();
     doubleValue = Random().nextDouble();
 
-    when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
     when(() {
       return floatingActionButtonThemeCubit.state;
     }).thenReturn(const FloatingActionButtonThemeState());
+    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
   Future<void> _pumpApp(
@@ -45,8 +45,8 @@ Future<void> main() async {
     await tester.pumpWidget(
       MultiBlocProvider(
         providers: [
-          BlocProvider.value(value: advancedThemeCubit),
           BlocProvider.value(value: floatingActionButtonThemeCubit),
+          BlocProvider.value(value: colorThemeCubit),
         ],
         child: MaterialApp(
           home: MyExpansionPanelList(

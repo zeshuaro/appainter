@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
@@ -62,7 +62,7 @@ class _BackgroundColorPicker extends StatelessWidget {
         .theme
         .backgroundColor;
     final themeBackgroundColor =
-        context.watch<AdvancedThemeCubit>().state.themeData.backgroundColor;
+        context.watch<ColorThemeCubit>().state.backgroundColor;
 
     return ColorListTile(
       key: const Key('bottomNavigationBarThemeEditor_backgroundColorPicker'),
@@ -85,8 +85,7 @@ class _SelectedItemColorPicker extends StatelessWidget {
         .state
         .theme
         .selectedItemColor;
-    final primaryColor =
-        context.watch<AdvancedThemeCubit>().state.themeData.primaryColor;
+    final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
 
     return ColorListTile(
       key: const Key('bottomNavigationBarThemeEditor_selectedItemColorPicker'),
@@ -109,11 +108,8 @@ class _UnselectedItemColorPicker extends StatelessWidget {
         .state
         .theme
         .unselectedItemColor;
-    final unselectedWidgetColor = context
-        .watch<AdvancedThemeCubit>()
-        .state
-        .themeData
-        .unselectedWidgetColor;
+    final unselectedWidgetColor =
+        context.watch<ColorThemeCubit>().state.unselectedWidgetColor;
 
     return ColorListTile(
       key: const Key(

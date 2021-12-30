@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
@@ -34,8 +34,6 @@ class _BackgroundColorPickers extends StatelessWidget {
         .theme
         .style
         ?.backgroundColor;
-    final primary =
-        context.watch<AdvancedThemeCubit>().state.themeData.colorScheme.primary;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Background Color',
@@ -43,7 +41,7 @@ class _BackgroundColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_backgroundColor_default'),
           title: 'Default',
-          value: backgroundColor?.resolve({}) ?? primary,
+          value: backgroundColor?.resolve({}) ?? Colors.transparent,
           onValueChanged: (color) {
             context
                 .read<OutlinedButtonThemeCubit>()
@@ -64,8 +62,7 @@ class _ForegroundColorPickers extends StatelessWidget {
         .theme
         .style
         ?.foregroundColor;
-    final colorScheme =
-        context.watch<AdvancedThemeCubit>().state.themeData.colorScheme;
+    final colorThemeState = context.watch<ColorThemeCubit>().state;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Foreground Color',
@@ -73,7 +70,7 @@ class _ForegroundColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_foregroundColor_default'),
           title: 'Default',
-          value: foregroundColor?.resolve({}) ?? colorScheme.primary,
+          value: foregroundColor?.resolve({}) ?? colorThemeState.primaryColor,
           onValueChanged: (color) => context
               .read<OutlinedButtonThemeCubit>()
               .foregroundDefaultColorChanged(color),
@@ -82,7 +79,7 @@ class _ForegroundColorPickers extends StatelessWidget {
           key: const Key('outlinedButtonThemeEditor_foregroundColor_disabled'),
           title: 'Disabled',
           value: foregroundColor?.resolve({MaterialState.disabled}) ??
-              colorScheme.onSurface.withOpacity(0.38),
+              colorThemeState.onSurfaceColor.withOpacity(0.38),
           onValueChanged: (color) {
             context
                 .read<OutlinedButtonThemeCubit>()
@@ -103,8 +100,7 @@ class _OverlayColorPickers extends StatelessWidget {
         .theme
         .style
         ?.overlayColor;
-    final primary =
-        context.watch<AdvancedThemeCubit>().state.themeData.colorScheme.primary;
+    final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Overlay Color',
@@ -113,7 +109,7 @@ class _OverlayColorPickers extends StatelessWidget {
           key: const Key('outlinedButtonThemeEditor_overlayColor_hovered'),
           title: 'Hovered',
           value: overlayColor?.resolve({MaterialState.hovered}) ??
-              primary.withOpacity(0.04),
+              primaryColor.withOpacity(0.04),
           onValueChanged: (color) {
             context
                 .read<OutlinedButtonThemeCubit>()
@@ -124,7 +120,7 @@ class _OverlayColorPickers extends StatelessWidget {
           key: const Key('outlinedButtonThemeEditor_overlayColor_focused'),
           title: 'Focused',
           value: overlayColor?.resolve({MaterialState.focused}) ??
-              primary.withOpacity(0.12),
+              primaryColor.withOpacity(0.12),
           onValueChanged: (color) {
             context
                 .read<OutlinedButtonThemeCubit>()
@@ -135,7 +131,7 @@ class _OverlayColorPickers extends StatelessWidget {
           key: const Key('outlinedButtonThemeEditor_overlayColor_pressed'),
           title: 'Pressed',
           value: overlayColor?.resolve({MaterialState.pressed}) ??
-              primary.withOpacity(0.12),
+              primaryColor.withOpacity(0.12),
           onValueChanged: (color) {
             context
                 .read<OutlinedButtonThemeCubit>()
@@ -156,8 +152,7 @@ class _ShadowColorPickers extends StatelessWidget {
         .theme
         .style
         ?.shadowColor;
-    final themeShadowColor =
-        context.watch<AdvancedThemeCubit>().state.themeData.shadowColor;
+    final themeShadowColor = context.watch<ColorThemeCubit>().state.shadowColor;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Shadow Color',

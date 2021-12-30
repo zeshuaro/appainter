@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/services/util_service.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
@@ -15,17 +15,17 @@ import '../widget_testers.dart';
 void main() {
   final widgetTesters = WidgetTesters(expandText: 'Tab Bar');
 
-  late AdvancedThemeCubit advancedThemeCubit;
   late TabBarThemeCubit tabBarThemeCubit;
+  late ColorThemeCubit colorThemeCubit;
   late Color color;
 
   setUp(() {
-    advancedThemeCubit = MockAdvancedThemeCubit();
     tabBarThemeCubit = MockTabBarThemeCubit();
+    colorThemeCubit = MockColorThemeCubit();
     color = getRandomColor();
 
-    when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
     when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());
+    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
   Future<void> _pumpApp(WidgetTester tester, TabBarThemeState state) async {
@@ -37,8 +37,8 @@ void main() {
     await tester.pumpWidget(
       MultiBlocProvider(
         providers: [
-          BlocProvider.value(value: advancedThemeCubit),
           BlocProvider.value(value: tabBarThemeCubit),
+          BlocProvider.value(value: colorThemeCubit),
         ],
         child: MaterialApp(
           home: MyExpansionPanelList(item: const TabBarThemeEditor()),

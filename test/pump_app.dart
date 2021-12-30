@@ -92,7 +92,9 @@ extension PumpApp on WidgetTester {
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
     when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
-    when(() => mockAdvancedThemeCubit.state).thenReturn(AdvancedThemeState());
+    when(() => mockAdvancedThemeCubit.state).thenReturn(
+      const AdvancedThemeState(),
+    );
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
     when(() => appBarThemeCubit.state).thenReturn(const AppBarThemeState());
     when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());

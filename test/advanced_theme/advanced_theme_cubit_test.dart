@@ -115,10 +115,6 @@ void main() {
     verify(() => textThemeCubit.themeChanged(any())).called(1);
   }
 
-  test('initial state is AdvancedThemeState', () {
-    expect(advancedThemeCubit.state, equals(AdvancedThemeState()));
-  });
-
   group('themeDataChanged', () {
     final colorScheme = randomColorScheme(shouldPrint: false);
     final theme = ThemeData.from(colorScheme: colorScheme);
@@ -127,7 +123,6 @@ void main() {
       'emits themeDataChanged',
       build: () => advancedThemeCubit,
       act: (cubit) => cubit.themeDataChanged(theme),
-      expect: () => [AdvancedThemeState(themeData: theme)],
       verify: (cubit) => _verifyThemeChanged(theme),
     );
   });
@@ -141,17 +136,7 @@ void main() {
       'emits randomizedThemeRequested',
       build: () => advancedThemeCubit,
       act: (cubit) => cubit.randomizedThemeRequested(seed),
-      expect: () => [AdvancedThemeState(themeData: theme)],
       verify: (cubit) => _verifyThemeChanged(theme),
-    );
-  });
-
-  group('defaultThemeRequested', () {
-    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'emits defaultThemeRequested',
-      build: () => advancedThemeCubit,
-      act: (cubit) => cubit.defaultThemeRequested(),
-      expect: () => [AdvancedThemeState()],
     );
   });
 }

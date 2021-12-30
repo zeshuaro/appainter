@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/services/services.dart';
 import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
@@ -29,18 +29,12 @@ class _LabelColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final labelColor = context.watch<TabBarThemeCubit>().state.theme.labelColor;
-    final primaryColor = context
-        .watch<AdvancedThemeCubit>()
-        .state
-        .themeData
-        .primaryTextTheme
-        .bodyText1!
-        .color!;
+    final surfaceColor = context.watch<ColorThemeCubit>().state.surfaceColor;
 
     return ColorListTile(
       key: const Key('tabBarThemeEditor_labelColorPicker'),
       title: 'Label Color',
-      color: labelColor ?? primaryColor,
+      color: labelColor ?? surfaceColor,
       onColorChanged: (color) {
         context.read<TabBarThemeCubit>().labelColorChanged(color);
       },
@@ -53,14 +47,8 @@ class _UnselectedLabelColorPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final unselectedLabelColor =
         context.watch<TabBarThemeCubit>().state.theme.unselectedLabelColor;
-    final unselectedColor = context
-        .watch<AdvancedThemeCubit>()
-        .state
-        .themeData
-        .primaryTextTheme
-        .bodyText1!
-        .color!
-        .withOpacity(0.7);
+    final unselectedColor =
+        context.watch<ColorThemeCubit>().state.surfaceColor.withOpacity(0.7);
 
     return ColorListTile(
       key: const Key('tabBarThemeEditor_unselectedLabelColorPicker'),

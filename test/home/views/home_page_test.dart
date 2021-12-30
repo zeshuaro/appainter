@@ -38,7 +38,6 @@ void main() {
     when(() => homeCubit.state).thenReturn(const HomeState());
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
     when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
-    when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
   });
 
   Future<void> _pumpApp(WidgetTester tester) async {
@@ -176,9 +175,9 @@ void main() {
         await tester.ensureVisible(finder);
         await tester.tap(finder);
 
-        verify(() {
-          return homeRepo.exportTheme(basicThemeCubit.state.themeData);
-        }).called(greaterThan(0));
+        verify(
+          () => homeCubit.themeExported(basicThemeCubit.state.themeData),
+        ).called(greaterThan(0));
       },
     );
 
@@ -188,7 +187,6 @@ void main() {
         when(() => homeCubit.state).thenReturn(
           const HomeState(editMode: EditMode.advanced),
         );
-        when(() => advancedThemeCubit.state).thenReturn(AdvancedThemeState());
         when(() => homeRepo.exportTheme(any())).thenAnswer((_) async => {});
 
         await _pumpApp(tester);
@@ -196,10 +194,9 @@ void main() {
         final finder = find.byKey(const Key('homePage_exportButton'));
         await tester.ensureVisible(finder);
         await tester.tap(finder);
+        await tester.pumpAndSettle();
 
-        verify(() {
-          return homeRepo.exportTheme(advancedThemeCubit.state.themeData);
-        }).called(greaterThan(0));
+        verify(() => homeCubit.themeExported(any())).called(1);
       },
     );
   });

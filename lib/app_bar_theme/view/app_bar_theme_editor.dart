@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/advanced_theme/cubit/cubit.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/models/models.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
@@ -35,8 +35,7 @@ class _BackgroundColorPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor =
         context.watch<AppBarThemeCubit>().state.theme.backgroundColor;
-    final primaryColor =
-        context.watch<AdvancedThemeCubit>().state.themeData.primaryColor;
+    final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
 
     return ColorListTile(
       key: const Key('appBarThemeEditor_backgroundColorPicker'),
@@ -54,17 +53,13 @@ class _ForegroundColorPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final foregroundColor =
         context.watch<AppBarThemeCubit>().state.theme.foregroundColor;
-    final onPrimary = context
-        .watch<AdvancedThemeCubit>()
-        .state
-        .themeData
-        .colorScheme
-        .onPrimary;
+    final onPrimaryColor =
+        context.watch<ColorThemeCubit>().state.onPrimaryColor;
 
     return ColorListTile(
       key: const Key('appBarThemeEditor_foregroundColorPicker'),
       title: 'Foreground Color',
-      color: foregroundColor ?? onPrimary,
+      color: foregroundColor ?? onPrimaryColor,
       onColorChanged: (color) {
         context.read<AppBarThemeCubit>().foregroundColorChanged(color);
       },
@@ -99,8 +94,7 @@ class _ShadowColorPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final shadowColor =
         context.watch<AppBarThemeCubit>().state.theme.shadowColor;
-    final themeShadowColor =
-        context.watch<AdvancedThemeCubit>().state.themeData.shadowColor;
+    final themeShadowColor = context.watch<ColorThemeCubit>().state.shadowColor;
 
     return ColorListTile(
       key: const Key('appBarThemeEditor_shadowColorPicker'),

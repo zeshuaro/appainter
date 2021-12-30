@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
@@ -46,17 +46,12 @@ class _BackgroundColorPicker extends StatelessWidget {
         .state
         .theme
         .backgroundColor;
-    final secondary = context
-        .watch<AdvancedThemeCubit>()
-        .state
-        .themeData
-        .colorScheme
-        .secondary;
+    final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_backgroundColorPicker'),
       title: 'Background Color',
-      color: backgroundColor ?? secondary,
+      color: backgroundColor ?? primaryColor,
       onColorChanged: (color) {
         context
             .read<FloatingActionButtonThemeCubit>()
@@ -74,17 +69,13 @@ class _ForegroundColorPicker extends StatelessWidget {
         .state
         .theme
         .foregroundColor;
-    final onSecondary = context
-        .watch<AdvancedThemeCubit>()
-        .state
-        .themeData
-        .colorScheme
-        .onSecondary;
+    final onPrimaryColor =
+        context.watch<ColorThemeCubit>().state.onPrimaryColor;
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_foregroundColorPicker'),
       title: 'Foreground Color',
-      color: foregroundColor ?? onSecondary,
+      color: foregroundColor ?? onPrimaryColor,
       onColorChanged: (color) {
         context
             .read<FloatingActionButtonThemeCubit>()
@@ -99,8 +90,7 @@ class _FocusColorPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final focusColor =
         context.watch<FloatingActionButtonThemeCubit>().state.theme.focusColor;
-    final themeFocusColor =
-        context.watch<AdvancedThemeCubit>().state.themeData.focusColor;
+    final themeFocusColor = context.watch<ColorThemeCubit>().state.focusColor;
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_focusColorPicker'),
@@ -118,8 +108,7 @@ class _HoverColorPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final hoverColor =
         context.watch<FloatingActionButtonThemeCubit>().state.theme.hoverColor;
-    final themeHoverColor =
-        context.watch<AdvancedThemeCubit>().state.themeData.hoverColor;
+    final themeHoverColor = context.watch<ColorThemeCubit>().state.hoverColor;
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_hoverColorPicker'),
@@ -137,8 +126,7 @@ class _SplashColorPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final splashColor =
         context.watch<FloatingActionButtonThemeCubit>().state.theme.splashColor;
-    final themeSplashColor =
-        context.watch<AdvancedThemeCubit>().state.themeData.splashColor;
+    final themeSplashColor = context.watch<ColorThemeCubit>().state.splashColor;
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_splashColorPicker'),

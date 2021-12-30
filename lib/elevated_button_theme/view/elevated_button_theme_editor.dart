@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/common/common.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/widgets/widgets.dart';
@@ -34,8 +34,7 @@ class _BackgroundColorPickers extends StatelessWidget {
         .theme
         .style
         ?.backgroundColor;
-    final colorScheme =
-        context.watch<AdvancedThemeCubit>().state.themeData.colorScheme;
+    final colorThemeState = context.watch<ColorThemeCubit>().state;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Background Color',
@@ -43,7 +42,7 @@ class _BackgroundColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_backgroundColor_default'),
           title: 'Default',
-          value: backgroundColor?.resolve({}) ?? colorScheme.primary,
+          value: backgroundColor?.resolve({}) ?? colorThemeState.primaryColor,
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -54,7 +53,7 @@ class _BackgroundColorPickers extends StatelessWidget {
           key: const Key('elevatedButtonThemeEditor_backgroundColor_disabled'),
           title: 'Disabled',
           value: backgroundColor?.resolve({MaterialState.disabled}) ??
-              colorScheme.onSurface.withOpacity(0.12),
+              colorThemeState.onSurfaceColor.withOpacity(0.12),
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -75,8 +74,7 @@ class _ForegroundColorPickers extends StatelessWidget {
         .theme
         .style
         ?.foregroundColor;
-    final colorScheme =
-        context.watch<AdvancedThemeCubit>().state.themeData.colorScheme;
+    final colorSchemeState = context.watch<ColorThemeCubit>().state;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Foreground Color',
@@ -84,7 +82,8 @@ class _ForegroundColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_foregroundColor_default'),
           title: 'Default',
-          value: foregroundColor?.resolve({}) ?? colorScheme.onPrimary,
+          value:
+              foregroundColor?.resolve({}) ?? colorSchemeState.onPrimaryColor,
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -95,7 +94,7 @@ class _ForegroundColorPickers extends StatelessWidget {
           key: const Key('elevatedButtonThemeEditor_foregroundColor_disabled'),
           title: 'Disabled',
           value: foregroundColor?.resolve({MaterialState.disabled}) ??
-              colorScheme.onSurface.withOpacity(0.38),
+              colorSchemeState.onSurfaceColor.withOpacity(0.38),
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -116,8 +115,8 @@ class _OverlayColorPickers extends StatelessWidget {
         .theme
         .style
         ?.overlayColor;
-    final colorScheme =
-        context.watch<AdvancedThemeCubit>().state.themeData.colorScheme;
+    final onPrimaryColor =
+        context.watch<ColorThemeCubit>().state.onPrimaryColor;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Overlay Color',
@@ -126,7 +125,7 @@ class _OverlayColorPickers extends StatelessWidget {
           key: const Key('elevatedButtonThemeEditor_overlayColor_hovered'),
           title: 'Hovered',
           value: overlayColor?.resolve({MaterialState.hovered}) ??
-              colorScheme.onPrimary.withOpacity(0.08),
+              onPrimaryColor.withOpacity(0.08),
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -137,7 +136,7 @@ class _OverlayColorPickers extends StatelessWidget {
           key: const Key('elevatedButtonThemeEditor_overlayColor_focused'),
           title: 'Focused',
           value: overlayColor?.resolve({MaterialState.focused}) ??
-              colorScheme.onPrimary.withOpacity(0.24),
+              onPrimaryColor.withOpacity(0.24),
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -148,7 +147,7 @@ class _OverlayColorPickers extends StatelessWidget {
           key: const Key('elevatedButtonThemeEditor_overlayColor_pressed'),
           title: 'Pressed',
           value: overlayColor?.resolve({MaterialState.pressed}) ??
-              colorScheme.onPrimary.withOpacity(0.24),
+              onPrimaryColor.withOpacity(0.24),
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -169,8 +168,7 @@ class _ShadowColorPickers extends StatelessWidget {
         .theme
         .style
         ?.shadowColor;
-    final themeShadowColor =
-        context.watch<AdvancedThemeCubit>().state.themeData.shadowColor;
+    final themeShadowColor = context.watch<ColorThemeCubit>().state.shadowColor;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Shadow Color',

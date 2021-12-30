@@ -1,6 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
@@ -19,7 +17,6 @@ import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
 import 'package:flutter_theme/text_theme/text_theme.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
-part 'advanced_theme_cubit.g.dart';
 part 'advanced_theme_state.dart';
 
 class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
@@ -55,7 +52,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     required this.radioThemeCubit,
     required this.sliderThemeCubit,
     required this.textThemeCubit,
-  }) : super(AdvancedThemeState());
+  }) : super(const AdvancedThemeState());
 
   void themeDataChanged(ThemeData theme) {
     colorThemeCubit.themeChanged(theme);
@@ -75,8 +72,6 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     radioThemeCubit.themeChanged(theme.radioTheme);
     sliderThemeCubit.themeChanged(theme.sliderTheme);
     textThemeCubit.themeChanged(theme.textTheme);
-
-    emit(state.copyWith(themeData: theme));
   }
 
   void randomizedThemeRequested([int? seed]) {

@@ -148,4 +148,10 @@ class ColorThemeState extends Equatable {
       unselectedWidgetColor,
     ];
   }
+
+  Color get onPrimaryColor => Colors.black;
+
+  Color get surfaceColor => Colors.white;
+
+  Color get onSurfaceColor => Colors.black;
 }

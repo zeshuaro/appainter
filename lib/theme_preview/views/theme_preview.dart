@@ -1,11 +1,11 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
 import 'package:flutter_theme/app_bar_theme/cubit/app_bar_theme_cubit.dart';
 import 'package:flutter_theme/basic_theme/basic_theme.dart';
 import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:flutter_theme/checkbox_theme/checkbox_theme.dart';
+import 'package:flutter_theme/color_theme/color_theme.dart';
 import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
 import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:flutter_theme/home/home.dart';
@@ -36,6 +36,7 @@ class ThemePreview extends StatelessWidget {
       builder: (context, state) {
         final basicTheme = context.watch<BasicThemeCubit>().state.themeData;
 
+        final colorTheme = context.watch<ColorThemeCubit>().state;
         final appBarTheme = context.watch<AppBarThemeCubit>().state.theme;
         final tabBarTheme = context.watch<TabBarThemeCubit>().state.theme;
         final bottomNavigationBarTheme =
@@ -85,37 +86,60 @@ class ThemePreview extends StatelessWidget {
         final overlineTextStyle =
             context.watch<OverlineTextStyleCubit>().state.style;
 
-        final advancedTheme =
-            context.watch<AdvancedThemeCubit>().state.themeData.copyWith(
-                  appBarTheme: appBarTheme,
-                  tabBarTheme: tabBarTheme,
-                  bottomNavigationBarTheme: bottomNavigationBarTheme,
-                  floatingActionButtonTheme: floatingActionButtonTheme,
-                  elevatedButtonTheme: elevatedButtonTheme,
-                  outlinedButtonTheme: outlinedButtonTheme,
-                  textButtonTheme: textButtonTheme,
-                  iconTheme: iconTheme,
-                  inputDecorationTheme: inputDecorationTheme,
-                  switchTheme: switchTheme,
-                  checkboxTheme: checkboxTheme,
-                  radioTheme: radioTheme,
-                  sliderTheme: sliderTheme,
-                  textTheme: TextTheme(
-                    headline1: headline1TextStyle,
-                    headline2: headline2TextStyle,
-                    headline3: headline3TextStyle,
-                    headline4: headline4TextStyle,
-                    headline5: headline5TextStyle,
-                    headline6: headline6TextStyle,
-                    subtitle1: subtitle1TextStyle,
-                    subtitle2: subtitle2TextStyle,
-                    bodyText1: bodyText1TextStyle,
-                    bodyText2: bodyText2TextStyle,
-                    button: buttonTextStyle,
-                    caption: captionTextStyle,
-                    overline: overlineTextStyle,
-                  ),
-                );
+        final advancedTheme = ThemeData(
+          primaryColor: colorTheme.primaryColor,
+          primaryColorBrightness: colorTheme.primaryColorBrightness,
+          primaryColorLight: colorTheme.primaryColorLight,
+          primaryColorDark: colorTheme.primaryColorDark,
+          backgroundColor: colorTheme.backgroundColor,
+          bottomAppBarColor: colorTheme.bottomAppBarColor,
+          canvasColor: colorTheme.canvasColor,
+          cardColor: colorTheme.cardColor,
+          dialogBackgroundColor: colorTheme.dialogBackgroundColor,
+          disabledColor: colorTheme.disabledColor,
+          dividerColor: colorTheme.dividerColor,
+          errorColor: colorTheme.errorColor,
+          focusColor: colorTheme.focusColor,
+          highlightColor: colorTheme.highlightColor,
+          hintColor: colorTheme.hintColor,
+          hoverColor: colorTheme.hoverColor,
+          indicatorColor: colorTheme.indicatorColor,
+          scaffoldBackgroundColor: colorTheme.scaffoldBackgroundColor,
+          secondaryHeaderColor: colorTheme.secondaryHeaderColor,
+          selectedRowColor: colorTheme.selectedRowColor,
+          shadowColor: colorTheme.shadowColor,
+          splashColor: colorTheme.splashColor,
+          toggleableActiveColor: colorTheme.toggleableActiveColor,
+          unselectedWidgetColor: colorTheme.unselectedWidgetColor,
+          appBarTheme: appBarTheme,
+          tabBarTheme: tabBarTheme,
+          bottomNavigationBarTheme: bottomNavigationBarTheme,
+          floatingActionButtonTheme: floatingActionButtonTheme,
+          elevatedButtonTheme: elevatedButtonTheme,
+          outlinedButtonTheme: outlinedButtonTheme,
+          textButtonTheme: textButtonTheme,
+          iconTheme: iconTheme,
+          inputDecorationTheme: inputDecorationTheme,
+          switchTheme: switchTheme,
+          checkboxTheme: checkboxTheme,
+          radioTheme: radioTheme,
+          sliderTheme: sliderTheme,
+          textTheme: TextTheme(
+            headline1: headline1TextStyle,
+            headline2: headline2TextStyle,
+            headline3: headline3TextStyle,
+            headline4: headline4TextStyle,
+            headline5: headline5TextStyle,
+            headline6: headline6TextStyle,
+            subtitle1: subtitle1TextStyle,
+            subtitle2: subtitle2TextStyle,
+            bodyText1: bodyText1TextStyle,
+            bodyText2: bodyText2TextStyle,
+            button: buttonTextStyle,
+            caption: captionTextStyle,
+            overline: overlineTextStyle,
+          ),
+        );
 
         final theme =
             state.editMode == EditMode.basic ? basicTheme : advancedTheme;

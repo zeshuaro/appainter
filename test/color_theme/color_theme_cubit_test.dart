@@ -1,30 +1,15 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
-import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:flutter_theme/color_theme/color_theme.dart';
-import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
-import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
-import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
 import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../brightness.dart';
-import '../mocks.dart';
 import '../utils.dart';
 
 void main() {
   late ColorThemeCubit colorThemeCubit;
-  late AppBarThemeCubit appBarThemeCubit;
-  late BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
-  late FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
-  late ElevatedButtonThemeCubit elevatedButtonThemeCubit;
-  late OutlinedButtonThemeCubit outlinedButtonThemeCubit;
-  late TextButtonThemeCubit textButtonThemeCubit;
-
   late ThemeData theme;
   late Color color;
   late Color backgroundColor;
@@ -32,21 +17,7 @@ void main() {
   late Brightness brightness;
 
   setUp(() {
-    appBarThemeCubit = MockAppBarThemeCubit();
-    bottomNavigationBarThemeCubit = MockBottomNavigationBarThemeCubit();
-    floatingActionButtonThemeCubit = MockFloatingActionButtonThemeCubit();
-    elevatedButtonThemeCubit = MockElevatedButtonThemeCubit();
-    outlinedButtonThemeCubit = MockOutlinedButtonThemeCubit();
-    textButtonThemeCubit = MockTextButtonThemeCubit();
-
-    colorThemeCubit = ColorThemeCubit(
-      appBarThemeCubit: appBarThemeCubit,
-      bottomNavigationBarThemeCubit: bottomNavigationBarThemeCubit,
-      floatingActionButtonThemeCubit: floatingActionButtonThemeCubit,
-      elevatedButtonThemeCubit: elevatedButtonThemeCubit,
-      outlinedButtonThemeCubit: outlinedButtonThemeCubit,
-      textButtonThemeCubit: textButtonThemeCubit,
-    );
+    colorThemeCubit = ColorThemeCubit();
     color = getRandomColor();
   });
 
@@ -83,24 +54,6 @@ void main() {
           toggleableActiveColor: swatch[600],
         )
       ];
-    },
-    verify: (cubit) {
-      verify(() => appBarThemeCubit.backgroundColorChanged(color)).called(1);
-      verify(() {
-        bottomNavigationBarThemeCubit.selectedItemColorChanged(color);
-      }).called(1);
-      verify(() {
-        floatingActionButtonThemeCubit.backgroundColorChanged(color);
-      }).called(1);
-      verify(() {
-        elevatedButtonThemeCubit.backgroundDefaultColorChanged(color);
-      }).called(1);
-      verify(() {
-        outlinedButtonThemeCubit.foregroundDefaultColorChanged(color);
-      }).called(1);
-      verify(() {
-        textButtonThemeCubit.foregroundDefaultColorChanged(color);
-      }).called(1);
     },
   );
 

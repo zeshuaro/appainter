@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorThemeCubit = ColorThemeCubit();
     final appBarThemeCubit = AppBarThemeCubit();
     final tabBarThemeCubit = TabBarThemeCubit();
     final bottomNavigationBarThemeCubit = BottomNavigationBarThemeCubit();
@@ -39,15 +40,6 @@ class MyApp extends StatelessWidget {
     final checkboxThemeCubit = CheckboxThemeCubit();
     final radioThemeCubit = RadioThemeCubit();
     final sliderThemeCubit = SliderThemeCubit();
-
-    final colorThemeCubit = ColorThemeCubit(
-      appBarThemeCubit: appBarThemeCubit,
-      bottomNavigationBarThemeCubit: bottomNavigationBarThemeCubit,
-      floatingActionButtonThemeCubit: floatingActionButtonThemeCubit,
-      elevatedButtonThemeCubit: elevatedButtonThemeCubit,
-      outlinedButtonThemeCubit: outlinedButtonThemeCubit,
-      textButtonThemeCubit: textButtonThemeCubit,
-    );
 
     final headline1TextStyleCubit = Headline1TextStyleCubit();
     final headline2TextStyleCubit = Headline2TextStyleCubit();

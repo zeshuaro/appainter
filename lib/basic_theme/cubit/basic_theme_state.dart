@@ -3,14 +3,17 @@ part of 'basic_theme_cubit.dart';
 @CopyWith()
 @immutable
 class BasicThemeState extends Equatable {
-  final ThemeData themeData;
   final ColorScheme colorScheme;
 
-  BasicThemeState({
-    this.colorScheme = const ColorScheme.light(),
-    ThemeData? themeData,
-  }) : themeData = themeData ?? ThemeData.from(colorScheme: colorScheme);
+  const BasicThemeState({this.colorScheme = const ColorScheme.light()});
 
   @override
-  List<Object> get props => [themeData, colorScheme];
+  List<Object> get props => [colorScheme];
+
+  ThemeData get theme {
+    return ThemeData.localize(
+      ThemeData.from(colorScheme: colorScheme),
+      Typography.englishLike2018,
+    );
+  }
 }

@@ -43,7 +43,7 @@ class ExportButton extends StatelessWidget {
     late final ThemeData theme;
 
     if (editMode == EditMode.basic) {
-      theme = context.read<BasicThemeCubit>().state.themeData;
+      theme = context.read<BasicThemeCubit>().state.theme;
     } else {
       theme = _getAdvancedTheme(context);
     }

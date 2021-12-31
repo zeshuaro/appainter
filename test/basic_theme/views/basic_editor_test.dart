@@ -25,14 +25,14 @@ void main() {
 
   setUp(() {
     cubit = MockBasicThemeCubit();
-    when(() => cubit.state).thenReturn(BasicThemeState());
+    when(() => cubit.state).thenReturn(const BasicThemeState());
   });
 
   Future<void> _pumpApp(WidgetTester tester, ColorScheme colorScheme) async {
     whenListen(
       cubit,
       Stream.fromIterable([
-        BasicThemeState(),
+        const BasicThemeState(),
         BasicThemeState(colorScheme: colorScheme),
       ]),
     );

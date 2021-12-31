@@ -37,7 +37,7 @@ void main() {
 
     when(() => homeCubit.state).thenReturn(const HomeState());
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
-    when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
+    when(() => basicThemeCubit.state).thenReturn(const BasicThemeState());
   });
 
   Future<void> _pumpApp(WidgetTester tester) async {
@@ -166,7 +166,7 @@ void main() {
         when(() => homeCubit.state).thenReturn(
           const HomeState(editMode: EditMode.basic),
         );
-        when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
+        when(() => basicThemeCubit.state).thenReturn(const BasicThemeState());
         when(() => homeRepo.exportTheme(any())).thenAnswer((_) async => {});
 
         await _pumpApp(tester);
@@ -176,7 +176,7 @@ void main() {
         await tester.tap(finder);
 
         verify(
-          () => homeCubit.themeExported(basicThemeCubit.state.themeData),
+          () => homeCubit.themeExported(basicThemeCubit.state.theme),
         ).called(greaterThan(0));
       },
     );

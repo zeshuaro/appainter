@@ -91,7 +91,7 @@ extension PumpApp on WidgetTester {
     final textStyleState = TextStyleState(style: textStyle);
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
-    when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
+    when(() => mockBasicThemeCubit.state).thenReturn(const BasicThemeState());
     when(() => mockAdvancedThemeCubit.state).thenReturn(
       const AdvancedThemeState(),
     );

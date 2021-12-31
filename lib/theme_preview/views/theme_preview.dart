@@ -34,7 +34,7 @@ class ThemePreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        final basicTheme = context.watch<BasicThemeCubit>().state.themeData;
+        final basicTheme = context.watch<BasicThemeCubit>().state.theme;
 
         final colorTheme = context.watch<ColorThemeCubit>().state;
         final appBarTheme = context.watch<AppBarThemeCubit>().state.theme;

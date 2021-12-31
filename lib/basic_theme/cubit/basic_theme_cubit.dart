@@ -10,18 +10,18 @@ part 'basic_theme_cubit.g.dart';
 part 'basic_theme_state.dart';
 
 class BasicThemeCubit extends Cubit<BasicThemeState> {
-  BasicThemeCubit() : super(BasicThemeState());
+  BasicThemeCubit() : super(const BasicThemeState());
 
   void randomizedThemeRequested([int? seed]) {
-    _emitState(
-      randomColorSchemeLight(
+    emit(state.copyWith(
+      colorScheme: randomColorSchemeLight(
         seed: seed ?? DateTime.now().millisecondsSinceEpoch,
         shouldPrint: false,
       ),
-    );
+    ));
   }
 
-  void defaultThemeRequested() => emit(BasicThemeState());
+  void defaultThemeRequested() => emit(const BasicThemeState());
 
   void primaryColorChanged(Color color) {
     final swatch = UtilService.getColorSwatch(color);
@@ -36,19 +36,19 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
       onSecondary: onColor,
     );
 
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void primaryColorBrightnessChanged(bool isDark) {
     final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onPrimary: color);
 
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void primaryColorDarkChanged(Color color) {
     final colorScheme = state.colorScheme.copyWith(primaryVariant: color);
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void secondaryColorChanged(Color color) {
@@ -60,19 +60,19 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
       onSecondary: onColor,
     );
 
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void secondaryColorBrightnessChanged(bool isDark) {
     final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onSecondary: color);
 
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void secondaryColorDarkChanged(Color color) {
     final colorScheme = state.colorScheme.copyWith(secondaryVariant: color);
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void surfaceColorChanged(Color color) {
@@ -82,14 +82,14 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
       onSurface: onColor,
     );
 
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void surfaceColorBrightnessChanged(bool isDark) {
     final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onSurface: color);
 
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void backgroundColorChanged(Color color) {
@@ -99,14 +99,14 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
       onBackground: onColor,
     );
 
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void backgroundColorBrightnessChanged(bool isDark) {
     final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onBackground: color);
 
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void errorColorChanged(Color color) {
@@ -116,14 +116,14 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
       onError: onColor,
     );
 
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void errorColorBrightnessChanged(bool isDark) {
     final color = _getLightOrDarkColor(isDark);
     final colorScheme = state.colorScheme.copyWith(onError: color);
 
-    _emitState(colorScheme);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
   Color _getOnColor(Color color) {
@@ -134,14 +134,5 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
 
   Color _getLightOrDarkColor(bool isDark) {
     return isDark ? Colors.black : Colors.white;
-  }
-
-  void _emitState(ColorScheme colorScheme) {
-    emit(
-      state.copyWith(
-        themeData: ThemeData.from(colorScheme: colorScheme),
-        colorScheme: colorScheme,
-      ),
-    );
   }
 }

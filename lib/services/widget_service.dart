@@ -5,12 +5,13 @@ class WidgetService {
   static Future<void> showColorPicker({
     required BuildContext context,
     required Color color,
-    required void Function(Color) onColorChanged,
+    required ValueChanged<Color> onColorChanged,
   }) async {
     ColorPicker(
       key: const Key('widgetService_showColorPicker'),
       color: color,
-      borderRadius: 22,
+      borderRadius: 4,
+      showMaterialName: true,
       showColorCode: true,
       showColorName: true,
       enableOpacity: true,
@@ -21,6 +22,10 @@ class WidgetService {
       ),
       subheading: Text(
         'Select color shade',
+        style: Theme.of(context).textTheme.subtitle1,
+      ),
+      wheelSubheading: Text(
+        'Selected color and its shades',
         style: Theme.of(context).textTheme.subtitle1,
       ),
       pickersEnabled: const {

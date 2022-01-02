@@ -54,7 +54,7 @@ class _PrimaryColorPicker extends StatelessWidget {
             previous.primaryColorBrightness != current.primaryColorBrightness;
       },
       builder: (context, state) {
-        return ColorAndBrightness(
+        return ColorBrightnessListTile(
           title: 'Primary Color',
           key: const Key('colorThemeEditor_primaryColorPicker'),
           color: state.primaryColor,

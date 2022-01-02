@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'list_tiles/list_tiles.dart';
+import 'list_tiles.dart';
 
-class ColorAndBrightness extends StatelessWidget {
+class ColorBrightnessListTile extends StatelessWidget {
   final String title;
   final Color color;
   final void Function(Color) onColorChanged;
   final bool isColorDark;
   final void Function(bool) onBrightnessChanged;
 
-  const ColorAndBrightness({
+  const ColorBrightnessListTile({
     Key? key,
     required this.title,
     required this.color,

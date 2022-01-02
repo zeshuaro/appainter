@@ -34,7 +34,7 @@ class _PrimaryColorPicker extends StatelessWidget {
             previous.colorScheme.onPrimary != current.colorScheme.onPrimary;
       },
       builder: (context, state) {
-        return ColorAndBrightness(
+        return ColorBrightnessListTile(
           key: const Key('basicEditor_primaryColorPicker'),
           title: 'Primary Color',
           color: state.colorScheme.primary,
@@ -85,7 +85,7 @@ class _SecondaryColorPicker extends StatelessWidget {
             previous.colorScheme.onSecondary != current.colorScheme.onSecondary;
       },
       builder: (context, state) {
-        return ColorAndBrightness(
+        return ColorBrightnessListTile(
           key: const Key('basicEditor_secondaryColorPicker'),
           title: 'Secondary Color',
           color: state.colorScheme.secondary,
@@ -135,7 +135,7 @@ class _SurfaceColorPicker extends StatelessWidget {
             previous.colorScheme.onSurface != current.colorScheme.onSurface;
       },
       builder: (context, state) {
-        return ColorAndBrightness(
+        return ColorBrightnessListTile(
           key: const Key('basicEditor_surfaceColorPicker'),
           title: 'Surface Color',
           color: state.colorScheme.surface,
@@ -165,7 +165,7 @@ class _BackgroundColorPicker extends StatelessWidget {
                 current.colorScheme.onBackground;
       },
       builder: (context, state) {
-        return ColorAndBrightness(
+        return ColorBrightnessListTile(
           key: const Key('basicEditor_backgroundColorPicker'),
           title: 'Background Color',
           color: state.colorScheme.background,
@@ -193,7 +193,7 @@ class _ErrorColorPicker extends StatelessWidget {
             previous.colorScheme.onError != current.colorScheme.onError;
       },
       builder: (context, state) {
-        return ColorAndBrightness(
+        return ColorBrightnessListTile(
           key: const Key('basicEditor_errorColorPicker'),
           title: 'Error Color',
           color: state.colorScheme.error,

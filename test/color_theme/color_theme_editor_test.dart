@@ -44,6 +44,7 @@ void main() {
     testWidgets(
       'color picker should update with selected color',
       (tester) async {
+        color = const Color(0xFFF44336);
         final state = ColorThemeState(primaryColor: color);
 
         await _pumpApp(tester, state);

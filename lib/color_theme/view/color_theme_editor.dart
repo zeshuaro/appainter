@@ -55,8 +55,9 @@ class _PrimaryColorPicker extends StatelessWidget {
       },
       builder: (context, state) {
         return ColorBrightnessListTile(
-          title: 'Primary Color',
           key: const Key('colorThemeEditor_primaryColorPicker'),
+          enableOpacity: false,
+          title: 'Primary Color',
           color: state.primaryColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().primaryColorChanged(color);

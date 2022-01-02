@@ -36,6 +36,7 @@ class _PrimaryColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorBrightnessListTile(
           key: const Key('basicEditor_primaryColorPicker'),
+          enableOpacity: false,
           title: 'Primary Color',
           color: state.colorScheme.primary,
           onColorChanged: (color) {

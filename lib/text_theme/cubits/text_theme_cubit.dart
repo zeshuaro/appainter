@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/text_theme/text_theme.dart';
+import 'package:appainter/text_theme/text_theme.dart';
 
 part 'text_theme_state.dart';
 

@@ -2,9 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/home/home.dart';
+import 'package:appainter/services/services.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class UsageButton extends StatelessWidget {

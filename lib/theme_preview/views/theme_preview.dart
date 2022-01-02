@@ -1,24 +1,24 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/app_bar_theme/cubit/app_bar_theme_cubit.dart';
-import 'package:flutter_theme/basic_theme/basic_theme.dart';
-import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
-import 'package:flutter_theme/checkbox_theme/checkbox_theme.dart';
-import 'package:flutter_theme/color_theme/color_theme.dart';
-import 'package:flutter_theme/elevated_button_theme/elevated_button_theme.dart';
-import 'package:flutter_theme/floating_action_button_theme/floating_action_button_theme.dart';
-import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/icon_theme/icon_theme.dart';
-import 'package:flutter_theme/input_decoration_theme/input_decoration_theme.dart';
-import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
-import 'package:flutter_theme/radio_theme/radio_theme.dart';
-import 'package:flutter_theme/slider_theme/slider_theme.dart';
-import 'package:flutter_theme/switch_theme/switch_theme.dart';
-import 'package:flutter_theme/tab_bar_theme/tab_bar_theme.dart';
-import 'package:flutter_theme/text_button_theme/text_button_theme.dart';
-import 'package:flutter_theme/text_theme/text_theme.dart';
-import 'package:flutter_theme/theme_preview/theme_preview.dart';
+import 'package:appainter/app_bar_theme/cubit/app_bar_theme_cubit.dart';
+import 'package:appainter/basic_theme/basic_theme.dart';
+import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:appainter/checkbox_theme/checkbox_theme.dart';
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/elevated_button_theme/elevated_button_theme.dart';
+import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
+import 'package:appainter/home/home.dart';
+import 'package:appainter/icon_theme/icon_theme.dart';
+import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
+import 'package:appainter/outlined_button_theme/outlined_button_theme.dart';
+import 'package:appainter/radio_theme/radio_theme.dart';
+import 'package:appainter/slider_theme/slider_theme.dart';
+import 'package:appainter/switch_theme/switch_theme.dart';
+import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
+import 'package:appainter/text_button_theme/text_button_theme.dart';
+import 'package:appainter/text_theme/text_theme.dart';
+import 'package:appainter/theme_preview/theme_preview.dart';
 
 class ThemePreview extends StatelessWidget {
   final List<PreviewBody> _pages = const [

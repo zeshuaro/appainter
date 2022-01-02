@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/widgets/widgets.dart';
 
 class MaterialStateItem<T> {
   final Key? key;

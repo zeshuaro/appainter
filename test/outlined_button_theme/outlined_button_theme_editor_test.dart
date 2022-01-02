@@ -4,9 +4,9 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/color_theme/color_theme.dart';
-import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/outlined_button_theme/outlined_button_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';

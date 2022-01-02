@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/common/common.dart';
+import 'package:appainter/common/common.dart';
 
 enum PaddingSize { small, medium, normal, large, extraLarge }
 

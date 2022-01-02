@@ -1,4 +1,4 @@
-name: flutter_theme_example
+name: appainter_example
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -38,4 +38,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/flutter_theme.json
+    - assets/appainter_theme.json

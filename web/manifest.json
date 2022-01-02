@@ -1,11 +1,11 @@
 {
-  "name": "Flutter Theme",
-  "short_name": "Flutter Theme",
+  "name": "Appainter",
+  "short_name": "Appainter",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0175C2",
   "theme_color": "#0175C2",
-  "description": "A material theme editor/generator for Flutter",
+  "description": "A material theme editor and generator for Flutter",
   "orientation": "landscape-primary",
   "prefer_related_applications": false,
   "icons": [

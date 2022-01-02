@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "io.github.zeshuaro" "\0"
+            VALUE "CompanyName", "Appainter" "\0"
             VALUE "FileDescription", "A new Flutter project." "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "flutter_theme" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2021 io.github.zeshuaro. All rights reserved." "\0"
-            VALUE "OriginalFilename", "flutter_theme.exe" "\0"
-            VALUE "ProductName", "flutter_theme" "\0"
+            VALUE "InternalName", "appainter" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2021 zeshuaro. All rights reserved." "\0"
+            VALUE "OriginalFilename", "appainter.exe" "\0"
+            VALUE "ProductName", "appainter" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

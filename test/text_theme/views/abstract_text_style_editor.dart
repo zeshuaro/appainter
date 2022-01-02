@@ -4,11 +4,11 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/common/common.dart';
-import 'package:flutter_theme/models/models.dart';
-import 'package:flutter_theme/services/util_service.dart';
-import 'package:flutter_theme/text_theme/text_theme.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/common/common.dart';
+import 'package:appainter/models/models.dart';
+import 'package:appainter/services/util_service.dart';
+import 'package:appainter/text_theme/text_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../utils.dart';

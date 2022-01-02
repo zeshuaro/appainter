@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/color_theme/color_theme.dart';
-import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/switch_theme/switch_theme.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/services/services.dart';
+import 'package:appainter/switch_theme/switch_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 
 class SwitchThemeEditor extends ExpansionPanelItem {
   const SwitchThemeEditor({Key? key}) : super(key: key);

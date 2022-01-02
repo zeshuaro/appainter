@@ -6,7 +6,7 @@ import 'package:json_theme/json_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final themeStr = await rootBundle.loadString('assets/flutter_theme.json');
+  final themeStr = await rootBundle.loadString('assets/appainter_theme.json');
   final themeJson = jsonDecode(themeStr);
 
   final theme = ThemeDecoder.decodeThemeData(themeJson)!;
@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Theme Example',
+      title: 'Appainter Example',
       theme: theme,
-      home: const MyHomePage(title: 'Flutter Theme Example Home Page'),
+      home: const MyHomePage(title: 'Appainter Example Home Page'),
     );
   }
 }

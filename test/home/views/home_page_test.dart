@@ -2,12 +2,12 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
-import 'package:flutter_theme/basic_theme/cubit/basic_theme_cubit.dart';
-import 'package:flutter_theme/basic_theme/views/basic_editor.dart';
-import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/theme_preview/theme_preview.dart';
+import 'package:appainter/advanced_theme/advanced_theme.dart';
+import 'package:appainter/basic_theme/cubit/basic_theme_cubit.dart';
+import 'package:appainter/basic_theme/views/basic_editor.dart';
+import 'package:appainter/home/home.dart';
+import 'package:appainter/services/services.dart';
+import 'package:appainter/theme_preview/theme_preview.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mocks.dart';

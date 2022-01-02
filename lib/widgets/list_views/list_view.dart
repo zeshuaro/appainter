@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'paddings.dart';
+import 'package:flutter_theme/widgets/widgets.dart';
 
 class MyListView extends StatelessWidget {
   final List<Widget> children;

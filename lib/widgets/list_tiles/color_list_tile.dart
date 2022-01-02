@@ -26,6 +26,7 @@ class ColorListTile extends StatelessWidget {
         height: 44,
         borderRadius: 4,
         color: color,
+        onSelectFocus: false,
         onSelect: () => WidgetService.showColorPicker(
           context: context,
           color: color,

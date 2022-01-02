@@ -17,7 +17,7 @@ dependencies:
   equatable: ^2.0.0
   expandable: ^5.0.1
   file_picker: ^4.1.2
-  flex_color_picker: ^2.1.2
+  flex_color_picker: ^2.2.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.0

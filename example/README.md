@@ -1,4 +1,4 @@
-# flutter_theme_example
+# appainter_example
 
 A new Flutter project.
 

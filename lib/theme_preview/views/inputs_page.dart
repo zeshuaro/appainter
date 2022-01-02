@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/common/common.dart';
-import 'package:flutter_theme/theme_preview/views/preview_body.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/common/common.dart';
+import 'package:appainter/theme_preview/views/preview_body.dart';
+import 'package:appainter/widgets/widgets.dart';
 
 class InputsPage extends PreviewBody {
   const InputsPage({Key? key}) : super(key: key);

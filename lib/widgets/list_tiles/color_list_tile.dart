@@ -1,6 +1,6 @@
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/services/services.dart';
+import 'package:appainter/services/services.dart';
 
 import 'list_tile.dart';
 

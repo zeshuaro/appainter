@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/common/common.dart';
+import 'package:appainter/common/common.dart';
 
 abstract class ExpansionPanelItem extends StatelessWidget {
   String get header;

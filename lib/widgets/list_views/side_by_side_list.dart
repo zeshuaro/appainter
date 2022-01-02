@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/widgets/paddings.dart';
-import 'package:flutter_theme/widgets/side_by_side.dart';
+import 'package:appainter/widgets/paddings.dart';
+import 'package:appainter/widgets/side_by_side.dart';
 
 class SideBySideList extends StatelessWidget {
   final List<Widget> children;

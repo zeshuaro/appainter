@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/common/common.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/common/common.dart';
+import 'package:appainter/widgets/widgets.dart';
 
 class NestedListView extends StatelessWidget {
   final List<Widget> children;

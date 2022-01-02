@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/theme_preview/theme_preview.dart';
+import 'package:appainter/home/home.dart';
+import 'package:appainter/theme_preview/theme_preview.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';

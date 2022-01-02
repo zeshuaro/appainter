@@ -6,7 +6,7 @@ class ThemeUsage extends Equatable {
   const ThemeUsage([this.markdownData]);
 
   static const markdownUrl =
-      'https://github.com/zeshuaro/flutter_theme/blob/main/USAGE.md';
+      'https://github.com/zeshuaro/appainter/blob/main/USAGE.md';
 
   @override
   List<Object?> get props => [markdownData];

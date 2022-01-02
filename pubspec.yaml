@@ -1,5 +1,5 @@
-name: flutter_theme
-description: A material theme editor/generator for Flutter
+name: appainter
+description: A material theme editor and generator for Flutter
 publish_to: "none"
 version: 0.3.1
 

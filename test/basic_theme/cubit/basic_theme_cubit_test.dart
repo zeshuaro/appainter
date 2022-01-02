@@ -2,8 +2,8 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/basic_theme/cubit/basic_theme_cubit.dart';
-import 'package:flutter_theme/services/services.dart';
+import 'package:appainter/basic_theme/cubit/basic_theme_cubit.dart';
+import 'package:appainter/services/services.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../../utils.dart';

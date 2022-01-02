@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/models/enums/enum_model.dart';
+import 'package:appainter/models/enums/enum_model.dart';
 
 enum KnownEnum { a, b }
 enum UnknownEnum { a, b }

@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/common/common.dart';
-import 'package:flutter_theme/models/models.dart';
-import 'package:flutter_theme/services/services.dart';
+import 'package:appainter/common/common.dart';
+import 'package:appainter/models/models.dart';
+import 'package:appainter/services/services.dart';
 
 part 'abstract_text_style_cubit.g.dart';
 part 'text_style_state.dart';

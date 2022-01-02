@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/color_theme/cubit/color_theme_cubit.dart';
-import 'package:flutter_theme/common/common.dart';
-import 'package:flutter_theme/slider_theme/slider_theme.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/color_theme/cubit/color_theme_cubit.dart';
+import 'package:appainter/common/common.dart';
+import 'package:appainter/slider_theme/slider_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 
 class SliderThemeEditor extends ExpansionPanelItem {
   const SliderThemeEditor({Key? key}) : super(key: key);

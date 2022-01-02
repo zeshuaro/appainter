@@ -1,6 +1,6 @@
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/common/consts.dart';
+import 'package:appainter/common/consts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UtilService {

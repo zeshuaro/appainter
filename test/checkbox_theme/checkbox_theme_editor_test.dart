@@ -4,10 +4,10 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/checkbox_theme/checkbox_theme.dart';
-import 'package:flutter_theme/color_theme/color_theme.dart';
-import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/checkbox_theme/checkbox_theme.dart';
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/services/services.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';

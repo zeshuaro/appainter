@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
-import 'package:flutter_theme/home/home.dart';
+import 'package:appainter/advanced_theme/advanced_theme.dart';
+import 'package:appainter/home/home.dart';
 
 part 'home_cubit.g.dart';
 part 'home_state.dart';

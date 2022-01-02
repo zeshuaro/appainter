@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
-import 'package:flutter_theme/services/services.dart';
+import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:appainter/services/services.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';

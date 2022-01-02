@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/basic_theme/basic_theme.dart';
-import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/basic_theme/basic_theme.dart';
+import 'package:appainter/services/services.dart';
+import 'package:appainter/widgets/widgets.dart';
 
 class BasicEditor extends StatelessWidget {
   const BasicEditor({Key? key}) : super(key: key);

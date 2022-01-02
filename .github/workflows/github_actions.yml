@@ -140,7 +140,7 @@ jobs:
             os: macos-latest
             flutter-path: /Users/runner/hostedtoolcache/flutter
             build-path: build/macos/Build/Products/Release
-            build-output: flutter_theme.app
+            build-output: appainter.app
 
           - type: windows
             os: windows-latest
@@ -192,12 +192,12 @@ jobs:
       - name: Compress app 🗜️
         run: |
           cd ${{ matrix.build-path }}
-          tar -zcvf flutter_theme_${{ matrix.type }}.tar.gz ${{ matrix.build-output }}
+          tar -zcvf appainter_${{ matrix.type }}.tar.gz ${{ matrix.build-output }}
 
       - name: Upload app ⬆️
         uses: actions/upload-artifact@v2
         with:
-          path: "**/flutter_theme_${{ matrix.type }}.tar.gz"
+          path: "**/appainter_${{ matrix.type }}.tar.gz"
           if-no-files-found: error
 
   release:
@@ -265,6 +265,6 @@ jobs:
         uses: ncipollo/release-action@v1.9.0
         with:
           tag: ${{ steps.bump-version.outputs.version }}
-          artifacts: "**/flutter_theme*.tar.gz"
+          artifacts: "**/appainter*.tar.gz"
           body: ${{ steps.generate-changelog.outputs.changelog }}
           token: ${{ secrets.PAT }}

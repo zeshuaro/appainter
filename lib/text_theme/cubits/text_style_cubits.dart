@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/text_theme/text_theme.dart';
+import 'package:appainter/text_theme/text_theme.dart';
 
 const _englishTextTheme = Typography.englishLike2018;
 const _blackTextTheme = Typography.blackMountainView;

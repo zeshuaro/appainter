@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_theme/app_bar_theme/app_bar_theme.dart';
-import 'package:flutter_theme/models/models.dart';
+import 'package:appainter/app_bar_theme/app_bar_theme.dart';
+import 'package:appainter/models/models.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';

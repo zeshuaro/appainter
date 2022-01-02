@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_theme/common/consts.dart';
+import 'package:appainter/common/consts.dart';
 
 class MyCard extends StatelessWidget {
   final Widget child;

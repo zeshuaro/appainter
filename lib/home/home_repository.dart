@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_theme/home/home.dart';
+import 'package:appainter/home/home.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +20,8 @@ class HomeRepository {
         _filePicker = filePicker ?? FilePicker.platform;
 
   static const _usageFileUrl =
-      'https://raw.githubusercontent.com/zeshuaro/flutter_theme/main/USAGE.md';
-  static const _exportFileName = 'flutter_theme.json';
+      'https://raw.githubusercontent.com/zeshuaro/appainter/main/USAGE.md';
+  static const _exportFileName = 'appainter_theme.json';
 
   Future<ThemeUsage> fetchThemeUsage() async {
     try {

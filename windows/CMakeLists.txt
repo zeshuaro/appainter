@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(flutter_theme LANGUAGES CXX)
+project(appainter LANGUAGES CXX)
 
-set(BINARY_NAME "flutter_theme")
+set(BINARY_NAME "appainter")
 
 cmake_policy(SET CMP0063 NEW)
 

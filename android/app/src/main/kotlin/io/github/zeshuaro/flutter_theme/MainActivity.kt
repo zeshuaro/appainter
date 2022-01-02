@@ -1,4 +1,4 @@
-package io.github.zeshuaro.flutter_theme
+package dev.appainter
 
 import io.flutter.embedding.android.FlutterActivity
 

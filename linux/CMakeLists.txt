@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "flutter_theme")
-set(APPLICATION_ID "io.github.zeshuaro.flutter_theme")
+set(BINARY_NAME "appainter")
+set(APPLICATION_ID "dev.appainter")
 
 cmake_policy(SET CMP0063 NEW)
 

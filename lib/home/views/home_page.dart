@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/advanced_theme/advanced_theme.dart';
-import 'package:flutter_theme/basic_theme/basic_theme.dart';
-import 'package:flutter_theme/common/common.dart';
-import 'package:flutter_theme/home/home.dart';
-import 'package:flutter_theme/services/services.dart';
-import 'package:flutter_theme/theme_preview/theme_preview.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/advanced_theme/advanced_theme.dart';
+import 'package:appainter/basic_theme/basic_theme.dart';
+import 'package:appainter/common/common.dart';
+import 'package:appainter/home/home.dart';
+import 'package:appainter/services/services.dart';
+import 'package:appainter/theme_preview/theme_preview.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: const Text('Flutter Theme'),
+        title: const Text('Appainter'),
         centerTitle: false,
         actions: [
           _ActionButtons(),
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
           ),
           const VerticalPadding(),
           Text(
-            'Flutter Theme currently supports Flutter SDK: $_sdkVersion',
+            'Appainter currently supports Flutter SDK: $_sdkVersion',
             style: Theme.of(context).textTheme.bodyText1,
           )
         ],

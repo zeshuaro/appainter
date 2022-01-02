@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/text_theme/text_theme.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/text_theme/text_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 
 abstract class AbstractTextStyleEditor<T extends AbstractTextStyleCubit>
     extends ExpansionPanelItem {

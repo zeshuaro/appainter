@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_theme/color_theme/color_theme.dart';
-import 'package:flutter_theme/common/common.dart';
-import 'package:flutter_theme/outlined_button_theme/outlined_button_theme.dart';
-import 'package:flutter_theme/widgets/widgets.dart';
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/common/common.dart';
+import 'package:appainter/outlined_button_theme/outlined_button_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 
 class OutlinedButtonThemeEditor extends ExpansionPanelItem {
   const OutlinedButtonThemeEditor({Key? key}) : super(key: key);

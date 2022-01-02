@@ -8,6 +8,7 @@ class ColorBrightnessListTile extends StatelessWidget {
   final void Function(Color) onColorChanged;
   final bool isColorDark;
   final void Function(bool) onBrightnessChanged;
+  final bool enableOpacity;
 
   const ColorBrightnessListTile({
     Key? key,
@@ -16,6 +17,7 @@ class ColorBrightnessListTile extends StatelessWidget {
     required this.onColorChanged,
     required this.isColorDark,
     required this.onBrightnessChanged,
+    this.enableOpacity = true,
   }) : super(key: key);
 
   @override
@@ -28,6 +30,7 @@ class ColorBrightnessListTile extends StatelessWidget {
               title: title,
               color: color,
               onColorChanged: onColorChanged,
+              enableOpacity: enableOpacity,
             ),
           ),
           const VerticalDivider(),

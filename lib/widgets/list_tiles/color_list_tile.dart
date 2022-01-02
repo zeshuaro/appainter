@@ -8,12 +8,14 @@ class ColorListTile extends StatelessWidget {
   final String title;
   final Color color;
   final void Function(Color) onColorChanged;
+  final bool enableOpacity;
 
   const ColorListTile({
     Key? key,
     required this.title,
     required this.color,
     required this.onColorChanged,
+    this.enableOpacity = true,
   }) : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class ColorListTile extends StatelessWidget {
           context: context,
           color: color,
           onColorChanged: onColorChanged,
+          enableOpacity: enableOpacity,
         ),
       ),
     );

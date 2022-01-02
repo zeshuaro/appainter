@@ -6,6 +6,7 @@ class WidgetService {
     required BuildContext context,
     required Color color,
     required ValueChanged<Color> onColorChanged,
+    bool enableOpacity = true,
   }) async {
     ColorPicker(
       key: const Key('widgetService_showColorPicker'),
@@ -14,7 +15,7 @@ class WidgetService {
       showMaterialName: true,
       showColorCode: true,
       showColorName: true,
-      enableOpacity: true,
+      enableOpacity: enableOpacity,
       onColorChanged: onColorChanged,
       heading: Text(
         'Select color',

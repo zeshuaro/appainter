@@ -74,7 +74,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     textThemeCubit.themeChanged(theme.textTheme);
   }
 
-  void randomizedThemeRequested([int? seed]) {
+  void themeRandomized([int? seed]) {
     final theme = ThemeData.localize(
       ThemeData.from(
         colorScheme: randomColorSchemeLight(
@@ -87,7 +87,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     themeDataChanged(theme);
   }
 
-  void defaultThemeRequested() {
+  void themeReset() {
     final theme = ThemeData.localize(ThemeData(), Typography.englishLike2018);
     themeDataChanged(theme);
   }

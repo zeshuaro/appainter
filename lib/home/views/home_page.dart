@@ -7,7 +7,6 @@ import 'package:appainter/home/home.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/theme_preview/theme_preview.dart';
 import 'package:appainter/widgets/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -208,7 +207,7 @@ class _EditModeHeader extends StatelessWidget {
           child: _EditModeTabBar(),
         ),
         const Spacer(),
-        const _RandomAndResetButtons(),
+        const _EditModeActions(),
       ],
     );
   }
@@ -221,6 +220,7 @@ class _EditModeTabBar extends StatelessWidget {
       tabs: EditMode.values.map((mode) {
         final text = UtilService.enumToString(mode);
         return Tab(
+          key: Key('homePage_editModeTabBar_$text'),
           child: Text(
             text,
             style: const TextStyle(color: Colors.black),
@@ -234,45 +234,22 @@ class _EditModeTabBar extends StatelessWidget {
   }
 }
 
-class _RandomAndResetButtons extends StatelessWidget {
-  const _RandomAndResetButtons({Key? key}) : super(key: key);
+class _EditModeActions extends StatelessWidget {
+  const _EditModeActions({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
-      buildWhen: (previous, current) => previous.editMode != current.editMode,
       builder: (context, state) {
         return Row(
           children: [
-            IconButton(
-              key: const Key('homePage_randomizeThemeButton'),
-              onPressed: () {
-                if (state.editMode == EditMode.basic) {
-                  context.read<BasicThemeCubit>().randomizedThemeRequested();
-                } else {
-                  context.read<AdvancedThemeCubit>().randomizedThemeRequested();
-                }
-              },
-              icon: const FaIcon(
-                FontAwesomeIcons.random,
-                size: 20,
-              ),
-            ),
+            if (state.editMode == EditMode.basic) ...[
+              const ThemeBrightnessSwitch(),
+              const HorizontalPadding(),
+            ],
+            const RandomThemeButton(),
             const HorizontalPadding(),
-            IconButton(
-              key: const Key('homePage_resetThemeButton'),
-              onPressed: () {
-                if (state.editMode == EditMode.basic) {
-                  context.read<BasicThemeCubit>().defaultThemeRequested();
-                } else {
-                  context.read<AdvancedThemeCubit>().defaultThemeRequested();
-                }
-              },
-              icon: const FaIcon(
-                FontAwesomeIcons.redo,
-                size: 20,
-              ),
-            ),
+            const ResetThemeButton(),
           ],
         );
       },

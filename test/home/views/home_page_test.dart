@@ -14,6 +14,10 @@ import '../../mocks.dart';
 import '../../pump_app.dart';
 
 void main() {
+  final TestWidgetsFlutterBinding binding =
+      TestWidgetsFlutterBinding.ensureInitialized()
+          as TestWidgetsFlutterBinding;
+
   late HomeRepository homeRepo;
   late HomeCubit homeCubit;
   late BasicThemeCubit basicThemeCubit;
@@ -63,11 +67,15 @@ void main() {
       testWidgets(
         'editor should change to $mode',
         (tester) async {
+          binding.window.physicalSizeTestValue = const Size(1280, 720);
+          binding.window.devicePixelRatioTestValue = 1.0;
+
           when(() => homeCubit.state).thenReturn(HomeState(editMode: mode));
 
           await _pumpApp(tester);
 
-          final finder = find.text(UtilService.enumToString(mode));
+          final text = UtilService.enumToString(mode);
+          final finder = find.byKey(Key('homePage_editModeTabBar_$text'));
           await tester.ensureVisible(finder);
           await tester.tap(finder);
           await tester.pumpAndSettle();
@@ -76,87 +84,11 @@ void main() {
               mode == EditMode.basic ? BasicEditor : AdvancedEditor;
           expect(find.byType(editorType), findsOneWidget);
           verify(() => homeCubit.editModeChanged(mode)).called(1);
+
+          addTearDown(binding.window.clearPhysicalSizeTestValue);
         },
       );
     }
-  });
-
-  group('randomize theme', () {
-    testWidgets(
-      'randomize theme should be requested for basic editor',
-      (tester) async {
-        when(() {
-          return homeCubit.state;
-        }).thenReturn(const HomeState(editMode: EditMode.basic));
-
-        await _pumpApp(tester);
-
-        final finder = find.byKey(const Key('homePage_randomizeThemeButton'));
-        await tester.ensureVisible(finder);
-        await tester.tap(finder);
-
-        verify(() => basicThemeCubit.randomizedThemeRequested()).called(1);
-        verifyNever(() => advancedThemeCubit.randomizedThemeRequested());
-      },
-    );
-
-    testWidgets(
-      'randomize theme should be requested for advanced editor',
-      (tester) async {
-        when(() {
-          return homeCubit.state;
-        }).thenReturn(const HomeState(editMode: EditMode.advanced));
-
-        await _pumpApp(tester);
-
-        final finder = find.byKey(
-          const Key('homePage_randomizeThemeButton'),
-        );
-        await tester.ensureVisible(finder);
-        await tester.tap(finder);
-
-        verify(() => advancedThemeCubit.randomizedThemeRequested()).called(1);
-        verifyNever(() => basicThemeCubit.randomizedThemeRequested());
-      },
-    );
-  });
-
-  group('reset theme', () {
-    testWidgets(
-      'reset theme should be requested for basic editor',
-      (tester) async {
-        when(() {
-          return homeCubit.state;
-        }).thenReturn(const HomeState(editMode: EditMode.basic));
-
-        await _pumpApp(tester);
-
-        final finder = find.byKey(const Key('homePage_resetThemeButton'));
-        await tester.ensureVisible(finder);
-        await tester.tap(finder);
-
-        verify(() => basicThemeCubit.defaultThemeRequested()).called(1);
-        verifyNever(() => advancedThemeCubit.defaultThemeRequested());
-      },
-    );
-
-    testWidgets(
-      'reset theme should be requested for advanced editor',
-      (tester) async {
-        when(() {
-          return homeCubit.state;
-        }).thenReturn(const HomeState(editMode: EditMode.advanced));
-
-        await _pumpApp(tester);
-
-        final finder = find.byKey(const Key('homePage_resetThemeButton'));
-        await tester.ensureVisible(finder);
-        await tester.tap(finder);
-
-        verify(() => advancedThemeCubit.defaultThemeRequested()).called(1);
-        verifyNever(() => basicThemeCubit.defaultThemeRequested());
-      },
-    );
   });
 
   group('export theme', () {

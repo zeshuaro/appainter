@@ -135,7 +135,7 @@ void main() {
     blocTest<AdvancedThemeCubit, AdvancedThemeState>(
       'emits randomizedThemeRequested',
       build: () => advancedThemeCubit,
-      act: (cubit) => cubit.randomizedThemeRequested(seed),
+      act: (cubit) => cubit.themeRandomized(seed),
       verify: (cubit) => _verifyThemeChanged(theme),
     );
   });

@@ -12,16 +12,33 @@ part 'basic_theme_state.dart';
 class BasicThemeCubit extends Cubit<BasicThemeState> {
   BasicThemeCubit() : super(const BasicThemeState());
 
-  void randomizedThemeRequested([int? seed]) {
+  static const _colorSchemeLight = ColorScheme.light();
+  static const _colorSchemeDark = ColorScheme.dark();
+
+  void themeBrightnessChanged(bool isDark) {
+    emit(
+      state.copyWith(
+        colorScheme: isDark ? _colorSchemeDark : _colorSchemeLight,
+        isDark: isDark,
+      ),
+    );
+  }
+
+  void themeRandomized([int? seed]) {
     emit(state.copyWith(
-      colorScheme: randomColorSchemeLight(
+      colorScheme: randomColorScheme(
         seed: seed ?? DateTime.now().millisecondsSinceEpoch,
+        isDark: state.isDark,
         shouldPrint: false,
       ),
     ));
   }
 
-  void defaultThemeRequested() => emit(const BasicThemeState());
+  void themeReset() {
+    emit(state.copyWith(
+      colorScheme: state.isDark ? _colorSchemeDark : _colorSchemeLight,
+    ));
+  }
 
   void primaryColorChanged(Color color) {
     final swatch = UtilService.getColorSwatch(color);

@@ -94,6 +94,9 @@ void main() {
 
   blocTest<HomeCubit, HomeState>(
     'should emit theme exported',
+    setUp: () => when(() => homeRepo.exportTheme(any())).thenAnswer(
+      (invocation) => Future.value(null),
+    ),
     build: () => homeCubit,
     act: (cubit) => cubit.themeExported(themeData),
     verify: (bloc) => verify(() => homeRepo.exportTheme(themeData)).called(1),

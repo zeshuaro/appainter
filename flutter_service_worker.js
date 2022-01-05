@@ -7,12 +7,12 @@ const RESOURCES = {
 "canvaskit/profiling/canvaskit.js": "f3bfccc993a1e0bfdd3440af60d99df4",
 "canvaskit/profiling/canvaskit.wasm": "a9610cf39260f60fbe7524a785c66101",
 "canvaskit/canvaskit.wasm": "04ed3c745ff1dee16504be01f9623498",
-"main.dart.js": "2c080b058c12f9bca2d6fa5bcd9867e1",
+"main.dart.js": "f7152ae1a00aa1cfbec9cdcdc19c152d",
 "version.json": "c8472d56edd39ae98d9e27952a2a319d",
 "manifest.json": "100b0e7941ceae28f1d0221f5dbb9280",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"assets/NOTICES": "db0969005d03213ed0a058ef740f391a",
+"assets/NOTICES": "e522e5d8ec5649658a7e54c961ed32c2",
 "assets/AssetManifest.json": "4e597e2960a8863f883676c924ef86f5",
 "assets/FontManifest.json": "5a32d4310a6f5d9a6b651e75ba0d7372",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
@@ -21,8 +21,8 @@ const RESOURCES = {
 "assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "aa1ec80f1b30a51d64c72f669c1326a7",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"index.html": "01d1ac06669a6e7bdfd592bcf103a6b5",
-"/": "01d1ac06669a6e7bdfd592bcf103a6b5",
+"index.html": "0fb0418c88e4e84444a9e0a5cf4f1317",
+"/": "0fb0418c88e4e84444a9e0a5cf4f1317",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796"
 };
 

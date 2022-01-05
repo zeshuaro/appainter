@@ -35,14 +35,14 @@ packages:
       name: bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "8.0.1"
+    version: "8.0.2"
   bloc_test:
     dependency: "direct dev"
     description:
       name: bloc_test
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "9.0.1"
+    version: "9.0.2"
   boolean_selector:
     dependency: transitive
     description:
@@ -140,7 +140,7 @@ packages:
       name: cider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   cli_util:
     dependency: transitive
     description:
@@ -327,7 +327,7 @@ packages:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "8.0.0"
+    version: "8.0.1"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -468,21 +468,21 @@ packages:
       name: json_class
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.2+1"
+    version: "2.1.2+3"
   json_schema2:
     dependency: transitive
     description:
       name: json_schema2
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0+4"
+    version: "2.0.1"
   json_theme:
     dependency: "direct main"
     description:
       name: json_theme
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.2"
+    version: "3.2.3+1"
   klizma:
     dependency: transitive
     description:
@@ -517,7 +517,7 @@ packages:
       name: marker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.2"
+    version: "0.2.3"
   matcher:
     dependency: transitive
     description:
@@ -678,7 +678,7 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.1"
+    version: "6.0.2"
   pub_semver:
     dependency: transitive
     description:
@@ -720,7 +720,7 @@ packages:
       name: rest_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1+5"
+    version: "2.0.1+6"
   rfc_6901:
     dependency: transitive
     description:
@@ -1063,5 +1063,5 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=2.15.0 <3.0.0"
+  dart: ">=2.15.1 <3.0.0"
   flutter: ">=2.5.0"

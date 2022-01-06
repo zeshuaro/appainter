@@ -2,6 +2,8 @@ part of 'color_theme_cubit.dart';
 
 @CopyWith()
 class ColorThemeState extends Equatable {
+  late final ColorScheme colorScheme;
+
   late final Color primaryColor;
   late final Brightness primaryColorBrightness;
   late final Color primaryColorLight;
@@ -28,6 +30,7 @@ class ColorThemeState extends Equatable {
   late final Color unselectedWidgetColor;
 
   ColorThemeState({
+    ColorScheme? colorScheme,
     Color? primaryColor,
     Brightness? primaryColorBrightness,
     Color? primaryColorLight,
@@ -54,6 +57,8 @@ class ColorThemeState extends Equatable {
     Color? unselectedWidgetColor,
   }) {
     final theme = ThemeData();
+    this.colorScheme = colorScheme ?? theme.colorScheme;
+
     this.primaryColor = primaryColor ?? theme.primaryColor;
     this.primaryColorBrightness =
         primaryColorBrightness ?? theme.primaryColorBrightness;
@@ -86,12 +91,9 @@ class ColorThemeState extends Equatable {
         unselectedWidgetColor ?? theme.unselectedWidgetColor;
   }
 
-  factory ColorThemeState.defaultState() {
-    return ColorThemeState.fromTheme(ThemeData());
-  }
-
   factory ColorThemeState.fromTheme(ThemeData theme) {
     return ColorThemeState(
+      colorScheme: theme.colorScheme,
       primaryColor: theme.primaryColor,
       primaryColorBrightness: theme.primaryColorBrightness,
       primaryColorLight: theme.primaryColorLight,
@@ -122,6 +124,7 @@ class ColorThemeState extends Equatable {
   @override
   List<Object> get props {
     return [
+      colorScheme,
       primaryColor,
       primaryColorBrightness,
       primaryColorLight,
@@ -148,10 +151,4 @@ class ColorThemeState extends Equatable {
       unselectedWidgetColor,
     ];
   }
-
-  Color get onPrimaryColor => Colors.white;
-
-  Color get surfaceColor => Colors.white;
-
-  Color get onSurfaceColor => Colors.black;
 }

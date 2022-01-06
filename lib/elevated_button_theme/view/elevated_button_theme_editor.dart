@@ -34,7 +34,7 @@ class _BackgroundColorPickers extends StatelessWidget {
         .theme
         .style
         ?.backgroundColor;
-    final colorThemeState = context.watch<ColorThemeCubit>().state;
+    final colorScheme = context.watch<ColorThemeCubit>().state.colorScheme;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Background Color',
@@ -42,7 +42,7 @@ class _BackgroundColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_backgroundColor_default'),
           title: 'Default',
-          value: backgroundColor?.resolve({}) ?? colorThemeState.primaryColor,
+          value: backgroundColor?.resolve({}) ?? colorScheme.primary,
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -53,7 +53,7 @@ class _BackgroundColorPickers extends StatelessWidget {
           key: const Key('elevatedButtonThemeEditor_backgroundColor_disabled'),
           title: 'Disabled',
           value: backgroundColor?.resolve({MaterialState.disabled}) ??
-              colorThemeState.onSurfaceColor.withOpacity(0.12),
+              colorScheme.onSurface.withOpacity(0.12),
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -74,7 +74,7 @@ class _ForegroundColorPickers extends StatelessWidget {
         .theme
         .style
         ?.foregroundColor;
-    final colorSchemeState = context.watch<ColorThemeCubit>().state;
+    final colorScheme = context.watch<ColorThemeCubit>().state.colorScheme;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Foreground Color',
@@ -82,8 +82,7 @@ class _ForegroundColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_foregroundColor_default'),
           title: 'Default',
-          value:
-              foregroundColor?.resolve({}) ?? colorSchemeState.onPrimaryColor,
+          value: foregroundColor?.resolve({}) ?? colorScheme.onPrimary,
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -94,7 +93,7 @@ class _ForegroundColorPickers extends StatelessWidget {
           key: const Key('elevatedButtonThemeEditor_foregroundColor_disabled'),
           title: 'Disabled',
           value: foregroundColor?.resolve({MaterialState.disabled}) ??
-              colorSchemeState.onSurfaceColor.withOpacity(0.38),
+              colorScheme.onSurface.withOpacity(0.38),
           onValueChanged: (color) {
             context
                 .read<ElevatedButtonThemeCubit>()
@@ -116,7 +115,7 @@ class _OverlayColorPickers extends StatelessWidget {
         .style
         ?.overlayColor;
     final onPrimaryColor =
-        context.watch<ColorThemeCubit>().state.onPrimaryColor;
+        context.watch<ColorThemeCubit>().state.colorScheme.onPrimary;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Overlay Color',

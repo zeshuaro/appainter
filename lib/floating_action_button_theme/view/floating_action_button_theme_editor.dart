@@ -46,12 +46,13 @@ class _BackgroundColorPicker extends StatelessWidget {
         .state
         .theme
         .backgroundColor;
-    final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
+    final secondaryColor =
+        context.watch<ColorThemeCubit>().state.colorScheme.secondary;
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_backgroundColorPicker'),
       title: 'Background Color',
-      color: backgroundColor ?? primaryColor,
+      color: backgroundColor ?? secondaryColor,
       onColorChanged: (color) {
         context
             .read<FloatingActionButtonThemeCubit>()
@@ -70,7 +71,7 @@ class _ForegroundColorPicker extends StatelessWidget {
         .theme
         .foregroundColor;
     final onPrimaryColor =
-        context.watch<ColorThemeCubit>().state.onPrimaryColor;
+        context.watch<ColorThemeCubit>().state.colorScheme.onSecondary;
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_foregroundColorPicker'),

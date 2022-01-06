@@ -35,7 +35,8 @@ class _BackgroundColorPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor =
         context.watch<AppBarThemeCubit>().state.theme.backgroundColor;
-    final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
+    final primaryColor =
+        context.watch<ColorThemeCubit>().state.colorScheme.primary;
 
     return ColorListTile(
       key: const Key('appBarThemeEditor_backgroundColorPicker'),
@@ -54,7 +55,7 @@ class _ForegroundColorPicker extends StatelessWidget {
     final foregroundColor =
         context.watch<AppBarThemeCubit>().state.theme.foregroundColor;
     final onPrimaryColor =
-        context.watch<ColorThemeCubit>().state.onPrimaryColor;
+        context.watch<ColorThemeCubit>().state.colorScheme.onPrimary;
 
     return ColorListTile(
       key: const Key('appBarThemeEditor_foregroundColorPicker'),

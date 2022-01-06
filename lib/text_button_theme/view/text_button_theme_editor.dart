@@ -60,7 +60,7 @@ class _ForegroundColorPickers extends StatelessWidget {
         .theme
         .style
         ?.foregroundColor;
-    final colorThemeState = context.watch<ColorThemeCubit>().state;
+    final colorScheme = context.watch<ColorThemeCubit>().state.colorScheme;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Foreground Color',
@@ -68,7 +68,7 @@ class _ForegroundColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('textButtonThemeEditor_foregroundColor_default'),
           title: 'Default',
-          value: foregroundColor?.resolve({}) ?? colorThemeState.primaryColor,
+          value: foregroundColor?.resolve({}) ?? colorScheme.primary,
           onValueChanged: (color) {
             context
                 .read<TextButtonThemeCubit>()
@@ -79,7 +79,7 @@ class _ForegroundColorPickers extends StatelessWidget {
           key: const Key('textButtonThemeEditor_foregroundColor_disabled'),
           title: 'Disabled',
           value: foregroundColor?.resolve({MaterialState.disabled}) ??
-              colorThemeState.onSurfaceColor.withOpacity(0.38),
+              colorScheme.onSurface.withOpacity(0.38),
           onValueChanged: (color) {
             context
                 .read<TextButtonThemeCubit>()
@@ -96,7 +96,8 @@ class _OverlayColorPickers extends StatelessWidget {
   Widget build(BuildContext context) {
     final overlayColor =
         context.watch<TextButtonThemeCubit>().state.theme.style?.overlayColor;
-    final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
+    final primaryColor =
+        context.watch<ColorThemeCubit>().state.colorScheme.primary;
 
     return MaterialStatePropertyCard<Color>(
       header: 'Overlay Color',

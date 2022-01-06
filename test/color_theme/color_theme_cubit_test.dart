@@ -12,7 +12,7 @@ void main() {
   late ColorThemeCubit colorThemeCubit;
   late ThemeData theme;
   late Color color;
-  late Color backgroundColor;
+  late Color onColor;
   late Map<int, Color> swatch;
   late Brightness brightness;
 
@@ -36,19 +36,27 @@ void main() {
     'should emit primary color',
     setUp: () {
       swatch = UtilService.getColorSwatch(color);
-      backgroundColor = swatch[200]!;
       brightness = ThemeData.estimateBrightnessForColor(color);
+      onColor = brightness == Brightness.dark ? Colors.white : Colors.black;
     },
     build: () => colorThemeCubit,
     act: (cubit) => cubit.primaryColorChanged(color),
     expect: () {
       return [
         ColorThemeState(
+          colorScheme: ColorScheme.light(
+            primary: color,
+            primaryVariant: swatch[700]!,
+            onPrimary: onColor,
+            secondary: color,
+            secondaryVariant: swatch[700]!,
+            onSecondary: onColor,
+          ),
           primaryColor: color,
           primaryColorBrightness: brightness,
           primaryColorLight: swatch[100],
           primaryColorDark: swatch[700],
-          backgroundColor: backgroundColor,
+          backgroundColor: swatch[200],
           indicatorColor: color,
           secondaryHeaderColor: swatch[50],
           toggleableActiveColor: swatch[600],

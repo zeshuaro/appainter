@@ -29,12 +29,13 @@ class _LabelColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final labelColor = context.watch<TabBarThemeCubit>().state.theme.labelColor;
-    final surfaceColor = context.watch<ColorThemeCubit>().state.surfaceColor;
+    final onPrimaryColor =
+        context.watch<ColorThemeCubit>().state.colorScheme.onPrimary;
 
     return ColorListTile(
       key: const Key('tabBarThemeEditor_labelColorPicker'),
       title: 'Label Color',
-      color: labelColor ?? surfaceColor,
+      color: labelColor ?? onPrimaryColor,
       onColorChanged: (color) {
         context.read<TabBarThemeCubit>().labelColorChanged(color);
       },
@@ -47,8 +48,12 @@ class _UnselectedLabelColorPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     final unselectedLabelColor =
         context.watch<TabBarThemeCubit>().state.theme.unselectedLabelColor;
-    final unselectedColor =
-        context.watch<ColorThemeCubit>().state.surfaceColor.withOpacity(0.7);
+    final unselectedColor = context
+        .watch<ColorThemeCubit>()
+        .state
+        .colorScheme
+        .onPrimary
+        .withOpacity(0.7);
 
     return ColorListTile(
       key: const Key('tabBarThemeEditor_unselectedLabelColorPicker'),

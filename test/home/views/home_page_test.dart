@@ -42,6 +42,7 @@ void main() {
     when(() => homeCubit.state).thenReturn(const HomeState());
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
     when(() => basicThemeCubit.state).thenReturn(const BasicThemeState());
+    when(() => advancedThemeCubit.state).thenReturn(const AdvancedThemeState());
   });
 
   Future<void> _pumpApp(WidgetTester tester) async {

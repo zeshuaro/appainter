@@ -61,6 +61,59 @@ void main() {
     );
   });
 
+  group('test theme brightness', () {
+    for (var isDark in [true, false]) {
+      blocTest<TextThemeCubit, TextThemeState>(
+        'should emit text style with isDark=$isDark',
+        build: () => textThemeCubit,
+        act: (cubit) => cubit.themeBrightnessChanged(isDark),
+        verify: (cubit) {
+          verify(
+            () => headline1TextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => headline2TextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => headline3TextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => headline4TextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => headline5TextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => headline6TextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+
+          verify(
+            () => subtitle1TextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => subtitle2TextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => bodyText1TextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => bodyText2TextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+
+          verify(
+            () => buttonTextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => captionTextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => overlineTextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+        },
+      );
+    }
+  });
+
   blocTest<TextThemeCubit, TextThemeState>(
     'should emit text style',
     build: () => textThemeCubit,

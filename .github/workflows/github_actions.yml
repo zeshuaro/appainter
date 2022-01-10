@@ -121,7 +121,7 @@ jobs:
           sed -i "s/\"\/\",//g" build/web/flutter_service_worker.js
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.2.0
+        uses: JamesIves/github-pages-deploy-action@4.2.1
         with:
           branch: gh-pages
           folder: build/web

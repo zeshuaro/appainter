@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
@@ -17,6 +19,7 @@ import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
+part 'advanced_theme_cubit.g.dart';
 part 'advanced_theme_state.dart';
 
 class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
@@ -54,7 +57,19 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     required this.textThemeCubit,
   }) : super(const AdvancedThemeState());
 
-  void themeDataChanged(ThemeData theme) {
+  static const _colorSchemeDark = ColorScheme.dark(
+    primary: Colors.blue,
+    secondary: Colors.blue,
+    surface: Colors.blue,
+  );
+
+  void themeBrightnessChanged(bool isDark) {
+    colorThemeCubit.themeChanged(_getDefaultTheme(isDark: isDark));
+    textThemeCubit.themeBrightnessChanged(isDark);
+    emit(state.copyWith(isDark: isDark));
+  }
+
+  void themeChanged(ThemeData theme) {
     colorThemeCubit.themeChanged(theme);
     appBarThemeCubit.themeChanged(theme.appBarTheme);
     tabBarThemeCubit.themeChanged(theme.tabBarTheme);
@@ -75,20 +90,29 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
   }
 
   void themeRandomized([int? seed]) {
+    final colorScheme = randomColorScheme(
+      seed: seed ?? DateTime.now().millisecondsSinceEpoch,
+      isDark: state.isDark,
+      shouldPrint: false,
+    );
     final theme = ThemeData.localize(
-      ThemeData.from(
-        colorScheme: randomColorSchemeLight(
-          seed: seed ?? DateTime.now().millisecondsSinceEpoch,
-          shouldPrint: false,
-        ),
-      ),
+      ThemeData.from(colorScheme: colorScheme),
       Typography.englishLike2018,
     );
-    themeDataChanged(theme);
+    themeChanged(theme);
   }
 
   void themeReset() {
-    final theme = ThemeData.localize(ThemeData(), Typography.englishLike2018);
-    themeDataChanged(theme);
+    final theme = ThemeData.localize(
+      _getDefaultTheme(),
+      Typography.englishLike2018,
+    );
+    themeChanged(theme);
+  }
+
+  ThemeData _getDefaultTheme({bool? isDark}) {
+    return isDark ?? state.isDark
+        ? ThemeData.from(colorScheme: _colorSchemeDark)
+        : ThemeData();
   }
 }

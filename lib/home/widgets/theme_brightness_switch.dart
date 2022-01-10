@@ -1,3 +1,5 @@
+import 'package:appainter/advanced_theme/advanced_theme.dart';
+import 'package:appainter/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
@@ -13,18 +15,35 @@ class ThemeBrightnessSwitch extends StatelessWidget {
           'Brightness',
           style: Theme.of(context).textTheme.subtitle2,
         ),
-        BlocBuilder<BasicThemeCubit, BasicThemeState>(
-          builder: (context, state) {
-            return Switch(
-              activeColor: Colors.blueGrey,
-              onChanged: (value) {
-                context.read<BasicThemeCubit>().themeBrightnessChanged(value);
-              },
-              value: state.isDark,
-            );
-          },
-        ),
+        const _Switch(),
       ],
     );
+  }
+}
+
+class _Switch extends StatelessWidget {
+  const _Switch({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final editMode = context.watch<HomeCubit>().state.editMode;
+    final basicThemeIsDark = context.watch<BasicThemeCubit>().state.isDark;
+    final advancedThemeIsDark =
+        context.watch<AdvancedThemeCubit>().state.isDark;
+
+    return Switch(
+      activeColor: Colors.blueGrey,
+      onChanged: (value) => _onChanged(context, editMode, value),
+      value:
+          editMode == EditMode.basic ? basicThemeIsDark : advancedThemeIsDark,
+    );
+  }
+
+  void _onChanged(BuildContext context, EditMode editMode, bool value) {
+    if (editMode == EditMode.basic) {
+      context.read<BasicThemeCubit>().themeBrightnessChanged(value);
+    } else {
+      context.read<AdvancedThemeCubit>().themeBrightnessChanged(value);
+    }
   }
 }

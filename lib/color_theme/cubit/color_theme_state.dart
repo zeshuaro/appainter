@@ -116,7 +116,9 @@ class ColorThemeState extends Equatable {
       selectedRowColor: theme.selectedRowColor,
       shadowColor: theme.shadowColor,
       splashColor: theme.splashColor,
-      toggleableActiveColor: theme.toggleableActiveColor,
+      toggleableActiveColor: theme.brightness == Brightness.dark
+          ? theme.primaryColor
+          : theme.toggleableActiveColor,
       unselectedWidgetColor: theme.unselectedWidgetColor,
     );
   }

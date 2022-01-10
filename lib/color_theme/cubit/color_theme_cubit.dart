@@ -40,15 +40,16 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
     ));
   }
 
-  void primaryColorChanged(Color color) {
+  void primaryColorChanged(Color color, bool isDark) {
     final swatch = UtilService.getColorSwatch(color);
     final primaryColorDark = swatch[700]!;
-    final brightness = ThemeData.estimateBrightnessForColor(color);
-    final onColor = brightness == Brightness.dark ? Colors.white : Colors.black;
+    final colorScheme =
+        isDark ? const ColorScheme.dark() : const ColorScheme.light();
+    final onColor = isDark ? Colors.white : Colors.black;
 
     emit(
       state.copyWith(
-        colorScheme: ColorScheme.light(
+        colorScheme: colorScheme.copyWith(
           primary: color,
           primaryVariant: primaryColorDark,
           onPrimary: onColor,
@@ -57,7 +58,6 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
           onSecondary: onColor,
         ),
         primaryColor: color,
-        primaryColorBrightness: brightness,
         primaryColorLight: swatch[100],
         primaryColorDark: primaryColorDark,
         backgroundColor: swatch[200],

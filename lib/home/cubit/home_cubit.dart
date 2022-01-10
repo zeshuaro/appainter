@@ -28,7 +28,7 @@ class HomeCubit extends Cubit<HomeState> {
     final theme = await repo.importTheme();
     emit(state.copyWith(isImportingTheme: false));
     if (theme != null) {
-      advancedThemeCubit.themeDataChanged(theme);
+      advancedThemeCubit.themeChanged(theme);
       emit(state.copyWith(editMode: EditMode.advanced));
     }
   }

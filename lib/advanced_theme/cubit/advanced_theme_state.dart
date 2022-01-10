@@ -1,5 +1,11 @@
 part of 'advanced_theme_cubit.dart';
 
-class AdvancedThemeState {
-  const AdvancedThemeState();
+@CopyWith()
+class AdvancedThemeState extends Equatable {
+  final bool isDark;
+
+  const AdvancedThemeState({this.isDark = false});
+
+  @override
+  List<Object> get props => [isDark];
 }

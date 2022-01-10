@@ -37,7 +37,7 @@ jobs:
             ${{ runner.os }}-flutter-
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
@@ -71,7 +71,7 @@ jobs:
             ${{ runner.os }}-flutter-
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
@@ -103,7 +103,7 @@ jobs:
             ${{ runner.os }}-flutter-
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
@@ -170,7 +170,7 @@ jobs:
             ${{ runner.os }}-flutter-
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 
@@ -224,7 +224,7 @@ jobs:
             ${{ runner.os }}-flutter-
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
 

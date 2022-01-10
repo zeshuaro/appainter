@@ -87,21 +87,8 @@ class ThemePreview extends StatelessWidget {
             context.watch<OverlineTextStyleCubit>().state.style;
 
         final advancedTheme = ThemeData(
-          colorScheme: ColorScheme(
-            primary: colorTheme.primaryColor,
-            primaryVariant: colorTheme.primaryColorDark,
-            secondary: colorTheme.primaryColor,
-            secondaryVariant: colorTheme.primaryColorDark,
-            surface: Colors.white,
-            background: colorTheme.backgroundColor,
-            error: colorTheme.errorColor,
-            onPrimary: Colors.white,
-            onSecondary: Colors.white,
-            onSurface: Colors.black,
-            onBackground: Colors.black,
-            onError: Colors.white,
-            brightness: Brightness.light,
-          ),
+          colorScheme: colorTheme.colorScheme,
+          brightness: colorTheme.colorScheme.brightness,
           primaryColor: colorTheme.primaryColor,
           primaryColorBrightness: colorTheme.primaryColorBrightness,
           primaryColorLight: colorTheme.primaryColorLight,

@@ -242,14 +242,12 @@ class _EditModeActions extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return Row(
-          children: [
-            if (state.editMode == EditMode.basic) ...[
-              const ThemeBrightnessSwitch(),
-              const HorizontalPadding(),
-            ],
-            const RandomThemeButton(),
-            const HorizontalPadding(),
-            const ResetThemeButton(),
+          children: const [
+            ThemeBrightnessSwitch(),
+            HorizontalPadding(),
+            RandomThemeButton(),
+            HorizontalPadding(),
+            ResetThemeButton(),
           ],
         );
       },

@@ -37,6 +37,24 @@ class TextThemeCubit extends Cubit<TextThemeState> {
     required this.overlineTextStyleCubit,
   }) : super(const TextThemeState());
 
+  void themeBrightnessChanged(bool isDark) {
+    headline1TextStyleCubit.styleBrightnessChanged(isDark);
+    headline2TextStyleCubit.styleBrightnessChanged(isDark);
+    headline3TextStyleCubit.styleBrightnessChanged(isDark);
+    headline4TextStyleCubit.styleBrightnessChanged(isDark);
+    headline5TextStyleCubit.styleBrightnessChanged(isDark);
+    headline6TextStyleCubit.styleBrightnessChanged(isDark);
+
+    subtitle1TextStyleCubit.styleBrightnessChanged(isDark);
+    subtitle2TextStyleCubit.styleBrightnessChanged(isDark);
+    bodyText1TextStyleCubit.styleBrightnessChanged(isDark);
+    bodyText2TextStyleCubit.styleBrightnessChanged(isDark);
+
+    buttonTextStyleCubit.styleBrightnessChanged(isDark);
+    captionTextStyleCubit.styleBrightnessChanged(isDark);
+    overlineTextStyleCubit.styleBrightnessChanged(isDark);
+  }
+
   void themeChanged(TextTheme theme) {
     headline1TextStyleCubit.styleChanged(theme.headline1);
     headline2TextStyleCubit.styleChanged(theme.headline2);

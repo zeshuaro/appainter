@@ -11,10 +11,10 @@ import '../utils.dart';
 void main() {
   late ColorThemeCubit colorThemeCubit;
   late ThemeData theme;
+  late ColorScheme colorScheme;
   late Color color;
   late Color onColor;
   late Map<int, Color> swatch;
-  late Brightness brightness;
 
   setUp(() {
     colorThemeCubit = ColorThemeCubit();
@@ -29,41 +29,73 @@ void main() {
     },
     build: () => colorThemeCubit,
     act: (cubit) => cubit.themeChanged(theme),
-    expect: () => [ColorThemeState.fromTheme(theme)],
+    expect: () => [
+      ColorThemeState(
+        colorScheme: theme.colorScheme,
+        primaryColor: theme.primaryColor,
+        primaryColorBrightness: theme.primaryColorBrightness,
+        primaryColorLight: theme.primaryColorLight,
+        primaryColorDark: theme.primaryColorDark,
+        backgroundColor: theme.backgroundColor,
+        bottomAppBarColor: theme.bottomAppBarColor,
+        canvasColor: theme.canvasColor,
+        cardColor: theme.cardColor,
+        dialogBackgroundColor: theme.dialogBackgroundColor,
+        disabledColor: theme.disabledColor,
+        dividerColor: theme.dividerColor,
+        errorColor: theme.errorColor,
+        focusColor: theme.focusColor,
+        highlightColor: theme.highlightColor,
+        hintColor: theme.hintColor,
+        hoverColor: theme.hoverColor,
+        indicatorColor: theme.indicatorColor,
+        scaffoldBackgroundColor: theme.scaffoldBackgroundColor,
+        secondaryHeaderColor: theme.secondaryHeaderColor,
+        selectedRowColor: theme.selectedRowColor,
+        shadowColor: theme.shadowColor,
+        splashColor: theme.splashColor,
+        toggleableActiveColor: theme.toggleableActiveColor,
+        unselectedWidgetColor: theme.unselectedWidgetColor,
+      )
+    ],
   );
 
-  blocTest<ColorThemeCubit, ColorThemeState>(
-    'should emit primary color',
-    setUp: () {
-      swatch = UtilService.getColorSwatch(color);
-      brightness = ThemeData.estimateBrightnessForColor(color);
-      onColor = brightness == Brightness.dark ? Colors.white : Colors.black;
-    },
-    build: () => colorThemeCubit,
-    act: (cubit) => cubit.primaryColorChanged(color),
-    expect: () {
-      return [
-        ColorThemeState(
-          colorScheme: ColorScheme.light(
-            primary: color,
-            primaryVariant: swatch[700]!,
-            onPrimary: onColor,
-            secondary: color,
-            secondaryVariant: swatch[700]!,
-            onSecondary: onColor,
-          ),
-          primaryColor: color,
-          primaryColorBrightness: brightness,
-          primaryColorLight: swatch[100],
-          primaryColorDark: swatch[700],
-          backgroundColor: swatch[200],
-          indicatorColor: color,
-          secondaryHeaderColor: swatch[50],
-          toggleableActiveColor: swatch[600],
-        )
-      ];
-    },
-  );
+  group('test primary color', () {
+    for (var isDark in [true, false]) {
+      blocTest<ColorThemeCubit, ColorThemeState>(
+        'should emit primary color with isDark=$isDark',
+        setUp: () {
+          swatch = UtilService.getColorSwatch(color);
+          colorScheme =
+              isDark ? const ColorScheme.dark() : const ColorScheme.light();
+          onColor = isDark ? Colors.white : Colors.black;
+        },
+        build: () => colorThemeCubit,
+        act: (cubit) => cubit.primaryColorChanged(color, isDark),
+        expect: () {
+          return [
+            ColorThemeState(
+              colorScheme: colorScheme.copyWith(
+                primary: color,
+                primaryVariant: swatch[700],
+                onPrimary: onColor,
+                secondary: color,
+                secondaryVariant: swatch[700],
+                onSecondary: onColor,
+              ),
+              primaryColor: color,
+              primaryColorLight: swatch[100],
+              primaryColorDark: swatch[700],
+              backgroundColor: swatch[200],
+              indicatorColor: color,
+              secondaryHeaderColor: swatch[50],
+              toggleableActiveColor: swatch[600],
+            )
+          ];
+        },
+      );
+    }
+  });
 
   group('test primary color brightness', () {
     for (var test in BrightnessTest.testCases) {

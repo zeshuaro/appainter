@@ -91,36 +91,6 @@ class ColorThemeState extends Equatable {
         unselectedWidgetColor ?? theme.unselectedWidgetColor;
   }
 
-  factory ColorThemeState.fromTheme(ThemeData theme) {
-    return ColorThemeState(
-      colorScheme: theme.colorScheme,
-      primaryColor: theme.primaryColor,
-      primaryColorBrightness: theme.primaryColorBrightness,
-      primaryColorLight: theme.primaryColorLight,
-      primaryColorDark: theme.primaryColorDark,
-      backgroundColor: theme.backgroundColor,
-      bottomAppBarColor: theme.bottomAppBarColor,
-      canvasColor: theme.canvasColor,
-      cardColor: theme.cardColor,
-      dialogBackgroundColor: theme.dialogBackgroundColor,
-      disabledColor: theme.disabledColor,
-      dividerColor: theme.dividerColor,
-      errorColor: theme.errorColor,
-      focusColor: theme.focusColor,
-      highlightColor: theme.highlightColor,
-      hintColor: theme.hintColor,
-      hoverColor: theme.hoverColor,
-      indicatorColor: theme.indicatorColor,
-      scaffoldBackgroundColor: theme.scaffoldBackgroundColor,
-      secondaryHeaderColor: theme.secondaryHeaderColor,
-      selectedRowColor: theme.selectedRowColor,
-      shadowColor: theme.shadowColor,
-      splashColor: theme.splashColor,
-      toggleableActiveColor: theme.toggleableActiveColor,
-      unselectedWidgetColor: theme.unselectedWidgetColor,
-    );
-  }
-
   @override
   List<Object> get props {
     return [

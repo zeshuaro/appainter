@@ -2,6 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
@@ -15,24 +16,28 @@ void main() {
   final widgetTesters = WidgetTesters(expandText: 'Colors');
 
   late ColorThemeCubit colorThemeCubit;
+  late AdvancedThemeCubit advancedThemeCubit;
   late Color color;
 
   setUp(() {
     colorThemeCubit = MockColorThemeCubit();
+    advancedThemeCubit = MockAdvancedThemeCubit();
     color = getRandomColor();
-
-    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
   Future<void> _pumpApp(WidgetTester tester, ColorThemeState state) async {
     whenListen(
       colorThemeCubit,
-      Stream.fromIterable([ColorThemeState(), state]),
+      Stream.fromIterable([state]),
+      initialState: ColorThemeState(),
     );
 
     await tester.pumpWidget(
-      BlocProvider.value(
-        value: colorThemeCubit,
+      MultiBlocProvider(
+        providers: [
+          BlocProvider.value(value: colorThemeCubit),
+          BlocProvider.value(value: advancedThemeCubit),
+        ],
         child: MaterialApp(
           home: MyExpansionPanelList(item: const ColorThemeEditor()),
         ),
@@ -40,23 +45,30 @@ void main() {
     );
   }
 
-  group('test primary colors', () {
-    testWidgets(
-      'color picker should update with selected color',
-      (tester) async {
-        color = const Color(0xFFF44336);
-        final state = ColorThemeState(primaryColor: color);
+  group('test primary color', () {
+    for (var isDark in [true, false]) {
+      testWidgets(
+        'color picker should update with selected color for isDark=$isDark',
+        (tester) async {
+          color = const Color(0xFFF44336);
+          final state = ColorThemeState(primaryColor: color);
+          when(() => advancedThemeCubit.state).thenReturn(
+            AdvancedThemeState(isDark: isDark),
+          );
 
-        await _pumpApp(tester, state);
+          await _pumpApp(tester, state);
 
-        await widgetTesters.checkColorPicker(
-          tester,
-          'colorThemeEditor_primaryColorPicker',
-          color,
-        );
-        verify(() => colorThemeCubit.primaryColorChanged(color)).called(1);
-      },
-    );
+          await widgetTesters.checkColorPicker(
+            tester,
+            'colorThemeEditor_primaryColorPicker',
+            color,
+          );
+          verify(
+            () => colorThemeCubit.primaryColorChanged(color, isDark),
+          ).called(1);
+        },
+      );
+    }
 
     for (var test in BrightnessTest.testCases) {
       testWidgets(

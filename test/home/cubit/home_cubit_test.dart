@@ -70,7 +70,7 @@ void main() {
       ],
       verify: (bloc) {
         verify(() => homeRepo.importTheme()).called(1);
-        verify(() => advancedThemeCubit.themeDataChanged(themeData)).called(1);
+        verify(() => advancedThemeCubit.themeChanged(themeData)).called(1);
       },
     );
 
@@ -87,7 +87,7 @@ void main() {
       ],
       verify: (bloc) {
         verify(() => homeRepo.importTheme()).called(1);
-        verifyNever(() => advancedThemeCubit.themeDataChanged(any()));
+        verifyNever(() => advancedThemeCubit.themeChanged(any()));
       },
     );
   });

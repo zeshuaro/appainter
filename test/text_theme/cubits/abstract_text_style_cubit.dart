@@ -14,19 +14,37 @@ typedef CubitInitializer<T> = T Function();
 
 class AbstractTextStyleCubitTest<T extends AbstractTextStyleCubit> {
   final CubitInitializer<T> initializer;
-  final TextStyle style;
 
-  AbstractTextStyleCubitTest({required this.initializer, required this.style});
+  AbstractTextStyleCubitTest({required this.initializer});
 
   void runAllTests() {
     late T cubit;
+    late TextStyle style;
     late Color color;
     late double doubleValue;
 
     setUp(() {
       cubit = initializer();
+      style = cubit.baseStyle.merge(cubit.blackStyle);
       color = getRandomColor();
       doubleValue = Random().nextDouble();
+    });
+
+    group('test style brightness', () {
+      for (var isDark in [true, false]) {
+        blocTest<T, TextStyleState>(
+          'should emit style with isDark=$isDark',
+          build: () => cubit,
+          act: (cubit) => cubit.styleBrightnessChanged(isDark),
+          expect: () => [
+            TextStyleState(
+              style: isDark
+                  ? style.merge(cubit.whiteStyle)
+                  : style.merge(cubit.blackStyle),
+            )
+          ],
+        );
+      }
     });
 
     blocTest<T, TextStyleState>(

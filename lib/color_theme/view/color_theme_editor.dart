@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
 
@@ -60,7 +61,8 @@ class _PrimaryColorPicker extends StatelessWidget {
           title: 'Primary Color',
           color: state.primaryColor,
           onColorChanged: (color) {
-            context.read<ColorThemeCubit>().primaryColorChanged(color);
+            final isDark = context.read<AdvancedThemeCubit>().state.isDark;
+            context.read<ColorThemeCubit>().primaryColorChanged(color, isDark);
           },
           isColorDark: state.primaryColorBrightness == Brightness.dark,
           onBrightnessChanged: (isDark) {

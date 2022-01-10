@@ -1,6 +1,6 @@
 part of 'abstract_text_style_cubit.dart';
 
-@CopyWith(copyWithNull: true)
+@CopyWith()
 class TextStyleState extends Equatable {
   final TextStyle style;
 

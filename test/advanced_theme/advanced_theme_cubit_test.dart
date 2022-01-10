@@ -23,6 +23,9 @@ import 'package:random_color_scheme/random_color_scheme.dart';
 import '../mocks.dart';
 
 void main() {
+  const seed = 0;
+  late ThemeData theme;
+
   late AdvancedThemeCubit advancedThemeCubit;
   late ColorThemeCubit colorThemeCubit;
   late AppBarThemeCubit appBarThemeCubit;
@@ -39,11 +42,6 @@ void main() {
   late RadioThemeCubit radioThemeCubit;
   late SliderThemeCubit sliderThemeCubit;
   late TextThemeCubit textThemeCubit;
-
-  setUpAll(() {
-    registerFallbackValue(FakeThemeData());
-    registerFallbackValue(FakeTextTheme());
-  });
 
   setUp(() {
     colorThemeCubit = MockColorThemeCubit();
@@ -82,7 +80,7 @@ void main() {
   });
 
   void _verifyThemeChanged(ThemeData theme) {
-    verify(() => colorThemeCubit.themeChanged(any())).called(1);
+    verify(() => colorThemeCubit.themeChanged(theme)).called(1);
     verify(() => appBarThemeCubit.themeChanged(theme.appBarTheme)).called(1);
     verify(() => tabBarThemeCubit.themeChanged(theme.tabBarTheme)).called(1);
     verify(
@@ -112,31 +110,97 @@ void main() {
     ).called(1);
     verify(() => radioThemeCubit.themeChanged(theme.radioTheme)).called(1);
     verify(() => sliderThemeCubit.themeChanged(theme.sliderTheme)).called(1);
-    verify(() => textThemeCubit.themeChanged(any())).called(1);
+    verify(() => textThemeCubit.themeChanged(theme.textTheme)).called(1);
   }
 
-  group('themeDataChanged', () {
-    final colorScheme = randomColorScheme(shouldPrint: false);
-    final theme = ThemeData.from(colorScheme: colorScheme);
-
-    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'emits themeDataChanged',
-      build: () => advancedThemeCubit,
-      act: (cubit) => cubit.themeDataChanged(theme),
-      verify: (cubit) => _verifyThemeChanged(theme),
-    );
+  group('test theme brightness', () {
+    for (var isDark in [true, false]) {
+      blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+        'should emit theme brightness with isDark=$isDark',
+        setUp: () {
+          theme = _getDefaultTheme(isDark: isDark);
+        },
+        build: () => advancedThemeCubit,
+        act: (cubit) => cubit.themeBrightnessChanged(isDark),
+        expect: () => [AdvancedThemeState(isDark: isDark)],
+        verify: (cubit) {
+          verify(() => colorThemeCubit.themeChanged(theme)).called(1);
+          verify(() => textThemeCubit.themeBrightnessChanged(isDark));
+        },
+      );
+    }
   });
 
-  group('randomizedThemeRequested', () {
-    const seed = 0;
-    final colorScheme = randomColorSchemeLight(seed: seed, shouldPrint: false);
-    final theme = ThemeData.from(colorScheme: colorScheme);
-
-    blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-      'emits randomizedThemeRequested',
-      build: () => advancedThemeCubit,
-      act: (cubit) => cubit.themeRandomized(seed),
-      verify: (cubit) => _verifyThemeChanged(theme),
-    );
+  group('test new theme', () {
+    for (var isDark in [true, false]) {
+      blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+        'should emit new theme with isDark=$isDark',
+        setUp: () {
+          final colorScheme = randomColorScheme(
+            isDark: isDark,
+            shouldPrint: false,
+          );
+          theme = ThemeData.localize(
+            ThemeData.from(colorScheme: colorScheme),
+            Typography.englishLike2018,
+          );
+        },
+        build: () => advancedThemeCubit,
+        act: (cubit) => cubit.themeChanged(theme),
+        verify: (cubit) => _verifyThemeChanged(theme),
+      );
+    }
   });
+
+  group('test random theme', () {
+    for (var isDark in [true, false]) {
+      blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+        'should emit random theme with isDark=$isDark',
+        setUp: () {
+          final colorScheme = randomColorScheme(
+            seed: seed,
+            isDark: isDark,
+            shouldPrint: false,
+          );
+          theme = ThemeData.localize(
+            ThemeData.from(colorScheme: colorScheme),
+            Typography.englishLike2018,
+          );
+        },
+        build: () => advancedThemeCubit,
+        seed: () => AdvancedThemeState(isDark: isDark),
+        act: (cubit) => cubit.themeRandomized(seed),
+        verify: (cubit) => _verifyThemeChanged(theme),
+      );
+    }
+  });
+
+  group('test default theme', () {
+    for (var isDark in [true, false]) {
+      blocTest<AdvancedThemeCubit, AdvancedThemeState>(
+        'should emit default theme with isDark=$isDark',
+        setUp: () {
+          theme = ThemeData.localize(
+            _getDefaultTheme(isDark: isDark),
+            Typography.englishLike2018,
+          );
+        },
+        build: () => advancedThemeCubit,
+        seed: () => AdvancedThemeState(isDark: isDark),
+        act: (cubit) => cubit.themeReset(),
+        verify: (cubit) => _verifyThemeChanged(theme),
+      );
+    }
+  });
+}
+
+ThemeData _getDefaultTheme({required bool isDark}) {
+  return isDark
+      ? ThemeData.from(
+          colorScheme: const ColorScheme.dark(
+          primary: Colors.blue,
+          secondary: Colors.blue,
+          surface: Colors.blue,
+        ))
+      : ThemeData();
 }

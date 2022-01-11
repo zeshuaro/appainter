@@ -121,7 +121,7 @@ jobs:
           sed -i "s/\"\/\",//g" build/web/flutter_service_worker.js
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.2.1
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
           branch: gh-pages
           folder: build/web
@@ -239,7 +239,7 @@ jobs:
           echo "::set-output name=version::v$(flutter pub run cider bump ${{ github.event.inputs.release-type }})"
 
       - name: Commit new version 🆕
-        uses: stefanzweifel/git-auto-commit-action@v4.12.0
+        uses: stefanzweifel/git-auto-commit-action@v4.13.0
         env:
           version: ${{ steps.bump-version.outputs.version }}
         with:

@@ -21,6 +21,8 @@ jobs:
         uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Update dependencies 🔼
         run: |

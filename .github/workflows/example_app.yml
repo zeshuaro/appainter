@@ -6,6 +6,10 @@ on:
       - main
   pull_request:
 
+defaults:
+  run:
+    working-directory: example
+
 jobs:
   test:
     name: Test
@@ -18,18 +22,12 @@ jobs:
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
-      - name: Cache Flutter 💾
-        uses: actions/cache@v2
-        with:
-          path: /Users/runner/hostedtoolcache/flutter
-          key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-
-
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Cache build 💾
         uses: mikehardy/buildcache-action@v1.2.2
@@ -43,7 +41,6 @@ jobs:
 
       - name: Run end-to-end tests 🧪
         run: |
-          cd example/
           flutter pub get
           flutter test integration_test
 
@@ -58,21 +55,14 @@ jobs:
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
-      - name: Cache Flutter 💾
-        uses: actions/cache@v2
-        with:
-          path: /opt/hostedtoolcache/flutter
-          key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-
-
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Run linting 🧪
         run: |
-          cd example/
           flutter pub get
           flutter analyze

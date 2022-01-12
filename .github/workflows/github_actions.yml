@@ -11,11 +11,6 @@ on:
         description: "Release type"
         required: true
 
-env:
-  flutter-path-linux: /opt/hostedtoolcache/flutter
-  flutter-path-macos: /Users/runner/hostedtoolcache/flutter
-  flutter-path-windows: C:\hostedtoolcache\windows\flutter
-
 jobs:
   test:
     name: Test
@@ -28,18 +23,12 @@ jobs:
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
-      - name: Cache Flutter 💾
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.flutter-path-linux }}
-          key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-
-
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Run tests 🧪
         run: |
@@ -62,18 +51,12 @@ jobs:
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
-      - name: Cache Flutter 💾
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.flutter-path-linux }}
-          key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-
-
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Run linting 🧪
         run: |
@@ -94,18 +77,12 @@ jobs:
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
-      - name: Cache Flutter 💾
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.flutter-path-linux }}
-          key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-
-
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Build web app 🏗
         run: |
@@ -161,18 +138,12 @@ jobs:
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
-      - name: Cache Flutter 💾
-        uses: actions/cache@v2
-        with:
-          path: ${{ matrix.flutter-path }}
-          key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-
-
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Patch for Linux build 🩹
         if: ${{ matrix.type == 'linux' }}
@@ -215,18 +186,12 @@ jobs:
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
-      - name: Cache Flutter 💾
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.flutter-path-linux }}
-          key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-flutter-
-
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v1.5.3
+        uses: subosito/flutter-action@v2.1.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Get previous tag 🏷️
         id: previous-tag

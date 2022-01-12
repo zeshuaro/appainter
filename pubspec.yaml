@@ -9,7 +9,7 @@ environment:
 dependencies:
   bloc: ^8.0.0
   collection: ^1.15.0
-  copy_with_extension: ^3.0.0
+  copy_with_extension: ^4.0.0
   cupertino_icons: ^1.0.0
   device_preview: ^1.0.0
   dio: ^4.0.0
@@ -37,7 +37,7 @@ dev_dependencies:
   bloc_test: ^9.0.0
   build_runner: ^2.0.0
   cider: ^0.1.0
-  copy_with_extension_gen: ^3.0.0
+  copy_with_extension_gen: ^4.0.0
   flutter_lints: ^1.0.4
   flutter_test:
     sdk: flutter

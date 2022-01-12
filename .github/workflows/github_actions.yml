@@ -90,13 +90,6 @@ jobs:
           flutter pub run build_runner build --delete-conflicting-outputs
           flutter build web --dart-define=FLUTTER_WEB_USE_SKIA=true
 
-      - name: Fix build for GitHub Pages 🔧
-        run: |
-          REPO_NAME=`echo $GITHUB_REPOSITORY | sed 's/.*\///g'`
-          sed -i "s/base\shref=\"\/\"/base href=\"\/$REPO_NAME\/\"/g" \
-            build/web/index.html
-          sed -i "s/\"\/\",//g" build/web/flutter_service_worker.js
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:

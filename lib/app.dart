@@ -125,9 +125,11 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => captionTextStyleCubit),
         BlocProvider(create: (_) => overlineTextStyleCubit),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'Appainter',
-        home: HomePage(),
+        theme: ThemeData(),
+        darkTheme: ThemeData.dark(),
+        home: const HomePage(),
       ),
     );
   }

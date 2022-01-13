@@ -28,7 +28,9 @@ class MaterialStatePropertyCard<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyCard(
-      color: Colors.grey[100],
+      color: Theme.of(context).brightness == Brightness.dark
+          ? Colors.grey[700]
+          : Colors.grey[100],
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

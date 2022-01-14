@@ -14,7 +14,9 @@ class TextThemeEditor extends ExpansionPanelItem {
     return Padding(
       padding: kPaddingAll,
       child: MyExpansionPanelList(
-        color: Colors.grey[100],
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.grey[700]
+            : Colors.grey[100],
         items: const [
           Headline1TextStyleEditor(),
           Headline2TextStyleEditor(),

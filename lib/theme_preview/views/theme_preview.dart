@@ -146,44 +146,46 @@ class ThemePreview extends StatelessWidget {
         final theme =
             state.editMode == EditMode.basic ? basicTheme : advancedTheme;
 
-        return DevicePreview(builder: (context) {
-          return MaterialApp(
-            theme: theme,
-            locale: DevicePreview.locale(context),
-            useInheritedMediaQuery: true,
-            home: DefaultTabController(
-              length: _pages.length,
-              child: Scaffold(
-                appBar: AppBar(
-                  title: const Text('Theme Preview'),
-                  actions: [
-                    IconButton(
-                      icon: const Icon(Icons.notifications),
-                      onPressed: () {},
-                    )
-                  ],
-                  bottom: TabBar(
-                    tabs: _pages.map((page) {
-                      return Tab(
-                        icon: Icon(page.icon),
-                        text: page.label,
-                      );
-                    }).toList(),
+        return DevicePreview(
+          builder: (context) {
+            return MaterialApp(
+              theme: theme,
+              locale: DevicePreview.locale(context),
+              useInheritedMediaQuery: true,
+              home: DefaultTabController(
+                length: _pages.length,
+                child: Scaffold(
+                  appBar: AppBar(
+                    title: const Text('Theme Preview'),
+                    actions: [
+                      IconButton(
+                        icon: const Icon(Icons.notifications),
+                        onPressed: () {},
+                      )
+                    ],
+                    bottom: TabBar(
+                      tabs: _pages.map((page) {
+                        return Tab(
+                          icon: Icon(page.icon),
+                          text: page.label,
+                        );
+                      }).toList(),
+                    ),
                   ),
+                  drawer: _Drawer(),
+                  body: TabBarView(
+                    children: _pages,
+                  ),
+                  floatingActionButton: FloatingActionButton(
+                    onPressed: () {},
+                    child: const Icon(Icons.add),
+                  ),
+                  bottomNavigationBar: _BottomNavigationBar(),
                 ),
-                drawer: _Drawer(),
-                body: TabBarView(
-                  children: _pages,
-                ),
-                floatingActionButton: FloatingActionButton(
-                  onPressed: () {},
-                  child: const Icon(Icons.add),
-                ),
-                bottomNavigationBar: _BottomNavigationBar(),
               ),
-            ),
-          );
-        });
+            );
+          },
+        );
       },
     );
   }

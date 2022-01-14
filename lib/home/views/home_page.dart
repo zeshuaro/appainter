@@ -17,6 +17,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   static const _sdkVersion = '2.8.1';
+  static final _backgroundColorDark = Colors.grey[850]!;
+  static final _backgroundColorLight = Colors.grey[200]!;
 
   @override
   void initState() {
@@ -27,7 +29,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Theme.of(context).brightness == Brightness.dark
+          ? _backgroundColorDark
+          : _backgroundColorLight,
       appBar: AppBar(
         title: const Text('Appainter'),
         centerTitle: false,
@@ -56,7 +60,9 @@ class _HomePageState extends State<HomePage> {
   SnackBar _buildSdkSnackBar() {
     return SnackBar(
       behavior: SnackBarBehavior.floating,
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).brightness == Brightness.dark
+          ? _backgroundColorDark
+          : _backgroundColorLight,
       duration: const Duration(seconds: 7),
       margin: EdgeInsets.only(
         left: kMargin,
@@ -223,7 +229,7 @@ class _EditModeTabBar extends StatelessWidget {
           key: Key('homePage_editModeTabBar_$text'),
           child: Text(
             text,
-            style: const TextStyle(color: Colors.black),
+            style: Theme.of(context).textTheme.subtitle2,
           ),
         );
       }).toList(),

@@ -23,7 +23,9 @@ class MyTextFormField extends StatelessWidget {
       ],
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.grey[200],
+        fillColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.grey[850]
+            : Colors.grey[200],
         labelText: labelText,
       ),
       onChanged: onChanged,

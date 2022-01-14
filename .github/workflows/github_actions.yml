@@ -24,7 +24,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.1.0
+        uses: subosito/flutter-action@v2.2.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
@@ -52,7 +52,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.1.0
+        uses: subosito/flutter-action@v2.2.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
@@ -78,7 +78,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.1.0
+        uses: subosito/flutter-action@v2.2.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
@@ -132,7 +132,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.1.0
+        uses: subosito/flutter-action@v2.2.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
@@ -180,7 +180,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.1.0
+        uses: subosito/flutter-action@v2.2.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
@@ -197,7 +197,7 @@ jobs:
           echo "::set-output name=version::v$(flutter pub run cider bump ${{ github.event.inputs.release-type }})"
 
       - name: Commit new version 🆕
-        uses: stefanzweifel/git-auto-commit-action@v4.13.0
+        uses: stefanzweifel/git-auto-commit-action@v4.13.1
         env:
           version: ${{ steps.bump-version.outputs.version }}
         with:

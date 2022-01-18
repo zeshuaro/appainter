@@ -100,7 +100,12 @@ void main() {
           const HomeState(editMode: EditMode.basic),
         );
         when(() => basicThemeCubit.state).thenReturn(const BasicThemeState());
-        when(() => homeRepo.exportTheme(any())).thenAnswer((_) async => {});
+        when(() => homeCubit.themeExported(any())).thenAnswer(
+          (invocation) => Future.value(),
+        );
+        when(() => homeRepo.exportTheme(any())).thenAnswer(
+          (invocation) => Future.value(),
+        );
 
         await _pumpApp(tester);
 
@@ -120,7 +125,12 @@ void main() {
         when(() => homeCubit.state).thenReturn(
           const HomeState(editMode: EditMode.advanced),
         );
-        when(() => homeRepo.exportTheme(any())).thenAnswer((_) async => {});
+        when(() => homeCubit.themeExported(any())).thenAnswer(
+          (invocation) => Future.value(),
+        );
+        when(() => homeRepo.exportTheme(any())).thenAnswer(
+          (invocation) => Future.value(),
+        );
 
         await _pumpApp(tester);
 
@@ -137,6 +147,10 @@ void main() {
   testWidgets(
     'import button should import theme to advanced editor',
     (tester) async {
+      when(() => homeCubit.themeImported()).thenAnswer(
+        (invocation) => Future.value(),
+      );
+
       await _pumpApp(tester);
 
       final finder = find.byKey(const Key('homePage_importButton'));

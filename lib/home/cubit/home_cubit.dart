@@ -23,7 +23,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   void sdkShowed() => emit(state.copyWith(isSdkShowed: true));
 
-  void themeImported() async {
+  Future<void> themeImported() async {
     emit(state.copyWith(isImportingTheme: true));
     final theme = await repo.importTheme();
     emit(state.copyWith(isImportingTheme: false));
@@ -33,5 +33,29 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  void themeExported(ThemeData theme) async => await repo.exportTheme(theme);
+  Future<void> themeExported(ThemeData theme) async {
+    await repo.exportTheme(theme);
+  }
+
+  Future<void> themeModeFetched() async {
+    late final ThemeMode mode;
+    final isDark = await repo.getIsDarkTheme();
+    if (isDark != null) {
+      mode = getThemeMode(isDark);
+    } else {
+      mode = ThemeMode.system;
+    }
+
+    emit(state.copyWith(status: HomeStatus.success, themeMode: mode));
+  }
+
+  Future<void> themeModeChanged(bool isDark) async {
+    await repo.setIsDarkTheme(isDark);
+    emit(state.copyWith(themeMode: getThemeMode(isDark)));
+  }
+
+  @visibleForTesting
+  ThemeMode getThemeMode(bool isDark) {
+    return isDark ? ThemeMode.dark : ThemeMode.light;
+  }
 }

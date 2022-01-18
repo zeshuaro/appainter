@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:pretty_json/pretty_json.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:universal_io/io.dart' as io;
 
@@ -22,6 +23,7 @@ class HomeRepository {
   static const _usageFileUrl =
       'https://raw.githubusercontent.com/zeshuaro/appainter/main/USAGE.md';
   static const _exportFileName = 'appainter_theme.json';
+  static const _isDarkThemeKey = 'isDarkTheme';
 
   Future<ThemeUsage> fetchThemeUsage() async {
     try {
@@ -67,6 +69,16 @@ class HomeRepository {
     } else {
       _exportThemeOnDesktop(themeBytes);
     }
+  }
+
+  Future<bool?> getIsDarkTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_isDarkThemeKey);
+  }
+
+  Future<void> setIsDarkTheme(bool isDark) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_isDarkThemeKey, isDark);
   }
 
   void _exportThemeOnWeb(Uint8List bytes) {

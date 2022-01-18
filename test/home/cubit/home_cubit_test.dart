@@ -15,7 +15,6 @@ void main() {
   late ThemeData themeData;
 
   setUpAll(() {
-    registerFallbackValue(FakeAdvancedThemeState());
     registerFallbackValue(FakeThemeData());
   });
 
@@ -101,4 +100,59 @@ void main() {
     act: (cubit) => cubit.themeExported(themeData),
     verify: (bloc) => verify(() => homeRepo.exportTheme(themeData)).called(1),
   );
+
+  group('test theme mode fetched', () {
+    for (var isDark in [true, false]) {
+      blocTest<HomeCubit, HomeState>(
+        'should emit theme mode with isDark=$isDark',
+        setUp: () => when(() => homeRepo.getIsDarkTheme()).thenAnswer(
+          (invocation) => Future.value(isDark),
+        ),
+        build: () => homeCubit,
+        act: (cubit) => cubit.themeModeFetched(),
+        expect: () => [
+          HomeState(
+            status: HomeStatus.success,
+            themeMode: homeCubit.getThemeMode(isDark),
+          ),
+        ],
+      );
+    }
+
+    blocTest<HomeCubit, HomeState>(
+      'should emit theme mode system',
+      setUp: () => when(() => homeRepo.getIsDarkTheme()).thenAnswer(
+        (invocation) => Future.value(null),
+      ),
+      build: () => homeCubit,
+      act: (cubit) => cubit.themeModeFetched(),
+      expect: () => [
+        const HomeState(
+          status: HomeStatus.success,
+          themeMode: ThemeMode.system,
+        ),
+      ],
+    );
+  });
+
+  group('test theme mode changed', () {
+    for (var isDark in [true, false]) {
+      blocTest<HomeCubit, HomeState>(
+        'should emit theme mode with isDark=$isDark',
+        setUp: () => when(() => homeRepo.setIsDarkTheme(any())).thenAnswer(
+          (invocation) => Future.value(null),
+        ),
+        build: () => homeCubit,
+        act: (cubit) => cubit.themeModeChanged(isDark),
+        expect: () => [
+          HomeState(
+            themeMode: homeCubit.getThemeMode(isDark),
+          ),
+        ],
+        verify: (cubit) => verify(
+          () => homeRepo.setIsDarkTheme(isDark),
+        ).called(1),
+      );
+    }
+  });
 }

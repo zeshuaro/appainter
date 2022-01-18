@@ -125,11 +125,56 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => captionTextStyleCubit),
         BlocProvider(create: (_) => overlineTextStyleCubit),
       ],
-      child: MaterialApp(
-        title: 'Appainter',
-        theme: ThemeData(),
-        darkTheme: ThemeData.dark(),
-        home: const HomePage(),
+      child: const _MaterialApp(),
+    );
+  }
+}
+
+class _MaterialApp extends StatefulWidget {
+  const _MaterialApp({Key? key}) : super(key: key);
+
+  @override
+  State<_MaterialApp> createState() => _MaterialAppState();
+}
+
+class _MaterialAppState extends State<_MaterialApp> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<HomeCubit>().themeModeFetched();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        return MaterialApp(
+          title: 'Appainter',
+          theme: ThemeData(),
+          darkTheme: ThemeData.dark(),
+          themeMode: state.themeMode,
+          home: state.status == HomeStatus.success
+              ? const HomePage()
+              : const _LoadingPage(),
+        );
+      },
+    );
+  }
+}
+
+class _LoadingPage extends StatelessWidget {
+  const _LoadingPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Center(
+            child: CircularProgressIndicator(),
+          ),
+        ],
       ),
     );
   }

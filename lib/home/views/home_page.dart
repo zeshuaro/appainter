@@ -94,6 +94,8 @@ class _ActionButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: const [
+        AppThemeModeSwitch(),
+        HorizontalPadding(),
         ImportButton(key: Key('homePage_importButton')),
         HorizontalPadding(size: PaddingSize.medium),
         ExportButton(key: Key('homePage_exportButton')),

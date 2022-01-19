@@ -25,9 +25,6 @@ void main() {
     colorThemeCubit = MockColorThemeCubit();
     color = getRandomColor();
 
-    when(() => inputDecorationThemeCubit.state).thenReturn(
-      const InputDecorationThemeState(),
-    );
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
@@ -37,7 +34,8 @@ void main() {
   ) async {
     whenListen(
       inputDecorationThemeCubit,
-      Stream.fromIterable([const InputDecorationThemeState(), state]),
+      Stream.fromIterable([state]),
+      initialState: const InputDecorationThemeState(),
     );
 
     await tester.pumpWidget(
@@ -253,6 +251,33 @@ void main() {
                 behaviorStr,
               );
             },
+          ).called(1);
+        },
+      );
+    }
+  });
+
+  group('test border dropdown', () {
+    final inputBorderHelper = MyInputBorder();
+    for (var border in inputBorderHelper.values) {
+      final borderStr = inputBorderHelper.stringFromEnum(border)!;
+
+      testWidgets(
+        'should update to border with isOutline=${border.isOutline}',
+        (tester) async {
+          final state = InputDecorationThemeState(
+            theme: InputDecorationTheme(border: border),
+          );
+
+          await _pumpApp(tester, state);
+
+          await widgetTesters.checkDropbox(
+            tester,
+            'inputDecorationThemeEditor_borderDropdown',
+            borderStr,
+          );
+          verify(
+            () => inputDecorationThemeCubit.borderChanged(borderStr),
           ).called(1);
         },
       );

@@ -1,3 +1,4 @@
+import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -9,6 +10,8 @@ part 'input_decoration_theme_state.dart';
 
 class InputDecorationThemeCubit extends Cubit<InputDecorationThemeState> {
   InputDecorationThemeCubit() : super(const InputDecorationThemeState());
+
+  final _inputBorderHelper = MyInputBorder();
 
   void themeChanged(InputDecorationTheme theme) {
     emit(state.copyWith(theme: theme));
@@ -67,6 +70,14 @@ class InputDecorationThemeCubit extends Cubit<InputDecorationThemeState> {
     final maxLines = int.tryParse(value);
     if (maxLines != null) {
       final theme = state.theme.copyWith(helperMaxLines: maxLines);
+      emit(state.copyWith(theme: theme));
+    }
+  }
+
+  void borderChanged(String value) {
+    final border = _inputBorderHelper.enumFromString(value);
+    if (border != null) {
+      final theme = state.theme.copyWith(border: border);
       emit(state.copyWith(theme: theme));
     }
   }

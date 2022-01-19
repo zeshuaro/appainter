@@ -13,12 +13,12 @@ void main() {
   late InputDecorationThemeCubit cubit;
   late InputDecorationTheme theme;
   late Color color;
-  late int intValue;
+  late int number;
 
   setUp(() {
     cubit = InputDecorationThemeCubit();
     color = getRandomColor();
-    intValue = Random().nextInt(100);
+    number = Random().nextInt(100);
   });
 
   blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
@@ -128,10 +128,10 @@ void main() {
   blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
     'should emit error max lines',
     build: () => cubit,
-    act: (cubit) => cubit.errorMaxLinesChanged(intValue.toString()),
+    act: (cubit) => cubit.errorMaxLinesChanged(number.toString()),
     expect: () => [
       InputDecorationThemeState(
-        theme: InputDecorationTheme(errorMaxLines: intValue),
+        theme: InputDecorationTheme(errorMaxLines: number),
       ),
     ],
   );
@@ -139,11 +139,29 @@ void main() {
   blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
     'should emit helper max lines',
     build: () => cubit,
-    act: (cubit) => cubit.helperMaxLinesChanged(intValue.toString()),
+    act: (cubit) => cubit.helperMaxLinesChanged(number.toString()),
     expect: () => [
       InputDecorationThemeState(
-        theme: InputDecorationTheme(helperMaxLines: intValue),
+        theme: InputDecorationTheme(helperMaxLines: number),
       ),
     ],
   );
+
+  group('test border', () {
+    final inputBorderHelper = MyInputBorder();
+    for (var border in inputBorderHelper.values) {
+      blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
+        'should emit border with isOutline=${border.isOutline}',
+        build: () => cubit,
+        act: (cubit) => cubit.borderChanged(
+          inputBorderHelper.stringFromEnum(border)!,
+        ),
+        expect: () => [
+          InputDecorationThemeState(
+            theme: InputDecorationTheme(border: border),
+          ),
+        ],
+      );
+    }
+  });
 }

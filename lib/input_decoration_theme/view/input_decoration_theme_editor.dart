@@ -14,22 +14,47 @@ class InputDecorationThemeEditor extends ExpansionPanelItem {
 
   @override
   Widget build(BuildContext context) {
-    return NestedListView(
+    return SideBySideList(
+      padding: kPaddingAll,
       children: [
+        _BorderDropdown(),
         _FloatingLabelBehaviorDropdown(),
-        SideBySideList(
-          children: [
-            _FillColorPicker(),
-            _HoverColorPicker(),
-            _AlignLabelWithHintSwitch(),
-            _FilledSwitch(),
-            _IsCollapsedSwitch(),
-            _IsDenseSwitch(),
-            _ErrorMaxLinesTextField(),
-            _HelperMaxLinesTextField(),
-          ],
-        ),
+        _FillColorPicker(),
+        _HoverColorPicker(),
+        _AlignLabelWithHintSwitch(),
+        _FilledSwitch(),
+        _IsCollapsedSwitch(),
+        _IsDenseSwitch(),
+        _ErrorMaxLinesTextField(),
+        _HelperMaxLinesTextField(),
       ],
+    );
+  }
+}
+
+class _BorderDropdown extends StatelessWidget {
+  final _inputBorderHelper = MyInputBorder();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      buildWhen: (previous, current) {
+        return previous.theme.border != current.theme.border;
+      },
+      builder: (context, state) {
+        final border = state.theme.border ?? const UnderlineInputBorder();
+        return DropdownListTile(
+          key: const Key(
+            'inputDecorationThemeEditor_borderDropdown',
+          ),
+          title: 'Border',
+          value: _inputBorderHelper.stringFromEnum(border)!,
+          values: _inputBorderHelper.names,
+          onChanged: (value) {
+            context.read<InputDecorationThemeCubit>().borderChanged(value!);
+          },
+        );
+      },
     );
   }
 }

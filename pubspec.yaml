@@ -1,7 +1,7 @@
 name: appainter
 description: A material theme editor and generator for Flutter
 publish_to: "none"
-version: 0.4.1
+version: 0.4.2
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

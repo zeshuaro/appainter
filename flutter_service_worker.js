@@ -3,8 +3,8 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "index.html": "898d2013a8640dc04c2815a5672c2dea",
-"/": "898d2013a8640dc04c2815a5672c2dea",
+  "index.html": "e1efc7aba39170b80847d835adebd3b6",
+"/": "e1efc7aba39170b80847d835adebd3b6",
 "version.json": "6cecb2f23c33b4a1e0e828b838de6d6a",
 "manifest.json": "100b0e7941ceae28f1d0221f5dbb9280",
 "main.dart.js": "30e11f33b90db69e29a2753806e2701b",
@@ -15,6 +15,8 @@ const RESOURCES = {
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
+"icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
+"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "assets/FontManifest.json": "5a32d4310a6f5d9a6b651e75ba0d7372",
 "assets/AssetManifest.json": "4e597e2960a8863f883676c924ef86f5",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",

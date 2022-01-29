@@ -149,6 +149,7 @@ class ThemePreview extends StatelessWidget {
         return DevicePreview(
           builder: (context) {
             return MaterialApp(
+              title: 'Appainter',
               theme: theme,
               locale: DevicePreview.locale(context),
               useInheritedMediaQuery: true,

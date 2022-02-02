@@ -301,7 +301,7 @@ packages:
       name: file_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.2"
+    version: "4.3.3"
   fixnum:
     dependency: transitive
     description:
@@ -1047,7 +1047,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.8"
+    version: "2.3.10"
   xdg_directories:
     dependency: transitive
     description:

@@ -33,7 +33,15 @@ class _HomePageState extends State<HomePage> {
           ? _backgroundColorDark
           : _backgroundColorLight,
       appBar: AppBar(
-        title: const Text('Appainter'),
+        title: Row(
+          children: const [
+            Text('Appainter'),
+            HorizontalPadding(),
+            ImportButton(key: Key('homePage_importButton')),
+            HorizontalPadding(size: PaddingSize.medium),
+            ExportButton(key: Key('homePage_exportButton')),
+          ],
+        ),
         centerTitle: false,
         actions: [
           _ActionButtons(),
@@ -94,11 +102,7 @@ class _ActionButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: const [
-        AppThemeModeSwitch(),
-        HorizontalPadding(),
-        ImportButton(key: Key('homePage_importButton')),
-        HorizontalPadding(size: PaddingSize.medium),
-        ExportButton(key: Key('homePage_exportButton')),
+        AppThemeModeButton(),
         HorizontalPadding(size: PaddingSize.medium),
         UsageButton(
           key: Key('homePage_usageButton'),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:appainter/services/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class GithubButton extends StatelessWidget {
   const GithubButton({Key? key}) : super(key: key);
@@ -9,17 +9,9 @@ class GithubButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
+    return IconButton(
       onPressed: () => UtilService.launchUrl(githubUrl),
-      icon: const FaIcon(
-        FontAwesomeIcons.github,
-        color: Colors.white,
-        size: 20,
-      ),
-      label: const Text(
-        'GitHub',
-        style: TextStyle(color: Colors.white),
-      ),
+      icon: const Icon(MdiIcons.github),
     );
   }
 }

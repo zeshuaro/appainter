@@ -5,24 +5,16 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:appainter/home/home.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class UsageButton extends StatelessWidget {
   const UsageButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
+    return IconButton(
       onPressed: () => _onPressed(context),
-      icon: const FaIcon(
-        FontAwesomeIcons.question,
-        color: Colors.white,
-        size: 20,
-      ),
-      label: const Text(
-        'Usage',
-        style: TextStyle(color: Colors.white),
-      ),
+      icon: const Icon(MdiIcons.helpCircleOutline),
     );
   }
 
@@ -95,8 +87,8 @@ class _UsageFallback extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const FaIcon(
-          FontAwesomeIcons.exclamationTriangle,
+        const Icon(
+          MdiIcons.alert,
           color: Colors.yellow,
           size: 48,
         ),

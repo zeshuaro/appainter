@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/home/home.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class RandomThemeButton extends StatelessWidget {
   const RandomThemeButton({Key? key}) : super(key: key);
@@ -13,10 +13,7 @@ class RandomThemeButton extends StatelessWidget {
     return IconButton(
       key: const Key('randomThemeButton'),
       onPressed: () => _onPressed(context),
-      icon: const FaIcon(
-        FontAwesomeIcons.random,
-        size: 20,
-      ),
+      icon: const Icon(MdiIcons.shuffle),
     );
   }
 

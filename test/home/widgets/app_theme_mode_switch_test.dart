@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/home/home.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mocks.dart';
@@ -23,7 +24,7 @@ void main() {
               data: MediaQueryData(
                 platformBrightness: brightness ?? Brightness.light,
               ),
-              child: const AppThemeModeSwitch(),
+              child: const AppThemeModeButton(),
             ),
           ),
         ),
@@ -42,12 +43,11 @@ void main() {
 
         await _pumpApp(tester);
 
-        await tester.tap(find.byType(Switch));
+        await tester.tap(find.byType(IconButton));
         await tester.pumpAndSettle();
 
-        final widget = find.byWidgetPredicate(
-          (widget) => widget is Switch && widget.value == isDark,
-        );
+        final iconData = _getIconData(isDark);
+        final widget = find.byIcon(iconData);
         expect(widget, findsOneWidget);
         verify(() => cubit.themeModeChanged(!isDark)).called(1);
       });
@@ -56,7 +56,7 @@ void main() {
 
   group('test system theme mode', () {
     for (var brightness in Brightness.values) {
-      testWidgets('should build switch with $brightness', (tester) async {
+      testWidgets('should build icon button with $brightness', (tester) async {
         final isDark = brightness == Brightness.dark;
         when(() => cubit.state).thenReturn(
           const HomeState(themeMode: ThemeMode.system),
@@ -64,11 +64,14 @@ void main() {
 
         await _pumpApp(tester, brightness);
 
-        final widget = find.byWidgetPredicate(
-          (widget) => widget is Switch && widget.value == isDark,
-        );
+        final iconData = _getIconData(isDark);
+        final widget = find.byIcon(iconData);
         expect(widget, findsOneWidget);
       });
     }
   });
+}
+
+IconData _getIconData(bool isDark) {
+  return isDark ? MdiIcons.weatherNight : MdiIcons.weatherSunny;
 }

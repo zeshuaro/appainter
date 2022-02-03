@@ -17,21 +17,15 @@ import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ExportButton extends StatelessWidget {
   const ExportButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
+    return TextButton(
       onPressed: () => _onPressed(context),
-      icon: const FaIcon(
-        FontAwesomeIcons.download,
-        color: Colors.white,
-        size: 20,
-      ),
-      label: const Text(
+      child: const Text(
         'Export',
         style: TextStyle(color: Colors.white),
       ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/home/home.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ndialog/ndialog.dart';
 
 class ImportButton extends StatefulWidget {
@@ -29,14 +28,9 @@ class _ImportButtonState extends State<ImportButton> {
           _dialog?.dismiss();
         }
       },
-      child: TextButton.icon(
+      child: TextButton(
         onPressed: () => context.read<HomeCubit>().themeImported(),
-        icon: const FaIcon(
-          FontAwesomeIcons.upload,
-          color: Colors.white,
-          size: 20,
-        ),
-        label: const Text(
+        child: const Text(
           'Import',
           style: TextStyle(color: Colors.white),
         ),

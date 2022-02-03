@@ -5,4 +5,4 @@ export 'github_button.dart';
 export 'random_theme_button.dart';
 export 'reset_theme_button.dart';
 export 'theme_brightness_switch.dart';
-export 'app_theme_mode_switch.dart';
+export 'app_theme_mode_button.dart';

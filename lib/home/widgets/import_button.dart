@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/home/home.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:ndialog/ndialog.dart';
 
 class ImportButton extends StatefulWidget {
-  const ImportButton({Key? key}) : super(key: key);
+  final Color color;
+
+  const ImportButton({Key? key, required this.color}) : super(key: key);
 
   @override
   State<ImportButton> createState() => _ImportButtonState();
@@ -28,12 +31,16 @@ class _ImportButtonState extends State<ImportButton> {
           _dialog?.dismiss();
         }
       },
-      child: TextButton(
-        onPressed: () => context.read<HomeCubit>().themeImported(),
-        child: const Text(
-          'Import',
-          style: TextStyle(color: Colors.white),
+      child: TextButton.icon(
+        icon: Icon(
+          MdiIcons.applicationImport,
+          color: widget.color,
         ),
+        label: Text(
+          'Import',
+          style: TextStyle(color: widget.color),
+        ),
+        onPressed: () => context.read<HomeCubit>().themeImported(),
       ),
     );
   }

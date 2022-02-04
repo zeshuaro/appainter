@@ -28,26 +28,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      backgroundColor: Theme.of(context).brightness == Brightness.dark
-          ? _backgroundColorDark
-          : _backgroundColorLight,
-      appBar: AppBar(
-        title: Row(
-          children: const [
-            Text('Appainter'),
-            HorizontalPadding(),
-            ImportButton(key: Key('homePage_importButton')),
-            HorizontalPadding(size: PaddingSize.medium),
-            ExportButton(key: Key('homePage_exportButton')),
-          ],
-        ),
-        centerTitle: false,
-        actions: [
-          _ActionButtons(),
-          const HorizontalPadding(),
-        ],
-      ),
+      backgroundColor: isDark ? _backgroundColorDark : _backgroundColorLight,
+      appBar: _buildAppBar(isDark),
       body: BlocListener<HomeCubit, HomeState>(
         listener: _listener,
         child: GestureDetector(
@@ -55,6 +39,48 @@ class _HomePageState extends State<HomePage> {
           child: _ScaffoldBody(),
         ),
       ),
+    );
+  }
+
+  AppBar _buildAppBar(bool isDark) {
+    final color = isDark ? Colors.white : Colors.grey;
+    return AppBar(
+      backgroundColor: isDark ? Colors.black : Colors.white,
+      actionsIconTheme: IconThemeData(color: color),
+      title: Row(
+        children: [
+          const Image(
+            image: AssetImage('assets/icon.png'),
+            height: 48,
+          ),
+          const HorizontalPadding(
+            size: PaddingSize.medium,
+          ),
+          Text(
+            'Appainter',
+            style: TextStyle(color: color),
+          ),
+        ],
+      ),
+      centerTitle: false,
+      actions: [
+        ImportButton(
+          key: const Key('homePage_importButton'),
+          color: color,
+        ),
+        const HorizontalPadding(size: PaddingSize.medium),
+        ExportButton(
+          key: const Key('homePage_exportButton'),
+          color: color,
+        ),
+        const HorizontalPadding(size: PaddingSize.medium),
+        const AppThemeModeButton(),
+        const HorizontalPadding(size: PaddingSize.medium),
+        const UsageButton(key: Key('homePage_usageButton')),
+        const HorizontalPadding(size: PaddingSize.medium),
+        const GithubButton(key: Key('homePage_githubButton')),
+        const HorizontalPadding(),
+      ],
     );
   }
 
@@ -93,25 +119,6 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-    );
-  }
-}
-
-class _ActionButtons extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: const [
-        AppThemeModeButton(),
-        HorizontalPadding(size: PaddingSize.medium),
-        UsageButton(
-          key: Key('homePage_usageButton'),
-        ),
-        HorizontalPadding(size: PaddingSize.medium),
-        GithubButton(
-          key: Key('homePage_githubButton'),
-        ),
-      ],
     );
   }
 }

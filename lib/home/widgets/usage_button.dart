@@ -1,3 +1,4 @@
+import 'package:appainter/common/common.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,8 +14,9 @@ class UsageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: () => _onPressed(context),
       icon: const Icon(MdiIcons.helpCircleOutline),
+      splashRadius: kSplashRadius,
+      onPressed: () => _onPressed(context),
     );
   }
 

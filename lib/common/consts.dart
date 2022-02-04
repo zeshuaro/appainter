@@ -60,3 +60,5 @@ const kInputDecorationHelperMaxLines = 1;
 const kNone = 'None';
 
 const kSliderTrackHeight = 4.0;
+
+const kSplashRadius = 20.0;

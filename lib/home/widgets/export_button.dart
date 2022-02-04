@@ -17,18 +17,25 @@ import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class ExportButton extends StatelessWidget {
-  const ExportButton({Key? key}) : super(key: key);
+  final Color color;
+
+  const ExportButton({Key? key, required this.color}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => _onPressed(context),
-      child: const Text(
-        'Export',
-        style: TextStyle(color: Colors.white),
+    return TextButton.icon(
+      icon: Icon(
+        MdiIcons.applicationExport,
+        color: color,
       ),
+      label: Text(
+        'Export',
+        style: TextStyle(color: color),
+      ),
+      onPressed: () => _onPressed(context),
     );
   }
 

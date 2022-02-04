@@ -1,8 +1,6 @@
-# Appainter
+![logo](images/logo.png)
 
-**⚠️ WARNING: This app is still under development so please expect bugs and missing features in the app. ⚠️**
-
-Inspired by [Panache](https://github.com/rxlabz/panache), a material theme editor and generator for Flutter to configure and preview the overall visual theme of your material app.
+A material theme editor and generator for Flutter to configure and preview the overall visual theme of your material app.
 
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/zeshuaro/appainter?color=orange&label=version)](https://github.com/zeshuaro/appainter/releases)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fzeshuaro.github.io%2Fappainter%2F)](https://zeshuaro.github.io/appainter/)

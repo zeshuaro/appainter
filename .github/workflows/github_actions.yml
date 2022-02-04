@@ -39,6 +39,9 @@ jobs:
 
       - name: Upload coverage report 📡
         uses: codecov/codecov-action@v2.1.0
+        with:
+          files: ./coverage/lcov.info
+          fail_ci_if_error: true
 
   lint:
     name: Lint

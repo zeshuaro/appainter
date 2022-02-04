@@ -8,8 +8,8 @@ on:
       - synchronize
 
 jobs:
-  check:
-    name: Check Pull Request Title
+  check-title:
+    name: Check Title
     runs-on: ubuntu-latest
     steps:
       - name: Semantic pull request

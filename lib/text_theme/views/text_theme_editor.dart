@@ -4,6 +4,9 @@ import 'package:appainter/text_theme/text_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+final _colorDark = Colors.grey[700];
+final _colorLight = Colors.grey[100];
+
 class TextThemeEditor extends ExpansionPanelItem {
   const TextThemeEditor({Key? key}) : super(key: key);
 
@@ -17,8 +20,8 @@ class TextThemeEditor extends ExpansionPanelItem {
         const FontPicker(),
         MyExpansionPanelList(
           color: Theme.of(context).brightness == Brightness.dark
-              ? Colors.grey[700]
-              : Colors.grey[100],
+              ? _colorDark
+              : _colorLight,
           items: const [
             Headline1TextStyleEditor(),
             Headline2TextStyleEditor(),
@@ -48,6 +51,9 @@ class FontPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return MyCard(
       key: const Key('textThemeEditor_fontPicker'),
+      color: Theme.of(context).brightness == Brightness.dark
+          ? _colorDark
+          : _colorLight,
       margin: EdgeInsets.zero,
       onTap: () => _onTap(context),
       child: BlocBuilder<TextThemeCubit, TextThemeState>(

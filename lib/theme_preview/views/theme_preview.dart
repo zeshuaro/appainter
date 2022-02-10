@@ -19,6 +19,7 @@ import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:appainter/theme_preview/theme_preview.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ThemePreview extends StatelessWidget {
   final List<PreviewBody> _pages = const [
@@ -56,6 +57,7 @@ class ThemePreview extends StatelessWidget {
         final checkboxTheme = context.watch<CheckboxThemeCubit>().state.theme;
         final radioTheme = context.watch<RadioThemeCubit>().state.theme;
         final sliderTheme = context.watch<SliderThemeCubit>().state.theme;
+        final fontFamily = context.watch<TextThemeCubit>().state.fontFamily;
 
         final headline1TextStyle =
             context.watch<Headline1TextStyleCubit>().state.style;
@@ -87,6 +89,7 @@ class ThemePreview extends StatelessWidget {
             context.watch<OverlineTextStyleCubit>().state.style;
 
         final advancedTheme = ThemeData(
+          fontFamily: fontFamily,
           colorScheme: colorTheme.colorScheme,
           brightness: colorTheme.colorScheme.brightness,
           primaryColor: colorTheme.primaryColor,
@@ -126,20 +129,23 @@ class ThemePreview extends StatelessWidget {
           checkboxTheme: checkboxTheme,
           radioTheme: radioTheme,
           sliderTheme: sliderTheme,
-          textTheme: TextTheme(
-            headline1: headline1TextStyle,
-            headline2: headline2TextStyle,
-            headline3: headline3TextStyle,
-            headline4: headline4TextStyle,
-            headline5: headline5TextStyle,
-            headline6: headline6TextStyle,
-            subtitle1: subtitle1TextStyle,
-            subtitle2: subtitle2TextStyle,
-            bodyText1: bodyText1TextStyle,
-            bodyText2: bodyText2TextStyle,
-            button: buttonTextStyle,
-            caption: captionTextStyle,
-            overline: overlineTextStyle,
+          textTheme: GoogleFonts.getTextTheme(
+            fontFamily,
+            TextTheme(
+              headline1: headline1TextStyle,
+              headline2: headline2TextStyle,
+              headline3: headline3TextStyle,
+              headline4: headline4TextStyle,
+              headline5: headline5TextStyle,
+              headline6: headline6TextStyle,
+              subtitle1: subtitle1TextStyle,
+              subtitle2: subtitle2TextStyle,
+              bodyText1: bodyText1TextStyle,
+              bodyText2: bodyText2TextStyle,
+              button: buttonTextStyle,
+              caption: captionTextStyle,
+              overline: overlineTextStyle,
+            ),
           ),
         );
 

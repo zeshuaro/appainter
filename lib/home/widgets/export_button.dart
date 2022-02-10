@@ -17,6 +17,7 @@ import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class ExportButton extends StatelessWidget {
@@ -72,6 +73,7 @@ class ExportButton extends StatelessWidget {
     final checkboxTheme = context.read<CheckboxThemeCubit>().state.theme;
     final radioTheme = context.read<RadioThemeCubit>().state.theme;
     final sliderTheme = context.read<SliderThemeCubit>().state.theme;
+    final fontFamily = context.read<TextThemeCubit>().state.fontFamily;
 
     final headline1TextStyle =
         context.read<Headline1TextStyleCubit>().state.style;
@@ -138,20 +140,23 @@ class ExportButton extends StatelessWidget {
       checkboxTheme: checkboxTheme,
       radioTheme: radioTheme,
       sliderTheme: sliderTheme,
-      textTheme: TextTheme(
-        headline1: headline1TextStyle,
-        headline2: headline2TextStyle,
-        headline3: headline3TextStyle,
-        headline4: headline4TextStyle,
-        headline5: headline5TextStyle,
-        headline6: headline6TextStyle,
-        subtitle1: subtitle1TextStyle,
-        subtitle2: subtitle2TextStyle,
-        bodyText1: bodyText1TextStyle,
-        bodyText2: bodyText2TextStyle,
-        button: buttonTextStyle,
-        caption: captionTextStyle,
-        overline: overlineTextStyle,
+      textTheme: GoogleFonts.getTextTheme(
+        fontFamily,
+        TextTheme(
+          headline1: headline1TextStyle,
+          headline2: headline2TextStyle,
+          headline3: headline3TextStyle,
+          headline4: headline4TextStyle,
+          headline5: headline5TextStyle,
+          headline6: headline6TextStyle,
+          subtitle1: subtitle1TextStyle,
+          subtitle2: subtitle2TextStyle,
+          bodyText1: bodyText1TextStyle,
+          bodyText2: bodyText2TextStyle,
+          button: buttonTextStyle,
+          caption: captionTextStyle,
+          overline: overlineTextStyle,
+        ),
       ),
     );
   }

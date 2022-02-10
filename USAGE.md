@@ -1,8 +1,8 @@
-# Using the Generated Theme
+# Using the generated theme
 
 Appainter uses the package [json_theme](https://pub.dev/packages/json_theme) to encode and decode the theme JSON file.
 
-## Theme Compatibility
+## Theme compatibility
 
 From version to version, Flutter may deprecate certain properties in [ThemeData](https://api.flutter.dev/flutter/material/ThemeData-class.html). When this happens, `json_theme` will also update their JSON schema with the latest properties. 
 
@@ -18,7 +18,7 @@ To use the theme JSON file in your app, follow the steps below:
 
     ```yml
     dependencies:
-      json_theme: ^3.1.2+1
+      json_theme: ^3.2.5
     ```
 
 2. Copy the generated `json` file to your app project and place it under the `assets/` folder.
@@ -52,4 +52,26 @@ To use the theme JSON file in your app, follow the steps below:
     );
     ```
 
-For a complete example app using the generated `json` theme file, see the app under the [example](https://github.com/zeshuaro/appainter/tree/main/example) folder.
+### (Optional) Using a custom font
+
+If you've generated the `json` theme file with a custom font, you'll need to import a custom font file:
+
+1. Search and download your font from [Google Fonts](https://fonts.google.com/). Appainter uses Google Fonts as the list of font options so you should be able to find your font there.
+   
+2. Copy the font file to your app project and place it under the `fonts/` folder.
+   
+3. Update your `pubspec.yaml` file to include your font. Here we use `Montserrat` as our font.
+
+    ```yml
+    flutter:
+      assets:
+        - assets/appainter_theme.json
+      fonts:
+        - family: Montserrat
+          fonts:
+            - asset: fonts/Montserrat-Regular.ttf
+    ```
+
+4. Your font will be loaded automatically when you use the generated theme.
+
+For a complete example app using the generated `json` theme file and a custom font, see the app under the [example](https://github.com/zeshuaro/appainter/tree/main/example) folder.

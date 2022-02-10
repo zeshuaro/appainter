@@ -162,4 +162,11 @@ void main() {
       ).called(1);
     },
   );
+
+  blocTest<TextThemeCubit, TextThemeState>(
+    'should emit font family',
+    build: () => textThemeCubit,
+    act: (cubit) => cubit.fontFamilyChanged('newFont'),
+    expect: () => [const TextThemeState(fontFamily: 'newFont')],
+  );
 }

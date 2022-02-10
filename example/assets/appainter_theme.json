@@ -1,23 +1,23 @@
 {
   "applyElevationOverlayColor": false,
-  "backgroundColor": "#ffffffff",
+  "backgroundColor": "#ff90caf9",
   "bottomAppBarColor": "#ffffffff",
   "brightness": "light",
   "buttonTheme": {
     "alignedDropdown": false,
     "colorScheme": {
-      "background": "#ffffffff",
+      "background": "#ff90caf9",
       "brightness": "light",
-      "error": "#ffb00020",
-      "onBackground": "#ff000000",
+      "error": "#ffd32f2f",
+      "onBackground": "#ffffffff",
       "onError": "#ffffffff",
       "onPrimary": "#ffffffff",
-      "onSecondary": "#ff000000",
+      "onSecondary": "#ffffffff",
       "onSurface": "#ff000000",
-      "primary": "#ff6200ee",
-      "primaryVariant": "#ff3700b3",
-      "secondary": "#ff03dac6",
-      "secondaryVariant": "#ff018786",
+      "primary": "#ff2196f3",
+      "primaryVariant": "#ff1976d2",
+      "secondary": "#ff2196f3",
+      "secondaryVariant": "#ff1976d2",
       "surface": "#ffffffff"
     },
     "height": 36.0,
@@ -62,7 +62,7 @@
     },
     "textTheme": "normal"
   },
-  "canvasColor": "#ffffffff",
+  "canvasColor": "#fffafafa",
   "cardColor": "#ffffffff",
   "chipTheme": {
     "backgroundColor": "#1f000000",
@@ -72,8 +72,15 @@
     "labelStyle": {
       "color": "#de000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_regular",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w400",
+      "fontSize": 16.0,
+      "inherit": true,
+      "letterSpacing": 0.5,
+      "textBaseline": "alphabetic"
     },
     "padding": {
       "bottom": 4.0,
@@ -82,41 +89,45 @@
       "top": 4.0
     },
     "secondaryLabelStyle": {
-      "color": "#de6200ee",
+      "color": "#de2196f3",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_regular",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w400",
+      "fontSize": 16.0,
+      "inherit": true,
+      "letterSpacing": 0.5,
+      "textBaseline": "alphabetic"
     },
-    "secondarySelectedColor": "#3d6200ee",
+    "secondarySelectedColor": "#3d2196f3",
     "selectedColor": "#3d000000"
   },
   "colorScheme": {
-    "background": "#ffffffff",
+    "background": "#ff90caf9",
     "brightness": "light",
-    "error": "#ffb00020",
-    "onBackground": "#ff000000",
+    "error": "#ffd32f2f",
+    "onBackground": "#ffffffff",
     "onError": "#ffffffff",
     "onPrimary": "#ffffffff",
-    "onSecondary": "#ff000000",
+    "onSecondary": "#ffffffff",
     "onSurface": "#ff000000",
-    "primary": "#ff6200ee",
-    "primaryVariant": "#ff3700b3",
-    "secondary": "#ff03dac6",
-    "secondaryVariant": "#ff018786",
+    "primary": "#ff2196f3",
+    "primaryVariant": "#ff1976d2",
+    "secondary": "#ff2196f3",
+    "secondaryVariant": "#ff1976d2",
     "surface": "#ffffffff"
   },
   "dialogBackgroundColor": "#ffffffff",
   "disabledColor": "#61000000",
   "dividerColor": "#1f000000",
-  "errorColor": "#ffb00020",
+  "errorColor": "#ffd32f2f",
   "focusColor": "#1f000000",
   "highlightColor": "#66bcbcbc",
   "hintColor": "#99000000",
   "hoverColor": "#0a000000",
-  "iconTheme": {
-    "color": "#dd000000"
-  },
-  "indicatorColor": "#ffffffff",
+  "indicatorColor": "#ff2196f3",
   "inputDecorationTheme": {
     "alignLabelWithHint": false,
     "filled": false,
@@ -126,7 +137,7 @@
   },
   "materialTapTargetSize": "shrinkWrap",
   "platform": "macOS",
-  "primaryColor": "#ff6200ee",
+  "primaryColor": "#ff2196f3",
   "primaryColorBrightness": "dark",
   "primaryColorDark": "#ff1976d2",
   "primaryColorLight": "#ffbbdefb",
@@ -213,7 +224,7 @@
       "inherit": true
     }
   },
-  "scaffoldBackgroundColor": "#ffffffff",
+  "scaffoldBackgroundColor": "#fffafafa",
   "secondaryHeaderColor": "#ffe3f2fd",
   "selectedRowColor": "#fff5f5f5",
   "shadowColor": "#ff000000",
@@ -223,83 +234,174 @@
     "bodyText1": {
       "color": "#dd000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_regular",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w400",
+      "fontSize": 16.0,
+      "inherit": true,
+      "letterSpacing": 0.5,
+      "textBaseline": "alphabetic"
     },
     "bodyText2": {
       "color": "#dd000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_regular",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w400",
+      "fontSize": 14.0,
+      "inherit": true,
+      "letterSpacing": 0.25,
+      "textBaseline": "alphabetic"
     },
     "button": {
       "color": "#dd000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_500",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w500",
+      "fontSize": 14.0,
+      "inherit": true,
+      "letterSpacing": 1.25,
+      "textBaseline": "alphabetic"
     },
     "caption": {
       "color": "#8a000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_regular",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w400",
+      "fontSize": 12.0,
+      "inherit": true,
+      "letterSpacing": 0.4,
+      "textBaseline": "alphabetic"
     },
     "headline1": {
       "color": "#8a000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_300",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w300",
+      "fontSize": 96.0,
+      "inherit": true,
+      "letterSpacing": -1.5,
+      "textBaseline": "alphabetic"
     },
     "headline2": {
       "color": "#8a000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_300",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w300",
+      "fontSize": 60.0,
+      "inherit": true,
+      "letterSpacing": -0.5,
+      "textBaseline": "alphabetic"
     },
     "headline3": {
       "color": "#8a000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_regular",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w400",
+      "fontSize": 48.0,
+      "inherit": true,
+      "letterSpacing": 0.0,
+      "textBaseline": "alphabetic"
     },
     "headline4": {
       "color": "#8a000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_regular",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w400",
+      "fontSize": 34.0,
+      "inherit": true,
+      "letterSpacing": 0.25,
+      "textBaseline": "alphabetic"
     },
     "headline5": {
       "color": "#dd000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_regular",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w400",
+      "fontSize": 24.0,
+      "inherit": true,
+      "letterSpacing": 0.0,
+      "textBaseline": "alphabetic"
     },
     "headline6": {
       "color": "#dd000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_500",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w500",
+      "fontSize": 20.0,
+      "inherit": true,
+      "letterSpacing": 0.15,
+      "textBaseline": "alphabetic"
     },
     "overline": {
       "color": "#ff000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_regular",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w400",
+      "fontSize": 10.0,
+      "inherit": true,
+      "letterSpacing": 1.5,
+      "textBaseline": "alphabetic"
     },
     "subtitle1": {
       "color": "#dd000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_regular",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w400",
+      "fontSize": 16.0,
+      "inherit": true,
+      "letterSpacing": 0.15,
+      "textBaseline": "alphabetic"
     },
     "subtitle2": {
       "color": "#ff000000",
       "decoration": "none",
-      "fontFamily": ".AppleSystemUIFont",
-      "inherit": true
+      "fontFamily": "Montserrat_500",
+      "fontFamilyFallback": [
+        "Montserrat"
+      ],
+      "fontWeight": "w500",
+      "fontSize": 14.0,
+      "inherit": true,
+      "letterSpacing": 0.1,
+      "textBaseline": "alphabetic"
     }
   },
-  "toggleableActiveColor": "#ff03dac6",
+  "toggleableActiveColor": "#ff1e88e5",
   "typography": {
     "black": {
       "bodyText1": {

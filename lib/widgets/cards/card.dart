@@ -5,24 +5,36 @@ class MyCard extends StatelessWidget {
   final Widget child;
   final EdgeInsets padding;
   final Color? color;
+  final EdgeInsets? margin;
+  final GestureTapCallback? onTap;
 
   const MyCard({
     Key? key,
     required this.child,
     this.padding = kPaddingAll,
     this.color,
+    this.margin,
+    this.onTap,
   }) : super(key: key);
+
+  static final colorDark = Colors.grey[800];
+  static final colorLight = Colors.grey[50];
 
   @override
   Widget build(BuildContext context) {
     final fllbackColor = Theme.of(context).brightness == Brightness.dark
-        ? Colors.grey[800]
-        : Colors.grey[50];
+        ? colorDark
+        : colorLight;
     return Card(
       color: color ?? fllbackColor,
-      child: Padding(
-        padding: padding,
-        child: child,
+      margin: margin,
+      child: InkWell(
+        borderRadius: const BorderRadius.all(Radius.circular(4.0)),
+        onTap: onTap,
+        child: Padding(
+          padding: padding,
+          child: child,
+        ),
       ),
     );
   }

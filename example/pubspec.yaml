@@ -39,3 +39,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/appainter_theme.json
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf

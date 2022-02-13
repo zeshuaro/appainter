@@ -1,3 +1,4 @@
+import 'package:appainter/text_theme/text_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
@@ -13,6 +14,7 @@ void main() {
   BlocOverrides.runZoned(
     () => runApp(MyApp(
       homeRepo: HomeRepository(),
+      textThemeRepo: TextThemeRepository(),
     )),
     blocObserver: MyBlocObserver(),
   );

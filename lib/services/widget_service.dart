@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flex_color_picker/flex_color_picker.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class WidgetService {
   static Future<void> showColorPicker({
@@ -52,47 +51,6 @@ class WidgetService {
       constraints: const BoxConstraints(
         minHeight: 550,
         maxWidth: 450,
-      ),
-    );
-  }
-
-  static Future<String?> showFontPicker({
-    required BuildContext context,
-  }) async {
-    final fonts = GoogleFonts.asMap().entries.toList();
-    final size = MediaQuery.of(context).size;
-
-    return await showDialog<String>(
-      context: context,
-      builder: (BuildContext context) => AlertDialog(
-        title: const Text('Select font'),
-        content: SizedBox(
-          width: size.width * 0.3,
-          height: size.height * 0.7,
-          child: ListView.separated(
-            shrinkWrap: true,
-            itemCount: fonts.length,
-            itemBuilder: (context, index) {
-              final entry = fonts[index];
-              final fontFamily = entry.key;
-
-              return ListTile(
-                key: Key('fontPicker_$fontFamily'),
-                title: Text(fontFamily, style: entry.value()),
-                onTap: () => Navigator.of(context).pop(fontFamily),
-              );
-            },
-            separatorBuilder: (context, index) {
-              return Container();
-            },
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel'),
-          ),
-        ],
       ),
     );
   }

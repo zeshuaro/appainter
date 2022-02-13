@@ -21,8 +21,13 @@ import 'package:appainter/text_theme/text_theme.dart';
 
 class MyApp extends StatelessWidget {
   final HomeRepository homeRepo;
+  final TextThemeRepository textThemeRepo;
 
-  const MyApp({Key? key, required this.homeRepo}) : super(key: key);
+  const MyApp({
+    Key? key,
+    required this.homeRepo,
+    required this.textThemeRepo,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -91,41 +96,44 @@ class MyApp extends StatelessWidget {
       textThemeCubit: textThemeCubit,
     );
 
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (_) => HomeCubit(homeRepo, advancedThemeCubit)),
-        BlocProvider(create: (_) => BasicThemeCubit()),
-        BlocProvider(create: (_) => advancedThemeCubit),
-        BlocProvider(create: (_) => colorThemeCubit),
-        BlocProvider(create: (_) => appBarThemeCubit),
-        BlocProvider(create: (_) => tabBarThemeCubit),
-        BlocProvider(create: (_) => bottomNavigationBarThemeCubit),
-        BlocProvider(create: (_) => floatingActionButtonThemeCubit),
-        BlocProvider(create: (_) => elevatedButtonThemeCubit),
-        BlocProvider(create: (_) => outlinedButtonThemeCubit),
-        BlocProvider(create: (_) => textButtonThemeCubit),
-        BlocProvider(create: (_) => iconThemeCubit),
-        BlocProvider(create: (_) => inputDecorationThemeCubit),
-        BlocProvider(create: (_) => switchThemeCubit),
-        BlocProvider(create: (_) => checkboxThemeCubit),
-        BlocProvider(create: (_) => radioThemeCubit),
-        BlocProvider(create: (_) => sliderThemeCubit),
-        BlocProvider(create: (_) => textThemeCubit),
-        BlocProvider(create: (_) => headline1TextStyleCubit),
-        BlocProvider(create: (_) => headline2TextStyleCubit),
-        BlocProvider(create: (_) => headline3TextStyleCubit),
-        BlocProvider(create: (_) => headline4TextStyleCubit),
-        BlocProvider(create: (_) => headline5TextStyleCubit),
-        BlocProvider(create: (_) => headline6TextStyleCubit),
-        BlocProvider(create: (_) => subtitle1TextStyleCubit),
-        BlocProvider(create: (_) => subtitle2TextStyleCubit),
-        BlocProvider(create: (_) => bodyText1TextStyleCubit),
-        BlocProvider(create: (_) => bodyText2TextStyleCubit),
-        BlocProvider(create: (_) => buttonTextStyleCubit),
-        BlocProvider(create: (_) => captionTextStyleCubit),
-        BlocProvider(create: (_) => overlineTextStyleCubit),
-      ],
-      child: const _MaterialApp(),
+    return RepositoryProvider.value(
+      value: textThemeRepo,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => HomeCubit(homeRepo, advancedThemeCubit)),
+          BlocProvider(create: (_) => BasicThemeCubit()),
+          BlocProvider(create: (_) => advancedThemeCubit),
+          BlocProvider(create: (_) => colorThemeCubit),
+          BlocProvider(create: (_) => appBarThemeCubit),
+          BlocProvider(create: (_) => tabBarThemeCubit),
+          BlocProvider(create: (_) => bottomNavigationBarThemeCubit),
+          BlocProvider(create: (_) => floatingActionButtonThemeCubit),
+          BlocProvider(create: (_) => elevatedButtonThemeCubit),
+          BlocProvider(create: (_) => outlinedButtonThemeCubit),
+          BlocProvider(create: (_) => textButtonThemeCubit),
+          BlocProvider(create: (_) => iconThemeCubit),
+          BlocProvider(create: (_) => inputDecorationThemeCubit),
+          BlocProvider(create: (_) => switchThemeCubit),
+          BlocProvider(create: (_) => checkboxThemeCubit),
+          BlocProvider(create: (_) => radioThemeCubit),
+          BlocProvider(create: (_) => sliderThemeCubit),
+          BlocProvider(create: (_) => textThemeCubit),
+          BlocProvider(create: (_) => headline1TextStyleCubit),
+          BlocProvider(create: (_) => headline2TextStyleCubit),
+          BlocProvider(create: (_) => headline3TextStyleCubit),
+          BlocProvider(create: (_) => headline4TextStyleCubit),
+          BlocProvider(create: (_) => headline5TextStyleCubit),
+          BlocProvider(create: (_) => headline6TextStyleCubit),
+          BlocProvider(create: (_) => subtitle1TextStyleCubit),
+          BlocProvider(create: (_) => subtitle2TextStyleCubit),
+          BlocProvider(create: (_) => bodyText1TextStyleCubit),
+          BlocProvider(create: (_) => bodyText2TextStyleCubit),
+          BlocProvider(create: (_) => buttonTextStyleCubit),
+          BlocProvider(create: (_) => captionTextStyleCubit),
+          BlocProvider(create: (_) => overlineTextStyleCubit),
+        ],
+        child: const _MaterialApp(),
+      ),
     );
   }
 }

@@ -24,27 +24,25 @@ void main() {
     );
 
     await tester.pumpWidget(
-      BlocProvider.value(
-        value: cubit,
-        child: const MaterialApp(
-          home: FontPicker(),
+      RepositoryProvider(
+        create: (context) => TextThemeRepository(),
+        child: BlocProvider.value(
+          value: cubit,
+          child: const MaterialApp(
+            home: Scaffold(
+              body: FontPicker(),
+            ),
+          ),
         ),
       ),
     );
 
-    await tester.tap(find.byKey(const Key('textThemeEditor_fontPicker')));
+    await tester.tap(find.byKey(const Key('fontPicker')));
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('fontPicker_$fontFamily')));
     await tester.pumpAndSettle();
 
-    final parentWidget = find.byKey(
-      const Key('textThemeEditor_fontPicker_listTile'),
-    );
-    final widget = find.descendant(
-      of: parentWidget,
-      matching: find.text(fontFamily),
-    );
-    expect(widget, findsOneWidget);
+    expect(find.text(fontFamily), findsOneWidget);
     verify(() => cubit.fontFamilyChanged(fontFamily));
   });
 }

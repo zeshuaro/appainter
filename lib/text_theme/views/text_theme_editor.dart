@@ -1,11 +1,6 @@
-import 'package:appainter/services/widget_service.dart';
-import 'package:flutter/material.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-final _colorDark = Colors.grey[700];
-final _colorLight = Colors.grey[100];
+import 'package:flutter/material.dart';
 
 class TextThemeEditor extends ExpansionPanelItem {
   const TextThemeEditor({Key? key}) : super(key: key);
@@ -20,8 +15,8 @@ class TextThemeEditor extends ExpansionPanelItem {
         const FontPicker(),
         MyExpansionPanelList(
           color: Theme.of(context).brightness == Brightness.dark
-              ? _colorDark
-              : _colorLight,
+              ? Colors.grey[700]
+              : Colors.grey[100],
           items: const [
             Headline1TextStyleEditor(),
             Headline2TextStyleEditor(),
@@ -40,42 +35,6 @@ class TextThemeEditor extends ExpansionPanelItem {
         ),
       ],
     );
-  }
-}
-
-@visibleForTesting
-class FontPicker extends StatelessWidget {
-  const FontPicker({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MyCard(
-      key: const Key('textThemeEditor_fontPicker'),
-      color: Theme.of(context).brightness == Brightness.dark
-          ? _colorDark
-          : _colorLight,
-      margin: EdgeInsets.zero,
-      onTap: () => _onTap(context),
-      child: BlocBuilder<TextThemeCubit, TextThemeState>(
-        buildWhen: (previous, current) {
-          return previous.fontFamily != current.fontFamily;
-        },
-        builder: (context, state) {
-          return MyListTile(
-            key: const Key('textThemeEditor_fontPicker_listTile'),
-            title: 'Font Family',
-            trailing: Text(state.fontFamily),
-          );
-        },
-      ),
-    );
-  }
-
-  Future<void> _onTap(BuildContext context) async {
-    final fontFamily = await WidgetService.showFontPicker(context: context);
-    if (fontFamily != null) {
-      context.read<TextThemeCubit>().fontFamilyChanged(fontFamily);
-    }
   }
 }
 

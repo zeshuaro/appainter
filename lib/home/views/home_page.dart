@@ -1,10 +1,10 @@
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/home/home.dart';
-import 'package:appainter/services/services.dart';
 import 'package:appainter/theme_preview/theme_preview.dart';
 import 'package:appainter/widgets/widgets.dart';
 
@@ -237,7 +237,7 @@ class _EditModeTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBar(
       tabs: EditMode.values.map((mode) {
-        final text = UtilService.enumToString(mode);
+        final text = EnumToString.convertToString(mode, camelCase: true);
         return Tab(
           key: Key('homePage_editModeTabBar_$text'),
           child: Text(

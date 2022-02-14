@@ -45,7 +45,7 @@ class _TrackHeightTextField extends StatelessWidget {
       builder: (context, state) {
         return MyTextFormField(
           key: const Key('sliderThemeEditor_trackHeightTextField'),
-          labelText: 'Track Height',
+          labelText: 'Track height',
           initialValue:
               (state.theme.trackHeight ?? kSliderTrackHeight).toString(),
           onChanged: (value) {
@@ -66,7 +66,7 @@ class _ActiveTrackColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_activeTrackColorPicker'),
-      title: 'Active Track Color',
+      title: 'Active track color',
       color: activeTrackColor ?? primaryColor,
       onColorChanged: (color) {
         context.read<SliderThemeCubit>().activeTrackColorChanged(color);
@@ -84,7 +84,7 @@ class _InactiveTrackColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_inactiveTrackColorPicker'),
-      title: 'Inactive Track Color',
+      title: 'Inactive track color',
       color: inactiveTrackColor ?? primaryColor.withOpacity(0.24),
       onColorChanged: (color) {
         context.read<SliderThemeCubit>().inactiveTrackColorChanged(color);
@@ -103,7 +103,7 @@ class _DisabledActiveTrackColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_disabledActiveTrackColorPicker'),
-      title: 'Disabled Active Track Color',
+      title: 'Disabled active track color',
       color: disabledActiveTrackColor ?? primaryColorDark.withOpacity(0.32),
       onColorChanged: (color) {
         context.read<SliderThemeCubit>().disabledActiveTrackColorChanged(color);
@@ -125,7 +125,7 @@ class _DisabledInactiveTrackColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_disabledInactiveTrackColorPicker'),
-      title: 'Disabled Inactive Track Color',
+      title: 'Disabled inactive Track color',
       color: disabledInactiveTrackColor ?? primaryColorDark.withOpacity(0.12),
       onColorChanged: (color) {
         context
@@ -146,7 +146,7 @@ class _ActiveTickMarkColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_activeTickMarkColorPicker'),
-      title: 'Active Tick Mark Color',
+      title: 'Active tick mark color',
       color: activeTickMarkColor ?? primaryColorLight.withOpacity(0.54),
       onColorChanged: (color) {
         context.read<SliderThemeCubit>().activeTickMarkColorChanged(color);
@@ -164,7 +164,7 @@ class _InactiveTickMarkColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_inactiveTickMarkColorPicker'),
-      title: 'Inactive Tick Mark Color',
+      title: 'Inactive tick mark color',
       color: inactiveTickMarkColor ?? primaryColor.withOpacity(0.54),
       onColorChanged: (color) {
         context.read<SliderThemeCubit>().inactiveTickMarkColorChanged(color);
@@ -186,7 +186,7 @@ class _DisabledActiveTickMarkColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_disabledActiveTickMarkColorPicker'),
-      title: 'Disabled Active Tick Mark Color',
+      title: 'Disabled active tick mark color',
       color: disabledActiveTickMarkColor ?? primaryColorLight.withOpacity(0.12),
       onColorChanged: (color) {
         context
@@ -210,7 +210,7 @@ class _DisabledInactiveTickMarkColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_disabledInactiveTickMarkColorPicker'),
-      title: 'Disabled Inactive Tick Mark Color',
+      title: 'Disabled inactive tick mark color',
       color:
           disabledInactiveTickMarkColor ?? primaryColorDark.withOpacity(0.12),
       onColorChanged: (color) {
@@ -230,7 +230,7 @@ class _ThumbColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_thumbColorPicker'),
-      title: 'Thumb Color',
+      title: 'Thumb color',
       color: thumbColor ?? primaryColor,
       onColorChanged: (color) {
         context.read<SliderThemeCubit>().thumbColorChanged(color);
@@ -249,7 +249,7 @@ class _DisabledThumbColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_disabledThumbColorPicker'),
-      title: 'Disabled Thumb Color',
+      title: 'Disabled thumb color',
       color: disabledThumbColor ?? primaryColorDark.withOpacity(0.32),
       onColorChanged: (color) {
         context.read<SliderThemeCubit>().disabledThumbColorChanged(color);
@@ -269,7 +269,7 @@ class _OverlappingShapeStrokeColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('sliderThemeEditor_overlappingShapeStrokeColorPicker'),
-          title: 'Overlapping Shape Stroke Color',
+          title: 'Overlapping shape stroke color',
           color: state.theme.overlappingShapeStrokeColor ?? Colors.white,
           onColorChanged: (color) {
             context
@@ -291,7 +291,7 @@ class _OverlayColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_overlayColorPicker'),
-      title: 'Overlay Color',
+      title: 'Overlay color',
       color: overlayColor ?? primaryColor.withOpacity(0.12),
       onColorChanged: (color) {
         context.read<SliderThemeCubit>().overlayColorChanged(color);
@@ -309,7 +309,7 @@ class _ValueIndicatorColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('sliderThemeEditor_valueIndicatorColorPicker'),
-      title: 'Value Indicator Color',
+      title: 'Value indicator color',
       color: valueIndicatorColor ?? primaryColor,
       onColorChanged: (color) {
         context.read<SliderThemeCubit>().valueIndicatorColorChanged(color);

@@ -9,7 +9,7 @@ class ElevatedButtonThemeEditor extends ExpansionPanelItem {
   const ElevatedButtonThemeEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Elevated Button';
+  String get header => 'Elevated button';
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _BackgroundColorPickers extends StatelessWidget {
     final colorScheme = context.watch<ColorThemeCubit>().state.colorScheme;
 
     return MaterialStatePropertyCard<Color>(
-      header: 'Background Color',
+      header: 'Background color',
       items: [
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_backgroundColor_default'),
@@ -77,7 +77,7 @@ class _ForegroundColorPickers extends StatelessWidget {
     final colorScheme = context.watch<ColorThemeCubit>().state.colorScheme;
 
     return MaterialStatePropertyCard<Color>(
-      header: 'Foreground Color',
+      header: 'Foreground color',
       items: [
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_foregroundColor_default'),
@@ -118,7 +118,7 @@ class _OverlayColorPickers extends StatelessWidget {
         context.watch<ColorThemeCubit>().state.colorScheme.onPrimary;
 
     return MaterialStatePropertyCard<Color>(
-      header: 'Overlay Color',
+      header: 'Overlay color',
       items: [
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_overlayColor_hovered'),
@@ -170,7 +170,7 @@ class _ShadowColorPickers extends StatelessWidget {
     final themeShadowColor = context.watch<ColorThemeCubit>().state.shadowColor;
 
     return MaterialStatePropertyCard<Color>(
-      header: 'Shadow Color',
+      header: 'Shadow color',
       items: [
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_shadowColor_default'),

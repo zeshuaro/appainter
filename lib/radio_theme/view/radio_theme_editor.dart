@@ -33,7 +33,7 @@ class _FillColorPickers extends StatelessWidget {
     final colorThemeState = context.watch<ColorThemeCubit>().state;
 
     return MaterialStatePropertyCard<Color>(
-      header: 'Fill Color',
+      header: 'Fill color',
       items: [
         MaterialStateItem(
           key: const Key('radioThemeEditor_fillColor_default'),
@@ -75,7 +75,7 @@ class _OverlayColorPickers extends StatelessWidget {
     final colorThemeState = context.watch<ColorThemeCubit>().state;
 
     return MaterialStatePropertyCard<Color>(
-      header: 'Overlay Color',
+      header: 'Overlay color',
       items: [
         MaterialStateItem(
           key: const Key('radioThemeEditor_overlayColor_pressed'),
@@ -124,7 +124,7 @@ class _MaterialTapTargetSizeDropdown extends StatelessWidget {
             state.theme.materialTapTargetSize ?? MaterialTapTargetSize.padded;
         return DropdownListTile(
           key: const Key('radioThemeEditor_materialTapTargetSizeDropdown'),
-          title: 'Material Tap Target Size',
+          title: 'Material tap target size',
           value: UtilService.enumToString(size),
           values: UtilService.getEnumStrings(MaterialTapTargetSize.values),
           onChanged: (value) {
@@ -146,7 +146,7 @@ class _SplashRadiusTextField extends StatelessWidget {
       builder: (context, state) {
         return MyTextFormField(
           key: const Key('radioThemeEditor_splashRadiusTextField'),
-          labelText: 'Splash Radius',
+          labelText: 'Splash radius',
           initialValue:
               (state.theme.splashRadius ?? kRadialReactionRadius).toString(),
           onChanged: (value) {

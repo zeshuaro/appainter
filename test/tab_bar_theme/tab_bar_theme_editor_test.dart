@@ -13,7 +13,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Tab Bar');
+  final widgetTesters = WidgetTesters(expandText: 'Tab bar');
 
   late TabBarThemeCubit tabBarThemeCubit;
   late ColorThemeCubit colorThemeCubit;

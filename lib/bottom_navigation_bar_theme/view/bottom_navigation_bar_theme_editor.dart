@@ -10,7 +10,7 @@ class BottomNavigationBarThemeEditor extends ExpansionPanelItem {
   const BottomNavigationBarThemeEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Bottom Navigation Bar';
+  String get header => 'Bottom navigation bar';
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class _BackgroundColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('bottomNavigationBarThemeEditor_backgroundColorPicker'),
-      title: 'Background Color',
+      title: 'Background color',
       color: backgroundColor ?? themeBackgroundColor,
       onColorChanged: (color) {
         context
@@ -89,7 +89,7 @@ class _SelectedItemColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('bottomNavigationBarThemeEditor_selectedItemColorPicker'),
-      title: 'Selected Item Color',
+      title: 'Selected item color',
       color: selectedItemColor ?? primaryColor,
       onColorChanged: (color) {
         context
@@ -115,7 +115,7 @@ class _UnselectedItemColorPicker extends StatelessWidget {
       key: const Key(
         'bottomNavigationBarThemeEditor_unselectedItemColorPicker',
       ),
-      title: 'Unselected Item Color',
+      title: 'Unselected item color',
       color: unselectedItemColor ?? unselectedWidgetColor,
       onColorChanged: (color) {
         context
@@ -137,7 +137,7 @@ class _ShowSelectedLabelsSwitch extends StatelessWidget {
       },
       builder: (context, state) {
         return MySwitchListTile(
-          title: 'Show Selected Labels',
+          title: 'Show selected labels',
           key: const Key(
             'bottomNavigationBarThemeEditor_showSelectedLabelsSwitch',
           ),
@@ -167,7 +167,7 @@ class _ShowUnselectedLabelsSwitch extends StatelessWidget {
           key: const Key(
             'bottomNavigationBarThemeEditor_showUnselectedLabelsSwitch',
           ),
-          title: 'Show Unselected Labels',
+          title: 'Show unselected labels',
           value: state.theme.showUnselectedLabels ?? true,
           onChanged: (value) {
             context

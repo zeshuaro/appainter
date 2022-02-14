@@ -53,7 +53,7 @@ class _SwitchEnabledState extends State<_SwitchEnabled> {
   @override
   Widget build(BuildContext context) {
     return MyListTile(
-      title: 'Switch Enabled',
+      title: 'Switch enabled',
       trailing: Switch(
         value: _value,
         onChanged: (value) => setState(() => _value = value),
@@ -66,7 +66,7 @@ class _SwitchDisabled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyListTile(
-      title: 'Switch Disabled',
+      title: 'Switch disabled',
       titleColor: Theme.of(context).disabledColor,
       trailing: const Switch(
         value: true,
@@ -87,7 +87,7 @@ class _CheckboxEnabledState extends State<_CheckboxEnabled> {
   @override
   Widget build(BuildContext context) {
     return MyListTile(
-      title: 'Checkbox Enabled',
+      title: 'Checkbox enabled',
       trailing: Checkbox(
         value: _value,
         onChanged: (value) => setState(() => _value = value),
@@ -100,7 +100,7 @@ class _CheckboxDisabled extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyListTile(
-      title: 'Checkbox Disabled',
+      title: 'Checkbox disabled',
       titleColor: Theme.of(context).disabledColor,
       trailing: const Checkbox(
         value: true,
@@ -137,7 +137,7 @@ class _RadioState extends State<_Radio> {
       ).toList()
         ..add(
           MyListTile(
-            title: 'Radio Disabled',
+            title: 'Radio disabled',
             titleColor: Theme.of(context).disabledColor,
             trailing: const Radio(
               value: null,
@@ -216,7 +216,7 @@ class _DatePickerState extends State<_DatePicker> {
   Widget build(BuildContext context) {
     final formattedDate = DateFormat('yyyy-MM-dd').format(_dateTime);
     return MyListTile(
-      title: 'Date Picker: $formattedDate',
+      title: 'Date picker: $formattedDate',
       trailing: ElevatedButton(
         onPressed: () async {
           final dateTime = await showDatePicker(
@@ -228,7 +228,7 @@ class _DatePickerState extends State<_DatePicker> {
 
           if (dateTime != null) setState(() => _dateTime = dateTime);
         },
-        child: const Text('Pick Date'),
+        child: const Text('Pick date'),
       ),
     );
   }
@@ -245,7 +245,7 @@ class _TimePickerState extends State<_TimePicker> {
   @override
   Widget build(BuildContext context) {
     return MyListTile(
-      title: 'Time Picker: ${_timeOfDay.format(context)}',
+      title: 'Time picker: ${_timeOfDay.format(context)}',
       trailing: ElevatedButton(
         onPressed: () async {
           final timeOfDay =
@@ -253,7 +253,7 @@ class _TimePickerState extends State<_TimePicker> {
 
           if (timeOfDay != null) setState(() => _timeOfDay = timeOfDay);
         },
-        child: const Text('Pick Time'),
+        child: const Text('Pick time'),
       ),
     );
   }

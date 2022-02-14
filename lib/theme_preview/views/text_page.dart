@@ -50,11 +50,11 @@ class TextPage extends PreviewBody {
           style: Theme.of(context).textTheme.subtitle2,
         ),
         Text(
-          'Body Text 1',
+          'Body text 1',
           style: Theme.of(context).textTheme.bodyText1,
         ),
         Text(
-          'Body Text 2',
+          'Body text 2',
           style: Theme.of(context).textTheme.bodyText2,
         ),
         Text(

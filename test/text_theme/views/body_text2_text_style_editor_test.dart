@@ -11,6 +11,6 @@ void main() {
     style: Typography.englishLike2018
         .merge(Typography.blackMountainView)
         .bodyText2!,
-    expandText: 'Body Text 2',
+    expandText: 'Body text 2',
   ).runAllTests();
 }

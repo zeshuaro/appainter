@@ -9,7 +9,7 @@ class OutlinedButtonThemeEditor extends ExpansionPanelItem {
   const OutlinedButtonThemeEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Outlined Button';
+  String get header => 'Outlined button';
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _BackgroundColorPickers extends StatelessWidget {
         ?.backgroundColor;
 
     return MaterialStatePropertyCard<Color>(
-      header: 'Background Color',
+      header: 'Background color',
       items: [
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_backgroundColor_default'),
@@ -65,7 +65,7 @@ class _ForegroundColorPickers extends StatelessWidget {
     final colorScheme = context.watch<ColorThemeCubit>().state.colorScheme;
 
     return MaterialStatePropertyCard<Color>(
-      header: 'Foreground Color',
+      header: 'Foreground color',
       items: [
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_foregroundColor_default'),
@@ -104,7 +104,7 @@ class _OverlayColorPickers extends StatelessWidget {
         context.watch<ColorThemeCubit>().state.colorScheme.primary;
 
     return MaterialStatePropertyCard<Color>(
-      header: 'Overlay Color',
+      header: 'Overlay color',
       items: [
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_overlayColor_hovered'),
@@ -156,7 +156,7 @@ class _ShadowColorPickers extends StatelessWidget {
     final themeShadowColor = context.watch<ColorThemeCubit>().state.shadowColor;
 
     return MaterialStatePropertyCard<Color>(
-      header: 'Shadow Color',
+      header: 'Shadow color',
       items: [
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_shadowColor_default'),

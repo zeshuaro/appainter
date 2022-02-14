@@ -13,7 +13,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Icon Theme');
+  final widgetTesters = WidgetTesters(expandText: 'Icon theme');
 
   late IconThemeCubit iconThemeCubit;
   late Color color;

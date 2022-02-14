@@ -14,7 +14,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 Future<void> main() async {
-  final _widgetTesters = WidgetTesters(expandText: 'Floating Action Button');
+  final _widgetTesters = WidgetTesters(expandText: 'Floating action button');
 
   late FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
   late ColorThemeCubit colorThemeCubit;

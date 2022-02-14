@@ -14,7 +14,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 Future<void> main() async {
-  final _widgetTesters = WidgetTesters(expandText: 'Elevated Button');
+  final _widgetTesters = WidgetTesters(expandText: 'Elevated button');
 
   late ElevatedButtonThemeCubit elevatedButtonThemeCubit;
   late ColorThemeCubit colorThemeCubit;

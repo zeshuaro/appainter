@@ -58,7 +58,7 @@ class _PrimaryColorPicker extends StatelessWidget {
         return ColorBrightnessListTile(
           key: const Key('colorThemeEditor_primaryColorPicker'),
           enableOpacity: false,
-          title: 'Primary Color',
+          title: 'Primary color',
           color: state.primaryColor,
           onColorChanged: (color) {
             final isDark = context.read<AdvancedThemeCubit>().state.isDark;
@@ -86,7 +86,7 @@ class _PrimaryColorLightPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_primaryColorLightPicker'),
-          title: 'Primary Color Light',
+          title: 'Primary color light',
           color: state.primaryColorLight,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().primaryColorLightChanged(color);
@@ -107,7 +107,7 @@ class _PrimaryColorDarkPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_primaryColorDarkPicker'),
-          title: 'Primary Color Dark',
+          title: 'Primary color dark',
           color: state.primaryColorDark,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().primaryColorDarkChanged(color);
@@ -128,7 +128,7 @@ class _BackgroundColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_backgroundColorPicker'),
-          title: 'Background Color',
+          title: 'Background color',
           color: state.backgroundColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().backgroundColorChanged(color);
@@ -149,7 +149,7 @@ class _BottomAppBarColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_bottomAppBarColorPicker'),
-          title: 'Bottom App Bar Color',
+          title: 'Bottom app bar color',
           color: state.bottomAppBarColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().bottomAppBarColorChanged(color);
@@ -170,7 +170,7 @@ class _CanvasColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_canvasColorPicker'),
-          title: 'Canvas Color',
+          title: 'Canvas color',
           color: state.canvasColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().canvasColorChanged(color);
@@ -191,7 +191,7 @@ class _CardColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_cardColorPicker'),
-          title: 'Card Color',
+          title: 'Card color',
           color: state.cardColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().cardColorChanged(color);
@@ -212,7 +212,7 @@ class _DialogBackgroundColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_dialogBackgroundColorPicker'),
-          title: 'Dialog Background Color',
+          title: 'Dialog background color',
           color: state.dialogBackgroundColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().dialogBackgroundColorChanged(color);
@@ -233,7 +233,7 @@ class _DisabledColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_disabledColorPicker'),
-          title: 'Disabled Color',
+          title: 'Disabled color',
           color: state.disabledColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().disabledColorChanged(color);
@@ -254,7 +254,7 @@ class _DividerColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_dividerColorPicker'),
-          title: 'Divider Color',
+          title: 'Divider color',
           color: state.dividerColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().dividerColorChanged(color);
@@ -275,7 +275,7 @@ class _ErrorColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_errorColorPicker'),
-          title: 'Error Color',
+          title: 'Error color',
           color: state.errorColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().errorColorChanged(color);
@@ -296,7 +296,7 @@ class _FocusColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_focusColorPicker'),
-          title: 'Focus Color',
+          title: 'Focus color',
           color: state.focusColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().focusColorChanged(color);
@@ -317,7 +317,7 @@ class _HighlightColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_highlightColorPicker'),
-          title: 'Highlight Color',
+          title: 'Highlight color',
           color: state.highlightColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().highlightColorChanged(color);
@@ -338,7 +338,7 @@ class _HintColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_hintColorPicker'),
-          title: 'Hint Color',
+          title: 'Hint color',
           color: state.hintColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().hintColorChanged(color);
@@ -359,7 +359,7 @@ class _HoverColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_hoverColorPicker'),
-          title: 'Hover Color',
+          title: 'Hover color',
           color: state.hoverColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().hoverColorChanged(color);
@@ -380,7 +380,7 @@ class _IndicatorColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_indicatorColorPicker'),
-          title: 'Indicator Color',
+          title: 'Indicator color',
           color: state.indicatorColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().indicatorColorChanged(color);
@@ -402,7 +402,7 @@ class _ScaffoldBackgroundColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_scaffoldBackgroundColorPicker'),
-          title: 'Scaffold Background Color',
+          title: 'Scaffold background color',
           color: state.scaffoldBackgroundColor,
           onColorChanged: (color) {
             context
@@ -425,7 +425,7 @@ class _SecondaryHeaderColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_secondaryHeaderColorPicker'),
-          title: 'Secondary Header Color',
+          title: 'Secondary header color',
           color: state.secondaryHeaderColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().secondaryHeaderColorChanged(color);
@@ -446,7 +446,7 @@ class _SelectedRowColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_selectedRowColorPicker'),
-          title: 'Selected Row Color',
+          title: 'Selected row color',
           color: state.selectedRowColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().selectedRowColorChanged(color);
@@ -467,7 +467,7 @@ class _ShadowColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_shadowColorPicker'),
-          title: 'Shadow Color',
+          title: 'Shadow color',
           color: state.shadowColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().shadowColorChanged(color);
@@ -488,7 +488,7 @@ class _SplashColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_splashColorPicker'),
-          title: 'Splash Color',
+          title: 'Splash color',
           color: state.splashColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().splashColorChanged(color);
@@ -509,7 +509,7 @@ class _ToggleableActiveColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_toggleableActiveColorPicker'),
-          title: 'Toggleable Active Color',
+          title: 'Toggleable active color',
           color: state.toggleableActiveColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().toggleableActiveColorChanged(color);
@@ -530,7 +530,7 @@ class _UnselectedWidgetColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('colorThemeEditor_unselectedWidgetColorPicker'),
-          title: 'Unselected Widget Color',
+          title: 'Unselected widget color',
           color: state.unselectedWidgetColor,
           onColorChanged: (color) {
             context.read<ColorThemeCubit>().unselectedWidgetColorChanged(color);

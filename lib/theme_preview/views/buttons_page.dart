@@ -23,7 +23,7 @@ class ButtonsPage extends PreviewBody {
           children: [
             ElevatedButton(
               onPressed: () {},
-              child: const Text('Elevated Button'),
+              child: const Text('Elevated button'),
             ),
             const ElevatedButton(
               onPressed: null,
@@ -36,7 +36,7 @@ class ButtonsPage extends PreviewBody {
             ElevatedButton.icon(
               onPressed: () {},
               icon: _buttonIcon,
-              label: const Text('Elevated Button Icon'),
+              label: const Text('Elevated button icon'),
             ),
             ElevatedButton.icon(
               onPressed: null,
@@ -49,7 +49,7 @@ class ButtonsPage extends PreviewBody {
           children: [
             OutlinedButton(
               onPressed: () {},
-              child: const Text('Outlined Button'),
+              child: const Text('Outlined button'),
             ),
             const OutlinedButton(
               onPressed: null,
@@ -62,7 +62,7 @@ class ButtonsPage extends PreviewBody {
             OutlinedButton.icon(
               onPressed: () {},
               icon: _buttonIcon,
-              label: const Text('Outlined Button Icon'),
+              label: const Text('Outlined button icon'),
             ),
             OutlinedButton.icon(
               onPressed: null,
@@ -75,7 +75,7 @@ class ButtonsPage extends PreviewBody {
           children: [
             TextButton(
               onPressed: () {},
-              child: const Text('Text Button'),
+              child: const Text('Text button'),
             ),
             const TextButton(
               onPressed: null,
@@ -88,7 +88,7 @@ class ButtonsPage extends PreviewBody {
             TextButton.icon(
               onPressed: () {},
               icon: _buttonIcon,
-              label: const Text('Text Button Icon'),
+              label: const Text('Text button icon'),
             ),
             TextButton.icon(
               onPressed: null,
@@ -132,7 +132,7 @@ class _IconButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Text(
-          'Icon Buttons',
+          'Icon buttons',
           style: kListTileTitleStyle,
         ),
         Row(

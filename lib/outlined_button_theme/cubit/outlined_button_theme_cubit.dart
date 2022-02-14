@@ -1,3 +1,4 @@
+import 'package:appainter/color_theme/color_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -8,7 +9,10 @@ part 'outlined_button_theme_cubit.g.dart';
 part 'outlined_button_theme_state.dart';
 
 class OutlinedButtonThemeCubit extends Cubit<OutlinedButtonThemeState> {
-  OutlinedButtonThemeCubit() : super(const OutlinedButtonThemeState());
+  final ColorThemeCubit colorThemeCubit;
+
+  OutlinedButtonThemeCubit({required this.colorThemeCubit})
+      : super(const OutlinedButtonThemeState());
 
   final _buttonUtils = const ButtonUtils();
 
@@ -97,15 +101,15 @@ class OutlinedButtonThemeCubit extends Cubit<OutlinedButtonThemeState> {
   }
 
   ButtonStyle _getStyle() {
-    final themeData = ThemeData();
-    final colorScheme = themeData.colorScheme;
+    final colorThemeState = colorThemeCubit.state;
+    final colorScheme = colorThemeState.colorScheme;
 
     return state.theme.style ??
         OutlinedButton.styleFrom(
           primary: colorScheme.primary,
           onSurface: colorScheme.onSurface,
           backgroundColor: Colors.transparent,
-          shadowColor: themeData.shadowColor,
+          shadowColor: colorThemeState.shadowColor,
           elevation: 0,
           minimumSize: const Size(64, 36),
         );

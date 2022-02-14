@@ -1,3 +1,4 @@
+import 'package:appainter/color_theme/color_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -9,7 +10,10 @@ part 'switch_theme_cubit.g.dart';
 part 'switch_theme_state.dart';
 
 class SwitchThemeCubit extends Cubit<SwitchThemeState> {
-  SwitchThemeCubit() : super(const SwitchThemeState());
+  final ColorThemeCubit colorThemeCubit;
+
+  SwitchThemeCubit({required this.colorThemeCubit})
+      : super(const SwitchThemeState());
 
   final _utils = const SelectionUtils();
 
@@ -115,42 +119,44 @@ class SwitchThemeCubit extends Cubit<SwitchThemeState> {
   }
 
   MaterialStateProperty<Color> get _defaultThumbColor {
-    final themeData = ThemeData();
+    final colorThemeState = colorThemeCubit.state;
     return MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
         return Colors.grey.shade400;
       }
       if (states.contains(MaterialState.selected)) {
-        return themeData.toggleableActiveColor;
+        return colorThemeState.toggleableActiveColor;
       }
       return Colors.grey.shade50;
     });
   }
 
   MaterialStateProperty<Color> get _defaultTrackColor {
-    final themeData = ThemeData();
+    final colorThemeState = colorThemeCubit.state;
     return MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.disabled)) {
         return Colors.black12;
       }
       if (states.contains(MaterialState.selected)) {
-        return themeData.toggleableActiveColor.withAlpha(0x80);
+        return colorThemeState.toggleableActiveColor.withAlpha(0x80);
       }
       return const Color(0x52000000);
     });
   }
 
   MaterialStateProperty<Color?> get _defaultOverlayColor {
-    final themeData = ThemeData();
+    final colorThemeState = colorThemeCubit.state;
     return MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.pressed)) {
-        return themeData.toggleableActiveColor.withAlpha(kRadialReactionAlpha);
+        return colorThemeState.toggleableActiveColor.withAlpha(
+          kRadialReactionAlpha,
+        );
       }
       if (states.contains(MaterialState.hovered)) {
-        return themeData.hoverColor;
+        return colorThemeState.hoverColor;
       }
       if (states.contains(MaterialState.focused)) {
-        return themeData.focusColor;
+        return colorThemeState.focusColor;
       }
       return null;
     });

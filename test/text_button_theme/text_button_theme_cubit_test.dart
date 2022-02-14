@@ -1,23 +1,32 @@
 import 'dart:math';
 
+import 'package:appainter/color_theme/color_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/text_button_theme/text_button_theme.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
+import '../mocks.dart';
 import '../utils.dart';
 
 void main() {
   final colorScheme = ThemeData().colorScheme;
 
-  late TextButtonThemeCubit cubit;
+  late TextButtonThemeCubit textButtonThemeCubit;
+  late ColorThemeCubit colorThemeCubit;
   late TextButtonThemeData theme;
   late Color color;
   late double doubleValue;
 
   setUp(() {
-    cubit = TextButtonThemeCubit();
+    colorThemeCubit = MockColorThemeCubit();
+    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
+
+    textButtonThemeCubit = TextButtonThemeCubit(
+      colorThemeCubit: colorThemeCubit,
+    );
     color = getRandomColor();
     doubleValue = Random().nextDouble();
   });
@@ -28,14 +37,14 @@ void main() {
       final colorScheme = randomColorSchemeLight(shouldPrint: false);
       theme = ThemeData.from(colorScheme: colorScheme).textButtonTheme;
     },
-    build: () => cubit,
+    build: () => textButtonThemeCubit,
     act: (cubit) => cubit.themeChanged(theme),
     expect: () => [TextButtonThemeState(theme: theme)],
   );
 
   blocTest<TextButtonThemeCubit, TextButtonThemeState>(
     'should emit background color',
-    build: () => cubit,
+    build: () => textButtonThemeCubit,
     act: (cubit) => cubit.backgroundColorChanged(color),
     verify: (cubit) {
       final props = {null: color};
@@ -50,7 +59,7 @@ void main() {
   group('test foreground colors', () {
     blocTest<TextButtonThemeCubit, TextButtonThemeState>(
       'should emit default color',
-      build: () => cubit,
+      build: () => textButtonThemeCubit,
       act: (cubit) => cubit.foregroundDefaultColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -67,7 +76,7 @@ void main() {
 
     blocTest<TextButtonThemeCubit, TextButtonThemeState>(
       'should emit disabled color',
-      build: () => cubit,
+      build: () => textButtonThemeCubit,
       act: (cubit) => cubit.foregroundDisabledColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -86,7 +95,7 @@ void main() {
   group('test overlay colors', () {
     blocTest<TextButtonThemeCubit, TextButtonThemeState>(
       'should emit hovered color',
-      build: () => cubit,
+      build: () => textButtonThemeCubit,
       act: (cubit) => cubit.overlayHoveredColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -104,7 +113,7 @@ void main() {
 
     blocTest<TextButtonThemeCubit, TextButtonThemeState>(
       'should emit focused color',
-      build: () => cubit,
+      build: () => textButtonThemeCubit,
       act: (cubit) => cubit.overlayFocusedColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -122,7 +131,7 @@ void main() {
 
     blocTest<TextButtonThemeCubit, TextButtonThemeState>(
       'should emit pressed color',
-      build: () => cubit,
+      build: () => textButtonThemeCubit,
       act: (cubit) => cubit.overlayPressedColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -141,7 +150,7 @@ void main() {
 
   blocTest<TextButtonThemeCubit, TextButtonThemeState>(
     'should emit shadow color',
-    build: () => cubit,
+    build: () => textButtonThemeCubit,
     act: (cubit) => cubit.shadowColorChanged(color),
     verify: (cubit) {
       final props = {null: color};
@@ -151,7 +160,7 @@ void main() {
 
   blocTest<TextButtonThemeCubit, TextButtonThemeState>(
     'should emit elevation',
-    build: () => cubit,
+    build: () => textButtonThemeCubit,
     act: (cubit) => cubit.elevationChanged(doubleValue.toString()),
     verify: (cubit) {
       final props = {null: doubleValue};

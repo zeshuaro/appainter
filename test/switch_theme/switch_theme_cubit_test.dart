@@ -1,16 +1,20 @@
 import 'dart:math';
 
+import 'package:appainter/color_theme/color_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/switch_theme/switch_theme.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
+import '../mocks.dart';
 import '../utils.dart';
 
 void main() {
-  late SwitchThemeCubit cubit;
+  late SwitchThemeCubit switchThemeCubit;
+  late ColorThemeCubit colorThemeCubit;
   late SwitchThemeData theme;
   late Color color;
   late double doubleValue;
@@ -44,7 +48,10 @@ void main() {
   });
 
   setUp(() {
-    cubit = SwitchThemeCubit();
+    colorThemeCubit = MockColorThemeCubit();
+    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
+
+    switchThemeCubit = SwitchThemeCubit(colorThemeCubit: colorThemeCubit);
     color = getRandomColor();
     doubleValue = Random().nextDouble();
   });
@@ -55,7 +62,7 @@ void main() {
       final colorScheme = randomColorSchemeLight(shouldPrint: false);
       theme = ThemeData.from(colorScheme: colorScheme).switchTheme;
     },
-    build: () => cubit,
+    build: () => switchThemeCubit,
     act: (cubit) => cubit.themeChanged(theme),
     expect: () => [SwitchThemeState(theme: theme)],
   );
@@ -63,7 +70,7 @@ void main() {
   group('test thumb colors', () {
     blocTest<SwitchThemeCubit, SwitchThemeState>(
       'should emit default color',
-      build: () => cubit,
+      build: () => switchThemeCubit,
       act: (cubit) => cubit.thumbDefaultColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -78,7 +85,7 @@ void main() {
 
     blocTest<SwitchThemeCubit, SwitchThemeState>(
       'should emit selected color',
-      build: () => cubit,
+      build: () => switchThemeCubit,
       act: (cubit) => cubit.thumbSelectedColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -93,7 +100,7 @@ void main() {
 
     blocTest<SwitchThemeCubit, SwitchThemeState>(
       'should emit disabled color',
-      build: () => cubit,
+      build: () => switchThemeCubit,
       act: (cubit) => cubit.thumbDisabledColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -110,7 +117,7 @@ void main() {
   group('test track colors', () {
     blocTest<SwitchThemeCubit, SwitchThemeState>(
       'should emit default color',
-      build: () => cubit,
+      build: () => switchThemeCubit,
       act: (cubit) => cubit.trackDefaultColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -125,7 +132,7 @@ void main() {
 
     blocTest<SwitchThemeCubit, SwitchThemeState>(
       'should emit selected color',
-      build: () => cubit,
+      build: () => switchThemeCubit,
       act: (cubit) => cubit.trackSelectedColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -143,7 +150,7 @@ void main() {
 
     blocTest<SwitchThemeCubit, SwitchThemeState>(
       'should emit disabled color',
-      build: () => cubit,
+      build: () => switchThemeCubit,
       act: (cubit) => cubit.trackDisabledColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -164,7 +171,7 @@ void main() {
     for (var size in MaterialTapTargetSize.values) {
       blocTest<SwitchThemeCubit, SwitchThemeState>(
         'should emit $size',
-        build: () => cubit,
+        build: () => switchThemeCubit,
         act: (cubit) {
           cubit.materialTapTargetSize(UtilService.enumToString(size));
         },
@@ -178,7 +185,7 @@ void main() {
   group('test overlay colors', () {
     blocTest<SwitchThemeCubit, SwitchThemeState>(
       'should emit pressed color',
-      build: () => cubit,
+      build: () => switchThemeCubit,
       act: (cubit) => cubit.overlayPressedColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -193,7 +200,7 @@ void main() {
 
     blocTest<SwitchThemeCubit, SwitchThemeState>(
       'should emit hovered color',
-      build: () => cubit,
+      build: () => switchThemeCubit,
       act: (cubit) => cubit.overlayHoveredColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -208,7 +215,7 @@ void main() {
 
     blocTest<SwitchThemeCubit, SwitchThemeState>(
       'should emit focused color',
-      build: () => cubit,
+      build: () => switchThemeCubit,
       act: (cubit) => cubit.overlayFocusedColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -224,7 +231,7 @@ void main() {
 
   blocTest<SwitchThemeCubit, SwitchThemeState>(
     'should emit splash radius',
-    build: () => cubit,
+    build: () => switchThemeCubit,
     act: (cubit) => cubit.splashRadiusChanged(doubleValue.toString()),
     expect: () => [
       SwitchThemeState(theme: SwitchThemeData(splashRadius: doubleValue)),

@@ -1,3 +1,4 @@
+import 'package:appainter/color_theme/color_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -8,7 +9,10 @@ part 'elevated_button_theme_cubit.g.dart';
 part 'elevated_button_theme_state.dart';
 
 class ElevatedButtonThemeCubit extends Cubit<ElevatedButtonThemeState> {
-  ElevatedButtonThemeCubit() : super(const ElevatedButtonThemeState());
+  final ColorThemeCubit colorThemeCubit;
+
+  ElevatedButtonThemeCubit({required this.colorThemeCubit})
+      : super(const ElevatedButtonThemeState());
 
   final _buttonUtils = const ButtonUtils();
 
@@ -163,15 +167,15 @@ class ElevatedButtonThemeCubit extends Cubit<ElevatedButtonThemeState> {
   }
 
   ButtonStyle _getStyle() {
-    final themeData = ThemeData();
-    final colorScheme = themeData.colorScheme;
+    final colorThemeState = colorThemeCubit.state;
+    final colorScheme = colorThemeState.colorScheme;
 
     return state.theme.style ??
         ElevatedButton.styleFrom(
           primary: colorScheme.primary,
           onPrimary: colorScheme.onPrimary,
           onSurface: colorScheme.onSurface,
-          shadowColor: themeData.shadowColor,
+          shadowColor: colorThemeState.shadowColor,
           elevation: 2,
           minimumSize: const Size(64, 36),
         );

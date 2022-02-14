@@ -35,15 +35,28 @@ class MyApp extends StatelessWidget {
     final appBarThemeCubit = AppBarThemeCubit();
     final tabBarThemeCubit = TabBarThemeCubit();
     final bottomNavigationBarThemeCubit = BottomNavigationBarThemeCubit();
+
     final floatingActionButtonThemeCubit = FloatingActionButtonThemeCubit();
-    final elevatedButtonThemeCubit = ElevatedButtonThemeCubit();
-    final outlinedButtonThemeCubit = OutlinedButtonThemeCubit();
-    final textButtonThemeCubit = TextButtonThemeCubit();
+    final elevatedButtonThemeCubit = ElevatedButtonThemeCubit(
+      colorThemeCubit: colorThemeCubit,
+    );
+    final outlinedButtonThemeCubit = OutlinedButtonThemeCubit(
+      colorThemeCubit: colorThemeCubit,
+    );
+    final textButtonThemeCubit = TextButtonThemeCubit(
+      colorThemeCubit: colorThemeCubit,
+    );
+
     final iconThemeCubit = IconThemeCubit();
     final inputDecorationThemeCubit = InputDecorationThemeCubit();
-    final switchThemeCubit = SwitchThemeCubit();
-    final checkboxThemeCubit = CheckboxThemeCubit();
-    final radioThemeCubit = RadioThemeCubit();
+
+    final switchThemeCubit = SwitchThemeCubit(
+      colorThemeCubit: colorThemeCubit,
+    );
+    final checkboxThemeCubit = CheckboxThemeCubit(
+      colorThemeCubit: colorThemeCubit,
+    );
+    final radioThemeCubit = RadioThemeCubit(colorThemeCubit: colorThemeCubit);
     final sliderThemeCubit = SliderThemeCubit();
 
     final headline1TextStyleCubit = Headline1TextStyleCubit();

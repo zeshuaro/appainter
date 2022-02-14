@@ -1,16 +1,20 @@
 import 'dart:math';
 
+import 'package:appainter/color_theme/color_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/services/services.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
+import '../mocks.dart';
 import '../utils.dart';
 
 void main() {
-  late RadioThemeCubit cubit;
+  late RadioThemeCubit radioThemeCubit;
+  late ColorThemeCubit colorThemeCubit;
   late RadioThemeData theme;
   late Color color;
   late double doubleValue;
@@ -36,7 +40,10 @@ void main() {
   });
 
   setUp(() {
-    cubit = RadioThemeCubit();
+    colorThemeCubit = MockColorThemeCubit();
+    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
+
+    radioThemeCubit = RadioThemeCubit(colorThemeCubit: colorThemeCubit);
     color = getRandomColor();
     doubleValue = Random().nextDouble();
   });
@@ -47,7 +54,7 @@ void main() {
       final colorScheme = randomColorSchemeLight(shouldPrint: false);
       theme = ThemeData.from(colorScheme: colorScheme).radioTheme;
     },
-    build: () => cubit,
+    build: () => radioThemeCubit,
     act: (cubit) => cubit.themeChanged(theme),
     expect: () => [RadioThemeState(theme: theme)],
   );
@@ -55,7 +62,7 @@ void main() {
   group('test fill colors', () {
     blocTest<RadioThemeCubit, RadioThemeState>(
       'should emit default color',
-      build: () => cubit,
+      build: () => radioThemeCubit,
       act: (cubit) => cubit.fillDefaultColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -70,7 +77,7 @@ void main() {
 
     blocTest<RadioThemeCubit, RadioThemeState>(
       'should emit selected color',
-      build: () => cubit,
+      build: () => radioThemeCubit,
       act: (cubit) => cubit.fillSelectedColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -84,7 +91,7 @@ void main() {
     );
     blocTest<RadioThemeCubit, RadioThemeState>(
       'should emit disabled color',
-      build: () => cubit,
+      build: () => radioThemeCubit,
       act: (cubit) => cubit.fillDisabledColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -101,7 +108,7 @@ void main() {
   group('test overlay colors', () {
     blocTest<RadioThemeCubit, RadioThemeState>(
       'should emit pressed color',
-      build: () => cubit,
+      build: () => radioThemeCubit,
       act: (cubit) => cubit.overlayPressedColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -116,7 +123,7 @@ void main() {
 
     blocTest<RadioThemeCubit, RadioThemeState>(
       'should emit hovered color',
-      build: () => cubit,
+      build: () => radioThemeCubit,
       act: (cubit) => cubit.overlayHoveredColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -131,7 +138,7 @@ void main() {
 
     blocTest<RadioThemeCubit, RadioThemeState>(
       'should emit focused color',
-      build: () => cubit,
+      build: () => radioThemeCubit,
       act: (cubit) => cubit.overlayFocusedColorChanged(color),
       verify: (cubit) {
         final props = {
@@ -149,7 +156,7 @@ void main() {
     for (var size in MaterialTapTargetSize.values) {
       blocTest<RadioThemeCubit, RadioThemeState>(
         'should emit $size',
-        build: () => cubit,
+        build: () => radioThemeCubit,
         act: (cubit) {
           cubit.materialTapTargetSize(UtilService.enumToString(size));
         },
@@ -162,7 +169,7 @@ void main() {
 
   blocTest<RadioThemeCubit, RadioThemeState>(
     'should emit splash radius',
-    build: () => cubit,
+    build: () => radioThemeCubit,
     act: (cubit) => cubit.splashRadiusChanged(doubleValue.toString()),
     expect: () => [
       RadioThemeState(theme: RadioThemeData(splashRadius: doubleValue)),

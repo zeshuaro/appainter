@@ -10,6 +10,6 @@ void main() {
     initializer: () => MockButtonTextStyleCubit(),
     style:
         Typography.englishLike2018.merge(Typography.blackMountainView).button!,
-    expandText: 'Button Text',
+    expandText: 'Button text',
   ).runAllTests();
 }

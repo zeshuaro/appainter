@@ -10,6 +10,6 @@ void main() {
     initializer: () => MockCaptionTextStyleCubit(),
     style:
         Typography.englishLike2018.merge(Typography.blackMountainView).caption!,
-    expandText: 'Caption Text',
+    expandText: 'Caption text',
   ).runAllTests();
 }

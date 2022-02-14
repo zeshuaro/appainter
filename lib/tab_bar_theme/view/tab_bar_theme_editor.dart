@@ -10,7 +10,7 @@ class TabBarThemeEditor extends ExpansionPanelItem {
   const TabBarThemeEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Tab Bar';
+  String get header => 'Tab bar';
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,7 @@ class _LabelColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('tabBarThemeEditor_labelColorPicker'),
-      title: 'Label Color',
+      title: 'Label color',
       color: labelColor ?? onPrimaryColor,
       onColorChanged: (color) {
         context.read<TabBarThemeCubit>().labelColorChanged(color);
@@ -57,7 +57,7 @@ class _UnselectedLabelColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('tabBarThemeEditor_unselectedLabelColorPicker'),
-      title: 'Unselected Label Color',
+      title: 'Unselected label color',
       color: unselectedLabelColor ?? unselectedColor,
       onColorChanged: (color) {
         context.read<TabBarThemeCubit>().unselectedLabelColorChanged(color);
@@ -77,7 +77,7 @@ class _IndicatorSizeDropdown extends StatelessWidget {
         final size = state.theme.indicatorSize ?? TabBarIndicatorSize.tab;
         return DropdownListTile(
           key: const Key('tabBarThemeEditor_indicatorSizeDropdown'),
-          title: 'Indicator Size',
+          title: 'Indicator size',
           value: UtilService.enumToString(size),
           values: UtilService.getEnumStrings(TabBarIndicatorSize.values),
           onChanged: (value) {

@@ -37,7 +37,7 @@ class _PrimaryColorPicker extends StatelessWidget {
         return ColorBrightnessListTile(
           key: const Key('basicEditor_primaryColorPicker'),
           enableOpacity: false,
-          title: 'Primary Color',
+          title: 'Primary color',
           color: state.colorScheme.primary,
           onColorChanged: (color) {
             context.read<BasicThemeCubit>().primaryColorChanged(color);
@@ -65,7 +65,7 @@ class _PrimaryColorDarkPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('basicEditor_primaryColorDarkPicker'),
-          title: 'Primary Color Dark',
+          title: 'Primary color dark',
           color: state.colorScheme.primaryVariant,
           onColorChanged: (color) {
             context.read<BasicThemeCubit>().primaryColorDarkChanged(color);
@@ -88,7 +88,7 @@ class _SecondaryColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorBrightnessListTile(
           key: const Key('basicEditor_secondaryColorPicker'),
-          title: 'Secondary Color',
+          title: 'Secondary color',
           color: state.colorScheme.secondary,
           onColorChanged: (color) {
             context.read<BasicThemeCubit>().secondaryColorChanged(color);
@@ -116,7 +116,7 @@ class _SecondaryColorDarkPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('basicEditor_secondaryColorDarkPicker'),
-          title: 'Secondary Color Dark',
+          title: 'Secondary color dark',
           color: state.colorScheme.secondaryVariant,
           onColorChanged: (color) {
             context.read<BasicThemeCubit>().secondaryColorDarkChanged(color);
@@ -138,7 +138,7 @@ class _SurfaceColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorBrightnessListTile(
           key: const Key('basicEditor_surfaceColorPicker'),
-          title: 'Surface Color',
+          title: 'Surface color',
           color: state.colorScheme.surface,
           onColorChanged: (color) {
             context.read<BasicThemeCubit>().surfaceColorChanged(color);
@@ -168,7 +168,7 @@ class _BackgroundColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorBrightnessListTile(
           key: const Key('basicEditor_backgroundColorPicker'),
-          title: 'Background Color',
+          title: 'Background color',
           color: state.colorScheme.background,
           onColorChanged: (color) {
             context.read<BasicThemeCubit>().backgroundColorChanged(color);
@@ -196,7 +196,7 @@ class _ErrorColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorBrightnessListTile(
           key: const Key('basicEditor_errorColorPicker'),
-          title: 'Error Color',
+          title: 'Error color',
           color: state.colorScheme.error,
           onColorChanged: (color) {
             context.read<BasicThemeCubit>().errorColorChanged(color);

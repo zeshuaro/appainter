@@ -14,7 +14,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 Future<void> main() async {
-  final _widgetTesters = WidgetTesters(expandText: 'Outlined Button');
+  final _widgetTesters = WidgetTesters(expandText: 'Outlined button');
 
   late OutlinedButtonThemeCubit outlinedButtonThemeCubit;
   late ColorThemeCubit colorThemeCubit;

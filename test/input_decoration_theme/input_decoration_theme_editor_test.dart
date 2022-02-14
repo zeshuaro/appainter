@@ -14,7 +14,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Input Decoration');
+  final widgetTesters = WidgetTesters(expandText: 'Input decoration');
 
   late InputDecorationThemeCubit inputDecorationThemeCubit;
   late ColorThemeCubit colorThemeCubit;

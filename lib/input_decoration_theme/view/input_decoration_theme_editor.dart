@@ -10,7 +10,7 @@ class InputDecorationThemeEditor extends ExpansionPanelItem {
   const InputDecorationThemeEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Input Decoration';
+  String get header => 'Input decoration';
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +73,7 @@ class _FloatingLabelBehaviorDropdown extends StatelessWidget {
           key: const Key(
             'inputDecorationThemeEditor_floatingLabelBehaviorDropdown',
           ),
-          title: 'Floating Label Behavior',
+          title: 'Floating label behavior',
           value: UtilService.enumToString(behavior),
           values: UtilService.getEnumStrings(FloatingLabelBehavior.values),
           onChanged: (value) {
@@ -97,7 +97,7 @@ class _FillColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           key: const Key('inputDecorationThemeEditor_fillColorPicker'),
-          title: 'Fill Color',
+          title: 'Fill color',
           color: state.theme.fillColor ?? kInputDecorationFillColor,
           onColorChanged: (color) {
             context.read<InputDecorationThemeCubit>().fillColorChanged(color);
@@ -117,7 +117,7 @@ class _HoverColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('inputDecorationThemeEditor_hoverColorPicker'),
-      title: 'Hover Color',
+      title: 'Hover color',
       color: hoverColor ?? themeHoverColor,
       onColorChanged: (color) {
         context.read<InputDecorationThemeCubit>().hoverColorChanged(color);
@@ -137,7 +137,7 @@ class _AlignLabelWithHintSwitch extends StatelessWidget {
       builder: (context, state) {
         return MySwitchListTile(
           key: const Key('inputDecorationThemeEditor_alignLabelWithHintSwitch'),
-          title: 'Align Label with Hint',
+          title: 'Align label with hint',
           value: state.theme.alignLabelWithHint,
           onChanged: (value) {
             context
@@ -181,7 +181,7 @@ class _IsCollapsedSwitch extends StatelessWidget {
       builder: (context, state) {
         return MySwitchListTile(
           key: const Key('inputDecorationThemeEditor_isCollapsedSwitch'),
-          title: 'Is Collapsed',
+          title: 'Is collapsed',
           value: state.theme.isCollapsed,
           onChanged: (value) {
             context.read<InputDecorationThemeCubit>().isCollapsedChanged(value);
@@ -202,7 +202,7 @@ class _IsDenseSwitch extends StatelessWidget {
       builder: (context, state) {
         return MySwitchListTile(
           key: const Key('inputDecorationThemeEditor_isDenseSwitch'),
-          title: 'Is Dense',
+          title: 'Is dense',
           value: state.theme.isDense,
           onChanged: (value) {
             context.read<InputDecorationThemeCubit>().isDenseChanged(value);
@@ -223,7 +223,7 @@ class _ErrorMaxLinesTextField extends StatelessWidget {
       builder: (context, state) {
         return MyTextFormField(
           key: const Key('inputDecorationThemeEditor_errorMaxLinesTextField'),
-          labelText: 'Error Max Lines',
+          labelText: 'Error max lines',
           initialValue:
               (state.theme.errorMaxLines ?? kInputDecorationErrorMaxLines)
                   .toString(),
@@ -248,7 +248,7 @@ class _HelperMaxLinesTextField extends StatelessWidget {
       builder: (context, state) {
         return MyTextFormField(
           key: const Key('inputDecorationThemeEditor_helperMaxLinesTextField'),
-          labelText: 'Helper Max Lines',
+          labelText: 'Helper max lines',
           initialValue:
               (state.theme.helperMaxLines ?? kInputDecorationHelperMaxLines)
                   .toString(),

@@ -58,13 +58,13 @@ class TextStyleCard extends StatelessWidget {
         ),
         ColorListTile(
           key: const Key('backgroundColorPicker'),
-          title: 'Background Color',
+          title: 'Background color',
           color: style.backgroundColor ?? Colors.transparent,
           onColorChanged: onBackgroundColorChanged,
         ),
         MyTextFormField(
           key: const Key('fontSizeTextField'),
-          labelText: 'Font Size',
+          labelText: 'Font size',
           onChanged: onFontSizeChanged,
           initialValue: style.fontSize!.toString(),
         ),
@@ -76,14 +76,14 @@ class TextStyleCard extends StatelessWidget {
         ),
         DropdownListTile(
           key: const Key('fontWeightDropdown'),
-          title: 'Font Weight',
+          title: 'Font weight',
           value: MyFontWeight().stringFromEnum(style.fontWeight!)!,
           values: MyFontWeight().names,
           onChanged: onFontWeightChanged,
         ),
         DropdownListTile(
           key: const Key('fontStyleDropdown'),
-          title: 'Font Style',
+          title: 'Font style',
           value: UtilService.enumToString(
             style.fontStyle ?? FontStyle.normal,
           ),
@@ -92,26 +92,26 @@ class TextStyleCard extends StatelessWidget {
         ),
         MyTextFormField(
           key: const Key('letterSpacingTextField'),
-          labelText: 'Letter Spacing',
+          labelText: 'Letter spacing',
           onChanged: onLetterSpacingChanged,
           initialValue: style.letterSpacing?.toString(),
         ),
         MyTextFormField(
           key: const Key('wordSpacingTextField'),
-          labelText: 'Word Spacing',
+          labelText: 'Word spacing',
           onChanged: onWordSpacingChanged,
           initialValue: style.wordSpacing?.toString(),
         ),
         DropdownListTile(
           key: const Key('textBaselineDropdown'),
-          title: 'Text Baseline',
+          title: 'Text baseline',
           value: UtilService.enumToString(style.textBaseline!),
           values: UtilService.getEnumStrings(TextBaseline.values),
           onChanged: onTextBaselineChanged,
         ),
         DropdownListTile(
           key: const Key('leadingDistributionDropdown'),
-          title: 'Leading Distribution',
+          title: 'Leading distribution',
           value: UtilService.enumToString(
             style.leadingDistribution ?? TextLeadingDistribution.proportional,
           ),
@@ -129,13 +129,13 @@ class TextStyleCard extends StatelessWidget {
         ),
         ColorListTile(
           key: const Key('decorationColorPicker'),
-          title: 'Decoration Color',
+          title: 'Decoration color',
           color: style.decorationColor ?? Colors.transparent,
           onColorChanged: onDecorationColorChanged,
         ),
         DropdownListTile(
           key: const Key('decorationStyleDropdown'),
-          title: 'Decoration Style',
+          title: 'Decoration style',
           value: UtilService.enumToString(style.decorationStyle),
           values: UtilService.getEnumStrings(
             TextDecorationStyle.values,
@@ -145,7 +145,7 @@ class TextStyleCard extends StatelessWidget {
         ),
         MyTextFormField(
           key: const Key('decorationThicknessTextField'),
-          labelText: 'Decoration Thickness',
+          labelText: 'Decoration thickness',
           initialValue: style.decorationThickness?.toString(),
           onChanged: onDecorationThicknessChanged,
         ),

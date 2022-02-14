@@ -6,7 +6,7 @@ class MyTextDecoration extends EnumModel<TextDecoration> {
   static const Map<String, TextDecoration> _values = {
     'None': TextDecoration.none,
     'Underline': TextDecoration.underline,
-    'Line Through': TextDecoration.lineThrough,
+    'Line through': TextDecoration.lineThrough,
     'Overline': TextDecoration.overline,
   };
 

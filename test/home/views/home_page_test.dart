@@ -1,4 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,7 +7,6 @@ import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/basic_theme/cubit/basic_theme_cubit.dart';
 import 'package:appainter/basic_theme/views/basic_editor.dart';
 import 'package:appainter/home/home.dart';
-import 'package:appainter/services/services.dart';
 import 'package:appainter/theme_preview/theme_preview.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -75,7 +75,7 @@ void main() {
 
           await _pumpApp(tester);
 
-          final text = UtilService.enumToString(mode);
+          final text = EnumToString.convertToString(mode, camelCase: true);
           final finder = find.byKey(Key('homePage_editModeTabBar_$text'));
           await tester.ensureVisible(finder);
           await tester.tap(finder);

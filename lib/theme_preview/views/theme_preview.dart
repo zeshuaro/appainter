@@ -210,7 +210,7 @@ class _Drawer extends StatelessWidget {
               color: Theme.of(context).primaryColor,
             ),
             child: const Text(
-              'Drawer Header',
+              'Drawer header',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,

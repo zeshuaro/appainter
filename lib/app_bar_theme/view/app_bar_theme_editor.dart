@@ -10,7 +10,7 @@ class AppBarThemeEditor extends ExpansionPanelItem {
   const AppBarThemeEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'App Bar';
+  String get header => 'App bar';
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _BackgroundColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('appBarThemeEditor_backgroundColorPicker'),
-      title: 'Background Color',
+      title: 'Background color',
       color: backgroundColor ?? primaryColor,
       onColorChanged: (color) {
         context.read<AppBarThemeCubit>().backgroundColorChanged(color);
@@ -59,7 +59,7 @@ class _ForegroundColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('appBarThemeEditor_foregroundColorPicker'),
-      title: 'Foreground Color',
+      title: 'Foreground color',
       color: foregroundColor ?? onPrimaryColor,
       onColorChanged: (color) {
         context.read<AppBarThemeCubit>().foregroundColorChanged(color);
@@ -99,7 +99,7 @@ class _ShadowColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('appBarThemeEditor_shadowColorPicker'),
-      title: 'Shadow Color',
+      title: 'Shadow color',
       color: shadowColor ?? themeShadowColor,
       onColorChanged: (color) {
         context.read<AppBarThemeCubit>().shadowColorChanged(color);
@@ -118,7 +118,7 @@ class _CenterTitleSwitch extends StatelessWidget {
       builder: (context, state) {
         return MySwitchListTile(
           key: const Key('appBarThemeEditor_centerTitleSwitch'),
-          title: 'Center Title',
+          title: 'Center title',
           value: state.theme.centerTitle ?? true,
           onChanged: (value) {
             context.read<AppBarThemeCubit>().centerTitleChanged(value);
@@ -139,7 +139,7 @@ class _TitleSpacingTextField extends StatelessWidget {
       builder: (context, state) {
         return MyTextFormField(
           key: const Key('appBarThemeEditor_titleSpacingTextField'),
-          labelText: 'Title Spacing',
+          labelText: 'Title spacing',
           initialValue: state.theme.titleSpacing?.toString() ??
               kAppBarTitleSpacing.toString(),
           onChanged: (value) {
@@ -161,7 +161,7 @@ class _ToolBarHeightTextField extends StatelessWidget {
       builder: (context, state) {
         return MyTextFormField(
           key: const Key('appBarThemeEditor_toolBarHeightTextField'),
-          labelText: 'Tool Bar Height',
+          labelText: 'Tool bar height',
           initialValue: state.theme.toolbarHeight?.toString() ??
               kToolbarHeight.toString(),
           onChanged: (value) {
@@ -184,7 +184,7 @@ class _SystemUiOverlayStyleDropdown extends StatelessWidget {
       builder: (context, state) {
         return DropdownListTile(
           key: const Key('appBarThemeEditor_systemUiOverlayStyleDropdown'),
-          title: 'System UI Overlay Style',
+          title: 'System UI overlay style',
           value: MySystemUiOverlayStyle()
                   .stringFromEnum(state.theme.systemOverlayStyle) ??
               'Light',

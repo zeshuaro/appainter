@@ -9,7 +9,7 @@ class FloatingActionButtonThemeEditor extends ExpansionPanelItem {
   const FloatingActionButtonThemeEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Floating Action Button';
+  String get header => 'Floating action button';
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class _BackgroundColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_backgroundColorPicker'),
-      title: 'Background Color',
+      title: 'Background color',
       color: backgroundColor ?? secondaryColor,
       onColorChanged: (color) {
         context
@@ -75,7 +75,7 @@ class _ForegroundColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_foregroundColorPicker'),
-      title: 'Foreground Color',
+      title: 'Foreground color',
       color: foregroundColor ?? onPrimaryColor,
       onColorChanged: (color) {
         context
@@ -95,7 +95,7 @@ class _FocusColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_focusColorPicker'),
-      title: 'Focus Color',
+      title: 'Focus color',
       color: focusColor ?? themeFocusColor,
       onColorChanged: (color) {
         context.read<FloatingActionButtonThemeCubit>().focusColorChanged(color);
@@ -113,7 +113,7 @@ class _HoverColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_hoverColorPicker'),
-      title: 'Hover Color',
+      title: 'Hover color',
       color: hoverColor ?? themeHoverColor,
       onColorChanged: (color) {
         context.read<FloatingActionButtonThemeCubit>().hoverColorChanged(color);
@@ -131,7 +131,7 @@ class _SplashColorPicker extends StatelessWidget {
 
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_splashColorPicker'),
-      title: 'Splash Color',
+      title: 'Splash color',
       color: splashColor ?? themeSplashColor,
       onColorChanged: (color) {
         context
@@ -181,7 +181,7 @@ class _DisabledElevationTextField extends StatelessWidget {
           key: const Key(
             'floatingActionButtonThemeEditor_disabledElevationTextField',
           ),
-          labelText: 'Disabled Elevation',
+          labelText: 'Disabled elevation',
           initialValue:
               (state.theme.disabledElevation ?? kFloatingActionBtnElevation)
                   .toString(),
@@ -209,7 +209,7 @@ class _FocusElevationTextField extends StatelessWidget {
           key: const Key(
             'floatingActionButtonThemeEditor_focusElevationTextField',
           ),
-          labelText: 'Focus Elevation',
+          labelText: 'Focus elevation',
           initialValue:
               (state.theme.focusElevation ?? kFloatingActionBtnFocusElevation)
                   .toString(),
@@ -238,7 +238,7 @@ class _HighlightElevationTextField extends StatelessWidget {
           key: const Key(
             'floatingActionButtonThemeEditor_highlightElevationTextField',
           ),
-          labelText: 'Highlight Elevation',
+          labelText: 'Highlight elevation',
           initialValue: (state.theme.highlightElevation ??
                   kFloatingActionBtnHighlightElevation)
               .toString(),
@@ -266,7 +266,7 @@ class _HoverElevationTextField extends StatelessWidget {
           key: const Key(
             'floatingActionButtonThemeEditor_hoverElevationTextField',
           ),
-          labelText: 'Hover Elevation',
+          labelText: 'Hover elevation',
           initialValue:
               (state.theme.hoverElevation ?? kFloatingActionBtnHoverElevation)
                   .toString(),

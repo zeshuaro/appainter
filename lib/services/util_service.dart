@@ -31,13 +31,11 @@ class UtilService {
   }
 
   static String enumToString(dynamic value) {
-    return value == null
-        ? kNone
-        : EnumToString.convertToString(value, camelCase: true);
+    return value == null ? kNone : EnumToString.convertToString(value);
   }
 
   static T? stringToEnum<T>(List<T> enumValues, String value) {
-    return EnumToString.fromString<T>(enumValues, value, camelCase: true);
+    return EnumToString.fromString<T>(enumValues, value);
   }
 
   static List<String> getEnumStrings(

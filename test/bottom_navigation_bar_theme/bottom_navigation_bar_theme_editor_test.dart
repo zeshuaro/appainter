@@ -15,7 +15,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Bottom Navigation Bar');
+  final widgetTesters = WidgetTesters(expandText: 'Bottom navigation bar');
 
   late BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
   late ColorThemeCubit colorThemeCubit;

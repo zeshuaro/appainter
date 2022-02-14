@@ -11,6 +11,6 @@ void main() {
     style: Typography.englishLike2018
         .merge(Typography.blackMountainView)
         .overline!,
-    expandText: 'Overline Text',
+    expandText: 'Overline text',
   ).runAllTests();
 }

@@ -8,7 +8,7 @@ class IconThemeEditor extends ExpansionPanelItem {
   const IconThemeEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Icon Theme';
+  String get header => 'Icon theme';
 
   @override
   Widget build(BuildContext context) {

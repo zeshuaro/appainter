@@ -6,7 +6,7 @@ class TextThemeEditor extends ExpansionPanelItem {
   const TextThemeEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Text Theme';
+  String get header => 'Text theme';
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +107,7 @@ class BodyText1TextStyleEditor
   const BodyText1TextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Body Text 1';
+  String get header => 'Body text 1';
 }
 
 class BodyText2TextStyleEditor
@@ -115,7 +115,7 @@ class BodyText2TextStyleEditor
   const BodyText2TextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Body Text 2';
+  String get header => 'Body text 2';
 }
 
 class ButtonTextStyleEditor
@@ -123,7 +123,7 @@ class ButtonTextStyleEditor
   const ButtonTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Button Text';
+  String get header => 'Button text';
 }
 
 class CaptionTextStyleEditor
@@ -131,7 +131,7 @@ class CaptionTextStyleEditor
   const CaptionTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Caption Text';
+  String get header => 'Caption text';
 }
 
 class OverlineTextStyleEditor
@@ -139,5 +139,5 @@ class OverlineTextStyleEditor
   const OverlineTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Overline Text';
+  String get header => 'Overline text';
 }

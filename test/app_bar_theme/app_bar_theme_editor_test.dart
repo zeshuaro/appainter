@@ -15,7 +15,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'App Bar');
+  final widgetTesters = WidgetTesters(expandText: 'App bar');
 
   late AppBarThemeCubit appBarThemeCubit;
   late ColorThemeCubit colorThemeCubit;

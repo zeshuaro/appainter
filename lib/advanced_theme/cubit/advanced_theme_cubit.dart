@@ -57,12 +57,6 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     required this.textThemeCubit,
   }) : super(const AdvancedThemeState());
 
-  static const _colorSchemeDark = ColorScheme.dark(
-    primary: Colors.blue,
-    secondary: Colors.blue,
-    surface: Colors.blue,
-  );
-
   void themeBrightnessChanged(bool isDark) {
     colorThemeCubit.themeChanged(_getDefaultTheme(isDark: isDark));
     textThemeCubit.themeBrightnessChanged(isDark);
@@ -111,8 +105,6 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
   }
 
   ThemeData _getDefaultTheme({bool? isDark}) {
-    return isDark ?? state.isDark
-        ? ThemeData.from(colorScheme: _colorSchemeDark)
-        : ThemeData();
+    return isDark ?? state.isDark ? ThemeData.dark() : ThemeData.light();
   }
 }

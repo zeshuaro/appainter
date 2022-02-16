@@ -15,6 +15,9 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        index: [0, 1, 2, 3]
 
     steps:
       - name: Checkout 🛎️
@@ -34,7 +37,7 @@ jobs:
         run: |
           flutter pub get
           flutter pub run build_runner build --delete-conflicting-outputs
-          flutter test --coverage --no-test-assets --concurrency=4
+          flutter test --coverage --no-test-assets --total-shards 4 --shard-index ${{ matrix.index }} --concurrency=4 
           flutter pub run remove_from_coverage -f coverage/lcov.info -r '\.g\.dart$' -r 'extensions\.dart'
 
       - name: Upload coverage report 📡

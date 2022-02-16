@@ -1,22 +1,24 @@
+import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/basic_theme/cubit/basic_theme_cubit.dart';
-import 'package:appainter/basic_theme/views/basic_editor.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../brightness.dart';
 import '../mocks.dart';
-import '../pump_app.dart';
 import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters();
+  final widgetTesters = WidgetTesters(scrollToParentWidget: true);
 
   late BasicThemeCubit cubit;
+  late ColorScheme colorScheme;
   late Color color;
+
+  setUpAll(() {
+    colorScheme = BasicThemeState.getColorScheme(false);
+  });
 
   setUp(() {
     cubit = MockBasicThemeCubit();
@@ -27,217 +29,352 @@ void main() {
     whenListen(
       cubit,
       Stream.fromIterable([BasicThemeState(colorScheme: colorScheme)]),
-      initialState: const BasicThemeState(),
+      initialState: BasicThemeState(),
     );
 
     await tester.pumpWidget(
       BlocProvider.value(
         value: cubit,
         child: const MaterialApp(
-          home: BasicEditor(),
+          home: BasicThemeEditor(),
         ),
       ),
     );
-
-    await tester.pumpApp(const BasicEditor(), basicThemeCubit: cubit);
   }
 
-  group('test primary color', () {
-    const key = 'basicEditor_primaryColorPicker';
+  Future<void> _verifyColorPicker(
+    WidgetTester tester,
+    ColorScheme colorScheme,
+    String key,
+    void Function(Color) verifyFn,
+  ) async {
+    await _pumpApp(tester, colorScheme);
+    await widgetTesters.checkColorPicker(tester, key, color);
+    verify(() => verifyFn(color)).called(1);
+  }
 
-    testWidgets(
-      'color picker should update with selected color',
-      (tester) async {
-        color = const Color(0xFFF44336);
-        final colorScheme = ColorScheme.light(primary: color);
-
-        await _pumpApp(tester, colorScheme);
-
-        await widgetTesters.checkColorPicker(tester, key, color);
-        verify(() => cubit.primaryColorChanged(color)).called(1);
-      },
-    );
-
-    for (var test in BrightnessTest.testCases) {
-      testWidgets(
-        'brightness switch should be toggled with ${test.isDark}',
-        (tester) async {
-          final colorScheme = ColorScheme.light(onPrimary: test.color);
-
-          await _pumpApp(tester, colorScheme);
-
-          await widgetTesters.checkSwitch(tester, key, test.isDark);
-          verify(
-            () => cubit.primaryColorBrightnessChanged(!test.isDark),
-          ).called(1);
-        },
+  testWidgets(
+    'primary color picker should update with selected color',
+    (tester) async {
+      color = const Color(0xfff44336);
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(primary: color),
+        'basicThemeEditor_primaryColorPicker',
+        cubit.primaryColorChanged,
       );
-    }
-  });
+    },
+  );
 
-  group('test primary color dark', () {
-    testWidgets(
-      'color picker should update with selected color',
-      (tester) async {
-        final colorScheme = ColorScheme.light(primaryVariant: color);
-
-        // When
-        await _pumpApp(tester, colorScheme);
-
-        // Then
-        await widgetTesters.checkColorPicker(
-          tester,
-          'basicEditor_primaryColorDarkPicker',
-          color,
-        );
-        verify(() => cubit.primaryColorDarkChanged(color)).called(1);
-      },
-    );
-  });
-
-  group('test secondary color', () {
-    const key = 'basicEditor_secondaryColorPicker';
-
-    testWidgets(
-      'color picker should update with selected color',
-      (tester) async {
-        final colorScheme = ColorScheme.light(secondary: color);
-
-        await _pumpApp(tester, colorScheme);
-
-        await widgetTesters.checkColorPicker(tester, key, color);
-        verify(() => cubit.secondaryColorChanged(color)).called(1);
-      },
-    );
-
-    for (var test in BrightnessTest.testCases) {
-      testWidgets(
-        'brightness switch should be toggled with ${test.isDark}',
-        (tester) async {
-          final colorScheme = ColorScheme.light(onSecondary: test.color);
-
-          await _pumpApp(tester, colorScheme);
-
-          await widgetTesters.checkSwitch(tester, key, test.isDark);
-          verify(
-            () => cubit.secondaryColorBrightnessChanged(!test.isDark),
-          ).called(1);
-        },
+  testWidgets(
+    'on primary color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onPrimary: color),
+        'basicThemeEditor_onPrimaryColorPicker',
+        cubit.onPrimaryColorChanged,
       );
-    }
-  });
+    },
+  );
 
-  group('test secondary color dark', () {
-    testWidgets(
-      'color picker should update with selected color',
-      (tester) async {
-        final colorScheme = ColorScheme.light(secondaryVariant: color);
-
-        await _pumpApp(tester, colorScheme);
-
-        await widgetTesters.checkColorPicker(
-          tester,
-          'basicEditor_secondaryColorDarkPicker',
-          color,
-        );
-        verify(() => cubit.secondaryColorDarkChanged(color)).called(1);
-      },
-    );
-  });
-
-  group('test surface color', () {
-    const key = 'basicEditor_surfaceColorPicker';
-
-    testWidgets(
-      'color picker should update with selected color',
-      (tester) async {
-        final colorScheme = ColorScheme.light(surface: color);
-
-        await _pumpApp(tester, colorScheme);
-
-        await widgetTesters.checkColorPicker(tester, key, color);
-        verify(() => cubit.surfaceColorChanged(color)).called(1);
-      },
-    );
-
-    for (var test in BrightnessTest.testCases) {
-      testWidgets(
-        'brightness switch should be toggled with ${test.isDark}',
-        (tester) async {
-          final colorScheme = ColorScheme.light(onSurface: test.color);
-
-          await _pumpApp(tester, colorScheme);
-
-          await widgetTesters.checkSwitch(tester, key, test.isDark);
-          verify(
-            () => cubit.surfaceColorBrightnessChanged(!test.isDark),
-          ).called(1);
-        },
+  testWidgets(
+    'primary container color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(primaryContainer: color),
+        'basicThemeEditor_primaryContainerColorPicker',
+        cubit.primaryContainerColorChanged,
       );
-    }
-  });
+    },
+  );
 
-  group('test background color', () {
-    const key = 'basicEditor_backgroundColorPicker';
-
-    testWidgets(
-      'color picker should update with selected color',
-      (tester) async {
-        final colorScheme = ColorScheme.light(background: color);
-
-        await _pumpApp(tester, colorScheme);
-
-        await widgetTesters.checkColorPicker(tester, key, color);
-        verify(() => cubit.backgroundColorChanged(color)).called(1);
-      },
-    );
-
-    for (var test in BrightnessTest.testCases) {
-      testWidgets(
-        'brightness switch should be toggled with ${test.isDark}',
-        (tester) async {
-          final colorScheme = ColorScheme.light(onBackground: test.color);
-
-          await _pumpApp(tester, colorScheme);
-
-          await widgetTesters.checkSwitch(tester, key, test.isDark);
-          verify(
-            () => cubit.backgroundColorBrightnessChanged(!test.isDark),
-          ).called(1);
-        },
+  testWidgets(
+    'on primary container color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onPrimaryContainer: color),
+        'basicThemeEditor_onPrimaryContainerColorPicker',
+        cubit.onPrimaryContainerColorChanged,
       );
-    }
-  });
+    },
+  );
 
-  group('test error color', () {
-    const key = 'basicEditor_errorColorPicker';
-
-    testWidgets(
-      'color picker should update with selected color',
-      (tester) async {
-        final colorScheme = ColorScheme.light(error: color);
-
-        await _pumpApp(tester, colorScheme);
-
-        await widgetTesters.checkColorPicker(tester, key, color);
-        verify(() => cubit.errorColorChanged(color)).called(1);
-      },
-    );
-
-    for (var test in BrightnessTest.testCases) {
-      testWidgets(
-        'brightness switch should be toggled with ${test.isDark}',
-        (tester) async {
-          final colorScheme = ColorScheme.light(onError: test.color);
-
-          await _pumpApp(tester, colorScheme);
-
-          await widgetTesters.checkSwitch(tester, key, test.isDark);
-          verify(
-            () => cubit.errorColorBrightnessChanged(!test.isDark),
-          ).called(1);
-        },
+  testWidgets(
+    'secondary color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(secondary: color),
+        'basicThemeEditor_secondaryColorPicker',
+        cubit.secondaryColorChanged,
       );
-    }
-  });
+    },
+  );
+
+  testWidgets(
+    'on secondary color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onSecondary: color),
+        'basicThemeEditor_onSecondaryColorPicker',
+        cubit.onSecondaryColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'secondary container color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(secondaryContainer: color),
+        'basicThemeEditor_secondaryContainerColorPicker',
+        cubit.secondaryContainerColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'on secondary container color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onSecondaryContainer: color),
+        'basicThemeEditor_onSecondaryContainerColorPicker',
+        cubit.onSecondaryContainerColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'tertiary color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(tertiary: color),
+        'basicThemeEditor_tertiaryColorPicker',
+        cubit.tertiaryColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'on tertiary color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onTertiary: color),
+        'basicThemeEditor_onTertiaryColorPicker',
+        cubit.onTertiaryColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'tertiary container color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(tertiaryContainer: color),
+        'basicThemeEditor_tertiaryContainerColorPicker',
+        cubit.tertiaryContainerColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'on tertiary container color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onTertiaryContainer: color),
+        'basicThemeEditor_onTertiaryContainerColorPicker',
+        cubit.onTertiaryContainerColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'error color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(error: color),
+        'basicThemeEditor_errorColorPicker',
+        cubit.errorColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'on error color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onError: color),
+        'basicThemeEditor_onErrorColorPicker',
+        cubit.onErrorColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'error container color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(errorContainer: color),
+        'basicThemeEditor_errorContainerColorPicker',
+        cubit.errorContainerColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'on error container color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onErrorContainer: color),
+        'basicThemeEditor_onErrorContainerColorPicker',
+        cubit.onErrorContainerColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'background color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(background: color),
+        'basicThemeEditor_backgroundColorPicker',
+        cubit.backgroundColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'on background color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onBackground: color),
+        'basicThemeEditor_onBackgroundColorPicker',
+        cubit.onBackgroundColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'surface color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(surface: color),
+        'basicThemeEditor_surfaceColorPicker',
+        cubit.surfaceColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'on surface color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onSurface: color),
+        'basicThemeEditor_onSurfaceColorPicker',
+        cubit.onSurfaceColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'surface variant color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(surfaceVariant: color),
+        'basicThemeEditor_surfaceVariantColorPicker',
+        cubit.surfaceVariantColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'on surface variant color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onSurfaceVariant: color),
+        'basicThemeEditor_onSurfaceVariantColorPicker',
+        cubit.onSurfaceVariantColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'outline color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(outline: color),
+        'basicThemeEditor_outlineColorPicker',
+        cubit.outlineColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'shadow color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(shadow: color),
+        'basicThemeEditor_shadowColorPicker',
+        cubit.shadowColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'inverse surface color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(inverseSurface: color),
+        'basicThemeEditor_inverseSurfaceColorPicker',
+        cubit.inverseSurfaceColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'on inverse surface color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(onInverseSurface: color),
+        'basicThemeEditor_onInverseSurfaceColorPicker',
+        cubit.onInverseSurfaceColorChanged,
+      );
+    },
+  );
+
+  testWidgets(
+    'inverse primary color picker should update with selected color',
+    (tester) async {
+      await _verifyColorPicker(
+        tester,
+        colorScheme.copyWith(inversePrimary: color),
+        'basicThemeEditor_inversePrimaryColorPicker',
+        cubit.inversePrimaryColorChanged,
+      );
+    },
+  );
 }

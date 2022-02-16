@@ -7,7 +7,6 @@ import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../brightness.dart';
 import '../mocks.dart';
 import '../utils.dart';
 import '../widget_testers.dart';
@@ -66,28 +65,6 @@ void main() {
           verify(
             () => colorThemeCubit.primaryColorChanged(color, isDark),
           ).called(1);
-        },
-      );
-    }
-
-    for (var test in BrightnessTest.testCases) {
-      testWidgets(
-        'brightness switch should be toggled to ${test.brightness}',
-        (tester) async {
-          final state = ColorThemeState(
-            primaryColorBrightness: test.brightness,
-          );
-
-          await _pumpApp(tester, state);
-
-          await widgetTesters.checkSwitch(
-            tester,
-            'colorThemeEditor_primaryColorPicker',
-            test.isDark,
-          );
-          verify(() {
-            colorThemeCubit.primaryColorBrightnessChanged(!test.isDark);
-          }).called(1);
         },
       );
     }

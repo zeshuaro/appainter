@@ -93,7 +93,6 @@ class ThemePreview extends StatelessWidget {
           colorScheme: colorTheme.colorScheme,
           brightness: colorTheme.colorScheme.brightness,
           primaryColor: colorTheme.primaryColor,
-          primaryColorBrightness: colorTheme.primaryColorBrightness,
           primaryColorLight: colorTheme.primaryColorLight,
           primaryColorDark: colorTheme.primaryColorDark,
           backgroundColor: colorTheme.backgroundColor,

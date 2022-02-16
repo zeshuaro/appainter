@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static const _sdkVersion = '2.8.1';
+  static const _sdkVersion = '2.10.0';
   static final _backgroundColorDark = Colors.grey[850]!;
   static final _backgroundColorLight = Colors.grey[200]!;
 
@@ -205,7 +205,7 @@ class _Editors extends StatelessWidget {
         Expanded(
           child: TabBarView(
             children: [
-              BasicEditor(),
+              BasicThemeEditor(),
               AdvancedEditor(),
             ],
           ),

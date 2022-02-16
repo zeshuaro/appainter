@@ -5,7 +5,6 @@ import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/services.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
-import '../brightness.dart';
 import '../utils.dart';
 
 void main() {
@@ -33,7 +32,6 @@ void main() {
       ColorThemeState(
         colorScheme: theme.colorScheme,
         primaryColor: theme.primaryColor,
-        primaryColorBrightness: theme.primaryColorBrightness,
         primaryColorLight: theme.primaryColorLight,
         primaryColorDark: theme.primaryColorDark,
         backgroundColor: theme.backgroundColor,
@@ -77,10 +75,8 @@ void main() {
             ColorThemeState(
               colorScheme: colorScheme.copyWith(
                 primary: color,
-                primaryVariant: swatch[700],
                 onPrimary: onColor,
                 secondary: color,
-                secondaryVariant: swatch[700],
                 onSecondary: onColor,
               ),
               primaryColor: color,
@@ -92,19 +88,6 @@ void main() {
               toggleableActiveColor: swatch[600],
             )
           ];
-        },
-      );
-    }
-  });
-
-  group('test primary color brightness', () {
-    for (var test in BrightnessTest.testCases) {
-      blocTest<ColorThemeCubit, ColorThemeState>(
-        'should emit ${test.brightness}',
-        build: () => colorThemeCubit,
-        act: (cubit) => cubit.primaryColorBrightnessChanged(test.isDark),
-        expect: () {
-          return [ColorThemeState(primaryColorBrightness: test.brightness)];
         },
       );
     }

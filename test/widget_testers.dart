@@ -4,8 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 
 class WidgetTesters {
   final String? expandText;
+  final bool scrollToParentWidget;
 
-  WidgetTesters({this.expandText});
+  WidgetTesters({this.expandText, this.scrollToParentWidget = false});
 
   Future<void> checkColorPicker(
     WidgetTester tester,
@@ -131,7 +132,11 @@ class WidgetTesters {
 
   Future<Finder> _findParentWidget(WidgetTester tester, String key) async {
     final parentWidget = find.byKey(Key(key));
-    await tester.scrollUntilVisible(parentWidget, 500);
+    if (scrollToParentWidget) {
+      await tester.scrollUntilVisible(parentWidget, 500);
+    } else {
+      await tester.ensureVisible(parentWidget);
+    }
     await tester.pumpAndSettle();
 
     return parentWidget;

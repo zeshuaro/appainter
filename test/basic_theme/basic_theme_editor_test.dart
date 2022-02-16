@@ -10,7 +10,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters();
+  final widgetTesters = WidgetTesters(scrollToParentWidget: true);
 
   late BasicThemeCubit cubit;
   late ColorScheme colorScheme;

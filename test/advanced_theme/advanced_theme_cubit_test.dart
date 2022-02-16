@@ -195,12 +195,5 @@ void main() {
 }
 
 ThemeData _getDefaultTheme({required bool isDark}) {
-  return isDark
-      ? ThemeData.from(
-          colorScheme: const ColorScheme.dark(
-          primary: Colors.blue,
-          secondary: Colors.blue,
-          surface: Colors.blue,
-        ))
-      : ThemeData();
+  return isDark ? ThemeData.dark() : ThemeData.light();
 }

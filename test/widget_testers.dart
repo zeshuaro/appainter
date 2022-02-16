@@ -131,7 +131,7 @@ class WidgetTesters {
 
   Future<Finder> _findParentWidget(WidgetTester tester, String key) async {
     final parentWidget = find.byKey(Key(key));
-    await tester.ensureVisible(parentWidget);
+    await tester.scrollUntilVisible(parentWidget, 500);
     await tester.pumpAndSettle();
 
     return parentWidget;

@@ -1,24 +1,24 @@
+import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/common/common.dart';
-import 'package:appainter/services/services.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 part 'basic_theme_cubit.g.dart';
 part 'basic_theme_state.dart';
 
 class BasicThemeCubit extends Cubit<BasicThemeState> {
-  BasicThemeCubit() : super(const BasicThemeState());
+  final BasicThemeService _service;
 
-  static const _colorSchemeLight = ColorScheme.light();
-  static const _colorSchemeDark = ColorScheme.dark();
+  BasicThemeCubit({BasicThemeService? service})
+      : _service = service ?? BasicThemeService(),
+        super(BasicThemeState());
 
   void themeBrightnessChanged(bool isDark) {
     emit(
       state.copyWith(
-        colorScheme: isDark ? _colorSchemeDark : _colorSchemeLight,
+        colorScheme: BasicThemeState.getColorScheme(isDark),
         isDark: isDark,
       ),
     );
@@ -36,120 +36,182 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
 
   void themeReset() {
     emit(state.copyWith(
-      colorScheme: state.isDark ? _colorSchemeDark : _colorSchemeLight,
+      colorScheme: BasicThemeState.getColorScheme(state.isDark),
     ));
   }
 
   void primaryColorChanged(Color color) {
-    final swatch = UtilService.getColorSwatch(color);
-    final colorDark = swatch[kSwatchDark]!;
-    final onColor = _getOnColor(color);
-    final colorScheme = state.colorScheme.copyWith(
+    final colorScheme = ColorScheme.fromSeed(
+      seedColor: color,
+      brightness: state.brightness,
       primary: color,
-      primaryVariant: colorDark,
-      onPrimary: onColor,
-      secondary: color,
-      secondaryVariant: colorDark,
-      onSecondary: onColor,
     );
-
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  void primaryColorBrightnessChanged(bool isDark) {
-    final color = _getLightOrDarkColor(isDark);
+  void onPrimaryColorChanged(Color color) {
     final colorScheme = state.colorScheme.copyWith(onPrimary: color);
-
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  void primaryColorDarkChanged(Color color) {
-    final colorScheme = state.colorScheme.copyWith(primaryVariant: color);
+  void primaryContainerColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(
+      primaryContainer: color,
+      onPrimaryContainer: _service.getOnContainerColor(color),
+    );
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void onPrimaryContainerColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(onPrimaryContainer: color);
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void secondaryColorChanged(Color color) {
-    final swatch = UtilService.getColorSwatch(color);
-    final onColor = _getOnColor(color);
     final colorScheme = state.colorScheme.copyWith(
       secondary: color,
-      secondaryVariant: swatch[kSwatchDark],
-      onSecondary: onColor,
+      onSecondary: _service.getOnKeyColor(color),
+      secondaryContainer: _service.getContainerColor(color),
+      onSecondaryContainer: _service.getOnContainerColor(color),
     );
-
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  void secondaryColorBrightnessChanged(bool isDark) {
-    final color = _getLightOrDarkColor(isDark);
+  void onSecondaryColorChanged(Color color) {
     final colorScheme = state.colorScheme.copyWith(onSecondary: color);
-
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  void secondaryColorDarkChanged(Color color) {
-    final colorScheme = state.colorScheme.copyWith(secondaryVariant: color);
-    emit(state.copyWith(colorScheme: colorScheme));
-  }
-
-  void surfaceColorChanged(Color color) {
-    final onColor = _getOnColor(color);
+  void secondaryContainerColorChanged(Color color) {
     final colorScheme = state.colorScheme.copyWith(
-      surface: color,
-      onSurface: onColor,
+      secondaryContainer: color,
+      onSecondaryContainer: _service.getOnContainerColor(color),
     );
-
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  void surfaceColorBrightnessChanged(bool isDark) {
-    final color = _getLightOrDarkColor(isDark);
-    final colorScheme = state.colorScheme.copyWith(onSurface: color);
-
+  void onSecondaryContainerColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(onSecondaryContainer: color);
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  void backgroundColorChanged(Color color) {
-    final onColor = _getOnColor(color);
+  void tertiaryColorChanged(Color color) {
     final colorScheme = state.colorScheme.copyWith(
-      background: color,
-      onBackground: onColor,
+      tertiary: color,
+      onTertiary: _service.getOnKeyColor(color),
+      tertiaryContainer: _service.getContainerColor(color),
+      onTertiaryContainer: _service.getOnContainerColor(color),
     );
-
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  void backgroundColorBrightnessChanged(bool isDark) {
-    final color = _getLightOrDarkColor(isDark);
-    final colorScheme = state.colorScheme.copyWith(onBackground: color);
+  void onTertiaryColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(onTertiary: color);
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
 
+  void tertiaryContainerColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(
+      tertiaryContainer: color,
+      onTertiaryContainer: _service.getOnContainerColor(color),
+    );
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void onTertiaryContainerColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(onTertiaryContainer: color);
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
   void errorColorChanged(Color color) {
-    final onColor = _getOnColor(color);
     final colorScheme = state.colorScheme.copyWith(
       error: color,
-      onError: onColor,
+      onError: _service.getOnKeyColor(color),
+      errorContainer: _service.getContainerColor(color),
+      onErrorContainer: _service.getOnContainerColor(color),
     );
-
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  void errorColorBrightnessChanged(bool isDark) {
-    final color = _getLightOrDarkColor(isDark);
+  void onErrorColorChanged(Color color) {
     final colorScheme = state.colorScheme.copyWith(onError: color);
-
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  Color _getOnColor(Color color) {
-    return ThemeData.estimateBrightnessForColor(color) == Brightness.dark
-        ? Colors.white
-        : Colors.black;
+  void errorContainerColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(
+      errorContainer: color,
+      onErrorContainer: _service.getOnContainerColor(color),
+    );
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  Color _getLightOrDarkColor(bool isDark) {
-    return isDark ? Colors.black : Colors.white;
+  void onErrorContainerColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(onErrorContainer: color);
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void backgroundColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(
+      background: color,
+      onBackground: _service.getOnNeutralColor(color),
+    );
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void onBackgroundColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(onBackground: color);
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void surfaceColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(
+      surface: color,
+      onSurface: _service.getOnNeutralColor(color),
+    );
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void onSurfaceColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(onSurface: color);
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void surfaceVariantColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(
+      surfaceVariant: color,
+      onSurfaceVariant: _service.getOnSurfaceVariantColor(color),
+    );
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void onSurfaceVariantColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(onSurfaceVariant: color);
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void outlineColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(outline: color);
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void shadowColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(shadow: color);
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void inverseSurfaceColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(inverseSurface: color);
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void onInverseSurfaceColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(onInverseSurface: color);
+    emit(state.copyWith(colorScheme: colorScheme));
+  }
+
+  void inversePrimaryColorChanged(Color color) {
+    final colorScheme = state.colorScheme.copyWith(inversePrimary: color);
+    emit(state.copyWith(colorScheme: colorScheme));
   }
 }

@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
-import 'package:appainter/basic_theme/cubit/basic_theme_cubit.dart';
-import 'package:appainter/basic_theme/views/basic_editor.dart';
+import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/home/home.dart';
 import 'package:appainter/theme_preview/theme_preview.dart';
 import 'package:mocktail/mocktail.dart';
@@ -41,7 +40,7 @@ void main() {
 
     when(() => homeCubit.state).thenReturn(const HomeState());
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
-    when(() => basicThemeCubit.state).thenReturn(const BasicThemeState());
+    when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
     when(() => advancedThemeCubit.state).thenReturn(const AdvancedThemeState());
   });
 
@@ -59,7 +58,7 @@ void main() {
     await _pumpApp(tester);
 
     expect(find.byType(HomePage), findsOneWidget);
-    expect(find.byType(BasicEditor), findsOneWidget);
+    expect(find.byType(BasicThemeEditor), findsOneWidget);
     expect(find.byType(ThemePreview), findsOneWidget);
   });
 
@@ -82,7 +81,7 @@ void main() {
           await tester.pumpAndSettle();
 
           final editorType =
-              mode == EditMode.basic ? BasicEditor : AdvancedEditor;
+              mode == EditMode.basic ? BasicThemeEditor : AdvancedEditor;
           expect(find.byType(editorType), findsOneWidget);
           verify(() => homeCubit.editModeChanged(mode)).called(1);
 
@@ -99,7 +98,7 @@ void main() {
         when(() => homeCubit.state).thenReturn(
           const HomeState(editMode: EditMode.basic),
         );
-        when(() => basicThemeCubit.state).thenReturn(const BasicThemeState());
+        when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
         when(() => homeCubit.themeExported(any())).thenAnswer(
           (invocation) => Future.value(),
         );

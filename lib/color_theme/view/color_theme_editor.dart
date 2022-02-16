@@ -51,11 +51,10 @@ class _PrimaryColorPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
       buildWhen: (previous, current) {
-        return previous.primaryColor != current.primaryColor ||
-            previous.primaryColorBrightness != current.primaryColorBrightness;
+        return previous.primaryColor != current.primaryColor;
       },
       builder: (context, state) {
-        return ColorBrightnessListTile(
+        return ColorListTile(
           key: const Key('colorThemeEditor_primaryColorPicker'),
           enableOpacity: false,
           title: 'Primary color',
@@ -63,12 +62,6 @@ class _PrimaryColorPicker extends StatelessWidget {
           onColorChanged: (color) {
             final isDark = context.read<AdvancedThemeCubit>().state.isDark;
             context.read<ColorThemeCubit>().primaryColorChanged(color, isDark);
-          },
-          isColorDark: state.primaryColorBrightness == Brightness.dark,
-          onBrightnessChanged: (isDark) {
-            context
-                .read<ColorThemeCubit>()
-                .primaryColorBrightnessChanged(isDark);
           },
         );
       },

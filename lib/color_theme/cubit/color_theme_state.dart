@@ -5,7 +5,6 @@ class ColorThemeState extends Equatable {
   late final ColorScheme colorScheme;
 
   late final Color primaryColor;
-  late final Brightness primaryColorBrightness;
   late final Color primaryColorLight;
   late final Color primaryColorDark;
   late final Color backgroundColor;
@@ -32,7 +31,6 @@ class ColorThemeState extends Equatable {
   ColorThemeState({
     ColorScheme? colorScheme,
     Color? primaryColor,
-    Brightness? primaryColorBrightness,
     Color? primaryColorLight,
     Color? primaryColorDark,
     Color? backgroundColor,
@@ -60,8 +58,6 @@ class ColorThemeState extends Equatable {
     this.colorScheme = colorScheme ?? theme.colorScheme;
 
     this.primaryColor = primaryColor ?? theme.primaryColor;
-    this.primaryColorBrightness =
-        primaryColorBrightness ?? theme.primaryColorBrightness;
     this.primaryColorLight = primaryColorLight ?? theme.primaryColorLight;
     this.primaryColorDark = primaryColorDark ?? theme.primaryColorDark;
     this.backgroundColor = backgroundColor ?? theme.backgroundColor;
@@ -96,7 +92,6 @@ class ColorThemeState extends Equatable {
     return [
       colorScheme,
       primaryColor,
-      primaryColorBrightness,
       primaryColorLight,
       primaryColorDark,
       backgroundColor,

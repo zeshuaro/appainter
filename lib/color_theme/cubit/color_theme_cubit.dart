@@ -14,7 +14,6 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
     emit(state.copyWith(
       colorScheme: theme.colorScheme,
       primaryColor: theme.primaryColor,
-      primaryColorBrightness: theme.primaryColorBrightness,
       primaryColorLight: theme.primaryColorLight,
       primaryColorDark: theme.primaryColorDark,
       backgroundColor: theme.backgroundColor,
@@ -51,10 +50,8 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
       state.copyWith(
         colorScheme: colorScheme.copyWith(
           primary: color,
-          primaryVariant: primaryColorDark,
           onPrimary: onColor,
           secondary: color,
-          secondaryVariant: primaryColorDark,
           onSecondary: onColor,
         ),
         primaryColor: color,
@@ -66,11 +63,6 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
         toggleableActiveColor: swatch[600],
       ),
     );
-  }
-
-  void primaryColorBrightnessChanged(bool isDark) {
-    final brightness = isDark ? Brightness.dark : Brightness.light;
-    emit(state.copyWith(primaryColorBrightness: brightness));
   }
 
   void primaryColorLightChanged(Color color) {

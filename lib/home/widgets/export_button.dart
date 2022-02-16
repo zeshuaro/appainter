@@ -104,7 +104,6 @@ class ExportButton extends StatelessWidget {
 
     return ThemeData(
       primaryColor: colorTheme.primaryColor,
-      primaryColorBrightness: colorTheme.primaryColorBrightness,
       primaryColorLight: colorTheme.primaryColorLight,
       primaryColorDark: colorTheme.primaryColorDark,
       backgroundColor: colorTheme.backgroundColor,

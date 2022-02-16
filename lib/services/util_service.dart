@@ -26,10 +26,6 @@ class UtilService {
     return swatch;
   }
 
-  static bool isColorDark(Color color) {
-    return ThemeData.estimateBrightnessForColor(color) == Brightness.dark;
-  }
-
   static String enumToString(dynamic value) {
     return value == null ? kNone : EnumToString.convertToString(value);
   }

@@ -9,37 +9,64 @@ class BasicThemeEditor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MyCard(
-      child: SideBySideList(
+      padding: EdgeInsets.zero,
+      child: NestedListView(
         children: [
-          _PrimaryColorPicker(),
-          _OnPrimaryColorPicker(),
-          _PrimaryContainerColorPicker(),
-          _OnPrimaryContainerColorPicker(),
-          _SecondaryColorPicker(),
-          _OnSecondaryColorPicker(),
-          _SecondaryContainerColorPicker(),
-          _OnSecondaryContainerColorPicker(),
-          _TertiaryColorPicker(),
-          _OnTertiaryColorPicker(),
-          _TertiaryContainerColorPicker(),
-          _OnTertiaryContainerColorPicker(),
-          _ErrorColorPicker(),
-          _OnErrorColorPicker(),
-          _ErrorContainerColorPicker(),
-          _OnErrorContainerColorPicker(),
-          _BackgroundColorPicker(),
-          _OnBackgroundColorPicker(),
-          _SurfaceColorPicker(),
-          _OnSurfaceColorPicker(),
-          _SurfaceVariantColorPicker(),
-          _OnSurfaceVariantColorPicker(),
-          _OutlineColorPicker(),
-          _ShadowColorPicker(),
-          _InverseSurfaceColorPicker(),
-          _OnInverseSurfaceColorPicker(),
-          _InversePrimaryColorPicker(),
+          _SeedColorPicker(),
+          const Divider(),
+          SideBySideList(
+            key: const Key('basicThemeEditor_sideBySideList'),
+            children: [
+              _PrimaryColorPicker(),
+              _OnPrimaryColorPicker(),
+              _PrimaryContainerColorPicker(),
+              _OnPrimaryContainerColorPicker(),
+              _SecondaryColorPicker(),
+              _OnSecondaryColorPicker(),
+              _SecondaryContainerColorPicker(),
+              _OnSecondaryContainerColorPicker(),
+              _TertiaryColorPicker(),
+              _OnTertiaryColorPicker(),
+              _TertiaryContainerColorPicker(),
+              _OnTertiaryContainerColorPicker(),
+              _ErrorColorPicker(),
+              _OnErrorColorPicker(),
+              _ErrorContainerColorPicker(),
+              _OnErrorContainerColorPicker(),
+              _BackgroundColorPicker(),
+              _OnBackgroundColorPicker(),
+              _SurfaceColorPicker(),
+              _OnSurfaceColorPicker(),
+              _SurfaceVariantColorPicker(),
+              _OnSurfaceVariantColorPicker(),
+              _OutlineColorPicker(),
+              _ShadowColorPicker(),
+              _InverseSurfaceColorPicker(),
+              _OnInverseSurfaceColorPicker(),
+              _InversePrimaryColorPicker(),
+            ],
+          ),
         ],
       ),
+    );
+  }
+}
+
+class _SeedColorPicker extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<BasicThemeCubit, BasicThemeState>(
+      buildWhen: (previous, current) => previous.seedColor != current.seedColor,
+      builder: (context, state) {
+        return ColorListTile(
+          key: const Key('basicThemeEditor_seedColorPicker'),
+          title: 'Seed color',
+          color: state.seedColor,
+          onColorChanged: (color) {
+            context.read<BasicThemeCubit>().seedColorChanged(color);
+          },
+        );
+      },
     );
   }
 }

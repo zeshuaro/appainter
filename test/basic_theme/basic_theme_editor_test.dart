@@ -10,7 +10,10 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(scrollToParentWidget: true);
+  final widgetTesters = WidgetTesters(
+    scrollToParentWidget: true,
+    scrollableKey: 'basicThemeEditor_sideBySideList',
+  );
 
   late BasicThemeCubit cubit;
   late ColorScheme colorScheme;
@@ -25,10 +28,16 @@ void main() {
     color = getRandomColor();
   });
 
-  Future<void> _pumpApp(WidgetTester tester, ColorScheme colorScheme) async {
+  Future<void> _pumpApp(
+    WidgetTester tester,
+    ColorScheme colorScheme, {
+    Color? seedColor,
+  }) async {
     whenListen(
       cubit,
-      Stream.fromIterable([BasicThemeState(colorScheme: colorScheme)]),
+      Stream.fromIterable(
+        [BasicThemeState(seedColor: seedColor, colorScheme: colorScheme)],
+      ),
       initialState: BasicThemeState(),
     );
 
@@ -52,6 +61,19 @@ void main() {
     await widgetTesters.checkColorPicker(tester, key, color);
     verify(() => verifyFn(color)).called(1);
   }
+
+  testWidgets(
+    'seed color picker should update with selected color',
+    (tester) async {
+      await _pumpApp(tester, colorScheme, seedColor: color);
+      await widgetTesters.checkColorPicker(
+        tester,
+        'basicThemeEditor_seedColorPicker',
+        color,
+      );
+      verify(() => cubit.seedColorChanged(color)).called(1);
+    },
+  );
 
   testWidgets(
     'primary color picker should update with selected color',

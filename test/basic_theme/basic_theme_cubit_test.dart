@@ -91,14 +91,33 @@ void main() {
   });
 
   blocTest<BasicThemeCubit, BasicThemeState>(
+    'should emit seed color',
+    build: () => cubit,
+    act: (cubit) => cubit.seedColorChanged(color),
+    expect: () => [
+      BasicThemeState(
+        seedColor: color,
+        colorScheme: ColorScheme.fromSeed(seedColor: color),
+      ),
+    ],
+  );
+
+  blocTest<BasicThemeCubit, BasicThemeState>(
     'should emit primary color',
+    setUp: () {
+      when(() => service.getOnKeyColor(color)).thenReturn(color);
+      when(() => service.getContainerColor(color)).thenReturn(color);
+      when(() => service.getOnContainerColor(color)).thenReturn(color);
+    },
     build: () => cubit,
     act: (cubit) => cubit.primaryColorChanged(color),
     expect: () => [
       BasicThemeState(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: color,
+        colorScheme: colorSchemeLight.copyWith(
           primary: color,
+          onPrimary: color,
+          primaryContainer: color,
+          onPrimaryContainer: color,
         ),
       ),
     ],

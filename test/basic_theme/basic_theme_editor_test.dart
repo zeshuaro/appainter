@@ -10,10 +10,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(
-    scrollToParentWidget: true,
-    scrollableKey: 'basicThemeEditor_sideBySideList',
-  );
+  final widgetTesters = WidgetTesters();
 
   late BasicThemeCubit cubit;
   late ColorScheme colorScheme;
@@ -45,7 +42,7 @@ void main() {
       BlocProvider.value(
         value: cubit,
         child: const MaterialApp(
-          home: BasicThemeEditor(),
+          home: SingleChildScrollView(child: BasicThemeEditor()),
         ),
       ),
     );

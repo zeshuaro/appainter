@@ -6,20 +6,22 @@ class MaterialStateItem<T> {
   final String title;
   final T value;
   final ValueChanged<T> onValueChanged;
+  final bool colorEnableOpacity;
 
   const MaterialStateItem({
     required this.title,
     required this.value,
     required this.onValueChanged,
     this.key,
+    this.colorEnableOpacity = true,
   });
 }
 
-class MaterialStatePropertyCard<T> extends StatelessWidget {
+class MaterialStatesCard<T> extends StatelessWidget {
   final String header;
   final List<MaterialStateItem<T>> items;
 
-  const MaterialStatePropertyCard({
+  const MaterialStatesCard({
     Key? key,
     required this.header,
     required this.items,
@@ -45,11 +47,12 @@ class MaterialStatePropertyCard<T> extends StatelessWidget {
           SideBySideList(
             children: items.map(
               (item) {
-                return _PropertyListTile<T>(
+                return _StateListTile<T>(
                   key: item.key,
                   title: item.title,
                   value: item.value,
                   onValueChanged: item.onValueChanged,
+                  colorEnableOpacity: item.colorEnableOpacity,
                 );
               },
             ).toList(),
@@ -60,16 +63,18 @@ class MaterialStatePropertyCard<T> extends StatelessWidget {
   }
 }
 
-class _PropertyListTile<T> extends StatelessWidget {
+class _StateListTile<T> extends StatelessWidget {
   final String title;
   final T value;
   final ValueChanged<T> onValueChanged;
+  final bool colorEnableOpacity;
 
-  const _PropertyListTile({
+  const _StateListTile({
     Key? key,
     required this.title,
     required this.value,
     required this.onValueChanged,
+    this.colorEnableOpacity = true,
   }) : super(key: key);
 
   @override
@@ -79,6 +84,7 @@ class _PropertyListTile<T> extends StatelessWidget {
         title: title,
         color: value as Color,
         onColorChanged: onValueChanged as ValueChanged<Color>,
+        enableOpacity: colorEnableOpacity,
       );
     } else if (T == String) {
       return MyTextFormField(

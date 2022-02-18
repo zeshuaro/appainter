@@ -22,8 +22,8 @@ void main() {
   late int seed;
 
   setUpAll(() {
-    colorSchemeLight = BasicThemeState.getColorScheme(false);
-    colorSchemeDark = BasicThemeState.getColorScheme(true);
+    colorSchemeLight = BasicThemeState.getColorScheme(isDark: false);
+    colorSchemeDark = BasicThemeState.getColorScheme(isDark: true);
   });
 
   setUp(() {

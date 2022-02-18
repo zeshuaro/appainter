@@ -33,7 +33,7 @@ class _FillColorPickers extends StatelessWidget {
     final fillColor = context.watch<CheckboxThemeCubit>().state.theme.fillColor;
     final colorThemeState = context.watch<ColorThemeCubit>().state;
 
-    return MaterialStatePropertyCard<Color>(
+    return MaterialStatesCard<Color>(
       header: 'Fill color',
       items: [
         MaterialStateItem(
@@ -76,7 +76,7 @@ class _CheckColorPickers extends StatelessWidget {
         return previous.theme.checkColor != current.theme.checkColor;
       },
       builder: (context, state) {
-        return MaterialStatePropertyCard<Color>(
+        return MaterialStatesCard<Color>(
           header: 'Check color',
           items: [
             MaterialStateItem(
@@ -102,7 +102,7 @@ class _OverlayColorPickers extends StatelessWidget {
         context.watch<CheckboxThemeCubit>().state.theme.overlayColor;
     final colorThemeState = context.watch<ColorThemeCubit>().state;
 
-    return MaterialStatePropertyCard<Color>(
+    return MaterialStatesCard<Color>(
       header: 'Overlay color',
       items: [
         MaterialStateItem(

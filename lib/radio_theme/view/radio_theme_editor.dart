@@ -32,7 +32,7 @@ class _FillColorPickers extends StatelessWidget {
     final fillColor = context.watch<RadioThemeCubit>().state.theme.fillColor;
     final colorThemeState = context.watch<ColorThemeCubit>().state;
 
-    return MaterialStatePropertyCard<Color>(
+    return MaterialStatesCard<Color>(
       header: 'Fill color',
       items: [
         MaterialStateItem(
@@ -74,7 +74,7 @@ class _OverlayColorPickers extends StatelessWidget {
         context.watch<RadioThemeCubit>().state.theme.overlayColor;
     final colorThemeState = context.watch<ColorThemeCubit>().state;
 
-    return MaterialStatePropertyCard<Color>(
+    return MaterialStatesCard<Color>(
       header: 'Overlay color',
       items: [
         MaterialStateItem(

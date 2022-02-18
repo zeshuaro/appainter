@@ -142,7 +142,9 @@ class WidgetTesters {
       if (scrollableKey != null) {
         final scrollable = find.byWidgetPredicate((w) => w is Scrollable);
         scrollableFinder = find.descendant(
-            of: find.byKey(Key(scrollableKey!)), matching: scrollable);
+          of: find.byKey(Key(scrollableKey!)),
+          matching: scrollable,
+        );
       }
       await tester.scrollUntilVisible(
         parentWidget,

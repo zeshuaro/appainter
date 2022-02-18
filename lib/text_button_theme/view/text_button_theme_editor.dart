@@ -35,7 +35,7 @@ class _BackgroundColorPickers extends StatelessWidget {
         .style
         ?.backgroundColor;
 
-    return MaterialStatePropertyCard<Color>(
+    return MaterialStatesCard<Color>(
       header: 'Background color',
       items: [
         MaterialStateItem(
@@ -62,7 +62,7 @@ class _ForegroundColorPickers extends StatelessWidget {
         ?.foregroundColor;
     final colorScheme = context.watch<ColorThemeCubit>().state.colorScheme;
 
-    return MaterialStatePropertyCard<Color>(
+    return MaterialStatesCard<Color>(
       header: 'Foreground color',
       items: [
         MaterialStateItem(
@@ -99,7 +99,7 @@ class _OverlayColorPickers extends StatelessWidget {
     final primaryColor =
         context.watch<ColorThemeCubit>().state.colorScheme.primary;
 
-    return MaterialStatePropertyCard<Color>(
+    return MaterialStatesCard<Color>(
       header: 'Overlay color',
       items: [
         MaterialStateItem(
@@ -147,7 +147,7 @@ class _ShadowColorPickers extends StatelessWidget {
         context.watch<TextButtonThemeCubit>().state.theme.style?.shadowColor;
     final themeShadowColor = context.watch<ColorThemeCubit>().state.shadowColor;
 
-    return MaterialStatePropertyCard<Color>(
+    return MaterialStatesCard<Color>(
       header: 'Shadow color',
       items: [
         MaterialStateItem(
@@ -172,7 +172,7 @@ class _ElevationTextFields extends StatelessWidget {
             current.theme.style?.elevation;
       },
       builder: (context, state) {
-        return MaterialStatePropertyCard<String>(
+        return MaterialStatesCard<String>(
           header: 'Elevation',
           items: [
             MaterialStateItem(

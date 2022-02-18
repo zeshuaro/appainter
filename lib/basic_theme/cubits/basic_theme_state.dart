@@ -1,7 +1,6 @@
-part of 'basic_theme_cubit.dart';
+part of 'abstract_basic_theme_cubit.dart';
 
 @CopyWith()
-@immutable
 class BasicThemeState extends Equatable {
   final Color seedColor;
   final ColorScheme colorScheme;
@@ -10,9 +9,10 @@ class BasicThemeState extends Equatable {
   BasicThemeState({
     Color? seedColor,
     ColorScheme? colorScheme,
-    this.isDark = false,
+    bool? isDark,
   })  : seedColor = seedColor ?? defaultSeedColor,
-        colorScheme = colorScheme ?? _colorSchemeLight;
+        colorScheme = colorScheme ?? _colorSchemeLight,
+        isDark = isDark ?? false;
 
   static const defaultSeedColor = Colors.blue;
   static final _colorSchemeLight = ColorScheme.fromSeed(
@@ -23,12 +23,12 @@ class BasicThemeState extends Equatable {
     brightness: Brightness.dark,
   );
 
-  @override
-  List<Object> get props => [seedColor, colorScheme, isDark];
-
-  static ColorScheme getColorScheme(bool isDark) {
+  static ColorScheme getColorScheme({required bool isDark}) {
     return isDark ? _colorSchemeDark : _colorSchemeLight;
   }
+
+  @override
+  List<Object> get props => [seedColor, colorScheme, isDark];
 
   ThemeData get theme {
     return ThemeData.localize(

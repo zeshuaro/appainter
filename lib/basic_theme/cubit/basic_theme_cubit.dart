@@ -5,21 +5,23 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
-part 'abstract_basic_theme_cubit.g.dart';
+part 'basic_theme_cubit.g.dart';
 part 'basic_theme_state.dart';
 
-abstract class AbstractBasicThemeCubit extends Cubit<BasicThemeState> {
+class BasicThemeCubit extends Cubit<BasicThemeState> {
   final BasicThemeService _service;
 
-  AbstractBasicThemeCubit(BasicThemeService? service)
+  BasicThemeCubit({BasicThemeService? service})
       : _service = service ?? BasicThemeService(),
         super(BasicThemeState());
 
   void themeBrightnessChanged(bool isDark) {
-    emit(state.copyWith(
-      colorScheme: BasicThemeState.getColorScheme(isDark: isDark),
-      isDark: isDark,
-    ));
+    emit(
+      state.copyWith(
+        colorScheme: BasicThemeState.getColorScheme(isDark),
+        isDark: isDark,
+      ),
+    );
   }
 
   void themeRandomized([int? seed]) {
@@ -35,7 +37,7 @@ abstract class AbstractBasicThemeCubit extends Cubit<BasicThemeState> {
   void themeReset() {
     emit(state.copyWith(
       seedColor: BasicThemeState.defaultSeedColor,
-      colorScheme: BasicThemeState.getColorScheme(isDark: state.isDark),
+      colorScheme: BasicThemeState.getColorScheme(state.isDark),
     ));
   }
 

@@ -17,7 +17,7 @@ void main() {
   late Color color;
 
   setUpAll(() {
-    colorScheme = BasicThemeState.getColorScheme(isDark: false);
+    colorScheme = BasicThemeState.getColorScheme(false);
   });
 
   setUp(() {

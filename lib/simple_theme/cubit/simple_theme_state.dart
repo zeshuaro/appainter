@@ -1,12 +1,12 @@
-part of 'abstract_basic_theme_cubit.dart';
+part of 'simple_theme_cubit.dart';
 
 @CopyWith()
-class BasicThemeState extends Equatable {
+class SimpleThemeState extends Equatable {
   final Color seedColor;
   final ColorScheme colorScheme;
   final bool isDark;
 
-  BasicThemeState({
+  SimpleThemeState({
     Color? seedColor,
     ColorScheme? colorScheme,
     bool? isDark,

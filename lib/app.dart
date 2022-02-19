@@ -1,3 +1,4 @@
+import 'package:appainter/simple_theme/simple_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
@@ -114,6 +115,7 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => HomeCubit(homeRepo, advancedThemeCubit)),
+          BlocProvider(create: (_) => SimpleThemeCubit()),
           BlocProvider(create: (_) => BasicThemeCubit()),
           BlocProvider(create: (_) => advancedThemeCubit),
           BlocProvider(create: (_) => colorThemeCubit),

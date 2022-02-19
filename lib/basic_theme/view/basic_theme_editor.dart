@@ -1,5 +1,6 @@
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/common/consts.dart';
+import 'package:appainter/simple_theme/simple_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,7 +35,7 @@ class BasicThemeEditor extends StatelessWidget {
 class _SeedColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BasicThemeCubit, BasicThemeState>(
+    return BlocBuilder<BasicThemeCubit, SimpleThemeState>(
       buildWhen: (previous, current) => previous.seedColor != current.seedColor,
       builder: (context, state) {
         return ColorListTile(

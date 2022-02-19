@@ -2,7 +2,7 @@ part of 'home_cubit.dart';
 
 enum HomeStatus { initial, success }
 
-enum EditMode { basic, advanced }
+enum EditMode { simple, basic, advanced }
 
 @CopyWith()
 @immutable
@@ -16,7 +16,7 @@ class HomeState extends Equatable {
 
   const HomeState({
     this.status = HomeStatus.initial,
-    this.editMode = EditMode.basic,
+    this.editMode = EditMode.simple,
     this.themeUsage,
     this.isSdkShowed = false,
     this.isImportingTheme = false,

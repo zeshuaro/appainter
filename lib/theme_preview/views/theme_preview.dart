@@ -1,3 +1,4 @@
+import 'package:appainter/simple_theme/simple_theme.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,6 +36,7 @@ class ThemePreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
+        final simpleTheme = context.watch<SimpleThemeCubit>().state.theme;
         final basicTheme = context.watch<BasicThemeCubit>().state.theme;
 
         final colorTheme = context.watch<ColorThemeCubit>().state;
@@ -148,8 +150,14 @@ class ThemePreview extends StatelessWidget {
           ),
         );
 
-        final theme =
-            state.editMode == EditMode.basic ? basicTheme : advancedTheme;
+        late final ThemeData theme;
+        if (state.editMode == EditMode.simple) {
+          theme = simpleTheme;
+        } else if (state.editMode == EditMode.basic) {
+          theme = basicTheme;
+        } else {
+          theme = advancedTheme;
+        }
 
         return DevicePreview(
           builder: (context) {

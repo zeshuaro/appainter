@@ -24,7 +24,7 @@ void main() {
   });
 
   setUp(() {
-    service = BasicThemeService();
+    service = const BasicThemeService();
     color = getRandomColor();
   });
 

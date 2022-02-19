@@ -1,3 +1,4 @@
+import 'package:appainter/simple_theme/simple_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -36,7 +37,7 @@ void main() {
 
   void _mockCubits(bool isDark) {
     when(() => basicThemeCubit.state).thenReturn(
-      BasicThemeState(isDark: isDark),
+      SimpleThemeState(isDark: isDark),
     );
     when(() => advancedThemeCubit.state).thenReturn(
       AdvancedThemeState(isDark: isDark),

@@ -1,3 +1,4 @@
+import 'package:appainter/simple_theme/simple_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -91,7 +92,7 @@ extension PumpApp on WidgetTester {
     final textStyleState = TextStyleState(style: textStyle);
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
-    when(() => mockBasicThemeCubit.state).thenReturn(BasicThemeState());
+    when(() => mockBasicThemeCubit.state).thenReturn(SimpleThemeState());
     when(() => mockAdvancedThemeCubit.state).thenReturn(
       const AdvancedThemeState(),
     );

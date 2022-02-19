@@ -1,3 +1,4 @@
+import 'package:appainter/simple_theme/simple_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ void main() {
 
   setUpAll(() {
     registerFallbackValue(FakeHomeState());
-    registerFallbackValue(FakeBasicThemeState());
+    registerFallbackValue(FakeSimpleThemeState());
     registerFallbackValue(FakeAdvancedThemeState());
     registerFallbackValue(FakeAppBarThemeState());
     registerFallbackValue(FakeTabBarThemeState());
@@ -40,7 +41,7 @@ void main() {
 
     when(() => homeCubit.state).thenReturn(const HomeState());
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
-    when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
+    when(() => basicThemeCubit.state).thenReturn(SimpleThemeState());
     when(() => advancedThemeCubit.state).thenReturn(const AdvancedThemeState());
   });
 
@@ -98,7 +99,7 @@ void main() {
         when(() => homeCubit.state).thenReturn(
           const HomeState(editMode: EditMode.basic),
         );
-        when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
+        when(() => basicThemeCubit.state).thenReturn(SimpleThemeState());
         when(() => homeCubit.themeExported(any())).thenAnswer(
           (invocation) => Future.value(),
         );

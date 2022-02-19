@@ -1,4 +1,5 @@
 import 'package:appainter/basic_theme/basic_theme.dart';
+import 'package:appainter/simple_theme/simple_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +18,7 @@ void main() {
   late Color color;
 
   setUpAll(() {
-    colorScheme = BasicThemeState.getColorScheme(isDark: false);
+    colorScheme = SimpleThemeState.getColorScheme(isDark: false);
   });
 
   setUp(() {
@@ -33,9 +34,9 @@ void main() {
     whenListen(
       cubit,
       Stream.fromIterable(
-        [BasicThemeState(seedColor: seedColor, colorScheme: colorScheme)],
+        [SimpleThemeState(seedColor: seedColor, colorScheme: colorScheme)],
       ),
-      initialState: BasicThemeState(),
+      initialState: SimpleThemeState(),
     );
 
     await tester.pumpWidget(

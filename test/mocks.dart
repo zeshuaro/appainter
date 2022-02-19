@@ -1,3 +1,4 @@
+import 'package:appainter/simple_theme/simple_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
@@ -22,7 +23,7 @@ import 'package:mocktail/mocktail.dart';
 
 class MockHomeCubit extends MockCubit<HomeState> implements HomeCubit {}
 
-class MockBasicThemeCubit extends MockCubit<BasicThemeState>
+class MockBasicThemeCubit extends MockCubit<SimpleThemeState>
     implements BasicThemeCubit {}
 
 class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
@@ -30,7 +31,7 @@ class MockAdvancedThemeCubit extends MockCubit<AdvancedThemeState>
 
 class FakeHomeState extends Fake implements HomeState {}
 
-class FakeBasicThemeState extends Fake implements BasicThemeState {}
+class FakeSimpleThemeState extends Fake implements SimpleThemeState {}
 
 class FakeAdvancedThemeState extends Fake implements AdvancedThemeState {}
 

@@ -322,7 +322,7 @@ packages:
       name: flex_color_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.0"
+    version: "2.3.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -573,7 +573,7 @@ packages:
       name: ndialog
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.1.1"
   nested:
     dependency: transitive
     description:
@@ -762,7 +762,7 @@ packages:
       name: shared_preferences_ios
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.10"
+    version: "2.1.0"
   shared_preferences_linux:
     dependency: transitive
     description:
@@ -1012,7 +1012,7 @@ packages:
       name: uuid
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.5"
+    version: "3.0.6"
   vector_math:
     dependency: transitive
     description:
@@ -1061,7 +1061,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.1"
   xdg_directories:
     dependency: transitive
     description:

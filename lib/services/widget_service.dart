@@ -16,6 +16,7 @@ class WidgetService {
       showColorCode: true,
       showColorName: true,
       enableOpacity: enableOpacity,
+      enableTonalPalette: true,
       onColorChanged: onColorChanged,
       heading: Text(
         'Select color',
@@ -23,6 +24,10 @@ class WidgetService {
       ),
       subheading: Text(
         'Select color shade',
+        style: Theme.of(context).textTheme.subtitle1,
+      ),
+      tonalSubheading: Text(
+        'Material 3 tonal palette',
         style: Theme.of(context).textTheme.subtitle1,
       ),
       wheelSubheading: Text(

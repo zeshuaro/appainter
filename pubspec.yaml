@@ -36,6 +36,11 @@ dependencies:
   universal_html: ^2.0.8
   universal_io: ^2.0.4
   url_launcher: ^6.0.9
+  window_size:
+    git:
+      url: git://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
+      ref: 89c350f787e1d7bff12b3517e5671146211ee70e
 
 dev_dependencies:
   bloc_test: ^9.0.0

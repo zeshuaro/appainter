@@ -1,0 +1,19 @@
+name: FVM Notifier
+
+on:
+  pull_request:
+    paths: .fvm/fvm_config
+
+jobs:
+  fvm-notifier:
+    name: Notify Flutter SDK version changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create comment 💬
+        uses: peter-evans/create-or-update-comment@v1.4.5
+        with:
+          issue-number: ${{ github.event.number }}
+          body: |
+            I'm just a reminder to do the following after updating the Flutter SDK version:
+            - [ ] Run `flutter pub get` to make sure the dependencies are up-to-date
+            - [ ] Update the Flutter SDk version in [HomePage](https://github.com/zeshuaro/appainter/blob/main/lib/home/views/home_page.dart#L19)

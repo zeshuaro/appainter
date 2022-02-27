@@ -30,6 +30,11 @@
       "groupName": "GitHub Actions dependencies",
       "matchPaths": [".github/workflows/*.yml"],
       "addLabels": ["ci"]
+    },
+    {
+      "groupName": "Flutter SDK",
+      "matchPaths": [".fvm/fvm_config.json"],
+      "labels": ["fluttersdk"]
     }
   ]
 }

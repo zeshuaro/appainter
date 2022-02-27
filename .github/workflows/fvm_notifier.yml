@@ -2,7 +2,7 @@ name: FVM Notifier
 
 on:
   pull_request:
-    paths: .fvm/fvm_config
+    paths: .fvm/fvm_config.json
 
 jobs:
   fvm-notifier:

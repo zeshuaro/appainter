@@ -3,6 +3,8 @@ name: FVM Notifier
 on:
   pull_request:
     paths: .fvm/fvm_config.json
+    types:
+      - opened
 
 jobs:
   fvm-notifier:

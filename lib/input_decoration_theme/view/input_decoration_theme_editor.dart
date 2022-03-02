@@ -48,7 +48,7 @@ class _BorderDropdown extends StatelessWidget {
             'inputDecorationThemeEditor_borderDropdown',
           ),
           title: 'Border',
-          value: _inputBorderHelper.stringFromEnum(border)!,
+          value: _inputBorderHelper.convertToString(border)!,
           values: _inputBorderHelper.names,
           onChanged: (value) {
             context.read<InputDecorationThemeCubit>().borderChanged(value!);

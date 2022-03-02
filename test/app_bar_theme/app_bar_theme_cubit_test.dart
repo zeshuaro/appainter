@@ -105,7 +105,7 @@ void main() {
         build: () => cubit,
         act: (cubit) {
           cubit.systemUiOverlayStyleChanged(
-            MySystemUiOverlayStyle().stringFromEnum(style)!,
+            MySystemUiOverlayStyle().convertToString(style)!,
           );
         },
         expect: () {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
@@ -185,9 +186,9 @@ class _SystemUiOverlayStyleDropdown extends StatelessWidget {
         return DropdownListTile(
           key: const Key('appBarThemeEditor_systemUiOverlayStyleDropdown'),
           title: 'System UI overlay style',
-          value: MySystemUiOverlayStyle()
-                  .stringFromEnum(state.theme.systemOverlayStyle) ??
-              'Light',
+          value: MySystemUiOverlayStyle().convertToString(
+            state.theme.systemOverlayStyle ?? SystemUiOverlayStyle.light,
+          )!,
           values: MySystemUiOverlayStyle().names,
           onChanged: (value) {
             context

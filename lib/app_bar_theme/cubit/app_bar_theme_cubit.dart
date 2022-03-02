@@ -57,7 +57,7 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
   }
 
   void systemUiOverlayStyleChanged(String value) {
-    final style = MySystemUiOverlayStyle().enumFromString(value);
+    final style = MySystemUiOverlayStyle().fromString(value);
     if (style != null) {
       final theme = state.theme.copyWith(systemOverlayStyle: style);
       emit(state.copyWith(theme: theme));

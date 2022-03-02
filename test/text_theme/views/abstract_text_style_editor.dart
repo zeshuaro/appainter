@@ -109,7 +109,7 @@ class AbstractTextStyleEditorTest<T extends AbstractTextStyleCubit> {
 
     group('test font weight dropdown', () {
       for (var weight in MyFontWeight().values) {
-        final weightStr = MyFontWeight().stringFromEnum(weight);
+        final weightStr = MyFontWeight().convertToString(weight);
 
         testWidgets(
           'should update to $weight',
@@ -263,7 +263,7 @@ class AbstractTextStyleEditorTest<T extends AbstractTextStyleCubit> {
 
     group('test decoration dropdown', () {
       for (var decoration in MyTextDecoration().values) {
-        final decorationStr = MyTextDecoration().stringFromEnum(decoration);
+        final decorationStr = MyTextDecoration().convertToString(decoration);
 
         testWidgets(
           'should update to $decoration',

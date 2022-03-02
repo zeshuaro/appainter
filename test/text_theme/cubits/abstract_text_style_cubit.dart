@@ -85,7 +85,7 @@ class AbstractTextStyleCubitTest<T extends AbstractTextStyleCubit> {
           'should emit $weight',
           build: () => cubit,
           act: (cubit) {
-            cubit.fontWeightChanged(MyFontWeight().stringFromEnum(weight)!);
+            cubit.fontWeightChanged(MyFontWeight().convertToString(weight)!);
           },
           expect: () => [
             TextStyleState(style: style.copyWith(fontWeight: weight)),
@@ -173,7 +173,7 @@ class AbstractTextStyleCubitTest<T extends AbstractTextStyleCubit> {
           build: () => cubit,
           act: (cubit) {
             cubit.decorationChanged(
-              MyTextDecoration().stringFromEnum(decoration)!,
+              MyTextDecoration().convertToString(decoration)!,
             );
           },
           expect: () => [

@@ -260,7 +260,7 @@ void main() {
   group('test border dropdown', () {
     final inputBorderHelper = MyInputBorder();
     for (var border in inputBorderHelper.values) {
-      final borderStr = inputBorderHelper.stringFromEnum(border)!;
+      final borderStr = inputBorderHelper.convertToString(border)!;
 
       testWidgets(
         'should update to border with isOutline=${border.isOutline}',

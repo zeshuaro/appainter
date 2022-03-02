@@ -177,7 +177,7 @@ void main() {
 
   group('test system UI overlay style dropdown', () {
     for (var style in MySystemUiOverlayStyle().values) {
-      final styleStr = MySystemUiOverlayStyle().stringFromEnum(style)!;
+      final styleStr = MySystemUiOverlayStyle().convertToString(style)!;
       testWidgets(
         'should update to ${style.statusBarBrightness}',
         (tester) async {

@@ -47,7 +47,7 @@ abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
   }
 
   void fontWeightChanged(String value) {
-    final weight = MyFontWeight().enumFromString(value);
+    final weight = MyFontWeight().fromString(value);
     if (weight != null) {
       final style = state.style.copyWith(fontWeight: weight);
       emit(state.copyWith(style: style));
@@ -106,7 +106,7 @@ abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
   }
 
   void decorationChanged(String value) {
-    final decoration = MyTextDecoration().enumFromString(value);
+    final decoration = MyTextDecoration().fromString(value);
     if (decoration != null) {
       final style = state.style.copyWith(decoration: decoration);
       emit(state.copyWith(style: style));

@@ -154,7 +154,7 @@ void main() {
         'should emit border with isOutline=${border.isOutline}',
         build: () => cubit,
         act: (cubit) => cubit.borderChanged(
-          inputBorderHelper.stringFromEnum(border)!,
+          inputBorderHelper.convertToString(border)!,
         ),
         expect: () => [
           InputDecorationThemeState(

@@ -75,7 +75,7 @@ class InputDecorationThemeCubit extends Cubit<InputDecorationThemeState> {
   }
 
   void borderChanged(String value) {
-    final border = _inputBorderHelper.enumFromString(value);
+    final border = _inputBorderHelper.fromString(value);
     if (border != null) {
       final theme = state.theme.copyWith(border: border);
       emit(state.copyWith(theme: theme));

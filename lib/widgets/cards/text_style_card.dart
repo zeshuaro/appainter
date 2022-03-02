@@ -77,7 +77,7 @@ class TextStyleCard extends StatelessWidget {
         DropdownListTile(
           key: const Key('fontWeightDropdown'),
           title: 'Font weight',
-          value: MyFontWeight().stringFromEnum(style.fontWeight!)!,
+          value: MyFontWeight().convertToString(style.fontWeight!)!,
           values: MyFontWeight().names,
           onChanged: onFontWeightChanged,
         ),
@@ -123,7 +123,7 @@ class TextStyleCard extends StatelessWidget {
         DropdownListTile(
           key: const Key('decorationDropdown'),
           title: 'Decoration',
-          value: MyTextDecoration().stringFromEnum(style.decoration!)!,
+          value: MyTextDecoration().convertToString(style.decoration!)!,
           values: MyTextDecoration().names,
           onChanged: onDecorationChanged,
         ),

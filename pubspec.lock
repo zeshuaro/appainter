@@ -566,7 +566,7 @@ packages:
       name: mocktail
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.3.0"
   ndialog:
     dependency: "direct main"
     description:

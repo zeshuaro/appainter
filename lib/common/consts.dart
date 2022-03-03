@@ -53,10 +53,6 @@ const kInteractiveStates = {
 const kFocusState = {MaterialState.focused};
 const kSelectedState = {MaterialState.selected};
 
-const kInputDecorationFillColor = Color(0x0A000000);
-const kInputDecorationErrorMaxLines = 1;
-const kInputDecorationHelperMaxLines = 1;
-
 const kNone = 'None';
 
 const kSliderTrackHeight = 4.0;

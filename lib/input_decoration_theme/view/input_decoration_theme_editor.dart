@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/common/common.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
@@ -14,52 +13,37 @@ class InputDecorationThemeEditor extends ExpansionPanelItem {
 
   @override
   Widget build(BuildContext context) {
-    return SideBySideList(
-      padding: kPaddingAll,
+    return NestedListView(
       children: [
-        _BorderDropdown(),
-        _FloatingLabelBehaviorDropdown(),
-        _FillColorPicker(),
-        _HoverColorPicker(),
-        _AlignLabelWithHintSwitch(),
-        _FilledSwitch(),
-        _IsCollapsedSwitch(),
-        _IsDenseSwitch(),
-        _ErrorMaxLinesTextField(),
-        _HelperMaxLinesTextField(),
+        const SideBySideList(
+          children: [
+            _FloatingLabelBehaviorDropdown(),
+            _FillColorPicker(),
+            _HoverColorPicker(),
+            _AlignLabelWithHintSwitch(),
+            _FilledSwitch(),
+            _IsCollapsedSwitch(),
+            _IsDenseSwitch(),
+            _ErrorMaxLinesTextField(),
+            _HelperMaxLinesTextField(),
+          ],
+        ),
+        const Divider(),
+        SideBySide(
+          left: _BorderDropdown(),
+          right: const _BorderRadiusTextField(),
+        ),
+        const _EnabledBorderSideFields(),
+        const _DisabledBorderSideFields(),
+        const _ErrorBorderSideFields(),
       ],
     );
   }
 }
 
-class _BorderDropdown extends StatelessWidget {
-  final _inputBorderHelper = MyInputBorder();
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
-      buildWhen: (previous, current) {
-        return previous.theme.border != current.theme.border;
-      },
-      builder: (context, state) {
-        final border = state.theme.border ?? const UnderlineInputBorder();
-        return DropdownListTile(
-          key: const Key(
-            'inputDecorationThemeEditor_borderDropdown',
-          ),
-          title: 'Border',
-          value: _inputBorderHelper.convertToString(border)!,
-          values: _inputBorderHelper.names,
-          onChanged: (value) {
-            context.read<InputDecorationThemeCubit>().borderChanged(value!);
-          },
-        );
-      },
-    );
-  }
-}
-
 class _FloatingLabelBehaviorDropdown extends StatelessWidget {
+  const _FloatingLabelBehaviorDropdown({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
@@ -88,6 +72,10 @@ class _FloatingLabelBehaviorDropdown extends StatelessWidget {
 }
 
 class _FillColorPicker extends StatelessWidget {
+  const _FillColorPicker({Key? key}) : super(key: key);
+
+  static const _fillColor = Color(0x0A000000);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
@@ -98,7 +86,7 @@ class _FillColorPicker extends StatelessWidget {
         return ColorListTile(
           key: const Key('inputDecorationThemeEditor_fillColorPicker'),
           title: 'Fill color',
-          color: state.theme.fillColor ?? kInputDecorationFillColor,
+          color: state.theme.fillColor ?? _fillColor,
           onColorChanged: (color) {
             context.read<InputDecorationThemeCubit>().fillColorChanged(color);
           },
@@ -109,6 +97,8 @@ class _FillColorPicker extends StatelessWidget {
 }
 
 class _HoverColorPicker extends StatelessWidget {
+  const _HoverColorPicker({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final hoverColor =
@@ -127,6 +117,8 @@ class _HoverColorPicker extends StatelessWidget {
 }
 
 class _AlignLabelWithHintSwitch extends StatelessWidget {
+  const _AlignLabelWithHintSwitch({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
@@ -151,6 +143,8 @@ class _AlignLabelWithHintSwitch extends StatelessWidget {
 }
 
 class _FilledSwitch extends StatelessWidget {
+  const _FilledSwitch({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
@@ -172,6 +166,8 @@ class _FilledSwitch extends StatelessWidget {
 }
 
 class _IsCollapsedSwitch extends StatelessWidget {
+  const _IsCollapsedSwitch({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
@@ -193,6 +189,8 @@ class _IsCollapsedSwitch extends StatelessWidget {
 }
 
 class _IsDenseSwitch extends StatelessWidget {
+  const _IsDenseSwitch({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
@@ -214,6 +212,8 @@ class _IsDenseSwitch extends StatelessWidget {
 }
 
 class _ErrorMaxLinesTextField extends StatelessWidget {
+  const _ErrorMaxLinesTextField({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
@@ -225,7 +225,7 @@ class _ErrorMaxLinesTextField extends StatelessWidget {
           key: const Key('inputDecorationThemeEditor_errorMaxLinesTextField'),
           labelText: 'Error max lines',
           initialValue:
-              (state.theme.errorMaxLines ?? kInputDecorationErrorMaxLines)
+              (state.theme.errorMaxLines ?? kInputDecorationThemeErrorMaxLines)
                   .toString(),
           onChanged: (value) {
             context
@@ -239,6 +239,8 @@ class _ErrorMaxLinesTextField extends StatelessWidget {
 }
 
 class _HelperMaxLinesTextField extends StatelessWidget {
+  const _HelperMaxLinesTextField({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
@@ -249,9 +251,9 @@ class _HelperMaxLinesTextField extends StatelessWidget {
         return MyTextFormField(
           key: const Key('inputDecorationThemeEditor_helperMaxLinesTextField'),
           labelText: 'Helper max lines',
-          initialValue:
-              (state.theme.helperMaxLines ?? kInputDecorationHelperMaxLines)
-                  .toString(),
+          initialValue: (state.theme.helperMaxLines ??
+                  kInputDecorationThemeHelperMaxLines)
+              .toString(),
           onChanged: (value) {
             context
                 .read<InputDecorationThemeCubit>()
@@ -259,6 +261,167 @@ class _HelperMaxLinesTextField extends StatelessWidget {
           },
         );
       },
+    );
+  }
+}
+
+class _BorderDropdown extends StatelessWidget {
+  final _enum = InputBorderEnum();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      buildWhen: (previous, current) {
+        return previous.theme.border != current.theme.border;
+      },
+      builder: (context, state) {
+        final border = state.theme.border ?? const UnderlineInputBorder();
+        return DropdownListTile(
+          key: const Key(
+            'inputDecorationThemeEditor_borderDropdown',
+          ),
+          title: 'Border',
+          value: _enum.convertToString(border)!,
+          values: _enum.names,
+          onChanged: (value) {
+            context.read<InputDecorationThemeCubit>().borderChanged(value!);
+          },
+        );
+      },
+    );
+  }
+}
+
+class _BorderRadiusTextField extends StatefulWidget {
+  const _BorderRadiusTextField({Key? key}) : super(key: key);
+
+  @override
+  State<_BorderRadiusTextField> createState() => _BorderRadiusTextFieldState();
+}
+
+class _BorderRadiusTextFieldState extends State<_BorderRadiusTextField> {
+  final _controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<InputDecorationThemeCubit, InputDecorationThemeState>(
+          listenWhen: (previous, current) {
+            return previous.theme.border?.isOutline != true &&
+                current.theme.border?.isOutline == true;
+          },
+          listener: (context, state) {
+            final border = state.theme.border;
+            if (border is OutlineInputBorder) {
+              _controller.text = border.borderRadius.bottomLeft.x.toString();
+            }
+          },
+        ),
+        BlocListener<InputDecorationThemeCubit, InputDecorationThemeState>(
+          listenWhen: (previous, current) {
+            return previous.theme.border?.isOutline == true &&
+                current.theme.border?.isOutline != true;
+          },
+          listener: (context, state) => _controller.clear(),
+        )
+      ],
+      child: BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+        buildWhen: (previous, current) {
+          return previous.theme.border != current.theme.border;
+        },
+        builder: (context, state) {
+          final border = state.theme.border ?? const UnderlineInputBorder();
+          return MyTextFormField(
+            key: const Key('inputDecorationThemeEditor_borderRadiusTextField'),
+            controller: _controller,
+            labelText: 'Border Radius',
+            enabled: border is OutlineInputBorder,
+            onChanged: (value) {
+              context
+                  .read<InputDecorationThemeCubit>()
+                  .borderRadiusChanged(value);
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _EnabledBorderSideFields extends StatelessWidget {
+  const _EnabledBorderSideFields({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      buildWhen: (previous, current) {
+        return previous.theme.enabledBorder?.borderSide !=
+            current.theme.enabledBorder?.borderSide;
+      },
+      builder: (context, state) {
+        return BorderSideFields(
+          headerPrefix: 'Enabled',
+          borderSide:
+              state.theme.enabledBorder?.borderSide ?? const BorderSide(),
+          onColorChanged: context
+              .read<InputDecorationThemeCubit>()
+              .enabledBorderSideColorChanged,
+          onWidthChanged: context
+              .read<InputDecorationThemeCubit>()
+              .enabledBorderSideWidthChanged,
+        );
+      },
+    );
+  }
+}
+
+class _DisabledBorderSideFields extends StatelessWidget {
+  const _DisabledBorderSideFields({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final borderSide = context
+        .watch<InputDecorationThemeCubit>()
+        .state
+        .theme
+        .disabledBorder
+        ?.borderSide;
+    final disabledColor = context.watch<ColorThemeCubit>().state.disabledColor;
+
+    return BorderSideFields(
+      headerPrefix: 'Disabled',
+      borderSide: borderSide ?? BorderSide(color: disabledColor),
+      onColorChanged: context
+          .read<InputDecorationThemeCubit>()
+          .disabledBorderSideColorChanged,
+      onWidthChanged: context
+          .read<InputDecorationThemeCubit>()
+          .disabledBorderSideWidthChanged,
+    );
+  }
+}
+
+class _ErrorBorderSideFields extends StatelessWidget {
+  const _ErrorBorderSideFields({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final borderSide = context
+        .watch<InputDecorationThemeCubit>()
+        .state
+        .theme
+        .errorBorder
+        ?.borderSide;
+    final errorColor = context.watch<ColorThemeCubit>().state.errorColor;
+
+    return BorderSideFields(
+      headerPrefix: 'Error',
+      borderSide: borderSide ?? BorderSide(color: errorColor),
+      onColorChanged:
+          context.read<InputDecorationThemeCubit>().errorBorderSideColorChanged,
+      onWidthChanged:
+          context.read<InputDecorationThemeCubit>().errorBorderSideWidthChanged,
     );
   }
 }

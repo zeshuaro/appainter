@@ -8,6 +8,6 @@ class EnumModel<T> {
   List<String> get names => _values.keys.toList();
   List<T> get values => _values.values.toList();
 
-  T? fromString(String value) => _values[value];
-  String? convertToString(T value) => _names[value];
+  T? fromString(String? value) => _values[value];
+  String? convertToString(T? value) => _names[value];
 }

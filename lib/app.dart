@@ -48,7 +48,9 @@ class MyApp extends StatelessWidget {
     );
 
     final iconThemeCubit = IconThemeCubit();
-    final inputDecorationThemeCubit = InputDecorationThemeCubit();
+    final inputDecorationThemeCubit = InputDecorationThemeCubit(
+      colorThemeCubit: colorThemeCubit,
+    );
 
     final switchThemeCubit = SwitchThemeCubit(
       colorThemeCubit: colorThemeCubit,

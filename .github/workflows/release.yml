@@ -1,0 +1,139 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: "Release type"
+        required: true
+
+jobs:
+  build:
+    name: Build Desktop Apps
+    runs-on: ${{ matrix.os }}
+    if: ${{ github.ref == 'refs/heads/main' }}
+
+    strategy:
+      matrix:
+        type: [macos, windows, linux]
+        include:
+          - type: macos
+            os: macos-latest
+            flutter-path: /Users/runner/hostedtoolcache/flutter
+            build-path: build/macos/Build/Products/Release
+            build-output: appainter.app
+
+          - type: windows
+            os: windows-latest
+            flutter-path: C:\hostedtoolcache\windows\flutter
+            build-path: build\windows\runner
+            build-output: Release
+
+          - type: linux
+            os: ubuntu-latest
+            flutter-path: /opt/hostedtoolcache/flutter
+            build-path: build/linux/x64/release
+            build-output: bundle
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
+      - name: Setup Flutter 💻
+        uses: subosito/flutter-action@v2.3.0
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+
+      - name: Patch for Linux build 🩹
+        if: ${{ matrix.type == 'linux' }}
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y ninja-build libgtk-3-dev
+
+      - name: Build desktop app 🏗
+        run: |
+          flutter config --enable-${{ matrix.type }}-desktop
+          flutter pub get
+          flutter pub run build_runner build --delete-conflicting-outputs
+          # Bump app version, the new version is committed in the release step
+          flutter pub run cider bump ${{ github.event.inputs.release-type }}
+          flutter build ${{ matrix.type }}
+
+      - name: Compress app 🗜️
+        run: |
+          cd ${{ matrix.build-path }}
+          tar -zcvf appainter_${{ matrix.type }}.tar.gz ${{ matrix.build-output }}
+
+      - name: Upload app ⬆️
+        uses: actions/upload-artifact@v2
+        with:
+          path: "**/appainter_${{ matrix.type }}.tar.gz"
+          if-no-files-found: error
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PAT }}
+
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
+      - name: Setup Flutter 💻
+        uses: subosito/flutter-action@v2.3.0
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+
+      - name: Get previous tag 🏷️
+        id: previous-tag
+        uses: WyriHaximus/github-action-get-previous-tag@v1.1.0
+
+      - name: Bump app version 🔼
+        id: bump-version
+        run: |
+          flutter pub get
+          echo "::set-output name=version::v$(flutter pub run cider bump ${{ github.event.inputs.release-type }})"
+
+      - name: Commit new version 🆕
+        uses: stefanzweifel/git-auto-commit-action@v4.13.1
+        env:
+          version: ${{ steps.bump-version.outputs.version }}
+        with:
+          commit_message: "chore(release): ${{ env.version }} [skip ci]"
+          tagging_message: ${{ env.version }}
+          file_pattern: pubspec.yaml
+          push_options: --force
+
+      - name: Generate changelog 📝
+        id: generate-changelog
+        uses: mikepenz/release-changelog-builder-action@v2.9.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          configuration: changelog_config.json
+          fromTag: ${{ steps.previous-tag.outputs.tag }}
+          toTag: ${{ steps.bump-version.outputs.version }}
+
+      - name: Download artifacts ⬇️
+        uses: actions/download-artifact@v3
+
+      - name: Release 🚀
+        uses: ncipollo/release-action@v1.9.0
+        with:
+          tag: ${{ steps.bump-version.outputs.version }}
+          artifacts: "**/appainter*.tar.gz"
+          body: ${{ steps.generate-changelog.outputs.changelog }}
+          token: ${{ secrets.PAT }}

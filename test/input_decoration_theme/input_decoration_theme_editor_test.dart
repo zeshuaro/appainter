@@ -1,9 +1,10 @@
+import 'dart:math';
+
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/common/common.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
@@ -19,11 +20,13 @@ void main() {
   late InputDecorationThemeCubit inputDecorationThemeCubit;
   late ColorThemeCubit colorThemeCubit;
   late Color color;
+  late double doubleNum;
 
   setUp(() {
     inputDecorationThemeCubit = MockInputDecorationThemeCubit();
     colorThemeCubit = MockColorThemeCubit();
     color = getRandomColor();
+    doubleNum = Random().nextDouble();
 
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
@@ -188,7 +191,7 @@ void main() {
   testWidgets(
     'error max lines should update with value',
     (tester) async {
-      const value = kInputDecorationErrorMaxLines + 1;
+      const value = kInputDecorationThemeErrorMaxLines + 1;
       const state = InputDecorationThemeState(
         theme: InputDecorationTheme(errorMaxLines: value),
       );
@@ -209,7 +212,7 @@ void main() {
   testWidgets(
     'helper max lines should update with value',
     (tester) async {
-      const value = kInputDecorationHelperMaxLines + 1;
+      const value = kInputDecorationThemeHelperMaxLines + 1;
       const state = InputDecorationThemeState(
         theme: InputDecorationTheme(helperMaxLines: value),
       );
@@ -258,9 +261,9 @@ void main() {
   });
 
   group('test border dropdown', () {
-    final inputBorderHelper = MyInputBorder();
-    for (var border in inputBorderHelper.values) {
-      final borderStr = inputBorderHelper.convertToString(border)!;
+    final inputBorderEnum = InputBorderEnum();
+    for (var border in inputBorderEnum.values) {
+      final borderStr = inputBorderEnum.convertToString(border)!;
 
       testWidgets(
         'should update to border with isOutline=${border.isOutline}',
@@ -282,5 +285,190 @@ void main() {
         },
       );
     }
+  });
+
+  testWidgets(
+    'border radius text field should update with value',
+    (tester) async {
+      final state = InputDecorationThemeState(
+        theme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(0),
+          ),
+        ),
+      );
+
+      await _pumpApp(tester, state);
+
+      await widgetTesters.checkTextField(
+        tester,
+        'inputDecorationThemeEditor_borderRadiusTextField',
+        doubleNum,
+      );
+      verify(
+        () => inputDecorationThemeCubit.borderRadiusChanged(
+          doubleNum.toString(),
+        ),
+      ).called(1);
+    },
+  );
+
+  group('test enabled border side fields', () {
+    const key = 'enabled';
+    testWidgets(
+      'color picker should update with color',
+      (tester) async {
+        final state = InputDecorationThemeState(
+          theme: InputDecorationTheme(
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: color),
+            ),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkColorPicker(
+          tester,
+          'borderSideFields_colorPicker_$key',
+          color,
+        );
+        verify(
+          () => inputDecorationThemeCubit.enabledBorderSideColorChanged(color),
+        ).called(1);
+      },
+    );
+
+    testWidgets(
+      'width text field should update with value',
+      (tester) async {
+        final state = InputDecorationThemeState(
+          theme: InputDecorationTheme(
+            border: UnderlineInputBorder(
+              borderSide: BorderSide(width: doubleNum),
+            ),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkTextField(
+          tester,
+          'borderSideFields_widthTextField_$key',
+          doubleNum,
+        );
+        verify(
+          () => inputDecorationThemeCubit.enabledBorderSideWidthChanged(
+            doubleNum.toString(),
+          ),
+        ).called(1);
+      },
+    );
+  });
+
+  group('test disabled border side fields', () {
+    const key = 'disabled';
+    testWidgets(
+      'color picker should update with color',
+      (tester) async {
+        final state = InputDecorationThemeState(
+          theme: InputDecorationTheme(
+            disabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: color),
+            ),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkColorPicker(
+          tester,
+          'borderSideFields_colorPicker_$key',
+          color,
+        );
+        verify(
+          () => inputDecorationThemeCubit.disabledBorderSideColorChanged(color),
+        ).called(1);
+      },
+    );
+
+    testWidgets(
+      'width text field should update with value',
+      (tester) async {
+        final state = InputDecorationThemeState(
+          theme: InputDecorationTheme(
+            disabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(width: doubleNum),
+            ),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkTextField(
+          tester,
+          'borderSideFields_widthTextField_$key',
+          doubleNum,
+        );
+        verify(
+          () => inputDecorationThemeCubit.disabledBorderSideWidthChanged(
+            doubleNum.toString(),
+          ),
+        ).called(1);
+      },
+    );
+  });
+
+  group('test error border side fields', () {
+    const key = 'error';
+    testWidgets(
+      'color picker should update with color',
+      (tester) async {
+        final state = InputDecorationThemeState(
+          theme: InputDecorationTheme(
+            errorBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: color),
+            ),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkColorPicker(
+          tester,
+          'borderSideFields_colorPicker_$key',
+          color,
+        );
+        verify(
+          () => inputDecorationThemeCubit.errorBorderSideColorChanged(color),
+        ).called(1);
+      },
+    );
+
+    testWidgets(
+      'width text field should update with value',
+      (tester) async {
+        final state = InputDecorationThemeState(
+          theme: InputDecorationTheme(
+            errorBorder: UnderlineInputBorder(
+              borderSide: BorderSide(width: doubleNum),
+            ),
+          ),
+        );
+
+        await _pumpApp(tester, state);
+
+        await widgetTesters.checkTextField(
+          tester,
+          'borderSideFields_widthTextField_$key',
+          doubleNum,
+        );
+        verify(
+          () => inputDecorationThemeCubit.errorBorderSideWidthChanged(
+            doubleNum.toString(),
+          ),
+        ).called(1);
+      },
+    );
   });
 }

@@ -1,3 +1,4 @@
+import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
@@ -9,9 +10,13 @@ part 'input_decoration_theme_cubit.g.dart';
 part 'input_decoration_theme_state.dart';
 
 class InputDecorationThemeCubit extends Cubit<InputDecorationThemeState> {
-  InputDecorationThemeCubit() : super(const InputDecorationThemeState());
+  final ColorThemeCubit colorThemeCubit;
 
-  final _inputBorderHelper = MyInputBorder();
+  InputDecorationThemeCubit({required this.colorThemeCubit})
+      : super(const InputDecorationThemeState());
+
+  final _inputBorderEnum = InputBorderEnum();
+  static const _defaultBorder = UnderlineInputBorder();
 
   void themeChanged(InputDecorationTheme theme) {
     emit(state.copyWith(theme: theme));
@@ -74,11 +79,103 @@ class InputDecorationThemeCubit extends Cubit<InputDecorationThemeState> {
     }
   }
 
-  void borderChanged(String value) {
-    final border = _inputBorderHelper.fromString(value);
+  void borderChanged(String? value) {
+    final border = _inputBorderEnum.fromString(value);
     if (border != null) {
-      final theme = state.theme.copyWith(border: border);
+      final theme = state.theme.copyWith(border: border).copyWithNull(
+            enabledBorder: true,
+            disabledBorder: true,
+            errorBorder: true,
+          );
       emit(state.copyWith(theme: theme));
     }
+  }
+
+  void borderRadiusChanged(String value) {
+    final radius = double.tryParse(value);
+    final border = state.theme.border;
+    if (radius != null && border is OutlineInputBorder) {
+      final newBorder = border.copyWith(
+        borderRadius: BorderRadius.circular(radius),
+      );
+      final theme = state.theme.copyWith(border: newBorder);
+      emit(state.copyWith(theme: theme));
+    }
+  }
+
+  void enabledBorderSideColorChanged(Color color) {
+    final border = _getBorderWithNewColor(color, _enabledBorder);
+    final theme = state.theme.copyWith(enabledBorder: border);
+    emit(state.copyWith(theme: theme));
+  }
+
+  void enabledBorderSideWidthChanged(String value) {
+    final border = _getBorderWithNewWidth(value, _enabledBorder);
+    if (border != null) {
+      final theme = state.theme.copyWith(enabledBorder: border);
+      emit(state.copyWith(theme: theme));
+    }
+  }
+
+  void disabledBorderSideColorChanged(Color color) {
+    final border = _getBorderWithNewColor(color, _disabledBorder);
+    final theme = state.theme.copyWith(disabledBorder: border);
+    emit(state.copyWith(theme: theme));
+  }
+
+  void disabledBorderSideWidthChanged(String value) {
+    final border = _getBorderWithNewWidth(value, _disabledBorder);
+    if (border != null) {
+      final theme = state.theme.copyWith(disabledBorder: border);
+      emit(state.copyWith(theme: theme));
+    }
+  }
+
+  void errorBorderSideColorChanged(Color color) {
+    final border = _getBorderWithNewColor(color, _errorBorder);
+    final theme = state.theme.copyWith(errorBorder: border);
+    emit(state.copyWith(theme: theme));
+  }
+
+  void errorBorderSideWidthChanged(String value) {
+    final border = _getBorderWithNewWidth(value, _errorBorder);
+    if (border != null) {
+      final theme = state.theme.copyWith(errorBorder: border);
+      emit(state.copyWith(theme: theme));
+    }
+  }
+
+  InputBorder get _enabledBorder {
+    return state.theme.enabledBorder ?? state.theme.border ?? _defaultBorder;
+  }
+
+  InputBorder get _disabledBorder {
+    return state.theme.disabledBorder ??
+        state.theme.border?.copyWith(
+          borderSide: BorderSide(color: colorThemeCubit.state.disabledColor),
+        ) ??
+        _defaultBorder;
+  }
+
+  InputBorder get _errorBorder {
+    return state.theme.errorBorder ??
+        state.theme.border?.copyWith(
+          borderSide: BorderSide(color: colorThemeCubit.state.errorColor),
+        ) ??
+        _defaultBorder;
+  }
+
+  InputBorder _getBorderWithNewColor(Color color, InputBorder border) {
+    final borderSide = border.borderSide.copyWith(color: color);
+    return border.copyWith(borderSide: borderSide);
+  }
+
+  InputBorder? _getBorderWithNewWidth(String value, InputBorder border) {
+    final width = double.tryParse(value);
+    if (width != null) {
+      final borderSide = border.borderSide.copyWith(width: width);
+      return border.copyWith(borderSide: borderSide);
+    }
+    return null;
   }
 }

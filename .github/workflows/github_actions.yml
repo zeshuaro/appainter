@@ -219,7 +219,7 @@ jobs:
           toTag: ${{ steps.bump-version.outputs.version }}
 
       - name: Download artifacts ⬇️
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
 
       - name: Release 🚀
         uses: ncipollo/release-action@v1.9.0

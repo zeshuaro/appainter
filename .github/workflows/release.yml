@@ -70,7 +70,7 @@ jobs:
           tar -zcvf appainter_${{ matrix.type }}.tar.gz ${{ matrix.build-output }}
 
       - name: Upload app ⬆️
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           path: "**/appainter_${{ matrix.type }}.tar.gz"
           if-no-files-found: error

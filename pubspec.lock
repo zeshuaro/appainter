@@ -322,7 +322,7 @@ packages:
       name: flex_color_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.3.0"
+    version: "2.3.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -699,7 +699,7 @@ packages:
       name: pub_semver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   pubspec_parse:
     dependency: transitive
     description:
@@ -734,7 +734,7 @@ packages:
       name: rest_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1+7"
+    version: "2.1.0"
   rfc_6901:
     dependency: transitive
     description:

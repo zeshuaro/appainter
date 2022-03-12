@@ -91,58 +91,6 @@ void main() {
     }
   });
 
-  group('export theme', () {
-    testWidgets(
-      'export button should export theme from basic editor',
-      (tester) async {
-        when(() => homeCubit.state).thenReturn(
-          const HomeState(editMode: EditMode.basic),
-        );
-        when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
-        when(() => homeCubit.themeExported(any())).thenAnswer(
-          (invocation) => Future.value(),
-        );
-        when(() => homeRepo.exportTheme(any())).thenAnswer(
-          (invocation) => Future.value(),
-        );
-
-        await _pumpApp(tester);
-
-        final finder = find.byKey(const Key('homePage_exportButton'));
-        await tester.ensureVisible(finder);
-        await tester.tap(finder);
-
-        verify(
-          () => homeCubit.themeExported(basicThemeCubit.state.theme),
-        ).called(greaterThan(0));
-      },
-    );
-
-    testWidgets(
-      'export button should export theme from advanced editor',
-      (tester) async {
-        when(() => homeCubit.state).thenReturn(
-          const HomeState(editMode: EditMode.advanced),
-        );
-        when(() => homeCubit.themeExported(any())).thenAnswer(
-          (invocation) => Future.value(),
-        );
-        when(() => homeRepo.exportTheme(any())).thenAnswer(
-          (invocation) => Future.value(),
-        );
-
-        await _pumpApp(tester);
-
-        final finder = find.byKey(const Key('homePage_exportButton'));
-        await tester.ensureVisible(finder);
-        await tester.tap(finder);
-        await tester.pumpAndSettle();
-
-        verify(() => homeCubit.themeExported(any())).called(1);
-      },
-    );
-  });
-
   testWidgets(
     'import button should import theme to advanced editor',
     (tester) async {

@@ -103,6 +103,7 @@ class ExportButton extends StatelessWidget {
         context.read<OverlineTextStyleCubit>().state.style;
 
     return ThemeData(
+      colorScheme: colorTheme.colorScheme,
       primaryColor: colorTheme.primaryColor,
       primaryColorLight: colorTheme.primaryColorLight,
       primaryColorDark: colorTheme.primaryColorDark,

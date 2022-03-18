@@ -47,7 +47,7 @@ dev_dependencies:
   build_runner: ^2.0.0
   cider: ^0.1.0
   copy_with_extension_gen: ^4.0.0
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
   mocktail: ^0.3.0

@@ -56,16 +56,20 @@ void main() {
         seed: () => BasicThemeState(isDark: isDark),
         build: () => cubit,
         act: (cubit) => cubit.themeRandomized(seed),
-        expect: () => [
-          BasicThemeState(
-            colorScheme: randomColorScheme(
-              seed: seed,
-              isDark: isDark,
-              shouldPrint: false,
-            ),
+        expect: () {
+          final colorScheme = randomColorScheme(
+            seed: seed,
             isDark: isDark,
-          ),
-        ],
+            shouldPrint: false,
+          );
+          return [
+            BasicThemeState(
+              seedColor: colorScheme.primary,
+              colorScheme: colorScheme,
+              isDark: isDark,
+            ),
+          ];
+        },
       );
     }
   });

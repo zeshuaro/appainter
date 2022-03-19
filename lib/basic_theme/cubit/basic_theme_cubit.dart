@@ -18,6 +18,7 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
   void themeBrightnessChanged(bool isDark) {
     emit(
       state.copyWith(
+        seedColor: BasicThemeState.defaultSeedColor,
         colorScheme: BasicThemeState.getColorScheme(isDark),
         isDark: isDark,
       ),
@@ -25,13 +26,14 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
   }
 
   void themeRandomized([int? seed]) {
-    emit(state.copyWith(
-      colorScheme: randomColorScheme(
-        seed: seed ?? DateTime.now().millisecondsSinceEpoch,
-        isDark: state.isDark,
-        shouldPrint: false,
-      ),
-    ));
+    final colorScheme = randomColorScheme(
+      seed: seed ?? DateTime.now().millisecondsSinceEpoch,
+      isDark: state.isDark,
+      shouldPrint: false,
+    );
+    emit(
+      state.copyWith(seedColor: colorScheme.primary, colorScheme: colorScheme),
+    );
   }
 
   void themeReset() {

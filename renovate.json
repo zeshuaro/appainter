@@ -12,11 +12,6 @@
   "timezone": "Australia/Sydney",
   "packageRules": [
     {
-      "groupName": "Dev dependencies",
-      "matchPaths": ["pubspec.yaml"],
-      "matchDepTypes": ["dev_dependencies"]
-    },
-    {
       "groupName": "Bloc dependencies",
       "matchPaths": ["pubspec.yaml"],
       "matchPackagePrefixes": ["bloc", "flutter_bloc"]

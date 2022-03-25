@@ -93,6 +93,29 @@ void main() {
     }
   });
 
+  group('test secondary color', () {
+    for (var isDark in [true, false]) {
+      blocTest<ColorThemeCubit, ColorThemeState>(
+        'should emit secondary color with isDark=$isDark',
+        setUp: () {
+          onColor = isDark ? Colors.white : Colors.black;
+        },
+        build: () => colorThemeCubit,
+        act: (cubit) => cubit.secondaryColorChanged(color, isDark),
+        expect: () {
+          return [
+            ColorThemeState(
+              colorScheme: colorThemeCubit.state.colorScheme.copyWith(
+                secondary: color,
+                onSecondary: onColor,
+              ),
+            )
+          ];
+        },
+      );
+    }
+  });
+
   blocTest<ColorThemeCubit, ColorThemeState>(
     'should emit primary color light',
     build: () => colorThemeCubit,

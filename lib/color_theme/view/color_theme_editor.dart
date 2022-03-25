@@ -1,3 +1,4 @@
+import 'package:appainter/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
@@ -12,35 +13,33 @@ class ColorThemeEditor extends ExpansionPanelItem {
 
   @override
   Widget build(BuildContext context) {
-    return NestedListView(
+    return SideBySideList(
+      padding: kPaddingAll,
       children: [
         _PrimaryColorPicker(),
-        SideBySideList(
-          children: [
-            _PrimaryColorLightPicker(),
-            _PrimaryColorDarkPicker(),
-            _BackgroundColorPicker(),
-            _BottomAppBarColorPicker(),
-            _CanvasColorPicker(),
-            _CardColorPicker(),
-            _DialogBackgroundColorPicker(),
-            _DisabledColorPicker(),
-            _DividerColorPicker(),
-            _ErrorColorPicker(),
-            _FocusColorPicker(),
-            _HighlightColorPicker(),
-            _HintColorPicker(),
-            _HoverColorPicker(),
-            _IndicatorColorPicker(),
-            _ScaffoldBackgroundColorPicker(),
-            _SecondaryHeaderColorPicker(),
-            _SelectedRowColorPicker(),
-            _ShadowColorPicker(),
-            _SplashColorPicker(),
-            _ToggleableActiveColorPicker(),
-            _UnselectedWidgetColorPicker(),
-          ],
-        ),
+        _SecondaryColorPicker(),
+        _PrimaryColorLightPicker(),
+        _PrimaryColorDarkPicker(),
+        _BackgroundColorPicker(),
+        _BottomAppBarColorPicker(),
+        _CanvasColorPicker(),
+        _CardColorPicker(),
+        _DialogBackgroundColorPicker(),
+        _DisabledColorPicker(),
+        _DividerColorPicker(),
+        _ErrorColorPicker(),
+        _FocusColorPicker(),
+        _HighlightColorPicker(),
+        _HintColorPicker(),
+        _HoverColorPicker(),
+        _IndicatorColorPicker(),
+        _ScaffoldBackgroundColorPicker(),
+        _SecondaryHeaderColorPicker(),
+        _SelectedRowColorPicker(),
+        _ShadowColorPicker(),
+        _SplashColorPicker(),
+        _ToggleableActiveColorPicker(),
+        _UnselectedWidgetColorPicker(),
       ],
     );
   }
@@ -62,6 +61,30 @@ class _PrimaryColorPicker extends StatelessWidget {
           onColorChanged: (color) {
             final isDark = context.read<AdvancedThemeCubit>().state.isDark;
             context.read<ColorThemeCubit>().primaryColorChanged(color, isDark);
+          },
+        );
+      },
+    );
+  }
+}
+
+class _SecondaryColorPicker extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      buildWhen: (previous, current) {
+        return previous.colorScheme.secondary != current.colorScheme.secondary;
+      },
+      builder: (context, state) {
+        return ColorListTile(
+          key: const Key('colorThemeEditor_secondaryColorPicker'),
+          title: 'Secondary color',
+          color: state.colorScheme.secondary,
+          onColorChanged: (color) {
+            final isDark = context.read<AdvancedThemeCubit>().state.isDark;
+            context
+                .read<ColorThemeCubit>()
+                .secondaryColorChanged(color, isDark);
           },
         );
       },

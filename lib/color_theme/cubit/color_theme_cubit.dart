@@ -73,6 +73,18 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
     emit(state.copyWith(primaryColorDark: color));
   }
 
+  void secondaryColorChanged(Color color, bool isDark) {
+    final onColor = isDark ? Colors.white : Colors.black;
+    emit(
+      state.copyWith(
+        colorScheme: state.colorScheme.copyWith(
+          secondary: color,
+          onSecondary: onColor,
+        ),
+      ),
+    );
+  }
+
   void backgroundColorChanged(Color color) {
     emit(state.copyWith(backgroundColor: color));
   }

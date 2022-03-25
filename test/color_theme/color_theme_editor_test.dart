@@ -70,6 +70,33 @@ void main() {
     }
   });
 
+  group('test secondary color', () {
+    for (var isDark in [true, false]) {
+      testWidgets(
+        'color picker should update with selected color for isDark=$isDark',
+        (tester) async {
+          final state = ColorThemeState(
+            colorScheme: const ColorScheme.light().copyWith(secondary: color),
+          );
+          when(() => advancedThemeCubit.state).thenReturn(
+            AdvancedThemeState(isDark: isDark),
+          );
+
+          await _pumpApp(tester, state);
+
+          await widgetTesters.checkColorPicker(
+            tester,
+            'colorThemeEditor_secondaryColorPicker',
+            color,
+          );
+          verify(
+            () => colorThemeCubit.secondaryColorChanged(color, isDark),
+          ).called(1);
+        },
+      );
+    }
+  });
+
   testWidgets(
     'primary color light picker should update with selected color',
     (tester) async {

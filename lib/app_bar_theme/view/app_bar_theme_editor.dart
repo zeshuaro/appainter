@@ -15,23 +15,33 @@ class AppBarThemeEditor extends ExpansionPanelItem {
 
   @override
   Widget build(BuildContext context) {
-    return SideBySideList(
-      padding: kPaddingAll,
+    return NestedListView(
       children: [
-        _BackgroundColorPicker(),
-        _ForegroundColorPicker(),
-        _ShadowColorPicker(),
-        _SystemUiOverlayStyleDropdown(),
-        _ElevationTextField(),
-        _CenterTitleSwitch(),
-        _TitleSpacingTextField(),
-        _ToolBarHeightTextField(),
+        const SideBySideList(
+          children: [
+            _BackgroundColorPicker(),
+            _ForegroundColorPicker(),
+            _ShadowColorPicker(),
+            _SystemUiOverlayStyleDropdown(),
+            _ElevationTextField(),
+            _CenterTitleSwitch(),
+            _TitleSpacingTextField(),
+            _ToolBarHeightTextField(),
+          ],
+        ),
+        MyExpansionPanelList(
+          items: const [
+            _ActionsIconThemeCard(),
+          ],
+        )
       ],
     );
   }
 }
 
 class _BackgroundColorPicker extends StatelessWidget {
+  const _BackgroundColorPicker({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final backgroundColor =
@@ -51,6 +61,8 @@ class _BackgroundColorPicker extends StatelessWidget {
 }
 
 class _ForegroundColorPicker extends StatelessWidget {
+  const _ForegroundColorPicker({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final foregroundColor =
@@ -70,6 +82,8 @@ class _ForegroundColorPicker extends StatelessWidget {
 }
 
 class _ElevationTextField extends StatelessWidget {
+  const _ElevationTextField({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
@@ -92,6 +106,8 @@ class _ElevationTextField extends StatelessWidget {
 }
 
 class _ShadowColorPicker extends StatelessWidget {
+  const _ShadowColorPicker({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final shadowColor =
@@ -110,6 +126,8 @@ class _ShadowColorPicker extends StatelessWidget {
 }
 
 class _CenterTitleSwitch extends StatelessWidget {
+  const _CenterTitleSwitch({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
@@ -131,6 +149,8 @@ class _CenterTitleSwitch extends StatelessWidget {
 }
 
 class _TitleSpacingTextField extends StatelessWidget {
+  const _TitleSpacingTextField({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
@@ -153,6 +173,8 @@ class _TitleSpacingTextField extends StatelessWidget {
 }
 
 class _ToolBarHeightTextField extends StatelessWidget {
+  const _ToolBarHeightTextField({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
@@ -175,6 +197,8 @@ class _ToolBarHeightTextField extends StatelessWidget {
 }
 
 class _SystemUiOverlayStyleDropdown extends StatelessWidget {
+  const _SystemUiOverlayStyleDropdown({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
@@ -197,6 +221,37 @@ class _SystemUiOverlayStyleDropdown extends StatelessWidget {
           },
         );
       },
+    );
+  }
+}
+
+class _ActionsIconThemeCard extends ExpansionPanelItem {
+  const _ActionsIconThemeCard({Key? key}) : super(key: key);
+
+  static const _iconThemeFallback = IconThemeData.fallback();
+
+  @override
+  String get header => 'Actions icon theme';
+
+  @override
+  Widget build(BuildContext context) {
+    final appBarTheme = context.watch<AppBarThemeCubit>().state.theme;
+    final onPrimaryColor =
+        context.watch<ColorThemeCubit>().state.colorScheme.onPrimary;
+    final cubit = context.read<AppBarThemeCubit>();
+
+    final iconTheme = appBarTheme.actionsIconTheme;
+    final iconColor = iconTheme?.color;
+    final foregroundColor = appBarTheme.foregroundColor;
+
+    return IconThemeCard(
+      keyPrefix: 'appbarThemeEditor_actionsIconThemeCard',
+      color: iconColor ?? foregroundColor ?? onPrimaryColor,
+      onColorChanged: cubit.actionsIconThemeColorChanged,
+      size: iconTheme?.size ?? _iconThemeFallback.size!,
+      onSizeChanged: cubit.actionsIconThemeSizeChanged,
+      opacity: iconTheme?.opacity ?? _iconThemeFallback.opacity!,
+      onOpacityChanged: cubit.actionsIconThemeOpacityChanged,
     );
   }
 }

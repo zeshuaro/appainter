@@ -15,7 +15,7 @@ class IconThemeEditor extends ExpansionPanelItem {
     return BlocBuilder<IconThemeCubit, IconThemeState>(
       builder: (context, state) {
         return IconThemeCard(
-          key: const Key('iconThemeEditor_iconThemeCard'),
+          keyPrefix: 'iconThemeEditor',
           color: state.theme.color ?? kIconThemeColor,
           onColorChanged: (color) {
             context.read<IconThemeCubit>().colorChanged(color);

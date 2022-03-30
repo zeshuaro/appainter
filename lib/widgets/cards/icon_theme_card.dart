@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:appainter/widgets/widgets.dart';
 
 class IconThemeCard extends StatelessWidget {
-  final String? headerKey;
+  final String? keyPrefix;
 
   final Color color;
   final ValueChanged<Color> onColorChanged;
@@ -15,7 +15,7 @@ class IconThemeCard extends StatelessWidget {
 
   const IconThemeCard({
     Key? key,
-    this.headerKey,
+    this.keyPrefix,
     required this.color,
     required this.onColorChanged,
     required this.size,
@@ -26,22 +26,30 @@ class IconThemeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    late final String prefix;
+    if (keyPrefix != null) {
+      prefix = '${keyPrefix}_';
+    } else {
+      prefix = '';
+    }
+
     return NestedListView(
       children: [
         ColorListTile(
+          key: Key('${prefix}colorPicker'),
           title: 'Color',
           color: color,
           onColorChanged: onColorChanged,
         ),
         SideBySide(
           left: MyTextFormField(
-            key: const Key('iconThemeCard_sizeTextField'),
+            key: Key('${prefix}sizeTextField'),
             labelText: 'Size',
             onChanged: onSizeChanged,
             initialValue: size.toString(),
           ),
           right: MyTextFormField(
-            key: const Key('iconThemeCard_opacityTextField'),
+            key: Key('${prefix}opacityTextField'),
             labelText: 'Opacity',
             onChanged: onOpacityChanged,
             initialValue: opacity.toString(),

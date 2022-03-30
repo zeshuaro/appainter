@@ -13,107 +13,141 @@ void main() {
   late AppBarThemeCubit cubit;
   late AppBarTheme theme;
   late Color color;
-  late double doubleValue;
+  late double doubleNum;
+  late String doubleStr;
 
   setUp(() {
     cubit = AppBarThemeCubit();
     color = getRandomColor();
-    doubleValue = Random().nextDouble();
-
-    final colorScheme = randomColorSchemeLight(shouldPrint: false);
-    theme = ThemeData.from(colorScheme: colorScheme).appBarTheme;
+    doubleNum = Random().nextDouble();
+    doubleStr = doubleNum.toString();
   });
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'should emit theme',
+    'emits theme',
+    setUp: () {
+      final colorScheme = randomColorSchemeLight(shouldPrint: false);
+      theme = ThemeData.from(colorScheme: colorScheme).appBarTheme;
+    },
     build: () => cubit,
     act: (cubit) => cubit.themeChanged(theme),
     expect: () => [AppBarThemeState(theme: theme)],
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'should emit background color',
+    'emits background color',
     build: () => cubit,
     act: (cubit) => cubit.backgroundColorChanged(color),
-    expect: () {
-      return [AppBarThemeState(theme: AppBarTheme(backgroundColor: color))];
-    },
+    expect: () => [
+      AppBarThemeState(theme: AppBarTheme(backgroundColor: color)),
+    ],
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'should emit foreground color',
+    'emits foreground color',
     build: () => cubit,
     act: (cubit) => cubit.foregroundColorChanged(color),
-    expect: () {
-      return [AppBarThemeState(theme: AppBarTheme(foregroundColor: color))];
-    },
+    expect: () => [
+      AppBarThemeState(theme: AppBarTheme(foregroundColor: color)),
+    ],
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'should emit elevation',
+    'emits elevation',
     build: () => cubit,
-    act: (cubit) => cubit.elevationChanged(doubleValue.toString()),
-    expect: () {
-      return [AppBarThemeState(theme: AppBarTheme(elevation: doubleValue))];
-    },
+    act: (cubit) => cubit.elevationChanged(doubleStr),
+    expect: () => [AppBarThemeState(theme: AppBarTheme(elevation: doubleNum))],
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'should emit shadow color',
+    'emits shadow color',
     build: () => cubit,
     act: (cubit) => cubit.shadowColorChanged(color),
-    expect: () {
-      return [AppBarThemeState(theme: AppBarTheme(shadowColor: color))];
-    },
+    expect: () => [AppBarThemeState(theme: AppBarTheme(shadowColor: color))],
   );
 
   group('test center title', () {
     for (var isCenter in [true, false]) {
       blocTest<AppBarThemeCubit, AppBarThemeState>(
-        'should emit $isCenter',
+        'emits $isCenter',
         build: () => cubit,
         act: (cubit) => cubit.centerTitleChanged(isCenter),
-        expect: () {
-          return [AppBarThemeState(theme: AppBarTheme(centerTitle: isCenter))];
-        },
+        expect: () => [
+          AppBarThemeState(theme: AppBarTheme(centerTitle: isCenter)),
+        ],
       );
     }
   });
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'should emit title spacing',
+    'emits title spacing',
     build: () => cubit,
-    act: (cubit) => cubit.titleSpacingChanged(doubleValue.toString()),
-    expect: () {
-      return [AppBarThemeState(theme: AppBarTheme(titleSpacing: doubleValue))];
-    },
+    act: (cubit) => cubit.titleSpacingChanged(doubleStr),
+    expect: () => [
+      AppBarThemeState(theme: AppBarTheme(titleSpacing: doubleNum)),
+    ],
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'should emit tool bar height',
+    'emits tool bar height',
     build: () => cubit,
-    act: (cubit) => cubit.toolBarHeightChanged(doubleValue.toString()),
-    expect: () {
-      return [AppBarThemeState(theme: AppBarTheme(toolbarHeight: doubleValue))];
-    },
+    act: (cubit) => cubit.toolBarHeightChanged(doubleStr),
+    expect: () => [
+      AppBarThemeState(theme: AppBarTheme(toolbarHeight: doubleNum)),
+    ],
   );
 
   group('test system UI overlay style', () {
     for (var style in MySystemUiOverlayStyle().values) {
       blocTest<AppBarThemeCubit, AppBarThemeState>(
-        'should emit ${style.statusBarBrightness}',
+        'emits ${style.statusBarBrightness}',
         build: () => cubit,
         act: (cubit) {
           cubit.systemUiOverlayStyleChanged(
             MySystemUiOverlayStyle().convertToString(style)!,
           );
         },
-        expect: () {
-          return [
-            AppBarThemeState(theme: AppBarTheme(systemOverlayStyle: style)),
-          ];
-        },
+        expect: () => [
+          AppBarThemeState(theme: AppBarTheme(systemOverlayStyle: style)),
+        ],
       );
     }
+  });
+
+  group('test actions icon theme', () {
+    blocTest<AppBarThemeCubit, AppBarThemeState>(
+      'emits color',
+      build: () => cubit,
+      act: (cubit) => cubit.actionsIconThemeColorChanged(color),
+      expect: () => [
+        AppBarThemeState(
+          theme: AppBarTheme(actionsIconTheme: IconThemeData(color: color)),
+        ),
+      ],
+    );
+
+    blocTest<AppBarThemeCubit, AppBarThemeState>(
+      'emits size',
+      build: () => cubit,
+      act: (cubit) => cubit.actionsIconThemeSizeChanged(doubleStr),
+      expect: () => [
+        AppBarThemeState(
+          theme: AppBarTheme(actionsIconTheme: IconThemeData(size: doubleNum)),
+        ),
+      ],
+    );
+
+    blocTest<AppBarThemeCubit, AppBarThemeState>(
+      'emits opacity',
+      build: () => cubit,
+      act: (cubit) => cubit.actionsIconThemeOpacityChanged(doubleStr),
+      expect: () => [
+        AppBarThemeState(
+          theme: AppBarTheme(
+            actionsIconTheme: IconThemeData(opacity: doubleNum),
+          ),
+        ),
+      ],
+    );
   });
 }

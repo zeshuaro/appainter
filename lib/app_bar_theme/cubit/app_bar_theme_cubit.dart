@@ -63,4 +63,32 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
       emit(state.copyWith(theme: theme));
     }
   }
+
+  void actionsIconThemeColorChanged(Color color) {
+    final iconTheme = _defaultActionsIconTheme.copyWith(color: color);
+    final theme = state.theme.copyWith(actionsIconTheme: iconTheme);
+    emit(state.copyWith(theme: theme));
+  }
+
+  void actionsIconThemeSizeChanged(String value) {
+    final size = double.tryParse(value);
+    if (size != null) {
+      final iconTheme = _defaultActionsIconTheme.copyWith(size: size);
+      final theme = state.theme.copyWith(actionsIconTheme: iconTheme);
+      emit(state.copyWith(theme: theme));
+    }
+  }
+
+  void actionsIconThemeOpacityChanged(String value) {
+    final opacity = double.tryParse(value);
+    if (opacity != null) {
+      final iconTheme = _defaultActionsIconTheme.copyWith(opacity: opacity);
+      final theme = state.theme.copyWith(actionsIconTheme: iconTheme);
+      emit(state.copyWith(theme: theme));
+    }
+  }
+
+  IconThemeData get _defaultActionsIconTheme {
+    return state.theme.actionsIconTheme ?? const IconThemeData();
+  }
 }

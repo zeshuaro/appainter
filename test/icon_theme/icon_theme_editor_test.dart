@@ -52,7 +52,7 @@ void main() {
 
       await widgetTesters.checkColorPicker(
         tester,
-        'iconThemeEditor_iconThemeCard',
+        'iconThemeEditor_colorPicker',
         color,
       );
       verify(() => iconThemeCubit.colorChanged(color)).called(1);
@@ -68,7 +68,7 @@ void main() {
 
       await widgetTesters.checkTextField(
         tester,
-        'iconThemeCard_sizeTextField',
+        'iconThemeEditor_sizeTextField',
         doubleValue,
       );
       verify(() {
@@ -86,7 +86,7 @@ void main() {
 
       await widgetTesters.checkTextField(
         tester,
-        'iconThemeCard_opacityTextField',
+        'iconThemeEditor_opacityTextField',
         doubleValue,
       );
       verify(() {

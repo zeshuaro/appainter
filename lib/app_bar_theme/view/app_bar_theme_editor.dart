@@ -1,3 +1,4 @@
+import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -228,30 +229,19 @@ class _SystemUiOverlayStyleDropdown extends StatelessWidget {
 class _ActionsIconThemeCard extends ExpansionPanelItem {
   const _ActionsIconThemeCard({Key? key}) : super(key: key);
 
-  static const _iconThemeFallback = IconThemeData.fallback();
-
   @override
   String get header => 'Actions icon theme';
 
   @override
   Widget build(BuildContext context) {
-    final appBarTheme = context.watch<AppBarThemeCubit>().state.theme;
+    final foregroundColor =
+        context.watch<AppBarThemeCubit>().state.theme.foregroundColor;
     final onPrimaryColor =
         context.watch<ColorThemeCubit>().state.colorScheme.onPrimary;
-    final cubit = context.read<AppBarThemeCubit>();
 
-    final iconTheme = appBarTheme.actionsIconTheme;
-    final iconColor = iconTheme?.color;
-    final foregroundColor = appBarTheme.foregroundColor;
-
-    return IconThemeCard(
-      keyPrefix: 'appbarThemeEditor_actionsIconThemeCard',
-      color: iconColor ?? foregroundColor ?? onPrimaryColor,
-      onColorChanged: cubit.actionsIconThemeColorChanged,
-      size: iconTheme?.size ?? _iconThemeFallback.size!,
-      onSizeChanged: cubit.actionsIconThemeSizeChanged,
-      opacity: iconTheme?.opacity ?? _iconThemeFallback.opacity!,
-      onOpacityChanged: cubit.actionsIconThemeOpacityChanged,
+    return AbstractIconThemeEditor<AppBarActionsIconThemeCubit>(
+      keyPrefix: 'appBarThemeEditor_actionsIconThemeCard',
+      fallbackColor: foregroundColor ?? onPrimaryColor,
     );
   }
 }

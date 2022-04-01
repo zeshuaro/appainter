@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,20 +9,24 @@ import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';
 
+class TestIconThemeCubit extends AbstractIconThemeCubit {}
+
 void main() {
   late IconThemeCubit cubit;
   late IconThemeData theme;
   late Color color;
-  late double doubleValue;
+  late double doubleNum;
+  late String doubleStr;
 
   setUp(() {
     cubit = IconThemeCubit();
     color = getRandomColor();
-    doubleValue = Random().nextDouble();
+    doubleNum = Random().nextDouble();
+    doubleStr = doubleNum.toString();
   });
 
   blocTest<IconThemeCubit, IconThemeState>(
-    'should emit theme',
+    'emits theme',
     setUp: () {
       final colorScheme = randomColorSchemeLight(shouldPrint: false);
       theme = ThemeData.from(colorScheme: colorScheme).iconTheme;
@@ -32,23 +37,23 @@ void main() {
   );
 
   blocTest<IconThemeCubit, IconThemeState>(
-    'should emit color',
+    'emits color',
     build: () => cubit,
     act: (cubit) => cubit.colorChanged(color),
     expect: () => [IconThemeState(theme: IconThemeData(color: color))],
   );
 
   blocTest<IconThemeCubit, IconThemeState>(
-    'should emit size',
+    'emits size',
     build: () => cubit,
-    act: (cubit) => cubit.sizeChanged(doubleValue.toString()),
-    expect: () => [IconThemeState(theme: IconThemeData(size: doubleValue))],
+    act: (cubit) => cubit.sizeChanged(doubleStr),
+    expect: () => [IconThemeState(theme: IconThemeData(size: doubleNum))],
   );
 
   blocTest<IconThemeCubit, IconThemeState>(
-    'should emit opacity',
+    'emits opacity',
     build: () => cubit,
-    act: (cubit) => cubit.opacityChanged(doubleValue.toString()),
-    expect: () => [IconThemeState(theme: IconThemeData(opacity: doubleValue))],
+    act: (cubit) => cubit.opacityChanged(doubleStr),
+    expect: () => [IconThemeState(theme: IconThemeData(opacity: doubleNum))],
   );
 }

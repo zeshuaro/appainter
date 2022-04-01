@@ -32,7 +32,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorThemeCubit = ColorThemeCubit();
-    final appBarThemeCubit = AppBarThemeCubit();
+
+    final appBarActionsIconThemeCubit = AppBarActionsIconThemeCubit();
+    final appBarThemeCubit = AppBarThemeCubit(
+      actionsIconThemeCubit: appBarActionsIconThemeCubit,
+    );
+
     final tabBarThemeCubit = TabBarThemeCubit();
     final bottomNavigationBarThemeCubit = BottomNavigationBarThemeCubit();
 
@@ -120,6 +125,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (_) => advancedThemeCubit),
           BlocProvider(create: (_) => colorThemeCubit),
           BlocProvider(create: (_) => appBarThemeCubit),
+          BlocProvider(create: (_) => appBarActionsIconThemeCubit),
           BlocProvider(create: (_) => tabBarThemeCubit),
           BlocProvider(create: (_) => bottomNavigationBarThemeCubit),
           BlocProvider(create: (_) => floatingActionButtonThemeCubit),

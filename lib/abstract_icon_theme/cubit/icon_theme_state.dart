@@ -1,4 +1,4 @@
-part of 'icon_theme_cubit.dart';
+part of 'abstract_icon_theme_cubit.dart';
 
 @CopyWith()
 class IconThemeState extends Equatable {

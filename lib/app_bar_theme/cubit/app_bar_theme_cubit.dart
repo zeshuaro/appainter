@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -8,7 +11,24 @@ part 'app_bar_theme_cubit.g.dart';
 part 'app_bar_theme_state.dart';
 
 class AppBarThemeCubit extends Cubit<AppBarThemeState> {
-  AppBarThemeCubit() : super(const AppBarThemeState());
+  final AppBarActionsIconThemeCubit actionsIconThemeCubit;
+  late final StreamSubscription actionsIconThemeCubitSubscription;
+
+  AppBarThemeCubit({required this.actionsIconThemeCubit})
+      : super(const AppBarThemeState()) {
+    actionsIconThemeCubitSubscription = actionsIconThemeCubit.stream.listen(
+      (otherState) {
+        final theme = state.theme.copyWith(actionsIconTheme: otherState.theme);
+        emit(state.copyWith(theme: theme));
+      },
+    );
+  }
+
+  @override
+  Future<void> close() {
+    actionsIconThemeCubitSubscription.cancel();
+    return super.close();
+  }
 
   void themeChanged(AppBarTheme theme) => emit(state.copyWith(theme: theme));
 
@@ -63,32 +83,6 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
       emit(state.copyWith(theme: theme));
     }
   }
-
-  void actionsIconThemeColorChanged(Color color) {
-    final iconTheme = _defaultActionsIconTheme.copyWith(color: color);
-    final theme = state.theme.copyWith(actionsIconTheme: iconTheme);
-    emit(state.copyWith(theme: theme));
-  }
-
-  void actionsIconThemeSizeChanged(String value) {
-    final size = double.tryParse(value);
-    if (size != null) {
-      final iconTheme = _defaultActionsIconTheme.copyWith(size: size);
-      final theme = state.theme.copyWith(actionsIconTheme: iconTheme);
-      emit(state.copyWith(theme: theme));
-    }
-  }
-
-  void actionsIconThemeOpacityChanged(String value) {
-    final opacity = double.tryParse(value);
-    if (opacity != null) {
-      final iconTheme = _defaultActionsIconTheme.copyWith(opacity: opacity);
-      final theme = state.theme.copyWith(actionsIconTheme: iconTheme);
-      emit(state.copyWith(theme: theme));
-    }
-  }
-
-  IconThemeData get _defaultActionsIconTheme {
-    return state.theme.actionsIconTheme ?? const IconThemeData();
-  }
 }
+
+class AppBarActionsIconThemeCubit extends AbstractIconThemeCubit {}

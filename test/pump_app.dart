@@ -24,6 +24,8 @@ import 'package:mocktail/mocktail.dart';
 
 import 'mocks.dart';
 
+const _iconThemeState = IconThemeState();
+
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(
     Widget widget, {
@@ -41,6 +43,8 @@ extension PumpApp on WidgetTester {
     final AppBarThemeCubit appBarThemeCubit = MockAppBarThemeCubit();
     final AppBarActionsIconThemeCubit appBarActionsIconThemeCubit =
         MockAppBarActionsIconThemeCubit();
+    final AppBarIconThemeCubit appBarIconThemeCubit =
+        MockAppBarIconThemeCubit();
 
     final TabBarThemeCubit tabBarThemeCubit = MockTabBarThemeCubit();
     final BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit =
@@ -107,9 +111,8 @@ extension PumpApp on WidgetTester {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
 
     when(() => appBarThemeCubit.state).thenReturn(const AppBarThemeState());
-    when(() => appBarActionsIconThemeCubit.state).thenReturn(
-      const IconThemeState(),
-    );
+    when(() => appBarActionsIconThemeCubit.state).thenReturn(_iconThemeState);
+    when(() => appBarIconThemeCubit.state).thenReturn(_iconThemeState);
 
     when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());
     when(() => bottomNavigationBarThemeCubit.state).thenReturn(
@@ -127,7 +130,7 @@ extension PumpApp on WidgetTester {
     when(() => textButtonThemeCubit.state).thenReturn(
       const TextButtonThemeState(),
     );
-    when(() => iconThemeCubit.state).thenReturn(const IconThemeState());
+    when(() => iconThemeCubit.state).thenReturn(_iconThemeState);
     when(() => inputDecorationThemeCubit.state).thenReturn(
       const InputDecorationThemeState(),
     );
@@ -167,6 +170,7 @@ extension PumpApp on WidgetTester {
             BlocProvider.value(value: colorThemeCubit),
             BlocProvider.value(value: appBarThemeCubit),
             BlocProvider.value(value: appBarActionsIconThemeCubit),
+            BlocProvider.value(value: appBarIconThemeCubit),
             BlocProvider.value(value: tabBarThemeCubit),
             BlocProvider.value(value: bottomNavigationBarThemeCubit),
             BlocProvider.value(value: floatingActionButtonThemeCubit),

@@ -12,13 +12,24 @@ part 'app_bar_theme_state.dart';
 
 class AppBarThemeCubit extends Cubit<AppBarThemeState> {
   final AppBarActionsIconThemeCubit actionsIconThemeCubit;
-  late final StreamSubscription actionsIconThemeCubitSubscription;
+  final AppBarIconThemeCubit iconThemeCubit;
 
-  AppBarThemeCubit({required this.actionsIconThemeCubit})
-      : super(const AppBarThemeState()) {
+  late final StreamSubscription actionsIconThemeCubitSubscription;
+  late final StreamSubscription iconThemeCubitSubscription;
+
+  AppBarThemeCubit({
+    required this.actionsIconThemeCubit,
+    required this.iconThemeCubit,
+  }) : super(const AppBarThemeState()) {
     actionsIconThemeCubitSubscription = actionsIconThemeCubit.stream.listen(
       (otherState) {
         final theme = state.theme.copyWith(actionsIconTheme: otherState.theme);
+        emit(state.copyWith(theme: theme));
+      },
+    );
+    iconThemeCubitSubscription = iconThemeCubit.stream.listen(
+      (otherState) {
+        final theme = state.theme.copyWith(iconTheme: otherState.theme);
         emit(state.copyWith(theme: theme));
       },
     );
@@ -27,11 +38,15 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
   @override
   Future<void> close() {
     actionsIconThemeCubitSubscription.cancel();
+    iconThemeCubitSubscription.cancel();
     return super.close();
   }
 
   void themeChanged(AppBarTheme theme) {
     actionsIconThemeCubit.themeChanged(
+      theme.actionsIconTheme ?? const IconThemeData(),
+    );
+    iconThemeCubit.themeChanged(
       theme.actionsIconTheme ?? const IconThemeData(),
     );
     emit(state.copyWith(theme: theme));
@@ -91,3 +106,5 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
 }
 
 class AppBarActionsIconThemeCubit extends AbstractIconThemeCubit {}
+
+class AppBarIconThemeCubit extends AbstractIconThemeCubit {}

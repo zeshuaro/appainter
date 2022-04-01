@@ -33,6 +33,7 @@ class AppBarThemeEditor extends ExpansionPanelItem {
         MyExpansionPanelList(
           items: const [
             _ActionsIconThemeCard(),
+            _IconThemeCard(),
           ],
         )
       ],
@@ -241,6 +242,26 @@ class _ActionsIconThemeCard extends ExpansionPanelItem {
 
     return AbstractIconThemeEditor<AppBarActionsIconThemeCubit>(
       keyPrefix: 'appBarThemeEditor_actionsIconThemeCard',
+      fallbackColor: foregroundColor ?? onPrimaryColor,
+    );
+  }
+}
+
+class _IconThemeCard extends ExpansionPanelItem {
+  const _IconThemeCard({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Icon theme';
+
+  @override
+  Widget build(BuildContext context) {
+    final foregroundColor =
+        context.watch<AppBarThemeCubit>().state.theme.foregroundColor;
+    final onPrimaryColor =
+        context.watch<ColorThemeCubit>().state.colorScheme.onPrimary;
+
+    return AbstractIconThemeEditor<AppBarIconThemeCubit>(
+      keyPrefix: 'appBarThemeEditor_iconThemeCard',
       fallbackColor: foregroundColor ?? onPrimaryColor,
     );
   }

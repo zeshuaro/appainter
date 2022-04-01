@@ -44,6 +44,9 @@ class MockAppBarThemeCubit extends MockCubit<AppBarThemeState>
 class MockAppBarActionsIconThemeCubit extends MockCubit<IconThemeState>
     implements AppBarActionsIconThemeCubit {}
 
+class MockAppBarIconThemeCubit extends MockCubit<IconThemeState>
+    implements AppBarIconThemeCubit {}
+
 class FakeAppBarThemeState extends Fake implements AppBarThemeState {}
 
 class MockTabBarThemeCubit extends MockCubit<TabBarThemeState>

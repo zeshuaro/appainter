@@ -15,10 +15,12 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 void main() {
+  const defaultIconThemeState = IconThemeState();
   final widgetTesters = WidgetTesters();
 
   late AppBarThemeCubit appBarThemeCubit;
   late AppBarActionsIconThemeCubit appBarActionsIconThemeCubit;
+  late AppBarIconThemeCubit appBarIconThemeCubit;
   late ColorThemeCubit colorThemeCubit;
 
   late Color color;
@@ -28,6 +30,7 @@ void main() {
   setUp(() {
     appBarThemeCubit = MockAppBarThemeCubit();
     appBarActionsIconThemeCubit = MockAppBarActionsIconThemeCubit();
+    appBarIconThemeCubit = MockAppBarIconThemeCubit();
     colorThemeCubit = MockColorThemeCubit();
 
     color = getRandomColor();
@@ -39,9 +42,10 @@ void main() {
 
   Future<void> _pumpApp(
     WidgetTester tester,
-    AppBarThemeState themeState, [
-    IconThemeState iconThemeState = const IconThemeState(),
-  ]) async {
+    AppBarThemeState themeState, {
+    IconThemeState actionsIconThemeState = defaultIconThemeState,
+    IconThemeState iconThemeState = defaultIconThemeState,
+  }) async {
     whenListen(
       appBarThemeCubit,
       Stream.fromIterable([themeState]),
@@ -50,8 +54,14 @@ void main() {
 
     whenListen(
       appBarActionsIconThemeCubit,
+      Stream.fromIterable([actionsIconThemeState]),
+      initialState: defaultIconThemeState,
+    );
+
+    whenListen(
+      appBarIconThemeCubit,
       Stream.fromIterable([iconThemeState]),
-      initialState: const IconThemeState(),
+      initialState: defaultIconThemeState,
     );
 
     await tester.pumpWidget(
@@ -59,6 +69,7 @@ void main() {
         providers: [
           BlocProvider.value(value: appBarThemeCubit),
           BlocProvider.value(value: appBarActionsIconThemeCubit),
+          BlocProvider.value(value: appBarIconThemeCubit),
           BlocProvider.value(value: colorThemeCubit),
         ],
         child: const MaterialApp(
@@ -223,7 +234,11 @@ void main() {
         );
         final iconThemeState = IconThemeState(theme: iconTheme);
 
-        await _pumpApp(tester, themeState, iconThemeState);
+        await _pumpApp(
+          tester,
+          themeState,
+          actionsIconThemeState: iconThemeState,
+        );
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -245,7 +260,11 @@ void main() {
         );
         final iconThemeState = IconThemeState(theme: iconTheme);
 
-        await _pumpApp(tester, themeState, iconThemeState);
+        await _pumpApp(
+          tester,
+          themeState,
+          actionsIconThemeState: iconThemeState,
+        );
 
         await widgetTesters.checkTextField(
           tester,
@@ -267,7 +286,11 @@ void main() {
         );
         final iconThemeState = IconThemeState(theme: iconTheme);
 
-        await _pumpApp(tester, themeState, iconThemeState);
+        await _pumpApp(
+          tester,
+          themeState,
+          actionsIconThemeState: iconThemeState,
+        );
 
         await widgetTesters.checkTextField(
           tester,
@@ -279,5 +302,71 @@ void main() {
         ).called(1);
       },
     );
+
+    group('test icon theme', () {
+      final widgetTesters = WidgetTesters(expandText: 'Icon theme');
+
+      testWidgets(
+        'updates color',
+        (tester) async {
+          final iconTheme = IconThemeData(color: color);
+          final themeState = AppBarThemeState(
+            theme: AppBarTheme(iconTheme: iconTheme),
+          );
+          final iconThemeState = IconThemeState(theme: iconTheme);
+
+          await _pumpApp(tester, themeState, iconThemeState: iconThemeState);
+
+          await widgetTesters.checkColorPicker(
+            tester,
+            'appBarThemeEditor_iconThemeCard_colorPicker',
+            color,
+          );
+          verify(() => appBarIconThemeCubit.colorChanged(color)).called(1);
+        },
+      );
+
+      testWidgets(
+        'updates size',
+        (tester) async {
+          final iconTheme = IconThemeData(size: doubleNum);
+          final themeState = AppBarThemeState(
+            theme: AppBarTheme(iconTheme: iconTheme),
+          );
+          final iconThemeState = IconThemeState(theme: iconTheme);
+
+          await _pumpApp(tester, themeState, iconThemeState: iconThemeState);
+
+          await widgetTesters.checkTextField(
+            tester,
+            'appBarThemeEditor_iconThemeCard_sizeTextField',
+            doubleNum,
+          );
+          verify(() => appBarIconThemeCubit.sizeChanged(doubleStr)).called(1);
+        },
+      );
+
+      testWidgets(
+        'updates opacity',
+        (tester) async {
+          final iconTheme = IconThemeData(opacity: doubleNum);
+          final themeState = AppBarThemeState(
+            theme: AppBarTheme(iconTheme: iconTheme),
+          );
+          final iconThemeState = IconThemeState(theme: iconTheme);
+
+          await _pumpApp(tester, themeState, iconThemeState: iconThemeState);
+
+          await widgetTesters.checkTextField(
+            tester,
+            'appBarThemeEditor_iconThemeCard_opacityTextField',
+            doubleNum,
+          );
+          verify(
+            () => appBarIconThemeCubit.opacityChanged(doubleStr),
+          ).called(1);
+        },
+      );
+    });
   });
 }

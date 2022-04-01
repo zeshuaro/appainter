@@ -1,3 +1,4 @@
+import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -34,11 +35,17 @@ extension PumpApp on WidgetTester {
     final mockHomeCubit = MockHomeCubit();
     final mockBasicThemeCubit = MockBasicThemeCubit();
     final mockAdvancedThemeCubit = MockAdvancedThemeCubit();
+
     final ColorThemeCubit colorThemeCubit = MockColorThemeCubit();
+
     final AppBarThemeCubit appBarThemeCubit = MockAppBarThemeCubit();
+    final AppBarActionsIconThemeCubit appBarActionsIconThemeCubit =
+        MockAppBarActionsIconThemeCubit();
+
     final TabBarThemeCubit tabBarThemeCubit = MockTabBarThemeCubit();
     final BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit =
         MockBottomNavigationBarThemeCubit();
+
     final FloatingActionButtonThemeCubit floatingActionButtonThemeCubit =
         MockFloatingActionButtonThemeCubit();
     final ElevatedButtonThemeCubit elevatedButtonThemeCubit =
@@ -47,9 +54,11 @@ extension PumpApp on WidgetTester {
         MockOutlinedButtonThemeCubit();
     final TextButtonThemeCubit textButtonThemeCubit =
         MockTextButtonThemeCubit();
+
     final IconThemeCubit iconThemeCubit = MockIconThemeCubit();
     final InputDecorationThemeCubit inputDecorationThemeCubit =
         MockInputDecorationThemeCubit();
+
     final SwitchThemeCubit switchThemeCubit = MockSwitchThemeCubit();
     final CheckboxThemeCubit checkboxThemeCubit = MockCheckboxThemeCubit();
     final RadioThemeCubit radioThemeCubit = MockRadioThemeCubit();
@@ -96,7 +105,12 @@ extension PumpApp on WidgetTester {
       const AdvancedThemeState(),
     );
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
+
     when(() => appBarThemeCubit.state).thenReturn(const AppBarThemeState());
+    when(() => appBarActionsIconThemeCubit.state).thenReturn(
+      const IconThemeState(),
+    );
+
     when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());
     when(() => bottomNavigationBarThemeCubit.state).thenReturn(
       const BottomNavigationBarThemeState(),
@@ -152,6 +166,7 @@ extension PumpApp on WidgetTester {
             ),
             BlocProvider.value(value: colorThemeCubit),
             BlocProvider.value(value: appBarThemeCubit),
+            BlocProvider.value(value: appBarActionsIconThemeCubit),
             BlocProvider.value(value: tabBarThemeCubit),
             BlocProvider.value(value: bottomNavigationBarThemeCubit),
             BlocProvider.value(value: floatingActionButtonThemeCubit),

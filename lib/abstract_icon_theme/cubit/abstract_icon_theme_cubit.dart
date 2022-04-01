@@ -3,11 +3,11 @@ import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
-part 'icon_theme_cubit.g.dart';
+part 'abstract_icon_theme_cubit.g.dart';
 part 'icon_theme_state.dart';
 
-class IconThemeCubit extends Cubit<IconThemeState> {
-  IconThemeCubit() : super(const IconThemeState());
+abstract class AbstractIconThemeCubit extends Cubit<IconThemeState> {
+  AbstractIconThemeCubit() : super(const IconThemeState());
 
   void themeChanged(IconThemeData theme) => emit(state.copyWith(theme: theme));
 

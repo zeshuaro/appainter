@@ -36,7 +36,12 @@ void main() {
     },
     build: () => themeCubit,
     act: (cubit) => cubit.themeChanged(theme),
-    expect: () => [AppBarThemeState(theme: theme)],
+    expect: () => [
+      AppBarThemeState(theme: theme),
+      AppBarThemeState(
+        theme: theme.copyWith(actionsIconTheme: const IconThemeData()),
+      ),
+    ],
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(

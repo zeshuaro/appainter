@@ -30,7 +30,12 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
     return super.close();
   }
 
-  void themeChanged(AppBarTheme theme) => emit(state.copyWith(theme: theme));
+  void themeChanged(AppBarTheme theme) {
+    actionsIconThemeCubit.themeChanged(
+      theme.actionsIconTheme ?? const IconThemeData(),
+    );
+    emit(state.copyWith(theme: theme));
+  }
 
   void backgroundColorChanged(Color color) {
     final theme = state.theme.copyWith(backgroundColor: color);

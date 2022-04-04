@@ -4,28 +4,26 @@ import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/icon_theme/icon_theme.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';
-
-class TestIconThemeCubit extends AbstractIconThemeCubit {}
+import 'mocks.dart';
 
 void main() {
-  late IconThemeCubit cubit;
+  late TestIconThemeCubit cubit;
   late IconThemeData theme;
   late Color color;
   late double doubleNum;
   late String doubleStr;
 
   setUp(() {
-    cubit = IconThemeCubit();
+    cubit = TestIconThemeCubit();
     color = getRandomColor();
     doubleNum = Random().nextDouble();
     doubleStr = doubleNum.toString();
   });
 
-  blocTest<IconThemeCubit, IconThemeState>(
+  blocTest<TestIconThemeCubit, IconThemeState>(
     'emits theme',
     setUp: () {
       final colorScheme = randomColorSchemeLight(shouldPrint: false);
@@ -36,21 +34,21 @@ void main() {
     expect: () => [IconThemeState(theme: theme)],
   );
 
-  blocTest<IconThemeCubit, IconThemeState>(
+  blocTest<TestIconThemeCubit, IconThemeState>(
     'emits color',
     build: () => cubit,
     act: (cubit) => cubit.colorChanged(color),
     expect: () => [IconThemeState(theme: IconThemeData(color: color))],
   );
 
-  blocTest<IconThemeCubit, IconThemeState>(
+  blocTest<TestIconThemeCubit, IconThemeState>(
     'emits size',
     build: () => cubit,
     act: (cubit) => cubit.sizeChanged(doubleStr),
     expect: () => [IconThemeState(theme: IconThemeData(size: doubleNum))],
   );
 
-  blocTest<IconThemeCubit, IconThemeState>(
+  blocTest<TestIconThemeCubit, IconThemeState>(
     'emits opacity',
     build: () => cubit,
     act: (cubit) => cubit.opacityChanged(doubleStr),

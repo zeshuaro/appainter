@@ -10,18 +10,7 @@ import 'package:mocktail/mocktail.dart';
 
 import '../utils.dart';
 import '../widget_testers.dart';
-
-class TestIconThemeCubit extends AbstractIconThemeCubit {}
-
-class MockIconThemeCubit extends MockCubit<IconThemeState>
-    implements TestIconThemeCubit {}
-
-class TestIconThemeEditor extends AbstractIconThemeEditor<TestIconThemeCubit> {
-  const TestIconThemeEditor({Key? key}) : super(key: key);
-
-  @override
-  String get header => 'Test';
-}
+import 'mocks.dart';
 
 void main() {
   final widgetTesters = WidgetTesters(expandText: 'Test');

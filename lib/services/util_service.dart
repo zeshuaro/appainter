@@ -30,8 +30,8 @@ class UtilService {
     return value == null ? kNone : EnumToString.convertToString(value);
   }
 
-  static T? stringToEnum<T>(List<T> enumValues, String value) {
-    return EnumToString.fromString<T>(enumValues, value);
+  static T? stringToEnum<T>(List<T> enumValues, String? value) {
+    return value != null ? EnumToString.fromString<T>(enumValues, value) : null;
   }
 
   static List<String> getEnumStrings(

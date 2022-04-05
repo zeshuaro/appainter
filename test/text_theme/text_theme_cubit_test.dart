@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../../mocks.dart';
+import '../mocks.dart';
 
 void main() {
   late TextThemeCubit textThemeCubit;

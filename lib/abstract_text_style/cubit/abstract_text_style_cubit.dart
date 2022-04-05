@@ -46,7 +46,7 @@ abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
     }
   }
 
-  void fontWeightChanged(String value) {
+  void fontWeightChanged(String? value) {
     final weight = MyFontWeight().fromString(value);
     if (weight != null) {
       final style = state.style.copyWith(fontWeight: weight);
@@ -54,7 +54,7 @@ abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
     }
   }
 
-  void fontStyleChanged(String value) {
+  void fontStyleChanged(String? value) {
     final fontStyle = UtilService.stringToEnum(FontStyle.values, value);
     if (fontStyle != null) {
       final style = state.style.copyWith(fontStyle: fontStyle);
@@ -78,7 +78,7 @@ abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
     }
   }
 
-  void textBaselineChanged(String value) {
+  void textBaselineChanged(String? value) {
     final baseline = UtilService.stringToEnum(TextBaseline.values, value);
     if (baseline != null) {
       final style = state.style.copyWith(textBaseline: baseline);
@@ -94,7 +94,7 @@ abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
     }
   }
 
-  void leadingDistributionChanged(String value) {
+  void leadingDistributionChanged(String? value) {
     final dist = UtilService.stringToEnum(
       TextLeadingDistribution.values,
       value,
@@ -105,7 +105,7 @@ abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
     }
   }
 
-  void decorationChanged(String value) {
+  void decorationChanged(String? value) {
     final decoration = MyTextDecoration().fromString(value);
     if (decoration != null) {
       final style = state.style.copyWith(decoration: decoration);
@@ -118,7 +118,7 @@ abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
     emit(state.copyWith(style: style));
   }
 
-  void decorationStyleChanged(String value) {
+  void decorationStyleChanged(String? value) {
     if (value == kNone) {
       final style = state.style.copyWithNull(decorationStyle: true);
       emit(state.copyWith(style: style));

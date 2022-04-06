@@ -252,7 +252,7 @@ packages:
       name: dio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.5"
+    version: "4.0.6"
   dropdown_search:
     dependency: "direct main"
     description:
@@ -1061,7 +1061,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.0"
+    version: "2.5.1"
   window_size:
     dependency: "direct main"
     description:

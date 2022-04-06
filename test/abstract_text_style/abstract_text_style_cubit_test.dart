@@ -20,7 +20,7 @@ void main() {
 
   setUp(() {
     cubit = TestTextStyleCubit();
-    style = cubit.baseStyle.merge(cubit.blackStyle);
+    style = cubit.baseStyle!.merge(cubit.blackStyle);
 
     color = getRandomColor();
     doubleNum = Random().nextDouble();

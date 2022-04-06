@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
+import 'package:appainter/abstract_text_style/cubit/abstract_text_style_cubit.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,14 +12,14 @@ import 'package:random_color_scheme/random_color_scheme.dart';
 import '../utils.dart';
 
 void main() {
-  const defaultIconTheme = IconThemeData();
-
   late AppBarThemeCubit themeCubit;
   late AppBarActionsIconThemeCubit actionsIconThemeCubit;
   late AppBarIconThemeCubit iconThemeCubit;
+  late AppBarTitleTextStyleCubit titleTextStyleCubit;
 
   late AppBarTheme theme;
   late IconThemeData iconTheme;
+  late TextStyle textStyle;
 
   late Color color;
   late double doubleNum;
@@ -27,9 +28,11 @@ void main() {
   setUp(() {
     actionsIconThemeCubit = AppBarActionsIconThemeCubit();
     iconThemeCubit = AppBarIconThemeCubit();
+    titleTextStyleCubit = AppBarTitleTextStyleCubit();
     themeCubit = AppBarThemeCubit(
       actionsIconThemeCubit: actionsIconThemeCubit,
       iconThemeCubit: iconThemeCubit,
+      titleTextStyleCubit: titleTextStyleCubit,
     );
 
     color = getRandomColor();
@@ -48,12 +51,19 @@ void main() {
     expect: () => [
       AppBarThemeState(theme: theme),
       AppBarThemeState(
-        theme: theme.copyWith(actionsIconTheme: defaultIconTheme),
+        theme: theme.copyWith(actionsIconTheme: kAppBarIconTheme),
       ),
       AppBarThemeState(
         theme: theme.copyWith(
-          actionsIconTheme: defaultIconTheme,
-          iconTheme: defaultIconTheme,
+          actionsIconTheme: kAppBarIconTheme,
+          iconTheme: kAppBarIconTheme,
+        ),
+      ),
+      AppBarThemeState(
+        theme: theme.copyWith(
+          actionsIconTheme: kAppBarIconTheme,
+          iconTheme: kAppBarIconTheme,
+          titleTextStyle: kAppBarTitleTextStyle,
         ),
       ),
     ],
@@ -139,91 +149,45 @@ void main() {
     }
   });
 
-  group('test actions icon theme', () {
-    blocTest<AppBarActionsIconThemeCubit, IconThemeState>(
-      'emits color',
-      setUp: () => iconTheme = IconThemeData(color: color),
-      build: () => actionsIconThemeCubit,
-      act: (cubit) => cubit.colorChanged(color),
-      expect: () => [IconThemeState(theme: iconTheme)],
-      verify: (cubit) => expect(
-        themeCubit.state,
-        equals(
-          AppBarThemeState(theme: AppBarTheme(actionsIconTheme: iconTheme)),
-        ),
+  blocTest<AppBarActionsIconThemeCubit, IconThemeState>(
+    'emits action icon theme color',
+    setUp: () => iconTheme = IconThemeData(color: color),
+    build: () => actionsIconThemeCubit,
+    act: (cubit) => cubit.colorChanged(color),
+    expect: () => [IconThemeState(theme: iconTheme)],
+    verify: (cubit) => expect(
+      themeCubit.state,
+      equals(
+        AppBarThemeState(theme: AppBarTheme(actionsIconTheme: iconTheme)),
       ),
-    );
+    ),
+  );
 
-    blocTest<AppBarActionsIconThemeCubit, IconThemeState>(
-      'emits size',
-      setUp: () => iconTheme = IconThemeData(size: doubleNum),
-      build: () => actionsIconThemeCubit,
-      act: (cubit) => cubit.sizeChanged(doubleStr),
-      expect: () => [IconThemeState(theme: iconTheme)],
-      verify: (cubit) => expect(
-        themeCubit.state,
-        equals(
-          AppBarThemeState(theme: AppBarTheme(actionsIconTheme: iconTheme)),
-        ),
+  blocTest<AppBarIconThemeCubit, IconThemeState>(
+    'emits icon theme color',
+    setUp: () => iconTheme = IconThemeData(color: color),
+    build: () => iconThemeCubit,
+    act: (cubit) => cubit.colorChanged(color),
+    expect: () => [IconThemeState(theme: iconTheme)],
+    verify: (cubit) => expect(
+      themeCubit.state,
+      equals(
+        AppBarThemeState(theme: AppBarTheme(iconTheme: iconTheme)),
       ),
-    );
+    ),
+  );
 
-    blocTest<AppBarActionsIconThemeCubit, IconThemeState>(
-      'emits opacity',
-      setUp: () => iconTheme = IconThemeData(opacity: doubleNum),
-      build: () => actionsIconThemeCubit,
-      act: (cubit) => cubit.opacityChanged(doubleStr),
-      expect: () => [IconThemeState(theme: iconTheme)],
-      verify: (cubit) => expect(
-        themeCubit.state,
-        equals(
-          AppBarThemeState(theme: AppBarTheme(actionsIconTheme: iconTheme)),
-        ),
+  blocTest<AppBarTitleTextStyleCubit, TextStyleState>(
+    'emits title text style color',
+    setUp: () => textStyle = kAppBarTitleTextStyle.copyWith(color: color),
+    build: () => titleTextStyleCubit,
+    act: (cubit) => cubit.colorChanged(color),
+    expect: () => [TextStyleState(style: textStyle)],
+    verify: (cubit) => expect(
+      themeCubit.state,
+      equals(
+        AppBarThemeState(theme: AppBarTheme(titleTextStyle: textStyle)),
       ),
-    );
-  });
-
-  group('test icon theme', () {
-    blocTest<AppBarIconThemeCubit, IconThemeState>(
-      'emits color',
-      setUp: () => iconTheme = IconThemeData(color: color),
-      build: () => iconThemeCubit,
-      act: (cubit) => cubit.colorChanged(color),
-      expect: () => [IconThemeState(theme: iconTheme)],
-      verify: (cubit) => expect(
-        themeCubit.state,
-        equals(
-          AppBarThemeState(theme: AppBarTheme(iconTheme: iconTheme)),
-        ),
-      ),
-    );
-
-    blocTest<AppBarIconThemeCubit, IconThemeState>(
-      'emits size',
-      setUp: () => iconTheme = IconThemeData(size: doubleNum),
-      build: () => iconThemeCubit,
-      act: (cubit) => cubit.sizeChanged(doubleStr),
-      expect: () => [IconThemeState(theme: iconTheme)],
-      verify: (cubit) => expect(
-        themeCubit.state,
-        equals(
-          AppBarThemeState(theme: AppBarTheme(iconTheme: iconTheme)),
-        ),
-      ),
-    );
-
-    blocTest<AppBarIconThemeCubit, IconThemeState>(
-      'emits opacity',
-      setUp: () => iconTheme = IconThemeData(opacity: doubleNum),
-      build: () => iconThemeCubit,
-      act: (cubit) => cubit.opacityChanged(doubleStr),
-      expect: () => [IconThemeState(theme: iconTheme)],
-      verify: (cubit) => expect(
-        themeCubit.state,
-        equals(
-          AppBarThemeState(theme: AppBarTheme(iconTheme: iconTheme)),
-        ),
-      ),
-    );
-  });
+    ),
+  );
 }

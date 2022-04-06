@@ -10,19 +10,26 @@ part 'abstract_text_style_cubit.g.dart';
 part 'text_style_state.dart';
 
 abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
-  final TextStyle baseStyle;
-  final TextStyle blackStyle;
-  final TextStyle whiteStyle;
+  final TextStyle? baseStyle;
+  final TextStyle? blackStyle;
+  final TextStyle? whiteStyle;
+  final TextStyle? defaultStyle;
 
   AbstractTextStyleCubit({
-    required this.baseStyle,
-    required this.blackStyle,
-    required this.whiteStyle,
-  }) : super(TextStyleState(style: baseStyle.merge(blackStyle)));
+    this.baseStyle,
+    this.blackStyle,
+    this.whiteStyle,
+    this.defaultStyle,
+  })  : assert(
+            (baseStyle != null && blackStyle != null && whiteStyle != null) ||
+                defaultStyle != null),
+        super(
+          TextStyleState(style: defaultStyle ?? baseStyle!.merge(blackStyle!)),
+        );
 
   void styleBrightnessChanged(bool isDark) {
     final style =
-        isDark ? baseStyle.merge(whiteStyle) : baseStyle.merge(blackStyle);
+        defaultStyle ?? baseStyle!.merge(isDark ? whiteStyle! : blackStyle!);
     emit(state.copyWith(style: style));
   }
 

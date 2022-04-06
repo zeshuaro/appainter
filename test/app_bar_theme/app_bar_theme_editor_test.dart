@@ -96,35 +96,42 @@ void main() {
     );
   }
 
-  testWidgets('displays nested editors', (tester) async {});
+  testWidgets('displays nested editors', (tester) async {
+    await _pumpApp(tester, defaultAppBarThemeState);
+    expect(find.byType(ActionsIconThemeCard), findsOneWidget);
+    expect(find.byType(IconThemeCard), findsOneWidget);
+    expect(find.byType(TitleTextStyleCard), findsOneWidget);
+  });
 
-  testWidgets(
-    'updates background color',
-    (tester) async {
-      await _pumpApp(tester, defaultAppBarThemeState);
-      expect(find.byType(ActionsIconThemeCard), findsOneWidget);
-      expect(find.byType(IconThemeCard), findsOneWidget);
-      expect(find.byType(TitleTextStyleCard), findsOneWidget);
-    },
-  );
+  testWidgets('updates background color', (tester) async {
+    final state = AppBarThemeState(
+      theme: AppBarTheme(backgroundColor: color),
+    );
 
-  testWidgets(
-    'updates foreground color',
-    (tester) async {
-      final state = AppBarThemeState(
-        theme: AppBarTheme(foregroundColor: color),
-      );
+    await _pumpApp(tester, state);
 
-      await _pumpApp(tester, state);
+    await widgetTesters.checkColorPicker(
+      tester,
+      'appBarThemeEditor_backgroundColorPicker',
+      color,
+    );
+    verify(() => appBarThemeCubit.backgroundColorChanged(color)).called(1);
+  });
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'appBarThemeEditor_foregroundColorPicker',
-        color,
-      );
-      verify(() => appBarThemeCubit.foregroundColorChanged(color)).called(1);
-    },
-  );
+  testWidgets('updates foreground color', (tester) async {
+    final state = AppBarThemeState(
+      theme: AppBarTheme(foregroundColor: color),
+    );
+
+    await _pumpApp(tester, state);
+
+    await widgetTesters.checkColorPicker(
+      tester,
+      'appBarThemeEditor_foregroundColorPicker',
+      color,
+    );
+    verify(() => appBarThemeCubit.foregroundColorChanged(color)).called(1);
+  });
 
   testWidgets('updates elevation', (tester) async {
     final state = AppBarThemeState(
@@ -141,21 +148,18 @@ void main() {
     verify(() => appBarThemeCubit.elevationChanged(doubleStr)).called(1);
   });
 
-  testWidgets(
-    'updates shadow color',
-    (tester) async {
-      final state = AppBarThemeState(theme: AppBarTheme(shadowColor: color));
+  testWidgets('updates shadow color', (tester) async {
+    final state = AppBarThemeState(theme: AppBarTheme(shadowColor: color));
 
-      await _pumpApp(tester, state);
+    await _pumpApp(tester, state);
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'appBarThemeEditor_shadowColorPicker',
-        color,
-      );
-      verify(() => appBarThemeCubit.shadowColorChanged(color)).called(1);
-    },
-  );
+    await widgetTesters.checkColorPicker(
+      tester,
+      'appBarThemeEditor_shadowColorPicker',
+      color,
+    );
+    verify(() => appBarThemeCubit.shadowColorChanged(color)).called(1);
+  });
 
   group('tests center title switch', () {
     for (var isCenter in [true, false]) {
@@ -209,25 +213,22 @@ void main() {
   group('tests system UI overlay style dropdown', () {
     for (var style in MySystemUiOverlayStyle().values) {
       final styleStr = MySystemUiOverlayStyle().convertToString(style)!;
-      testWidgets(
-        'updates to ${style.statusBarBrightness}',
-        (tester) async {
-          final state = AppBarThemeState(
-            theme: AppBarTheme(systemOverlayStyle: style),
-          );
+      testWidgets('updates to ${style.statusBarBrightness}', (tester) async {
+        final state = AppBarThemeState(
+          theme: AppBarTheme(systemOverlayStyle: style),
+        );
 
-          await _pumpApp(tester, state);
+        await _pumpApp(tester, state);
 
-          await widgetTesters.checkDropbox(
-            tester,
-            'appBarThemeEditor_systemUiOverlayStyleDropdown',
-            styleStr,
-          );
-          verify(
-            () => appBarThemeCubit.systemUiOverlayStyleChanged(styleStr),
-          ).called(1);
-        },
-      );
+        await widgetTesters.checkDropbox(
+          tester,
+          'appBarThemeEditor_systemUiOverlayStyleDropdown',
+          styleStr,
+        );
+        verify(
+          () => appBarThemeCubit.systemUiOverlayStyleChanged(styleStr),
+        ).called(1);
+      });
     }
   });
 }

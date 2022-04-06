@@ -1,4 +1,5 @@
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
+import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,8 +33,9 @@ class AppBarThemeEditor extends ExpansionPanelItem {
         ),
         MyExpansionPanelList(
           items: const [
-            _ActionsIconThemeCard(),
-            _IconThemeCard(),
+            ActionsIconThemeCard(),
+            IconThemeCard(),
+            TitleTextStyleCard(),
           ],
         )
       ],
@@ -227,8 +229,9 @@ class _SystemUiOverlayStyleDropdown extends StatelessWidget {
   }
 }
 
-class _ActionsIconThemeCard extends ExpansionPanelItem {
-  const _ActionsIconThemeCard({Key? key}) : super(key: key);
+@visibleForTesting
+class ActionsIconThemeCard extends ExpansionPanelItem {
+  const ActionsIconThemeCard({Key? key}) : super(key: key);
 
   @override
   String get header => 'Actions icon theme';
@@ -247,8 +250,9 @@ class _ActionsIconThemeCard extends ExpansionPanelItem {
   }
 }
 
-class _IconThemeCard extends ExpansionPanelItem {
-  const _IconThemeCard({Key? key}) : super(key: key);
+@visibleForTesting
+class IconThemeCard extends ExpansionPanelItem {
+  const IconThemeCard({Key? key}) : super(key: key);
 
   @override
   String get header => 'Icon theme';
@@ -265,4 +269,13 @@ class _IconThemeCard extends ExpansionPanelItem {
       fallbackColor: foregroundColor ?? onPrimaryColor,
     );
   }
+}
+
+@visibleForTesting
+class TitleTextStyleCard
+    extends AbstractTextStyleEditor<AppBarTitleTextStyleCubit> {
+  const TitleTextStyleCard({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Title text style';
 }

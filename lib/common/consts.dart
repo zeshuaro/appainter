@@ -58,3 +58,7 @@ const kNone = 'None';
 const kSliderTrackHeight = 4.0;
 
 const kSplashRadius = 20.0;
+
+const kEnglishTextTheme = Typography.englishLike2018;
+const kBlackTextTheme = Typography.blackMountainView;
+const kWhiteTextTheme = Typography.whiteMountainView;

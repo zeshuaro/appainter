@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
+import 'package:appainter/abstract_text_style/abstract_text_style.dart';
+import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -13,13 +15,16 @@ part 'app_bar_theme_state.dart';
 class AppBarThemeCubit extends Cubit<AppBarThemeState> {
   final AppBarActionsIconThemeCubit actionsIconThemeCubit;
   final AppBarIconThemeCubit iconThemeCubit;
+  final AppBarTitleTextStyleCubit titleTextStyleCubit;
 
   late final StreamSubscription actionsIconThemeCubitSubscription;
   late final StreamSubscription iconThemeCubitSubscription;
+  late final StreamSubscription titleTextStyleCubitSubscription;
 
   AppBarThemeCubit({
     required this.actionsIconThemeCubit,
     required this.iconThemeCubit,
+    required this.titleTextStyleCubit,
   }) : super(const AppBarThemeState()) {
     actionsIconThemeCubitSubscription = actionsIconThemeCubit.stream.listen(
       (otherState) {
@@ -33,21 +38,31 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
         emit(state.copyWith(theme: theme));
       },
     );
+    titleTextStyleCubitSubscription = titleTextStyleCubit.stream.listen(
+      (otherState) {
+        final theme = state.theme.copyWith(titleTextStyle: otherState.style);
+        emit(state.copyWith(theme: theme));
+      },
+    );
   }
 
   @override
   Future<void> close() {
     actionsIconThemeCubitSubscription.cancel();
     iconThemeCubitSubscription.cancel();
+    titleTextStyleCubitSubscription.cancel();
     return super.close();
   }
 
   void themeChanged(AppBarTheme theme) {
     actionsIconThemeCubit.themeChanged(
-      theme.actionsIconTheme ?? const IconThemeData(),
+      theme.actionsIconTheme ?? kAppBarIconTheme,
     );
     iconThemeCubit.themeChanged(
-      theme.actionsIconTheme ?? const IconThemeData(),
+      theme.actionsIconTheme ?? kAppBarIconTheme,
+    );
+    titleTextStyleCubit.styleChanged(
+      theme.titleTextStyle ?? kAppBarTitleTextStyle,
     );
     emit(state.copyWith(theme: theme));
   }
@@ -108,3 +123,7 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
 class AppBarActionsIconThemeCubit extends AbstractIconThemeCubit {}
 
 class AppBarIconThemeCubit extends AbstractIconThemeCubit {}
+
+class AppBarTitleTextStyleCubit extends AbstractTextStyleCubit {
+  AppBarTitleTextStyleCubit() : super(defaultStyle: kAppBarTitleTextStyle);
+}

@@ -19,12 +19,16 @@ void main() {
   const defaultAppBarThemeState = AppBarThemeState();
   const defaultIconThemeState = IconThemeState();
   final defaultTextStyleState = TextStyleState(style: kAppBarTitleTextStyle);
+  final defaultToolbarStyleState = TextStyleState(
+    style: kAppBarToolbarTextStyle,
+  );
   final widgetTesters = WidgetTesters();
 
   late AppBarThemeCubit appBarThemeCubit;
   late AppBarActionsIconThemeCubit appBarActionsIconThemeCubit;
   late AppBarIconThemeCubit appBarIconThemeCubit;
   late AppBarTitleTextStyleCubit appBarTitleTextStyleCubit;
+  late AppBarToolbarTextStyleCubit appBarToolbarTextStyleCubit;
   late ColorThemeCubit colorThemeCubit;
 
   late Color color;
@@ -36,6 +40,7 @@ void main() {
     appBarActionsIconThemeCubit = MockAppBarActionsIconThemeCubit();
     appBarIconThemeCubit = MockAppBarIconThemeCubit();
     appBarTitleTextStyleCubit = MockAppBarTitleTextStyleCubit();
+    appBarToolbarTextStyleCubit = MockAppBarToolbarTextStyleCubit();
     colorThemeCubit = MockColorThemeCubit();
 
     color = getRandomColor();
@@ -51,6 +56,7 @@ void main() {
     IconThemeState actionsIconThemeState = defaultIconThemeState,
     IconThemeState iconThemeState = defaultIconThemeState,
     TextStyleState? titleTextStyleState,
+    TextStyleState? toolbarTextStyleState,
   }) async {
     whenListen(
       appBarThemeCubit,
@@ -70,12 +76,18 @@ void main() {
       initialState: defaultIconThemeState,
     );
 
-    final titleTextStyleStateFinal =
-        titleTextStyleState ?? defaultTextStyleState;
+    final titleState = titleTextStyleState ?? defaultTextStyleState;
     whenListen(
       appBarTitleTextStyleCubit,
-      Stream.fromIterable([titleTextStyleStateFinal]),
+      Stream.fromIterable([titleState]),
       initialState: defaultTextStyleState,
+    );
+
+    final toolbarState = toolbarTextStyleState ?? defaultToolbarStyleState;
+    whenListen(
+      appBarToolbarTextStyleCubit,
+      Stream.fromIterable([toolbarState]),
+      initialState: defaultToolbarStyleState,
     );
 
     await tester.pumpWidget(
@@ -85,6 +97,7 @@ void main() {
           BlocProvider.value(value: appBarActionsIconThemeCubit),
           BlocProvider.value(value: appBarIconThemeCubit),
           BlocProvider.value(value: appBarTitleTextStyleCubit),
+          BlocProvider.value(value: appBarToolbarTextStyleCubit),
           BlocProvider.value(value: colorThemeCubit),
         ],
         child: const MaterialApp(
@@ -101,6 +114,7 @@ void main() {
     expect(find.byType(ActionsIconThemeCard), findsOneWidget);
     expect(find.byType(IconThemeCard), findsOneWidget);
     expect(find.byType(TitleTextStyleCard), findsOneWidget);
+    expect(find.byType(ToolbarTextStyleCard), findsOneWidget);
   });
 
   testWidgets('updates background color', (tester) async {

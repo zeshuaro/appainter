@@ -33,9 +33,10 @@ class AppBarThemeEditor extends ExpansionPanelItem {
         ),
         MyExpansionPanelList(
           items: const [
-            ActionsIconThemeCard(),
             IconThemeCard(),
+            ActionsIconThemeCard(),
             TitleTextStyleCard(),
+            ToolbarTextStyleCard(),
           ],
         )
       ],
@@ -278,4 +279,13 @@ class TitleTextStyleCard
 
   @override
   String get header => 'Title text style';
+}
+
+@visibleForTesting
+class ToolbarTextStyleCard
+    extends AbstractTextStyleEditor<AppBarToolbarTextStyleCubit> {
+  const ToolbarTextStyleCard({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Toolbar text style';
 }

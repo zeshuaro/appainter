@@ -164,10 +164,15 @@ class ThemePreview extends StatelessWidget {
                   appBar: AppBar(
                     title: const Text('Theme Preview'),
                     actions: [
-                      IconButton(
-                        icon: const Icon(Icons.notifications),
-                        onPressed: () {},
-                      )
+                      Row(
+                        children: [
+                          const Text('1'),
+                          IconButton(
+                            icon: const Icon(Icons.notifications),
+                            onPressed: () {},
+                          ),
+                        ],
+                      ),
                     ],
                     bottom: TabBar(
                       tabs: _pages.map((page) {

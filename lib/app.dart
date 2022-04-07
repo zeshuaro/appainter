@@ -36,10 +36,12 @@ class MyApp extends StatelessWidget {
     final appBarActionsIconThemeCubit = AppBarActionsIconThemeCubit();
     final appBarIconThemeCubit = AppBarIconThemeCubit();
     final appBarTitleTextStyleCubit = AppBarTitleTextStyleCubit();
+    final appBarToolbarTextStyleCubit = AppBarToolbarTextStyleCubit();
     final appBarThemeCubit = AppBarThemeCubit(
       actionsIconThemeCubit: appBarActionsIconThemeCubit,
       iconThemeCubit: appBarIconThemeCubit,
       titleTextStyleCubit: appBarTitleTextStyleCubit,
+      toolbarTextStyleCubit: appBarToolbarTextStyleCubit,
     );
 
     final tabBarThemeCubit = TabBarThemeCubit();
@@ -132,6 +134,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (_) => appBarActionsIconThemeCubit),
           BlocProvider(create: (_) => appBarIconThemeCubit),
           BlocProvider(create: (_) => appBarTitleTextStyleCubit),
+          BlocProvider(create: (_) => appBarToolbarTextStyleCubit),
           BlocProvider(create: (_) => tabBarThemeCubit),
           BlocProvider(create: (_) => bottomNavigationBarThemeCubit),
           BlocProvider(create: (_) => floatingActionButtonThemeCubit),

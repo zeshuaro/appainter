@@ -16,15 +16,18 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
   final AppBarActionsIconThemeCubit actionsIconThemeCubit;
   final AppBarIconThemeCubit iconThemeCubit;
   final AppBarTitleTextStyleCubit titleTextStyleCubit;
+  final AppBarToolbarTextStyleCubit toolbarTextStyleCubit;
 
   late final StreamSubscription actionsIconThemeCubitSubscription;
   late final StreamSubscription iconThemeCubitSubscription;
   late final StreamSubscription titleTextStyleCubitSubscription;
+  late final StreamSubscription toolbarTextStyleCubitSubscription;
 
   AppBarThemeCubit({
     required this.actionsIconThemeCubit,
     required this.iconThemeCubit,
     required this.titleTextStyleCubit,
+    required this.toolbarTextStyleCubit,
   }) : super(const AppBarThemeState()) {
     actionsIconThemeCubitSubscription = actionsIconThemeCubit.stream.listen(
       (otherState) {
@@ -44,6 +47,12 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
         emit(state.copyWith(theme: theme));
       },
     );
+    toolbarTextStyleCubitSubscription = toolbarTextStyleCubit.stream.listen(
+      (otherState) {
+        final theme = state.theme.copyWith(toolbarTextStyle: otherState.style);
+        emit(state.copyWith(theme: theme));
+      },
+    );
   }
 
   @override
@@ -51,6 +60,7 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
     actionsIconThemeCubitSubscription.cancel();
     iconThemeCubitSubscription.cancel();
     titleTextStyleCubitSubscription.cancel();
+    toolbarTextStyleCubitSubscription.cancel();
     return super.close();
   }
 
@@ -63,6 +73,9 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
     );
     titleTextStyleCubit.styleChanged(
       theme.titleTextStyle ?? kAppBarTitleTextStyle,
+    );
+    toolbarTextStyleCubit.styleChanged(
+      theme.toolbarTextStyle ?? kAppBarToolbarTextStyle,
     );
     emit(state.copyWith(theme: theme));
   }
@@ -126,4 +139,8 @@ class AppBarIconThemeCubit extends AbstractIconThemeCubit {}
 
 class AppBarTitleTextStyleCubit extends AbstractTextStyleCubit {
   AppBarTitleTextStyleCubit() : super(defaultStyle: kAppBarTitleTextStyle);
+}
+
+class AppBarToolbarTextStyleCubit extends AbstractTextStyleCubit {
+  AppBarToolbarTextStyleCubit() : super(defaultStyle: kAppBarToolbarTextStyle);
 }

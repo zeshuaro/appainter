@@ -16,6 +16,7 @@ void main() {
   late AppBarActionsIconThemeCubit actionsIconThemeCubit;
   late AppBarIconThemeCubit iconThemeCubit;
   late AppBarTitleTextStyleCubit titleTextStyleCubit;
+  late AppBarToolbarTextStyleCubit toolbarTextStyleCubit;
 
   late AppBarTheme theme;
   late IconThemeData iconTheme;
@@ -29,10 +30,12 @@ void main() {
     actionsIconThemeCubit = AppBarActionsIconThemeCubit();
     iconThemeCubit = AppBarIconThemeCubit();
     titleTextStyleCubit = AppBarTitleTextStyleCubit();
+    toolbarTextStyleCubit = AppBarToolbarTextStyleCubit();
     themeCubit = AppBarThemeCubit(
       actionsIconThemeCubit: actionsIconThemeCubit,
       iconThemeCubit: iconThemeCubit,
       titleTextStyleCubit: titleTextStyleCubit,
+      toolbarTextStyleCubit: toolbarTextStyleCubit,
     );
 
     color = getRandomColor();
@@ -64,6 +67,14 @@ void main() {
           actionsIconTheme: kAppBarIconTheme,
           iconTheme: kAppBarIconTheme,
           titleTextStyle: kAppBarTitleTextStyle,
+        ),
+      ),
+      AppBarThemeState(
+        theme: theme.copyWith(
+          actionsIconTheme: kAppBarIconTheme,
+          iconTheme: kAppBarIconTheme,
+          titleTextStyle: kAppBarTitleTextStyle,
+          toolbarTextStyle: kAppBarToolbarTextStyle,
         ),
       ),
     ],
@@ -187,6 +198,20 @@ void main() {
       themeCubit.state,
       equals(
         AppBarThemeState(theme: AppBarTheme(titleTextStyle: textStyle)),
+      ),
+    ),
+  );
+
+  blocTest<AppBarToolbarTextStyleCubit, TextStyleState>(
+    'emits toolbar text style color',
+    setUp: () => textStyle = kAppBarToolbarTextStyle.copyWith(color: color),
+    build: () => toolbarTextStyleCubit,
+    act: (cubit) => cubit.colorChanged(color),
+    expect: () => [TextStyleState(style: textStyle)],
+    verify: (cubit) => expect(
+      themeCubit.state,
+      equals(
+        AppBarThemeState(theme: AppBarTheme(toolbarTextStyle: textStyle)),
       ),
     ),
   );

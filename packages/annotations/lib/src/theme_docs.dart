@@ -1,0 +1,3 @@
+class ThemeDocs {
+  const ThemeDocs();
+}

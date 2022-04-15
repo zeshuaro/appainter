@@ -19,19 +19,16 @@ jobs:
         include:
           - type: macos
             os: macos-latest
-            flutter-path: /Users/runner/hostedtoolcache/flutter
             build-path: build/macos/Build/Products/Release
             build-output: appainter.app
 
           - type: windows
             os: windows-latest
-            flutter-path: C:\hostedtoolcache\windows\flutter
             build-path: build\windows\runner
             build-output: Release
 
           - type: linux
             os: ubuntu-latest
-            flutter-path: /opt/hostedtoolcache/flutter
             build-path: build/linux/x64/release
             build-output: bundle
 
@@ -48,6 +45,14 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
           cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+
+      - name: Cache Pub 💾
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.PUB_CACHE }}
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
 
       - name: Patch for Linux build 🩹
         if: ${{ matrix.type == 'linux' }}
@@ -96,6 +101,14 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
           cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+
+      - name: Cache Pub 💾
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.PUB_CACHE }}
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
 
       - name: Get previous tag 🏷️
         id: previous-tag

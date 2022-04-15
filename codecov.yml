@@ -1,0 +1,9 @@
+flags:
+  appainter:
+    paths:
+      - lib/
+    carryforward: true
+  appainter_builder:
+    paths:
+      - packages/builder/
+    carryforward: true

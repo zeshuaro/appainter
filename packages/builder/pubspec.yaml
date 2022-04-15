@@ -13,6 +13,7 @@ dependencies:
   html: ^0.15.0
   http: ^0.13.4
   source_gen: ^1.2.1
+  textwrap: ^1.1.0
 
 dev_dependencies:
   build_runner: ^2.1.8

@@ -44,6 +44,7 @@ jobs:
         uses: codecov/codecov-action@v3.0.0
         with:
           files: ./coverage/lcov.info
+          flags: appainter
 
   lint:
     name: Lint

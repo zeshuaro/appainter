@@ -6,6 +6,7 @@ import 'list_tile.dart';
 
 class ColorListTile extends StatelessWidget {
   final String title;
+  final String? tooltip;
   final Color color;
   final void Function(Color) onColorChanged;
   final bool enableOpacity;
@@ -16,12 +17,14 @@ class ColorListTile extends StatelessWidget {
     required this.color,
     required this.onColorChanged,
     this.enableOpacity = true,
+    this.tooltip,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MyListTile(
       title: title,
+      tooltip: tooltip,
       subtitle: "#${color.hex}",
       trailing: ColorIndicator(
         width: 44,

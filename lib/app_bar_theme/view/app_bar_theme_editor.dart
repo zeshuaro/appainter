@@ -57,6 +57,7 @@ class _BackgroundColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('appBarThemeEditor_backgroundColorPicker'),
       title: 'Background color',
+      tooltip: AppBarThemeDocs.backgroundColor,
       color: backgroundColor ?? primaryColor,
       onColorChanged: (color) {
         context.read<AppBarThemeCubit>().backgroundColorChanged(color);
@@ -78,6 +79,7 @@ class _ForegroundColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('appBarThemeEditor_foregroundColorPicker'),
       title: 'Foreground color',
+      tooltip: AppBarThemeDocs.foregroundColor,
       color: foregroundColor ?? onPrimaryColor,
       onColorChanged: (color) {
         context.read<AppBarThemeCubit>().foregroundColorChanged(color);
@@ -99,8 +101,8 @@ class _ElevationTextField extends StatelessWidget {
         return MyTextFormField(
           key: const Key('appBarThemeEditor_elevationTextField'),
           labelText: 'Elevation',
-          initialValue:
-              state.theme.elevation?.toString() ?? kAppBarElevation.toString(),
+          tooltip: AppBarThemeDocs.elevation,
+          initialValue: (state.theme.elevation ?? kAppBarElevation).toString(),
           onChanged: (value) {
             context.read<AppBarThemeCubit>().elevationChanged(value);
           },
@@ -122,6 +124,7 @@ class _ShadowColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('appBarThemeEditor_shadowColorPicker'),
       title: 'Shadow color',
+      tooltip: AppBarThemeDocs.shadowColor,
       color: shadowColor ?? themeShadowColor,
       onColorChanged: (color) {
         context.read<AppBarThemeCubit>().shadowColorChanged(color);
@@ -166,6 +169,7 @@ class _TitleSpacingTextField extends StatelessWidget {
         return MyTextFormField(
           key: const Key('appBarThemeEditor_titleSpacingTextField'),
           labelText: 'Title spacing',
+          tooltip: AppBarThemeDocs.titleSpacing,
           initialValue: state.theme.titleSpacing?.toString() ??
               kAppBarTitleSpacing.toString(),
           onChanged: (value) {
@@ -190,6 +194,7 @@ class _ToolBarHeightTextField extends StatelessWidget {
         return MyTextFormField(
           key: const Key('appBarThemeEditor_toolBarHeightTextField'),
           labelText: 'Tool bar height',
+          tooltip: AppBarThemeDocs.toolbarHeight,
           initialValue: state.theme.toolbarHeight?.toString() ??
               kToolbarHeight.toString(),
           onChanged: (value) {

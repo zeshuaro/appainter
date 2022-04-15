@@ -5,6 +5,8 @@ on:
     types:
       - opened
       - edited
+      - labeled
+      - unlabeled
       - synchronize
 
 jobs:
@@ -16,5 +18,6 @@ jobs:
         uses: amannn/action-semantic-pull-request@v4.3.0
         with:
           validateSingleCommit: true
+          ignoreLabels: revert
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

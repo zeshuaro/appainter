@@ -1,59 +1,111 @@
 const mockPropertiesHtml = r'''
 <dl class="properties">
-  <dt id="accentColor" class="property">
-    <span class="name"><a class="deprecated" href="material/ThemeData/accentColor.html">accentColor</a></span>
-    <span class="signature">→ <a href="dart-ui/Color-class.html">Color</a></span>
+  <dt id="actionsIconTheme" class="property">
+    <span class="name"><a href="material/AppBarTheme/actionsIconTheme.html">actionsIconTheme</a></span>
+    <span class="signature">&#8594;
+      <a href="widgets/IconThemeData-class.html">IconThemeData</a>?</span>
   </dt>
   <dd>
-    Obsolete property that was originally used as the foreground color for
-    widgets (knobs, text, overscroll edge effect, etc).
-    <a href="material/ThemeData/accentColor.html">[...]</a>
+    Overrides the default value of
+    <a href="material/AppBar/actionsIconTheme.html">AppBar.actionsIconTheme</a>
+    in all descendant widgets.
+    <a href="material/AppBarTheme/actionsIconTheme.html">[...]</a>
+    <div class="features">final</div>
+  </dd>
+
+  <dt id="backgroundColor" class="property">
+    <span class="name"><a href="material/AppBarTheme/backgroundColor.html">backgroundColor</a></span>
+    <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
+  </dt>
+  <dd>
+    Overrides the default value of
+    <a href="material/AppBar/backgroundColor.html">AppBar.backgroundColor</a>
+    in all descendant
+    <a href="material/AppBar-class.html">AppBar</a> widgets.
+    <a href="material/AppBarTheme/backgroundColor.html">[...]</a>
+    <div class="features">final</div>
+  </dd>
+
+  <dt id="backwardsCompatibility" class="property">
+    <span class="name"><a class="deprecated"
+        href="material/AppBarTheme/backwardsCompatibility.html">backwardsCompatibility</a></span>
+    <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </dt>
+  <dd>
+    Overrides the default value of
+    <a class="deprecated" href="material/AppBar/backwardsCompatibility.html">AppBar.backwardsCompatibility</a>
+    property in all descendant
+    <a href="material/AppBar-class.html">AppBar</a> widgets.
     <div class="features">
-      @<a href="dart-core/Deprecated-class.html">Deprecated</a>('Use
-      colorScheme.secondary instead. ' 'For more information, consult the
-      migration guide at '
-      'https://flutter.dev/docs/release/breaking-changes/theme-data-accent-properties#migration-guide.
-      ' 'This feature was deprecated after v2.3.0-0.1.pre.'), final
+      @<a href="dart-core/Deprecated-class.html">Deprecated</a>(&#39;This property is obsolete and is false by
+      default. &#39;
+      &#39;This feature was deprecated after v2.4.0-0.0.pre.&#39;),
+      final
     </div>
   </dd>
 
-  <dt id="appBarTheme" class="property">
-    <span class="name"><a href="material/ThemeData/appBarTheme.html">appBarTheme</a></span>
-    <span class="signature">→ <a href="material/AppBarTheme-class.html">AppBarTheme</a></span>
+  <dt id="brightness" class="property">
+    <span class="name"><a class="deprecated" href="material/AppBarTheme/brightness.html">brightness</a></span>
+    <span class="signature">&#8594; <a href="dart-ui/Brightness.html">Brightness</a>?</span>
   </dt>
   <dd>
-    A theme for customizing the color, elevation, brightness, iconTheme and
-    textTheme of <a href="material/AppBar-class.html">AppBar</a>s.
+    This property is deprecated, please use
+    <a href="material/AppBarTheme/systemOverlayStyle.html">systemOverlayStyle</a>
+    instead. <a href="material/AppBarTheme/brightness.html">[...]</a>
+    <div class="features">
+      @<a href="dart-core/Deprecated-class.html">Deprecated</a>(&#39;This property is no longer used, please use
+      systemOverlayStyle instead. &#39; &#39;This feature was
+      deprecated after v2.4.0-0.0.pre.&#39;), final
+    </div>
+  </dd>
+
+  <dt id="centerTitle" class="property">
+    <span class="name"><a href="material/AppBarTheme/centerTitle.html">centerTitle</a></span>
+    <span class="signature">&#8594; <a href="dart-core/bool-class.html">bool</a>?</span>
+  </dt>
+  <dd>
+    Overrides the default value for
+    <a href="material/AppBar/centerTitle.html">AppBar.centerTitle</a>.
+    property in all descendant widgets.
     <div class="features">final</div>
   </dd>
 
-  <dt id="primaryColor" class="property">
-    <span class="name"><a href="material/ThemeData/primaryColor.html">primaryColor</a></span>
-    <span class="signature">→ <a href="dart-ui/Color-class.html">Color</a></span>
+  <dt id="color" class="property">
+    <span class="name"><a class="deprecated" href="material/AppBarTheme/color.html">color</a></span>
+    <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
   </dt>
   <dd>
-    The background color for major parts of the app (toolbars, tab bars, etc)
-    <a href="material/ThemeData/primaryColor.html">[...]</a>
+    This property is deprecated, please use
+    <a href="material/AppBarTheme/backgroundColor.html">backgroundColor</a>
+    instead. <a href="material/AppBarTheme/color.html">[...]</a>
+    <div class="features">
+      @<a href="dart-core/Deprecated-class.html">Deprecated</a>(&#39;This property is no longer used, please use
+      backgroundColor instead. &#39; &#39;This feature was deprecated
+      after v2.4.0-0.0.pre.&#39;), read-only
+    </div>
+  </dd>
+
+  <dt id="elevation" class="property">
+    <span class="name"><a href="material/AppBarTheme/elevation.html">elevation</a></span>
+    <span class="signature">&#8594; <a href="dart-core/double-class.html">double</a>?</span>
+  </dt>
+  <dd>
+    Overrides the default value of
+    <a href="material/AppBar/elevation.html">AppBar.elevation</a> in
+    all descendant
+    <a href="material/AppBar-class.html">AppBar</a> widgets.
     <div class="features">final</div>
   </dd>
 
-  <dt id="primaryColorDark" class="property">
-    <span class="name"><a href="material/ThemeData/primaryColorDark.html">primaryColorDark</a></span>
-    <span class="signature">→ <a href="dart-ui/Color-class.html">Color</a></span>
+  <dt id="foregroundColor" class="property">
+    <span class="name"><a href="material/AppBarTheme/foregroundColor.html">foregroundColor</a></span>
+    <span class="signature">&#8594; <a href="dart-ui/Color-class.html">Color</a>?</span>
   </dt>
   <dd>
-    A darker version of the
-    <a href="material/ThemeData/primaryColor.html">primaryColor</a>.
-    <div class="features">final</div>
-  </dd>
-
-  <dt id="primaryColorLight" class="property">
-    <span class="name"><a href="material/ThemeData/primaryColorLight.html">primaryColorLight</a></span>
-    <span class="signature">→ <a href="dart-ui/Color-class.html">Color</a></span>
-  </dt>
-  <dd>
-    A lighter version of the
-    <a href="material/ThemeData/primaryColor.html">primaryColor</a>.
+    Overrides the default value of
+    <a href="material/AppBar/foregroundColor.html">AppBar.foregroundColor</a>
+    in all descendant widgets.
+    <a href="material/AppBarTheme/foregroundColor.html">[...]</a>
     <div class="features">final</div>
   </dd>
 </dl>
@@ -100,9 +152,11 @@ part of builder_test;
 // **************************************************************************
 
 class TestDocs {
-  static const primaryColor =
-      'The background color for major parts of the app (toolbars, tab bars, etc)';
-  static const primaryColorDark = 'A darker version of the primaryColor.';
-  static const primaryColorLight = 'A lighter version of the primaryColor.';
+  static const backgroundColor =
+      "Overrides the default value of AppBar.backgroundColor in all descendant AppBar widgets.";
+  static const elevation =
+      "Overrides the default value of AppBar.elevation in all descendant AppBar widgets.";
+  static const foregroundColor =
+      "Overrides the default value of AppBar.foregroundColor in all descendant widgets.";
 }
 ''';

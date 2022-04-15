@@ -1,8 +1,10 @@
+import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class MyListTile extends StatelessWidget {
   final String title;
   final Color? titleColor;
+  final String? tooltip;
   final String? subtitle;
   final Widget? trailing;
 
@@ -10,6 +12,7 @@ class MyListTile extends StatelessWidget {
     Key? key,
     required this.title,
     this.titleColor,
+    this.tooltip,
     this.subtitle,
     this.trailing,
   }) : super(key: key);
@@ -24,15 +27,14 @@ class MyListTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                title,
-                style: TextStyle(
-                  color: titleColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+              _Title(
+                title: title,
+                titleColor: titleColor,
+                tooltip: tooltip,
               ),
-              const SizedBox(height: 4),
+              const VerticalPadding(
+                size: PaddingSize.small,
+              ),
               if (subtitle != null)
                 Text(
                   subtitle!,
@@ -46,6 +48,30 @@ class MyListTile extends StatelessWidget {
         ),
         if (trailing != null) trailing!
       ],
+    );
+  }
+}
+
+class _Title extends StatelessWidget {
+  final String title;
+  final Color? titleColor;
+  final String? tooltip;
+
+  const _Title({Key? key, required this.title, this.titleColor, this.tooltip})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MyTooltip(
+      tooltip: tooltip,
+      child: Text(
+        title,
+        style: TextStyle(
+          color: titleColor,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
     );
   }
 }

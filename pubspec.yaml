@@ -7,6 +7,8 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  appainter_annotations:
+    path: packages/annotations
   bloc: ^8.0.0
   collection: ^1.15.0
   copy_with_extension: ^4.0.0
@@ -43,6 +45,8 @@ dependencies:
       ref: 89c350f787e1d7bff12b3517e5671146211ee70e
 
 dev_dependencies:
+  appainter_builder:
+    path: packages/builder
   bloc_test: ^9.0.0
   build_runner: ^2.0.0
   cider: ^0.1.0

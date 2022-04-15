@@ -1,0 +1,59 @@
+name: Appainter Builder
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+defaults:
+  run:
+    working-directory: packages/builder
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup Dart 💻
+        uses: dart-lang/setup-dart@v1.3
+
+      - name: Cache Pub 💾
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.PUB_CACHE }}
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      - name: Run tests 🧪
+        run: |
+          dart pub get
+          dart test --coverage=./coverage
+          dart run coverage:format_coverage --packages=.packages --report-on=lib --lcov -o ./coverage/lcov.info -i ./coverage/
+
+      - name: Upload coverage report 📡
+        uses: codecov/codecov-action@v3.0.0
+        with:
+          files: packages/builder/coverage/lcov.info
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup Dart 💻
+        uses: dart-lang/setup-dart@v1.3
+
+      - name: Run linting 🧪
+        run: |
+          dart pub get
+          dart format --output=none --set-exit-if-changed .
+          dart analyze

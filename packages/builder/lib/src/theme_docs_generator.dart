@@ -6,6 +6,7 @@ import 'package:collection/collection.dart';
 import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' show parse;
 import 'package:source_gen/source_gen.dart';
+import 'package:textwrap/textwrap.dart';
 
 class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
   final HttpClient client;
@@ -42,7 +43,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
 
     final buffer = StringBuffer('class ${className}Docs {');
     for (var prop in props.entries) {
-      buffer.writeln('static const ${prop.key} = "${prop.value}";');
+      buffer.writeln('static const ${prop.key} = """${prop.value}""";');
     }
     buffer.writeln('}');
 
@@ -87,11 +88,12 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
         propDesc = propDescElem.text;
       }
 
-      propsMap[propName] = propDesc
+      final propDescText = propDesc
           .replaceFirst('[...]', '')
           .trim()
           .replaceAll(RegExp(r'^\s+', multiLine: true), '')
           .replaceAll('\n', ' ');
+      propsMap[propName] = fill(propDescText);
     }
 
     return propsMap;

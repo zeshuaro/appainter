@@ -142,7 +142,7 @@ class ThemeDocs {
 }
 ''';
 
-const expectedOutput = r'''
+const expectedOutput = '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of builder_test;
@@ -153,10 +153,13 @@ part of builder_test;
 
 class TestDocs {
   static const backgroundColor =
-      "Overrides the default value of AppBar.backgroundColor in all descendant AppBar widgets.";
+      """Overrides the default value of AppBar.backgroundColor in all
+descendant AppBar widgets.""";
   static const elevation =
-      "Overrides the default value of AppBar.elevation in all descendant AppBar widgets.";
+      """Overrides the default value of AppBar.elevation in all descendant
+AppBar widgets.""";
   static const foregroundColor =
-      "Overrides the default value of AppBar.foregroundColor in all descendant widgets.";
+      """Overrides the default value of AppBar.foregroundColor in all
+descendant widgets.""";
 }
 ''';

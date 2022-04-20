@@ -151,7 +151,7 @@ packages:
       name: json_schema2
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1+2"
+    version: "2.0.2"
   json_theme:
     dependency: "direct main"
     description:
@@ -228,7 +228,7 @@ packages:
       name: rest_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.1"
+    version: "2.1.2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -325,5 +325,19 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
+  yaml:
+    dependency: transitive
+    description:
+      name: yaml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.1.0"
+  yaon:
+    dependency: transitive
+    description:
+      name: yaon
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0+1"
 sdks:
-  dart: ">=2.15.0 <3.0.0"
+  dart: ">=2.16.0 <3.0.0"

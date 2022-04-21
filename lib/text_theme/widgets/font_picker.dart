@@ -16,8 +16,8 @@ class FontPicker extends StatelessWidget {
       selectedItem: FontData.defaultFontData(),
       dropdownSearchDecoration: const InputDecoration(labelText: 'Font family'),
       itemAsString: (item) => item?.family ?? kDefaultFontFamily,
-      searchFieldProps: TextFieldProps(
-        decoration: const InputDecoration(
+      searchFieldProps: const TextFieldProps(
+        decoration: InputDecoration(
           labelText: 'Search for fonts',
           helperText: 'Fonts are sourced from Google Fonts, '
               'only the top $kMaxFontSearchResults fonts are shown',

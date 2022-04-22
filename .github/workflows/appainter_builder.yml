@@ -37,7 +37,7 @@ jobs:
           dart run coverage:format_coverage --packages=.packages --report-on=lib --lcov -o ./coverage/lcov.info -i ./coverage/
 
       - name: Upload coverage report 📡
-        uses: codecov/codecov-action@v3.0.0
+        uses: codecov/codecov-action@v3.1.0
         with:
           files: packages/builder/coverage/lcov.info
           flags: appainter_builder

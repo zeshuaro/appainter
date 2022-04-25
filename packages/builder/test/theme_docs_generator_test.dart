@@ -46,7 +46,7 @@ void main() {
 
     // Should make 1 GET call to fetch the main theme docs page, then 3 more
     // GET calls to fetch the descriptions of the 3 properties
-    verify(() => client.get(any())).called(4);
+    verify(() => client.get(any())).called(5);
   });
 
   test('calls to theme data docs for color theme', () async {

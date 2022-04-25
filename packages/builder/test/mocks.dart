@@ -138,7 +138,11 @@ export 'src/theme_docs.dart';
 
 const mockThemeDocs = r'''
 class ThemeDocs {
-  const ThemeDocs();
+  final Set<String> propertyTypes;
+
+  const ThemeDocs({this.propertyTypes = defaultPropertyTyles});
+
+  static const defaultPropertyTyles = {'color', 'double', 'bool'};
 }
 ''';
 
@@ -155,6 +159,9 @@ class TestDocs {
   static const backgroundColor =
       """Overrides the default value of AppBar.backgroundColor in all
 descendant AppBar widgets.""";
+  static const centerTitle =
+      """Overrides the default value for AppBar.centerTitle. property in all
+descendant widgets.""";
   static const elevation =
       """Overrides the default value of AppBar.elevation in all descendant
 AppBar widgets.""";

@@ -14,7 +14,6 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
   const ThemeDocsGenerator({this.client = const HttpClient()}) : super();
 
   static const _baseUrl = 'https://api.flutter.dev/flutter';
-  static const _allowedPropertyTypes = {'color', 'double'};
 
   @override
   Future<String> generateForAnnotatedElement(
@@ -30,16 +29,20 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
       );
     }
 
-    final className = element.name.replaceFirst(RegExp(r'Cubit$'), '');
-    late final Map<String, String> props;
+    final config = _Config.fromAnnotation(annotation);
+    var className = element.name.replaceFirst(RegExp(r'Cubit$'), '');
+    var getSourceDescription = true;
+
     if (className == 'ColorTheme') {
-      props = await _getThemeProperties(
-        'ThemeData',
-        getSourceDescription: false,
-      );
-    } else {
-      props = await _getThemeProperties(className);
+      className = 'ThemeData';
+      getSourceDescription = false;
     }
+
+    final props = await _getThemeProperties(
+      className: className,
+      allowedPropertyTypes: config.propertyTypes,
+      getSourceDescription: getSourceDescription,
+    );
 
     final buffer = StringBuffer('class ${className}Docs {');
     for (var prop in props.entries) {
@@ -50,9 +53,9 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
     return buffer.toString();
   }
 
-  Future<Map<String, String>> _getThemeProperties(
-    String className, {
-    Set<String> allowedPropertyTypes = _allowedPropertyTypes,
+  Future<Map<String, String>> _getThemeProperties({
+    required String className,
+    required Set<String> allowedPropertyTypes,
     bool getSourceDescription = true,
   }) async {
     final res = await client.get('$_baseUrl/material/$className-class.html');
@@ -119,5 +122,21 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
     } on StateError {
       return null;
     }
+  }
+}
+
+class _Config {
+  final Set<String> propertyTypes;
+
+  const _Config({required this.propertyTypes});
+
+  factory _Config.fromAnnotation(ConstantReader annotation) {
+    return _Config(
+      propertyTypes: annotation
+          .read('propertyTypes')
+          .setValue
+          .map((e) => ConstantReader(e).stringValue)
+          .toSet(),
+    );
   }
 }

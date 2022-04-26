@@ -43,6 +43,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
     }
 
     final className = element.name.replaceFirst(RegExp(r'Cubit$'), '');
+    final apiClassName = config.apiClassName ?? className;
     late final Map<String, String> props;
 
     if (className == 'ColorTheme') {
@@ -52,12 +53,13 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
         getSourceDescription: false,
       ))
         ..addAll(await _getThemeProperties(
-            className: 'ColorScheme',
-            propertyTypes: propertyTypes,
-            targetPropertyName: 'secondary'));
+          className: 'ColorScheme',
+          propertyTypes: propertyTypes,
+          targetPropertyName: 'secondary',
+        ));
     } else {
       props = await _getThemeProperties(
-        className: className,
+        className: apiClassName,
         propertyTypes: propertyTypes,
       );
     }
@@ -149,12 +151,14 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
 }
 
 class _Config {
+  final String? apiClassName;
   final Set<String>? extraPropertyTypes;
 
-  const _Config({this.extraPropertyTypes});
+  const _Config({this.apiClassName, this.extraPropertyTypes});
 
   factory _Config.fromAnnotation(ConstantReader annotation) {
     return _Config(
+      apiClassName: annotation.peek('apiClassName')?.stringValue,
       extraPropertyTypes: annotation
           .peek('extraPropertyTypes')
           ?.setValue

@@ -42,19 +42,25 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
       propertyTypes.addAll(config.extraPropertyTypes!);
     }
 
-    var className = element.name.replaceFirst(RegExp(r'Cubit$'), '');
-    var getSourceDescription = true;
+    final className = element.name.replaceFirst(RegExp(r'Cubit$'), '');
+    late final Map<String, String> props;
 
     if (className == 'ColorTheme') {
-      className = 'ThemeData';
-      getSourceDescription = false;
+      props = (await _getThemeProperties(
+        className: 'ThemeData',
+        propertyTypes: propertyTypes,
+        getSourceDescription: false,
+      ))
+        ..addAll(await _getThemeProperties(
+            className: 'ColorScheme',
+            propertyTypes: propertyTypes,
+            targetPropertyName: 'secondary'));
+    } else {
+      props = await _getThemeProperties(
+        className: className,
+        propertyTypes: propertyTypes,
+      );
     }
-
-    final props = await _getThemeProperties(
-      className: className,
-      propertyTypes: propertyTypes,
-      getSourceDescription: getSourceDescription,
-    );
 
     final buffer = StringBuffer('class ${className}Docs {');
     for (var prop in props.entries) {
@@ -69,6 +75,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
     required String className,
     required Set<String> propertyTypes,
     bool getSourceDescription = true,
+    String? targetPropertyName,
   }) async {
     final res = await client.get('$_baseUrl/material/$className-class.html');
     final document = parse(res.body);
@@ -93,6 +100,10 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
       }
 
       final propName = propElem.querySelector('span.name')!.text;
+      if (targetPropertyName != null && targetPropertyName != propName) {
+        continue;
+      }
+
       String? propDesc;
       if (getSourceDescription) {
         propDesc = await _getPropertyDescription(propName, propDescElem);

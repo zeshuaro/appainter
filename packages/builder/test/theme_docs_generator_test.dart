@@ -37,6 +37,7 @@ void main() {
   test('generates theme docs', () async {
     assets.addAll({'builder_test|lib/test.dart': mockInput});
     final outputs = {'builder_test|lib/test.g.dart': expectedOutput};
+
     await testBuilder(
       builder,
       assets,
@@ -44,13 +45,27 @@ void main() {
       rootPackage: 'builder_test',
     );
 
-    // Should make 1 GET call to fetch the main theme docs page, then 3 more
-    // GET calls to fetch the descriptions of the 3 properties
-    verify(() => client.get(any())).called(5);
+    // Should make 1 GET call to fetch the main theme docs page, then 5 more
+    // GET calls to fetch the descriptions of the 5 properties
+    verify(() => client.get(any())).called(6);
+  });
+
+  test('generates theme docs with extra properties', () async {
+    assets.addAll({'builder_test|lib/test.dart': mockInputExtra});
+    final outputs = {'builder_test|lib/test.g.dart': expectedOutputExtra};
+
+    await testBuilder(
+      builder,
+      assets,
+      outputs: outputs,
+      rootPackage: 'builder_test',
+    );
+    verify(() => client.get(any())).called(7);
   });
 
   test('calls to theme data docs for color theme', () async {
     assets.addAll({'builder_test|lib/test.dart': mockColorThemeInput});
+
     await testBuilder(
       builder,
       assets,

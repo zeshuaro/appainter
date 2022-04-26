@@ -108,6 +108,16 @@ const mockPropertiesHtml = r'''
     <a href="material/AppBarTheme/foregroundColor.html">[...]</a>
     <div class="features">final</div>
   </dd>
+
+  <dt id="systemOverlayStyle" class="property">
+    <span class="name"><a href="material/AppBarTheme/systemOverlayStyle.html">systemOverlayStyle</a></span>
+    <span class="signature">→ <a href="services/SystemUiOverlayStyle-class.html">SystemUiOverlayStyle</a>?</span>
+  </dt>
+  <dd>
+    Overrides the default value of <a href="material/AppBar/systemOverlayStyle.html">AppBar.systemOverlayStyle</a>
+    property in all descendant <a href="material/AppBar-class.html">AppBar</a> widgets.
+    <div class="features">final</div>
+  </dd>
 </dl>
 ''';
 
@@ -118,6 +128,16 @@ import 'package:appainter_annotations/annotations.dart';
 part 'test.g.dart';
 
 @ThemeDocs()
+class Test {}
+''';
+
+const mockInputExtra = r'''
+library builder_test;
+import 'package:appainter_annotations/annotations.dart';
+
+part 'test.g.dart';
+
+@ThemeDocs(extraPropertyTypes: {'SystemUiOverlayStyle'})
 class Test {}
 ''';
 
@@ -138,12 +158,11 @@ export 'src/theme_docs.dart';
 
 const mockThemeDocs = r'''
 class ThemeDocs {
-  final Set<String> propertyTypes;
+  final Set<String>? extraPropertyTypes;
 
-  const ThemeDocs({this.propertyTypes = defaultPropertyTyles});
-
-  static const defaultPropertyTyles = {'color', 'double', 'bool'};
+  const ThemeDocs({this.extraPropertyTypes});
 }
+
 ''';
 
 const expectedOutput = '''
@@ -156,6 +175,9 @@ part of builder_test;
 // **************************************************************************
 
 class TestDocs {
+  static const actionsIconTheme =
+      """Overrides the default value of AppBar.actionsIconTheme in all
+descendant widgets.""";
   static const backgroundColor =
       """Overrides the default value of AppBar.backgroundColor in all
 descendant AppBar widgets.""";
@@ -168,5 +190,36 @@ AppBar widgets.""";
   static const foregroundColor =
       """Overrides the default value of AppBar.foregroundColor in all
 descendant widgets.""";
+}
+''';
+
+const expectedOutputExtra = '''
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of builder_test;
+
+// **************************************************************************
+// ThemeDocsGenerator
+// **************************************************************************
+
+class TestDocs {
+  static const actionsIconTheme =
+      """Overrides the default value of AppBar.actionsIconTheme in all
+descendant widgets.""";
+  static const backgroundColor =
+      """Overrides the default value of AppBar.backgroundColor in all
+descendant AppBar widgets.""";
+  static const centerTitle =
+      """Overrides the default value for AppBar.centerTitle. property in all
+descendant widgets.""";
+  static const elevation =
+      """Overrides the default value of AppBar.elevation in all descendant
+AppBar widgets.""";
+  static const foregroundColor =
+      """Overrides the default value of AppBar.foregroundColor in all
+descendant widgets.""";
+  static const systemOverlayStyle =
+      """Overrides the default value of AppBar.systemOverlayStyle property in
+all descendant AppBar widgets.""";
 }
 ''';

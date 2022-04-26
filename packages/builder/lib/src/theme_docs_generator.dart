@@ -14,7 +14,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
   const ThemeDocsGenerator({this.client = const HttpClient()}) : super();
 
   static const _baseUrl = 'https://api.flutter.dev/flutter';
-  static const _propertyTypes = {'color', 'double', 'bool'};
+  static const _propertyTypes = {'Color', 'double', 'bool', 'IconThemeData'};
 
   @override
   Future<String> generateForAnnotatedElement(
@@ -81,7 +81,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
       }
 
       final signatureElem = propElem.querySelector('span.signature')!;
-      final propType = signatureElem.querySelector('a')!.text.toLowerCase();
+      final propType = signatureElem.querySelector('a')!.text;
       if (!propertyTypes.contains(propType)) {
         continue;
       }
@@ -139,7 +139,7 @@ class _Config {
   factory _Config.fromAnnotation(ConstantReader annotation) {
     return _Config(
       extraPropertyTypes: annotation
-          .peek('propertyTypes')
+          .peek('extraPropertyTypes')
           ?.setValue
           .map((e) => ConstantReader(e).stringValue)
           .toSet(),

@@ -50,13 +50,18 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
       props = (await _getThemeProperties(
         className: 'ThemeData',
         propertyTypes: propertyTypes,
-        getSourceDescription: false,
       ))
         ..addAll(await _getThemeProperties(
           className: 'ColorScheme',
           propertyTypes: propertyTypes,
           targetPropertyName: 'secondary',
         ));
+    } else if (className == 'AppBarTheme') {
+      props = await _getThemeProperties(
+        className: apiClassName,
+        propertyTypes: propertyTypes,
+        getSourceDescription: true,
+      );
     } else {
       props = await _getThemeProperties(
         className: apiClassName,
@@ -76,7 +81,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
   Future<Map<String, String>> _getThemeProperties({
     required String className,
     required Set<String> propertyTypes,
-    bool getSourceDescription = true,
+    bool getSourceDescription = false,
     String? targetPropertyName,
   }) async {
     final res = await client.get('$_baseUrl/material/$className-class.html');

@@ -35,6 +35,7 @@ class _LabelColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('tabBarThemeEditor_labelColorPicker'),
       title: 'Label color',
+      tooltip: TabBarThemeDocs.labelColor,
       color: labelColor ?? onPrimaryColor,
       onColorChanged: (color) {
         context.read<TabBarThemeCubit>().labelColorChanged(color);
@@ -58,6 +59,7 @@ class _UnselectedLabelColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('tabBarThemeEditor_unselectedLabelColorPicker'),
       title: 'Unselected label color',
+      tooltip: TabBarThemeDocs.unselectedLabelColor,
       color: unselectedLabelColor ?? unselectedColor,
       onColorChanged: (color) {
         context.read<TabBarThemeCubit>().unselectedLabelColorChanged(color);
@@ -78,6 +80,7 @@ class _IndicatorSizeDropdown extends StatelessWidget {
         return DropdownListTile(
           key: const Key('tabBarThemeEditor_indicatorSizeDropdown'),
           title: 'Indicator size',
+          tooltip: TabBarThemeDocs.indicatorSize,
           value: UtilService.enumToString(size),
           values: UtilService.getEnumStrings(TabBarIndicatorSize.values),
           onChanged: (value) {

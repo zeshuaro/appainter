@@ -1,3 +1,4 @@
+import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -7,6 +8,7 @@ import 'package:appainter/services/services.dart';
 part 'tab_bar_theme_cubit.g.dart';
 part 'tab_bar_theme_state.dart';
 
+@ThemeDocs(extraPropertyTypes: {'TabBarIndicatorSize'})
 class TabBarThemeCubit extends Cubit<TabBarThemeState> {
   TabBarThemeCubit() : super(const TabBarThemeState());
 

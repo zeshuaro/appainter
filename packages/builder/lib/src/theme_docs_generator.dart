@@ -14,6 +14,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
   const ThemeDocsGenerator({this.client = const HttpClient()}) : super();
 
   static const _baseUrl = 'https://api.flutter.dev/flutter';
+  static const _propertyTypes = {'color', 'double', 'bool'};
 
   @override
   Future<String> generateForAnnotatedElement(
@@ -30,6 +31,11 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
     }
 
     final config = _Config.fromAnnotation(annotation);
+    final propertyTypes = Set<String>.from(_propertyTypes);
+    if (config.extraPropertyTypes != null) {
+      propertyTypes.addAll(config.extraPropertyTypes!);
+    }
+
     var className = element.name.replaceFirst(RegExp(r'Cubit$'), '');
     var getSourceDescription = true;
 
@@ -40,7 +46,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
 
     final props = await _getThemeProperties(
       className: className,
-      allowedPropertyTypes: config.propertyTypes,
+      propertyTypes: propertyTypes,
       getSourceDescription: getSourceDescription,
     );
 
@@ -55,7 +61,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
 
   Future<Map<String, String>> _getThemeProperties({
     required String className,
-    required Set<String> allowedPropertyTypes,
+    required Set<String> propertyTypes,
     bool getSourceDescription = true,
   }) async {
     final res = await client.get('$_baseUrl/material/$className-class.html');
@@ -76,7 +82,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
 
       final signatureElem = propElem.querySelector('span.signature')!;
       final propType = signatureElem.querySelector('a')!.text.toLowerCase();
-      if (!allowedPropertyTypes.contains(propType)) {
+      if (!propertyTypes.contains(propType)) {
         continue;
       }
 
@@ -126,15 +132,15 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
 }
 
 class _Config {
-  final Set<String> propertyTypes;
+  final Set<String>? extraPropertyTypes;
 
-  const _Config({required this.propertyTypes});
+  const _Config({this.extraPropertyTypes});
 
   factory _Config.fromAnnotation(ConstantReader annotation) {
     return _Config(
-      propertyTypes: annotation
-          .read('propertyTypes')
-          .setValue
+      extraPropertyTypes: annotation
+          .peek('propertyTypes')
+          ?.setValue
           .map((e) => ConstantReader(e).stringValue)
           .toSet(),
     );

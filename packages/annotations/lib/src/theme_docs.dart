@@ -1,7 +1,5 @@
 class ThemeDocs {
-  final Set<String> propertyTypes;
+  final Set<String>? extraPropertyTypes;
 
-  const ThemeDocs({this.propertyTypes = defaultPropertyTyles});
-
-  static const defaultPropertyTyles = {'color', 'double', 'bool'};
+  const ThemeDocs({this.extraPropertyTypes});
 }

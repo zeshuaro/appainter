@@ -1,9 +1,11 @@
+import 'package:appainter/widgets/widgets.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:appainter/common/common.dart';
 
 abstract class ExpansionPanelItem extends StatelessWidget {
   String get header;
+  String? get tooltip => null;
 
   const ExpansionPanelItem({Key? key}) : super(key: key);
 }
@@ -44,9 +46,7 @@ class _MyExpansionPanelListState extends State<MyExpansionPanelList> {
         },
         children: widget.items.mapIndexed((index, item) {
           return ExpansionPanel(
-            headerBuilder: (context, isExpanded) {
-              return _Header(header: item.header);
-            },
+            headerBuilder: (context, isExpanded) => _Header(item: item),
             body: item,
             isExpanded: _expandStates[index],
             canTapOnHeader: true,
@@ -59,9 +59,9 @@ class _MyExpansionPanelListState extends State<MyExpansionPanelList> {
 }
 
 class _Header extends StatelessWidget {
-  final String header;
+  final ExpansionPanelItem item;
 
-  const _Header({Key? key, required this.header}) : super(key: key);
+  const _Header({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,11 +70,14 @@ class _Header extends StatelessWidget {
         vertical: kMargin * 1.5,
         horizontal: kMargin,
       ),
-      child: Text(
-        header,
-        style: const TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
+      child: MyTooltip(
+        tooltip: item.tooltip,
+        child: Text(
+          item.header,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );

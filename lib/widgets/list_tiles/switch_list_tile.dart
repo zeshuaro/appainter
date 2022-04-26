@@ -4,6 +4,7 @@ import 'list_tile.dart';
 
 class MySwitchListTile extends StatelessWidget {
   final String title;
+  final String? tooltip;
   final bool value;
   final ValueChanged<bool> onChanged;
   final String? label;
@@ -13,6 +14,7 @@ class MySwitchListTile extends StatelessWidget {
     required this.title,
     required this.value,
     required this.onChanged,
+    this.tooltip,
     this.label,
   }) : super(key: key);
 
@@ -20,6 +22,7 @@ class MySwitchListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return MyListTile(
       title: title,
+      tooltip: tooltip,
       trailing: Row(
         children: [
           Switch(

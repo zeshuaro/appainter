@@ -14,7 +14,13 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
   const ThemeDocsGenerator({this.client = const HttpClient()}) : super();
 
   static const _baseUrl = 'https://api.flutter.dev/flutter';
-  static const _propertyTypes = {'Color', 'double', 'bool', 'IconThemeData'};
+  static const _propertyTypes = {
+    'Color',
+    'double',
+    'bool',
+    'IconThemeData',
+    'TextStyle'
+  };
 
   @override
   Future<String> generateForAnnotatedElement(

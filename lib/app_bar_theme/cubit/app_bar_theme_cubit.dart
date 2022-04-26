@@ -13,7 +13,7 @@ import 'package:appainter/models/models.dart';
 part 'app_bar_theme_cubit.g.dart';
 part 'app_bar_theme_state.dart';
 
-@ThemeDocs()
+@ThemeDocs(extraPropertyTypes: {'SystemUiOverlayStyle'})
 class AppBarThemeCubit extends Cubit<AppBarThemeState> {
   final AppBarActionsIconThemeCubit actionsIconThemeCubit;
   final AppBarIconThemeCubit iconThemeCubit;

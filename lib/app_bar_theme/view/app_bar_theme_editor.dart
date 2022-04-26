@@ -146,6 +146,7 @@ class _CenterTitleSwitch extends StatelessWidget {
         return MySwitchListTile(
           key: const Key('appBarThemeEditor_centerTitleSwitch'),
           title: 'Center title',
+          tooltip: AppBarThemeDocs.centerTitle,
           value: state.theme.centerTitle ?? true,
           onChanged: (value) {
             context.read<AppBarThemeCubit>().centerTitleChanged(value);
@@ -220,6 +221,7 @@ class _SystemUiOverlayStyleDropdown extends StatelessWidget {
         return DropdownListTile(
           key: const Key('appBarThemeEditor_systemUiOverlayStyleDropdown'),
           title: 'System UI overlay style',
+          tooltip: AppBarThemeDocs.systemOverlayStyle,
           value: MySystemUiOverlayStyle().convertToString(
             state.theme.systemOverlayStyle ?? SystemUiOverlayStyle.light,
           )!,
@@ -243,6 +245,9 @@ class ActionsIconThemeCard extends ExpansionPanelItem {
   String get header => 'Actions icon theme';
 
   @override
+  String? get tooltip => AppBarThemeDocs.actionsIconTheme;
+
+  @override
   Widget build(BuildContext context) {
     final foregroundColor =
         context.watch<AppBarThemeCubit>().state.theme.foregroundColor;
@@ -262,6 +267,9 @@ class IconThemeCard extends ExpansionPanelItem {
 
   @override
   String get header => 'Icon theme';
+
+  @override
+  String? get tooltip => AppBarThemeDocs.iconTheme;
 
   @override
   Widget build(BuildContext context) {
@@ -284,6 +292,9 @@ class TitleTextStyleCard
 
   @override
   String get header => 'Title text style';
+
+  @override
+  String? get tooltip => AppBarThemeDocs.titleTextStyle;
 }
 
 @visibleForTesting
@@ -293,4 +304,7 @@ class ToolbarTextStyleCard
 
   @override
   String get header => 'Toolbar text style';
+
+  @override
+  String? get tooltip => AppBarThemeDocs.toolbarTextStyle;
 }

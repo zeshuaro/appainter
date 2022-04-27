@@ -1,4 +1,5 @@
 import 'package:appainter/basic_theme/basic_theme.dart';
+import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -8,6 +9,7 @@ import 'package:random_color_scheme/random_color_scheme.dart';
 part 'basic_theme_cubit.g.dart';
 part 'basic_theme_state.dart';
 
+@ThemeDocs(apiClassName: 'ColorScheme')
 class BasicThemeCubit extends Cubit<BasicThemeState> {
   final BasicThemeService _service;
 

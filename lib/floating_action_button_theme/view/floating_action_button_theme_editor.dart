@@ -52,6 +52,7 @@ class _BackgroundColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_backgroundColorPicker'),
       title: 'Background color',
+      tooltip: FloatingActionButtonThemeDocs.backgroundColor,
       color: backgroundColor ?? secondaryColor,
       onColorChanged: (color) {
         context
@@ -76,6 +77,7 @@ class _ForegroundColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_foregroundColorPicker'),
       title: 'Foreground color',
+      tooltip: FloatingActionButtonThemeDocs.foregroundColor,
       color: foregroundColor ?? onPrimaryColor,
       onColorChanged: (color) {
         context
@@ -96,6 +98,7 @@ class _FocusColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_focusColorPicker'),
       title: 'Focus color',
+      tooltip: FloatingActionButtonThemeDocs.focusColor,
       color: focusColor ?? themeFocusColor,
       onColorChanged: (color) {
         context.read<FloatingActionButtonThemeCubit>().focusColorChanged(color);
@@ -114,6 +117,7 @@ class _HoverColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_hoverColorPicker'),
       title: 'Hover color',
+      tooltip: FloatingActionButtonThemeDocs.hoverColor,
       color: hoverColor ?? themeHoverColor,
       onColorChanged: (color) {
         context.read<FloatingActionButtonThemeCubit>().hoverColorChanged(color);
@@ -132,6 +136,7 @@ class _SplashColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('floatingActionButtonThemeEditor_splashColorPicker'),
       title: 'Splash color',
+      tooltip: FloatingActionButtonThemeDocs.splashColor,
       color: splashColor ?? themeSplashColor,
       onColorChanged: (color) {
         context
@@ -154,6 +159,7 @@ class _ElevationTextField extends StatelessWidget {
         return MyTextFormField(
           key: const Key('floatingActionButtonThemeEditor_elevationTextField'),
           labelText: 'Elevation',
+          tooltip: FloatingActionButtonThemeDocs.elevation,
           initialValue:
               (state.theme.elevation ?? kFloatingActionBtnElevation).toString(),
           onChanged: (value) {
@@ -182,6 +188,7 @@ class _DisabledElevationTextField extends StatelessWidget {
             'floatingActionButtonThemeEditor_disabledElevationTextField',
           ),
           labelText: 'Disabled elevation',
+          tooltip: FloatingActionButtonThemeDocs.disabledElevation,
           initialValue:
               (state.theme.disabledElevation ?? kFloatingActionBtnElevation)
                   .toString(),
@@ -210,6 +217,7 @@ class _FocusElevationTextField extends StatelessWidget {
             'floatingActionButtonThemeEditor_focusElevationTextField',
           ),
           labelText: 'Focus elevation',
+          tooltip: FloatingActionButtonThemeDocs.focusElevation,
           initialValue:
               (state.theme.focusElevation ?? kFloatingActionBtnFocusElevation)
                   .toString(),
@@ -239,6 +247,7 @@ class _HighlightElevationTextField extends StatelessWidget {
             'floatingActionButtonThemeEditor_highlightElevationTextField',
           ),
           labelText: 'Highlight elevation',
+          tooltip: FloatingActionButtonThemeDocs.highlightElevation,
           initialValue: (state.theme.highlightElevation ??
                   kFloatingActionBtnHighlightElevation)
               .toString(),
@@ -267,6 +276,7 @@ class _HoverElevationTextField extends StatelessWidget {
             'floatingActionButtonThemeEditor_hoverElevationTextField',
           ),
           labelText: 'Hover elevation',
+          tooltip: FloatingActionButtonThemeDocs.hoverElevation,
           initialValue:
               (state.theme.hoverElevation ?? kFloatingActionBtnHoverElevation)
                   .toString(),

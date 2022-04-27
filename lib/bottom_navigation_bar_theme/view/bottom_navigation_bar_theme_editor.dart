@@ -42,6 +42,7 @@ class _TypeDropdown extends StatelessWidget {
         return DropdownListTile(
           key: const Key('bottomNavigationBarThemeEditor_typeDropdown'),
           title: 'Type',
+          tooltip: BottomNavigationBarThemeDocs.type,
           value: UtilService.enumToString(type),
           values: UtilService.getEnumStrings(BottomNavigationBarType.values),
           onChanged: (value) {
@@ -67,6 +68,7 @@ class _BackgroundColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('bottomNavigationBarThemeEditor_backgroundColorPicker'),
       title: 'Background color',
+      tooltip: BottomNavigationBarThemeDocs.backgroundColor,
       color: backgroundColor ?? themeBackgroundColor,
       onColorChanged: (color) {
         context
@@ -90,6 +92,7 @@ class _SelectedItemColorPicker extends StatelessWidget {
     return ColorListTile(
       key: const Key('bottomNavigationBarThemeEditor_selectedItemColorPicker'),
       title: 'Selected item color',
+      tooltip: BottomNavigationBarThemeDocs.selectedItemColor,
       color: selectedItemColor ?? primaryColor,
       onColorChanged: (color) {
         context
@@ -116,6 +119,7 @@ class _UnselectedItemColorPicker extends StatelessWidget {
         'bottomNavigationBarThemeEditor_unselectedItemColorPicker',
       ),
       title: 'Unselected item color',
+      tooltip: BottomNavigationBarThemeDocs.unselectedItemColor,
       color: unselectedItemColor ?? unselectedWidgetColor,
       onColorChanged: (color) {
         context
@@ -138,6 +142,7 @@ class _ShowSelectedLabelsSwitch extends StatelessWidget {
       builder: (context, state) {
         return MySwitchListTile(
           title: 'Show selected labels',
+          tooltip: BottomNavigationBarThemeDocs.showSelectedLabels,
           key: const Key(
             'bottomNavigationBarThemeEditor_showSelectedLabelsSwitch',
           ),
@@ -168,6 +173,7 @@ class _ShowUnselectedLabelsSwitch extends StatelessWidget {
             'bottomNavigationBarThemeEditor_showUnselectedLabelsSwitch',
           ),
           title: 'Show unselected labels',
+          tooltip: BottomNavigationBarThemeDocs.showUnselectedLabels,
           value: state.theme.showUnselectedLabels ?? true,
           onChanged: (value) {
             context
@@ -192,6 +198,7 @@ class _ElevationTextField extends StatelessWidget {
         return MyTextFormField(
           key: const Key('bottomNavigationBarThemeEditor_elevationTextField'),
           labelText: 'Elevation',
+          tooltip: BottomNavigationBarThemeDocs.elevation,
           initialValue: state.theme.elevation?.toString() ??
               kBottomNavBarElevation.toString(),
           onChanged: (value) {

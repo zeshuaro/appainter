@@ -1,3 +1,4 @@
+import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -7,6 +8,7 @@ import 'package:appainter/services/services.dart';
 part 'color_theme_cubit.g.dart';
 part 'color_theme_state.dart';
 
+@ThemeDocs()
 class ColorThemeCubit extends Cubit<ColorThemeState> {
   ColorThemeCubit() : super(ColorThemeState());
 

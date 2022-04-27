@@ -16,6 +16,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
   static const _baseUrl = 'https://api.flutter.dev/flutter';
   static const _propertyTypes = {
     'Color',
+    'int',
     'double',
     'bool',
     'IconThemeData',
@@ -42,19 +43,32 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
       propertyTypes.addAll(config.extraPropertyTypes!);
     }
 
-    var className = element.name.replaceFirst(RegExp(r'Cubit$'), '');
-    var getSourceDescription = true;
+    final className = element.name.replaceFirst(RegExp(r'Cubit$'), '');
+    final apiClassName = config.apiClassName ?? className;
+    late final Map<String, String> props;
 
     if (className == 'ColorTheme') {
-      className = 'ThemeData';
-      getSourceDescription = false;
+      props = (await _getThemeProperties(
+        className: 'ThemeData',
+        propertyTypes: propertyTypes,
+      ))
+        ..addAll(await _getThemeProperties(
+          className: 'ColorScheme',
+          propertyTypes: propertyTypes,
+          targetPropertyName: 'secondary',
+        ));
+    } else if (className == 'AppBarTheme') {
+      props = await _getThemeProperties(
+        className: apiClassName,
+        propertyTypes: propertyTypes,
+        getSourceDescription: true,
+      );
+    } else {
+      props = await _getThemeProperties(
+        className: apiClassName,
+        propertyTypes: propertyTypes,
+      );
     }
-
-    final props = await _getThemeProperties(
-      className: className,
-      propertyTypes: propertyTypes,
-      getSourceDescription: getSourceDescription,
-    );
 
     final buffer = StringBuffer('class ${className}Docs {');
     for (var prop in props.entries) {
@@ -68,7 +82,8 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
   Future<Map<String, String>> _getThemeProperties({
     required String className,
     required Set<String> propertyTypes,
-    bool getSourceDescription = true,
+    bool getSourceDescription = false,
+    String? targetPropertyName,
   }) async {
     final res = await client.get('$_baseUrl/material/$className-class.html');
     final document = parse(res.body);
@@ -82,17 +97,19 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
       final propElem = elems[0];
       final propDescElem = elems[1];
 
-      if (propElem.querySelector('a.deprecated') != null) {
-        continue;
-      }
-
-      final signatureElem = propElem.querySelector('span.signature')!;
-      final propType = signatureElem.querySelector('a')!.text;
-      if (!propertyTypes.contains(propType)) {
+      if (!_shouldProcessProperty(
+        element: propElem,
+        propertyTypes: propertyTypes,
+      )) {
         continue;
       }
 
       final propName = propElem.querySelector('span.name')!.text;
+      if (propName == 'hashCode' ||
+          (targetPropertyName != null && targetPropertyName != propName)) {
+        continue;
+      }
+
       String? propDesc;
       if (getSourceDescription) {
         propDesc = await _getPropertyDescription(propName, propDescElem);
@@ -112,6 +129,28 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
     }
 
     return propsMap;
+  }
+
+  bool _shouldProcessProperty({
+    required html_dom.Element element,
+    required Set<String> propertyTypes,
+  }) {
+    if (element.querySelector('a.deprecated') != null) {
+      return false;
+    }
+
+    final signatureElem = element.querySelector('span.signature')!;
+    final propType = signatureElem.querySelector('a')!.text;
+
+    final nestedSignatureElem = signatureElem.querySelector('span.signature');
+    final nestedPropType = nestedSignatureElem?.querySelector('a')?.text;
+
+    if ((nestedPropType == null && !propertyTypes.contains(propType)) ||
+        (nestedPropType != null && !propertyTypes.contains(nestedPropType))) {
+      return false;
+    }
+
+    return true;
   }
 
   Future<String?> _getPropertyDescription(
@@ -138,12 +177,14 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
 }
 
 class _Config {
+  final String? apiClassName;
   final Set<String>? extraPropertyTypes;
 
-  const _Config({this.extraPropertyTypes});
+  const _Config({this.apiClassName, this.extraPropertyTypes});
 
   factory _Config.fromAnnotation(ConstantReader annotation) {
     return _Config(
+      apiClassName: annotation.peek('apiClassName')?.stringValue,
       extraPropertyTypes: annotation
           .peek('extraPropertyTypes')
           ?.setValue

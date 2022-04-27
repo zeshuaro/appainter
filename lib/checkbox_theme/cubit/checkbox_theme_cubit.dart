@@ -1,4 +1,5 @@
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -9,6 +10,10 @@ import 'package:appainter/utils/utils.dart';
 part 'checkbox_theme_cubit.g.dart';
 part 'checkbox_theme_state.dart';
 
+@ThemeDocs(
+  apiClassName: 'CheckboxThemeData',
+  extraPropertyTypes: {'MaterialTapTargetSize'},
+)
 class CheckboxThemeCubit extends Cubit<CheckboxThemeState> {
   final ColorThemeCubit colorThemeCubit;
 

@@ -37,6 +37,7 @@ class _BackgroundColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Background color',
+      tooltip: OutlinedButtonThemeDocs.backgroundColor,
       items: [
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_backgroundColor_default'),
@@ -66,6 +67,7 @@ class _ForegroundColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Foreground color',
+      tooltip: OutlinedButtonThemeDocs.foregroundColor,
       items: [
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_foregroundColor_default'),
@@ -105,6 +107,7 @@ class _OverlayColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Overlay color',
+      tooltip: OutlinedButtonThemeDocs.overlayColor,
       items: [
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_overlayColor_hovered'),
@@ -157,6 +160,7 @@ class _ShadowColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Shadow color',
+      tooltip: OutlinedButtonThemeDocs.shadowColor,
       items: [
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_shadowColor_default'),
@@ -182,6 +186,7 @@ class _ElevationTextFields extends StatelessWidget {
       builder: (context, state) {
         return MaterialStatesCard<String>(
           header: 'Elevation',
+          tooltip: OutlinedButtonThemeDocs.elevation,
           items: [
             MaterialStateItem(
               key: const Key(

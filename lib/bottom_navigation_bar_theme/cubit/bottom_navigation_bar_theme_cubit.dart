@@ -1,3 +1,4 @@
+import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -7,6 +8,10 @@ import 'package:appainter/services/util_service.dart';
 part 'bottom_navigation_bar_theme_cubit.g.dart';
 part 'bottom_navigation_bar_theme_state.dart';
 
+@ThemeDocs(
+  apiClassName: 'BottomNavigationBarThemeData',
+  extraPropertyTypes: {'BottomNavigationBarType'},
+)
 class BottomNavigationBarThemeCubit
     extends Cubit<BottomNavigationBarThemeState> {
   BottomNavigationBarThemeCubit()

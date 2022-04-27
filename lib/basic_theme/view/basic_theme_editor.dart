@@ -40,6 +40,7 @@ class _SeedColorPicker extends StatelessWidget {
         return ColorListTile(
           key: const Key('basicThemeEditor_seedColorPicker'),
           title: 'Seed color',
+          tooltip: 'Generate a ColorScheme derived from the seed color.',
           color: state.seedColor,
           onColorChanged: (color) {
             context.read<BasicThemeCubit>().seedColorChanged(color);
@@ -61,6 +62,7 @@ class _PrimaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_primaryColorPicker'),
           title: 'Primary',
+          tooltip: BasicThemeDocs.primary,
           value: colorScheme.primary,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().primaryColorChanged(color);
@@ -70,6 +72,7 @@ class _PrimaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onPrimaryColorPicker'),
           title: 'On primary',
+          tooltip: BasicThemeDocs.onPrimary,
           value: colorScheme.onPrimary,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().onPrimaryColorChanged(color);
@@ -78,6 +81,7 @@ class _PrimaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_primaryContainerColorPicker'),
           title: 'Primary container',
+          tooltip: BasicThemeDocs.primaryContainer,
           value: colorScheme.primaryContainer,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().primaryContainerColorChanged(color);
@@ -86,6 +90,7 @@ class _PrimaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onPrimaryContainerColorPicker'),
           title: 'On primary container',
+          tooltip: BasicThemeDocs.onPrimaryContainer,
           value: colorScheme.onPrimaryContainer,
           onValueChanged: (color) {
             context
@@ -109,6 +114,7 @@ class _SecondaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_secondaryColorPicker'),
           title: 'Secondary',
+          tooltip: BasicThemeDocs.secondary,
           value: colorScheme.secondary,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().secondaryColorChanged(color);
@@ -117,6 +123,7 @@ class _SecondaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onSecondaryColorPicker'),
           title: 'On secondary',
+          tooltip: BasicThemeDocs.onSecondary,
           value: colorScheme.onSecondary,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().onSecondaryColorChanged(color);
@@ -125,6 +132,7 @@ class _SecondaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_secondaryContainerColorPicker'),
           title: 'Secondary container',
+          tooltip: BasicThemeDocs.secondaryContainer,
           value: colorScheme.secondaryContainer,
           onValueChanged: (color) {
             context
@@ -135,6 +143,7 @@ class _SecondaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onSecondaryContainerColorPicker'),
           title: 'On secondary container',
+          tooltip: BasicThemeDocs.onSecondaryContainer,
           value: colorScheme.onSecondaryContainer,
           onValueChanged: (color) {
             context
@@ -158,6 +167,7 @@ class _TertiaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_tertiaryColorPicker'),
           title: 'Tertiary',
+          tooltip: BasicThemeDocs.tertiary,
           value: colorScheme.tertiary,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().tertiaryColorChanged(color);
@@ -166,6 +176,7 @@ class _TertiaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onTertiaryColorPicker'),
           title: 'On tertiary',
+          tooltip: BasicThemeDocs.onTertiary,
           value: colorScheme.onTertiary,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().onTertiaryColorChanged(color);
@@ -174,6 +185,7 @@ class _TertiaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_tertiaryContainerColorPicker'),
           title: 'Tertiary container',
+          tooltip: BasicThemeDocs.tertiaryContainer,
           value: colorScheme.tertiaryContainer,
           onValueChanged: (color) {
             context
@@ -184,6 +196,7 @@ class _TertiaryColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onTertiaryContainerColorPicker'),
           title: 'On tertiary container',
+          tooltip: BasicThemeDocs.onTertiaryContainer,
           value: colorScheme.onTertiaryContainer,
           onValueChanged: (color) {
             context
@@ -207,6 +220,7 @@ class _ErrorColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_errorColorPicker'),
           title: 'Error',
+          tooltip: BasicThemeDocs.error,
           value: colorScheme.error,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().errorColorChanged(color);
@@ -215,6 +229,7 @@ class _ErrorColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onErrorColorPicker'),
           title: 'On error',
+          tooltip: BasicThemeDocs.onError,
           value: colorScheme.onError,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().onErrorColorChanged(color);
@@ -223,6 +238,7 @@ class _ErrorColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_errorContainerColorPicker'),
           title: 'Error container',
+          tooltip: BasicThemeDocs.errorContainer,
           value: colorScheme.errorContainer,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().errorContainerColorChanged(color);
@@ -231,6 +247,7 @@ class _ErrorColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onErrorContainerColorPicker'),
           title: 'On error container',
+          tooltip: BasicThemeDocs.onErrorContainer,
           value: colorScheme.onErrorContainer,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().onErrorContainerColorChanged(color);
@@ -252,6 +269,7 @@ class _NeutralColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_backgroundColorPicker'),
           title: 'Background',
+          tooltip: BasicThemeDocs.background,
           value: colorScheme.background,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().backgroundColorChanged(color);
@@ -260,6 +278,7 @@ class _NeutralColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onBackgroundColorPicker'),
           title: 'On background',
+          tooltip: BasicThemeDocs.onBackground,
           value: colorScheme.onBackground,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().onBackgroundColorChanged(color);
@@ -268,6 +287,7 @@ class _NeutralColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_surfaceColorPicker'),
           title: 'Surface',
+          tooltip: BasicThemeDocs.surface,
           value: colorScheme.surface,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().surfaceColorChanged(color);
@@ -276,6 +296,7 @@ class _NeutralColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onSurfaceColorPicker'),
           title: 'On surface',
+          tooltip: BasicThemeDocs.onSurface,
           value: colorScheme.onSurface,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().onSurfaceColorChanged(color);
@@ -297,6 +318,7 @@ class _NeutralVariantColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_surfaceVariantColorPicker'),
           title: 'Surface variant',
+          tooltip: BasicThemeDocs.surfaceVariant,
           value: colorScheme.surfaceVariant,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().surfaceVariantColorChanged(color);
@@ -305,6 +327,7 @@ class _NeutralVariantColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onSurfaceVariantColorPicker'),
           title: 'On surface variant',
+          tooltip: BasicThemeDocs.onSurfaceVariant,
           value: colorScheme.onSurfaceVariant,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().onSurfaceVariantColorChanged(color);
@@ -313,6 +336,7 @@ class _NeutralVariantColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_outlineColorPicker'),
           title: 'Outline',
+          tooltip: BasicThemeDocs.outline,
           value: colorScheme.outline,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().outlineColorChanged(color);
@@ -321,6 +345,7 @@ class _NeutralVariantColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_shadowColorPicker'),
           title: 'Shadow',
+          tooltip: BasicThemeDocs.shadow,
           value: colorScheme.shadow,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().shadowColorChanged(color);
@@ -342,6 +367,7 @@ class _InverseColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_inverseSurfaceColorPicker'),
           title: 'Inverse surface',
+          tooltip: BasicThemeDocs.inverseSurface,
           value: colorScheme.inverseSurface,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().inverseSurfaceColorChanged(color);
@@ -350,6 +376,7 @@ class _InverseColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_onInverseSurfaceColorPicker'),
           title: 'On inverse surface',
+          tooltip: BasicThemeDocs.onInverseSurface,
           value: colorScheme.onInverseSurface,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().onInverseSurfaceColorChanged(color);
@@ -358,6 +385,7 @@ class _InverseColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('basicThemeEditor_inversePrimaryColorPicker'),
           title: 'Inverse primary',
+          tooltip: BasicThemeDocs.inversePrimary,
           value: colorScheme.inversePrimary,
           onValueChanged: (color) {
             context.read<BasicThemeCubit>().inversePrimaryColorChanged(color);

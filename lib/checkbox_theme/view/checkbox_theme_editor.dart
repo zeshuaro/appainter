@@ -35,6 +35,7 @@ class _FillColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Fill color',
+      tooltip: CheckboxThemeDocs.fillColor,
       items: [
         MaterialStateItem(
           key: const Key('checkboxThemeEditor_fillColor_default'),
@@ -78,6 +79,7 @@ class _CheckColorPickers extends StatelessWidget {
       builder: (context, state) {
         return MaterialStatesCard<Color>(
           header: 'Check color',
+          tooltip: CheckboxThemeDocs.checkColor,
           items: [
             MaterialStateItem(
               key: const Key('checkboxThemeEditor_checkColor_default'),
@@ -104,6 +106,7 @@ class _OverlayColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Overlay color',
+      tooltip: CheckboxThemeDocs.overlayColor,
       items: [
         MaterialStateItem(
           key: const Key('checkboxThemeEditor_overlayColor_pressed'),
@@ -159,6 +162,7 @@ class _MaterialTapTargetSizeDropdown extends StatelessWidget {
         return DropdownListTile(
           key: const Key('checkboxThemeEditor_materialTapTargetSizeDropdown'),
           title: 'Material tap target size',
+          tooltip: CheckboxThemeDocs.materialTapTargetSize,
           value: UtilService.enumToString(size),
           values: UtilService.getEnumStrings(MaterialTapTargetSize.values),
           onChanged: (value) {
@@ -181,6 +185,7 @@ class _SplashRadiusTextField extends StatelessWidget {
         return MyTextFormField(
           key: const Key('checkboxThemeEditor_splashRadiusTextField'),
           labelText: 'Splash radius',
+          tooltip: CheckboxThemeDocs.splashRadius,
           initialValue:
               (state.theme.splashRadius ?? kRadialReactionRadius).toString(),
           onChanged: (value) {

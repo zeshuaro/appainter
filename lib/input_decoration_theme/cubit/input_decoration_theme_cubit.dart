@@ -1,5 +1,6 @@
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
+import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -9,6 +10,7 @@ import 'package:appainter/services/services.dart';
 part 'input_decoration_theme_cubit.g.dart';
 part 'input_decoration_theme_state.dart';
 
+@ThemeDocs(extraPropertyTypes: {'FloatingLabelBehavior'})
 class InputDecorationThemeCubit extends Cubit<InputDecorationThemeState> {
   final ColorThemeCubit colorThemeCubit;
 

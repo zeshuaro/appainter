@@ -1,3 +1,4 @@
+import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 part 'slider_theme_cubit.g.dart';
 part 'slider_theme_state.dart';
 
+@ThemeDocs(apiClassName: 'SliderThemeData')
 class SliderThemeCubit extends Cubit<SliderThemeState> {
   SliderThemeCubit() : super(const SliderThemeState());
 

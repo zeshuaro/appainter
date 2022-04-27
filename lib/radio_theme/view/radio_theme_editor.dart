@@ -34,6 +34,7 @@ class _FillColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Fill color',
+      tooltip: RadioThemeDocs.fillColor,
       items: [
         MaterialStateItem(
           key: const Key('radioThemeEditor_fillColor_default'),
@@ -76,6 +77,7 @@ class _OverlayColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Overlay color',
+      tooltip: RadioThemeDocs.overlayColor,
       items: [
         MaterialStateItem(
           key: const Key('radioThemeEditor_overlayColor_pressed'),
@@ -125,6 +127,7 @@ class _MaterialTapTargetSizeDropdown extends StatelessWidget {
         return DropdownListTile(
           key: const Key('radioThemeEditor_materialTapTargetSizeDropdown'),
           title: 'Material tap target size',
+          tooltip: RadioThemeDocs.materialTapTargetSize,
           value: UtilService.enumToString(size),
           values: UtilService.getEnumStrings(MaterialTapTargetSize.values),
           onChanged: (value) {
@@ -147,6 +150,7 @@ class _SplashRadiusTextField extends StatelessWidget {
         return MyTextFormField(
           key: const Key('radioThemeEditor_splashRadiusTextField'),
           labelText: 'Splash radius',
+          tooltip: RadioThemeDocs.splashRadius,
           initialValue:
               (state.theme.splashRadius ?? kRadialReactionRadius).toString(),
           onChanged: (value) {

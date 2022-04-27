@@ -19,12 +19,14 @@ class MaterialStateItem<T> {
 
 class MaterialStatesCard<T> extends StatelessWidget {
   final String header;
+  final String? tooltip;
   final List<MaterialStateItem<T>> items;
 
   const MaterialStatesCard({
     Key? key,
     required this.header,
     required this.items,
+    this.tooltip,
   }) : super(key: key);
 
   @override
@@ -36,12 +38,9 @@ class MaterialStatesCard<T> extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            header,
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),
+          _Header(
+            header: header,
+            tooltip: tooltip,
           ),
           const VerticalPadding(),
           SideBySideList(
@@ -58,6 +57,28 @@ class MaterialStatesCard<T> extends StatelessWidget {
             ).toList(),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _Header extends StatelessWidget {
+  final String header;
+  final String? tooltip;
+
+  const _Header({Key? key, required this.header, this.tooltip})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MyTooltip(
+      tooltip: tooltip,
+      child: Text(
+        header,
+        style: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }

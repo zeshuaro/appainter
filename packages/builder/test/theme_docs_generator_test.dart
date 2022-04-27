@@ -44,10 +44,7 @@ void main() {
       outputs: outputs,
       rootPackage: 'builder_test',
     );
-
-    // Should make 1 GET call to fetch the main theme docs page, then 5 more
-    // GET calls to fetch the descriptions of the 5 properties
-    verify(() => client.get(any())).called(6);
+    verify(() => client.get(any())).called(1);
   });
 
   test('generates theme docs with extra properties', () async {
@@ -60,7 +57,7 @@ void main() {
       outputs: outputs,
       rootPackage: 'builder_test',
     );
-    verify(() => client.get(any())).called(7);
+    verify(() => client.get(any())).called(1);
   });
 
   test('calls to theme data docs for color theme', () async {
@@ -74,6 +71,11 @@ void main() {
     verify(
       () => client.get(
         'https://api.flutter.dev/flutter/material/ThemeData-class.html',
+      ),
+    ).called(1);
+    verify(
+      () => client.get(
+        'https://api.flutter.dev/flutter/material/ColorScheme-class.html',
       ),
     ).called(1);
 

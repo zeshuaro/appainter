@@ -96,13 +96,10 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
       final propElem = elems[0];
       final propDescElem = elems[1];
 
-      if (propElem.querySelector('a.deprecated') != null) {
-        continue;
-      }
-
-      final signatureElem = propElem.querySelector('span.signature')!;
-      final propType = signatureElem.querySelector('a')!.text;
-      if (!propertyTypes.contains(propType)) {
+      if (!_shouldProcessProperty(
+        element: propElem,
+        propertyTypes: propertyTypes,
+      )) {
         continue;
       }
 
@@ -130,6 +127,28 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
     }
 
     return propsMap;
+  }
+
+  bool _shouldProcessProperty({
+    required html_dom.Element element,
+    required Set<String> propertyTypes,
+  }) {
+    if (element.querySelector('a.deprecated') != null) {
+      return false;
+    }
+
+    final signatureElem = element.querySelector('span.signature')!;
+    final propType = signatureElem.querySelector('a')!.text;
+
+    final nestedSignatureElem = signatureElem.querySelector('span.signature');
+    final nestedPropType = nestedSignatureElem?.querySelector('a')?.text;
+
+    if ((nestedPropType == null && !propertyTypes.contains(propType)) ||
+        (nestedPropType != null && !propertyTypes.contains(nestedPropType))) {
+      return false;
+    }
+
+    return true;
   }
 
   Future<String?> _getPropertyDescription(

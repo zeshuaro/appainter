@@ -16,6 +16,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
   static const _baseUrl = 'https://api.flutter.dev/flutter';
   static const _propertyTypes = {
     'Color',
+    'int',
     'double',
     'bool',
     'IconThemeData',
@@ -104,7 +105,8 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
       }
 
       final propName = propElem.querySelector('span.name')!.text;
-      if (targetPropertyName != null && targetPropertyName != propName) {
+      if (propName == 'hashCode' ||
+          (targetPropertyName != null && targetPropertyName != propName)) {
         continue;
       }
 

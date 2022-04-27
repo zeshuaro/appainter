@@ -36,6 +36,7 @@ class _ThumbColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Thumb color',
+      tooltip: SwitchThemeDocs.thumbColor,
       items: [
         MaterialStateItem(
           key: const Key('switchThemeEditor_thumbColor_default'),
@@ -77,6 +78,7 @@ class _TrackColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Track color',
+      tooltip: SwitchThemeDocs.trackColor,
       items: [
         MaterialStateItem(
           key: const Key('switchThemeEditor_trackColor_default'),
@@ -118,6 +120,7 @@ class _OverlayColorPickers extends StatelessWidget {
 
     return MaterialStatesCard<Color>(
       header: 'Overlay color',
+      tooltip: SwitchThemeDocs.overlayColor,
       items: [
         MaterialStateItem(
           key: const Key('switchThemeEditor_overlayColor_pressed'),
@@ -167,6 +170,7 @@ class _MaterialTapTargetSizeDropdown extends StatelessWidget {
         return DropdownListTile(
           key: const Key('switchThemeEditor_materialTapTargetSizeDropdown'),
           title: 'Material tap target size',
+          tooltip: SwitchThemeDocs.materialTapTargetSize,
           value: UtilService.enumToString(size),
           values: UtilService.getEnumStrings(MaterialTapTargetSize.values),
           onChanged: (value) {
@@ -189,6 +193,7 @@ class _SplashRadiusTextField extends StatelessWidget {
         return MyTextFormField(
           key: const Key('switchThemeEditor_splashRadiusTextField'),
           labelText: 'Splash radius',
+          tooltip: SwitchThemeDocs.splashRadius,
           initialValue:
               (state.theme.splashRadius ?? kRadialReactionRadius).toString(),
           onChanged: (value) {

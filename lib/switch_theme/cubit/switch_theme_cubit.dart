@@ -1,4 +1,5 @@
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
@@ -9,6 +10,10 @@ import 'package:appainter/utils/utils.dart';
 part 'switch_theme_cubit.g.dart';
 part 'switch_theme_state.dart';
 
+@ThemeDocs(
+  apiClassName: 'SwitchThemeData',
+  extraPropertyTypes: {'MaterialTapTargetSize'},
+)
 class SwitchThemeCubit extends Cubit<SwitchThemeState> {
   final ColorThemeCubit colorThemeCubit;
 

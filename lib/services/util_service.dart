@@ -1,7 +1,7 @@
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:appainter/common/consts.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class UtilService {
   static Map<int, Color> getColorSwatch(Color color) {
@@ -47,6 +47,9 @@ class UtilService {
   }
 
   static Future<void> launchUrl(String url) async {
-    await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
+    final parsedUrl = Uri.parse(url);
+    await url_launcher.canLaunchUrl(parsedUrl)
+        ? await url_launcher.launchUrl(parsedUrl)
+        : throw 'Could not launch $url';
   }
 }

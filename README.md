@@ -5,7 +5,7 @@ A material theme editor and generator for Flutter to configure and preview the o
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/zeshuaro/appainter?color=orange&label=version)](https://github.com/zeshuaro/appainter/releases)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fzeshuaro.github.io%2Fappainter%2F)](https://zeshuaro.github.io/appainter/)
 [![GitHub license](https://img.shields.io/github/license/zeshuaro/appainter)](https://github.com/zeshuaro/appainter/blob/main/LICENSE)
-[![GitHub Actions](https://github.com/zeshuaro/appainter/actions/workflows/github_actions.yml/badge.svg)](https://github.com/zeshuaro/appainter/actions/workflows/github_actions.yml)
+[![GitHub Actions](https://github.com/zeshuaro/appainter/actions/workflows/github-actions.yml/badge.svg)](https://github.com/zeshuaro/appainter/actions/workflows/github-actions.yml)
 [![codecov](https://codecov.io/gh/zeshuaro/appainter/branch/main/graph/badge.svg?token=4YM0WZFH3I)](https://codecov.io/gh/zeshuaro/appainter)
 [![style: flutter_lints](https://img.shields.io/badge/style-flutter__lints-4BC0F5.svg)](https://pub.dev/packages/flutter_lints)
 

@@ -76,6 +76,7 @@ jobs:
         run: |
           flutter pub get
           flutter pub run build_runner build --delete-conflicting-outputs
+          flutter format --output=none --set-exit-if-changed .
           flutter analyze
 
   build-web-deploy:

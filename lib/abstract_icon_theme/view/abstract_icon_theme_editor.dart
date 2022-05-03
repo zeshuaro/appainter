@@ -4,16 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/common/consts.dart';
 import 'package:appainter/widgets/widgets.dart';
 
-class AbstractIconThemeEditor<T extends AbstractIconThemeCubit>
+abstract class AbstractIconThemeEditor<T extends AbstractIconThemeCubit>
     extends ExpansionPanelItem {
-  final String? keyPrefix;
-  final Color? fallbackColor;
+  const AbstractIconThemeEditor({Key? key}) : super(key: key);
 
-  const AbstractIconThemeEditor({Key? key, this.keyPrefix, this.fallbackColor})
-      : super(key: key);
+  String? get keyPrefix;
 
-  @override
-  String get header => throw UnimplementedError();
+  Color? fallbackColor(BuildContext context);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +19,7 @@ class AbstractIconThemeEditor<T extends AbstractIconThemeCubit>
         final cubit = context.read<T>();
         return IconThemeCard(
           keyPrefix: keyPrefix,
-          color: state.theme.color ?? fallbackColor ?? kIconThemeColor,
+          color: state.theme.color ?? fallbackColor(context) ?? kIconThemeColor,
           onColorChanged: cubit.colorChanged,
           size: state.theme.size ?? kIconThemeSize,
           onSizeChanged: cubit.sizeChanged,

@@ -11,5 +11,11 @@ class TestIconThemeEditor extends AbstractIconThemeEditor<TestIconThemeCubit> {
   const TestIconThemeEditor({Key? key}) : super(key: key);
 
   @override
+  String? get keyPrefix => null;
+
+  @override
   String get header => 'Test';
+
+  @override
+  Color? fallbackColor(BuildContext context) => null;
 }

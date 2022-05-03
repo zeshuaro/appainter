@@ -238,8 +238,12 @@ class _SystemUiOverlayStyleDropdown extends StatelessWidget {
 }
 
 @visibleForTesting
-class ActionsIconThemeCard extends ExpansionPanelItem {
+class ActionsIconThemeCard
+    extends AbstractIconThemeEditor<AppBarActionsIconThemeCubit> {
   const ActionsIconThemeCard({Key? key}) : super(key: key);
+
+  @override
+  String get keyPrefix => 'appBarThemeEditor_actionsIconThemeCard';
 
   @override
   String get header => 'Actions icon theme';
@@ -248,22 +252,17 @@ class ActionsIconThemeCard extends ExpansionPanelItem {
   String? get tooltip => AppBarThemeDocs.actionsIconTheme;
 
   @override
-  Widget build(BuildContext context) {
-    final foregroundColor =
-        context.watch<AppBarThemeCubit>().state.theme.foregroundColor;
-    final onPrimaryColor =
-        context.watch<ColorThemeCubit>().state.colorScheme.onPrimary;
-
-    return AbstractIconThemeEditor<AppBarActionsIconThemeCubit>(
-      keyPrefix: 'appBarThemeEditor_actionsIconThemeCard',
-      fallbackColor: foregroundColor ?? onPrimaryColor,
-    );
+  Color? fallbackColor(BuildContext context) {
+    return _iconThemeColorFallback(context);
   }
 }
 
 @visibleForTesting
-class IconThemeCard extends ExpansionPanelItem {
+class IconThemeCard extends AbstractIconThemeEditor<AppBarIconThemeCubit> {
   const IconThemeCard({Key? key}) : super(key: key);
+
+  @override
+  String get keyPrefix => 'appBarThemeEditor_iconThemeCard';
 
   @override
   String get header => 'Icon theme';
@@ -272,16 +271,8 @@ class IconThemeCard extends ExpansionPanelItem {
   String? get tooltip => AppBarThemeDocs.iconTheme;
 
   @override
-  Widget build(BuildContext context) {
-    final foregroundColor =
-        context.watch<AppBarThemeCubit>().state.theme.foregroundColor;
-    final onPrimaryColor =
-        context.watch<ColorThemeCubit>().state.colorScheme.onPrimary;
-
-    return AbstractIconThemeEditor<AppBarIconThemeCubit>(
-      keyPrefix: 'appBarThemeEditor_iconThemeCard',
-      fallbackColor: foregroundColor ?? onPrimaryColor,
-    );
+  Color? fallbackColor(BuildContext context) {
+    return _iconThemeColorFallback(context);
   }
 }
 
@@ -307,4 +298,12 @@ class ToolbarTextStyleCard
 
   @override
   String? get tooltip => AppBarThemeDocs.toolbarTextStyle;
+}
+
+Color? _iconThemeColorFallback(BuildContext context) {
+  final foregroundColor =
+      context.watch<AppBarThemeCubit>().state.theme.foregroundColor;
+  final onPrimaryColor =
+      context.watch<ColorThemeCubit>().state.colorScheme.onPrimary;
+  return foregroundColor ?? onPrimaryColor;
 }

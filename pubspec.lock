@@ -573,7 +573,7 @@ packages:
       name: mime
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   mocktail:
     dependency: "direct dev"
     description:
@@ -727,7 +727,7 @@ packages:
       name: quiver
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.1+1"
+    version: "3.1.0"
   random_color_scheme:
     dependency: "direct main"
     description:

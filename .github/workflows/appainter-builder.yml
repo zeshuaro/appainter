@@ -34,7 +34,7 @@ jobs:
         run: |
           dart pub get
           dart test --coverage=./coverage
-          dart run coverage:format_coverage --packages=.packages --report-on=lib --lcov -o ./coverage/lcov.info -i ./coverage/
+          dart run coverage:format_coverage --report-on=lib --lcov -o ./coverage/lcov.info -i ./coverage/
 
       - name: Upload coverage report 📡
         uses: codecov/codecov-action@v3.1.0

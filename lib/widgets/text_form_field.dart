@@ -9,6 +9,7 @@ class MyTextFormField extends StatelessWidget {
   final bool? enabled;
   final TextEditingController? controller;
   final String? tooltip;
+  final bool allowNegative;
 
   const MyTextFormField({
     Key? key,
@@ -18,10 +19,12 @@ class MyTextFormField extends StatelessWidget {
     this.enabled,
     this.controller,
     this.tooltip,
+    this.allowNegative = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final regex = allowNegative ? r'[\d/./-]' : r'[\d/.]';
     return MyTooltip(
       tooltip: tooltip,
       child: TextFormField(
@@ -30,7 +33,7 @@ class MyTextFormField extends StatelessWidget {
         initialValue: initialValue,
         keyboardType: const TextInputType.numberWithOptions(decimal: true),
         inputFormatters: [
-          FilteringTextInputFormatter.allow(RegExp('[0-9.]')),
+          FilteringTextInputFormatter.allow(RegExp(regex)),
         ],
         decoration: InputDecoration(
           filled: true,

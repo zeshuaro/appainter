@@ -130,34 +130,51 @@ void main() {
     }
   });
 
-  testWidgets('updates letter spacing', (tester) async {
-    final state = TextStyleState(
-      style: style.copyWith(letterSpacing: doubleNum),
-    );
+  group('tests letter spacing', () {
+    for (var multiplier in [1, -1]) {
+      testWidgets(
+        'updates to value with multiplier $multiplier',
+        (tester) async {
+          final value = doubleNum * multiplier;
+          final state = TextStyleState(
+            style: style.copyWith(letterSpacing: value),
+          );
 
-    await _pumpApp(tester, state);
+          await _pumpApp(tester, state);
 
-    await widgetTesters.checkTextField(
-      tester,
-      'letterSpacingTextField',
-      doubleNum,
-    );
-    verify(
-      () => cubit.letterSpacingChanged(doubleStr),
-    ).called(1);
+          await widgetTesters.checkTextField(
+            tester,
+            'letterSpacingTextField',
+            value,
+          );
+          verify(
+            () => cubit.letterSpacingChanged(value.toString()),
+          ).called(1);
+        },
+      );
+    }
   });
 
-  testWidgets('updates word spacing', (tester) async {
-    final state = TextStyleState(style: style.copyWith(wordSpacing: doubleNum));
+  group('tests word spacing', () {
+    for (var multiplier in [1, -1]) {
+      testWidgets(
+        'updates to value with multiplier $multiplier',
+        (tester) async {
+          final value = doubleNum * multiplier;
+          final state =
+              TextStyleState(style: style.copyWith(wordSpacing: value));
 
-    await _pumpApp(tester, state);
+          await _pumpApp(tester, state);
 
-    await widgetTesters.checkTextField(
-      tester,
-      'wordSpacingTextField',
-      doubleNum,
-    );
-    verify(() => cubit.wordSpacingChanged(doubleStr)).called(1);
+          await widgetTesters.checkTextField(
+            tester,
+            'wordSpacingTextField',
+            value,
+          );
+          verify(() => cubit.wordSpacingChanged(value.toString())).called(1);
+        },
+      );
+    }
   });
 
   group('tests text baseline', () {

@@ -82,7 +82,7 @@ abstract class AbstractTextStyleEditor<T extends AbstractTextStyleCubit>
               onChanged: cubit.textBaselineChanged,
             ),
             DropdownListTile(
-              key: const Key('leadingDistributicubit.dropdown'),
+              key: const Key('leadingDistributionDropdown'),
               title: 'Leading distribution',
               value: UtilService.enumToString(
                 style.leadingDistribution ??
@@ -94,7 +94,7 @@ abstract class AbstractTextStyleEditor<T extends AbstractTextStyleCubit>
               onChanged: cubit.leadingDistributionChanged,
             ),
             DropdownListTile(
-              key: const Key('decoraticubit.dropdown'),
+              key: const Key('decorationDropdown'),
               title: 'Decoration',
               value: MyTextDecoration().convertToString(style.decoration!)!,
               values: MyTextDecoration().names,

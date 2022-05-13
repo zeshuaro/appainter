@@ -95,12 +95,14 @@ class TextStyleCard extends StatelessWidget {
           labelText: 'Letter spacing',
           onChanged: onLetterSpacingChanged,
           initialValue: style.letterSpacing?.toString(),
+          allowNegative: true,
         ),
         MyTextFormField(
           key: const Key('wordSpacingTextField'),
           labelText: 'Word spacing',
           onChanged: onWordSpacingChanged,
           initialValue: style.wordSpacing?.toString(),
+          allowNegative: true,
         ),
         DropdownListTile(
           key: const Key('textBaselineDropdown'),

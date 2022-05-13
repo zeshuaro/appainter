@@ -20,10 +20,6 @@ const kFloatingActionBtnFocusElevation = 8.0;
 const kFloatingActionBtnHighlightElevation = 12.0;
 const kFloatingActionBtnHoverElevation = 8.0;
 
-const kIconThemeColor = Colors.black;
-const kIconThemeSize = 24.0;
-const kIconThemeOpacity = 1.0;
-
 const kTextStyleHeight = 1.0;
 const kTextStyleWordSpacing = 0.0;
 const kTextStyleLetterSpacing = 0.0;

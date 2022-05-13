@@ -1,7 +1,6 @@
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:appainter/common/common.dart';
 import 'package:appainter/widgets/widgets.dart';
 
 abstract class AbstractIconThemeEditor<T extends AbstractIconThemeCubit>

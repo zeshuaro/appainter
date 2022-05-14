@@ -23,8 +23,8 @@ const RESOURCES = {
 "assets/NOTICES": "1e28b631e5c60d97c8d0de23341004a3",
 "assets/FontManifest.json": "1b1e7812d9eb9f666db8444d7dde1b20",
 "assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
-"index.html": "82060bf963f24cc83a502c3e446b8ae1",
-"/": "82060bf963f24cc83a502c3e446b8ae1",
+"index.html": "3cb759bf8644b2afc17d95f10d4c1b62",
+"/": "3cb759bf8644b2afc17d95f10d4c1b62",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75"
 };
 

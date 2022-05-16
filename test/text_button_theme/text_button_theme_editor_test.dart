@@ -14,7 +14,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 Future<void> main() async {
-  final _widgetTesters = WidgetTesters(expandText: 'Text button');
+  final widgetTesters = WidgetTesters(expandText: 'Text button');
 
   late TextButtonThemeCubit textButtonThemeCubit;
   late ColorThemeCubit colorThemeCubit;
@@ -62,7 +62,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkColorPicker(
+      await widgetTesters.checkColorPicker(
         tester,
         'textButtonThemeEditor_backgroundColor_default',
         color,
@@ -81,7 +81,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'textButtonThemeEditor_foregroundColor_default',
           color,
@@ -99,7 +99,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'textButtonThemeEditor_foregroundColor_disabled',
           color,
@@ -119,7 +119,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'textButtonThemeEditor_overlayColor_hovered',
           color,
@@ -137,7 +137,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'textButtonThemeEditor_overlayColor_focused',
           color,
@@ -155,7 +155,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'textButtonThemeEditor_overlayColor_pressed',
           color,
@@ -174,7 +174,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkColorPicker(
+      await widgetTesters.checkColorPicker(
         tester,
         'textButtonThemeEditor_shadowColor_default',
         color,
@@ -192,7 +192,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkTextField(
+      await widgetTesters.checkTextField(
         tester,
         'textButtonThemeEditor_elevationTextField_default',
         doubleValue,

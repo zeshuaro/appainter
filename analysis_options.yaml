@@ -4,3 +4,4 @@ analyzer:
   exclude:
     - example/
     - packages/
+    - "**/*.g.dart"

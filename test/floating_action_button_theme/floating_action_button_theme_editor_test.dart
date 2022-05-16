@@ -14,7 +14,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 Future<void> main() async {
-  final _widgetTesters = WidgetTesters(expandText: 'Floating action button');
+  final widgetTesters = WidgetTesters(expandText: 'Floating action button');
 
   late FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
   late ColorThemeCubit colorThemeCubit;
@@ -66,7 +66,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkColorPicker(
+      await widgetTesters.checkColorPicker(
         tester,
         'floatingActionButtonThemeEditor_backgroundColorPicker',
         color,
@@ -86,7 +86,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkColorPicker(
+      await widgetTesters.checkColorPicker(
         tester,
         'floatingActionButtonThemeEditor_foregroundColorPicker',
         color,
@@ -106,7 +106,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkColorPicker(
+      await widgetTesters.checkColorPicker(
         tester,
         'floatingActionButtonThemeEditor_focusColorPicker',
         color,
@@ -126,7 +126,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkColorPicker(
+      await widgetTesters.checkColorPicker(
         tester,
         'floatingActionButtonThemeEditor_hoverColorPicker',
         color,
@@ -146,7 +146,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkColorPicker(
+      await widgetTesters.checkColorPicker(
         tester,
         'floatingActionButtonThemeEditor_splashColorPicker',
         color,
@@ -166,7 +166,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkTextField(
+      await widgetTesters.checkTextField(
         tester,
         'floatingActionButtonThemeEditor_elevationTextField',
         doubleValue,
@@ -186,7 +186,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkTextField(
+      await widgetTesters.checkTextField(
         tester,
         'floatingActionButtonThemeEditor_disabledElevationTextField',
         doubleValue,
@@ -208,7 +208,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkTextField(
+      await widgetTesters.checkTextField(
         tester,
         'floatingActionButtonThemeEditor_focusElevationTextField',
         doubleValue,
@@ -230,7 +230,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkTextField(
+      await widgetTesters.checkTextField(
         tester,
         'floatingActionButtonThemeEditor_highlightElevationTextField',
         doubleValue,
@@ -252,7 +252,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkTextField(
+      await widgetTesters.checkTextField(
         tester,
         'floatingActionButtonThemeEditor_hoverElevationTextField',
         doubleValue,

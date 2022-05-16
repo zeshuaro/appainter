@@ -12,10 +12,10 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   static const _sdkVersion = '3.0.0';
   static final _backgroundColorDark = Colors.grey[900]!;
   static final _backgroundColorLight = Colors.grey[200]!;

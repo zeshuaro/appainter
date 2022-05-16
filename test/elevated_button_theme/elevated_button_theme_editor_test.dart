@@ -14,7 +14,7 @@ import '../utils.dart';
 import '../widget_testers.dart';
 
 Future<void> main() async {
-  final _widgetTesters = WidgetTesters(expandText: 'Elevated button');
+  final widgetTesters = WidgetTesters(expandText: 'Elevated button');
 
   late ElevatedButtonThemeCubit elevatedButtonThemeCubit;
   late ColorThemeCubit colorThemeCubit;
@@ -68,7 +68,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'elevatedButtonThemeEditor_backgroundColor_default',
           color,
@@ -88,7 +88,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'elevatedButtonThemeEditor_backgroundColor_disabled',
           color,
@@ -110,7 +110,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'elevatedButtonThemeEditor_foregroundColor_default',
           color,
@@ -130,7 +130,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'elevatedButtonThemeEditor_foregroundColor_disabled',
           color,
@@ -152,7 +152,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'elevatedButtonThemeEditor_overlayColor_hovered',
           color,
@@ -172,7 +172,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'elevatedButtonThemeEditor_overlayColor_focused',
           color,
@@ -192,7 +192,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkColorPicker(
+        await widgetTesters.checkColorPicker(
           tester,
           'elevatedButtonThemeEditor_overlayColor_pressed',
           color,
@@ -213,7 +213,7 @@ Future<void> main() async {
 
       await _pumpApp(tester, state);
 
-      await _widgetTesters.checkColorPicker(
+      await widgetTesters.checkColorPicker(
         tester,
         'elevatedButtonThemeEditor_shadowColor_default',
         color,
@@ -232,7 +232,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkTextField(
+        await widgetTesters.checkTextField(
           tester,
           'elevatedButtonThemeEditor_elevationTextField_default',
           doubleValue,
@@ -252,7 +252,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkTextField(
+        await widgetTesters.checkTextField(
           tester,
           'elevatedButtonThemeEditor_elevationTextField_disabled',
           doubleValue,
@@ -272,7 +272,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkTextField(
+        await widgetTesters.checkTextField(
           tester,
           'elevatedButtonThemeEditor_elevationTextField_hovered',
           doubleValue,
@@ -292,7 +292,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkTextField(
+        await widgetTesters.checkTextField(
           tester,
           'elevatedButtonThemeEditor_elevationTextField_focused',
           doubleValue,
@@ -312,7 +312,7 @@ Future<void> main() async {
 
         await _pumpApp(tester, state);
 
-        await _widgetTesters.checkTextField(
+        await widgetTesters.checkTextField(
           tester,
           'elevatedButtonThemeEditor_elevationTextField_pressed',
           doubleValue,

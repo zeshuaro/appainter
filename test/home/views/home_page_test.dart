@@ -14,8 +14,7 @@ import '../../pump_app.dart';
 
 void main() {
   final TestWidgetsFlutterBinding binding =
-      TestWidgetsFlutterBinding.ensureInitialized()
-          as TestWidgetsFlutterBinding;
+      TestWidgetsFlutterBinding.ensureInitialized();
 
   late HomeRepository homeRepo;
   late HomeCubit homeCubit;

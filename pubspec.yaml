@@ -26,7 +26,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.0.0
   flutter_markdown: ^0.6.2
-  google_fonts: ^2.2.0
+  google_fonts: ^3.0.0
   intl: ^0.17.0
   json_theme: ^4.0.0
   material_color_utilities: ^0.1.3

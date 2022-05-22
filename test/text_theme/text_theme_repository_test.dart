@@ -1,10 +1,14 @@
 import 'package:appainter/text_theme/text_theme.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  final expectedStyle = GoogleFonts.getFont('ABeeZee');
+  TestWidgetsFlutterBinding.ensureInitialized();
+  late TextStyle expectedStyle;
   late TextThemeRepository repo;
+
+  setUpAll(() => expectedStyle = GoogleFonts.getFont('ABeeZee'));
 
   setUp(() {
     repo = TextThemeRepository();

@@ -4965,7 +4965,6 @@ SOFTWARE.
 
 --------------------------------------------------------------------------------
 charcode
-http_parser
 pool
 shelf_web_socket
 source_maps
@@ -5959,6 +5958,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 dart_style
 glob
 http
+http_parser
 matcher
 path
 pub_semver

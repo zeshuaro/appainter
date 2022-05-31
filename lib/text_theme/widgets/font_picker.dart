@@ -29,8 +29,10 @@ class FontPicker extends StatelessWidget {
           );
         },
       ),
+      dropdownDecoratorProps: const DropDownDecoratorProps(
+        dropdownSearchDecoration: InputDecoration(labelText: 'Font family'),
+      ),
       selectedItem: FontData.defaultFontData(),
-      dropdownSearchDecoration: const InputDecoration(labelText: 'Font family'),
       itemAsString: (item) => item.family,
       asyncItems: (query) => _onFind(context, query),
       onChanged: (data) => _onChanged(context, data),

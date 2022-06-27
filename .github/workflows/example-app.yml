@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-pub-
 
       - name: Cache build 💾
-        uses: mikehardy/buildcache-action@v1.2.2
+        uses: mikehardy/buildcache-action@v1.3.0
         with:
           cache_key: ${{ runner.os }}-build-example
 

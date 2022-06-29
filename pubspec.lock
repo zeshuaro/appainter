@@ -482,21 +482,21 @@ packages:
       name: json_class
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.2+6"
+    version: "2.1.2+7"
   json_schema2:
     dependency: transitive
     description:
       name: json_schema2
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2+3"
+    version: "2.0.2+4"
   json_theme:
     dependency: "direct main"
     description:
       name: json_theme
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0+3"
+    version: "4.0.0+4"
   klizma:
     dependency: transitive
     description:
@@ -622,7 +622,7 @@ packages:
       name: path_provider_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.15"
+    version: "2.0.16"
   path_provider_ios:
     dependency: transitive
     description:
@@ -741,7 +741,7 @@ packages:
       name: rest_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.4+3"
+    version: "2.1.4+4"
   rfc_6901:
     dependency: transitive
     description:
@@ -970,7 +970,7 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.1.3"
+    version: "6.1.4"
   url_launcher_android:
     dependency: transitive
     description:
@@ -1105,7 +1105,7 @@ packages:
       name: yaon
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1+1"
+    version: "1.0.1+2"
 sdks:
   dart: ">=2.17.0 <3.0.0"
   flutter: ">=3.0.0"

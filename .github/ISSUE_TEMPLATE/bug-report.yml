@@ -45,7 +45,7 @@ body:
     id: expected-behaviour
     attributes:
       label: Expected behaviour
-      description: Tell us what should happen
+      description: Tell us what should happen.
     validations:
       required: true
 
@@ -53,9 +53,15 @@ body:
     id: actual-behaviour
     attributes:
       label: Actual behaviour
-      description: Tell us what happens instead
+      description: Tell us what happens instead.
     validations:
       required: true
+
+  - type: textarea
+    id: flutter-doctor
+    attributes:
+      label: Flutter doctor output
+      description: Please include the output of `flutter doctor -v` if you are having issues with your app while using the generated theme.
 
   - type: textarea
     id: additional-context

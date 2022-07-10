@@ -1,3 +1,4 @@
+import 'package:appainter/analytics/analytics.dart';
 import 'package:appainter/authentication/authentication.dart';
 import 'package:appainter/firebase_options.dart';
 import 'package:appainter/home/home.dart';
@@ -29,8 +30,10 @@ void main() {
         await Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
         );
-        final authRepo = AuthenticationRepository();
+        final analyticsRepo = AnalyticsRepository();
+        final authRepo = AuthenticationRepository(analyticsRepo: analyticsRepo);
         await authRepo.user.first;
+        analyticsRepo.logAppOpen();
       }
 
       runApp(MyApp(

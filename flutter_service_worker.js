@@ -7,8 +7,8 @@ const RESOURCES = {
 "canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
 "canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
 "canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba",
-"index.html": "7fae439b8ae5f800fe7d611261113c78",
-"/": "7fae439b8ae5f800fe7d611261113c78",
+"index.html": "876b71fde695fd882476986749429a0c",
+"/": "876b71fde695fd882476986749429a0c",
 "flutter.js": "eb2682e33f25cd8f1fc59011497c35f8",
 "icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
 "icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292ee3e2bf9",
@@ -25,8 +25,8 @@ const RESOURCES = {
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "b62641afc9ab487008e996a5c5865e56",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"assets/NOTICES": "5ca4bd3b986a011d4ae500fa562e313c",
-"main.dart.js": "7a809bc29225b7e9cb3c7c7305b0d8d5"
+"assets/NOTICES": "58350c3fe2a367d44e9012f06cc37a3f",
+"main.dart.js": "ffef48983179d00478c5b9e96edb9cee"
 };
 
 // The application shell files that are downloaded before a service worker can

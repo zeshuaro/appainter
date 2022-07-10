@@ -1,3 +1,4 @@
+import 'package:appainter/analytics/analytics_repository.dart';
 import 'package:appainter/authentication/authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,8 +10,11 @@ class MockUser extends Mock implements User {}
 
 class MockUserCredential extends Mock implements UserCredential {}
 
+class MockAnalyticsRepository extends Mock implements AnalyticsRepository {}
+
 void main() {
-  late AuthenticationRepository repo;
+  late AuthenticationRepository authRepo;
+  late AnalyticsRepository analyticsRepo;
   late FirebaseAuth firebaseAuth;
   late User user;
   late UserCredential credential;
@@ -19,18 +23,26 @@ void main() {
     firebaseAuth = MockFirebaseAuth();
     user = MockUser();
     credential = MockUserCredential();
+    analyticsRepo = MockAnalyticsRepository();
 
-    repo = AuthenticationRepository(
+    authRepo = AuthenticationRepository(
       firebaseAuth: firebaseAuth,
+      analyticsRepo: analyticsRepo,
     );
   });
 
   test('emits signed in user', () async {
+    const userId = 'userId';
+    when(() => user.uid).thenReturn(userId);
     when(() => firebaseAuth.authStateChanges()).thenAnswer(
       (_) => Stream.value(user),
     );
-    await expectLater(repo.user, emits(user));
+
+    await expectLater(authRepo.user, emits(user));
+
+    verify(() => analyticsRepo.setUserId(userId)).called(1);
     verifyNever(() => firebaseAuth.signInAnonymously());
+    verifyNever(() => analyticsRepo.logSignIn());
   });
 
   test('emits newly signed in user', () async {
@@ -42,7 +54,8 @@ void main() {
       (_) => Future.value(credential),
     );
 
-    await expectLater(repo.user, emits(user));
+    await expectLater(authRepo.user, emits(user));
     verify(() => firebaseAuth.signInAnonymously()).called(1);
+    verify(() => analyticsRepo.logSignIn()).called(1);
   });
 }

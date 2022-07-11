@@ -20,22 +20,27 @@ class AnalyticsRepository {
     _logEvent(
       name: 'change_edit_mode',
       parameters: {
-        'edit_mode': editMode.name,
+        'mode': editMode.name,
       },
     );
   }
 
   void logImportTheme(AnalyticsAction action) {
-    _logEventWithAction(
+    _logEvent(
       name: 'import_theme',
-      action: action,
+      parameters: {
+        'action': action.name,
+      },
     );
   }
 
-  void logExportTheme(AnalyticsAction action) {
-    _logEventWithAction(
+  void logExportTheme(AnalyticsAction action, EditMode editMode) {
+    _logEvent(
       name: 'export_theme',
-      action: action,
+      parameters: {
+        'action': action.name,
+        'mode': editMode.name,
+      },
     );
   }
 
@@ -46,18 +51,6 @@ class AnalyticsRepository {
     _firebaseAnalytics.logEvent(
       name: name,
       parameters: parameters,
-    );
-  }
-
-  void _logEventWithAction({
-    required String name,
-    required AnalyticsAction action,
-  }) {
-    _logEvent(
-      name: name,
-      parameters: {
-        'action': action.name,
-      },
     );
   }
 }

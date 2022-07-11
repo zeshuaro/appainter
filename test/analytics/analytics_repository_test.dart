@@ -50,7 +50,7 @@ void main() {
       verify(
         () => firebaseAnalytics.logEvent(
           name: 'change_edit_mode',
-          parameters: {'edit_mode': mode.name},
+          parameters: {'mode': mode.name},
         ),
       ).called(1);
     });
@@ -66,15 +66,19 @@ void main() {
         ),
       ).called(1);
     });
+  }
 
-    test('logs export theme $action', () {
-      repo.logExportTheme(action);
-      verify(
-        () => firebaseAnalytics.logEvent(
-          name: 'export_theme',
-          parameters: {'action': action.name},
-        ),
-      ).called(1);
-    });
+  for (var action in AnalyticsAction.values) {
+    for (var mode in EditMode.values) {
+      test('logs export theme $action for $mode', () {
+        repo.logExportTheme(action, mode);
+        verify(
+          () => firebaseAnalytics.logEvent(
+            name: 'export_theme',
+            parameters: {'action': action.name, 'mode': mode.name},
+          ),
+        ).called(1);
+      });
+    }
   }
 }

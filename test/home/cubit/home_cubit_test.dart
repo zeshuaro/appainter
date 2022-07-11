@@ -138,18 +138,27 @@ void main() {
         ),
         build: () => homeCubit,
         act: (cubit) => cubit.themeExported(themeData),
-        verify: (bloc) {
+        verify: (cubit) {
           verify(() => homeRepo.exportTheme(themeData)).called(1);
           verify(
-            () => analyticsRepo.logExportTheme(AnalyticsAction.start),
+            () => analyticsRepo.logExportTheme(
+              AnalyticsAction.start,
+              cubit.state.editMode,
+            ),
           ).called(1);
           if (exportResult) {
             verify(
-              () => analyticsRepo.logExportTheme(AnalyticsAction.complete),
+              () => analyticsRepo.logExportTheme(
+                AnalyticsAction.complete,
+                cubit.state.editMode,
+              ),
             ).called(1);
           } else {
             verify(
-              () => analyticsRepo.logExportTheme(AnalyticsAction.incomplete),
+              () => analyticsRepo.logExportTheme(
+                AnalyticsAction.incomplete,
+                cubit.state.editMode,
+              ),
             ).called(1);
           }
         },

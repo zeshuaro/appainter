@@ -20,7 +20,7 @@ class AnalyticsRepository {
     _logEvent(
       name: 'change_edit_mode',
       parameters: {
-        'edit_mode': editMode.name,
+        'mode': editMode.name,
       },
     );
   }
@@ -30,6 +30,16 @@ class AnalyticsRepository {
       name: 'import_theme',
       parameters: {
         'action': action.name,
+      },
+    );
+  }
+
+  void logExportTheme(AnalyticsAction action, EditMode editMode) {
+    _logEvent(
+      name: 'export_theme',
+      parameters: {
+        'action': action.name,
+        'mode': editMode.name,
       },
     );
   }

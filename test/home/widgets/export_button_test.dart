@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/basic_theme/cubit/basic_theme_cubit.dart';
 import 'package:appainter/home/home.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mocks.dart';
@@ -27,10 +27,10 @@ void main() {
     advancedThemeCubit = MockAdvancedThemeCubit();
 
     when(() => homeCubit.themeExported(any())).thenAnswer(
-      (invocation) => Future.value(),
+      (_) => Future.value(),
     );
     when(() => homeRepo.exportTheme(any())).thenAnswer(
-      (invocation) => Future.value(),
+      (_) => Future.value(true),
     );
   });
 

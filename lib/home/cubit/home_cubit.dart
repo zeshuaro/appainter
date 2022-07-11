@@ -1,23 +1,34 @@
+import 'package:appainter/advanced_theme/advanced_theme.dart';
+import 'package:appainter/analytics/analytics.dart';
+import 'package:appainter/home/home.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/advanced_theme/advanced_theme.dart';
-import 'package:appainter/home/home.dart';
 
 part 'home_cubit.g.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  final HomeRepository repo;
+  final HomeRepository homeRepo;
+  final AnalyticsRepository analyticsRepo;
   final AdvancedThemeCubit advancedThemeCubit;
 
-  HomeCubit(this.repo, this.advancedThemeCubit) : super(const HomeState());
+  HomeCubit({
+    required this.homeRepo,
+    required this.advancedThemeCubit,
+    required this.analyticsRepo,
+  }) : super(const HomeState());
 
-  void editModeChanged(EditMode mode) => emit(state.copyWith(editMode: mode));
+  void editModeChanged(EditMode mode) {
+    if (mode != state.editMode) {
+      emit(state.copyWith(editMode: mode));
+      analyticsRepo.logChangeEditMode(mode);
+    }
+  }
 
   Future<void> themeUsageFetched() async {
-    final thtmeUsage = await repo.fetchThemeUsage();
+    final thtmeUsage = await homeRepo.fetchThemeUsage();
     emit(state.copyWith(themeUsage: thtmeUsage));
   }
 
@@ -25,7 +36,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> themeImported() async {
     emit(state.copyWith(isImportingTheme: true));
-    final theme = await repo.importTheme();
+    final theme = await homeRepo.importTheme();
     emit(state.copyWith(isImportingTheme: false));
     if (theme != null) {
       advancedThemeCubit.themeChanged(theme);
@@ -34,12 +45,12 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> themeExported(ThemeData theme) async {
-    await repo.exportTheme(theme);
+    await homeRepo.exportTheme(theme);
   }
 
   Future<void> themeModeFetched() async {
     late final ThemeMode mode;
-    final isDark = await repo.getIsDarkTheme();
+    final isDark = await homeRepo.getIsDarkTheme();
     if (isDark != null) {
       mode = getThemeMode(isDark);
     } else {
@@ -50,7 +61,7 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> themeModeChanged(bool isDark) async {
-    await repo.setIsDarkTheme(isDark);
+    await homeRepo.setIsDarkTheme(isDark);
     emit(state.copyWith(themeMode: getThemeMode(isDark)));
   }
 

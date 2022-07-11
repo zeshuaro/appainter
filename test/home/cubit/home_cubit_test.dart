@@ -1,14 +1,16 @@
+import 'package:appainter/advanced_theme/cubit/cubit.dart';
+import 'package:appainter/analytics/analytics.dart';
+import 'package:appainter/home/home.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/advanced_theme/cubit/cubit.dart';
-import 'package:appainter/home/home.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mocks.dart';
 
 void main() {
   late HomeRepository homeRepo;
+  late AnalyticsRepository analyticsRepo;
   late HomeCubit homeCubit;
   late AdvancedThemeCubit advancedThemeCubit;
   late ThemeUsage themeUsage;
@@ -16,26 +18,50 @@ void main() {
 
   setUpAll(() {
     registerFallbackValue(FakeThemeData());
+    registerFallbackValue(EditMode.basic);
   });
 
   setUp(() {
     homeRepo = MockHomeRepository();
+    analyticsRepo = MockAnalyticsRepository();
     advancedThemeCubit = MockAdvancedThemeCubit();
-    homeCubit = HomeCubit(homeRepo, advancedThemeCubit);
+    homeCubit = HomeCubit(
+      homeRepo: homeRepo,
+      advancedThemeCubit: advancedThemeCubit,
+      analyticsRepo: analyticsRepo,
+    );
     themeUsage = const ThemeUsage();
     themeData = ThemeData();
   });
 
-  group('test edit mode', () {
-    for (var mode in EditMode.values) {
-      blocTest<HomeCubit, HomeState>(
-        'should emit $mode',
-        build: () => homeCubit,
-        act: (cubit) => cubit.editModeChanged(mode),
-        expect: () => [HomeState(editMode: mode)],
-      );
-    }
-  });
+  blocTest<HomeCubit, HomeState>(
+    'does not emit basic edit mode from initial state',
+    build: () => homeCubit,
+    act: (cubit) => cubit.editModeChanged(EditMode.basic),
+    expect: () => [],
+    verify: (_) => verifyNever(() => analyticsRepo.logChangeEditMode(any())),
+  );
+
+  blocTest<HomeCubit, HomeState>(
+    'emits basic edit mode',
+    build: () => homeCubit,
+    seed: () => const HomeState(editMode: EditMode.advanced),
+    act: (cubit) => cubit.editModeChanged(EditMode.basic),
+    expect: () => [const HomeState(editMode: EditMode.basic)],
+    verify: (_) => verify(
+      () => analyticsRepo.logChangeEditMode(EditMode.basic),
+    ).called(1),
+  );
+
+  blocTest<HomeCubit, HomeState>(
+    'emits advanced edit mode',
+    build: () => homeCubit,
+    act: (cubit) => cubit.editModeChanged(EditMode.advanced),
+    expect: () => [const HomeState(editMode: EditMode.advanced)],
+    verify: (_) => verify(
+      () => analyticsRepo.logChangeEditMode(EditMode.advanced),
+    ).called(1),
+  );
 
   blocTest<HomeCubit, HomeState>(
     'should emit theme usage fetched',

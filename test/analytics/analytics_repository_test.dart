@@ -23,19 +23,19 @@ void main() {
     ).thenAnswer((_) async {});
   });
 
-  test('logs app open', () async {
+  test('logs app open', () {
     when(() => firebaseAnalytics.logAppOpen()).thenAnswer((_) async {});
     repo.logAppOpen();
     verify(() => firebaseAnalytics.logAppOpen()).called(1);
   });
 
-  test('logs sign in', () async {
+  test('logs sign in', () {
     when(() => firebaseAnalytics.logLogin()).thenAnswer((_) async {});
     repo.logSignIn();
     verify(() => firebaseAnalytics.logLogin()).called(1);
   });
 
-  test('sets user ID', () async {
+  test('sets user ID', () {
     const userId = 'userId';
     when(() => firebaseAnalytics.setUserId(id: userId)).thenAnswer(
       (_) async {},
@@ -45,12 +45,24 @@ void main() {
   });
 
   for (var mode in EditMode.values) {
-    test('logs change edit mode to $mode', () async {
+    test('logs change edit mode to $mode', () {
       repo.logChangeEditMode(mode);
       verify(
         () => firebaseAnalytics.logEvent(
           name: 'change_edit_mode',
-          parameters: {'edit_mode': mode.name.toLowerCase()},
+          parameters: {'edit_mode': mode.name},
+        ),
+      ).called(1);
+    });
+  }
+
+  for (var action in AnalyticsAction.values) {
+    test('logs import theme $action', () {
+      repo.logImportTheme(action);
+      verify(
+        () => firebaseAnalytics.logEvent(
+          name: 'import_theme',
+          parameters: {'action': action.name},
         ),
       ).called(1);
     });

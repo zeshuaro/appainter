@@ -1,6 +1,8 @@
 import 'package:appainter/home/home.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 
+enum AnalyticsAction { start, complete, incomplete }
+
 class AnalyticsRepository {
   AnalyticsRepository({FirebaseAnalytics? firebaseAnalytics})
       : _firebaseAnalytics = firebaseAnalytics ??
@@ -18,7 +20,16 @@ class AnalyticsRepository {
     _logEvent(
       name: 'change_edit_mode',
       parameters: {
-        'edit_mode': editMode.name.toLowerCase(),
+        'edit_mode': editMode.name,
+      },
+    );
+  }
+
+  void logImportTheme(AnalyticsAction action) {
+    _logEvent(
+      name: 'import_theme',
+      parameters: {
+        'action': action.name,
       },
     );
   }

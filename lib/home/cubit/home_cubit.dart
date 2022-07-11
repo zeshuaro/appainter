@@ -36,11 +36,17 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> themeImported() async {
     emit(state.copyWith(isImportingTheme: true));
+    analyticsRepo.logImportTheme(AnalyticsAction.start);
+
     final theme = await homeRepo.importTheme();
     emit(state.copyWith(isImportingTheme: false));
+
     if (theme != null) {
       advancedThemeCubit.themeChanged(theme);
       emit(state.copyWith(editMode: EditMode.advanced));
+      analyticsRepo.logImportTheme(AnalyticsAction.complete);
+    } else {
+      analyticsRepo.logImportTheme(AnalyticsAction.incomplete);
     }
   }
 

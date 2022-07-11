@@ -96,6 +96,12 @@ void main() {
       verify: (bloc) {
         verify(() => homeRepo.importTheme()).called(1);
         verify(() => advancedThemeCubit.themeChanged(themeData)).called(1);
+        verify(
+          () => analyticsRepo.logImportTheme(AnalyticsAction.start),
+        ).called(1);
+        verify(
+          () => analyticsRepo.logImportTheme(AnalyticsAction.complete),
+        ).called(1);
       },
     );
 
@@ -113,6 +119,12 @@ void main() {
       verify: (bloc) {
         verify(() => homeRepo.importTheme()).called(1);
         verifyNever(() => advancedThemeCubit.themeChanged(any()));
+        verify(
+          () => analyticsRepo.logImportTheme(AnalyticsAction.start),
+        ).called(1);
+        verify(
+          () => analyticsRepo.logImportTheme(AnalyticsAction.incomplete),
+        ).called(1);
       },
     );
   });

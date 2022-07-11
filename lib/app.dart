@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
+import 'package:appainter/analytics/analytics_repository.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
@@ -18,15 +17,19 @@ import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyApp extends StatelessWidget {
   final HomeRepository homeRepo;
   final TextThemeRepository textThemeRepo;
+  final AnalyticsRepository analyticsRepo;
 
   const MyApp({
     Key? key,
     required this.homeRepo,
     required this.textThemeRepo,
+    required this.analyticsRepo,
   }) : super(key: key);
 
   @override
@@ -126,7 +129,13 @@ class MyApp extends StatelessWidget {
       value: textThemeRepo,
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(create: (_) => HomeCubit(homeRepo, advancedThemeCubit)),
+          BlocProvider(
+            create: (_) => HomeCubit(
+              homeRepo: homeRepo,
+              analyticsRepo: analyticsRepo,
+              advancedThemeCubit: advancedThemeCubit,
+            ),
+          ),
           BlocProvider(create: (_) => BasicThemeCubit()),
           BlocProvider(create: (_) => advancedThemeCubit),
           BlocProvider(create: (_) => colorThemeCubit),

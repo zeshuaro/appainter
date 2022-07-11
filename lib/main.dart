@@ -19,6 +19,7 @@ void main() {
     () async {
       EquatableConfig.stringify = kDebugMode;
       WidgetsFlutterBinding.ensureInitialized();
+      late final AnalyticsRepository analyticsRepo;
 
       if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
         setWindowTitle("Appainter");
@@ -30,15 +31,18 @@ void main() {
         await Firebase.initializeApp(
           options: DefaultFirebaseOptions.currentPlatform,
         );
-        final analyticsRepo = AnalyticsRepository();
+        analyticsRepo = AnalyticsRepository();
         final authRepo = AuthenticationRepository(analyticsRepo: analyticsRepo);
         await authRepo.user.first;
         analyticsRepo.logAppOpen();
+      } else {
+        analyticsRepo = EmptyAnalyticsRepository();
       }
 
       runApp(MyApp(
         homeRepo: HomeRepository(),
         textThemeRepo: TextThemeRepository(),
+        analyticsRepo: analyticsRepo,
       ));
     },
     blocObserver: MyBlocObserver(),

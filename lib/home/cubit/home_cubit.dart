@@ -51,7 +51,11 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> themeExported(ThemeData theme) async {
-    await homeRepo.exportTheme(theme);
+    analyticsRepo.logExportTheme(AnalyticsAction.start);
+    final result = await homeRepo.exportTheme(theme);
+    final action =
+        result ? AnalyticsAction.complete : AnalyticsAction.incomplete;
+    analyticsRepo.logExportTheme(action);
   }
 
   Future<void> themeModeFetched() async {

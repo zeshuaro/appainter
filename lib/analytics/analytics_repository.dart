@@ -26,11 +26,16 @@ class AnalyticsRepository {
   }
 
   void logImportTheme(AnalyticsAction action) {
-    _logEvent(
+    _logEventWithAction(
       name: 'import_theme',
-      parameters: {
-        'action': action.name,
-      },
+      action: action,
+    );
+  }
+
+  void logExportTheme(AnalyticsAction action) {
+    _logEventWithAction(
+      name: 'export_theme',
+      action: action,
     );
   }
 
@@ -41,6 +46,18 @@ class AnalyticsRepository {
     _firebaseAnalytics.logEvent(
       name: name,
       parameters: parameters,
+    );
+  }
+
+  void _logEventWithAction({
+    required String name,
+    required AnalyticsAction action,
+  }) {
+    _logEvent(
+      name: name,
+      parameters: {
+        'action': action.name,
+      },
     );
   }
 }

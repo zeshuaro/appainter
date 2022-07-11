@@ -129,15 +129,33 @@ void main() {
     );
   });
 
-  blocTest<HomeCubit, HomeState>(
-    'should emit theme exported',
-    setUp: () => when(() => homeRepo.exportTheme(any())).thenAnswer(
-      (invocation) => Future.value(null),
-    ),
-    build: () => homeCubit,
-    act: (cubit) => cubit.themeExported(themeData),
-    verify: (bloc) => verify(() => homeRepo.exportTheme(themeData)).called(1),
-  );
+  group('exports theme', () {
+    for (var exportResult in [true, false]) {
+      blocTest<HomeCubit, HomeState>(
+        'emits exported result=$exportResult',
+        setUp: () => when(() => homeRepo.exportTheme(any())).thenAnswer(
+          (_) => Future.value(exportResult),
+        ),
+        build: () => homeCubit,
+        act: (cubit) => cubit.themeExported(themeData),
+        verify: (bloc) {
+          verify(() => homeRepo.exportTheme(themeData)).called(1);
+          verify(
+            () => analyticsRepo.logExportTheme(AnalyticsAction.start),
+          ).called(1);
+          if (exportResult) {
+            verify(
+              () => analyticsRepo.logExportTheme(AnalyticsAction.complete),
+            ).called(1);
+          } else {
+            verify(
+              () => analyticsRepo.logExportTheme(AnalyticsAction.incomplete),
+            ).called(1);
+          }
+        },
+      );
+    }
+  });
 
   group('test theme mode fetched', () {
     for (var isDark in [true, false]) {

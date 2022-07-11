@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import 'package:dio/dio.dart';
 import 'package:appainter/home/home.dart';
+import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -59,15 +59,16 @@ class HomeRepository {
     return theme;
   }
 
-  Future<void> exportTheme(ThemeData theme) async {
+  Future<bool> exportTheme(ThemeData theme) async {
     final themeJson = ThemeEncoder.encodeThemeData(theme);
     final themeStr = prettyJson(themeJson);
     final themeBytes = Uint8List.fromList(themeStr.codeUnits);
 
     if (kIsWeb) {
       _exportThemeOnWeb(themeBytes);
+      return true;
     } else {
-      _exportThemeOnDesktop(themeBytes);
+      return await _exportThemeOnDesktop(themeBytes);
     }
   }
 
@@ -95,7 +96,7 @@ class HomeRepository {
     html.Url.revokeObjectUrl(url);
   }
 
-  Future<void> _exportThemeOnDesktop(Uint8List bytes) async {
+  Future<bool> _exportThemeOnDesktop(Uint8List bytes) async {
     final path = await _filePicker.saveFile(
       dialogTitle: 'Please select an output file:',
       fileName: _exportFileName,
@@ -104,6 +105,9 @@ class HomeRepository {
     if (path != null) {
       final file = io.File(path);
       await file.writeAsBytes(bytes);
+      return true;
     }
+
+    return false;
   }
 }

@@ -1,28 +1,36 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 class MyBlocObserver extends BlocObserver {
   @override
   void onEvent(Bloc bloc, Object? event) {
-    debugPrint(event?.toString());
+    if (kDebugMode) {
+      print(event);
+    }
     super.onEvent(bloc, event);
   }
 
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
-    debugPrint(error.toString());
+    if (kDebugMode) {
+      print(error.toString());
+    }
     super.onError(bloc, error, stackTrace);
   }
 
   @override
   void onChange(BlocBase bloc, Change change) {
-    debugPrint(change.toString());
+    if (kDebugMode) {
+      print(change.toString());
+    }
     super.onChange(bloc, change);
   }
 
   @override
   void onTransition(Bloc bloc, Transition transition) {
-    debugPrint(transition.toString());
+    if (kDebugMode) {
+      print(transition.toString());
+    }
     super.onTransition(bloc, transition);
   }
 }

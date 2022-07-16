@@ -13,7 +13,7 @@ const RESOURCES = {
 "assets/AssetManifest.json": "ff1eee5d80fd025929453faeff3ab75e",
 "assets/FontManifest.json": "1b1e7812d9eb9f666db8444d7dde1b20",
 "assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
-"version.json": "de3e5096365ddb1da7b1ed08e6d012fc",
+"version.json": "30ee20509f296fbfcc4d953281232b2d",
 "flutter.js": "eb2682e33f25cd8f1fc59011497c35f8",
 "icons/android-chrome-192x192.png": "e03f23fd41872367b2ba387b50f87257",
 "icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
@@ -24,9 +24,9 @@ const RESOURCES = {
 "canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
 "canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
 "canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
-"index.html": "50c1244c62c1ce92ae34ad780147b811",
-"/": "50c1244c62c1ce92ae34ad780147b811",
-"main.dart.js": "31e1b1d8321d01ada35856bed0d86aff"
+"index.html": "1e73408154d3fc0c2eccad8302b94563",
+"/": "1e73408154d3fc0c2eccad8302b94563",
+"main.dart.js": "ba94d5f924aefc52f8d64872a46674fa"
 };
 
 // The application shell files that are downloaded before a service worker can

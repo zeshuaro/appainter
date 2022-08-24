@@ -24,6 +24,9 @@ jobs:
           cache: true
           cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
+      - name: Setup Cocoapods 💻
+        run: sudo gem install cocoapods
+
       - name: Cache Pub 💾
         uses: actions/cache@v3
         with:
@@ -35,7 +38,9 @@ jobs:
       - name: Update dependencies 🔼
         run: |
           flutter pub upgrade
-          cd example/ && flutter pub upgrade
+          flutter precache --macos
+          cd macos && pod update
+          cd ../example/ && flutter pub upgrade
 
       - name: Create pull request 🆕
         uses: peter-evans/create-pull-request@v4.1.1
@@ -43,6 +48,5 @@ jobs:
           branch: "chore/update-deps"
           commit-message: "chore(deps): update dependencies"
           title: "chore(deps): update dependencies"
-          body: "- [ ] Update `Podfile.lock`"
           labels: dependencies
           token: ${{ secrets.PAT }}

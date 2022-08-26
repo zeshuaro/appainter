@@ -19,7 +19,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.6.1
+        uses: subosito/flutter-action@v2.6.2
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
@@ -58,7 +58,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.6.1
+        uses: subosito/flutter-action@v2.6.2
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
@@ -93,7 +93,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.6.1
+        uses: subosito/flutter-action@v2.6.2
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true

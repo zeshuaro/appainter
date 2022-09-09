@@ -1,13 +1,13 @@
 import 'dart:math';
 
-import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/util_service.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -34,7 +34,7 @@ void main() {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> _pumpApp(
+  Future<void> pumpApp(
     WidgetTester tester,
     BottomNavigationBarThemeState state,
   ) async {
@@ -65,7 +65,7 @@ void main() {
         theme: BottomNavigationBarThemeData(backgroundColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -85,7 +85,7 @@ void main() {
         theme: BottomNavigationBarThemeData(selectedItemColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -105,7 +105,7 @@ void main() {
         theme: BottomNavigationBarThemeData(unselectedItemColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -127,7 +127,7 @@ void main() {
             theme: BottomNavigationBarThemeData(showSelectedLabels: isShow),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkSwitch(
             tester,
@@ -151,7 +151,7 @@ void main() {
             theme: BottomNavigationBarThemeData(showUnselectedLabels: isShow),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkSwitch(
             tester,
@@ -173,7 +173,7 @@ void main() {
         theme: BottomNavigationBarThemeData(elevation: doubleValue),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,
@@ -197,7 +197,7 @@ void main() {
             theme: BottomNavigationBarThemeData(type: type),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkDropbox(
             tester,

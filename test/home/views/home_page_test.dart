@@ -1,12 +1,12 @@
+import 'package:appainter/advanced_theme/advanced_theme.dart';
+import 'package:appainter/basic_theme/basic_theme.dart';
+import 'package:appainter/home/home.dart';
+import 'package:appainter/theme_preview/theme_preview.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/advanced_theme/advanced_theme.dart';
-import 'package:appainter/basic_theme/basic_theme.dart';
-import 'package:appainter/home/home.dart';
-import 'package:appainter/theme_preview/theme_preview.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mocks.dart';
@@ -43,7 +43,7 @@ void main() {
     when(() => advancedThemeCubit.state).thenReturn(const AdvancedThemeState());
   });
 
-  Future<void> _pumpApp(WidgetTester tester) async {
+  Future<void> pumpApp(WidgetTester tester) async {
     await tester.pumpApp(
       const HomePage(),
       homeRepo: homeRepo,
@@ -54,7 +54,7 @@ void main() {
   }
 
   testWidgets('should display HomePage', (tester) async {
-    await _pumpApp(tester);
+    await pumpApp(tester);
 
     expect(find.byType(HomePage), findsOneWidget);
     expect(find.byType(BasicThemeEditor), findsOneWidget);
@@ -71,7 +71,7 @@ void main() {
 
           when(() => homeCubit.state).thenReturn(HomeState(editMode: mode));
 
-          await _pumpApp(tester);
+          await pumpApp(tester);
 
           final text = EnumToString.convertToString(mode, camelCase: true);
           final finder = find.byKey(Key('homePage_editModeTabBar_$text'));
@@ -97,7 +97,7 @@ void main() {
         (invocation) => Future.value(),
       );
 
-      await _pumpApp(tester);
+      await pumpApp(tester);
 
       final finder = find.byKey(const Key('homePage_importButton'));
       await tester.ensureVisible(finder);
@@ -116,7 +116,7 @@ void main() {
           const HomeState(themeUsage: ThemeUsage(usageData)),
         );
 
-        await _pumpApp(tester);
+        await pumpApp(tester);
 
         final finder = find.byKey(const Key('homePage_usageButton'));
         await tester.ensureVisible(finder);
@@ -139,7 +139,7 @@ void main() {
           const HomeState(themeUsage: ThemeUsage()),
         );
 
-        await _pumpApp(tester);
+        await pumpApp(tester);
 
         final finder = find.byKey(const Key('homePage_usageButton'));
         await tester.ensureVisible(finder);
@@ -157,7 +157,7 @@ void main() {
         when(() => homeCubit.state)
             .thenReturn(const HomeState(themeUsage: null));
 
-        await _pumpApp(tester);
+        await pumpApp(tester);
 
         final finder = find.byKey(const Key('homePage_usageButton'));
         await tester.ensureVisible(finder);
@@ -171,7 +171,7 @@ void main() {
     testWidgets(
       'should close usage dialog with close button',
       (tester) async {
-        await _pumpApp(tester);
+        await pumpApp(tester);
 
         final usageBtn = find.byKey(const Key('homePage_usageButton'));
         await tester.ensureVisible(usageBtn);
@@ -191,7 +191,7 @@ void main() {
   testWidgets(
     'should show github button',
     (tester) async {
-      await _pumpApp(tester);
+      await pumpApp(tester);
       expect(find.byKey(const Key('homePage_githubButton')), findsOneWidget);
     },
   );
@@ -205,7 +205,7 @@ void main() {
           Stream.fromIterable([const HomeState(isSdkShowed: false)]),
         );
 
-        await _pumpApp(tester);
+        await pumpApp(tester);
         await tester.pumpAndSettle(const Duration(seconds: 1));
 
         expect(find.byType(SnackBar), findsOneWidget);
@@ -221,7 +221,7 @@ void main() {
           Stream.fromIterable([const HomeState(isSdkShowed: true)]),
         );
 
-        await _pumpApp(tester);
+        await pumpApp(tester);
         await tester.pumpAndSettle(const Duration(seconds: 1));
 
         expect(find.byType(SnackBar), findsNothing);

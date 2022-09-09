@@ -34,7 +34,7 @@ void main() {
     );
   });
 
-  Future<void> _pumpApp(WidgetTester tester) async {
+  Future<void> pumpApp(WidgetTester tester) async {
     await tester.pumpApp(
       const ExportButton(
         key: key,
@@ -55,7 +55,7 @@ void main() {
       );
       when(() => basicThemeCubit.state).thenReturn(BasicThemeState());
 
-      await _pumpApp(tester);
+      await pumpApp(tester);
 
       await tester.tap(find.byKey(key));
       await tester.pumpAndSettle();
@@ -73,7 +73,7 @@ void main() {
         const HomeState(editMode: EditMode.advanced),
       );
 
-      await _pumpApp(tester);
+      await pumpApp(tester);
 
       await tester.tap(find.byKey(key));
       await tester.pumpAndSettle();

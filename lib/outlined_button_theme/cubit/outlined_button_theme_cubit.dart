@@ -1,10 +1,10 @@
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/utils/utils.dart';
 import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/utils/utils.dart';
 
 part 'outlined_button_theme_cubit.g.dart';
 part 'outlined_button_theme_state.dart';
@@ -108,9 +108,9 @@ class OutlinedButtonThemeCubit extends Cubit<OutlinedButtonThemeState> {
 
     return state.theme.style ??
         OutlinedButton.styleFrom(
-          primary: colorScheme.primary,
-          onSurface: colorScheme.onSurface,
+          foregroundColor: colorScheme.primary,
           backgroundColor: Colors.transparent,
+          disabledForegroundColor: colorScheme.onSurface.withOpacity(0.38),
           shadowColor: colorThemeState.shadowColor,
           elevation: 0,
           minimumSize: const Size(64, 36),

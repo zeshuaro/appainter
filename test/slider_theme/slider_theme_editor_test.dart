@@ -1,12 +1,12 @@
 import 'dart:math';
 
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/slider_theme/slider_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/slider_theme/slider_theme.dart';
-import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -31,7 +31,7 @@ void main() {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> _pumpApp(WidgetTester tester, SliderThemeState state) async {
+  Future<void> pumpApp(WidgetTester tester, SliderThemeState state) async {
     whenListen(
       sliderThemeCubit,
       Stream.fromIterable([const SliderThemeState(), state]),
@@ -57,7 +57,7 @@ void main() {
         theme: SliderThemeData(trackHeight: doubleValue),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,
@@ -77,7 +77,7 @@ void main() {
         theme: SliderThemeData(activeTrackColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -95,7 +95,7 @@ void main() {
         theme: SliderThemeData(inactiveTrackColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -113,7 +113,7 @@ void main() {
         theme: SliderThemeData(disabledActiveTrackColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -133,7 +133,7 @@ void main() {
         theme: SliderThemeData(disabledInactiveTrackColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -153,7 +153,7 @@ void main() {
         theme: SliderThemeData(activeTickMarkColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -173,7 +173,7 @@ void main() {
         theme: SliderThemeData(inactiveTickMarkColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -193,7 +193,7 @@ void main() {
         theme: SliderThemeData(disabledActiveTickMarkColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -213,7 +213,7 @@ void main() {
         theme: SliderThemeData(disabledInactiveTickMarkColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -231,7 +231,7 @@ void main() {
     (tester) async {
       final state = SliderThemeState(theme: SliderThemeData(thumbColor: color));
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -249,7 +249,7 @@ void main() {
         theme: SliderThemeData(disabledThumbColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -267,7 +267,7 @@ void main() {
         theme: SliderThemeData(overlappingShapeStrokeColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -287,7 +287,7 @@ void main() {
         theme: SliderThemeData(overlayColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -305,7 +305,7 @@ void main() {
         theme: SliderThemeData(valueIndicatorColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,

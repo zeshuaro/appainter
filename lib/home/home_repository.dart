@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:appainter/home/home.dart';
 import 'package:dio/dio.dart';

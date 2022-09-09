@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/home/home.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mocks.dart';
@@ -19,7 +19,7 @@ void main() {
     advancedThemeCubit = MockAdvancedThemeCubit();
   });
 
-  Future<void> _pumpApp(WidgetTester tester) async {
+  Future<void> pumpApp(WidgetTester tester) async {
     await tester.pumpWidget(
       MultiBlocProvider(
         providers: [
@@ -34,7 +34,7 @@ void main() {
     );
   }
 
-  void _mockCubits(bool isDark) {
+  void mockCubits(bool isDark) {
     when(() => basicThemeCubit.state).thenReturn(
       BasicThemeState(isDark: isDark),
     );
@@ -49,9 +49,9 @@ void main() {
         when(() => homeCubit.state).thenReturn(
           const HomeState(editMode: EditMode.basic),
         );
-        _mockCubits(isDark);
+        mockCubits(isDark);
 
-        await _pumpApp(tester);
+        await pumpApp(tester);
 
         await tester.tap(find.byType(Switch));
         await tester.pumpAndSettle();
@@ -72,9 +72,9 @@ void main() {
         when(() => homeCubit.state).thenReturn(
           const HomeState(editMode: EditMode.advanced),
         );
-        _mockCubits(isDark);
+        mockCubits(isDark);
 
-        await _pumpApp(tester);
+        await pumpApp(tester);
 
         await tester.tap(find.byType(Switch));
         await tester.pumpAndSettle();

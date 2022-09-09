@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../utils.dart';
@@ -27,7 +27,7 @@ void main() {
     doubleStr = doubleNum.toString();
   });
 
-  Future<void> _pumpApp(WidgetTester tester, IconThemeState state) async {
+  Future<void> pumpApp(WidgetTester tester, IconThemeState state) async {
     whenListen(cubit, Stream.fromIterable([state]),
         initialState: const IconThemeState());
 
@@ -48,7 +48,7 @@ void main() {
     (tester) async {
       final state = IconThemeState(theme: IconThemeData(color: color));
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(tester, 'colorPicker', color);
       verify(() => cubit.colorChanged(color)).called(1);
@@ -60,7 +60,7 @@ void main() {
     (tester) async {
       final state = IconThemeState(theme: IconThemeData(size: doubleNum));
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(tester, 'sizeTextField', doubleNum);
       verify(() => cubit.sizeChanged(doubleStr)).called(1);
@@ -72,7 +72,7 @@ void main() {
     (tester) async {
       final state = IconThemeState(theme: IconThemeData(opacity: doubleNum));
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(tester, 'opacityTextField', doubleNum);
       verify(() => cubit.opacityChanged(doubleStr)).called(1);

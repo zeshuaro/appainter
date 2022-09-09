@@ -1,11 +1,11 @@
-import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/util_service.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -28,7 +28,7 @@ void main() {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> _pumpApp(WidgetTester tester, TabBarThemeState state) async {
+  Future<void> pumpApp(WidgetTester tester, TabBarThemeState state) async {
     whenListen(
       tabBarThemeCubit,
       Stream.fromIterable([const TabBarThemeState(), state]),
@@ -52,7 +52,7 @@ void main() {
     (tester) async {
       final state = TabBarThemeState(theme: TabBarTheme(labelColor: color));
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -71,7 +71,7 @@ void main() {
         theme: TabBarTheme(unselectedLabelColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -94,7 +94,7 @@ void main() {
             theme: TabBarTheme(indicatorSize: size),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkDropbox(
             tester,

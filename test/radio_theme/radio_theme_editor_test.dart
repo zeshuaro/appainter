@@ -1,13 +1,13 @@
 import 'dart:math';
 
-import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -32,7 +32,7 @@ void main() {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> _pumpApp(WidgetTester tester, RadioThemeState state) async {
+  Future<void> pumpApp(WidgetTester tester, RadioThemeState state) async {
     whenListen(
       radioThemeCubit,
       Stream.fromIterable([const RadioThemeState(), state]),
@@ -58,7 +58,7 @@ void main() {
         final prop = getMaterialStateProperty({null: color});
         final state = RadioThemeState(theme: RadioThemeData(fillColor: prop));
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -77,7 +77,7 @@ void main() {
         });
         final state = RadioThemeState(theme: RadioThemeData(fillColor: prop));
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -96,7 +96,7 @@ void main() {
         });
         final state = RadioThemeState(theme: RadioThemeData(fillColor: prop));
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -118,7 +118,7 @@ void main() {
         final state =
             RadioThemeState(theme: RadioThemeData(overlayColor: prop));
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -140,7 +140,7 @@ void main() {
         final state =
             RadioThemeState(theme: RadioThemeData(overlayColor: prop));
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -162,7 +162,7 @@ void main() {
         final state =
             RadioThemeState(theme: RadioThemeData(overlayColor: prop));
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -183,7 +183,7 @@ void main() {
         theme: RadioThemeData(splashRadius: doubleValue),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,
@@ -207,7 +207,7 @@ void main() {
             theme: RadioThemeData(materialTapTargetSize: size),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkDropbox(
             tester,

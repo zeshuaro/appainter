@@ -79,7 +79,7 @@ void main() {
     );
   });
 
-  void _verifyThemeChanged(ThemeData theme) {
+  void verifyThemeChanged(ThemeData theme) {
     verify(() => colorThemeCubit.themeChanged(theme)).called(1);
     verify(() => appBarThemeCubit.themeChanged(theme.appBarTheme)).called(1);
     verify(() => tabBarThemeCubit.themeChanged(theme.tabBarTheme)).called(1);
@@ -147,7 +147,7 @@ void main() {
         },
         build: () => advancedThemeCubit,
         act: (cubit) => cubit.themeChanged(theme),
-        verify: (cubit) => _verifyThemeChanged(theme),
+        verify: (cubit) => verifyThemeChanged(theme),
       );
     }
   });
@@ -170,7 +170,7 @@ void main() {
         build: () => advancedThemeCubit,
         seed: () => AdvancedThemeState(isDark: isDark),
         act: (cubit) => cubit.themeRandomized(seed),
-        verify: (cubit) => _verifyThemeChanged(theme),
+        verify: (cubit) => verifyThemeChanged(theme),
       );
     }
   });
@@ -188,7 +188,7 @@ void main() {
         build: () => advancedThemeCubit,
         seed: () => AdvancedThemeState(isDark: isDark),
         act: (cubit) => cubit.themeReset(),
-        verify: (cubit) => _verifyThemeChanged(theme),
+        verify: (cubit) => verifyThemeChanged(theme),
       );
     }
   });

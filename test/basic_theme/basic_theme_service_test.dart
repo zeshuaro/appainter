@@ -28,40 +28,40 @@ void main() {
     color = getRandomColor();
   });
 
-  TonalPalette _getPalette() => CorePalette.of(color.value).primary;
+  TonalPalette getPalette() => CorePalette.of(color.value).primary;
 
   test('should return on key color', () {
     expect(
       service.getOnKeyColor(color),
-      equals(Color(_getPalette().get(onKeyColorTone))),
+      equals(Color(getPalette().get(onKeyColorTone))),
     );
   });
 
   test('should return container color', () {
     expect(
       service.getContainerColor(color),
-      equals(Color(_getPalette().get(containerColorTone))),
+      equals(Color(getPalette().get(containerColorTone))),
     );
   });
 
   test('should return on container color', () {
     expect(
       service.getOnContainerColor(color),
-      equals(Color(_getPalette().get(onContainerColorTone))),
+      equals(Color(getPalette().get(onContainerColorTone))),
     );
   });
 
   test('should return on neutral color', () {
     expect(
       service.getOnNeutralColor(color),
-      equals(Color(_getPalette().get(onNeutralColorTone))),
+      equals(Color(getPalette().get(onNeutralColorTone))),
     );
   });
 
   test('should return on surface variant color', () {
     expect(
       service.getOnSurfaceVariantColor(color),
-      equals(Color(_getPalette().get(onSurfaceVariantColorTone))),
+      equals(Color(getPalette().get(onSurfaceVariantColorTone))),
     );
   });
 }

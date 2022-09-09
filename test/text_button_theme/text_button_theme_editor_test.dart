@@ -1,12 +1,12 @@
 import 'dart:math';
 
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/text_button_theme/text_button_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/text_button_theme/text_button_theme.dart';
-import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -33,7 +33,7 @@ Future<void> main() async {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> _pumpApp(WidgetTester tester, TextButtonThemeState state) async {
+  Future<void> pumpApp(WidgetTester tester, TextButtonThemeState state) async {
     whenListen(
       textButtonThemeCubit,
       Stream.fromIterable([const TextButtonThemeState(), state]),
@@ -60,7 +60,7 @@ Future<void> main() async {
         theme: TextButtonThemeData(style: ButtonStyle(backgroundColor: prop)),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -79,7 +79,7 @@ Future<void> main() async {
           theme: TextButtonThemeData(style: ButtonStyle(foregroundColor: prop)),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -97,7 +97,7 @@ Future<void> main() async {
           theme: TextButtonThemeData(style: ButtonStyle(foregroundColor: prop)),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -117,7 +117,7 @@ Future<void> main() async {
           theme: TextButtonThemeData(style: ButtonStyle(overlayColor: prop)),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -135,7 +135,7 @@ Future<void> main() async {
           theme: TextButtonThemeData(style: ButtonStyle(overlayColor: prop)),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -153,7 +153,7 @@ Future<void> main() async {
           theme: TextButtonThemeData(style: ButtonStyle(overlayColor: prop)),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -172,7 +172,7 @@ Future<void> main() async {
         theme: TextButtonThemeData(style: ButtonStyle(shadowColor: prop)),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -190,7 +190,7 @@ Future<void> main() async {
         theme: TextButtonThemeData(style: ButtonStyle(elevation: prop)),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,

@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/home/home.dart';
 import 'package:appainter/theme_preview/theme_preview.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -21,19 +21,19 @@ void main() {
     when(() => homeCubit.themeUsageFetched()).thenAnswer((_) async => {});
   });
 
-  Future<void> _pumpApp(WidgetTester tester) async {
+  Future<void> pumpApp(WidgetTester tester) async {
     await tester.pumpApp(const ThemePreview(), homeCubit: homeCubit);
   }
 
   testWidgets('should display ThemePreview', (tester) async {
-    await _pumpApp(tester);
+    await pumpApp(tester);
     expect(find.byType(ThemePreview), findsOneWidget);
   });
 
   testWidgets(
     'should display ButtonsPage',
     (tester) async {
-      await _pumpApp(tester);
+      await pumpApp(tester);
 
       final finder = find.byWidgetPredicate((widget) {
         return widget is Tab && widget.text == 'Buttons';
@@ -52,7 +52,7 @@ void main() {
   testWidgets(
     'should display InputsPage',
     (tester) async {
-      await _pumpApp(tester);
+      await pumpApp(tester);
 
       final finder = find.byWidgetPredicate((widget) {
         return widget is Tab && widget.text == 'Inputs';
@@ -71,7 +71,7 @@ void main() {
   testWidgets(
     'should display SelectionsPage',
     (tester) async {
-      await _pumpApp(tester);
+      await pumpApp(tester);
 
       final finder = find.byWidgetPredicate((widget) {
         return widget is Tab && widget.text == 'Selections';
@@ -90,7 +90,7 @@ void main() {
   testWidgets(
     'should display TextPage',
     (tester) async {
-      await _pumpApp(tester);
+      await pumpApp(tester);
 
       final finder = find.byWidgetPredicate((widget) {
         return widget is Tab && widget.text == 'Text';

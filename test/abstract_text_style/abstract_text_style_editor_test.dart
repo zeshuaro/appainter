@@ -4,11 +4,11 @@ import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/models/models.dart';
 import 'package:appainter/services/services.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../utils.dart';
@@ -36,7 +36,7 @@ void main() {
     doubleStr = doubleNum.toString();
   });
 
-  Future<void> _pumpApp(WidgetTester tester, TextStyleState state) async {
+  Future<void> pumpApp(WidgetTester tester, TextStyleState state) async {
     whenListen(
       cubit,
       Stream.fromIterable([state]),
@@ -58,7 +58,7 @@ void main() {
   testWidgets('updates color', (tester) async {
     final state = TextStyleState(style: style.copyWith(color: color));
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkColorPicker(tester, 'colorPicker', color);
     verify(() => cubit.colorChanged(color)).called(1);
@@ -67,7 +67,7 @@ void main() {
   testWidgets('updates background color', (tester) async {
     final state = TextStyleState(style: style.copyWith(backgroundColor: color));
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkColorPicker(
       tester,
@@ -80,7 +80,7 @@ void main() {
   testWidgets('updates font size', (tester) async {
     final state = TextStyleState(style: style.copyWith(fontSize: doubleNum));
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkTextField(
       tester,
@@ -97,7 +97,7 @@ void main() {
       testWidgets('updates to $weight', (tester) async {
         final state = TextStyleState(style: style.copyWith(fontWeight: weight));
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkDropbox(
           tester,
@@ -118,7 +118,7 @@ void main() {
           style: style.copyWith(fontStyle: fontStyle),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkDropbox(
           tester,
@@ -140,7 +140,7 @@ void main() {
             style: style.copyWith(letterSpacing: value),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkTextField(
             tester,
@@ -164,7 +164,7 @@ void main() {
           final state =
               TextStyleState(style: style.copyWith(wordSpacing: value));
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkTextField(
             tester,
@@ -186,7 +186,7 @@ void main() {
           style: style.copyWith(textBaseline: baseline),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkDropbox(
           tester,
@@ -201,7 +201,7 @@ void main() {
   testWidgets('updates height', (tester) async {
     final state = TextStyleState(style: style.copyWith(height: doubleNum));
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkTextField(
       tester,
@@ -220,7 +220,7 @@ void main() {
           style: style.copyWith(leadingDistribution: dist),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkDropbox(
           tester,
@@ -241,7 +241,7 @@ void main() {
           style: style.copyWith(decoration: decoration),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkDropbox(
           tester,
@@ -256,7 +256,7 @@ void main() {
   testWidgets('updates decoration color', (tester) async {
     final state = TextStyleState(style: style.copyWith(decorationColor: color));
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkColorPicker(
       tester,
@@ -272,7 +272,7 @@ void main() {
         style: style.copyWithNull(decorationStyle: true),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkDropbox(
         tester,
@@ -290,7 +290,7 @@ void main() {
           style: style.copyWith(decorationStyle: decorationStyle),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkDropbox(
           tester,
@@ -309,7 +309,7 @@ void main() {
       style: style.copyWith(decorationThickness: doubleNum),
     );
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkTextField(
       tester,

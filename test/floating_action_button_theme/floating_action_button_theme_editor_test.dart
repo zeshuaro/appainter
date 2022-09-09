@@ -1,12 +1,12 @@
 import 'dart:math';
 
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
-import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -33,7 +33,7 @@ Future<void> main() async {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> _pumpApp(
+  Future<void> pumpApp(
     WidgetTester tester,
     FloatingActionButtonThemeState state,
   ) async {
@@ -64,7 +64,7 @@ Future<void> main() async {
         theme: FloatingActionButtonThemeData(backgroundColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -84,7 +84,7 @@ Future<void> main() async {
         theme: FloatingActionButtonThemeData(foregroundColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -104,7 +104,7 @@ Future<void> main() async {
         theme: FloatingActionButtonThemeData(focusColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -124,7 +124,7 @@ Future<void> main() async {
         theme: FloatingActionButtonThemeData(hoverColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -144,7 +144,7 @@ Future<void> main() async {
         theme: FloatingActionButtonThemeData(splashColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -164,7 +164,7 @@ Future<void> main() async {
         theme: FloatingActionButtonThemeData(elevation: doubleValue),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,
@@ -184,7 +184,7 @@ Future<void> main() async {
         theme: FloatingActionButtonThemeData(disabledElevation: doubleValue),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,
@@ -206,7 +206,7 @@ Future<void> main() async {
         theme: FloatingActionButtonThemeData(focusElevation: doubleValue),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,
@@ -228,7 +228,7 @@ Future<void> main() async {
         theme: FloatingActionButtonThemeData(highlightElevation: doubleValue),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,
@@ -250,7 +250,7 @@ Future<void> main() async {
         theme: FloatingActionButtonThemeData(hoverElevation: doubleValue),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,

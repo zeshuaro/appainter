@@ -1,13 +1,13 @@
 import 'dart:math';
 
-import 'package:bloc_test/bloc_test.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:bloc_test/bloc_test.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -31,7 +31,7 @@ void main() {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> _pumpApp(
+  Future<void> pumpApp(
     WidgetTester tester,
     InputDecorationThemeState state,
   ) async {
@@ -61,7 +61,7 @@ void main() {
         theme: InputDecorationTheme(fillColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -79,7 +79,7 @@ void main() {
         theme: InputDecorationTheme(hoverColor: color),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -101,7 +101,7 @@ void main() {
             theme: InputDecorationTheme(alignLabelWithHint: shouldAlign),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkSwitch(
             tester,
@@ -125,7 +125,7 @@ void main() {
             theme: InputDecorationTheme(filled: isFilled),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkSwitch(
             tester,
@@ -149,7 +149,7 @@ void main() {
             theme: InputDecorationTheme(isCollapsed: isCollapsed),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkSwitch(
             tester,
@@ -173,7 +173,7 @@ void main() {
             theme: InputDecorationTheme(isDense: isDense),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkSwitch(
             tester,
@@ -196,7 +196,7 @@ void main() {
         theme: InputDecorationTheme(errorMaxLines: value),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,
@@ -217,7 +217,7 @@ void main() {
         theme: InputDecorationTheme(helperMaxLines: value),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,
@@ -241,7 +241,7 @@ void main() {
             theme: InputDecorationTheme(floatingLabelBehavior: behavior),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkDropbox(
             tester,
@@ -272,7 +272,7 @@ void main() {
             theme: InputDecorationTheme(border: border),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkDropbox(
             tester,
@@ -298,7 +298,7 @@ void main() {
         ),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkTextField(
         tester,
@@ -326,7 +326,7 @@ void main() {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -350,7 +350,7 @@ void main() {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkTextField(
           tester,
@@ -379,7 +379,7 @@ void main() {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -403,7 +403,7 @@ void main() {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkTextField(
           tester,
@@ -432,7 +432,7 @@ void main() {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -456,7 +456,7 @@ void main() {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkTextField(
           tester,

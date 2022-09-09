@@ -2,13 +2,13 @@ import 'dart:math';
 
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:appainter/abstract_text_style/cubit/abstract_text_style_cubit.dart';
+import 'package:appainter/app_bar_theme/app_bar_theme.dart';
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/models/models.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/app_bar_theme/app_bar_theme.dart';
-import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/models/models.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -50,7 +50,7 @@ void main() {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> _pumpApp(
+  Future<void> pumpApp(
     WidgetTester tester,
     AppBarThemeState themeState, {
     IconThemeState actionsIconThemeState = defaultIconThemeState,
@@ -110,7 +110,7 @@ void main() {
   }
 
   testWidgets('displays nested editors', (tester) async {
-    await _pumpApp(tester, defaultAppBarThemeState);
+    await pumpApp(tester, defaultAppBarThemeState);
     expect(find.byType(ActionsIconThemeCard), findsOneWidget);
     expect(find.byType(IconThemeCard), findsOneWidget);
     expect(find.byType(TitleTextStyleCard), findsOneWidget);
@@ -122,7 +122,7 @@ void main() {
       theme: AppBarTheme(backgroundColor: color),
     );
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkColorPicker(
       tester,
@@ -137,7 +137,7 @@ void main() {
       theme: AppBarTheme(foregroundColor: color),
     );
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkColorPicker(
       tester,
@@ -152,7 +152,7 @@ void main() {
       theme: AppBarTheme(elevation: doubleNum),
     );
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkTextField(
       tester,
@@ -165,7 +165,7 @@ void main() {
   testWidgets('updates shadow color', (tester) async {
     final state = AppBarThemeState(theme: AppBarTheme(shadowColor: color));
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkColorPicker(
       tester,
@@ -182,7 +182,7 @@ void main() {
           theme: AppBarTheme(centerTitle: isCenter),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkSwitch(
           tester,
@@ -199,7 +199,7 @@ void main() {
       theme: AppBarTheme(titleSpacing: doubleNum),
     );
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkTextField(
       tester,
@@ -214,7 +214,7 @@ void main() {
       theme: AppBarTheme(toolbarHeight: doubleNum),
     );
 
-    await _pumpApp(tester, state);
+    await pumpApp(tester, state);
 
     await widgetTesters.checkTextField(
       tester,
@@ -232,7 +232,7 @@ void main() {
           theme: AppBarTheme(systemOverlayStyle: style),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkDropbox(
           tester,

@@ -1,12 +1,12 @@
 import 'dart:math';
 
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/elevated_button_theme/elevated_button_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/elevated_button_theme/elevated_button_theme.dart';
-import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -33,7 +33,7 @@ Future<void> main() async {
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> _pumpApp(
+  Future<void> pumpApp(
     WidgetTester tester,
     ElevatedButtonThemeState state,
   ) async {
@@ -66,7 +66,7 @@ Future<void> main() async {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -86,7 +86,7 @@ Future<void> main() async {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -108,7 +108,7 @@ Future<void> main() async {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -128,7 +128,7 @@ Future<void> main() async {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -150,7 +150,7 @@ Future<void> main() async {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -170,7 +170,7 @@ Future<void> main() async {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -190,7 +190,7 @@ Future<void> main() async {
           ),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkColorPicker(
           tester,
@@ -211,7 +211,7 @@ Future<void> main() async {
         ),
       );
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -230,7 +230,7 @@ Future<void> main() async {
           theme: ElevatedButtonThemeData(style: ButtonStyle(elevation: prop)),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkTextField(
           tester,
@@ -250,7 +250,7 @@ Future<void> main() async {
           theme: ElevatedButtonThemeData(style: ButtonStyle(elevation: prop)),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkTextField(
           tester,
@@ -270,7 +270,7 @@ Future<void> main() async {
           theme: ElevatedButtonThemeData(style: ButtonStyle(elevation: prop)),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkTextField(
           tester,
@@ -290,7 +290,7 @@ Future<void> main() async {
           theme: ElevatedButtonThemeData(style: ButtonStyle(elevation: prop)),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkTextField(
           tester,
@@ -310,7 +310,7 @@ Future<void> main() async {
           theme: ElevatedButtonThemeData(style: ButtonStyle(elevation: prop)),
         );
 
-        await _pumpApp(tester, state);
+        await pumpApp(tester, state);
 
         await widgetTesters.checkTextField(
           tester,

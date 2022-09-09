@@ -1,10 +1,10 @@
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/utils/utils.dart';
 import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/utils/utils.dart';
 
 part 'text_button_theme_cubit.g.dart';
 part 'text_button_theme_state.dart';
@@ -108,8 +108,8 @@ class TextButtonThemeCubit extends Cubit<TextButtonThemeState> {
 
     return state.theme.style ??
         TextButton.styleFrom(
-          primary: colorScheme.primary,
-          onSurface: colorScheme.onSurface,
+          foregroundColor: colorScheme.primary,
+          disabledForegroundColor: colorScheme.onSurface.withOpacity(0.38),
           backgroundColor: Colors.transparent,
           shadowColor: colorThemeState.shadowColor,
           elevation: 0,

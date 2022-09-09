@@ -1,10 +1,10 @@
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/utils/utils.dart';
 import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/utils/utils.dart';
 
 part 'elevated_button_theme_cubit.g.dart';
 part 'elevated_button_theme_state.dart';
@@ -174,9 +174,10 @@ class ElevatedButtonThemeCubit extends Cubit<ElevatedButtonThemeState> {
 
     return state.theme.style ??
         ElevatedButton.styleFrom(
-          primary: colorScheme.primary,
-          onPrimary: colorScheme.onPrimary,
-          onSurface: colorScheme.onSurface,
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
+          disabledBackgroundColor: colorScheme.onSurface.withOpacity(0.12),
+          disabledForegroundColor: colorScheme.onSurface.withOpacity(0.38),
           shadowColor: colorThemeState.shadowColor,
           elevation: 2,
           minimumSize: const Size(64, 36),

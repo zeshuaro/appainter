@@ -25,7 +25,7 @@ void main() {
     color = getRandomColor();
   });
 
-  Future<void> _pumpApp(
+  Future<void> pumpApp(
     WidgetTester tester,
     ColorScheme colorScheme, {
     Color? seedColor,
@@ -48,13 +48,13 @@ void main() {
     );
   }
 
-  Future<void> _verifyColorPicker(
+  Future<void> verifyColorPicker(
     WidgetTester tester,
     ColorScheme colorScheme,
     String key,
     void Function(Color) verifyFn,
   ) async {
-    await _pumpApp(tester, colorScheme);
+    await pumpApp(tester, colorScheme);
     await widgetTesters.checkColorPicker(tester, key, color);
     verify(() => verifyFn(color)).called(1);
   }
@@ -62,7 +62,7 @@ void main() {
   testWidgets(
     'seed color picker should update with selected color',
     (tester) async {
-      await _pumpApp(tester, colorScheme, seedColor: color);
+      await pumpApp(tester, colorScheme, seedColor: color);
       await widgetTesters.checkColorPicker(
         tester,
         'basicThemeEditor_seedColorPicker',
@@ -76,7 +76,7 @@ void main() {
     'primary color picker should update with selected color',
     (tester) async {
       color = const Color(0xfff44336);
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(primary: color),
         'basicThemeEditor_primaryColorPicker',
@@ -88,7 +88,7 @@ void main() {
   testWidgets(
     'on primary color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onPrimary: color),
         'basicThemeEditor_onPrimaryColorPicker',
@@ -100,7 +100,7 @@ void main() {
   testWidgets(
     'primary container color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(primaryContainer: color),
         'basicThemeEditor_primaryContainerColorPicker',
@@ -112,7 +112,7 @@ void main() {
   testWidgets(
     'on primary container color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onPrimaryContainer: color),
         'basicThemeEditor_onPrimaryContainerColorPicker',
@@ -124,7 +124,7 @@ void main() {
   testWidgets(
     'secondary color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(secondary: color),
         'basicThemeEditor_secondaryColorPicker',
@@ -136,7 +136,7 @@ void main() {
   testWidgets(
     'on secondary color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onSecondary: color),
         'basicThemeEditor_onSecondaryColorPicker',
@@ -148,7 +148,7 @@ void main() {
   testWidgets(
     'secondary container color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(secondaryContainer: color),
         'basicThemeEditor_secondaryContainerColorPicker',
@@ -160,7 +160,7 @@ void main() {
   testWidgets(
     'on secondary container color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onSecondaryContainer: color),
         'basicThemeEditor_onSecondaryContainerColorPicker',
@@ -172,7 +172,7 @@ void main() {
   testWidgets(
     'tertiary color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(tertiary: color),
         'basicThemeEditor_tertiaryColorPicker',
@@ -184,7 +184,7 @@ void main() {
   testWidgets(
     'on tertiary color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onTertiary: color),
         'basicThemeEditor_onTertiaryColorPicker',
@@ -196,7 +196,7 @@ void main() {
   testWidgets(
     'tertiary container color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(tertiaryContainer: color),
         'basicThemeEditor_tertiaryContainerColorPicker',
@@ -208,7 +208,7 @@ void main() {
   testWidgets(
     'on tertiary container color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onTertiaryContainer: color),
         'basicThemeEditor_onTertiaryContainerColorPicker',
@@ -220,7 +220,7 @@ void main() {
   testWidgets(
     'error color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(error: color),
         'basicThemeEditor_errorColorPicker',
@@ -232,7 +232,7 @@ void main() {
   testWidgets(
     'on error color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onError: color),
         'basicThemeEditor_onErrorColorPicker',
@@ -244,7 +244,7 @@ void main() {
   testWidgets(
     'error container color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(errorContainer: color),
         'basicThemeEditor_errorContainerColorPicker',
@@ -256,7 +256,7 @@ void main() {
   testWidgets(
     'on error container color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onErrorContainer: color),
         'basicThemeEditor_onErrorContainerColorPicker',
@@ -268,7 +268,7 @@ void main() {
   testWidgets(
     'background color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(background: color),
         'basicThemeEditor_backgroundColorPicker',
@@ -280,7 +280,7 @@ void main() {
   testWidgets(
     'on background color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onBackground: color),
         'basicThemeEditor_onBackgroundColorPicker',
@@ -292,7 +292,7 @@ void main() {
   testWidgets(
     'surface color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(surface: color),
         'basicThemeEditor_surfaceColorPicker',
@@ -304,7 +304,7 @@ void main() {
   testWidgets(
     'on surface color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onSurface: color),
         'basicThemeEditor_onSurfaceColorPicker',
@@ -316,7 +316,7 @@ void main() {
   testWidgets(
     'surface variant color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(surfaceVariant: color),
         'basicThemeEditor_surfaceVariantColorPicker',
@@ -328,7 +328,7 @@ void main() {
   testWidgets(
     'on surface variant color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onSurfaceVariant: color),
         'basicThemeEditor_onSurfaceVariantColorPicker',
@@ -340,7 +340,7 @@ void main() {
   testWidgets(
     'outline color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(outline: color),
         'basicThemeEditor_outlineColorPicker',
@@ -352,7 +352,7 @@ void main() {
   testWidgets(
     'shadow color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(shadow: color),
         'basicThemeEditor_shadowColorPicker',
@@ -364,7 +364,7 @@ void main() {
   testWidgets(
     'inverse surface color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(inverseSurface: color),
         'basicThemeEditor_inverseSurfaceColorPicker',
@@ -376,7 +376,7 @@ void main() {
   testWidgets(
     'on inverse surface color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(onInverseSurface: color),
         'basicThemeEditor_onInverseSurfaceColorPicker',
@@ -388,7 +388,7 @@ void main() {
   testWidgets(
     'inverse primary color picker should update with selected color',
     (tester) async {
-      await _verifyColorPicker(
+      await verifyColorPicker(
         tester,
         colorScheme.copyWith(inversePrimary: color),
         'basicThemeEditor_inversePrimaryColorPicker',

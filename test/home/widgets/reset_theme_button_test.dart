@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/basic_theme/cubit/basic_theme_cubit.dart';
 import 'package:appainter/home/home.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../mocks.dart';
@@ -19,7 +19,7 @@ void main() {
     advancedThemeCubit = MockAdvancedThemeCubit();
   });
 
-  Future<void> _pumpApp(WidgetTester tester) async {
+  Future<void> pumpApp(WidgetTester tester) async {
     await tester.pumpWidget(
       MultiBlocProvider(
         providers: [
@@ -39,7 +39,7 @@ void main() {
       const HomeState(editMode: EditMode.basic),
     );
 
-    await _pumpApp(tester);
+    await pumpApp(tester);
 
     await tester.tap(find.byType(IconButton));
     await tester.pumpAndSettle();
@@ -53,7 +53,7 @@ void main() {
       const HomeState(editMode: EditMode.advanced),
     );
 
-    await _pumpApp(tester);
+    await pumpApp(tester);
 
     await tester.tap(find.byType(IconButton));
     await tester.pumpAndSettle();

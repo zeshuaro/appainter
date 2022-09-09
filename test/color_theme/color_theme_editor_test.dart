@@ -1,10 +1,10 @@
+import 'package:appainter/advanced_theme/advanced_theme.dart';
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/advanced_theme/advanced_theme.dart';
-import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/widgets/widgets.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -24,7 +24,7 @@ void main() {
     color = getRandomColor();
   });
 
-  Future<void> _pumpApp(WidgetTester tester, ColorThemeState state) async {
+  Future<void> pumpApp(WidgetTester tester, ColorThemeState state) async {
     whenListen(
       colorThemeCubit,
       Stream.fromIterable([state]),
@@ -55,7 +55,7 @@ void main() {
             AdvancedThemeState(isDark: isDark),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkColorPicker(
             tester,
@@ -82,7 +82,7 @@ void main() {
             AdvancedThemeState(isDark: isDark),
           );
 
-          await _pumpApp(tester, state);
+          await pumpApp(tester, state);
 
           await widgetTesters.checkColorPicker(
             tester,
@@ -102,7 +102,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(primaryColorLight: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -118,7 +118,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(primaryColorDark: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -134,7 +134,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(backgroundColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -150,7 +150,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(bottomAppBarColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -166,7 +166,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(canvasColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -182,7 +182,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(cardColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -198,7 +198,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(dialogBackgroundColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -216,7 +216,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(disabledColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -232,7 +232,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(dividerColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -248,7 +248,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(errorColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -264,7 +264,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(focusColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -280,7 +280,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(highlightColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -296,7 +296,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(hintColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -312,7 +312,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(hoverColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -328,7 +328,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(indicatorColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -344,7 +344,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(scaffoldBackgroundColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -362,7 +362,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(secondaryHeaderColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -380,7 +380,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(selectedRowColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -396,7 +396,7 @@ void main() {
     (tester) async {
       final state = ColorThemeState(shadowColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -413,7 +413,7 @@ void main() {
       final color = getRandomColor();
       final state = ColorThemeState(splashColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -430,7 +430,7 @@ void main() {
       final color = getRandomColor();
       final state = ColorThemeState(toggleableActiveColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,
@@ -449,7 +449,7 @@ void main() {
       final color = getRandomColor();
       final state = ColorThemeState(unselectedWidgetColor: color);
 
-      await _pumpApp(tester, state);
+      await pumpApp(tester, state);
 
       await widgetTesters.checkColorPicker(
         tester,

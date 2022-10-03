@@ -50,13 +50,32 @@
 
     <title>Appainter</title>
     <link rel="manifest" href="manifest.json" />
+    <script src="flutter.js" defer></script>
   </head>
   <body>
+    <div id="loading"></div>
+    <script>
+      window.addEventListener("load", function (ev) {
+        var loading = document.querySelector("#loading");
+        _flutter.loader
+          .loadEntrypoint({
+            serviceWorker: {
+              serviceWorkerVersion: serviceWorkerVersion,
+            },
+          })
+          .then(function (engineInitializer) {
+            return engineInitializer.initializeEngine();
+          })
+          .then(function (appRunner) {
+            return appRunner.runApp();
+          });
+      });
+    </script>
     <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
     <script>
-      var serviceWorkerVersion = '4126524211';
+      var serviceWorkerVersion = '3552137441';
       var scriptLoaded = false;
       function loadMainDartJs() {
         if (scriptLoaded) {

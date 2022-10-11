@@ -127,7 +127,7 @@ jobs:
           echo "::set-output name=version::v$(flutter pub run cider bump ${{ github.event.inputs.release-type }})"
 
       - name: Commit new version 🆕
-        uses: stefanzweifel/git-auto-commit-action@v4.15.0
+        uses: stefanzweifel/git-auto-commit-action@v4.15.1
         env:
           version: ${{ steps.bump-version.outputs.version }}
         with:

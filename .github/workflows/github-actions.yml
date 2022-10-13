@@ -23,7 +23,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.7.1
+        uses: subosito/flutter-action@v2.8.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
@@ -62,7 +62,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.7.1
+        uses: subosito/flutter-action@v2.8.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
@@ -97,7 +97,7 @@ jobs:
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Setup Flutter 💻
-        uses: subosito/flutter-action@v2.7.1
+        uses: subosito/flutter-action@v2.8.0
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
@@ -118,7 +118,7 @@ jobs:
           flutter build web --dart-define=FLUTTER_WEB_USE_SKIA=true
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.4.0
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
           folder: build/web

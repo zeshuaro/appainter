@@ -43,7 +43,7 @@ jobs:
           cd ../example/ && flutter pub upgrade
 
       - name: Create pull request 🆕
-        uses: peter-evans/create-pull-request@v4.1.3
+        uses: peter-evans/create-pull-request@v4.1.4
         with:
           branch: "chore/update-deps"
           commit-message: "chore(deps): update dependencies"

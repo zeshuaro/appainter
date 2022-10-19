@@ -17,6 +17,11 @@
       "matchPackagePrefixes": ["bloc", "flutter_bloc"]
     },
     {
+      "groupName": "Firebase dependencies",
+      "matchPaths": ["pubspec.yaml"],
+      "matchPackagePrefixes": ["firebase_"]
+    },
+    {
       "groupName": "Copy with extension dependencies",
       "matchPaths": ["pubspec.yaml"],
       "matchPackagePrefixes": ["copy_with_extension"]

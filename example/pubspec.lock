@@ -118,7 +118,7 @@ packages:
       name: http_parser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.1"
+    version: "4.0.2"
   integration_test:
     dependency: "direct dev"
     description: flutter
@@ -144,14 +144,14 @@ packages:
       name: json_schema2
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2+13"
+    version: "2.0.2+14"
   json_theme:
     dependency: "direct main"
     description:
       name: json_theme
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.1+4"
+    version: "4.0.1+5"
   lints:
     dependency: transitive
     description:
@@ -221,7 +221,7 @@ packages:
       name: rest_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.5+4"
+    version: "2.1.5+5"
   sky_engine:
     dependency: transitive
     description: flutter

@@ -17,8 +17,12 @@
       "labels": ["documentation"]
     },
     {
+      "title": "## 📦 Dependencies",
+      "labels": ["dependencies"]
+    },
+    {
       "title": "## 💬 Other",
-      "labels": ["refactor", "dependencies"]
+      "labels": ["refactor"]
     }
   ],
   "ignore_labels": ["ignore", "ci", "style"],

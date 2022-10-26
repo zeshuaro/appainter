@@ -112,7 +112,7 @@ packages:
       name: build_runner_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.2.6"
+    version: "7.2.7"
   built_collection:
     dependency: transitive
     description:
@@ -336,7 +336,7 @@ packages:
       name: file_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.2.1"
+    version: "5.2.2"
   firebase_analytics:
     dependency: "direct main"
     description:
@@ -503,7 +503,7 @@ packages:
       name: graphs
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.0"
   hsluv:
     dependency: transitive
     description:
@@ -517,7 +517,7 @@ packages:
       name: html
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.15.0"
+    version: "0.15.1"
   http:
     dependency: transitive
     description:
@@ -580,14 +580,14 @@ packages:
       name: json_schema2
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2+14"
+    version: "2.0.2+15"
   json_theme:
     dependency: "direct main"
     description:
       name: json_theme
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.1+5"
+    version: "4.0.2+1"
   klizma:
     dependency: transitive
     description:
@@ -601,7 +601,7 @@ packages:
       name: lints
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   logging:
     dependency: transitive
     description:
@@ -832,7 +832,7 @@ packages:
       name: rest_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.5+5"
+    version: "2.2.0"
   rfc_6901:
     dependency: transitive
     description:
@@ -949,7 +949,7 @@ packages:
       name: source_maps
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.10"
+    version: "0.10.11"
   source_span:
     dependency: transitive
     description:
@@ -1068,7 +1068,7 @@ packages:
       name: url_launcher_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.19"
+    version: "6.0.20"
   url_launcher_ios:
     dependency: transitive
     description:

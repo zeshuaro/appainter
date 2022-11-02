@@ -9,16 +9,16 @@ PODS:
     - FirebaseAnalytics (~> 10.0.0)
   - Firebase/CoreOnly (10.0.0):
     - FirebaseCore (= 10.0.0)
-  - firebase_analytics (10.0.2):
+  - firebase_analytics (10.0.3):
     - Firebase/Analytics (= 10.0.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_auth (4.0.2):
+  - firebase_auth (4.1.0):
     - Firebase/Auth (~> 10.0.0)
     - Firebase/CoreOnly (~> 10.0.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_core (2.1.0):
+  - firebase_core (2.1.1):
     - Firebase/CoreOnly (~> 10.0.0)
     - FlutterMacOS
   - FirebaseAnalytics (10.0.0):
@@ -48,9 +48,9 @@ PODS:
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/Logger (~> 7.8)
-  - FirebaseCoreInternal (10.0.0):
+  - FirebaseCoreInternal (10.1.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
-  - FirebaseInstallations (10.0.0):
+  - FirebaseInstallations (10.1.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
@@ -155,14 +155,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Firebase: 1b810f3d0c0532e27a48f1961f8c0400a668a2cf
-  firebase_analytics: 7bb4607566850433971bb8fbc437c549b3755f3f
-  firebase_auth: b7363e9549b3e743cb17718df8c14a4d9052b3d7
-  firebase_core: 038b7437522e821cec1de8a602ced1aabef5adcd
+  firebase_analytics: 3e4a5d4b4b025f96a034d6d18632a6be074db9c3
+  firebase_auth: 222427272a107d05ed68384a8168a6f22b55f45c
+  firebase_core: 2ad407221995257e47215d9ae92467db0dd48ced
   FirebaseAnalytics: 9921a52739f4ab66099da31b6e0243db78a3ac0a
   FirebaseAuth: 493382cf533cc45e2862b00e9aa4cfe4c98daf71
   FirebaseCore: 97f48a3a567a72b8d4daa0f03c3aadb78df4e995
-  FirebaseCoreInternal: 5eb3960335da5ea30115d57d39db6988c4ad06f3
-  FirebaseInstallations: 7f1c9ae6bd9df6abe9c74124b38fa8740aba5df4
+  FirebaseCoreInternal: 96d75228e10fd369564da51bd898414eb0f54df5
+  FirebaseInstallations: 99d24bac0243cf8b0e96cf5426340d211f0bcc80
   FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
   GoogleAppMeasurement: 7e48a3249792ac35d6f18f107f63f199a7e9d0ce
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7

@@ -9,11 +9,11 @@ PODS:
     - FirebaseAnalytics (~> 10.0.0)
   - Firebase/CoreOnly (10.0.0):
     - FirebaseCore (= 10.0.0)
-  - firebase_analytics (10.0.3):
+  - firebase_analytics (10.0.4):
     - Firebase/Analytics (= 10.0.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_auth (4.1.0):
+  - firebase_auth (4.1.1):
     - Firebase/Auth (~> 10.0.0)
     - Firebase/CoreOnly (~> 10.0.0)
     - firebase_core
@@ -95,7 +95,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.8.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (2.1.0)
+  - GTMSessionFetcher/Core (2.3.0)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -155,8 +155,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Firebase: 1b810f3d0c0532e27a48f1961f8c0400a668a2cf
-  firebase_analytics: 3e4a5d4b4b025f96a034d6d18632a6be074db9c3
-  firebase_auth: 222427272a107d05ed68384a8168a6f22b55f45c
+  firebase_analytics: 8facfd083149aeb7f1f06033891a23e8050ad9d1
+  firebase_auth: 65dab2f61a160cab11d6bbbc4090ee8b1d8a17ed
   firebase_core: 2ad407221995257e47215d9ae92467db0dd48ced
   FirebaseAnalytics: 9921a52739f4ab66099da31b6e0243db78a3ac0a
   FirebaseAuth: 493382cf533cc45e2862b00e9aa4cfe4c98daf71
@@ -166,7 +166,7 @@ SPEC CHECKSUMS:
   FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
   GoogleAppMeasurement: 7e48a3249792ac35d6f18f107f63f199a7e9d0ce
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
-  GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
+  GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   path_provider_macos: 3c0c3b4b0d4a76d2bf989a913c2de869c5641a19
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb

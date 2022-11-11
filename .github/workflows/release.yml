@@ -151,7 +151,7 @@ jobs:
         uses: actions/download-artifact@v3
 
       - name: Release 🚀
-        uses: ncipollo/release-action@v1.11.1
+        uses: ncipollo/release-action@v1.11.2
         with:
           tag: ${{ steps.bump-version.outputs.version }}
           artifacts: "**/appainter*.tar.gz"

@@ -643,7 +643,7 @@ packages:
       name: material_design_icons_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.6996"
+    version: "6.0.7096"
   meta:
     dependency: transitive
     description:

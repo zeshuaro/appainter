@@ -202,6 +202,8 @@ class _Editors extends StatelessWidget {
       children: const [
         _EditModeHeader(),
         VerticalPadding(),
+        _ThemeConfigs(),
+        VerticalPadding(),
         Expanded(
           child: TabBarView(
             children: [
@@ -258,22 +260,38 @@ class _EditModeActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        return Row(
-          children: const [
-            ThemeBrightnessSwitch(),
-            HorizontalPadding(
-              size: PaddingSize.medium,
-            ),
-            RandomThemeButton(),
-            HorizontalPadding(
-              size: PaddingSize.medium,
-            ),
-            ResetThemeButton(),
-          ],
-        );
-      },
+    return Row(
+      children: const [
+        RandomThemeButton(),
+        HorizontalPadding(),
+        ResetThemeButton(),
+      ],
+    );
+  }
+}
+
+class _ThemeConfigs extends StatelessWidget {
+  const _ThemeConfigs({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MyCard(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            'Theme configurations',
+            style: Theme.of(context).textTheme.headline6,
+          ),
+          Row(
+            children: const [
+              Material3Switch(),
+              HorizontalPadding(),
+              ThemeBrightnessSwitch(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

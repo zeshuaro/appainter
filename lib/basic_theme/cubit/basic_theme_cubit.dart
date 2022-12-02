@@ -228,4 +228,8 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
     final colorScheme = state.colorScheme.copyWith(inversePrimary: color);
     emit(state.copyWith(colorScheme: colorScheme));
   }
+
+  void useMaterial3Changed(bool useMaterial3) {
+    emit(state.copyWith(useMaterial3: useMaterial3));
+  }
 }

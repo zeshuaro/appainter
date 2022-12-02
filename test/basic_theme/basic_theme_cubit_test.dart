@@ -474,4 +474,15 @@ void main() {
       ),
     ],
   );
+  group('test use material 3', () {
+    for (var useMaterial3 in [true, false]) {
+      blocTest<BasicThemeCubit, BasicThemeState>(
+        'should emit useMaterial3=$useMaterial3',
+        build: () => cubit,
+        seed: () => BasicThemeState(useMaterial3: !useMaterial3),
+        act: (cubit) => cubit.useMaterial3Changed(useMaterial3),
+        expect: () => [BasicThemeState(useMaterial3: useMaterial3)],
+      );
+    }
+  });
 }

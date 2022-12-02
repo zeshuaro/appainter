@@ -1,6 +1,4 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/app_bar_theme/cubit/app_bar_theme_cubit.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
@@ -19,6 +17,9 @@ import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:appainter/theme_preview/theme_preview.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ThemePreview extends StatelessWidget {
@@ -37,6 +38,7 @@ class ThemePreview extends StatelessWidget {
       builder: (context, state) {
         final basicTheme = context.watch<BasicThemeCubit>().state.theme;
 
+        final advancedThemeState = context.watch<AdvancedThemeCubit>().state;
         final colorTheme = context.watch<ColorThemeCubit>().state;
         final appBarTheme = context.watch<AppBarThemeCubit>().state.theme;
         final tabBarTheme = context.watch<TabBarThemeCubit>().state.theme;
@@ -89,6 +91,7 @@ class ThemePreview extends StatelessWidget {
             context.watch<OverlineTextStyleCubit>().state.style;
 
         final advancedTheme = ThemeData(
+          useMaterial3: advancedThemeState.useMaterial3,
           fontFamily: fontFamily,
           colorScheme: colorTheme.colorScheme,
           brightness: colorTheme.colorScheme.brightness,

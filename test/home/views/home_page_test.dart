@@ -44,6 +44,7 @@ void main() {
   });
 
   Future<void> pumpApp(WidgetTester tester) async {
+    await tester.binding.setSurfaceSize(const Size(2400, 850));
     await tester.pumpApp(
       const HomePage(),
       homeRepo: homeRepo,
@@ -66,9 +67,6 @@ void main() {
       testWidgets(
         'editor should change to $mode',
         (tester) async {
-          binding.window.physicalSizeTestValue = const Size(1280, 720);
-          binding.window.devicePixelRatioTestValue = 1.0;
-
           when(() => homeCubit.state).thenReturn(HomeState(editMode: mode));
 
           await pumpApp(tester);

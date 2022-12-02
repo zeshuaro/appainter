@@ -1,7 +1,3 @@
-import 'package:bloc/bloc.dart';
-import 'package:copy_with_extension/copy_with_extension.dart';
-import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';
@@ -17,6 +13,10 @@ import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
+import 'package:bloc/bloc.dart';
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 part 'advanced_theme_cubit.g.dart';
@@ -102,6 +102,10 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
       Typography.englishLike2018,
     );
     themeChanged(theme);
+  }
+
+  void useMaterial3Changed(bool useMaterial3) {
+    emit(state.copyWith(useMaterial3: useMaterial3));
   }
 
   ThemeData _getDefaultTheme({bool? isDark}) {

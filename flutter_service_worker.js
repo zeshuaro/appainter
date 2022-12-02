@@ -18,8 +18,8 @@ const RESOURCES = {
 "canvaskit/profiling/canvaskit.wasm": "95a45378b69e77af5ed2bc72b2209b94",
 "canvaskit/canvaskit.js": "2bc454a691c631b07a9307ac4ca47797",
 "canvaskit/canvaskit.wasm": "bf50631470eb967688cca13ee181af62",
-"index.html": "2a6febba01a6545d6d039d300cc8f5cf",
-"/": "2a6febba01a6545d6d039d300cc8f5cf",
+"index.html": "f1e7b6385e537cee89e71a75d7503eeb",
+"/": "f1e7b6385e537cee89e71a75d7503eeb",
 "version.json": "2c87c374a8603ce1a20b7e0be3941ed6",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75",
 "icons/android-chrome-192x192.png": "e03f23fd41872367b2ba387b50f87257",
@@ -27,7 +27,7 @@ const RESOURCES = {
 "icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
 "icons/favicon-32x32.png": "878572d6d16bbaa08290988302449306",
 "icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292ee3e2bf9",
-"main.dart.js": "202b2c55f2c51bea0523023af04203b3"
+"main.dart.js": "d32bcb14932cb3f5fd3d5288ff53b0d0"
 };
 
 // The application shell files that are downloaded before a service worker can

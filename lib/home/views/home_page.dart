@@ -263,9 +263,13 @@ class _EditModeActions extends StatelessWidget {
         return Row(
           children: const [
             ThemeBrightnessSwitch(),
-            HorizontalPadding(),
+            HorizontalPadding(
+              size: PaddingSize.medium,
+            ),
             RandomThemeButton(),
-            HorizontalPadding(),
+            HorizontalPadding(
+              size: PaddingSize.medium,
+            ),
             ResetThemeButton(),
           ],
         );

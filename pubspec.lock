@@ -287,7 +287,7 @@ packages:
       name: dropdown_search
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.0.3"
+    version: "5.0.5"
   enum_to_string:
     dependency: "direct main"
     description:
@@ -364,7 +364,7 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.4"
+    version: "4.1.5"
   firebase_auth_platform_interface:
     dependency: transitive
     description:

@@ -13,7 +13,7 @@ PODS:
     - Firebase/Analytics (= 10.2.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_auth (4.1.4):
+  - firebase_auth (4.1.5):
     - Firebase/Auth (~> 10.2.0)
     - Firebase/CoreOnly (~> 10.2.0)
     - firebase_core
@@ -48,9 +48,9 @@ PODS:
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/Logger (~> 7.8)
-  - FirebaseCoreInternal (10.2.0):
+  - FirebaseCoreInternal (10.3.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
-  - FirebaseInstallations (10.2.0):
+  - FirebaseInstallations (10.3.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
@@ -156,13 +156,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Firebase: a3ea7eba4382afd83808376edb99acdaff078dcf
   firebase_analytics: d649bd2672b2632ea6be250ae620c8751a4dfc53
-  firebase_auth: 39cbb463ecc764727d7659b2254341d654f1570c
+  firebase_auth: 89ed93a8d1d8f657fec8fe149bdeeb02e55c92d4
   firebase_core: f6f75d92dcdd5ef1b43876017affde02b7b402ec
   FirebaseAnalytics: 24a15e58e505abcedc3017b6f7c206fbfa964580
   FirebaseAuth: 08e7739244eeae5216d0a3f8d9f16a76be9c252e
   FirebaseCore: 813838072b797b64f529f3c2ee35e696e5641dd1
-  FirebaseCoreInternal: 091bde13e47bb1c5e9fe397634f3593dc390430f
-  FirebaseInstallations: 004915af170935e3a583faefd5f8bc851afc220f
+  FirebaseCoreInternal: 29b76f784d607df8b2a1259d73c3f04f1210137b
+  FirebaseInstallations: e2f26126089dcf41e215f7b8925af8d953c7d602
   FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
   GoogleAppMeasurement: 3bc3a6484b7bb20dd8489242c4dd3c92a3e5107b
   GoogleUtilities: bad72cb363809015b1f7f19beb1f1cd23c589f95

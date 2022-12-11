@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:pretty_json/pretty_json.dart';
+import 'package:sentry/sentry.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:universal_io/io.dart' as io;
@@ -28,7 +29,8 @@ class HomeRepository {
     try {
       final response = await _dio.get(_usageFileUrl);
       return ThemeUsage(response.data);
-    } catch (e) {
+    } catch (e, st) {
+      Sentry.captureException(e, stackTrace: st);
       return const ThemeUsage();
     }
   }

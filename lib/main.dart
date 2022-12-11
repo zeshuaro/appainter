@@ -8,6 +8,7 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:sentry/sentry.dart';
 import 'package:universal_io/io.dart';
 import 'package:window_size/window_size.dart';
 
@@ -25,6 +26,21 @@ void main() async {
     setWindowMaxSize(Size.infinite);
   }
 
+  if (kDebugMode) {
+    _runApp();
+  } else {
+    await Sentry.init(
+      (options) {
+        options.dsn =
+            'https://47d366aa51604755b3d78635f1e320be@o1248621.ingest.sentry.io/6680781';
+        options.tracesSampleRate = 1.0;
+      },
+      appRunner: _runApp,
+    );
+  }
+}
+
+Future<void> _runApp() async {
   late final AnalyticsRepository analyticsRepo;
   if (kIsWeb || Platform.isMacOS) {
     await Firebase.initializeApp(

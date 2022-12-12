@@ -8,7 +8,7 @@ import 'package:equatable/equatable.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:sentry/sentry.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:universal_io/io.dart';
 import 'package:window_size/window_size.dart';
 
@@ -29,7 +29,7 @@ void main() async {
   if (kDebugMode) {
     _runApp();
   } else {
-    await Sentry.init(
+    await SentryFlutter.init(
       (options) {
         options.dsn =
             'https://47d366aa51604755b3d78635f1e320be@o1248621.ingest.sentry.io/6680781';

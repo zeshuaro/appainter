@@ -1,4 +1,4 @@
-name: Release
+name: Release Web and Desktop Apps
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ on:
           - patch
 
 jobs:
-  build:
+  build-desktop:
     name: Build Desktop Apps
     runs-on: ${{ matrix.os }}
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -86,10 +86,10 @@ jobs:
           path: "**/appainter_${{ matrix.type }}.tar.gz"
           if-no-files-found: error
 
-  release:
-    name: Release
+  release-desktop:
+    name: Release Desktop Apps
     runs-on: ubuntu-latest
-    needs: build
+    needs: build-desktop
 
     steps:
       - name: Checkout 🛎️
@@ -132,7 +132,7 @@ jobs:
         env:
           version: ${{ steps.bump-version.outputs.version }}
         with:
-          commit_message: "chore(release): ${{ env.version }} [skip ci]"
+          commit_message: "chore(release-desktop): ${{ env.version }} [skip ci]"
           tagging_message: ${{ env.version }}
           file_pattern: pubspec.yaml
           push_options: --force
@@ -157,3 +157,49 @@ jobs:
           artifacts: "**/appainter*.tar.gz"
           body: ${{ steps.generate-changelog.outputs.changelog }}
           token: ${{ secrets.PAT }}
+
+  build-web-deploy:
+    name: Build Web App and Deploy
+    runs-on: ubuntu-latest
+    needs: release-desktop
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
+      - name: Setup Flutter 💻
+        uses: subosito/flutter-action@v2.8.0
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+
+      - name: Cache Pub 💾
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.PUB_CACHE }}
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      - name: Build web app 🏗
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        run: |
+          flutter pub get
+          flutter pub run build_runner build --delete-conflicting-outputs
+          flutter build web --source-maps --dart-define=FLUTTER_WEB_USE_SKIA=true
+
+          # Upload source map to Sentry
+          flutter packages pub run sentry_dart_plugin
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          branch: gh-pages
+          folder: build/web

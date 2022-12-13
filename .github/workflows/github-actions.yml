@@ -115,7 +115,9 @@ jobs:
         run: |
           flutter pub get
           flutter pub run build_runner build --delete-conflicting-outputs
-          flutter build web --dart-define=FLUTTER_WEB_USE_SKIA=true
+          flutter build web --source-maps --dart-define=FLUTTER_WEB_USE_SKIA=true
+          # Upload source map to Sentry
+          flutter packages pub run sentry_dart_plugin
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.1

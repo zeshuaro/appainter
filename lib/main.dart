@@ -1,8 +1,8 @@
 import 'package:appainter/analytics/analytics.dart';
 import 'package:appainter/authentication/authentication.dart';
 import 'package:appainter/firebase_options.dart';
+import 'package:appainter/font/font.dart';
 import 'package:appainter/home/home.dart';
-import 'package:appainter/text_theme/text_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -56,7 +56,7 @@ Future<void> _runApp() async {
 
   runApp(MyApp(
     homeRepo: HomeRepository(),
-    textThemeRepo: TextThemeRepository(),
+    fontRepo: FontRepository(),
     analyticsRepo: analyticsRepo,
   ));
 }

@@ -112,6 +112,10 @@ jobs:
             ${{ runner.os }}-pub-
 
       - name: Build web app 🏗
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
         run: |
           flutter pub get
           flutter pub run build_runner build --delete-conflicting-outputs

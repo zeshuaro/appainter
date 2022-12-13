@@ -120,8 +120,22 @@ jobs:
           flutter pub get
           flutter pub run build_runner build --delete-conflicting-outputs
           flutter build web --source-maps --dart-define=FLUTTER_WEB_USE_SKIA=true
+
           # Upload source map to Sentry
           flutter packages pub run sentry_dart_plugin
+
+          # Bump version build number
+          flutter pub run cider bump build
+          echo "version=v$(flutter pub run cider version)" >> $GITHUB_OUTPUT
+
+      - name: Commit new version 🆕
+        uses: stefanzweifel/git-auto-commit-action@v4.16.0
+        env:
+          version: ${{ steps.bump-version.outputs.version }}
+        with:
+          commit_message: "chore(webrelease): ${{ env.version }} [skip ci]"
+          file_pattern: pubspec.yaml
+          push_options: --force
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.1

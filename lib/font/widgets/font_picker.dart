@@ -1,3 +1,4 @@
+import 'package:appainter/font/font.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class FontPicker extends StatelessWidget {
   }
 
   Future<List<FontData>> _onFind(BuildContext context, String query) {
-    return Future.value(context.read<TextThemeRepository>().searchFonts(query));
+    return Future.value(context.read<FontRepository>().searchFonts(query));
   }
 
   void _onChanged(BuildContext context, FontData? data) {

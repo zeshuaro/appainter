@@ -1,3 +1,4 @@
+import 'package:appainter/font/font.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,12 +7,12 @@ import 'package:google_fonts/google_fonts.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late TextStyle expectedStyle;
-  late TextThemeRepository repo;
+  late FontRepository repo;
 
   setUpAll(() => expectedStyle = GoogleFonts.getFont('ABeeZee'));
 
   setUp(() {
-    repo = TextThemeRepository();
+    repo = FontRepository();
   });
 
   for (var query in ['ABeeZee', 'abeezee']) {

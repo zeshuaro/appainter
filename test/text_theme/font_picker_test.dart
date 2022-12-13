@@ -1,3 +1,4 @@
+import 'package:appainter/font/font.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ void main() {
 
     await tester.pumpWidget(
       RepositoryProvider(
-        create: (context) => TextThemeRepository(),
+        create: (context) => FontRepository(),
         child: BlocProvider.value(
           value: cubit,
           child: const MaterialApp(

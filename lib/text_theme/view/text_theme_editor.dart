@@ -1,4 +1,5 @@
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
+import 'package:appainter/font/font.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';

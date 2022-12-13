@@ -7,6 +7,7 @@ import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/elevated_button_theme/elevated_button_theme.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
+import 'package:appainter/font/font.dart';
 import 'package:appainter/home/home.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
@@ -22,13 +23,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyApp extends StatelessWidget {
   final HomeRepository homeRepo;
-  final TextThemeRepository textThemeRepo;
+  final FontRepository fontRepo;
   final AnalyticsRepository analyticsRepo;
 
   const MyApp({
     Key? key,
     required this.homeRepo,
-    required this.textThemeRepo,
+    required this.fontRepo,
     required this.analyticsRepo,
   }) : super(key: key);
 
@@ -126,7 +127,7 @@ class MyApp extends StatelessWidget {
     );
 
     return RepositoryProvider.value(
-      value: textThemeRepo,
+      value: fontRepo,
       child: MultiBlocProvider(
         providers: [
           BlocProvider(

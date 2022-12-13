@@ -114,6 +114,7 @@ jobs:
             ${{ runner.os }}-pub-
 
       - name: Build web app 🏗
+        id: build-web
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
@@ -135,7 +136,7 @@ jobs:
       - name: Commit new version 🆕
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         env:
-          version: ${{ steps.bump-version.outputs.version }}
+          version: ${{ steps.build-web.outputs.version }}
         with:
           commit_message: "chore(release-web): ${{ env.version }} [skip ci]"
           file_pattern: pubspec.yaml

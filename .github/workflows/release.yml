@@ -161,6 +161,7 @@ jobs:
   build-web-deploy:
     name: Build Web App and Deploy
     runs-on: ubuntu-latest
+    concurrency: web-deploy
     needs: release-desktop
 
     steps:

@@ -86,6 +86,7 @@ jobs:
   build-web-deploy:
     name: Build Web App and Deploy
     runs-on: ubuntu-latest
+    concurrency: web-deploy
     needs: [lint, test]
     if: ${{ github.ref == 'refs/heads/main' }}
 

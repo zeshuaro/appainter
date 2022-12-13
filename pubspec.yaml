@@ -61,8 +61,13 @@ dev_dependencies:
     sdk: flutter
   mocktail: ^0.3.0
   remove_from_coverage: ^2.0.0
+  sentry_dart_plugin: ^1.0.0-beta.4
 
 flutter:
   uses-material-design: true
   assets:
     - assets/icon.png
+
+sentry:
+  upload_native_symbols: true
+  upload_source_maps: true

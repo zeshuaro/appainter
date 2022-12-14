@@ -71,4 +71,5 @@ flutter:
 sentry:
   upload_native_symbols: true
   upload_source_maps: true
+  include_native_sources: true
   commits: false

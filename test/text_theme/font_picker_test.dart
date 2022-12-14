@@ -4,6 +4,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
@@ -17,6 +18,7 @@ void main() {
 
   testWidgets('font picker should update font family', (tester) async {
     const fontFamily = 'ABeeZee';
+    final style = GoogleFonts.aBeeZee();
 
     whenListen(
       cubit,
@@ -29,9 +31,11 @@ void main() {
         create: (context) => FontRepository(),
         child: BlocProvider.value(
           value: cubit,
-          child: const MaterialApp(
+          child: MaterialApp(
             home: Scaffold(
-              body: FontPicker(),
+              body: FontPicker(
+                onChanged: cubit.fontFamilyChanged,
+              ),
             ),
           ),
         ),
@@ -44,6 +48,6 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text(fontFamily), findsOneWidget);
-    verify(() => cubit.fontFamilyChanged(fontFamily));
+    verify(() => cubit.fontFamilyChanged(FontData(fontFamily, style)));
   });
 }

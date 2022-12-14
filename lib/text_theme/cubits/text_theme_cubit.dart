@@ -1,8 +1,8 @@
+import 'package:appainter/text_theme/text_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/text_theme/text_theme.dart';
 
 part 'text_theme_cubit.g.dart';
 part 'text_theme_state.dart';
@@ -76,7 +76,7 @@ class TextThemeCubit extends Cubit<TextThemeState> {
     overlineTextStyleCubit.styleChanged(theme.overline);
   }
 
-  void fontFamilyChanged(String fontFamily) {
-    emit(state.copyWith(fontFamily: fontFamily));
+  void fontFamilyChanged(FontData data) {
+    emit(state.copyWith(fontFamily: data.family));
   }
 }

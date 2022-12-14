@@ -1,12 +1,13 @@
+import 'package:appainter/text_theme/text_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/text_theme/text_theme.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
 
 void main() {
+  const fontFamily = 'fontFamily';
   late TextThemeCubit textThemeCubit;
   late TextTheme textTheme;
 
@@ -166,7 +167,9 @@ void main() {
   blocTest<TextThemeCubit, TextThemeState>(
     'should emit font family',
     build: () => textThemeCubit,
-    act: (cubit) => cubit.fontFamilyChanged('newFont'),
-    expect: () => [const TextThemeState(fontFamily: 'newFont')],
+    act: (cubit) => cubit.fontFamilyChanged(
+      const FontData(fontFamily, TextStyle()),
+    ),
+    expect: () => [const TextThemeState(fontFamily: fontFamily)],
   );
 }

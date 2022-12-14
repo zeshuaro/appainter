@@ -3,6 +3,7 @@ import 'package:appainter/font/font.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TextThemeEditor extends ExpansionPanelItem {
   const TextThemeEditor({Key? key}) : super(key: key);
@@ -14,7 +15,9 @@ class TextThemeEditor extends ExpansionPanelItem {
   Widget build(BuildContext context) {
     return NestedListView(
       children: [
-        const FontPicker(),
+        FontPicker(
+          onChanged: context.read<TextThemeCubit>().fontFamilyChanged,
+        ),
         MyExpansionPanelList(
           color: Theme.of(context).brightness == Brightness.dark
               ? Colors.grey[700]

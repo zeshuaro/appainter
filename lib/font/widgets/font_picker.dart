@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FontPicker extends StatelessWidget {
-  const FontPicker({Key? key}) : super(key: key);
+  const FontPicker({Key? key, required this.onChanged}) : super(key: key);
+
+  final ValueChanged<FontData> onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +48,7 @@ class FontPicker extends StatelessWidget {
 
   void _onChanged(BuildContext context, FontData? data) {
     if (data != null) {
-      context.read<TextThemeCubit>().fontFamilyChanged(data.family);
+      onChanged(data);
     }
   }
 }

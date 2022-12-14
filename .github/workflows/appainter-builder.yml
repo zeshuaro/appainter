@@ -25,7 +25,9 @@ jobs:
       - name: Cache Pub 💾
         uses: actions/cache@v3
         with:
-          path: ${{ env.PUB_CACHE }}
+          path: |
+            ${{ env.PUB_CACHE }}
+            **/.dart_tool
           key: ${{ runner.os }}-pub-${{ hashFiles('pubspec.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pub-
@@ -56,7 +58,9 @@ jobs:
       - name: Cache Pub 💾
         uses: actions/cache@v3
         with:
-          path: ${{ env.PUB_CACHE }}
+          path: |
+            ${{ env.PUB_CACHE }}
+            **/.dart_tool
           key: ${{ runner.os }}-pub-${{ hashFiles('pubspec.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pub-

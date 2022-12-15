@@ -4,14 +4,19 @@ import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/models/models.dart';
 import 'package:appainter/services/services.dart';
+import 'package:appainter/text_theme/text_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../utils.dart';
 import 'mocks.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  final fontData = FontData('aBeeZee', GoogleFonts.aBeeZee());
+
   late TestTextStyleCubit cubit;
   late TextStyle style;
   late Color color;
@@ -30,7 +35,7 @@ void main() {
   group('test style brightness', () {
     for (var isDark in [true, false]) {
       blocTest<TestTextStyleCubit, TextStyleState>(
-        'should emit style with isDark=$isDark',
+        'emit style with isDark=$isDark',
         build: () => cubit,
         act: (cubit) => cubit.styleBrightnessChanged(isDark),
         expect: () => [
@@ -45,21 +50,21 @@ void main() {
   });
 
   blocTest<TestTextStyleCubit, TextStyleState>(
-    'should emit style',
+    'emit style',
     build: () => cubit,
     act: (cubit) => cubit.styleChanged(style),
     expect: () => [TextStyleState(style: style)],
   );
 
   blocTest<TestTextStyleCubit, TextStyleState>(
-    'should emit color',
+    'emit color',
     build: () => cubit,
     act: (cubit) => cubit.colorChanged(color),
     expect: () => [TextStyleState(style: style.copyWith(color: color))],
   );
 
   blocTest<TestTextStyleCubit, TextStyleState>(
-    'should emit background color',
+    'emit background color',
     build: () => cubit,
     act: (cubit) => cubit.backgroundColorChanged(color),
     expect: () => [
@@ -68,7 +73,7 @@ void main() {
   );
 
   blocTest<TestTextStyleCubit, TextStyleState>(
-    'should emit font size',
+    'emit font size',
     build: () => cubit,
     act: (cubit) => cubit.fontSizeChanged(doubleStr),
     expect: () => [
@@ -79,7 +84,7 @@ void main() {
   group('test font weights', () {
     for (var weight in MyFontWeight().values) {
       blocTest<TestTextStyleCubit, TextStyleState>(
-        'should emit $weight',
+        'emit $weight',
         build: () => cubit,
         act: (cubit) {
           cubit.fontWeightChanged(MyFontWeight().convertToString(weight)!);
@@ -94,7 +99,7 @@ void main() {
   group('test font styles', () {
     for (var fontStyle in FontStyle.values) {
       blocTest<TestTextStyleCubit, TextStyleState>(
-        'should emit $fontStyle',
+        'emit $fontStyle',
         build: () => cubit,
         act: (cubit) {
           cubit.fontStyleChanged(UtilService.enumToString(fontStyle));
@@ -107,7 +112,7 @@ void main() {
   });
 
   blocTest<TestTextStyleCubit, TextStyleState>(
-    'should emit letter spacing',
+    'emit letter spacing',
     build: () => cubit,
     act: (cubit) => cubit.letterSpacingChanged(doubleStr),
     expect: () => [
@@ -116,7 +121,7 @@ void main() {
   );
 
   blocTest<TestTextStyleCubit, TextStyleState>(
-    'should emit word spacing',
+    'emit word spacing',
     build: () => cubit,
     act: (cubit) => cubit.wordSpacingChanged(doubleStr),
     expect: () => [
@@ -127,7 +132,7 @@ void main() {
   group('test text baselines', () {
     for (var baseline in TextBaseline.values) {
       blocTest<TestTextStyleCubit, TextStyleState>(
-        'should emit $baseline',
+        'emit $baseline',
         build: () => cubit,
         act: (cubit) {
           cubit.textBaselineChanged(UtilService.enumToString(baseline));
@@ -140,7 +145,7 @@ void main() {
   });
 
   blocTest<TestTextStyleCubit, TextStyleState>(
-    'should emit height',
+    'emit height',
     build: () => cubit,
     act: (cubit) => cubit.heightChanged(doubleStr),
     expect: () => [
@@ -151,7 +156,7 @@ void main() {
   group('test leading distributions', () {
     for (var dist in TextLeadingDistribution.values) {
       blocTest<TestTextStyleCubit, TextStyleState>(
-        'should emit $dist',
+        'emit $dist',
         build: () => cubit,
         act: (cubit) {
           cubit.leadingDistributionChanged(UtilService.enumToString(dist));
@@ -166,7 +171,7 @@ void main() {
   group('test decorations', () {
     for (var decoration in MyTextDecoration().values) {
       blocTest<TestTextStyleCubit, TextStyleState>(
-        'should emit $decoration',
+        'emit $decoration',
         build: () => cubit,
         act: (cubit) {
           cubit.decorationChanged(
@@ -181,7 +186,7 @@ void main() {
   });
 
   blocTest<TestTextStyleCubit, TextStyleState>(
-    'should emit decoration color',
+    'emit decoration color',
     build: () => cubit,
     act: (cubit) => cubit.decorationColorChanged(color),
     expect: () => [
@@ -191,7 +196,7 @@ void main() {
 
   group('text decoration styles', () {
     blocTest<TestTextStyleCubit, TextStyleState>(
-      'should emit null',
+      'emit null',
       build: () => cubit,
       act: (cubit) => cubit.decorationStyleChanged(kNone),
       expect: () => [
@@ -201,7 +206,7 @@ void main() {
 
     for (var decorationStyle in TextDecorationStyle.values) {
       blocTest<TestTextStyleCubit, TextStyleState>(
-        'should emit $decorationStyle',
+        'emit $decorationStyle',
         build: () => cubit,
         act: (cubit) {
           cubit.decorationStyleChanged(
@@ -218,11 +223,20 @@ void main() {
   });
 
   blocTest<TestTextStyleCubit, TextStyleState>(
-    'should emit decoration thickness',
+    'emit decoration thickness',
     build: () => cubit,
     act: (cubit) => cubit.decorationThicknessChanged(doubleStr),
     expect: () => [
       TextStyleState(style: style.copyWith(decorationThickness: doubleNum)),
+    ],
+  );
+
+  blocTest<TestTextStyleCubit, TextStyleState>(
+    'emit font family',
+    build: () => cubit,
+    act: (cubit) => cubit.fontFamilyChanged(fontData),
+    expect: () => [
+      TextStyleState(style: style.merge(fontData.style)),
     ],
   );
 }

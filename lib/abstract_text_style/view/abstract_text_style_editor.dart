@@ -1,10 +1,11 @@
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/common/common.dart';
+import 'package:appainter/font/font.dart';
 import 'package:appainter/models/models.dart';
 import 'package:appainter/services/services.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:appainter/widgets/widgets.dart';
 
 abstract class AbstractTextStyleEditor<T extends AbstractTextStyleCubit>
     extends ExpansionPanelItem {
@@ -20,6 +21,7 @@ abstract class AbstractTextStyleEditor<T extends AbstractTextStyleCubit>
         return SideBySideList(
           padding: kPaddingAll,
           children: [
+            FontPicker(onChanged: cubit.fontFamilyChanged),
             ColorListTile(
               key: const Key('colorPicker'),
               title: 'Color',

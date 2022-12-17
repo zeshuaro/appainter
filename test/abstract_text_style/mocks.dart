@@ -3,12 +3,11 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 
 class TestTextStyleCubit extends AbstractTextStyleCubit {
-  TestTextStyleCubit()
-      : super(
-          baseStyle: Typography.englishLike2018.bodyText1!,
-          blackStyle: Typography.blackMountainView.bodyText1!,
-          whiteStyle: Typography.whiteMountainView.bodyText1!,
-        );
+  TestTextStyleCubit() : super(typeScale: TypeScale.headline1);
+
+  TextStyle get blackTextStyle => kBlackTextStyles[typeScale]!;
+
+  TextStyle get whiteTextStyle => kWhiteTextStyles[typeScale]!;
 }
 
 class MockTextStyleCubit extends MockCubit<TextStyleState>

@@ -2,29 +2,21 @@ import 'dart:async';
 
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
-import 'package:appainter/app_bar_theme/app_bar_theme.dart';
+import 'package:appainter/models/models.dart';
 import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/models/models.dart';
 
 part 'app_bar_theme_cubit.g.dart';
 part 'app_bar_theme_state.dart';
 
+const _titleTypeScale = TypeScale.headline6;
+const _toolbarTypeScale = TypeScale.bodyText2;
+
 @ThemeDocs(extraPropertyTypes: {'SystemUiOverlayStyle'})
 class AppBarThemeCubit extends Cubit<AppBarThemeState> {
-  final AppBarActionsIconThemeCubit actionsIconThemeCubit;
-  final AppBarIconThemeCubit iconThemeCubit;
-  final AppBarTitleTextStyleCubit titleTextStyleCubit;
-  final AppBarToolbarTextStyleCubit toolbarTextStyleCubit;
-
-  late final StreamSubscription actionsIconThemeCubitSubscription;
-  late final StreamSubscription iconThemeCubitSubscription;
-  late final StreamSubscription titleTextStyleCubitSubscription;
-  late final StreamSubscription toolbarTextStyleCubitSubscription;
-
   AppBarThemeCubit({
     required this.actionsIconThemeCubit,
     required this.iconThemeCubit,
@@ -57,6 +49,20 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
     );
   }
 
+  final AppBarActionsIconThemeCubit actionsIconThemeCubit;
+  final AppBarIconThemeCubit iconThemeCubit;
+  final AppBarTitleTextStyleCubit titleTextStyleCubit;
+  final AppBarToolbarTextStyleCubit toolbarTextStyleCubit;
+
+  late final StreamSubscription actionsIconThemeCubitSubscription;
+  late final StreamSubscription iconThemeCubitSubscription;
+  late final StreamSubscription titleTextStyleCubitSubscription;
+  late final StreamSubscription toolbarTextStyleCubitSubscription;
+
+  static const defaultIconTheme = IconThemeData();
+  static final defaultTitleTextStyle = kWhiteTextStyles[_titleTypeScale]!;
+  static final defaultToolbarTextStyle = kWhiteTextStyles[_toolbarTypeScale]!;
+
   @override
   Future<void> close() {
     actionsIconThemeCubitSubscription.cancel();
@@ -68,16 +74,16 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
 
   void themeChanged(AppBarTheme theme) {
     actionsIconThemeCubit.themeChanged(
-      theme.actionsIconTheme ?? kAppBarIconTheme,
+      theme.actionsIconTheme ?? defaultIconTheme,
     );
     iconThemeCubit.themeChanged(
-      theme.actionsIconTheme ?? kAppBarIconTheme,
+      theme.actionsIconTheme ?? defaultIconTheme,
     );
     titleTextStyleCubit.styleChanged(
-      theme.titleTextStyle ?? kAppBarTitleTextStyle,
+      theme.titleTextStyle ?? defaultTitleTextStyle,
     );
     toolbarTextStyleCubit.styleChanged(
-      theme.toolbarTextStyle ?? kAppBarToolbarTextStyle,
+      theme.toolbarTextStyle ?? defaultToolbarTextStyle,
     );
     emit(state.copyWith(theme: theme));
   }
@@ -140,9 +146,17 @@ class AppBarActionsIconThemeCubit extends AbstractIconThemeCubit {}
 class AppBarIconThemeCubit extends AbstractIconThemeCubit {}
 
 class AppBarTitleTextStyleCubit extends AbstractTextStyleCubit {
-  AppBarTitleTextStyleCubit() : super(defaultStyle: kAppBarTitleTextStyle);
+  AppBarTitleTextStyleCubit()
+      : super(
+          typeScale: _titleTypeScale,
+          isBaseStyleBlack: false,
+        );
 }
 
 class AppBarToolbarTextStyleCubit extends AbstractTextStyleCubit {
-  AppBarToolbarTextStyleCubit() : super(defaultStyle: kAppBarToolbarTextStyle);
+  AppBarToolbarTextStyleCubit()
+      : super(
+          typeScale: _toolbarTypeScale,
+          isBaseStyleBlack: false,
+        );
 }

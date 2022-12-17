@@ -25,7 +25,7 @@ void main() {
 
   setUp(() {
     cubit = TestTextStyleCubit();
-    style = cubit.baseStyle!.merge(cubit.blackStyle);
+    style = cubit.blackTextStyle;
 
     color = getRandomColor();
     doubleNum = Random().nextDouble();
@@ -40,9 +40,7 @@ void main() {
         act: (cubit) => cubit.styleBrightnessChanged(isDark),
         expect: () => [
           TextStyleState(
-            style: isDark
-                ? style.merge(cubit.whiteStyle)
-                : style.merge(cubit.blackStyle),
+            style: isDark ? cubit.whiteTextStyle : cubit.blackTextStyle,
           )
         ],
       );

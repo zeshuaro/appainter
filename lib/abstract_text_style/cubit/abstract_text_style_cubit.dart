@@ -1,3 +1,4 @@
+import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/models/models.dart';
 import 'package:appainter/services/services.dart';
@@ -11,26 +12,21 @@ part 'abstract_text_style_cubit.g.dart';
 part 'text_style_state.dart';
 
 abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
-  final TextStyle? baseStyle;
-  final TextStyle? blackStyle;
-  final TextStyle? whiteStyle;
-  final TextStyle? defaultStyle;
-
   AbstractTextStyleCubit({
-    this.baseStyle,
-    this.blackStyle,
-    this.whiteStyle,
-    this.defaultStyle,
-  })  : assert(
-            (baseStyle != null && blackStyle != null && whiteStyle != null) ||
-                defaultStyle != null),
-        super(
-          TextStyleState(style: defaultStyle ?? baseStyle!.merge(blackStyle!)),
-        );
+    required this.typeScale,
+    this.isBaseStyleBlack = true,
+  }) : super(TextStyleState(
+          style: isBaseStyleBlack
+              ? kBlackTextStyles[typeScale]!
+              : kWhiteTextStyles[typeScale]!,
+        ));
+
+  final TypeScale typeScale;
+  final bool isBaseStyleBlack;
 
   void styleBrightnessChanged(bool isDark) {
     final style =
-        defaultStyle ?? baseStyle!.merge(isDark ? whiteStyle! : blackStyle!);
+        isDark ? kWhiteTextStyles[typeScale]! : kBlackTextStyles[typeScale]!;
     emit(state.copyWith(style: style));
   }
 

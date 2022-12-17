@@ -1,12 +1,12 @@
 import 'dart:math';
 
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
-import 'package:appainter/abstract_text_style/cubit/abstract_text_style_cubit.dart';
+import 'package:appainter/abstract_text_style/abstract_text_style.dart';
+import 'package:appainter/app_bar_theme/app_bar_theme.dart';
+import 'package:appainter/models/models.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/app_bar_theme/app_bar_theme.dart';
-import 'package:appainter/models/models.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';
@@ -20,7 +20,6 @@ void main() {
 
   late AppBarTheme theme;
   late IconThemeData iconTheme;
-  late TextStyle textStyle;
 
   late Color color;
   late double doubleNum;
@@ -54,27 +53,29 @@ void main() {
     expect: () => [
       AppBarThemeState(theme: theme),
       AppBarThemeState(
-        theme: theme.copyWith(actionsIconTheme: kAppBarIconTheme),
-      ),
-      AppBarThemeState(
         theme: theme.copyWith(
-          actionsIconTheme: kAppBarIconTheme,
-          iconTheme: kAppBarIconTheme,
+          actionsIconTheme: AppBarThemeCubit.defaultIconTheme,
         ),
       ),
       AppBarThemeState(
         theme: theme.copyWith(
-          actionsIconTheme: kAppBarIconTheme,
-          iconTheme: kAppBarIconTheme,
-          titleTextStyle: kAppBarTitleTextStyle,
+          actionsIconTheme: AppBarThemeCubit.defaultIconTheme,
+          iconTheme: AppBarThemeCubit.defaultIconTheme,
         ),
       ),
       AppBarThemeState(
         theme: theme.copyWith(
-          actionsIconTheme: kAppBarIconTheme,
-          iconTheme: kAppBarIconTheme,
-          titleTextStyle: kAppBarTitleTextStyle,
-          toolbarTextStyle: kAppBarToolbarTextStyle,
+          actionsIconTheme: AppBarThemeCubit.defaultIconTheme,
+          iconTheme: AppBarThemeCubit.defaultIconTheme,
+          titleTextStyle: AppBarThemeCubit.defaultTitleTextStyle,
+        ),
+      ),
+      AppBarThemeState(
+        theme: theme.copyWith(
+          actionsIconTheme: AppBarThemeCubit.defaultIconTheme,
+          iconTheme: AppBarThemeCubit.defaultIconTheme,
+          titleTextStyle: AppBarThemeCubit.defaultTitleTextStyle,
+          toolbarTextStyle: AppBarThemeCubit.defaultToolbarTextStyle,
         ),
       ),
     ],
@@ -188,31 +189,15 @@ void main() {
     ),
   );
 
-  blocTest<AppBarTitleTextStyleCubit, TextStyleState>(
-    'emits title text style color',
-    setUp: () => textStyle = kAppBarTitleTextStyle.copyWith(color: color),
-    build: () => titleTextStyleCubit,
-    act: (cubit) => cubit.colorChanged(color),
-    expect: () => [TextStyleState(style: textStyle)],
-    verify: (cubit) => expect(
-      themeCubit.state,
-      equals(
-        AppBarThemeState(theme: AppBarTheme(titleTextStyle: textStyle)),
-      ),
-    ),
-  );
+  test('initialise title text style cubit', () {
+    final cubit = AppBarTitleTextStyleCubit();
+    expect(cubit.typeScale, equals(TypeScale.headline6));
+    expect(cubit.isBaseStyleBlack, equals(false));
+  });
 
-  blocTest<AppBarToolbarTextStyleCubit, TextStyleState>(
-    'emits toolbar text style color',
-    setUp: () => textStyle = kAppBarToolbarTextStyle.copyWith(color: color),
-    build: () => toolbarTextStyleCubit,
-    act: (cubit) => cubit.colorChanged(color),
-    expect: () => [TextStyleState(style: textStyle)],
-    verify: (cubit) => expect(
-      themeCubit.state,
-      equals(
-        AppBarThemeState(theme: AppBarTheme(toolbarTextStyle: textStyle)),
-      ),
-    ),
-  );
+  test('initialise toolbar text style cubit', () {
+    final cubit = AppBarToolbarTextStyleCubit();
+    expect(cubit.typeScale, equals(TypeScale.bodyText2));
+    expect(cubit.isBaseStyleBlack, equals(false));
+  });
 }

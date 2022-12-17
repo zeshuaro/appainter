@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
-import 'package:appainter/abstract_text_style/cubit/abstract_text_style_cubit.dart';
+import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/models/models.dart';
@@ -18,9 +18,11 @@ import '../widget_testers.dart';
 void main() {
   const defaultAppBarThemeState = AppBarThemeState();
   const defaultIconThemeState = IconThemeState();
-  final defaultTextStyleState = TextStyleState(style: kAppBarTitleTextStyle);
+  final defaultTextStyleState = TextStyleState(
+    style: AppBarThemeCubit.defaultTitleTextStyle,
+  );
   final defaultToolbarStyleState = TextStyleState(
-    style: kAppBarToolbarTextStyle,
+    style: AppBarThemeCubit.defaultToolbarTextStyle,
   );
   final widgetTesters = WidgetTesters();
 
@@ -109,7 +111,7 @@ void main() {
     );
   }
 
-  testWidgets('displays nested editors', (tester) async {
+  testWidgets('display nested editors', (tester) async {
     await pumpApp(tester, defaultAppBarThemeState);
     expect(find.byType(ActionsIconThemeCard), findsOneWidget);
     expect(find.byType(IconThemeCard), findsOneWidget);
@@ -117,7 +119,7 @@ void main() {
     expect(find.byType(ToolbarTextStyleCard), findsOneWidget);
   });
 
-  testWidgets('updates background color', (tester) async {
+  testWidgets('update background color', (tester) async {
     final state = AppBarThemeState(
       theme: AppBarTheme(backgroundColor: color),
     );
@@ -132,7 +134,7 @@ void main() {
     verify(() => appBarThemeCubit.backgroundColorChanged(color)).called(1);
   });
 
-  testWidgets('updates foreground color', (tester) async {
+  testWidgets('update foreground color', (tester) async {
     final state = AppBarThemeState(
       theme: AppBarTheme(foregroundColor: color),
     );
@@ -147,7 +149,7 @@ void main() {
     verify(() => appBarThemeCubit.foregroundColorChanged(color)).called(1);
   });
 
-  testWidgets('updates elevation', (tester) async {
+  testWidgets('update elevation', (tester) async {
     final state = AppBarThemeState(
       theme: AppBarTheme(elevation: doubleNum),
     );
@@ -162,7 +164,7 @@ void main() {
     verify(() => appBarThemeCubit.elevationChanged(doubleStr)).called(1);
   });
 
-  testWidgets('updates shadow color', (tester) async {
+  testWidgets('update shadow color', (tester) async {
     final state = AppBarThemeState(theme: AppBarTheme(shadowColor: color));
 
     await pumpApp(tester, state);
@@ -175,9 +177,9 @@ void main() {
     verify(() => appBarThemeCubit.shadowColorChanged(color)).called(1);
   });
 
-  group('tests center title switch', () {
+  group('test center title switch', () {
     for (var isCenter in [true, false]) {
-      testWidgets('updates to $isCenter', (tester) async {
+      testWidgets('update to $isCenter', (tester) async {
         final state = AppBarThemeState(
           theme: AppBarTheme(centerTitle: isCenter),
         );
@@ -194,7 +196,7 @@ void main() {
     }
   });
 
-  testWidgets('updates title spacing', (tester) async {
+  testWidgets('update title spacing', (tester) async {
     final state = AppBarThemeState(
       theme: AppBarTheme(titleSpacing: doubleNum),
     );
@@ -209,7 +211,7 @@ void main() {
     verify(() => appBarThemeCubit.titleSpacingChanged(doubleStr)).called(1);
   });
 
-  testWidgets('updates tool bar height', (tester) async {
+  testWidgets('update tool bar height', (tester) async {
     final state = AppBarThemeState(
       theme: AppBarTheme(toolbarHeight: doubleNum),
     );
@@ -224,10 +226,10 @@ void main() {
     verify(() => appBarThemeCubit.toolBarHeightChanged(doubleStr)).called(1);
   });
 
-  group('tests system UI overlay style dropdown', () {
+  group('test system UI overlay style dropdown', () {
     for (var style in MySystemUiOverlayStyle().values) {
       final styleStr = MySystemUiOverlayStyle().convertToString(style)!;
-      testWidgets('updates to ${style.statusBarBrightness}', (tester) async {
+      testWidgets('update to ${style.statusBarBrightness}', (tester) async {
         final state = AppBarThemeState(
           theme: AppBarTheme(systemOverlayStyle: style),
         );

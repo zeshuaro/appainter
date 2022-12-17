@@ -1,8 +1,5 @@
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
@@ -21,6 +18,9 @@ import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'mocks.dart';
@@ -119,10 +119,10 @@ extension PumpApp on WidgetTester {
     when(() => appBarActionsIconThemeCubit.state).thenReturn(_iconThemeState);
     when(() => appBarIconThemeCubit.state).thenReturn(_iconThemeState);
     when(() => appBarTitleTextStyleCubit.state).thenReturn(
-      TextStyleState(style: kAppBarTitleTextStyle),
+      TextStyleState(style: AppBarThemeCubit.defaultTitleTextStyle),
     );
     when(() => appBarToolbarTextStyleCubit.state).thenReturn(
-      TextStyleState(style: kAppBarToolbarTextStyle),
+      TextStyleState(style: AppBarThemeCubit.defaultToolbarTextStyle),
     );
 
     when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());

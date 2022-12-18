@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:appainter/abstract_text_style/cubit/abstract_text_style_cubit.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/util_service.dart';
@@ -18,19 +19,39 @@ void main() {
   final widgetTesters = WidgetTesters(expandText: 'Bottom navigation bar');
 
   late BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
+  late BottomNavigationBarLabelTextStyleCubit
+      bottomNavigationBarLabelTextStyleCubit;
+  late BottomNavigationBarUnselectedLabelTextStyleCubit
+      bottomNavigationBarUnselectedLabelTextStyleCubit;
   late ColorThemeCubit colorThemeCubit;
   late Color color;
   late double doubleValue;
 
   setUp(() {
     bottomNavigationBarThemeCubit = MockBottomNavigationBarThemeCubit();
+    bottomNavigationBarLabelTextStyleCubit =
+        MockBottomNavigationBarLabelTextStyleCubit();
+    bottomNavigationBarUnselectedLabelTextStyleCubit =
+        MockBottomNavigationBarUnselectedLabelTextStyleCubit();
     colorThemeCubit = MockColorThemeCubit();
     color = getRandomColor();
     doubleValue = Random().nextDouble();
 
+    when(() => bottomNavigationBarThemeCubit.state).thenReturn(
+      const BottomNavigationBarThemeState(),
+    );
+    when(() => bottomNavigationBarLabelTextStyleCubit.state).thenReturn(
+      TextStyleState(
+        style: BottomNavigationBarThemeCubit.defaultLabelTextStyle,
+      ),
+    );
     when(() {
-      return bottomNavigationBarThemeCubit.state;
-    }).thenReturn(const BottomNavigationBarThemeState());
+      return bottomNavigationBarUnselectedLabelTextStyleCubit.state;
+    }).thenReturn(
+      TextStyleState(
+        style: BottomNavigationBarThemeCubit.defaultLabelTextStyle,
+      ),
+    );
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
@@ -47,6 +68,10 @@ void main() {
       MultiBlocProvider(
         providers: [
           BlocProvider.value(value: bottomNavigationBarThemeCubit),
+          BlocProvider.value(value: bottomNavigationBarLabelTextStyleCubit),
+          BlocProvider.value(
+            value: bottomNavigationBarUnselectedLabelTextStyleCubit,
+          ),
           BlocProvider.value(value: colorThemeCubit),
         ],
         child: MaterialApp(
@@ -58,8 +83,25 @@ void main() {
     );
   }
 
+  testWidgets('display nested editors', (tester) async {
+    await pumpApp(tester, const BottomNavigationBarThemeState());
+    expect(
+      find.byKey(
+        const Key('bottomNavigationBarThemeEditor_labelTextStyleCard'),
+      ),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(
+        const Key(
+          'bottomNavigationBarThemeEditor_unselectedLabelTextStyleCard',
+        ),
+      ),
+      findsOneWidget,
+    );
+  });
   testWidgets(
-    'background color picker should update with selected color',
+    'background color picker update with selected color',
     (tester) async {
       final state = BottomNavigationBarThemeState(
         theme: BottomNavigationBarThemeData(backgroundColor: color),
@@ -79,7 +121,7 @@ void main() {
   );
 
   testWidgets(
-    'selected item color picker should update with selected color',
+    'selected item color picker update with selected color',
     (tester) async {
       final state = BottomNavigationBarThemeState(
         theme: BottomNavigationBarThemeData(selectedItemColor: color),
@@ -99,7 +141,7 @@ void main() {
   );
 
   testWidgets(
-    'unselected item color picker should update with selected color',
+    'unselected item color picker update with selected color',
     (tester) async {
       final state = BottomNavigationBarThemeState(
         theme: BottomNavigationBarThemeData(unselectedItemColor: color),
@@ -121,7 +163,7 @@ void main() {
   group('test show selected labels switch', () {
     for (var isShow in [true, false]) {
       testWidgets(
-        'should be toggled to $isShow',
+        'be toggled to $isShow',
         (tester) async {
           final state = BottomNavigationBarThemeState(
             theme: BottomNavigationBarThemeData(showSelectedLabels: isShow),
@@ -145,7 +187,7 @@ void main() {
   group('test show unselected labels switch', () {
     for (var isShow in [true, false]) {
       testWidgets(
-        'should be toggled to $isShow',
+        'be toggled to $isShow',
         (tester) async {
           final state = BottomNavigationBarThemeState(
             theme: BottomNavigationBarThemeData(showUnselectedLabels: isShow),
@@ -167,7 +209,7 @@ void main() {
   });
 
   testWidgets(
-    'elevation text field should update with value',
+    'elevation text field update with value',
     (tester) async {
       final state = BottomNavigationBarThemeState(
         theme: BottomNavigationBarThemeData(elevation: doubleValue),
@@ -191,7 +233,7 @@ void main() {
       final typeStr = UtilService.enumToString(type);
 
       testWidgets(
-        'should update to $type',
+        'update to $type',
         (tester) async {
           final state = BottomNavigationBarThemeState(
             theme: BottomNavigationBarThemeData(type: type),

@@ -75,6 +75,14 @@ class MockBottomNavigationBarThemeCubit
 class FakeBottomNavigationBarThemeState extends Fake
     implements BottomNavigationBarThemeState {}
 
+class MockBottomNavigationBarLabelTextStyleCubit
+    extends MockCubit<TextStyleState>
+    implements BottomNavigationBarLabelTextStyleCubit {}
+
+class MockBottomNavigationBarUnselectedLabelTextStyleCubit
+    extends MockCubit<TextStyleState>
+    implements BottomNavigationBarUnselectedLabelTextStyleCubit {}
+
 class MockFloatingActionButtonThemeCubit
     extends MockCubit<FloatingActionButtonThemeState>
     implements FloatingActionButtonThemeCubit {}

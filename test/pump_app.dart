@@ -60,6 +60,12 @@ extension PumpApp on WidgetTester {
 
     final BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit =
         MockBottomNavigationBarThemeCubit();
+    final BottomNavigationBarLabelTextStyleCubit
+        bottomNavigationBarLabelTextStyleCubit =
+        MockBottomNavigationBarLabelTextStyleCubit();
+    final BottomNavigationBarUnselectedLabelTextStyleCubit
+        bottomNavigationBarUnselectedLabelTextStyleCubit =
+        MockBottomNavigationBarUnselectedLabelTextStyleCubit();
 
     final FloatingActionButtonThemeCubit floatingActionButtonThemeCubit =
         MockFloatingActionButtonThemeCubit();
@@ -142,6 +148,19 @@ extension PumpApp on WidgetTester {
     when(() => bottomNavigationBarThemeCubit.state).thenReturn(
       const BottomNavigationBarThemeState(),
     );
+    when(() => bottomNavigationBarLabelTextStyleCubit.state).thenReturn(
+      TextStyleState(
+        style: BottomNavigationBarThemeCubit.defaultLabelTextStyle,
+      ),
+    );
+    when(() {
+      return bottomNavigationBarUnselectedLabelTextStyleCubit.state;
+    }).thenReturn(
+      TextStyleState(
+        style: BottomNavigationBarThemeCubit.defaultLabelTextStyle,
+      ),
+    );
+
     when(() => floatingActionButtonThemeCubit.state).thenReturn(
       const FloatingActionButtonThemeState(),
     );
@@ -201,6 +220,10 @@ extension PumpApp on WidgetTester {
             BlocProvider.value(value: tabBarLabelTextStyleCubit),
             BlocProvider.value(value: tabBarUnselectedLabelTextStyleCubit),
             BlocProvider.value(value: bottomNavigationBarThemeCubit),
+            BlocProvider.value(value: bottomNavigationBarLabelTextStyleCubit),
+            BlocProvider.value(
+              value: bottomNavigationBarUnselectedLabelTextStyleCubit,
+            ),
             BlocProvider.value(value: floatingActionButtonThemeCubit),
             BlocProvider.value(value: elevatedButtonThemeCubit),
             BlocProvider.value(value: outlinedButtonThemeCubit),

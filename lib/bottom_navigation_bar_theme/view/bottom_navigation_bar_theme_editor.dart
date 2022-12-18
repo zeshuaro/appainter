@@ -1,10 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomNavigationBarThemeEditor extends ExpansionPanelItem {
   const BottomNavigationBarThemeEditor({Key? key}) : super(key: key);
@@ -14,16 +15,32 @@ class BottomNavigationBarThemeEditor extends ExpansionPanelItem {
 
   @override
   Widget build(BuildContext context) {
-    return SideBySideList(
-      padding: kPaddingAll,
+    return NestedListView(
       children: [
-        _TypeDropdown(),
-        _BackgroundColorPicker(),
-        _SelectedItemColorPicker(),
-        _UnselectedItemColorPicker(),
-        _ShowSelectedLabelsSwitch(),
-        _ShowUnselectedLabelsSwitch(),
-        _ElevationTextField(),
+        SideBySideList(
+          padding: kPaddingAll,
+          children: [
+            _TypeDropdown(),
+            _BackgroundColorPicker(),
+            _SelectedItemColorPicker(),
+            _UnselectedItemColorPicker(),
+            _ShowSelectedLabelsSwitch(),
+            _ShowUnselectedLabelsSwitch(),
+            _ElevationTextField(),
+          ],
+        ),
+        MyExpansionPanelList(
+          items: const [
+            _LabelTextStyleCard(
+              key: Key('bottomNavigationBarThemeEditor_labelTextStyleCard'),
+            ),
+            _UnselectedLabelTextStyleCard(
+              key: Key(
+                'bottomNavigationBarThemeEditor_unselectedLabelTextStyleCard',
+              ),
+            ),
+          ],
+        )
       ],
     );
   }
@@ -210,4 +227,26 @@ class _ElevationTextField extends StatelessWidget {
       },
     );
   }
+}
+
+class _LabelTextStyleCard
+    extends AbstractTextStyleEditor<BottomNavigationBarLabelTextStyleCubit> {
+  const _LabelTextStyleCard({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Label text style';
+
+  @override
+  String? get tooltip => BottomNavigationBarThemeDocs.selectedLabelStyle;
+}
+
+class _UnselectedLabelTextStyleCard extends AbstractTextStyleEditor<
+    BottomNavigationBarUnselectedLabelTextStyleCubit> {
+  const _UnselectedLabelTextStyleCard({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Unselected label text style';
+
+  @override
+  String? get tooltip => BottomNavigationBarThemeDocs.unselectedLabelStyle;
 }

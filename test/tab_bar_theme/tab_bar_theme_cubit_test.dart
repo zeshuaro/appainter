@@ -1,19 +1,28 @@
+import 'package:appainter/abstract_text_style/abstract_text_style.dart';
+import 'package:appainter/services/services.dart';
+import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/services/services.dart';
-import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';
 
 void main() {
-  late TabBarThemeCubit cubit;
+  late TabBarThemeCubit themeCubit;
+  late TabBarLabelTextStyleCubit labelTextStyleCubit;
+  late TabBarUnselectedLabelTextStyleCubit unselectedLabelTextStyleCubit;
+
   late TabBarTheme theme;
   late Color color;
 
   setUp(() {
-    cubit = TabBarThemeCubit();
+    labelTextStyleCubit = TabBarLabelTextStyleCubit();
+    unselectedLabelTextStyleCubit = TabBarUnselectedLabelTextStyleCubit();
+    themeCubit = TabBarThemeCubit(
+      labelTextStyleCubit: labelTextStyleCubit,
+      unselectedLabelTextStyleCubit: unselectedLabelTextStyleCubit,
+    );
     color = getRandomColor();
 
     final colorScheme = randomColorSchemeLight(shouldPrint: false);
@@ -21,22 +30,35 @@ void main() {
   });
 
   blocTest<TabBarThemeCubit, TabBarThemeState>(
-    'should emit theme',
-    build: () => cubit,
+    'emit theme',
+    build: () => themeCubit,
     act: (cubit) => cubit.themeChanged(theme),
-    expect: () => [TabBarThemeState(theme: theme)],
+    expect: () => [
+      TabBarThemeState(theme: theme),
+      TabBarThemeState(
+        theme: theme.copyWith(
+          labelStyle: TabBarThemeCubit.defaultLabelTextStyle,
+        ),
+      ),
+      TabBarThemeState(
+        theme: theme.copyWith(
+          labelStyle: TabBarThemeCubit.defaultLabelTextStyle,
+          unselectedLabelStyle: TabBarThemeCubit.defaultLabelTextStyle,
+        ),
+      ),
+    ],
   );
 
   blocTest<TabBarThemeCubit, TabBarThemeState>(
-    'should emit label color',
-    build: () => cubit,
+    'emit label color',
+    build: () => themeCubit,
     act: (cubit) => cubit.labelColorChanged(color),
     expect: () => [TabBarThemeState(theme: TabBarTheme(labelColor: color))],
   );
 
   blocTest<TabBarThemeCubit, TabBarThemeState>(
-    'should emit unselected label color',
-    build: () => cubit,
+    'emit unselected label color',
+    build: () => themeCubit,
     act: (cubit) => cubit.unselectedLabelColorChanged(color),
     expect: () {
       return [
@@ -48,8 +70,8 @@ void main() {
   group('test indicator size', () {
     for (var size in TabBarIndicatorSize.values) {
       blocTest<TabBarThemeCubit, TabBarThemeState>(
-        'should emit $size',
-        build: () => cubit,
+        'emit $size',
+        build: () => themeCubit,
         act: (cubit) {
           cubit.indicatorSizeChanged(UtilService.enumToString(size));
         },
@@ -58,5 +80,17 @@ void main() {
         },
       );
     }
+  });
+
+  test('initialise label text style cubit', () {
+    final cubit = TabBarLabelTextStyleCubit();
+    expect(cubit.typeScale, equals(TypeScale.bodyText1));
+    expect(cubit.isBaseStyleBlack, equals(false));
+  });
+
+  test('initialise unselected label text style cubit', () {
+    final cubit = TabBarUnselectedLabelTextStyleCubit();
+    expect(cubit.typeScale, equals(TypeScale.bodyText1));
+    expect(cubit.isBaseStyleBlack, equals(false));
   });
 }

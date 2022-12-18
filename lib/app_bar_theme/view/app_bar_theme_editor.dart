@@ -38,7 +38,7 @@ class AppBarThemeEditor extends ExpansionPanelItem {
             TitleTextStyleCard(),
             ToolbarTextStyleCard(),
           ],
-        )
+        ),
       ],
     );
   }

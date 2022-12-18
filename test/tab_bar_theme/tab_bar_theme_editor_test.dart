@@ -1,3 +1,4 @@
+import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/util_service.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
@@ -16,15 +17,26 @@ void main() {
   final widgetTesters = WidgetTesters(expandText: 'Tab bar');
 
   late TabBarThemeCubit tabBarThemeCubit;
+  late TabBarLabelTextStyleCubit tabBarLabelTextStyleCubit;
+  late TabBarUnselectedLabelTextStyleCubit tabBarUnselectedLabelTextStyleCubit;
   late ColorThemeCubit colorThemeCubit;
   late Color color;
 
   setUp(() {
     tabBarThemeCubit = MockTabBarThemeCubit();
+    tabBarLabelTextStyleCubit = MockTabBarLabelTextStyleCubit();
+    tabBarUnselectedLabelTextStyleCubit =
+        MockTabBarUnselectedLabelTextStyleCubit();
     colorThemeCubit = MockColorThemeCubit();
     color = getRandomColor();
 
     when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());
+    when(() => tabBarLabelTextStyleCubit.state).thenReturn(
+      TextStyleState(style: TabBarThemeCubit.defaultLabelTextStyle),
+    );
+    when(() => tabBarUnselectedLabelTextStyleCubit.state).thenReturn(
+      TextStyleState(style: TabBarThemeCubit.defaultLabelTextStyle),
+    );
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
@@ -38,6 +50,8 @@ void main() {
       MultiBlocProvider(
         providers: [
           BlocProvider.value(value: tabBarThemeCubit),
+          BlocProvider.value(value: tabBarLabelTextStyleCubit),
+          BlocProvider.value(value: tabBarUnselectedLabelTextStyleCubit),
           BlocProvider.value(value: colorThemeCubit),
         ],
         child: MaterialApp(
@@ -47,8 +61,20 @@ void main() {
     );
   }
 
+  testWidgets('display nested editors', (tester) async {
+    await pumpApp(tester, const TabBarThemeState());
+    expect(
+      find.byKey(const Key('tabBarThemeEditor_labelTextStyleCard')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const Key('tabBarThemeEditor_unselectedLabelTextStyleCard')),
+      findsOneWidget,
+    );
+  });
+
   testWidgets(
-    'label color picker should update with selected color',
+    'label color picker update with selected color',
     (tester) async {
       final state = TabBarThemeState(theme: TabBarTheme(labelColor: color));
 
@@ -64,7 +90,7 @@ void main() {
   );
 
   testWidgets(
-    'unselected label color picker should update with selected color',
+    'unselected label color picker update with selected color',
     (tester) async {
       final color = getRandomColor();
       final state = TabBarThemeState(
@@ -88,7 +114,7 @@ void main() {
     for (var size in TabBarIndicatorSize.values) {
       final sizeStr = UtilService.enumToString(size);
       testWidgets(
-        'should update to $size',
+        'update to $size',
         (tester) async {
           final state = TabBarThemeState(
             theme: TabBarTheme(indicatorSize: size),

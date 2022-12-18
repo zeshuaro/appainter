@@ -62,6 +62,12 @@ class MockTabBarThemeCubit extends MockCubit<TabBarThemeState>
 
 class FakeTabBarThemeState extends Fake implements TabBarThemeState {}
 
+class MockTabBarLabelTextStyleCubit extends MockCubit<TextStyleState>
+    implements TabBarLabelTextStyleCubit {}
+
+class MockTabBarUnselectedLabelTextStyleCubit extends MockCubit<TextStyleState>
+    implements TabBarUnselectedLabelTextStyleCubit {}
+
 class MockBottomNavigationBarThemeCubit
     extends MockCubit<BottomNavigationBarThemeState>
     implements BottomNavigationBarThemeCubit {}

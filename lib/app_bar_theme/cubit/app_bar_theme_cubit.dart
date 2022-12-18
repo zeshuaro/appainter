@@ -147,16 +147,10 @@ class AppBarIconThemeCubit extends AbstractIconThemeCubit {}
 
 class AppBarTitleTextStyleCubit extends AbstractTextStyleCubit {
   AppBarTitleTextStyleCubit()
-      : super(
-          typeScale: _titleTypeScale,
-          isBaseStyleBlack: false,
-        );
+      : super(typeScale: _titleTypeScale, isBaseStyleBlack: false);
 }
 
 class AppBarToolbarTextStyleCubit extends AbstractTextStyleCubit {
   AppBarToolbarTextStyleCubit()
-      : super(
-          typeScale: _toolbarTypeScale,
-          isBaseStyleBlack: false,
-        );
+      : super(typeScale: _toolbarTypeScale, isBaseStyleBlack: false);
 }

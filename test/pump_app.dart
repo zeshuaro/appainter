@@ -52,6 +52,12 @@ extension PumpApp on WidgetTester {
         MockAppBarToolbarTextStyleCubit();
 
     final TabBarThemeCubit tabBarThemeCubit = MockTabBarThemeCubit();
+    final TabBarLabelTextStyleCubit tabBarLabelTextStyleCubit =
+        MockTabBarLabelTextStyleCubit();
+    final TabBarUnselectedLabelTextStyleCubit
+        tabBarUnselectedLabelTextStyleCubit =
+        MockTabBarUnselectedLabelTextStyleCubit();
+
     final BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit =
         MockBottomNavigationBarThemeCubit();
 
@@ -126,6 +132,13 @@ extension PumpApp on WidgetTester {
     );
 
     when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());
+    when(() => tabBarLabelTextStyleCubit.state).thenReturn(
+      TextStyleState(style: TabBarThemeCubit.defaultLabelTextStyle),
+    );
+    when(() => tabBarUnselectedLabelTextStyleCubit.state).thenReturn(
+      TextStyleState(style: TabBarThemeCubit.defaultLabelTextStyle),
+    );
+
     when(() => bottomNavigationBarThemeCubit.state).thenReturn(
       const BottomNavigationBarThemeState(),
     );
@@ -185,6 +198,8 @@ extension PumpApp on WidgetTester {
             BlocProvider.value(value: appBarTitleTextStyleCubit),
             BlocProvider.value(value: appBarToolbarTextStyleCubit),
             BlocProvider.value(value: tabBarThemeCubit),
+            BlocProvider.value(value: tabBarLabelTextStyleCubit),
+            BlocProvider.value(value: tabBarUnselectedLabelTextStyleCubit),
             BlocProvider.value(value: bottomNavigationBarThemeCubit),
             BlocProvider.value(value: floatingActionButtonThemeCubit),
             BlocProvider.value(value: elevatedButtonThemeCubit),

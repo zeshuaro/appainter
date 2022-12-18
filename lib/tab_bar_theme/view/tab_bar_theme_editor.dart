@@ -34,7 +34,7 @@ class TabBarThemeEditor extends ExpansionPanelItem {
               key: Key('tabBarThemeEditor_unselectedLabelTextStyleCard'),
             ),
           ],
-        )
+        ),
       ],
     );
   }

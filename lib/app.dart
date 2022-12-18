@@ -56,7 +56,15 @@ class MyApp extends StatelessWidget {
       unselectedLabelTextStyleCubit: tabBarUnselectedLabelTextStyleCubit,
     );
 
-    final bottomNavigationBarThemeCubit = BottomNavigationBarThemeCubit();
+    final bottomNavigationBarLabelTextStyleCubit =
+        BottomNavigationBarLabelTextStyleCubit();
+    final bottomNavigationBarUnselectedLabelTextStyleCubit =
+        BottomNavigationBarUnselectedLabelTextStyleCubit();
+    final bottomNavigationBarThemeCubit = BottomNavigationBarThemeCubit(
+      labelTextStyleCubit: bottomNavigationBarLabelTextStyleCubit,
+      unselectedLabelTextStyleCubit:
+          bottomNavigationBarUnselectedLabelTextStyleCubit,
+    );
 
     final floatingActionButtonThemeCubit = FloatingActionButtonThemeCubit();
     final elevatedButtonThemeCubit = ElevatedButtonThemeCubit(
@@ -156,6 +164,10 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (_) => tabBarLabelTextStyleCubit),
           BlocProvider(create: (_) => tabBarUnselectedLabelTextStyleCubit),
           BlocProvider(create: (_) => bottomNavigationBarThemeCubit),
+          BlocProvider(create: (_) => bottomNavigationBarLabelTextStyleCubit),
+          BlocProvider(
+            create: (_) => bottomNavigationBarUnselectedLabelTextStyleCubit,
+          ),
           BlocProvider(create: (_) => floatingActionButtonThemeCubit),
           BlocProvider(create: (_) => elevatedButtonThemeCubit),
           BlocProvider(create: (_) => outlinedButtonThemeCubit),

@@ -1,22 +1,33 @@
 import 'dart:math';
 
+import 'package:appainter/abstract_text_style/abstract_text_style.dart';
+import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:appainter/services/services.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
-import 'package:appainter/services/services.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';
 
 void main() {
   late BottomNavigationBarThemeCubit cubit;
+  late BottomNavigationBarLabelTextStyleCubit labelTextStyleCubit;
+  late BottomNavigationBarUnselectedLabelTextStyleCubit
+      unselectedLabelTextStyleCubit;
+
   late BottomNavigationBarThemeData theme;
   late Color color;
   late double doubleValue;
 
   setUp(() {
-    cubit = BottomNavigationBarThemeCubit();
+    labelTextStyleCubit = BottomNavigationBarLabelTextStyleCubit();
+    unselectedLabelTextStyleCubit =
+        BottomNavigationBarUnselectedLabelTextStyleCubit();
+    cubit = BottomNavigationBarThemeCubit(
+      labelTextStyleCubit: labelTextStyleCubit,
+      unselectedLabelTextStyleCubit: unselectedLabelTextStyleCubit,
+    );
     color = getRandomColor();
     doubleValue = Random().nextDouble();
 
@@ -25,10 +36,26 @@ void main() {
   });
 
   blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
-    'should emit theme',
+    'emit theme',
     build: () => cubit,
     act: (cubit) => cubit.themeChanged(theme),
-    expect: () => [BottomNavigationBarThemeState(theme: theme)],
+    expect: () => [
+      BottomNavigationBarThemeState(theme: theme),
+      BottomNavigationBarThemeState(
+        theme: theme.copyWith(
+          selectedLabelStyle:
+              BottomNavigationBarThemeCubit.defaultLabelTextStyle,
+        ),
+      ),
+      BottomNavigationBarThemeState(
+        theme: theme.copyWith(
+          selectedLabelStyle:
+              BottomNavigationBarThemeCubit.defaultLabelTextStyle,
+          unselectedLabelStyle:
+              BottomNavigationBarThemeCubit.defaultLabelTextStyle,
+        ),
+      ),
+    ],
   );
 
   group('test type', () {
@@ -37,7 +64,7 @@ void main() {
           type == BottomNavigationBarType.shifting ? false : true;
 
       blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
-        'should emit $type',
+        'emit $type',
         build: () => cubit,
         act: (cubit) => cubit.typeChanged(UtilService.enumToString(type)),
         expect: () {
@@ -55,7 +82,7 @@ void main() {
   });
 
   blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
-    'should emit background color',
+    'emit background color',
     build: () => cubit,
     act: (cubit) => cubit.backgroundColorChanged(color),
     expect: () {
@@ -68,7 +95,7 @@ void main() {
   );
 
   blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
-    'should emit selected item color',
+    'emit selected item color',
     build: () => cubit,
     act: (cubit) => cubit.selectedItemColorChanged(color),
     expect: () {
@@ -81,7 +108,7 @@ void main() {
   );
 
   blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
-    'should emit unselected item color',
+    'emit unselected item color',
     build: () => cubit,
     act: (cubit) => cubit.unselectedItemColorChanged(color),
     expect: () {
@@ -96,7 +123,7 @@ void main() {
   group('test show selected labels', () {
     for (var isShow in [true, false]) {
       blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
-        'should emit $isShow',
+        'emit $isShow',
         build: () => cubit,
         act: (cubit) => cubit.showSelectedLabelsChanged(isShow),
         expect: () {
@@ -113,7 +140,7 @@ void main() {
   group('test show unselected labels', () {
     for (var isShow in [true, false]) {
       blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
-        'should emit $isShow',
+        'emit $isShow',
         build: () => cubit,
         act: (cubit) => cubit.showUnselectedLabelsChanged(isShow),
         expect: () {
@@ -128,7 +155,7 @@ void main() {
   });
 
   blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
-    'should emit elevation',
+    'emit elevation',
     build: () => cubit,
     act: (cubit) => cubit.elevationChanged(doubleValue.toString()),
     expect: () {
@@ -139,4 +166,16 @@ void main() {
       ];
     },
   );
+
+  test('initialise label text style cubit', () {
+    final cubit = BottomNavigationBarLabelTextStyleCubit();
+    expect(cubit.typeScale, equals(TypeScale.bodyText2));
+    expect(cubit.isBaseStyleBlack, equals(false));
+  });
+
+  test('initialise unselected label text style cubit', () {
+    final cubit = BottomNavigationBarUnselectedLabelTextStyleCubit();
+    expect(cubit.typeScale, equals(TypeScale.bodyText2));
+    expect(cubit.isBaseStyleBlack, equals(false));
+  });
 }

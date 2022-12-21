@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Stale
-        uses: actions/stale@v6
+        uses: actions/stale@v7
         with:
           days-before-issue-stale: 3
           days-before-issue-close: 2

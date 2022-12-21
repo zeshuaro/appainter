@@ -25,8 +25,8 @@ const RESOURCES = {
 "assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
 "assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
 "assets/NOTICES": "f933263b31b1a04e392160871fd2af11",
-"index.html": "2de992c99891778ac22eb3ebfe3228df",
-"/": "2de992c99891778ac22eb3ebfe3228df",
+"index.html": "f619fd435abdd05576755ca835c9034d",
+"/": "f619fd435abdd05576755ca835c9034d",
 "version.json": "8d6f0fbc01f4e252149f110ed626e10d"
 };
 

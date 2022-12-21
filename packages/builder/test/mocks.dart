@@ -181,9 +181,14 @@ descendant widgets.""";
   static const backgroundColor =
       """Overrides the default value of AppBar.backgroundColor in all
 descendant AppBar widgets.""";
+  static const backwardsCompatibility =
+      """Overrides the default value of AppBar.backwardsCompatibility property
+in all descendant AppBar widgets.""";
   static const centerTitle =
       """Overrides the default value for AppBar.centerTitle. property in all
 descendant widgets.""";
+  static const color =
+      """This property is deprecated, please use backgroundColor instead.""";
   static const elevation =
       """Overrides the default value of AppBar.elevation in all descendant
 AppBar widgets.""";
@@ -209,9 +214,14 @@ descendant widgets.""";
   static const backgroundColor =
       """Overrides the default value of AppBar.backgroundColor in all
 descendant AppBar widgets.""";
+  static const backwardsCompatibility =
+      """Overrides the default value of AppBar.backwardsCompatibility property
+in all descendant AppBar widgets.""";
   static const centerTitle =
       """Overrides the default value for AppBar.centerTitle. property in all
 descendant widgets.""";
+  static const color =
+      """This property is deprecated, please use backgroundColor instead.""";
   static const elevation =
       """Overrides the default value of AppBar.elevation in all descendant
 AppBar widgets.""";

@@ -135,10 +135,6 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
     required html_dom.Element element,
     required Set<String> propertyTypes,
   }) {
-    if (element.querySelector('a.deprecated') != null) {
-      return false;
-    }
-
     final signatureElem = element.querySelector('span.signature')!;
     final propType = signatureElem.querySelector('a')!.text;
 

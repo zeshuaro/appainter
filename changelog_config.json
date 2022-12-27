@@ -22,7 +22,7 @@
     },
     {
       "title": "## 💬 Other",
-      "labels": ["refactor"]
+      "labels": ["refactor", "revert"]
     }
   ],
   "ignore_labels": ["ignore", "ci", "style"],

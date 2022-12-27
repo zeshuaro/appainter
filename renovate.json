@@ -13,17 +13,17 @@
   "packageRules": [
     {
       "groupName": "Bloc dependencies",
-      "matchPaths": ["pubspec.yaml"],
+      "matchPaths": ["**/pubspec.yaml"],
       "matchPackagePrefixes": ["bloc", "flutter_bloc"]
     },
     {
       "groupName": "Firebase dependencies",
-      "matchPaths": ["pubspec.yaml"],
+      "matchPaths": ["p**/ubspec.yaml"],
       "matchPackagePrefixes": ["firebase_"]
     },
     {
       "groupName": "Copy with extension dependencies",
-      "matchPaths": ["pubspec.yaml"],
+      "matchPaths": ["**/pubspec.yaml"],
       "matchPackagePrefixes": ["copy_with_extension"]
     },
     {
@@ -33,7 +33,7 @@
     },
     {
       "groupName": "Flutter SDK",
-      "matchPaths": [".fvm/fvm_config.json"],
+      "matchFiles": [".fvm/fvm_config.json"],
       "labels": ["fluttersdk"],
       "semanticCommitScope": "flutter"
     }

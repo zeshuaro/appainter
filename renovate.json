@@ -1,5 +1,6 @@
 {
-  "extends": ["config:base"],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base", ":pinAllExceptPeerDependencies"],
   "ignorePaths": [
     "android/**",
     "ios/**",
@@ -7,6 +8,8 @@
     "example/ios/**"
   ],
   "labels": ["dependencies"],
+  "lockFileMaintenance": { "enabled": true },
+  "rangeStrategy": "update-lockfile",
   "semanticCommits": "enabled",
   "schedule": ["after 6pm every weekday", "every weekend"],
   "timezone": "Australia/Sydney",

@@ -9,11 +9,16 @@
   ],
   "labels": ["dependencies"],
   "lockFileMaintenance": { "enabled": true },
-  "rangeStrategy": "replace",
   "semanticCommits": "enabled",
   "schedule": ["after 6pm every weekday", "every weekend"],
   "timezone": "Australia/Sydney",
   "packageRules": [
+    {
+      "groupName": "Appainter packages",
+      "description": "Don't pin dependency versions for internal packages",
+      "matchPaths": ["packages/**/pubspec.yaml"],
+      "rangeStrategy": "replace"
+    },
     {
       "groupName": "Bloc dependencies",
       "matchPaths": ["**/pubspec.yaml"],
@@ -21,7 +26,7 @@
     },
     {
       "groupName": "Firebase dependencies",
-      "matchPaths": ["p**/ubspec.yaml"],
+      "matchPaths": ["**/pubspec.yaml"],
       "matchPackagePrefixes": ["firebase_"]
     },
     {

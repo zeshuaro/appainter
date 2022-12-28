@@ -1,4 +1,4 @@
-name: Release Web and Desktop Apps
+name: Release web and desktop apps
 
 on:
   workflow_dispatch:
@@ -15,7 +15,7 @@ on:
 
 jobs:
   build-desktop:
-    name: Build Desktop Apps
+    name: Build desktop apps
     runs-on: ${{ matrix.os }}
     if: ${{ github.ref == 'refs/heads/main' }}
 
@@ -89,16 +89,23 @@ jobs:
           if-no-files-found: error
 
   release-desktop:
-    name: Release Desktop Apps
+    name: Release desktop apps
     runs-on: ubuntu-latest
     needs: build-desktop
 
     steps:
+      - name: Generate GitHub token 🔐
+        id: generate-github-token
+        uses: tibdex/github-app-token@v1.7.0
+        with:
+          app_id: ${{ secrets.GH_APP_ID }}
+          private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
       - name: Checkout 🛎️
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          token: ${{ secrets.PAT }}
+          token: ${{ steps.generate-github-token.outputs.token }}
 
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
@@ -140,6 +147,8 @@ jobs:
           tagging_message: ${{ env.version }}
           file_pattern: pubspec.yaml
           push_options: --force
+          commit_user_name: ${{ secrets.GH_APP_USERNAME }}
+          commit_user_email: ${{ secrets.GH_APP_EMAIL }}
 
       - name: Generate changelog 📝
         id: generate-changelog
@@ -163,7 +172,7 @@ jobs:
           token: ${{ secrets.PAT }}
 
   build-web-deploy:
-    name: Build Web App and Deploy
+    name: Build web app and deploy
     runs-on: ubuntu-latest
     concurrency: web-deploy
     needs: release-desktop
@@ -171,6 +180,9 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: main
 
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1

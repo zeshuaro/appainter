@@ -88,17 +88,24 @@ jobs:
           flutter analyze
 
   build-web-deploy:
-    name: Build Web App and Deploy
+    name: Build web app and deploy
     runs-on: ubuntu-latest
     concurrency: web-deploy
     needs: [lint, test]
     if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
+      - name: Generate GitHub token 🔐
+        id: generate-github-token
+        uses: tibdex/github-app-token@v1.7.0
+        with:
+          app_id: ${{ secrets.GH_APP_ID }}
+          private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
       - name: Checkout 🛎️
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ steps.generate-github-token.outputs.token }}
 
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
@@ -148,6 +155,8 @@ jobs:
           commit_message: "chore(release-web): ${{ env.version }} [skip ci]"
           file_pattern: pubspec.yaml
           push_options: --force
+          commit_user_name: ${{ secrets.GH_APP_USERNAME }}
+          commit_user_email: ${{ secrets.GH_APP_EMAIL }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.1

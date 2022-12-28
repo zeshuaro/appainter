@@ -94,18 +94,11 @@ jobs:
     needs: build-desktop
 
     steps:
-      - name: Generate GitHub token 🔐
-        id: generate-github-token
-        uses: tibdex/github-app-token@v1.7.0
-        with:
-          app_id: ${{ secrets.GH_APP_ID }}
-          private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
-
       - name: Checkout 🛎️
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          token: ${{ steps.generate-github-token.outputs.token }}
+          token: ${{ secrets.PAT }}
 
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1
@@ -147,8 +140,6 @@ jobs:
           tagging_message: ${{ env.version }}
           file_pattern: pubspec.yaml
           push_options: --force
-          commit_user_name: ${{ secrets.GH_APP_USERNAME }}
-          commit_user_email: ${{ secrets.GH_APP_EMAIL }}
 
       - name: Generate changelog 📝
         id: generate-changelog

@@ -1,11 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", ":pinAllExceptPeerDependencies"],
+  "extends": [
+    "config:base",
+    ":automergeMinor",
+    ":pinAllExceptPeerDependencies"
+  ],
   "ignorePaths": [
     "android/**",
     "ios/**",
+    "macos/**",
     "example/android/**",
-    "example/ios/**"
+    "example/ios/**",
+    "example/macos/**"
   ],
   "labels": ["dependencies"],
   "lockFileMaintenance": { "enabled": true },
@@ -43,7 +49,8 @@
       "groupName": "Flutter SDK",
       "matchFiles": [".fvm/fvm_config.json"],
       "labels": ["fluttersdk"],
-      "semanticCommitScope": "flutter"
+      "semanticCommitScope": "flutter",
+      "automerge": false
     }
   ]
 }

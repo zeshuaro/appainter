@@ -38,6 +38,7 @@ jobs:
 
       - name: Update Podfile lock 🔼
         run: |
+          flutter pub get
           flutter precache --macos
           cd macos && pod update
 

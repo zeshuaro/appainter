@@ -10,8 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Generate GitHub token 🔐
+        id: generate-github-token
+        uses: tibdex/github-app-token@v1.7.0
+        with:
+          app_id: ${{ secrets.GH_APP_ID }}
+          private_key: ${{ secrets.GH_PRIVATE_KEY }}
+
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+        with:
+          token: ${{ steps.generate-github-token.outputs.token }}
 
       - name: Get project Flutter version 🏷️
         uses: kuhnroyal/flutter-fvm-config-action@v1

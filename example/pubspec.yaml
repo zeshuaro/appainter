@@ -21,15 +21,15 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  cupertino_icons: ^1.0.2
+  cupertino_icons: 1.0.5
   flutter:
     sdk: flutter
-  json_theme: ^4.0.0
+  json_theme: 4.0.3
 
 dev_dependencies:
   flutter_driver:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: 2.0.1
   flutter_test:
     sdk: flutter
   integration_test:

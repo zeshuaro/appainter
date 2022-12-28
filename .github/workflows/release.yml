@@ -149,7 +149,6 @@ jobs:
           push_options: --force
           commit_user_name: ${{ secrets.GH_APP_USERNAME }}
           commit_user_email: ${{ secrets.GH_APP_EMAIL }}
-          commit_author: ${{ secrets.GH_APP_USERNAME }} <${{ secrets.GH_APP_EMAIL }}>
 
       - name: Generate changelog 📝
         id: generate-changelog

@@ -122,7 +122,7 @@ jobs:
 
       - name: Get previous tag 🏷️
         id: previous-tag
-        uses: WyriHaximus/github-action-get-previous-tag@v1.2.2
+        uses: WyriHaximus/github-action-get-previous-tag@v1.3.0
 
       - name: Bump app version 🔼
         id: bump-version

@@ -25,9 +25,9 @@ const RESOURCES = {
 "assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
 "assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
 "assets/NOTICES": "846c010d0c3c54c1316cd231b9a8c221",
-"index.html": "d673fb9ea6bdebb454a12d6135ca1700",
-"/": "d673fb9ea6bdebb454a12d6135ca1700",
-"version.json": "b5d93063cfb12aefd92c62ad1d252ce6"
+"index.html": "0dc5ede2d68c33be1226103108e6fe07",
+"/": "0dc5ede2d68c33be1226103108e6fe07",
+"version.json": "6495c3d6187407b8d0a5f4cfbeb19689"
 };
 
 // The application shell files that are downloaded before a service worker can

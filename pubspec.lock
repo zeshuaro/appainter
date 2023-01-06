@@ -161,7 +161,7 @@ packages:
       name: checked_yaml
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.2"
   cider:
     dependency: "direct dev"
     description:
@@ -364,7 +364,7 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.4"
+    version: "4.2.5"
   firebase_auth_platform_interface:
     dependency: transitive
     description:

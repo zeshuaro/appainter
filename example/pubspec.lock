@@ -144,7 +144,7 @@ packages:
       name: json_schema2
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.2+18"
+    version: "2.0.2+19"
   json_theme:
     dependency: "direct main"
     description:
@@ -221,7 +221,7 @@ packages:
       name: rest_client
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.0+5"
+    version: "2.2.0+6"
   sky_engine:
     dependency: transitive
     description: flutter

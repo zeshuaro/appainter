@@ -1,12 +1,12 @@
-name: Update Podfile lock
+name: Update native dependencies
 
 on:
   pull_request:
     paths: pubspec.lock
 
 jobs:
-  update-podfile:
-    name: Update Podfile lock
+  update:
+    name: Update
     runs-on: ubuntu-latest
 
     steps:
@@ -38,7 +38,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pub-
 
-      - name: Update Podfile lock 🔼
+      - name: Update dependencies 🔼
         run: |
           flutter pub get
           flutter precache --macos
@@ -47,5 +47,5 @@ jobs:
       - name: Commit changes 🆕
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
-          commit_message: "chore(deps): Podfile.lock maintenance"
-          file_pattern: macos/Podfile.lock
+          commit_message: "chore(deps): native dependencies maintenance"
+          file_pattern: "**/Podfile.lock **/GeneratedPluginRegistrant.swift"

@@ -413,7 +413,7 @@ packages:
       name: flex_color_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "3.0.2"
   flex_seed_scheme:
     dependency: transitive
     description:

@@ -39,7 +39,7 @@ dependencies:
   pretty_json: 2.0.0
   random_color_scheme: 0.1.3
   sentry_flutter: 6.18.2
-  shared_preferences: 2.0.15
+  shared_preferences: 2.0.16
   universal_html: 2.0.8
   universal_io: 2.0.4
   url_launcher: 6.1.7

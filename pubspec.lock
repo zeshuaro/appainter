@@ -881,7 +881,7 @@ packages:
       name: sentry_dart_plugin
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-beta.4"
+    version: "1.0.0-beta.5"
   sentry_flutter:
     dependency: "direct main"
     description:
@@ -1033,7 +1033,7 @@ packages:
       name: system_info2
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.4"
+    version: "3.0.1"
   term_glyph:
     dependency: transitive
     description:
@@ -1245,7 +1245,7 @@ packages:
       name: yaon
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1+8"
+    version: "1.0.1+9"
 sdks:
   dart: ">=2.18.0 <3.0.0"
   flutter: ">=3.3.0"

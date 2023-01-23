@@ -11,7 +11,7 @@ dependencies:
   appainter_annotations:
     path: packages/annotations
   bloc: 8.1.0
-  collection: 1.16.0
+  collection: 1.17.0
   copy_with_extension: 5.0.0
   cupertino_icons: 1.0.5
   device_preview: 1.1.0

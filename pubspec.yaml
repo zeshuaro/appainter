@@ -32,7 +32,7 @@ dependencies:
   google_fonts: 3.0.1
   intl: 0.17.0
   json_theme: 4.0.3
-  material_color_utilities: 0.1.5
+  material_color_utilities: 0.2.0
   material_design_icons_flutter: 6.0.7096
   ndialog: 4.2.3
   path_provider: 2.0.11

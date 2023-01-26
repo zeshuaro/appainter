@@ -1,56 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
-    ":automergeMinor",
-    ":pinAllExceptPeerDependencies"
-  ],
-  "ignorePaths": [
-    "android/**",
-    "ios/**",
-    "macos/**",
-    "example/android/**",
-    "example/ios/**",
-    "example/macos/**"
-  ],
-  "labels": ["dependencies"],
-  "lockFileMaintenance": { "enabled": true },
-  "semanticCommits": "enabled",
-  "schedule": ["after 6pm every weekday", "every weekend"],
-  "timezone": "Australia/Sydney",
-  "packageRules": [
-    {
-      "groupName": "Appainter packages",
-      "description": "Don't pin dependency versions for internal packages",
-      "matchPaths": ["packages/**/pubspec.yaml"],
-      "rangeStrategy": "replace"
-    },
-    {
-      "groupName": "Bloc dependencies",
-      "matchPaths": ["**/pubspec.yaml"],
-      "matchPackagePrefixes": ["bloc", "flutter_bloc"]
-    },
-    {
-      "groupName": "Firebase dependencies",
-      "matchPaths": ["**/pubspec.yaml"],
-      "matchPackagePrefixes": ["firebase_"]
-    },
-    {
-      "groupName": "Copy with extension dependencies",
-      "matchPaths": ["**/pubspec.yaml"],
-      "matchPackagePrefixes": ["copy_with_extension"]
-    },
-    {
-      "groupName": "GitHub Actions dependencies",
-      "matchPaths": [".github/workflows/*.yml"],
-      "addLabels": ["ci"]
-    },
-    {
-      "groupName": "Flutter SDK",
-      "matchFiles": [".fvm/fvm_config.json"],
-      "labels": ["fluttersdk"],
-      "semanticCommitScope": "flutter",
-      "automerge": false
-    }
+    "github>zeshuaro/renovate-configs",
+    "github>zeshuaro/renovate-configs:app",
+    "github>zeshuaro/renovate-configs:dart",
+    "github>zeshuaro/renovate-configs:flutter"
   ]
 }

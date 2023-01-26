@@ -4,6 +4,7 @@
     "github>zeshuaro/renovate-configs",
     "github>zeshuaro/renovate-configs:app",
     "github>zeshuaro/renovate-configs:dart",
-    "github>zeshuaro/renovate-configs:flutter"
+    "github>zeshuaro/renovate-configs:flutter",
+    "github>zeshuaro/renovate-configs:flutterIgnorePaths"
   ]
 }

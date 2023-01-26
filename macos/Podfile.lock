@@ -178,7 +178,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 988754646ab3bd4bdcb740f1bfe26b9f6c0d5f2a
   FirebaseCoreInternal: e301297f4c15a17489e48ed722d733b1578e0c02
   FirebaseInstallations: 36b38c733fd37e50857e5e8d74138648f466f18c
-  FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
+  FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   GoogleAppMeasurement: c7d6fff39bf2d829587d74088d582e32d75133c3
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
   GTMSessionFetcher: c9e714f7eec91a55641e2bab9f45fd83a219b882
@@ -192,6 +192,6 @@ SPEC CHECKSUMS:
   url_launcher_macos: c04e4fa86382d4f94f6b38f14625708be3ae52e2
   window_size: 339dafa0b27a95a62a843042038fa6c3c48de195
 
-PODFILE CHECKSUM: a884f6dd3f7494f3892ee6c81feea3a3abbf9153
+PODFILE CHECKSUM: 353c8bcc5d5b0994e508d035b5431cfe18c1dea7
 
 COCOAPODS: 1.11.3

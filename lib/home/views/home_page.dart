@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/common/common.dart';
@@ -166,7 +168,7 @@ class _EditorsContainer extends StatelessWidget {
           length: EditMode.values.length,
           child: Builder(
             builder: (context) {
-              final controller = DefaultTabController.of(context)!;
+              final controller = DefaultTabController.of(context);
               controller.addListener(() {
                 if (!controller.indexIsChanging &&
                     controller.index != controller.previousIndex) {

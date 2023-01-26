@@ -1,8 +1,10 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/services/services.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/services/services.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';

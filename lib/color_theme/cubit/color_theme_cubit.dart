@@ -1,9 +1,11 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:appainter/services/services.dart';
 import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/services/services.dart';
 
 part 'color_theme_cubit.g.dart';
 part 'color_theme_state.dart';

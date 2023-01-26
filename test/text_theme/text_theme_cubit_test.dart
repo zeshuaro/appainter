@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';

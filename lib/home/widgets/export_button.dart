@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+// ignore_for_file: deprecated_member_use
+
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
@@ -17,6 +17,8 @@ import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 

@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: deprecated_member_use
+
 import 'package:appainter/common/consts.dart';
 import 'package:appainter/theme_preview/views/views.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
 
 class TextPage extends PreviewBody {
   const TextPage({Key? key}) : super(key: key);

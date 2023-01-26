@@ -11,7 +11,7 @@ dependencies:
   appainter_annotations:
     path: packages/annotations
   bloc: 8.1.0
-  collection: 1.16.0
+  collection: 1.17.0
   copy_with_extension: 5.0.0
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
@@ -32,7 +32,7 @@ dependencies:
   google_fonts: 3.0.1
   intl: 0.17.0
   json_theme: 4.0.3
-  material_color_utilities: 0.1.5
+  material_color_utilities: 0.2.0
   material_design_icons_flutter: 6.0.7096
   ndialog: 4.2.3
   path_provider: 2.0.11

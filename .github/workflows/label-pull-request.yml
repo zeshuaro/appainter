@@ -1,0 +1,21 @@
+name: Label pull request
+
+on:
+  pull_request:
+    types:
+      - opened
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  label:
+    name: Label
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Label pull request 🏷️
+        uses: TimonVS/pr-labeler-action@v4.1.1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,18 @@
+bug:
+  - fix/*
+chore:
+  - chore/*
+ci:
+  - ci/*
+documentation:
+  - docs/*
+  - documentation/*
+enhancement:
+  - feat/*
+  - feature/*
+refactor:
+  - refactor/*
+style:
+  - style/*
+test:
+  - test/*

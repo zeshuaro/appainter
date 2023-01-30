@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-Color getRandomColor() => Color(Random().nextInt(0xffffffff));
+Color getRandomColor() => Color(Random().nextInt(0xffffffff)).withOpacity(1);
 
 MaterialStateProperty<T?> getMaterialStateProperty<T>(
   Map<MaterialState?, T?> properties,

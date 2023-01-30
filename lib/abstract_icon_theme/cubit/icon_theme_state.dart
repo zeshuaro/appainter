@@ -6,6 +6,16 @@ class IconThemeState extends Equatable {
 
   const IconThemeState({this.theme = const IconThemeData()});
 
+  factory IconThemeState.withThemeData({
+    Color? color,
+    double? size,
+    double? opacity,
+  }) {
+    return IconThemeState(
+      theme: IconThemeData(color: color, size: size, opacity: opacity),
+    );
+  }
+
   @override
   List<Object> get props => [theme];
 }

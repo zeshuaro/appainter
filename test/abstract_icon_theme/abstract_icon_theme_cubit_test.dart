@@ -24,7 +24,7 @@ void main() {
   });
 
   blocTest<TestIconThemeCubit, IconThemeState>(
-    'emits theme',
+    'emit theme',
     setUp: () {
       final colorScheme = randomColorSchemeLight(shouldPrint: false);
       theme = ThemeData.from(colorScheme: colorScheme).iconTheme;
@@ -35,23 +35,23 @@ void main() {
   );
 
   blocTest<TestIconThemeCubit, IconThemeState>(
-    'emits color',
+    'emit color',
     build: () => cubit,
     act: (cubit) => cubit.colorChanged(color),
-    expect: () => [IconThemeState(theme: IconThemeData(color: color))],
+    expect: () => [IconThemeState.withThemeData(color: color)],
   );
 
   blocTest<TestIconThemeCubit, IconThemeState>(
-    'emits size',
+    'emit size',
     build: () => cubit,
     act: (cubit) => cubit.sizeChanged(doubleStr),
-    expect: () => [IconThemeState(theme: IconThemeData(size: doubleNum))],
+    expect: () => [IconThemeState.withThemeData(size: doubleNum)],
   );
 
   blocTest<TestIconThemeCubit, IconThemeState>(
-    'emits opacity',
+    'emit opacity',
     build: () => cubit,
     act: (cubit) => cubit.opacityChanged(doubleStr),
-    expect: () => [IconThemeState(theme: IconThemeData(opacity: doubleNum))],
+    expect: () => [IconThemeState.withThemeData(opacity: doubleNum)],
   );
 }

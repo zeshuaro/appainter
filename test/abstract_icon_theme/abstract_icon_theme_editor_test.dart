@@ -2,18 +2,17 @@ import 'dart:math';
 
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../utils.dart';
-import '../widget_testers.dart';
+import '../utils/widget_tester_utils.dart';
 import 'mocks.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Test');
+  const expandText = 'Test';
 
   late TestIconThemeCubit cubit;
   late Color color;
@@ -27,9 +26,8 @@ void main() {
     doubleStr = doubleNum.toString();
   });
 
-  Future<void> pumpApp(WidgetTester tester, IconThemeState state) async {
-    whenListen(cubit, Stream.fromIterable([state]),
-        initialState: const IconThemeState());
+  Future<void> pumpApp(WidgetTester tester, [IconThemeState? state]) async {
+    when(() => cubit.state).thenReturn(state ?? const IconThemeState());
 
     await tester.pumpWidget(
       BlocProvider.value(
@@ -41,41 +39,57 @@ void main() {
         ),
       ),
     );
+    await tester.expandWidget(expandText);
   }
 
-  testWidgets(
-    'updates color',
-    (tester) async {
-      final state = IconThemeState(theme: IconThemeData(color: color));
+  group('color picker', () {
+    const key = 'colorPicker';
 
+    testWidgets('render color', (tester) async {
+      final state = IconThemeState.withThemeData(color: color);
       await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-      await widgetTesters.checkColorPicker(tester, 'colorPicker', color);
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.pickColor(key, color);
+
       verify(() => cubit.colorChanged(color)).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'updates size',
-    (tester) async {
-      final state = IconThemeState(theme: IconThemeData(size: doubleNum));
+  group('size text field', () {
+    const key = 'sizeTextField';
 
+    testWidgets('render size', (tester) async {
+      final state = IconThemeState.withThemeData(size: doubleNum);
       await pumpApp(tester, state);
+      await tester.expectTextField(key, doubleStr);
+    });
 
-      await widgetTesters.checkTextField(tester, 'sizeTextField', doubleNum);
+    testWidgets('change size', (tester) async {
+      await pumpApp(tester);
+      await tester.enterTextToTextField(key, doubleNum);
+
       verify(() => cubit.sizeChanged(doubleStr)).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'updates opacity',
-    (tester) async {
-      final state = IconThemeState(theme: IconThemeData(opacity: doubleNum));
+  group('opacity text field', () {
+    const key = 'opacityTextField';
 
+    testWidgets('render opacity', (tester) async {
+      final state = IconThemeState.withThemeData(opacity: doubleNum);
       await pumpApp(tester, state);
+      await tester.expectTextField(key, doubleStr);
+    });
 
-      await widgetTesters.checkTextField(tester, 'opacityTextField', doubleNum);
+    testWidgets('change opacity', (tester) async {
+      await pumpApp(tester);
+      await tester.enterTextToTextField(key, doubleNum);
+
       verify(() => cubit.opacityChanged(doubleStr)).called(1);
-    },
-  );
+    });
+  });
 }

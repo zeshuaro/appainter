@@ -62,4 +62,29 @@ extension WidgetTesterUtils on WidgetTester {
       value.toString(),
     );
   }
+
+  Future<void> expectDropdown(String key, String value) async {
+    final widget = find.descendant(
+      of: find.byKey(Key(key)),
+      matching: find.byWidgetPredicate(
+        (widget) => widget is DropdownButton && widget.value == value,
+      ),
+    );
+    expect(widget, findsOneWidget);
+  }
+
+  Future<void> selectDropdownItem(String key, String value) async {
+    await tap(
+      find.descendant(
+        of: find.byKey(Key(key)),
+        matching: find.byKey(const Key('dropdownListTile_dropdownButton')),
+      ),
+    );
+    await pumpAndSettle();
+
+    final item = find.byKey(ValueKey(value)).last;
+    await ensureVisible(item);
+    await tap(item);
+    await pumpAndSettle();
+  }
 }

@@ -30,10 +30,10 @@ void main() {
     when(() => cubit.state).thenReturn(state ?? const IconThemeState());
 
     await tester.pumpWidget(
-      BlocProvider.value(
-        value: cubit,
-        child: MaterialApp(
-          home: MyExpansionPanelList(
+      MaterialApp(
+        home: BlocProvider.value(
+          value: cubit,
+          child: MyExpansionPanelList(
             item: const TestIconThemeEditor(),
           ),
         ),

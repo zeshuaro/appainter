@@ -5,22 +5,20 @@ import 'package:appainter/common/common.dart';
 import 'package:appainter/models/models.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../utils.dart';
-import '../widget_testers.dart';
+import '../utils/widget_tester_utils.dart';
 import 'mocks.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Test');
+  const expandText = 'Test';
 
   late TestTextStyleCubit cubit;
   late TextStyle style;
-
   late Color color;
   late double doubleNum;
   late String doubleStr;
@@ -30,110 +28,135 @@ void main() {
     style = Typography.englishLike2018
         .merge(Typography.blackMountainView)
         .bodyText1!;
-
     color = getRandomColor();
     doubleNum = Random().nextDouble();
     doubleStr = doubleNum.toString();
   });
 
-  Future<void> pumpApp(WidgetTester tester, TextStyleState state) async {
-    whenListen(
-      cubit,
-      Stream.fromIterable([state]),
-      initialState: TextStyleState(style: style),
-    );
+  Future<void> pumpApp(WidgetTester tester, [TextStyleState? state]) async {
+    when(() => cubit.state).thenReturn(state ?? TextStyleState(style: style));
 
     await tester.pumpWidget(
-      BlocProvider.value(
-        value: cubit,
-        child: MaterialApp(
-          home: MyExpansionPanelList(
+      MaterialApp(
+        home: BlocProvider.value(
+          value: cubit,
+          child: MyExpansionPanelList(
             item: const TestIconThemeEditor(),
           ),
         ),
       ),
     );
+    await tester.expandWidget(expandText);
   }
 
-  testWidgets('updates color', (tester) async {
-    final state = TextStyleState(style: style.copyWith(color: color));
+  group('color picker', () {
+    const key = 'colorPicker';
 
-    await pumpApp(tester, state);
+    testWidgets('render color', (tester) async {
+      final state = TextStyleState(style: style.copyWith(color: color));
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-    await widgetTesters.checkColorPicker(tester, 'colorPicker', color);
-    verify(() => cubit.colorChanged(color)).called(1);
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(style.color!.opacity);
+
+      await pumpApp(tester);
+      await tester.pickColor(key, opaqueColor);
+
+      verify(() => cubit.colorChanged(opaqueColor)).called(1);
+    });
   });
 
-  testWidgets('updates background color', (tester) async {
-    final state = TextStyleState(style: style.copyWith(backgroundColor: color));
+  group('background color picker', () {
+    const key = 'backgroundColorPicker';
 
-    await pumpApp(tester, state);
+    testWidgets('render color', (tester) async {
+      final state = TextStyleState(
+        style: style.copyWith(backgroundColor: color),
+      );
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-    await widgetTesters.checkColorPicker(
-      tester,
-      'backgroundColorPicker',
-      color,
-    );
-    verify(() => cubit.backgroundColorChanged(color)).called(1);
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0);
+
+      await pumpApp(tester);
+      await tester.pickColor(key, opaqueColor);
+
+      verify(() => cubit.backgroundColorChanged(opaqueColor)).called(1);
+    });
   });
 
-  testWidgets('updates font size', (tester) async {
-    final state = TextStyleState(style: style.copyWith(fontSize: doubleNum));
+  group('font size text field', () {
+    const key = 'fontSizeTextField';
 
-    await pumpApp(tester, state);
+    testWidgets('render font size', (tester) async {
+      final state = TextStyleState(style: style.copyWith(fontSize: doubleNum));
+      await pumpApp(tester, state);
+      await tester.expectTextField(key, doubleStr);
+    });
 
-    await widgetTesters.checkTextField(
-      tester,
-      'fontSizeTextField',
-      doubleNum,
-    );
-    verify(() => cubit.fontSizeChanged(doubleStr)).called(1);
+    testWidgets('change font size', (tester) async {
+      await pumpApp(tester);
+      await tester.enterTextToTextField(key, doubleNum);
+
+      verify(() => cubit.fontSizeChanged(doubleStr)).called(1);
+    });
   });
 
-  group('tests font weight', () {
-    for (var weight in MyFontWeight().values) {
-      final weightStr = MyFontWeight().convertToString(weight);
+  group('font weight dropdown', () {
+    const key = 'fontWeightDropdown';
+    final fontWeight = MyFontWeight();
 
-      testWidgets('updates to $weight', (tester) async {
+    for (var weight in fontWeight.values) {
+      final weightStr = fontWeight.convertToString(weight)!;
+
+      testWidgets('render $weight', (tester) async {
         final state = TextStyleState(style: style.copyWith(fontWeight: weight));
-
         await pumpApp(tester, state);
+        await tester.expectDropdown(key, weightStr);
+      });
 
-        await widgetTesters.checkDropbox(
-          tester,
-          'fontWeightDropdown',
-          weightStr!,
-        );
+      testWidgets('change $weight', (tester) async {
+        await pumpApp(tester);
+        await tester.selectDropdownItem(key, weightStr);
+
         verify(() => cubit.fontWeightChanged(weightStr)).called(1);
       });
     }
   });
 
-  group('tests font style', () {
+  group('font style dropdown', () {
+    const key = 'fontStyleDropdown';
+
     for (var fontStyle in FontStyle.values) {
       final fontStyleStr = UtilService.enumToString(fontStyle);
 
-      testWidgets('updates to $fontStyle', (tester) async {
+      testWidgets('render $fontStyle', (tester) async {
         final state = TextStyleState(
           style: style.copyWith(fontStyle: fontStyle),
         );
-
         await pumpApp(tester, state);
+        await tester.expectDropdown(key, fontStyleStr);
+      });
 
-        await widgetTesters.checkDropbox(
-          tester,
-          'fontStyleDropdown',
-          fontStyleStr,
-        );
+      testWidgets('change $fontStyle', (tester) async {
+        await pumpApp(tester);
+        await tester.selectDropdownItem(key, fontStyleStr);
+
         verify(() => cubit.fontStyleChanged(fontStyleStr)).called(1);
       });
     }
   });
 
-  group('tests letter spacing', () {
+  group('letter spacing text field', () {
+    const key = 'letterSpacingTextField';
+
     for (var multiplier in [1, -1]) {
       testWidgets(
-        'updates to value with multiplier $multiplier',
+        'render letter spacing with multiplier $multiplier',
         (tester) async {
           final value = doubleNum * multiplier;
           final state = TextStyleState(
@@ -142,182 +165,216 @@ void main() {
 
           await pumpApp(tester, state);
 
-          await widgetTesters.checkTextField(
-            tester,
-            'letterSpacingTextField',
-            value,
-          );
-          verify(
-            () => cubit.letterSpacingChanged(value.toString()),
-          ).called(1);
+          await tester.expectTextField(key, value.toString());
+        },
+      );
+
+      testWidgets(
+        'change letter spacing with multiplier $multiplier',
+        (tester) async {
+          final value = doubleNum * multiplier;
+
+          await pumpApp(tester);
+          await tester.enterTextToTextField(key, value);
+
+          verify(() => cubit.letterSpacingChanged(value.toString())).called(1);
         },
       );
     }
   });
 
-  group('tests word spacing', () {
+  group('word spacing text field', () {
+    const key = 'wordSpacingTextField';
+
     for (var multiplier in [1, -1]) {
       testWidgets(
-        'updates to value with multiplier $multiplier',
+        'render word spacing with multiplier $multiplier',
         (tester) async {
           final value = doubleNum * multiplier;
-          final state =
-              TextStyleState(style: style.copyWith(wordSpacing: value));
+          final state = TextStyleState(
+            style: style.copyWith(wordSpacing: value),
+          );
 
           await pumpApp(tester, state);
 
-          await widgetTesters.checkTextField(
-            tester,
-            'wordSpacingTextField',
-            value,
-          );
+          await tester.expectTextField(key, value.toString());
+        },
+      );
+
+      testWidgets(
+        'change word spacing with multiplier $multiplier',
+        (tester) async {
+          final value = doubleNum * multiplier;
+
+          await pumpApp(tester);
+          await tester.enterTextToTextField(key, value);
+
           verify(() => cubit.wordSpacingChanged(value.toString())).called(1);
         },
       );
     }
   });
 
-  group('tests text baseline', () {
+  group('text baseline dropdown', () {
+    const key = 'textBaselineDropdown';
+
     for (var baseline in TextBaseline.values) {
       final baselineStr = UtilService.enumToString(baseline);
 
-      testWidgets('updates to $baseline', (tester) async {
+      testWidgets('render $baseline', (tester) async {
         final state = TextStyleState(
           style: style.copyWith(textBaseline: baseline),
         );
-
         await pumpApp(tester, state);
+        await tester.expectDropdown(key, baselineStr);
+      });
 
-        await widgetTesters.checkDropbox(
-          tester,
-          'textBaselineDropdown',
-          baselineStr,
-        );
+      testWidgets('change $baseline', (tester) async {
+        await pumpApp(tester);
+        await tester.selectDropdownItem(key, baselineStr);
+
         verify(() => cubit.textBaselineChanged(baselineStr)).called(1);
       });
     }
   });
 
-  testWidgets('updates height', (tester) async {
-    final state = TextStyleState(style: style.copyWith(height: doubleNum));
+  group('height text field', () {
+    const key = 'heightTextField';
 
-    await pumpApp(tester, state);
+    testWidgets('render height', (tester) async {
+      final state = TextStyleState(style: style.copyWith(height: doubleNum));
+      await pumpApp(tester, state);
+      await tester.expectTextField(key, doubleStr);
+    });
 
-    await widgetTesters.checkTextField(
-      tester,
-      'heightTextField',
-      doubleNum,
-    );
-    verify(() => cubit.heightChanged(doubleStr)).called(1);
+    testWidgets('change height', (tester) async {
+      await pumpApp(tester);
+      await tester.enterTextToTextField(key, doubleNum);
+
+      verify(() => cubit.heightChanged(doubleStr)).called(1);
+    });
   });
 
-  group('tests leading distribution', () {
+  group('leading distribution dropdown', () {
+    const key = 'leadingDistributionDropdown';
+
     for (var dist in TextLeadingDistribution.values) {
       final distStr = UtilService.enumToString(dist);
 
-      testWidgets('updates to $dist', (tester) async {
+      testWidgets('render $dist', (tester) async {
         final state = TextStyleState(
           style: style.copyWith(leadingDistribution: dist),
         );
-
         await pumpApp(tester, state);
+        await tester.expectDropdown(key, distStr);
+      });
 
-        await widgetTesters.checkDropbox(
-          tester,
-          'leadingDistributionDropdown',
-          distStr,
-        );
+      testWidgets('change $dist', (tester) async {
+        await pumpApp(tester);
+        await tester.selectDropdownItem(key, distStr);
+
         verify(() => cubit.leadingDistributionChanged(distStr)).called(1);
       });
     }
   });
 
-  group('tests decoration', () {
-    for (var decoration in MyTextDecoration().values) {
-      final decorationStr = MyTextDecoration().convertToString(decoration);
+  group('decoration dropdown', () {
+    const key = 'decorationDropdown';
+    final decoration = MyTextDecoration();
 
-      testWidgets('updates to $decoration', (tester) async {
-        final state = TextStyleState(
-          style: style.copyWith(decoration: decoration),
-        );
+    for (var decor in decoration.values) {
+      final decorStr = decoration.convertToString(decor)!;
 
+      testWidgets('render $decor', (tester) async {
+        final state = TextStyleState(style: style.copyWith(decoration: decor));
         await pumpApp(tester, state);
+        await tester.expectDropdown(key, decorStr);
+      });
 
-        await widgetTesters.checkDropbox(
-          tester,
-          'decorationDropdown',
-          decorationStr!,
-        );
-        verify(() => cubit.decorationChanged(decorationStr)).called(1);
+      testWidgets('change $decor', (tester) async {
+        await pumpApp(tester);
+        await tester.selectDropdownItem(key, decorStr);
+
+        verify(() => cubit.decorationChanged(decorStr)).called(1);
       });
     }
   });
 
-  testWidgets('updates decoration color', (tester) async {
-    final state = TextStyleState(style: style.copyWith(decorationColor: color));
+  group('decoration color picker', () {
+    const key = 'decorationColorPicker';
 
-    await pumpApp(tester, state);
+    testWidgets('render color', (tester) async {
+      final state = TextStyleState(
+        style: style.copyWith(decorationColor: color),
+      );
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-    await widgetTesters.checkColorPicker(
-      tester,
-      'decorationColorPicker',
-      color,
-    );
-    verify(() => cubit.decorationColorChanged(color)).called(1);
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0);
+
+      await pumpApp(tester);
+      await tester.pickColor(key, opaqueColor);
+
+      verify(() => cubit.decorationColorChanged(opaqueColor)).called(1);
+    });
   });
 
-  group('tests decoration style', () {
-    testWidgets('updates to null', (tester) async {
+  group('decoration style dropdown', () {
+    const key = 'decorationStyleDropdown';
+
+    testWidgets('render none', (tester) async {
       final state = TextStyleState(
         style: style.copyWithNull(decorationStyle: true),
       );
-
       await pumpApp(tester, state);
+      await tester.expectDropdown(key, kNone);
+    });
 
-      await widgetTesters.checkDropbox(
-        tester,
-        'decorationStyleDropdown',
-        kNone,
-      );
+    testWidgets('change to none', (tester) async {
+      await pumpApp(tester);
+      await tester.selectDropdownItem(key, kNone);
+
       verify(() => cubit.decorationStyleChanged(kNone)).called(1);
     });
 
-    for (var decorationStyle in TextDecorationStyle.values) {
-      final decorationStyleStr = UtilService.enumToString(decorationStyle);
+    for (var decoStyle in TextDecorationStyle.values) {
+      final decoStyleStr = UtilService.enumToString(decoStyle);
 
-      testWidgets('updates to $decorationStyle', (tester) async {
+      testWidgets('render $decoStyle', (tester) async {
         final state = TextStyleState(
-          style: style.copyWith(decorationStyle: decorationStyle),
+          style: style.copyWith(decorationStyle: decoStyle),
         );
-
         await pumpApp(tester, state);
+        await tester.expectDropdown(key, decoStyleStr);
+      });
 
-        await widgetTesters.checkDropbox(
-          tester,
-          'decorationStyleDropdown',
-          decorationStyleStr,
-        );
-        verify(
-          () => cubit.decorationStyleChanged(decorationStyleStr),
-        ).called(1);
+      testWidgets('change $decoStyle', (tester) async {
+        await pumpApp(tester);
+        await tester.selectDropdownItem(key, decoStyleStr);
+
+        verify(() => cubit.decorationStyleChanged(decoStyleStr)).called(1);
       });
     }
   });
 
-  testWidgets('updates decoration thickness', (tester) async {
-    final state = TextStyleState(
-      style: style.copyWith(decorationThickness: doubleNum),
-    );
+  group('decoration thickness field', () {
+    const key = 'decorationThicknessTextField';
 
-    await pumpApp(tester, state);
+    testWidgets('render decoration thickness', (tester) async {
+      final state = TextStyleState(
+        style: style.copyWith(decorationThickness: doubleNum),
+      );
+      await pumpApp(tester, state);
+      await tester.expectTextField(key, doubleStr);
+    });
 
-    await widgetTesters.checkTextField(
-      tester,
-      'decorationThicknessTextField',
-      doubleNum,
-    );
-    verify(
-      () => cubit.decorationThicknessChanged(doubleStr),
-    ).called(1);
+    testWidgets('change decoration thickness', (tester) async {
+      await pumpApp(tester);
+      await tester.enterTextToTextField(key, doubleNum);
+
+      verify(() => cubit.decorationThicknessChanged(doubleStr)).called(1);
+    });
   });
 }

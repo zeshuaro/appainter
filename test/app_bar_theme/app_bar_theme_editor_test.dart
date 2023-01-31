@@ -5,7 +5,6 @@ import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/models/models.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,18 +12,11 @@ import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
 import '../utils.dart';
-import '../widget_testers.dart';
+import '../utils/widget_tester_utils.dart';
 
 void main() {
-  const defaultAppBarThemeState = AppBarThemeState();
-  const defaultIconThemeState = IconThemeState();
-  final defaultTextStyleState = TextStyleState(
-    style: AppBarThemeCubit.defaultTitleTextStyle,
-  );
-  final defaultToolbarStyleState = TextStyleState(
-    style: AppBarThemeCubit.defaultToolbarTextStyle,
-  );
-  final widgetTesters = WidgetTesters();
+  const appbarThemeState = AppBarThemeState();
+  const iconThemeState = IconThemeState();
 
   late AppBarThemeCubit appBarThemeCubit;
   late AppBarActionsIconThemeCubit appBarActionsIconThemeCubit;
@@ -49,61 +41,40 @@ void main() {
     doubleNum = Random().nextDouble();
     doubleStr = doubleNum.toString();
 
+    when(() => appBarActionsIconThemeCubit.state).thenReturn(
+      iconThemeState,
+    );
+    when(() => appBarIconThemeCubit.state).thenReturn(
+      iconThemeState,
+    );
+    when(() => appBarTitleTextStyleCubit.state).thenReturn(
+      TextStyleState(
+        style: AppBarThemeCubit.defaultTitleTextStyle,
+      ),
+    );
+    when(() => appBarToolbarTextStyleCubit.state).thenReturn(
+      TextStyleState(
+        style: AppBarThemeCubit.defaultToolbarTextStyle,
+      ),
+    );
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> pumpApp(
-    WidgetTester tester,
-    AppBarThemeState themeState, {
-    IconThemeState actionsIconThemeState = defaultIconThemeState,
-    IconThemeState iconThemeState = defaultIconThemeState,
-    TextStyleState? titleTextStyleState,
-    TextStyleState? toolbarTextStyleState,
-  }) async {
-    whenListen(
-      appBarThemeCubit,
-      Stream.fromIterable([themeState]),
-      initialState: defaultAppBarThemeState,
-    );
-
-    whenListen(
-      appBarActionsIconThemeCubit,
-      Stream.fromIterable([actionsIconThemeState]),
-      initialState: defaultIconThemeState,
-    );
-
-    whenListen(
-      appBarIconThemeCubit,
-      Stream.fromIterable([iconThemeState]),
-      initialState: defaultIconThemeState,
-    );
-
-    final titleState = titleTextStyleState ?? defaultTextStyleState;
-    whenListen(
-      appBarTitleTextStyleCubit,
-      Stream.fromIterable([titleState]),
-      initialState: defaultTextStyleState,
-    );
-
-    final toolbarState = toolbarTextStyleState ?? defaultToolbarStyleState;
-    whenListen(
-      appBarToolbarTextStyleCubit,
-      Stream.fromIterable([toolbarState]),
-      initialState: defaultToolbarStyleState,
-    );
+  Future<void> pumpApp(WidgetTester tester, [AppBarThemeState? state]) async {
+    when(() => appBarThemeCubit.state).thenReturn(state ?? appbarThemeState);
 
     await tester.pumpWidget(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider.value(value: appBarThemeCubit),
-          BlocProvider.value(value: appBarActionsIconThemeCubit),
-          BlocProvider.value(value: appBarIconThemeCubit),
-          BlocProvider.value(value: appBarTitleTextStyleCubit),
-          BlocProvider.value(value: appBarToolbarTextStyleCubit),
-          BlocProvider.value(value: colorThemeCubit),
-        ],
-        child: const MaterialApp(
-          home: Scaffold(
+      MaterialApp(
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: appBarThemeCubit),
+            BlocProvider.value(value: appBarActionsIconThemeCubit),
+            BlocProvider.value(value: appBarIconThemeCubit),
+            BlocProvider.value(value: appBarTitleTextStyleCubit),
+            BlocProvider.value(value: appBarToolbarTextStyleCubit),
+            BlocProvider.value(value: colorThemeCubit),
+          ],
+          child: const Scaffold(
             body: AppBarThemeEditor(),
           ),
         ),
@@ -111,136 +82,181 @@ void main() {
     );
   }
 
+  void expectBlocBuilder(
+    WidgetTester tester,
+    String key,
+    AppBarThemeState state,
+  ) {
+    tester.expectBlocBuilder<AppBarThemeCubit, AppBarThemeState>(
+      key,
+      appbarThemeState,
+      state,
+    );
+  }
+
   testWidgets('display nested editors', (tester) async {
-    await pumpApp(tester, defaultAppBarThemeState);
+    await pumpApp(tester);
     expect(find.byType(ActionsIconThemeCard), findsOneWidget);
     expect(find.byType(IconThemeCard), findsOneWidget);
     expect(find.byType(TitleTextStyleCard), findsOneWidget);
     expect(find.byType(ToolbarTextStyleCard), findsOneWidget);
   });
 
-  testWidgets('update background color', (tester) async {
-    final state = AppBarThemeState(
-      theme: AppBarTheme(backgroundColor: color),
-    );
+  group('background color picker', () {
+    const key = 'appBarThemeEditor_backgroundColorPicker';
 
-    await pumpApp(tester, state);
+    testWidgets('render background color', (tester) async {
+      final state = AppBarThemeState.withTheme(backgroundColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-    await widgetTesters.checkColorPicker(
-      tester,
-      'appBarThemeEditor_backgroundColorPicker',
-      color,
-    );
-    verify(() => appBarThemeCubit.backgroundColorChanged(color)).called(1);
+    testWidgets('change background color', (tester) async {
+      await pumpApp(tester);
+      await tester.pickColor(key, color);
+
+      verify(() => appBarThemeCubit.backgroundColorChanged(color)).called(1);
+    });
   });
 
-  testWidgets('update foreground color', (tester) async {
-    final state = AppBarThemeState(
-      theme: AppBarTheme(foregroundColor: color),
-    );
+  group('foreground color picker', () {
+    const key = 'appBarThemeEditor_foregroundColorPicker';
 
-    await pumpApp(tester, state);
+    testWidgets('render foreground color', (tester) async {
+      final state = AppBarThemeState.withTheme(foregroundColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-    await widgetTesters.checkColorPicker(
-      tester,
-      'appBarThemeEditor_foregroundColorPicker',
-      color,
-    );
-    verify(() => appBarThemeCubit.foregroundColorChanged(color)).called(1);
+    testWidgets('change foreground color', (tester) async {
+      await pumpApp(tester);
+      await tester.pickColor(key, color);
+
+      verify(() => appBarThemeCubit.foregroundColorChanged(color)).called(1);
+    });
   });
 
-  testWidgets('update elevation', (tester) async {
-    final state = AppBarThemeState(
-      theme: AppBarTheme(elevation: doubleNum),
-    );
+  group('elevation text field', () {
+    const key = 'appBarThemeEditor_elevationTextField';
 
-    await pumpApp(tester, state);
+    testWidgets('render elevation', (tester) async {
+      final state = AppBarThemeState.withTheme(elevation: doubleNum);
 
-    await widgetTesters.checkTextField(
-      tester,
-      'appBarThemeEditor_elevationTextField',
-      doubleNum,
-    );
-    verify(() => appBarThemeCubit.elevationChanged(doubleStr)).called(1);
+      await pumpApp(tester, state);
+
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
+
+    testWidgets('change elevation', (tester) async {
+      await pumpApp(tester);
+      await tester.enterTextToTextField(key, doubleNum);
+
+      verify(() => appBarThemeCubit.elevationChanged(doubleStr)).called(1);
+    });
   });
 
-  testWidgets('update shadow color', (tester) async {
-    final state = AppBarThemeState(theme: AppBarTheme(shadowColor: color));
+  group('shadow color picker', () {
+    const key = 'appBarThemeEditor_shadowColorPicker';
 
-    await pumpApp(tester, state);
+    testWidgets('render shadow color', (tester) async {
+      final state = AppBarThemeState.withTheme(shadowColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-    await widgetTesters.checkColorPicker(
-      tester,
-      'appBarThemeEditor_shadowColorPicker',
-      color,
-    );
-    verify(() => appBarThemeCubit.shadowColorChanged(color)).called(1);
+    testWidgets('change shadow color', (tester) async {
+      await pumpApp(tester);
+      await tester.pickColor(key, color);
+
+      verify(() => appBarThemeCubit.shadowColorChanged(color)).called(1);
+    });
   });
 
-  group('test center title switch', () {
+  group('center title switch', () {
+    const key = 'appBarThemeEditor_centerTitleSwitch';
+
     for (var isCenter in [true, false]) {
-      testWidgets('update to $isCenter', (tester) async {
-        final state = AppBarThemeState(
-          theme: AppBarTheme(centerTitle: isCenter),
-        );
+      testWidgets('render isCenter=$isCenter', (tester) async {
+        final state = AppBarThemeState.withTheme(centerTitle: isCenter);
 
         await pumpApp(tester, state);
 
-        await widgetTesters.checkSwitch(
-          tester,
-          'appBarThemeEditor_centerTitleSwitch',
-          isCenter,
-        );
-        verify(() => appBarThemeCubit.centerTitleChanged(!isCenter)).called(1);
+        tester.expectSwitch(key, isCenter);
+        expectBlocBuilder(tester, key, state);
+      });
+
+      testWidgets('change isCenter=$isCenter', (tester) async {
+        final state = AppBarThemeState.withTheme(centerTitle: !isCenter);
+
+        await pumpApp(tester, state);
+        await tester.toggleSwitch(key, isCenter);
+
+        verify(() => appBarThemeCubit.centerTitleChanged(isCenter)).called(1);
       });
     }
   });
 
-  testWidgets('update title spacing', (tester) async {
-    final state = AppBarThemeState(
-      theme: AppBarTheme(titleSpacing: doubleNum),
-    );
+  group('title spacing text field', () {
+    const key = 'appBarThemeEditor_titleSpacingTextField';
 
-    await pumpApp(tester, state);
+    testWidgets('render title spacing', (tester) async {
+      final state = AppBarThemeState.withTheme(titleSpacing: doubleNum);
 
-    await widgetTesters.checkTextField(
-      tester,
-      'appBarThemeEditor_titleSpacingTextField',
-      doubleNum,
-    );
-    verify(() => appBarThemeCubit.titleSpacingChanged(doubleStr)).called(1);
+      await pumpApp(tester, state);
+
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
+
+    testWidgets('change title spacing', (tester) async {
+      await pumpApp(tester);
+      await tester.enterTextToTextField(key, doubleNum);
+
+      verify(() => appBarThemeCubit.titleSpacingChanged(doubleStr)).called(1);
+    });
   });
 
-  testWidgets('update tool bar height', (tester) async {
-    final state = AppBarThemeState(
-      theme: AppBarTheme(toolbarHeight: doubleNum),
-    );
+  group('tool bar height text field', () {
+    const key = 'appBarThemeEditor_toolBarHeightTextField';
 
-    await pumpApp(tester, state);
+    testWidgets('render tool bar height', (tester) async {
+      final state = AppBarThemeState.withTheme(toolbarHeight: doubleNum);
 
-    await widgetTesters.checkTextField(
-      tester,
-      'appBarThemeEditor_toolBarHeightTextField',
-      doubleNum,
-    );
-    verify(() => appBarThemeCubit.toolBarHeightChanged(doubleStr)).called(1);
+      await pumpApp(tester, state);
+
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
+
+    testWidgets('change tool bar height', (tester) async {
+      await pumpApp(tester);
+      await tester.enterTextToTextField(key, doubleNum);
+
+      verify(() => appBarThemeCubit.toolBarHeightChanged(doubleStr)).called(1);
+    });
   });
 
-  group('test system UI overlay style dropdown', () {
-    for (var style in MySystemUiOverlayStyle().values) {
-      final styleStr = MySystemUiOverlayStyle().convertToString(style)!;
-      testWidgets('update to ${style.statusBarBrightness}', (tester) async {
-        final state = AppBarThemeState(
-          theme: AppBarTheme(systemOverlayStyle: style),
-        );
+  group('system UI overlay style dropdown', () {
+    const key = 'appBarThemeEditor_systemUiOverlayStyleDropdown';
+    final myStyle = MySystemUiOverlayStyle();
+
+    for (var style in myStyle.values) {
+      final styleStr = myStyle.convertToString(style)!;
+
+      testWidgets('render ${style.statusBarBrightness}', (tester) async {
+        final state = AppBarThemeState.withTheme(systemUiOverlayStyle: style);
 
         await pumpApp(tester, state);
 
-        await widgetTesters.checkDropbox(
-          tester,
-          'appBarThemeEditor_systemUiOverlayStyleDropdown',
-          styleStr,
-        );
+        await tester.expectDropdown(key, styleStr);
+        expectBlocBuilder(tester, key, state);
+      });
+
+      testWidgets('change ${style.statusBarBrightness}', (tester) async {
+        await pumpApp(tester);
+        await tester.selectDropdownItem(key, styleStr);
+
         verify(
           () => appBarThemeCubit.systemUiOverlayStyleChanged(styleStr),
         ).called(1);

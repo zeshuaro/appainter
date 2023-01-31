@@ -1,13 +1,13 @@
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/models/models.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppBarThemeEditor extends ExpansionPanelItem {
   const AppBarThemeEditor({Key? key}) : super(key: key);
@@ -94,12 +94,12 @@ class _ElevationTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
+      key: const Key('appBarThemeEditor_elevationTextField'),
       buildWhen: (previous, current) {
         return previous.theme.elevation != current.theme.elevation;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key('appBarThemeEditor_elevationTextField'),
           labelText: 'Elevation',
           tooltip: AppBarThemeDocs.elevation,
           initialValue: (state.theme.elevation ?? kAppBarElevation).toString(),
@@ -139,12 +139,12 @@ class _CenterTitleSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
+      key: const Key('appBarThemeEditor_centerTitleSwitch'),
       buildWhen: (previous, current) {
         return previous.theme.centerTitle != current.theme.centerTitle;
       },
       builder: (context, state) {
         return MySwitchListTile(
-          key: const Key('appBarThemeEditor_centerTitleSwitch'),
           title: 'Center title',
           tooltip: AppBarThemeDocs.centerTitle,
           value: state.theme.centerTitle ?? true,
@@ -163,12 +163,12 @@ class _TitleSpacingTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
+      key: const Key('appBarThemeEditor_titleSpacingTextField'),
       buildWhen: (previous, current) {
         return previous.theme.titleSpacing != current.theme.titleSpacing;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key('appBarThemeEditor_titleSpacingTextField'),
           labelText: 'Title spacing',
           tooltip: AppBarThemeDocs.titleSpacing,
           initialValue: state.theme.titleSpacing?.toString() ??
@@ -188,12 +188,12 @@ class _ToolBarHeightTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
+      key: const Key('appBarThemeEditor_toolBarHeightTextField'),
       buildWhen: (previous, current) {
         return previous.theme.toolbarHeight != current.theme.toolbarHeight;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key('appBarThemeEditor_toolBarHeightTextField'),
           labelText: 'Tool bar height',
           tooltip: AppBarThemeDocs.toolbarHeight,
           initialValue: state.theme.toolbarHeight?.toString() ??
@@ -213,13 +213,13 @@ class _SystemUiOverlayStyleDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
+      key: const Key('appBarThemeEditor_systemUiOverlayStyleDropdown'),
       buildWhen: (previous, current) {
         return previous.theme.systemOverlayStyle !=
             current.theme.systemOverlayStyle;
       },
       builder: (context, state) {
         return DropdownListTile(
-          key: const Key('appBarThemeEditor_systemUiOverlayStyleDropdown'),
           title: 'System UI overlay style',
           tooltip: AppBarThemeDocs.systemOverlayStyle,
           value: MySystemUiOverlayStyle().convertToString(

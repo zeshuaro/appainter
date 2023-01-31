@@ -43,7 +43,7 @@ void main() {
   });
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'emits theme',
+    'emit theme',
     setUp: () {
       final colorScheme = randomColorSchemeLight(shouldPrint: false);
       theme = ThemeData.from(colorScheme: colorScheme).appBarTheme;
@@ -82,87 +82,75 @@ void main() {
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'emits background color',
+    'emit background color',
     build: () => themeCubit,
     act: (cubit) => cubit.backgroundColorChanged(color),
-    expect: () => [
-      AppBarThemeState(theme: AppBarTheme(backgroundColor: color)),
-    ],
+    expect: () => [AppBarThemeState.withTheme(backgroundColor: color)],
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'emits foreground color',
+    'emit foreground color',
     build: () => themeCubit,
     act: (cubit) => cubit.foregroundColorChanged(color),
-    expect: () => [
-      AppBarThemeState(theme: AppBarTheme(foregroundColor: color)),
-    ],
+    expect: () => [AppBarThemeState.withTheme(foregroundColor: color)],
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'emits elevation',
+    'emit elevation',
     build: () => themeCubit,
     act: (cubit) => cubit.elevationChanged(doubleStr),
-    expect: () => [AppBarThemeState(theme: AppBarTheme(elevation: doubleNum))],
+    expect: () => [AppBarThemeState.withTheme(elevation: doubleNum)],
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'emits shadow color',
+    'emit shadow color',
     build: () => themeCubit,
     act: (cubit) => cubit.shadowColorChanged(color),
-    expect: () => [AppBarThemeState(theme: AppBarTheme(shadowColor: color))],
+    expect: () => [AppBarThemeState.withTheme(shadowColor: color)],
   );
 
   group('test center title', () {
     for (var isCenter in [true, false]) {
       blocTest<AppBarThemeCubit, AppBarThemeState>(
-        'emits $isCenter',
+        'emit $isCenter',
         build: () => themeCubit,
         act: (cubit) => cubit.centerTitleChanged(isCenter),
-        expect: () => [
-          AppBarThemeState(theme: AppBarTheme(centerTitle: isCenter)),
-        ],
+        expect: () => [AppBarThemeState.withTheme(centerTitle: isCenter)],
       );
     }
   });
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'emits title spacing',
+    'emit title spacing',
     build: () => themeCubit,
     act: (cubit) => cubit.titleSpacingChanged(doubleStr),
-    expect: () => [
-      AppBarThemeState(theme: AppBarTheme(titleSpacing: doubleNum)),
-    ],
+    expect: () => [AppBarThemeState.withTheme(titleSpacing: doubleNum)],
   );
 
   blocTest<AppBarThemeCubit, AppBarThemeState>(
-    'emits tool bar height',
+    'emit tool bar height',
     build: () => themeCubit,
     act: (cubit) => cubit.toolBarHeightChanged(doubleStr),
-    expect: () => [
-      AppBarThemeState(theme: AppBarTheme(toolbarHeight: doubleNum)),
-    ],
+    expect: () => [AppBarThemeState.withTheme(toolbarHeight: doubleNum)],
   );
 
   group('test system UI overlay style', () {
     for (var style in MySystemUiOverlayStyle().values) {
       blocTest<AppBarThemeCubit, AppBarThemeState>(
-        'emits ${style.statusBarBrightness}',
+        'emit ${style.statusBarBrightness}',
         build: () => themeCubit,
         act: (cubit) {
           cubit.systemUiOverlayStyleChanged(
             MySystemUiOverlayStyle().convertToString(style)!,
           );
         },
-        expect: () => [
-          AppBarThemeState(theme: AppBarTheme(systemOverlayStyle: style)),
-        ],
+        expect: () => [AppBarThemeState.withTheme(systemUiOverlayStyle: style)],
       );
     }
   });
 
   blocTest<AppBarActionsIconThemeCubit, IconThemeState>(
-    'emits action icon theme color',
+    'emit action icon theme color',
     setUp: () => iconTheme = IconThemeData(color: color),
     build: () => actionsIconThemeCubit,
     act: (cubit) => cubit.colorChanged(color),
@@ -176,7 +164,7 @@ void main() {
   );
 
   blocTest<AppBarIconThemeCubit, IconThemeState>(
-    'emits icon theme color',
+    'emit icon theme color',
     setUp: () => iconTheme = IconThemeData(color: color),
     build: () => iconThemeCubit,
     act: (cubit) => cubit.colorChanged(color),

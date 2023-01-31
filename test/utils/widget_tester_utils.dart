@@ -1,5 +1,6 @@
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 extension WidgetTesterUtils on WidgetTester {
@@ -86,5 +87,37 @@ extension WidgetTesterUtils on WidgetTester {
     await ensureVisible(item);
     await tap(item);
     await pumpAndSettle();
+  }
+
+  void expectSwitch(String key, bool value) {
+    final widget = find.descendant(
+      of: find.byKey(Key(key)),
+      matching: find.byWidgetPredicate(
+        (widget) => widget is Switch && widget.value == value,
+      ),
+    );
+    expect(widget, findsOneWidget);
+  }
+
+  Future<void> toggleSwitch(String key, bool value) async {
+    await tap(
+      find.descendant(of: find.byKey(Key(key)), matching: find.byType(Switch)),
+    );
+    await pumpAndSettle();
+  }
+
+  void expectBlocBuilder<B extends StateStreamable<S>, S>(
+    String key,
+    S initState,
+    S newState,
+  ) {
+    final builder = firstWidget<BlocBuilder<B, S>>(
+      find.byWidgetPredicate(
+        (widget) => widget.key == Key(key) && widget is BlocBuilder<B, S>,
+      ),
+    );
+
+    expect(builder.buildWhen?.call(initState, newState), true);
+    expect(builder.buildWhen?.call(newState, newState), false);
   }
 }

@@ -2,6 +2,7 @@ import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 extension WidgetTesterUtils on WidgetTester {
   Future<void> expandWidget(String text) async {
@@ -19,7 +20,11 @@ extension WidgetTesterUtils on WidgetTester {
     expect(widget, findsOneWidget);
   }
 
-  Future<void> pickColor(String key, Color color) async {
+  Future<void> verifyColorPicker(
+    String key,
+    Color color,
+    ValueChanged<Color> mockedMethod,
+  ) async {
     await tap(
       find.descendant(
         of: find.byKey(Key(key)),
@@ -39,9 +44,7 @@ extension WidgetTesterUtils on WidgetTester {
       '#${color.hex}',
     );
     await pumpAndSettle();
-
-    await tap(find.text('OK'));
-    await pumpAndSettle();
+    verify(() => mockedMethod(color)).called(1);
   }
 
   Future<void> expectTextField(String key, String value) async {
@@ -54,14 +57,20 @@ extension WidgetTesterUtils on WidgetTester {
     expect(widget, findsOneWidget);
   }
 
-  Future<void> enterTextToTextField(String key, num value) async {
+  Future<void> verifyTextField(
+    String key,
+    String value,
+    ValueChanged<String> mockedMethod,
+  ) async {
     await enterText(
       find.descendant(
         of: find.byKey(Key(key)),
         matching: find.byType(TextFormField),
       ),
-      value.toString(),
+      value,
     );
+    await pumpAndSettle();
+    verify(() => mockedMethod(value)).called(1);
   }
 
   Future<void> expectDropdown(String key, String value) async {
@@ -74,7 +83,11 @@ extension WidgetTesterUtils on WidgetTester {
     expect(widget, findsOneWidget);
   }
 
-  Future<void> selectDropdownItem(String key, String value) async {
+  Future<void> verifyDropdown(
+    String key,
+    String value,
+    ValueChanged<String> mockedMethod,
+  ) async {
     await tap(
       find.descendant(
         of: find.byKey(Key(key)),
@@ -87,6 +100,7 @@ extension WidgetTesterUtils on WidgetTester {
     await ensureVisible(item);
     await tap(item);
     await pumpAndSettle();
+    verify(() => mockedMethod(value)).called(1);
   }
 
   void expectSwitch(String key, bool value) {
@@ -99,11 +113,16 @@ extension WidgetTesterUtils on WidgetTester {
     expect(widget, findsOneWidget);
   }
 
-  Future<void> toggleSwitch(String key, bool value) async {
+  Future<void> verifySwitch(
+    String key,
+    bool value,
+    ValueChanged<bool> mockedMethod,
+  ) async {
     await tap(
       find.descendant(of: find.byKey(Key(key)), matching: find.byType(Switch)),
     );
     await pumpAndSettle();
+    verify(() => mockedMethod(value)).called(1);
   }
 
   void expectBlocBuilder<B extends StateStreamable<S>, S>(

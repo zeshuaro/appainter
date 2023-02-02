@@ -62,9 +62,7 @@ void main() {
       final opaqueColor = color.withOpacity(style.color!.opacity);
 
       await pumpApp(tester);
-      await tester.pickColor(key, opaqueColor);
-
-      verify(() => cubit.colorChanged(opaqueColor)).called(1);
+      await tester.verifyColorPicker(key, opaqueColor, cubit.colorChanged);
     });
   });
 
@@ -83,9 +81,11 @@ void main() {
       final opaqueColor = color.withOpacity(0);
 
       await pumpApp(tester);
-      await tester.pickColor(key, opaqueColor);
-
-      verify(() => cubit.backgroundColorChanged(opaqueColor)).called(1);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        cubit.backgroundColorChanged,
+      );
     });
   });
 
@@ -100,9 +100,7 @@ void main() {
 
     testWidgets('change font size', (tester) async {
       await pumpApp(tester);
-      await tester.enterTextToTextField(key, doubleNum);
-
-      verify(() => cubit.fontSizeChanged(doubleStr)).called(1);
+      await tester.verifyTextField(key, doubleStr, cubit.fontSizeChanged);
     });
   });
 
@@ -121,9 +119,7 @@ void main() {
 
       testWidgets('change $weight', (tester) async {
         await pumpApp(tester);
-        await tester.selectDropdownItem(key, weightStr);
-
-        verify(() => cubit.fontWeightChanged(weightStr)).called(1);
+        await tester.verifyDropdown(key, weightStr, cubit.fontWeightChanged);
       });
     }
   });
@@ -144,9 +140,7 @@ void main() {
 
       testWidgets('change $fontStyle', (tester) async {
         await pumpApp(tester);
-        await tester.selectDropdownItem(key, fontStyleStr);
-
-        verify(() => cubit.fontStyleChanged(fontStyleStr)).called(1);
+        await tester.verifyDropdown(key, fontStyleStr, cubit.fontStyleChanged);
       });
     }
   });
@@ -175,9 +169,11 @@ void main() {
           final value = doubleNum * multiplier;
 
           await pumpApp(tester);
-          await tester.enterTextToTextField(key, value);
-
-          verify(() => cubit.letterSpacingChanged(value.toString())).called(1);
+          await tester.verifyTextField(
+            key,
+            value.toString(),
+            cubit.letterSpacingChanged,
+          );
         },
       );
     }
@@ -207,9 +203,11 @@ void main() {
           final value = doubleNum * multiplier;
 
           await pumpApp(tester);
-          await tester.enterTextToTextField(key, value);
-
-          verify(() => cubit.wordSpacingChanged(value.toString())).called(1);
+          await tester.verifyTextField(
+            key,
+            value.toString(),
+            cubit.wordSpacingChanged,
+          );
         },
       );
     }
@@ -231,9 +229,11 @@ void main() {
 
       testWidgets('change $baseline', (tester) async {
         await pumpApp(tester);
-        await tester.selectDropdownItem(key, baselineStr);
-
-        verify(() => cubit.textBaselineChanged(baselineStr)).called(1);
+        await tester.verifyDropdown(
+          key,
+          baselineStr,
+          cubit.textBaselineChanged,
+        );
       });
     }
   });
@@ -249,9 +249,7 @@ void main() {
 
     testWidgets('change height', (tester) async {
       await pumpApp(tester);
-      await tester.enterTextToTextField(key, doubleNum);
-
-      verify(() => cubit.heightChanged(doubleStr)).called(1);
+      await tester.verifyTextField(key, doubleStr, cubit.heightChanged);
     });
   });
 
@@ -271,9 +269,11 @@ void main() {
 
       testWidgets('change $dist', (tester) async {
         await pumpApp(tester);
-        await tester.selectDropdownItem(key, distStr);
-
-        verify(() => cubit.leadingDistributionChanged(distStr)).called(1);
+        await tester.verifyDropdown(
+          key,
+          distStr,
+          cubit.leadingDistributionChanged,
+        );
       });
     }
   });
@@ -293,9 +293,7 @@ void main() {
 
       testWidgets('change $decor', (tester) async {
         await pumpApp(tester);
-        await tester.selectDropdownItem(key, decorStr);
-
-        verify(() => cubit.decorationChanged(decorStr)).called(1);
+        await tester.verifyDropdown(key, decorStr, cubit.decorationChanged);
       });
     }
   });
@@ -315,9 +313,11 @@ void main() {
       final opaqueColor = color.withOpacity(0);
 
       await pumpApp(tester);
-      await tester.pickColor(key, opaqueColor);
-
-      verify(() => cubit.decorationColorChanged(opaqueColor)).called(1);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        cubit.decorationColorChanged,
+      );
     });
   });
 
@@ -334,9 +334,7 @@ void main() {
 
     testWidgets('change to none', (tester) async {
       await pumpApp(tester);
-      await tester.selectDropdownItem(key, kNone);
-
-      verify(() => cubit.decorationStyleChanged(kNone)).called(1);
+      await tester.verifyDropdown(key, kNone, cubit.decorationStyleChanged);
     });
 
     for (var decoStyle in TextDecorationStyle.values) {
@@ -352,9 +350,11 @@ void main() {
 
       testWidgets('change $decoStyle', (tester) async {
         await pumpApp(tester);
-        await tester.selectDropdownItem(key, decoStyleStr);
-
-        verify(() => cubit.decorationStyleChanged(decoStyleStr)).called(1);
+        await tester.verifyDropdown(
+          key,
+          decoStyleStr,
+          cubit.decorationStyleChanged,
+        );
       });
     }
   });
@@ -372,9 +372,11 @@ void main() {
 
     testWidgets('change decoration thickness', (tester) async {
       await pumpApp(tester);
-      await tester.enterTextToTextField(key, doubleNum);
-
-      verify(() => cubit.decorationThicknessChanged(doubleStr)).called(1);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        cubit.decorationThicknessChanged,
+      );
     });
   });
 }

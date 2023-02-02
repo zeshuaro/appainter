@@ -53,9 +53,7 @@ void main() {
 
     testWidgets('change color', (tester) async {
       await pumpApp(tester);
-      await tester.pickColor(key, color);
-
-      verify(() => cubit.colorChanged(color)).called(1);
+      await tester.verifyColorPicker(key, color, cubit.colorChanged);
     });
   });
 
@@ -70,9 +68,7 @@ void main() {
 
     testWidgets('change size', (tester) async {
       await pumpApp(tester);
-      await tester.enterTextToTextField(key, doubleNum);
-
-      verify(() => cubit.sizeChanged(doubleStr)).called(1);
+      await tester.verifyTextField(key, doubleStr, cubit.sizeChanged);
     });
   });
 
@@ -87,9 +83,7 @@ void main() {
 
     testWidgets('change opacity', (tester) async {
       await pumpApp(tester);
-      await tester.enterTextToTextField(key, doubleNum);
-
-      verify(() => cubit.opacityChanged(doubleStr)).called(1);
+      await tester.verifyTextField(key, doubleStr, cubit.opacityChanged);
     });
   });
 }

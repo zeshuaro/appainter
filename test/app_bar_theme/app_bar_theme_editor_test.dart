@@ -113,9 +113,11 @@ void main() {
 
     testWidgets('change background color', (tester) async {
       await pumpApp(tester);
-      await tester.pickColor(key, color);
-
-      verify(() => appBarThemeCubit.backgroundColorChanged(color)).called(1);
+      await tester.verifyColorPicker(
+        key,
+        color,
+        appBarThemeCubit.backgroundColorChanged,
+      );
     });
   });
 
@@ -130,9 +132,11 @@ void main() {
 
     testWidgets('change foreground color', (tester) async {
       await pumpApp(tester);
-      await tester.pickColor(key, color);
-
-      verify(() => appBarThemeCubit.foregroundColorChanged(color)).called(1);
+      await tester.verifyColorPicker(
+        key,
+        color,
+        appBarThemeCubit.foregroundColorChanged,
+      );
     });
   });
 
@@ -150,9 +154,11 @@ void main() {
 
     testWidgets('change elevation', (tester) async {
       await pumpApp(tester);
-      await tester.enterTextToTextField(key, doubleNum);
-
-      verify(() => appBarThemeCubit.elevationChanged(doubleStr)).called(1);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        appBarThemeCubit.elevationChanged,
+      );
     });
   });
 
@@ -167,9 +173,11 @@ void main() {
 
     testWidgets('change shadow color', (tester) async {
       await pumpApp(tester);
-      await tester.pickColor(key, color);
-
-      verify(() => appBarThemeCubit.shadowColorChanged(color)).called(1);
+      await tester.verifyColorPicker(
+        key,
+        color,
+        appBarThemeCubit.shadowColorChanged,
+      );
     });
   });
 
@@ -190,9 +198,11 @@ void main() {
         final state = AppBarThemeState.withTheme(centerTitle: !isCenter);
 
         await pumpApp(tester, state);
-        await tester.toggleSwitch(key, isCenter);
-
-        verify(() => appBarThemeCubit.centerTitleChanged(isCenter)).called(1);
+        await tester.verifySwitch(
+          key,
+          isCenter,
+          appBarThemeCubit.centerTitleChanged,
+        );
       });
     }
   });
@@ -211,9 +221,11 @@ void main() {
 
     testWidgets('change title spacing', (tester) async {
       await pumpApp(tester);
-      await tester.enterTextToTextField(key, doubleNum);
-
-      verify(() => appBarThemeCubit.titleSpacingChanged(doubleStr)).called(1);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        appBarThemeCubit.titleSpacingChanged,
+      );
     });
   });
 
@@ -231,9 +243,11 @@ void main() {
 
     testWidgets('change tool bar height', (tester) async {
       await pumpApp(tester);
-      await tester.enterTextToTextField(key, doubleNum);
-
-      verify(() => appBarThemeCubit.toolBarHeightChanged(doubleStr)).called(1);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        appBarThemeCubit.toolBarHeightChanged,
+      );
     });
   });
 
@@ -255,11 +269,11 @@ void main() {
 
       testWidgets('change ${style.statusBarBrightness}', (tester) async {
         await pumpApp(tester);
-        await tester.selectDropdownItem(key, styleStr);
-
-        verify(
-          () => appBarThemeCubit.systemUiOverlayStyleChanged(styleStr),
-        ).called(1);
+        await tester.verifyDropdown(
+          key,
+          styleStr,
+          appBarThemeCubit.systemUiOverlayStyleChanged,
+        );
       });
     }
   });

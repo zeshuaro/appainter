@@ -51,20 +51,18 @@ class _TypeDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavigationBarThemeCubit,
         BottomNavigationBarThemeState>(
+      key: const Key('bottomNavigationBarThemeEditor_typeDropdown'),
       buildWhen: (previous, current) {
         return previous.theme.type != current.theme.type;
       },
       builder: (context, state) {
         final type = state.theme.type ?? BottomNavigationBarType.fixed;
         return DropdownListTile(
-          key: const Key('bottomNavigationBarThemeEditor_typeDropdown'),
           title: 'Type',
           tooltip: BottomNavigationBarThemeDocs.type,
           value: UtilService.enumToString(type),
           values: UtilService.getEnumStrings(BottomNavigationBarType.values),
-          onChanged: (value) {
-            context.read<BottomNavigationBarThemeCubit>().typeChanged(value!);
-          },
+          onChanged: context.read<BottomNavigationBarThemeCubit>().typeChanged,
         );
       },
     );
@@ -87,11 +85,8 @@ class _BackgroundColorPicker extends StatelessWidget {
       title: 'Background color',
       tooltip: BottomNavigationBarThemeDocs.backgroundColor,
       color: backgroundColor ?? themeBackgroundColor,
-      onColorChanged: (color) {
-        context
-            .read<BottomNavigationBarThemeCubit>()
-            .backgroundColorChanged(color);
-      },
+      onColorChanged:
+          context.read<BottomNavigationBarThemeCubit>().backgroundColorChanged,
     );
   }
 }
@@ -111,11 +106,9 @@ class _SelectedItemColorPicker extends StatelessWidget {
       title: 'Selected item color',
       tooltip: BottomNavigationBarThemeDocs.selectedItemColor,
       color: selectedItemColor ?? primaryColor,
-      onColorChanged: (color) {
-        context
-            .read<BottomNavigationBarThemeCubit>()
-            .selectedItemColorChanged(color);
-      },
+      onColorChanged: context
+          .read<BottomNavigationBarThemeCubit>()
+          .selectedItemColorChanged,
     );
   }
 }
@@ -138,11 +131,9 @@ class _UnselectedItemColorPicker extends StatelessWidget {
       title: 'Unselected item color',
       tooltip: BottomNavigationBarThemeDocs.unselectedItemColor,
       color: unselectedItemColor ?? unselectedWidgetColor,
-      onColorChanged: (color) {
-        context
-            .read<BottomNavigationBarThemeCubit>()
-            .unselectedItemColorChanged(color);
-      },
+      onColorChanged: context
+          .read<BottomNavigationBarThemeCubit>()
+          .unselectedItemColorChanged,
     );
   }
 }
@@ -152,6 +143,7 @@ class _ShowSelectedLabelsSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavigationBarThemeCubit,
         BottomNavigationBarThemeState>(
+      key: const Key('bottomNavigationBarThemeEditor_showSelectedLabelsSwitch'),
       buildWhen: (previous, current) {
         return previous.theme.showSelectedLabels !=
             current.theme.showSelectedLabels;
@@ -160,15 +152,10 @@ class _ShowSelectedLabelsSwitch extends StatelessWidget {
         return MySwitchListTile(
           title: 'Show selected labels',
           tooltip: BottomNavigationBarThemeDocs.showSelectedLabels,
-          key: const Key(
-            'bottomNavigationBarThemeEditor_showSelectedLabelsSwitch',
-          ),
           value: state.theme.showSelectedLabels ?? true,
-          onChanged: (value) {
-            context
-                .read<BottomNavigationBarThemeCubit>()
-                .showSelectedLabelsChanged(value);
-          },
+          onChanged: context
+              .read<BottomNavigationBarThemeCubit>()
+              .showSelectedLabelsChanged,
         );
       },
     );
@@ -180,23 +167,21 @@ class _ShowUnselectedLabelsSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavigationBarThemeCubit,
         BottomNavigationBarThemeState>(
+      key: const Key(
+        'bottomNavigationBarThemeEditor_showUnselectedLabelsSwitch',
+      ),
       buildWhen: (previous, current) {
         return previous.theme.showUnselectedLabels !=
             current.theme.showUnselectedLabels;
       },
       builder: (context, state) {
         return MySwitchListTile(
-          key: const Key(
-            'bottomNavigationBarThemeEditor_showUnselectedLabelsSwitch',
-          ),
           title: 'Show unselected labels',
           tooltip: BottomNavigationBarThemeDocs.showUnselectedLabels,
           value: state.theme.showUnselectedLabels ?? true,
-          onChanged: (value) {
-            context
-                .read<BottomNavigationBarThemeCubit>()
-                .showUnselectedLabelsChanged(value);
-          },
+          onChanged: context
+              .read<BottomNavigationBarThemeCubit>()
+              .showUnselectedLabelsChanged,
         );
       },
     );
@@ -208,21 +193,18 @@ class _ElevationTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavigationBarThemeCubit,
         BottomNavigationBarThemeState>(
+      key: const Key('bottomNavigationBarThemeEditor_elevationTextField'),
       buildWhen: (previous, current) {
         return previous.theme.elevation != current.theme.elevation;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key('bottomNavigationBarThemeEditor_elevationTextField'),
           labelText: 'Elevation',
           tooltip: BottomNavigationBarThemeDocs.elevation,
           initialValue: state.theme.elevation?.toString() ??
               kBottomNavBarElevation.toString(),
-          onChanged: (value) {
-            context
-                .read<BottomNavigationBarThemeCubit>()
-                .elevationChanged(value);
-          },
+          onChanged:
+              context.read<BottomNavigationBarThemeCubit>().elevationChanged,
         );
       },
     );

@@ -4,8 +4,6 @@ import 'package:appainter/abstract_text_style/cubit/abstract_text_style_cubit.da
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/util_service.dart';
-import 'package:appainter/widgets/widgets.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,244 +11,257 @@ import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
 import '../utils.dart';
-import '../widget_testers.dart';
+import '../utils/widget_tester_utils.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Bottom navigation bar');
+  const botState = BottomNavigationBarThemeState();
+  final textStyle = BottomNavigationBarThemeCubit.defaultLabelTextStyle;
 
-  late BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
-  late BottomNavigationBarLabelTextStyleCubit
-      bottomNavigationBarLabelTextStyleCubit;
-  late BottomNavigationBarUnselectedLabelTextStyleCubit
-      bottomNavigationBarUnselectedLabelTextStyleCubit;
+  late BottomNavigationBarThemeCubit botCubit;
+  late BottomNavigationBarLabelTextStyleCubit botLabelCubit;
+  late BottomNavigationBarUnselectedLabelTextStyleCubit botUnselectedLabelCubit;
   late ColorThemeCubit colorThemeCubit;
+
   late Color color;
-  late double doubleValue;
+  late double doubleNum;
+  late String doubleStr;
 
   setUp(() {
-    bottomNavigationBarThemeCubit = MockBottomNavigationBarThemeCubit();
-    bottomNavigationBarLabelTextStyleCubit =
-        MockBottomNavigationBarLabelTextStyleCubit();
-    bottomNavigationBarUnselectedLabelTextStyleCubit =
+    botCubit = MockBottomNavigationBarThemeCubit();
+    botLabelCubit = MockBottomNavigationBarLabelTextStyleCubit();
+    botUnselectedLabelCubit =
         MockBottomNavigationBarUnselectedLabelTextStyleCubit();
     colorThemeCubit = MockColorThemeCubit();
-    color = getRandomColor();
-    doubleValue = Random().nextDouble();
 
-    when(() => bottomNavigationBarThemeCubit.state).thenReturn(
-      const BottomNavigationBarThemeState(),
+    color = getRandomColor();
+    doubleNum = Random().nextDouble();
+    doubleStr = doubleNum.toString();
+
+    when(() => botLabelCubit.state).thenReturn(
+      TextStyleState(style: textStyle),
     );
-    when(() => bottomNavigationBarLabelTextStyleCubit.state).thenReturn(
-      TextStyleState(
-        style: BottomNavigationBarThemeCubit.defaultLabelTextStyle,
-      ),
-    );
-    when(() {
-      return bottomNavigationBarUnselectedLabelTextStyleCubit.state;
-    }).thenReturn(
-      TextStyleState(
-        style: BottomNavigationBarThemeCubit.defaultLabelTextStyle,
-      ),
+    when(() => botUnselectedLabelCubit.state).thenReturn(
+      TextStyleState(style: textStyle),
     );
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
   Future<void> pumpApp(
-    WidgetTester tester,
-    BottomNavigationBarThemeState state,
-  ) async {
-    whenListen(
-      bottomNavigationBarThemeCubit,
-      Stream.fromIterable([const BottomNavigationBarThemeState(), state]),
-    );
+    WidgetTester tester, [
+    BottomNavigationBarThemeState? state,
+  ]) async {
+    when(() => botCubit.state).thenReturn(state ?? botState);
 
     await tester.pumpWidget(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider.value(value: bottomNavigationBarThemeCubit),
-          BlocProvider.value(value: bottomNavigationBarLabelTextStyleCubit),
-          BlocProvider.value(
-            value: bottomNavigationBarUnselectedLabelTextStyleCubit,
-          ),
-          BlocProvider.value(value: colorThemeCubit),
-        ],
-        child: MaterialApp(
-          home: MyExpansionPanelList(
-            item: const BottomNavigationBarThemeEditor(),
+      MaterialApp(
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: botCubit),
+            BlocProvider.value(value: botLabelCubit),
+            BlocProvider.value(value: botUnselectedLabelCubit),
+            BlocProvider.value(value: colorThemeCubit),
+          ],
+          child: const Scaffold(
+            body: BottomNavigationBarThemeEditor(),
           ),
         ),
       ),
     );
   }
 
-  testWidgets('display nested editors', (tester) async {
-    await pumpApp(tester, const BottomNavigationBarThemeState());
-    expect(
-      find.byKey(
-        const Key('bottomNavigationBarThemeEditor_labelTextStyleCard'),
-      ),
-      findsOneWidget,
-    );
-    expect(
-      find.byKey(
-        const Key(
-          'bottomNavigationBarThemeEditor_unselectedLabelTextStyleCard',
-        ),
-      ),
-      findsOneWidget,
-    );
-  });
-  testWidgets(
-    'background color picker update with selected color',
-    (tester) async {
-      final state = BottomNavigationBarThemeState(
-        theme: BottomNavigationBarThemeData(backgroundColor: color),
-      );
+  void expectBlocBuilder(
+    WidgetTester tester,
+    String key,
+    BottomNavigationBarThemeState state,
+  ) {
+    tester.expectBlocBuilder<BottomNavigationBarThemeCubit,
+        BottomNavigationBarThemeState>(key, botState, state);
+  }
 
-      await pumpApp(tester, state);
+  testWidgets('render nested editors', (tester) async {
+    await pumpApp(tester);
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'bottomNavigationBarThemeEditor_backgroundColorPicker',
-        color,
-      );
-      verify(() {
-        bottomNavigationBarThemeCubit.backgroundColorChanged(color);
-      }).called(1);
-    },
-  );
-
-  testWidgets(
-    'selected item color picker update with selected color',
-    (tester) async {
-      final state = BottomNavigationBarThemeState(
-        theme: BottomNavigationBarThemeData(selectedItemColor: color),
-      );
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'bottomNavigationBarThemeEditor_selectedItemColorPicker',
-        color,
-      );
-      verify(() {
-        bottomNavigationBarThemeCubit.selectedItemColorChanged(color);
-      }).called(1);
-    },
-  );
-
-  testWidgets(
-    'unselected item color picker update with selected color',
-    (tester) async {
-      final state = BottomNavigationBarThemeState(
-        theme: BottomNavigationBarThemeData(unselectedItemColor: color),
-      );
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'bottomNavigationBarThemeEditor_unselectedItemColorPicker',
-        color,
-      );
-      verify(() {
-        bottomNavigationBarThemeCubit.unselectedItemColorChanged(color);
-      }).called(1);
-    },
-  );
-
-  group('test show selected labels switch', () {
-    for (var isShow in [true, false]) {
-      testWidgets(
-        'be toggled to $isShow',
-        (tester) async {
-          final state = BottomNavigationBarThemeState(
-            theme: BottomNavigationBarThemeData(showSelectedLabels: isShow),
-          );
-
-          await pumpApp(tester, state);
-
-          await widgetTesters.checkSwitch(
-            tester,
-            'bottomNavigationBarThemeEditor_showSelectedLabelsSwitch',
-            isShow,
-          );
-          verify(() {
-            bottomNavigationBarThemeCubit.showSelectedLabelsChanged(!isShow);
-          }).called(1);
-        },
-      );
+    for (var key in [
+      'bottomNavigationBarThemeEditor_labelTextStyleCard',
+      'bottomNavigationBarThemeEditor_unselectedLabelTextStyleCard'
+    ]) {
+      expect(find.byKey(Key(key)), findsOneWidget);
     }
   });
 
-  group('test show unselected labels switch', () {
-    for (var isShow in [true, false]) {
-      testWidgets(
-        'be toggled to $isShow',
-        (tester) async {
-          final state = BottomNavigationBarThemeState(
-            theme: BottomNavigationBarThemeData(showUnselectedLabels: isShow),
-          );
+  group('background color picker', () {
+    const key = 'bottomNavigationBarThemeEditor_backgroundColorPicker';
 
-          await pumpApp(tester, state);
-
-          await widgetTesters.checkSwitch(
-            tester,
-            'bottomNavigationBarThemeEditor_showUnselectedLabelsSwitch',
-            isShow,
-          );
-          verify(() {
-            bottomNavigationBarThemeCubit.showUnselectedLabelsChanged(!isShow);
-          }).called(1);
-        },
+    testWidgets('render widget', (tester) async {
+      final state = BottomNavigationBarThemeState.withThemeData(
+        backgroundColor: color,
       );
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        color,
+        botCubit.backgroundColorChanged,
+      );
+    });
+  });
+
+  group('selected item color picker', () {
+    const key = 'bottomNavigationBarThemeEditor_selectedItemColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = BottomNavigationBarThemeState.withThemeData(
+        selectedItemColor: color,
+      );
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        color,
+        botCubit.selectedItemColorChanged,
+      );
+    });
+  });
+
+  group('unselected item color picker', () {
+    const key = 'bottomNavigationBarThemeEditor_unselectedItemColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = BottomNavigationBarThemeState.withThemeData(
+        unselectedItemColor: color,
+      );
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.54);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        botCubit.unselectedItemColorChanged,
+      );
+    });
+  });
+
+  group('show selected labels switch', () {
+    const key = 'bottomNavigationBarThemeEditor_showSelectedLabelsSwitch';
+
+    for (var isShow in [true, false]) {
+      testWidgets('render widget with $isShow', (tester) async {
+        final state = BottomNavigationBarThemeState.withThemeData(
+          showSelectedLabels: isShow,
+        );
+
+        await pumpApp(tester, state);
+
+        tester.expectSwitch(key, isShow);
+        expectBlocBuilder(tester, key, state);
+      });
+
+      testWidgets('change switch to $isShow', (tester) async {
+        final state = BottomNavigationBarThemeState.withThemeData(
+          showSelectedLabels: !isShow,
+        );
+
+        await pumpApp(tester, state);
+
+        await tester.verifySwitch(
+          key,
+          isShow,
+          botCubit.showSelectedLabelsChanged,
+        );
+      });
     }
   });
 
-  testWidgets(
-    'elevation text field update with value',
-    (tester) async {
-      final state = BottomNavigationBarThemeState(
-        theme: BottomNavigationBarThemeData(elevation: doubleValue),
+  group('show unselected labels switch', () {
+    const key = 'bottomNavigationBarThemeEditor_showUnselectedLabelsSwitch';
+
+    for (var isShow in [true, false]) {
+      testWidgets('render widget with $isShow', (tester) async {
+        final state = BottomNavigationBarThemeState.withThemeData(
+          showUnselectedLabels: isShow,
+        );
+
+        await pumpApp(tester, state);
+
+        tester.expectSwitch(key, isShow);
+        expectBlocBuilder(tester, key, state);
+      });
+
+      testWidgets('change switch to $isShow', (tester) async {
+        final state = BottomNavigationBarThemeState.withThemeData(
+          showUnselectedLabels: !isShow,
+        );
+
+        await pumpApp(tester, state);
+
+        await tester.verifySwitch(
+          key,
+          isShow,
+          botCubit.showUnselectedLabelsChanged,
+        );
+      });
+    }
+  });
+
+  group('elevation text field', () {
+    const key = 'bottomNavigationBarThemeEditor_elevationTextField';
+
+    testWidgets('render widget', (tester) async {
+      final state = BottomNavigationBarThemeState.withThemeData(
+        elevation: doubleNum,
       );
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'bottomNavigationBarThemeEditor_elevationTextField',
-        doubleValue,
-      );
-      verify(() {
-        bottomNavigationBarThemeCubit.elevationChanged(doubleValue.toString());
-      }).called(1);
-    },
-  );
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
 
-  group('test type dropdown', () {
+    testWidgets('change text', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        botCubit.elevationChanged,
+      );
+    });
+  });
+
+  group('type dropdown', () {
+    const key = 'bottomNavigationBarThemeEditor_typeDropdown';
+
     for (var type in BottomNavigationBarType.values) {
       final typeStr = UtilService.enumToString(type);
 
-      testWidgets(
-        'update to $type',
-        (tester) async {
-          final state = BottomNavigationBarThemeState(
-            theme: BottomNavigationBarThemeData(type: type),
-          );
+      testWidgets('render $type', (tester) async {
+        final state = BottomNavigationBarThemeState.withThemeData(type: type);
 
-          await pumpApp(tester, state);
+        await pumpApp(tester, state);
 
-          await widgetTesters.checkDropbox(
-            tester,
-            'bottomNavigationBarThemeEditor_typeDropdown',
-            typeStr,
-          );
-          verify(() {
-            bottomNavigationBarThemeCubit.typeChanged(typeStr);
-          }).called(1);
-        },
-      );
+        await tester.expectDropdown(key, typeStr);
+        expectBlocBuilder(tester, key, state);
+      });
+
+      testWidgets('change $type', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyDropdown(
+          key,
+          typeStr,
+          botCubit.typeChanged,
+        );
+      });
     }
   });
 }

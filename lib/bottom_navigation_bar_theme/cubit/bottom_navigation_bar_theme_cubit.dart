@@ -68,7 +68,7 @@ class BottomNavigationBarThemeCubit
     emit(state.copyWith(theme: theme));
   }
 
-  void typeChanged(String value) {
+  void typeChanged(String? value) {
     final type = UtilService.stringToEnum(
       BottomNavigationBarType.values,
       value,

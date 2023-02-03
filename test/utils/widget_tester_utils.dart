@@ -25,12 +25,12 @@ extension WidgetTesterUtils on WidgetTester {
     Color color,
     ValueChanged<Color> mockedMethod,
   ) async {
-    await tap(
-      find.descendant(
-        of: find.byKey(Key(key)),
-        matching: find.byType(ColorIndicator),
-      ),
+    final colorIndicator = find.descendant(
+      of: find.byKey(Key(key)),
+      matching: find.byType(ColorIndicator),
     );
+    await ensureVisible(colorIndicator);
+    await tap(colorIndicator);
     await pumpAndSettle();
 
     await tap(find.text('Wheel'));

@@ -67,16 +67,12 @@ void main() {
         'emit $type',
         build: () => cubit,
         act: (cubit) => cubit.typeChanged(UtilService.enumToString(type)),
-        expect: () {
-          return [
-            BottomNavigationBarThemeState(
-              theme: BottomNavigationBarThemeData(
-                type: type,
-                showUnselectedLabels: showLabels,
-              ),
-            ),
-          ];
-        },
+        expect: () => [
+          BottomNavigationBarThemeState.withThemeData(
+            type: type,
+            showUnselectedLabels: showLabels,
+          ),
+        ],
       );
     }
   });
@@ -85,39 +81,27 @@ void main() {
     'emit background color',
     build: () => cubit,
     act: (cubit) => cubit.backgroundColorChanged(color),
-    expect: () {
-      return [
-        BottomNavigationBarThemeState(
-          theme: BottomNavigationBarThemeData(backgroundColor: color),
-        ),
-      ];
-    },
+    expect: () => [
+      BottomNavigationBarThemeState.withThemeData(backgroundColor: color),
+    ],
   );
 
   blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
     'emit selected item color',
     build: () => cubit,
     act: (cubit) => cubit.selectedItemColorChanged(color),
-    expect: () {
-      return [
-        BottomNavigationBarThemeState(
-          theme: BottomNavigationBarThemeData(selectedItemColor: color),
-        ),
-      ];
-    },
+    expect: () => [
+      BottomNavigationBarThemeState.withThemeData(selectedItemColor: color),
+    ],
   );
 
   blocTest<BottomNavigationBarThemeCubit, BottomNavigationBarThemeState>(
     'emit unselected item color',
     build: () => cubit,
     act: (cubit) => cubit.unselectedItemColorChanged(color),
-    expect: () {
-      return [
-        BottomNavigationBarThemeState(
-          theme: BottomNavigationBarThemeData(unselectedItemColor: color),
-        ),
-      ];
-    },
+    expect: () => [
+      BottomNavigationBarThemeState.withThemeData(unselectedItemColor: color),
+    ],
   );
 
   group('test show selected labels', () {
@@ -126,13 +110,11 @@ void main() {
         'emit $isShow',
         build: () => cubit,
         act: (cubit) => cubit.showSelectedLabelsChanged(isShow),
-        expect: () {
-          return [
-            BottomNavigationBarThemeState(
-              theme: BottomNavigationBarThemeData(showSelectedLabels: isShow),
-            ),
-          ];
-        },
+        expect: () => [
+          BottomNavigationBarThemeState.withThemeData(
+            showSelectedLabels: isShow,
+          ),
+        ],
       );
     }
   });
@@ -143,13 +125,11 @@ void main() {
         'emit $isShow',
         build: () => cubit,
         act: (cubit) => cubit.showUnselectedLabelsChanged(isShow),
-        expect: () {
-          return [
-            BottomNavigationBarThemeState(
-              theme: BottomNavigationBarThemeData(showUnselectedLabels: isShow),
-            ),
-          ];
-        },
+        expect: () => [
+          BottomNavigationBarThemeState.withThemeData(
+            showUnselectedLabels: isShow,
+          ),
+        ],
       );
     }
   });
@@ -158,13 +138,9 @@ void main() {
     'emit elevation',
     build: () => cubit,
     act: (cubit) => cubit.elevationChanged(doubleValue.toString()),
-    expect: () {
-      return [
-        BottomNavigationBarThemeState(
-          theme: BottomNavigationBarThemeData(elevation: doubleValue),
-        ),
-      ];
-    },
+    expect: () => [
+      BottomNavigationBarThemeState.withThemeData(elevation: doubleValue),
+    ],
   );
 
   test('initialise label text style cubit', () {

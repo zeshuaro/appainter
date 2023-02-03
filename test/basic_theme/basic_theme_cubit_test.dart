@@ -36,7 +36,7 @@ void main() {
   group('test theme brightness', () {
     for (var isDark in [true, false]) {
       blocTest<BasicThemeCubit, BasicThemeState>(
-        'should emit theme with isDark=$isDark',
+        'emit theme with isDark=$isDark',
         build: () => cubit,
         act: (cubit) => cubit.themeBrightnessChanged(isDark),
         expect: () => [
@@ -52,7 +52,7 @@ void main() {
   group('test random theme', () {
     for (var isDark in [true, false]) {
       blocTest<BasicThemeCubit, BasicThemeState>(
-        'should emit randomized theme with isDark=$isDark',
+        'emit randomized theme with isDark=$isDark',
         seed: () => BasicThemeState(isDark: isDark),
         build: () => cubit,
         act: (cubit) => cubit.themeRandomized(seed),
@@ -77,7 +77,7 @@ void main() {
   group('test default theme', () {
     for (var isDark in [true, false]) {
       blocTest<BasicThemeCubit, BasicThemeState>(
-        'should emit default theme with isDark=$isDark',
+        'emit default theme with isDark=$isDark',
         seed: () => BasicThemeState(
           colorScheme: isDark ? colorSchemeLight : colorSchemeDark,
           isDark: isDark,
@@ -95,7 +95,7 @@ void main() {
   });
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit seed color',
+    'emit seed color',
     build: () => cubit,
     act: (cubit) => cubit.seedColorChanged(color),
     expect: () => [
@@ -107,7 +107,7 @@ void main() {
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit primary color',
+    'emit primary color',
     setUp: () {
       when(() => service.getOnKeyColor(color)).thenReturn(color);
       when(() => service.getContainerColor(color)).thenReturn(color);
@@ -116,56 +116,46 @@ void main() {
     build: () => cubit,
     act: (cubit) => cubit.primaryColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          primary: color,
-          onPrimary: color,
-          primaryContainer: color,
-          onPrimaryContainer: color,
-        ),
+      BasicThemeState.withColorScheme(
+        primary: color,
+        onPrimary: color,
+        primaryContainer: color,
+        onPrimaryContainer: color,
       ),
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on primary color',
+    'emit on primary color',
     build: () => cubit,
     act: (cubit) => cubit.onPrimaryColorChanged(color),
-    expect: () => [
-      BasicThemeState(colorScheme: colorSchemeLight.copyWith(onPrimary: color)),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(onPrimary: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit primary container color',
+    'emit primary container color',
     setUp: () => when(() => service.getOnContainerColor(color)).thenReturn(
       color,
     ),
     build: () => cubit,
     act: (cubit) => cubit.primaryContainerColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          primaryContainer: color,
-          onPrimaryContainer: color,
-        ),
+      BasicThemeState.withColorScheme(
+        primaryContainer: color,
+        onPrimaryContainer: color,
       ),
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on primary container color',
+    'emit on primary container color',
     build: () => cubit,
     act: (cubit) => cubit.onPrimaryContainerColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onPrimaryContainer: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(onPrimaryContainer: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit secondary color',
+    'emit secondary color',
     setUp: () {
       when(() => service.getOnKeyColor(color)).thenReturn(color);
       when(() => service.getContainerColor(color)).thenReturn(color);
@@ -174,58 +164,48 @@ void main() {
     build: () => cubit,
     act: (cubit) => cubit.secondaryColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          secondary: color,
-          onSecondary: color,
-          secondaryContainer: color,
-          onSecondaryContainer: color,
-        ),
+      BasicThemeState.withColorScheme(
+        secondary: color,
+        onSecondary: color,
+        secondaryContainer: color,
+        onSecondaryContainer: color,
       )
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on secondary color',
+    'emit on secondary color',
     build: () => cubit,
     act: (cubit) => cubit.onSecondaryColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onSecondary: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(onSecondary: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit secondary container color',
+    'emit secondary container color',
     setUp: () => when(() => service.getOnContainerColor(color)).thenReturn(
       color,
     ),
     build: () => cubit,
     act: (cubit) => cubit.secondaryContainerColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          secondaryContainer: color,
-          onSecondaryContainer: color,
-        ),
+      BasicThemeState.withColorScheme(
+        secondaryContainer: color,
+        onSecondaryContainer: color,
       ),
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on secondary container color',
+    'emit on secondary container color',
     build: () => cubit,
     act: (cubit) => cubit.onSecondaryContainerColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onSecondaryContainer: color),
-      ),
+      BasicThemeState.withColorScheme(onSecondaryContainer: color),
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit tertiary color',
+    'emit tertiary color',
     setUp: () {
       when(() => service.getOnKeyColor(color)).thenReturn(color);
       when(() => service.getContainerColor(color)).thenReturn(color);
@@ -234,58 +214,46 @@ void main() {
     build: () => cubit,
     act: (cubit) => cubit.tertiaryColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          tertiary: color,
-          onTertiary: color,
-          tertiaryContainer: color,
-          onTertiaryContainer: color,
-        ),
+      BasicThemeState.withColorScheme(
+        tertiary: color,
+        onTertiary: color,
+        tertiaryContainer: color,
+        onTertiaryContainer: color,
       )
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on tertiary color',
+    'emit on tertiary color',
     build: () => cubit,
     act: (cubit) => cubit.onTertiaryColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onTertiary: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(onTertiary: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit tertiary container color',
+    'emit tertiary container color',
     setUp: () => when(() => service.getOnContainerColor(color)).thenReturn(
       color,
     ),
     build: () => cubit,
     act: (cubit) => cubit.tertiaryContainerColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          tertiaryContainer: color,
-          onTertiaryContainer: color,
-        ),
+      BasicThemeState.withColorScheme(
+        tertiaryContainer: color,
+        onTertiaryContainer: color,
       ),
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on tertiary container color',
+    'emit on tertiary container color',
     build: () => cubit,
     act: (cubit) => cubit.onTertiaryContainerColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onTertiaryContainer: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(onTertiaryContainer: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit error color',
+    'emit error color',
     setUp: () {
       when(() => service.getOnKeyColor(color)).thenReturn(color);
       when(() => service.getContainerColor(color)).thenReturn(color);
@@ -294,190 +262,139 @@ void main() {
     build: () => cubit,
     act: (cubit) => cubit.errorColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          error: color,
-          onError: color,
-          errorContainer: color,
-          onErrorContainer: color,
-        ),
-      )
-    ],
-  );
-
-  blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on error color',
-    build: () => cubit,
-    act: (cubit) => cubit.onErrorColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onError: color),
+      BasicThemeState.withColorScheme(
+        error: color,
+        onError: color,
+        errorContainer: color,
+        onErrorContainer: color,
       ),
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit error container color',
+    'emit on error color',
+    build: () => cubit,
+    act: (cubit) => cubit.onErrorColorChanged(color),
+    expect: () => [BasicThemeState.withColorScheme(onError: color)],
+  );
+
+  blocTest<BasicThemeCubit, BasicThemeState>(
+    'emit error container color',
     setUp: () => when(() => service.getOnContainerColor(color)).thenReturn(
       color,
     ),
     build: () => cubit,
     act: (cubit) => cubit.errorContainerColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          errorContainer: color,
-          onErrorContainer: color,
-        ),
+      BasicThemeState.withColorScheme(
+        errorContainer: color,
+        onErrorContainer: color,
       ),
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on error container color',
+    'emit on error container color',
     build: () => cubit,
     act: (cubit) => cubit.onErrorContainerColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onErrorContainer: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(onErrorContainer: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit background color',
+    'emit background color',
     setUp: () => when(() => service.getOnNeutralColor(color)).thenReturn(color),
     build: () => cubit,
     act: (cubit) => cubit.backgroundColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          background: color,
-          onBackground: color,
-        ),
-      ),
+      BasicThemeState.withColorScheme(background: color, onBackground: color),
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on background color',
+    'emit on background color',
     build: () => cubit,
     act: (cubit) => cubit.onBackgroundColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onBackground: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(onBackground: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit surface color',
+    'emit surface color',
     setUp: () => when(() => service.getOnNeutralColor(color)).thenReturn(color),
     build: () => cubit,
     act: (cubit) => cubit.surfaceColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          surface: color,
-          onSurface: color,
-        ),
-      ),
+      BasicThemeState.withColorScheme(surface: color, onSurface: color),
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on surface color',
+    'emit on surface color',
     build: () => cubit,
     act: (cubit) => cubit.onSurfaceColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onSurface: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(onSurface: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit surface variant color',
+    'emit surface variant color',
     setUp: () => when(() => service.getOnSurfaceVariantColor(color)).thenReturn(
       color,
     ),
     build: () => cubit,
     act: (cubit) => cubit.surfaceVariantColorChanged(color),
     expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(
-          surfaceVariant: color,
-          onSurfaceVariant: color,
-        ),
+      BasicThemeState.withColorScheme(
+        surfaceVariant: color,
+        onSurfaceVariant: color,
       ),
     ],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on surface variant color',
+    'emit on surface variant color',
     build: () => cubit,
     act: (cubit) => cubit.onSurfaceVariantColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onSurfaceVariant: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(onSurfaceVariant: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit outline color',
+    'emit outline color',
     build: () => cubit,
     act: (cubit) => cubit.outlineColorChanged(color),
-    expect: () => [
-      BasicThemeState(colorScheme: colorSchemeLight.copyWith(outline: color)),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(outline: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit shadow color',
+    'emit shadow color',
     build: () => cubit,
     act: (cubit) => cubit.shadowColorChanged(color),
-    expect: () => [
-      BasicThemeState(colorScheme: colorSchemeLight.copyWith(shadow: color)),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(shadow: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit inverse surface color',
+    'emit inverse surface color',
     build: () => cubit,
     act: (cubit) => cubit.inverseSurfaceColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(inverseSurface: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(inverseSurface: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit on inverse surface color',
+    'emit on inverse surface color',
     build: () => cubit,
     act: (cubit) => cubit.onInverseSurfaceColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(onInverseSurface: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(onInverseSurface: color)],
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'should emit inverse primary color',
+    'emit inverse primary color',
     build: () => cubit,
     act: (cubit) => cubit.inversePrimaryColorChanged(color),
-    expect: () => [
-      BasicThemeState(
-        colorScheme: colorSchemeLight.copyWith(inversePrimary: color),
-      ),
-    ],
+    expect: () => [BasicThemeState.withColorScheme(inversePrimary: color)],
   );
+
   group('test use material 3', () {
     for (var useMaterial3 in [true, false]) {
       blocTest<BasicThemeCubit, BasicThemeState>(
-        'should emit useMaterial3=$useMaterial3',
+        'emit useMaterial3=$useMaterial3',
         build: () => cubit,
         seed: () => BasicThemeState(useMaterial3: !useMaterial3),
         act: (cubit) => cubit.useMaterial3Changed(useMaterial3),

@@ -3,8 +3,6 @@ import 'dart:math';
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/services.dart';
-import 'package:appainter/widgets/widgets.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,247 +10,267 @@ import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
 import '../utils.dart';
-import '../widget_testers.dart';
+import '../utils/widget_tester_utils.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Checkbox');
+  const checkboxState = CheckboxThemeState();
 
-  late CheckboxThemeCubit checkboxThemeCubit;
-  late ColorThemeCubit colorThemeCubit;
+  late CheckboxThemeCubit checkboxCubit;
+  late ColorThemeCubit colorCubit;
+
   late Color color;
-  late double doubleValue;
+  late double doubleNum;
+  late String doubleStr;
 
   setUp(() {
-    checkboxThemeCubit = MockCheckboxThemeCubit();
-    colorThemeCubit = MockColorThemeCubit();
-    color = getRandomColor();
-    doubleValue = Random().nextDouble();
+    checkboxCubit = MockCheckboxThemeCubit();
+    colorCubit = MockColorThemeCubit();
 
-    when(() => checkboxThemeCubit.state).thenReturn(const CheckboxThemeState());
-    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
+    color = getRandomColor();
+    doubleNum = Random().nextDouble();
+    doubleStr = doubleNum.toString();
+
+    when(() => colorCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> pumpApp(WidgetTester tester, CheckboxThemeState state) async {
-    whenListen(
-      checkboxThemeCubit,
-      Stream.fromIterable([const CheckboxThemeState(), state]),
-    );
+  Future<void> pumpApp(WidgetTester tester, [CheckboxThemeState? state]) async {
+    when(() => checkboxCubit.state).thenReturn(state ?? checkboxState);
 
     await tester.pumpWidget(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider.value(value: checkboxThemeCubit),
-          BlocProvider.value(value: colorThemeCubit),
-        ],
-        child: MaterialApp(
-          home: MyExpansionPanelList(item: const CheckboxThemeEditor()),
+      MaterialApp(
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: checkboxCubit),
+            BlocProvider.value(value: colorCubit),
+          ],
+          child: const Scaffold(
+            body: CheckboxThemeEditor(),
+          ),
         ),
       ),
     );
   }
 
-  group('test fill colors', () {
-    testWidgets(
-      'default color picker should update with selected color',
-      (tester) async {
+  void expectBlocBuilder(
+    WidgetTester tester,
+    String key,
+    CheckboxThemeState state,
+  ) {
+    tester.expectBlocBuilder<CheckboxThemeCubit, CheckboxThemeState>(
+      key,
+      checkboxState,
+      state,
+    );
+  }
+
+  group('fill colors', () {
+    group('default color picker', () {
+      const key = 'checkboxThemeEditor_fillColor_default';
+
+      testWidgets('render widget', (tester) async {
         final prop = getMaterialStateProperty({null: color});
-        final state = CheckboxThemeState(
-          theme: CheckboxThemeData(fillColor: prop),
-        );
+        final state = CheckboxThemeState.withTheme(fillColor: prop);
 
         await pumpApp(tester, state);
 
-        await widgetTesters.checkColorPicker(
-          tester,
-          'checkboxThemeEditor_fillColor_default',
-          color,
-        );
-        verify(
-          () => checkboxThemeCubit.fillDefaultColorChanged(color),
-        ).called(1);
-      },
-    );
+        await tester.expectColorIndicator(key, color);
+      });
 
-    testWidgets(
-      'selected color picker should update with selected color',
-      (tester) async {
-        final prop = getMaterialStateProperty({
-          MaterialState.selected: color,
-        });
-        final state = CheckboxThemeState(
-          theme: CheckboxThemeData(fillColor: prop),
+      testWidgets('change color', (tester) async {
+        final opaqueColor = color.withOpacity(0.54);
+        await pumpApp(tester);
+        await tester.verifyColorPicker(
+          key,
+          opaqueColor,
+          checkboxCubit.fillDefaultColorChanged,
         );
+      });
+    });
+
+    group('selected color picker', () {
+      const key = 'checkboxThemeEditor_fillColor_selected';
+
+      testWidgets('render widget', (tester) async {
+        final prop = getMaterialStateProperty({MaterialState.selected: color});
+        final state = CheckboxThemeState.withTheme(fillColor: prop);
 
         await pumpApp(tester, state);
 
-        await widgetTesters.checkColorPicker(
-          tester,
-          'checkboxThemeEditor_fillColor_selected',
-          color,
-        );
-        verify(
-          () => checkboxThemeCubit.fillSelectedColorChanged(color),
-        ).called(1);
-      },
-    );
+        await tester.expectColorIndicator(key, color);
+      });
 
-    testWidgets(
-      'disabled color picker should update with selected color',
-      (tester) async {
-        final prop = getMaterialStateProperty({
-          MaterialState.disabled: color,
-        });
-        final state = CheckboxThemeState(
-          theme: CheckboxThemeData(fillColor: prop),
+      testWidgets('change color', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyColorPicker(
+          key,
+          color,
+          checkboxCubit.fillSelectedColorChanged,
         );
+      });
+    });
+
+    group('disabled color picker', () {
+      const key = 'checkboxThemeEditor_fillColor_disabled';
+
+      testWidgets('render widget', (tester) async {
+        final prop = getMaterialStateProperty({MaterialState.disabled: color});
+        final state = CheckboxThemeState.withTheme(fillColor: prop);
 
         await pumpApp(tester, state);
 
-        await widgetTesters.checkColorPicker(
-          tester,
-          'checkboxThemeEditor_fillColor_disabled',
-          color,
+        await tester.expectColorIndicator(key, color);
+      });
+
+      testWidgets('change color', (tester) async {
+        final opaqueColor = color.withOpacity(0.38);
+        await pumpApp(tester);
+        await tester.verifyColorPicker(
+          key,
+          opaqueColor,
+          checkboxCubit.fillDisabledColorChanged,
         );
-        verify(
-          () => checkboxThemeCubit.fillDisabledColorChanged(color),
-        ).called(1);
-      },
-    );
+      });
+    });
   });
 
-  testWidgets(
-    'default color picker should update with selected color',
-    (tester) async {
+  group('check color picker', () {
+    const key = 'checkboxThemeEditor_checkColor_default';
+
+    testWidgets('render widget', (tester) async {
       final prop = getMaterialStateProperty({null: color});
-      final state = CheckboxThemeState(
-        theme: CheckboxThemeData(checkColor: prop),
-      );
+      final state = CheckboxThemeState.withTheme(checkColor: prop);
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'checkboxThemeEditor_checkColor_default',
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
         color,
+        checkboxCubit.checkColorChanged,
       );
-      verify(() => checkboxThemeCubit.checkColorChanged(color)).called(1);
-    },
-  );
-
-  group('test overlay colors', () {
-    testWidgets(
-      'pressed color picker should update with selected color',
-      (tester) async {
-        final prop = getMaterialStateProperty({
-          MaterialState.pressed: color,
-        });
-        final state = CheckboxThemeState(
-          theme: CheckboxThemeData(overlayColor: prop),
-        );
-
-        await pumpApp(tester, state);
-
-        await widgetTesters.checkColorPicker(
-          tester,
-          'checkboxThemeEditor_overlayColor_pressed',
-          color,
-        );
-        verify(
-          () => checkboxThemeCubit.overlayPressedColorChanged(color),
-        ).called(1);
-      },
-    );
-
-    testWidgets(
-      'hovered color picker should update with selected color',
-      (tester) async {
-        final prop = getMaterialStateProperty({
-          MaterialState.hovered: color,
-        });
-        final state = CheckboxThemeState(
-          theme: CheckboxThemeData(overlayColor: prop),
-        );
-
-        await pumpApp(tester, state);
-
-        await widgetTesters.checkColorPicker(
-          tester,
-          'checkboxThemeEditor_overlayColor_hovered',
-          color,
-        );
-        verify(
-          () => checkboxThemeCubit.overlayHoveredColorChanged(color),
-        ).called(1);
-      },
-    );
-
-    testWidgets(
-      'focused color picker should update with selected color',
-      (tester) async {
-        final prop = getMaterialStateProperty({
-          MaterialState.focused: color,
-        });
-        final state = CheckboxThemeState(
-          theme: CheckboxThemeData(overlayColor: prop),
-        );
-
-        await pumpApp(tester, state);
-
-        await widgetTesters.checkColorPicker(
-          tester,
-          'checkboxThemeEditor_overlayColor_focused',
-          color,
-        );
-        verify(
-          () => checkboxThemeCubit.overlayFocusedColorChanged(color),
-        ).called(1);
-      },
-    );
+    });
   });
 
-  testWidgets(
-    'splash radius text field should update with value',
-    (tester) async {
-      final state = CheckboxThemeState(
-        theme: CheckboxThemeData(splashRadius: doubleValue),
-      );
+  group('overlay colors', () {
+    group('pressed color picker', () {
+      const key = 'checkboxThemeEditor_overlayColor_pressed';
+
+      testWidgets('render widget', (tester) async {
+        final prop = getMaterialStateProperty({MaterialState.pressed: color});
+        final state = CheckboxThemeState.withTheme(overlayColor: prop);
+
+        await pumpApp(tester, state);
+
+        await tester.expectColorIndicator(key, color);
+      });
+
+      testWidgets('change color', (tester) async {
+        final opaqueColor = color.withOpacity(0.12);
+        await pumpApp(tester);
+        await tester.verifyColorPicker(
+          key,
+          opaqueColor,
+          checkboxCubit.overlayPressedColorChanged,
+        );
+      });
+    });
+
+    group('hovered color picker', () {
+      const key = 'checkboxThemeEditor_overlayColor_hovered';
+
+      testWidgets('render widget', (tester) async {
+        final prop = getMaterialStateProperty({MaterialState.hovered: color});
+        final state = CheckboxThemeState.withTheme(overlayColor: prop);
+
+        await pumpApp(tester, state);
+
+        await tester.expectColorIndicator(key, color);
+      });
+
+      testWidgets('change color', (tester) async {
+        final opaqueColor = color.withOpacity(0.04);
+        await pumpApp(tester);
+        await tester.verifyColorPicker(
+          key,
+          opaqueColor,
+          checkboxCubit.overlayHoveredColorChanged,
+        );
+      });
+    });
+
+    group('focused color picker', () {
+      const key = 'checkboxThemeEditor_overlayColor_focused';
+
+      testWidgets('render widget', (tester) async {
+        final prop = getMaterialStateProperty({MaterialState.focused: color});
+        final state = CheckboxThemeState.withTheme(overlayColor: prop);
+
+        await pumpApp(tester, state);
+
+        await tester.expectColorIndicator(key, color);
+      });
+
+      testWidgets('change color', (tester) async {
+        final opaqueColor = color.withOpacity(0.12);
+        await pumpApp(tester);
+        await tester.verifyColorPicker(
+          key,
+          opaqueColor,
+          checkboxCubit.overlayFocusedColorChanged,
+        );
+      });
+    });
+  });
+
+  group('splash radius text field', () {
+    const key = 'checkboxThemeEditor_splashRadiusTextField';
+
+    testWidgets('render widget', (tester) async {
+      final state = CheckboxThemeState.withTheme(splashRadius: doubleNum);
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'checkboxThemeEditor_splashRadiusTextField',
-        doubleValue,
-      );
-      verify(
-        () => checkboxThemeCubit.splashRadiusChanged(doubleValue.toString()),
-      ).called(1);
-    },
-  );
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
 
-  group('test material tap target size dropdown', () {
+    testWidgets('change text', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        checkboxCubit.splashRadiusChanged,
+      );
+    });
+  });
+
+  group('material tap target size dropdown', () {
+    const key = 'checkboxThemeEditor_materialTapTargetSizeDropdown';
+
     for (var size in MaterialTapTargetSize.values) {
       final sizeStr = UtilService.enumToString(size);
 
-      testWidgets(
-        'should update to $size',
-        (tester) async {
-          final state = CheckboxThemeState(
-            theme: CheckboxThemeData(materialTapTargetSize: size),
-          );
+      testWidgets('render $size', (tester) async {
+        final state = CheckboxThemeState.withTheme(materialTapTargetSize: size);
 
-          await pumpApp(tester, state);
+        await pumpApp(tester, state);
 
-          await widgetTesters.checkDropbox(
-            tester,
-            'checkboxThemeEditor_materialTapTargetSizeDropdown',
-            sizeStr,
-          );
-          verify(
-            () => checkboxThemeCubit.materialTapTargetSize(sizeStr),
-          ).called(1);
-        },
-      );
+        await tester.expectDropdown(key, sizeStr);
+        expectBlocBuilder(tester, key, state);
+      });
+
+      testWidgets('change $size', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyDropdown(
+          key,
+          sizeStr,
+          checkboxCubit.materialTapTargetSize,
+        );
+      });
     }
   });
 }

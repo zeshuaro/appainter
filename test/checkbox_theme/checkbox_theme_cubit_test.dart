@@ -1,11 +1,11 @@
 import 'dart:math';
 
+import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/services/services.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/checkbox_theme/checkbox_theme.dart';
-import 'package:appainter/services/services.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
@@ -172,9 +172,7 @@ void main() {
           cubit.materialTapTargetSize(UtilService.enumToString(size));
         },
         expect: () => [
-          CheckboxThemeState(
-            theme: CheckboxThemeData(materialTapTargetSize: size),
-          ),
+          CheckboxThemeState.withTheme(materialTapTargetSize: size),
         ],
       );
     }
@@ -184,8 +182,6 @@ void main() {
     'should emit splash radius',
     build: () => checkboxThemeCubit,
     act: (cubit) => cubit.splashRadiusChanged(doubleValue.toString()),
-    expect: () => [
-      CheckboxThemeState(theme: CheckboxThemeData(splashRadius: doubleValue)),
-    ],
+    expect: () => [CheckboxThemeState.withTheme(splashRadius: doubleValue)],
   );
 }

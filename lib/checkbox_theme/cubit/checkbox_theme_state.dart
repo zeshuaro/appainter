@@ -1,10 +1,29 @@
 part of 'checkbox_theme_cubit.dart';
 
 @CopyWith()
+@immutable
 class CheckboxThemeState extends Equatable {
-  final CheckboxThemeData theme;
-
   const CheckboxThemeState({this.theme = const CheckboxThemeData()});
+
+  factory CheckboxThemeState.withTheme({
+    MaterialStateProperty<Color?>? fillColor,
+    MaterialStateProperty<Color?>? checkColor,
+    MaterialStateProperty<Color?>? overlayColor,
+    double? splashRadius,
+    MaterialTapTargetSize? materialTapTargetSize,
+  }) {
+    return CheckboxThemeState(
+      theme: CheckboxThemeData(
+        fillColor: fillColor,
+        checkColor: checkColor,
+        overlayColor: overlayColor,
+        splashRadius: splashRadius,
+        materialTapTargetSize: materialTapTargetSize,
+      ),
+    );
+  }
+
+  final CheckboxThemeData theme;
 
   @override
   List<Object> get props => [theme];

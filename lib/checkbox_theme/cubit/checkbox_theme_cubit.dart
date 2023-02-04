@@ -1,11 +1,11 @@
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/services/services.dart';
+import 'package:appainter/utils/utils.dart';
 import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/services/services.dart';
-import 'package:appainter/utils/utils.dart';
 
 part 'checkbox_theme_cubit.g.dart';
 part 'checkbox_theme_state.dart';
@@ -57,7 +57,7 @@ class CheckboxThemeCubit extends Cubit<CheckboxThemeState> {
     _emitWithNewOverlayColor(focusedColor: color);
   }
 
-  void materialTapTargetSize(String value) {
+  void materialTapTargetSize(String? value) {
     final size = UtilService.stringToEnum(MaterialTapTargetSize.values, value);
     if (size != null) {
       final theme = state.theme.copyWith(materialTapTargetSize: size);

@@ -20,11 +20,7 @@ extension WidgetTesterUtils on WidgetTester {
     expect(widget, findsOneWidget);
   }
 
-  Future<void> verifyColorPicker(
-    String key,
-    Color color,
-    ValueChanged<Color> mockedMethod,
-  ) async {
+  Future<void> pickColor(String key, Color color) async {
     final colorIndicator = find.descendant(
       of: find.byKey(Key(key)),
       matching: find.byType(ColorIndicator),
@@ -44,6 +40,14 @@ extension WidgetTesterUtils on WidgetTester {
       '#${color.hex}',
     );
     await pumpAndSettle();
+  }
+
+  Future<void> verifyColorPicker(
+    String key,
+    Color color,
+    ValueChanged<Color> mockedMethod,
+  ) async {
+    await pickColor(key, color);
     verify(() => mockedMethod(color)).called(1);
   }
 

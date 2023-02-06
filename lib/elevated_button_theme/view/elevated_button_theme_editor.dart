@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/elevated_button_theme/elevated_button_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ElevatedButtonThemeEditor extends ExpansionPanelItem {
   const ElevatedButtonThemeEditor({Key? key}) : super(key: key);
@@ -28,6 +28,7 @@ class ElevatedButtonThemeEditor extends ExpansionPanelItem {
 class _BackgroundColorPickers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<ElevatedButtonThemeCubit>();
     final backgroundColor = context
         .watch<ElevatedButtonThemeCubit>()
         .state
@@ -44,22 +45,14 @@ class _BackgroundColorPickers extends StatelessWidget {
           key: const Key('elevatedButtonThemeEditor_backgroundColor_default'),
           title: 'Default',
           value: backgroundColor?.resolve({}) ?? colorScheme.primary,
-          onValueChanged: (color) {
-            context
-                .read<ElevatedButtonThemeCubit>()
-                .backgroundDefaultColorChanged(color);
-          },
+          onValueChanged: cubit.backgroundDefaultColorChanged,
         ),
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_backgroundColor_disabled'),
           title: 'Disabled',
           value: backgroundColor?.resolve({MaterialState.disabled}) ??
               colorScheme.onSurface.withOpacity(0.12),
-          onValueChanged: (color) {
-            context
-                .read<ElevatedButtonThemeCubit>()
-                .backgroundDisabledColorChanged(color);
-          },
+          onValueChanged: cubit.backgroundDisabledColorChanged,
         ),
       ],
     );
@@ -69,6 +62,7 @@ class _BackgroundColorPickers extends StatelessWidget {
 class _ForegroundColorPickers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<ElevatedButtonThemeCubit>();
     final foregroundColor = context
         .watch<ElevatedButtonThemeCubit>()
         .state
@@ -85,22 +79,14 @@ class _ForegroundColorPickers extends StatelessWidget {
           key: const Key('elevatedButtonThemeEditor_foregroundColor_default'),
           title: 'Default',
           value: foregroundColor?.resolve({}) ?? colorScheme.onPrimary,
-          onValueChanged: (color) {
-            context
-                .read<ElevatedButtonThemeCubit>()
-                .foregroundDefaultColorChanged(color);
-          },
+          onValueChanged: cubit.foregroundDefaultColorChanged,
         ),
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_foregroundColor_disabled'),
           title: 'Disabled',
           value: foregroundColor?.resolve({MaterialState.disabled}) ??
               colorScheme.onSurface.withOpacity(0.38),
-          onValueChanged: (color) {
-            context
-                .read<ElevatedButtonThemeCubit>()
-                .foregroundDisabledColorChanged(color);
-          },
+          onValueChanged: cubit.foregroundDisabledColorChanged,
         ),
       ],
     );
@@ -110,6 +96,7 @@ class _ForegroundColorPickers extends StatelessWidget {
 class _OverlayColorPickers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<ElevatedButtonThemeCubit>();
     final overlayColor = context
         .watch<ElevatedButtonThemeCubit>()
         .state
@@ -128,33 +115,21 @@ class _OverlayColorPickers extends StatelessWidget {
           title: 'Hovered',
           value: overlayColor?.resolve({MaterialState.hovered}) ??
               onPrimaryColor.withOpacity(0.08),
-          onValueChanged: (color) {
-            context
-                .read<ElevatedButtonThemeCubit>()
-                .overlayHoveredColorChanged(color);
-          },
+          onValueChanged: cubit.overlayHoveredColorChanged,
         ),
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_overlayColor_focused'),
           title: 'Focused',
           value: overlayColor?.resolve({MaterialState.focused}) ??
               onPrimaryColor.withOpacity(0.24),
-          onValueChanged: (color) {
-            context
-                .read<ElevatedButtonThemeCubit>()
-                .overlayFocusedColorChanged(color);
-          },
+          onValueChanged: cubit.overlayFocusedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_overlayColor_pressed'),
           title: 'Pressed',
           value: overlayColor?.resolve({MaterialState.pressed}) ??
               onPrimaryColor.withOpacity(0.24),
-          onValueChanged: (color) {
-            context
-                .read<ElevatedButtonThemeCubit>()
-                .overlayPressedColorChanged(color);
-          },
+          onValueChanged: cubit.overlayPressedColorChanged,
         ),
       ],
     );
@@ -180,9 +155,8 @@ class _ShadowColorPickers extends StatelessWidget {
           key: const Key('elevatedButtonThemeEditor_shadowColor_default'),
           title: 'Default',
           value: shadowColor?.resolve({}) ?? themeShadowColor,
-          onValueChanged: (color) {
-            context.read<ElevatedButtonThemeCubit>().shadowColorChanged(color);
-          },
+          onValueChanged:
+              context.read<ElevatedButtonThemeCubit>().shadowColorChanged,
         ),
       ],
     );
@@ -193,11 +167,8 @@ class _ElevationTextFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ElevatedButtonThemeCubit, ElevatedButtonThemeState>(
-      buildWhen: (previous, current) {
-        return previous.theme.style?.elevation !=
-            current.theme.style?.elevation;
-      },
       builder: (context, state) {
+        final cubit = context.read<ElevatedButtonThemeCubit>();
         final elevation = state.theme.style?.elevation;
 
         return MaterialStatesCard<String>(
@@ -206,15 +177,12 @@ class _ElevationTextFields extends StatelessWidget {
           items: [
             MaterialStateItem(
               key: const Key(
-                  'elevatedButtonThemeEditor_elevationTextField_default'),
+                'elevatedButtonThemeEditor_elevationTextField_default',
+              ),
               title: 'Default',
               value: (elevation?.resolve({}) ?? kElevatedButtonElevation)
                   .toString(),
-              onValueChanged: (value) {
-                context
-                    .read<ElevatedButtonThemeCubit>()
-                    .defaultElevationChanged(value);
-              },
+              onValueChanged: cubit.defaultElevationChanged,
             ),
             MaterialStateItem(
               key: const Key(
@@ -223,50 +191,37 @@ class _ElevationTextFields extends StatelessWidget {
               title: 'Disabled',
               value: (elevation?.resolve({MaterialState.disabled}) ?? 0)
                   .toString(),
-              onValueChanged: (value) {
-                context
-                    .read<ElevatedButtonThemeCubit>()
-                    .disabledElevationChanged(value);
-              },
+              onValueChanged: cubit.disabledElevationChanged,
             ),
             MaterialStateItem(
               key: const Key(
-                  'elevatedButtonThemeEditor_elevationTextField_hovered'),
+                'elevatedButtonThemeEditor_elevationTextField_hovered',
+              ),
               title: 'Hovered',
               value: (elevation?.resolve({MaterialState.hovered}) ??
                       kElevatedButtonElevation + 2)
                   .toString(),
-              onValueChanged: (value) {
-                context
-                    .read<ElevatedButtonThemeCubit>()
-                    .hoveredElevationChanged(value);
-              },
+              onValueChanged: cubit.hoveredElevationChanged,
             ),
             MaterialStateItem(
               key: const Key(
-                  'elevatedButtonThemeEditor_elevationTextField_focused'),
+                'elevatedButtonThemeEditor_elevationTextField_focused',
+              ),
               title: 'Focused',
               value: (elevation?.resolve({MaterialState.focused}) ??
                       kElevatedButtonElevation + 2)
                   .toString(),
-              onValueChanged: (value) {
-                context
-                    .read<ElevatedButtonThemeCubit>()
-                    .focusedElevationChanged(value);
-              },
+              onValueChanged: cubit.focusedElevationChanged,
             ),
             MaterialStateItem(
               key: const Key(
-                  'elevatedButtonThemeEditor_elevationTextField_pressed'),
+                'elevatedButtonThemeEditor_elevationTextField_pressed',
+              ),
               title: 'Pressed',
               value: (elevation?.resolve({MaterialState.pressed}) ??
                       kElevatedButtonElevation + 6)
                   .toString(),
-              onValueChanged: (value) {
-                context
-                    .read<ElevatedButtonThemeCubit>()
-                    .pressedElevationChanged(value);
-              },
+              onValueChanged: cubit.pressedElevationChanged,
             ),
           ],
         );

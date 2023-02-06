@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,257 +10,284 @@ import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
 import '../utils.dart';
-import '../widget_testers.dart';
+import '../utils/widget_tester_utils.dart';
 
 Future<void> main() async {
-  final widgetTesters = WidgetTesters(expandText: 'Floating action button');
+  const expandText = 'Floating action button';
+  const btnState = FloatingActionButtonThemeState();
 
-  late FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
-  late ColorThemeCubit colorThemeCubit;
+  late FloatingActionButtonThemeCubit btnCubit;
+  late ColorThemeCubit colorCubit;
+
   late Color color;
-  late double doubleValue;
+  late double doubleNum;
+  late String doubleStr;
 
   setUp(() {
-    floatingActionButtonThemeCubit = MockFloatingActionButtonThemeCubit();
-    colorThemeCubit = MockColorThemeCubit();
-    color = getRandomColor();
-    doubleValue = Random().nextDouble();
+    btnCubit = MockFloatingActionButtonThemeCubit();
+    colorCubit = MockColorThemeCubit();
 
-    when(() {
-      return floatingActionButtonThemeCubit.state;
-    }).thenReturn(const FloatingActionButtonThemeState());
-    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
+    color = getRandomColor();
+    doubleNum = Random().nextDouble();
+    doubleStr = doubleNum.toString();
+
+    when(() => colorCubit.state).thenReturn(ColorThemeState());
   });
 
   Future<void> pumpApp(
-    WidgetTester tester,
-    FloatingActionButtonThemeState state,
-  ) async {
-    whenListen(
-      floatingActionButtonThemeCubit,
-      Stream.fromIterable([const FloatingActionButtonThemeState(), state]),
-    );
+    WidgetTester tester, [
+    FloatingActionButtonThemeState? state,
+  ]) async {
+    when(() => btnCubit.state).thenReturn(state ?? btnState);
 
     await tester.pumpWidget(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider.value(value: floatingActionButtonThemeCubit),
-          BlocProvider.value(value: colorThemeCubit),
-        ],
-        child: MaterialApp(
-          home: MyExpansionPanelList(
-            item: const FloatingActionButtonThemeEditor(),
+      MaterialApp(
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: btnCubit),
+            BlocProvider.value(value: colorCubit),
+          ],
+          child: Scaffold(
+            body: MyExpansionPanelList(
+              item: const FloatingActionButtonThemeEditor(),
+            ),
           ),
         ),
       ),
     );
+    await tester.expandWidget(expandText);
   }
 
-  testWidgets(
-    'background color picker should update with selected color',
-    (tester) async {
-      final state = FloatingActionButtonThemeState(
-        theme: FloatingActionButtonThemeData(backgroundColor: color),
+  void expectBlocBuilder(
+    WidgetTester tester,
+    String key,
+    FloatingActionButtonThemeState state,
+  ) {
+    tester.expectBlocBuilder<FloatingActionButtonThemeCubit,
+        FloatingActionButtonThemeState>(key, btnState, state);
+  }
+
+  group('background color picker', () {
+    const key = 'floatingActionButtonThemeEditor_backgroundColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = FloatingActionButtonThemeState.withTheme(
+        backgroundColor: color,
       );
-
       await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'floatingActionButtonThemeEditor_backgroundColorPicker',
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
         color,
+        btnCubit.backgroundColorChanged,
       );
-      verify(() {
-        floatingActionButtonThemeCubit.backgroundColorChanged(color);
-      }).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'foregound color picker should update with selected color',
-    (tester) async {
-      final state = FloatingActionButtonThemeState(
-        theme: FloatingActionButtonThemeData(foregroundColor: color),
+  group('foregound color picker', () {
+    const key = 'floatingActionButtonThemeEditor_foregroundColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = FloatingActionButtonThemeState.withTheme(
+        foregroundColor: color,
       );
-
       await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'floatingActionButtonThemeEditor_foregroundColorPicker',
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
         color,
+        btnCubit.foregroundColorChanged,
       );
-      verify(() {
-        floatingActionButtonThemeCubit.foregroundColorChanged(color);
-      }).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'focus color picker should update with selected color',
-    (tester) async {
-      final state = FloatingActionButtonThemeState(
-        theme: FloatingActionButtonThemeData(focusColor: color),
+  group('focus color picker', () {
+    const key = 'floatingActionButtonThemeEditor_focusColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = FloatingActionButtonThemeState.withTheme(focusColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.12);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        btnCubit.focusColorChanged,
+      );
+    });
+  });
+
+  group('hover color picker', () {
+    const key = 'floatingActionButtonThemeEditor_hoverColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = FloatingActionButtonThemeState.withTheme(hoverColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.04);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        btnCubit.hoverColorChanged,
+      );
+    });
+  });
+
+  group('splash color picker', () {
+    const key = 'floatingActionButtonThemeEditor_splashColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = FloatingActionButtonThemeState.withTheme(
+        splashColor: color,
+      );
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.4);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        btnCubit.splashColorChanged,
+      );
+    });
+  });
+
+  group('elevation text field', () {
+    const key = 'floatingActionButtonThemeEditor_elevationTextField';
+
+    testWidgets('render widget', (tester) async {
+      final state = FloatingActionButtonThemeState.withTheme(
+        elevation: doubleNum,
       );
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'floatingActionButtonThemeEditor_focusColorPicker',
-        color,
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
+
+    testWidgets('change value', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        btnCubit.elevationChanged,
       );
-      verify(() {
-        floatingActionButtonThemeCubit.focusColorChanged(color);
-      }).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'hover color picker should update with selected color',
-    (tester) async {
-      final state = FloatingActionButtonThemeState(
-        theme: FloatingActionButtonThemeData(hoverColor: color),
-      );
+  group('disabled elevation text field', () {
+    const key = 'floatingActionButtonThemeEditor_disabledElevationTextField';
 
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'floatingActionButtonThemeEditor_hoverColorPicker',
-        color,
-      );
-      verify(() {
-        floatingActionButtonThemeCubit.hoverColorChanged(color);
-      }).called(1);
-    },
-  );
-
-  testWidgets(
-    'splash color picker should update with selected color',
-    (tester) async {
-      final state = FloatingActionButtonThemeState(
-        theme: FloatingActionButtonThemeData(splashColor: color),
+    testWidgets('render widget', (tester) async {
+      final state = FloatingActionButtonThemeState.withTheme(
+        disabledElevation: doubleNum,
       );
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'floatingActionButtonThemeEditor_splashColorPicker',
-        color,
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
+
+    testWidgets('change value', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        btnCubit.disabledElevationChanged,
       );
-      verify(() {
-        floatingActionButtonThemeCubit.splashColorChanged(color);
-      }).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'elevation should update with value',
-    (tester) async {
-      final state = FloatingActionButtonThemeState(
-        theme: FloatingActionButtonThemeData(elevation: doubleValue),
-      );
+  group('focus elevation text field', () {
+    const key = 'floatingActionButtonThemeEditor_focusElevationTextField';
 
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkTextField(
-        tester,
-        'floatingActionButtonThemeEditor_elevationTextField',
-        doubleValue,
-      );
-      verify(() {
-        floatingActionButtonThemeCubit.elevationChanged(doubleValue.toString());
-      }).called(1);
-    },
-  );
-
-  testWidgets(
-    'disabled elevation should update with value',
-    (tester) async {
-      final state = FloatingActionButtonThemeState(
-        theme: FloatingActionButtonThemeData(disabledElevation: doubleValue),
+    testWidgets('render widget', (tester) async {
+      final state = FloatingActionButtonThemeState.withTheme(
+        focusElevation: doubleNum,
       );
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'floatingActionButtonThemeEditor_disabledElevationTextField',
-        doubleValue,
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
+
+    testWidgets('change value', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        btnCubit.focusElevationChanged,
       );
-      verify(() {
-        floatingActionButtonThemeCubit.disabledElevationChanged(
-          doubleValue.toString(),
-        );
-      }).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'focus elevation should update with value',
-    (tester) async {
-      final state = FloatingActionButtonThemeState(
-        theme: FloatingActionButtonThemeData(focusElevation: doubleValue),
-      );
+  group('highlight elevation text field', () {
+    const key = 'floatingActionButtonThemeEditor_highlightElevationTextField';
 
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkTextField(
-        tester,
-        'floatingActionButtonThemeEditor_focusElevationTextField',
-        doubleValue,
-      );
-      verify(() {
-        floatingActionButtonThemeCubit.focusElevationChanged(
-          doubleValue.toString(),
-        );
-      }).called(1);
-    },
-  );
-
-  testWidgets(
-    'highlight elevation should update with value',
-    (tester) async {
-      final state = FloatingActionButtonThemeState(
-        theme: FloatingActionButtonThemeData(highlightElevation: doubleValue),
+    testWidgets('render widget', (tester) async {
+      final state = FloatingActionButtonThemeState.withTheme(
+        highlightElevation: doubleNum,
       );
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'floatingActionButtonThemeEditor_highlightElevationTextField',
-        doubleValue,
-      );
-      verify(() {
-        floatingActionButtonThemeCubit.highlightElevationChanged(
-          doubleValue.toString(),
-        );
-      }).called(1);
-    },
-  );
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
 
-  testWidgets(
-    'hover elevation should update with value',
-    (tester) async {
-      final state = FloatingActionButtonThemeState(
-        theme: FloatingActionButtonThemeData(hoverElevation: doubleValue),
+    testWidgets('change value', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        btnCubit.highlightElevationChanged,
+      );
+    });
+  });
+
+  group('hover elevation text field', () {
+    const key = 'floatingActionButtonThemeEditor_hoverElevationTextField';
+
+    testWidgets('render widget', (tester) async {
+      final state = FloatingActionButtonThemeState.withTheme(
+        hoverElevation: doubleNum,
       );
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'floatingActionButtonThemeEditor_hoverElevationTextField',
-        doubleValue,
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
+
+    testWidgets('change value', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        btnCubit.hoverElevationChanged,
       );
-      verify(() {
-        floatingActionButtonThemeCubit.hoverElevationChanged(
-          doubleValue.toString(),
-        );
-      }).called(1);
-    },
-  );
+    });
+  });
 }

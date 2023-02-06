@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FloatingActionButtonThemeEditor extends ExpansionPanelItem {
   const FloatingActionButtonThemeEditor({Key? key}) : super(key: key);
@@ -54,11 +54,8 @@ class _BackgroundColorPicker extends StatelessWidget {
       title: 'Background color',
       tooltip: FloatingActionButtonThemeDocs.backgroundColor,
       color: backgroundColor ?? secondaryColor,
-      onColorChanged: (color) {
-        context
-            .read<FloatingActionButtonThemeCubit>()
-            .backgroundColorChanged(color);
-      },
+      onColorChanged:
+          context.read<FloatingActionButtonThemeCubit>().backgroundColorChanged,
     );
   }
 }
@@ -79,11 +76,8 @@ class _ForegroundColorPicker extends StatelessWidget {
       title: 'Foreground color',
       tooltip: FloatingActionButtonThemeDocs.foregroundColor,
       color: foregroundColor ?? onPrimaryColor,
-      onColorChanged: (color) {
-        context
-            .read<FloatingActionButtonThemeCubit>()
-            .foregroundColorChanged(color);
-      },
+      onColorChanged:
+          context.read<FloatingActionButtonThemeCubit>().foregroundColorChanged,
     );
   }
 }
@@ -100,9 +94,8 @@ class _FocusColorPicker extends StatelessWidget {
       title: 'Focus color',
       tooltip: FloatingActionButtonThemeDocs.focusColor,
       color: focusColor ?? themeFocusColor,
-      onColorChanged: (color) {
-        context.read<FloatingActionButtonThemeCubit>().focusColorChanged(color);
-      },
+      onColorChanged:
+          context.read<FloatingActionButtonThemeCubit>().focusColorChanged,
     );
   }
 }
@@ -119,9 +112,8 @@ class _HoverColorPicker extends StatelessWidget {
       title: 'Hover color',
       tooltip: FloatingActionButtonThemeDocs.hoverColor,
       color: hoverColor ?? themeHoverColor,
-      onColorChanged: (color) {
-        context.read<FloatingActionButtonThemeCubit>().hoverColorChanged(color);
-      },
+      onColorChanged:
+          context.read<FloatingActionButtonThemeCubit>().hoverColorChanged,
     );
   }
 }
@@ -138,11 +130,8 @@ class _SplashColorPicker extends StatelessWidget {
       title: 'Splash color',
       tooltip: FloatingActionButtonThemeDocs.splashColor,
       color: splashColor ?? themeSplashColor,
-      onColorChanged: (color) {
-        context
-            .read<FloatingActionButtonThemeCubit>()
-            .splashColorChanged(color);
-      },
+      onColorChanged:
+          context.read<FloatingActionButtonThemeCubit>().splashColorChanged,
     );
   }
 }
@@ -152,21 +141,18 @@ class _ElevationTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FloatingActionButtonThemeCubit,
         FloatingActionButtonThemeState>(
+      key: const Key('floatingActionButtonThemeEditor_elevationTextField'),
       buildWhen: (previous, current) {
         return previous.theme.elevation != current.theme.elevation;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key('floatingActionButtonThemeEditor_elevationTextField'),
           labelText: 'Elevation',
           tooltip: FloatingActionButtonThemeDocs.elevation,
           initialValue:
               (state.theme.elevation ?? kFloatingActionBtnElevation).toString(),
-          onChanged: (value) {
-            context
-                .read<FloatingActionButtonThemeCubit>()
-                .elevationChanged(value);
-          },
+          onChanged:
+              context.read<FloatingActionButtonThemeCubit>().elevationChanged,
         );
       },
     );
@@ -178,25 +164,23 @@ class _DisabledElevationTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FloatingActionButtonThemeCubit,
         FloatingActionButtonThemeState>(
+      key: const Key(
+        'floatingActionButtonThemeEditor_disabledElevationTextField',
+      ),
       buildWhen: (previous, current) {
         return previous.theme.disabledElevation !=
             current.theme.disabledElevation;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key(
-            'floatingActionButtonThemeEditor_disabledElevationTextField',
-          ),
           labelText: 'Disabled elevation',
           tooltip: FloatingActionButtonThemeDocs.disabledElevation,
           initialValue:
               (state.theme.disabledElevation ?? kFloatingActionBtnElevation)
                   .toString(),
-          onChanged: (value) {
-            context
-                .read<FloatingActionButtonThemeCubit>()
-                .disabledElevationChanged(value);
-          },
+          onChanged: context
+              .read<FloatingActionButtonThemeCubit>()
+              .disabledElevationChanged,
         );
       },
     );
@@ -208,24 +192,22 @@ class _FocusElevationTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FloatingActionButtonThemeCubit,
         FloatingActionButtonThemeState>(
+      key: const Key(
+        'floatingActionButtonThemeEditor_focusElevationTextField',
+      ),
       buildWhen: (previous, current) {
         return previous.theme.focusElevation != current.theme.focusElevation;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key(
-            'floatingActionButtonThemeEditor_focusElevationTextField',
-          ),
           labelText: 'Focus elevation',
           tooltip: FloatingActionButtonThemeDocs.focusElevation,
           initialValue:
               (state.theme.focusElevation ?? kFloatingActionBtnFocusElevation)
                   .toString(),
-          onChanged: (value) {
-            context
-                .read<FloatingActionButtonThemeCubit>()
-                .focusElevationChanged(value);
-          },
+          onChanged: context
+              .read<FloatingActionButtonThemeCubit>()
+              .focusElevationChanged,
         );
       },
     );
@@ -237,25 +219,23 @@ class _HighlightElevationTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FloatingActionButtonThemeCubit,
         FloatingActionButtonThemeState>(
+      key: const Key(
+        'floatingActionButtonThemeEditor_highlightElevationTextField',
+      ),
       buildWhen: (previous, current) {
         return previous.theme.highlightElevation !=
             current.theme.highlightElevation;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key(
-            'floatingActionButtonThemeEditor_highlightElevationTextField',
-          ),
           labelText: 'Highlight elevation',
           tooltip: FloatingActionButtonThemeDocs.highlightElevation,
           initialValue: (state.theme.highlightElevation ??
                   kFloatingActionBtnHighlightElevation)
               .toString(),
-          onChanged: (value) {
-            context
-                .read<FloatingActionButtonThemeCubit>()
-                .highlightElevationChanged(value);
-          },
+          onChanged: context
+              .read<FloatingActionButtonThemeCubit>()
+              .highlightElevationChanged,
         );
       },
     );
@@ -267,24 +247,22 @@ class _HoverElevationTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FloatingActionButtonThemeCubit,
         FloatingActionButtonThemeState>(
+      key: const Key(
+        'floatingActionButtonThemeEditor_hoverElevationTextField',
+      ),
       buildWhen: (previous, current) {
         return previous.theme.hoverElevation != current.theme.hoverElevation;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key(
-            'floatingActionButtonThemeEditor_hoverElevationTextField',
-          ),
           labelText: 'Hover elevation',
           tooltip: FloatingActionButtonThemeDocs.hoverElevation,
           initialValue:
               (state.theme.hoverElevation ?? kFloatingActionBtnHoverElevation)
                   .toString(),
-          onChanged: (value) {
-            context
-                .read<FloatingActionButtonThemeCubit>()
-                .hoverElevationChanged(value);
-          },
+          onChanged: context
+              .read<FloatingActionButtonThemeCubit>()
+              .hoverElevationChanged,
         );
       },
     );

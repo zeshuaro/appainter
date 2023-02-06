@@ -1,9 +1,9 @@
-import 'package:appainter/common/common.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/common/common.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ColorThemeEditor extends ExpansionPanelItem {
   const ColorThemeEditor({Key? key}) : super(key: key);
@@ -49,12 +49,12 @@ class _PrimaryColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_primaryColorPicker'),
       buildWhen: (previous, current) {
         return previous.primaryColor != current.primaryColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_primaryColorPicker'),
           enableOpacity: false,
           title: 'Primary color',
           tooltip: ColorThemeDocs.primaryColor,
@@ -73,12 +73,12 @@ class _SecondaryColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_secondaryColorPicker'),
       buildWhen: (previous, current) {
         return previous.colorScheme.secondary != current.colorScheme.secondary;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_secondaryColorPicker'),
           title: 'Secondary color',
           tooltip: ColorThemeDocs.secondary,
           color: state.colorScheme.secondary,
@@ -98,18 +98,17 @@ class _PrimaryColorLightPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_primaryColorLightPicker'),
       buildWhen: (previous, current) {
         return previous.primaryColorLight != current.primaryColorLight;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_primaryColorLightPicker'),
           title: 'Primary color light',
           tooltip: ColorThemeDocs.primaryColorLight,
           color: state.primaryColorLight,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().primaryColorLightChanged(color);
-          },
+          onColorChanged:
+              context.read<ColorThemeCubit>().primaryColorLightChanged,
         );
       },
     );
@@ -120,18 +119,17 @@ class _PrimaryColorDarkPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_primaryColorDarkPicker'),
       buildWhen: (previous, current) {
         return previous.primaryColorDark != current.primaryColorDark;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_primaryColorDarkPicker'),
           title: 'Primary color dark',
           tooltip: ColorThemeDocs.primaryColorDark,
           color: state.primaryColorDark,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().primaryColorDarkChanged(color);
-          },
+          onColorChanged:
+              context.read<ColorThemeCubit>().primaryColorDarkChanged,
         );
       },
     );
@@ -142,18 +140,17 @@ class _BackgroundColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_backgroundColorPicker'),
       buildWhen: (previous, current) {
         return previous.backgroundColor != current.backgroundColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_backgroundColorPicker'),
           title: 'Background color',
           tooltip: ColorThemeDocs.backgroundColor,
           color: state.backgroundColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().backgroundColorChanged(color);
-          },
+          onColorChanged:
+              context.read<ColorThemeCubit>().backgroundColorChanged,
         );
       },
     );
@@ -164,18 +161,17 @@ class _BottomAppBarColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_bottomAppBarColorPicker'),
       buildWhen: (previous, current) {
         return previous.bottomAppBarColor != current.bottomAppBarColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_bottomAppBarColorPicker'),
           title: 'Bottom app bar color',
           tooltip: ColorThemeDocs.bottomAppBarColor,
           color: state.bottomAppBarColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().bottomAppBarColorChanged(color);
-          },
+          onColorChanged:
+              context.read<ColorThemeCubit>().bottomAppBarColorChanged,
         );
       },
     );
@@ -186,18 +182,16 @@ class _CanvasColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_canvasColorPicker'),
       buildWhen: (previous, current) {
         return previous.canvasColor != current.canvasColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_canvasColorPicker'),
           title: 'Canvas color',
           tooltip: ColorThemeDocs.canvasColor,
           color: state.canvasColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().canvasColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().canvasColorChanged,
         );
       },
     );
@@ -208,18 +202,16 @@ class _CardColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_cardColorPicker'),
       buildWhen: (previous, current) {
         return previous.cardColor != current.cardColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_cardColorPicker'),
           title: 'Card color',
           tooltip: ColorThemeDocs.cardColor,
           color: state.cardColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().cardColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().cardColorChanged,
         );
       },
     );
@@ -230,18 +222,17 @@ class _DialogBackgroundColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_dialogBackgroundColorPicker'),
       buildWhen: (previous, current) {
         return previous.dialogBackgroundColor != current.dialogBackgroundColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_dialogBackgroundColorPicker'),
           title: 'Dialog background color',
           tooltip: ColorThemeDocs.dialogBackgroundColor,
           color: state.dialogBackgroundColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().dialogBackgroundColorChanged(color);
-          },
+          onColorChanged:
+              context.read<ColorThemeCubit>().dialogBackgroundColorChanged,
         );
       },
     );
@@ -252,18 +243,16 @@ class _DisabledColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_disabledColorPicker'),
       buildWhen: (previous, current) {
         return previous.disabledColor != current.disabledColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_disabledColorPicker'),
           title: 'Disabled color',
           tooltip: ColorThemeDocs.disabledColor,
           color: state.disabledColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().disabledColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().disabledColorChanged,
         );
       },
     );
@@ -274,18 +263,16 @@ class _DividerColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_dividerColorPicker'),
       buildWhen: (previous, current) {
         return previous.dividerColor != current.dividerColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_dividerColorPicker'),
           title: 'Divider color',
           tooltip: ColorThemeDocs.dividerColor,
           color: state.dividerColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().dividerColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().dividerColorChanged,
         );
       },
     );
@@ -296,18 +283,16 @@ class _ErrorColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_errorColorPicker'),
       buildWhen: (previous, current) {
         return previous.errorColor != current.errorColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_errorColorPicker'),
           title: 'Error color',
           tooltip: ColorThemeDocs.errorColor,
           color: state.errorColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().errorColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().errorColorChanged,
         );
       },
     );
@@ -318,18 +303,16 @@ class _FocusColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_focusColorPicker'),
       buildWhen: (previous, current) {
         return previous.focusColor != current.focusColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_focusColorPicker'),
           title: 'Focus color',
           tooltip: ColorThemeDocs.focusColor,
           color: state.focusColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().focusColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().focusColorChanged,
         );
       },
     );
@@ -340,18 +323,16 @@ class _HighlightColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_highlightColorPicker'),
       buildWhen: (previous, current) {
         return previous.highlightColor != current.highlightColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_highlightColorPicker'),
           title: 'Highlight color',
           tooltip: ColorThemeDocs.highlightColor,
           color: state.highlightColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().highlightColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().highlightColorChanged,
         );
       },
     );
@@ -362,18 +343,16 @@ class _HintColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_hintColorPicker'),
       buildWhen: (previous, current) {
         return previous.hintColor != current.hintColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_hintColorPicker'),
           title: 'Hint color',
           tooltip: ColorThemeDocs.hintColor,
           color: state.hintColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().hintColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().hintColorChanged,
         );
       },
     );
@@ -384,18 +363,16 @@ class _HoverColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_hoverColorPicker'),
       buildWhen: (previous, current) {
         return previous.hoverColor != current.hoverColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_hoverColorPicker'),
           title: 'Hover color',
           tooltip: ColorThemeDocs.hoverColor,
           color: state.hoverColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().hoverColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().hoverColorChanged,
         );
       },
     );
@@ -406,18 +383,16 @@ class _IndicatorColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_indicatorColorPicker'),
       buildWhen: (previous, current) {
         return previous.indicatorColor != current.indicatorColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_indicatorColorPicker'),
           title: 'Indicator color',
           tooltip: ColorThemeDocs.indicatorColor,
           color: state.indicatorColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().indicatorColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().indicatorColorChanged,
         );
       },
     );
@@ -428,21 +403,18 @@ class _ScaffoldBackgroundColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_scaffoldBackgroundColorPicker'),
       buildWhen: (previous, current) {
         return previous.scaffoldBackgroundColor !=
             current.scaffoldBackgroundColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_scaffoldBackgroundColorPicker'),
           title: 'Scaffold background color',
           tooltip: ColorThemeDocs.scaffoldBackgroundColor,
           color: state.scaffoldBackgroundColor,
-          onColorChanged: (color) {
-            context
-                .read<ColorThemeCubit>()
-                .scaffoldBackgroundColorChanged(color);
-          },
+          onColorChanged:
+              context.read<ColorThemeCubit>().scaffoldBackgroundColorChanged,
         );
       },
     );
@@ -453,18 +425,17 @@ class _SecondaryHeaderColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_secondaryHeaderColorPicker'),
       buildWhen: (previous, current) {
         return previous.secondaryHeaderColor != current.secondaryHeaderColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_secondaryHeaderColorPicker'),
           title: 'Secondary header color',
           tooltip: ColorThemeDocs.secondaryHeaderColor,
           color: state.secondaryHeaderColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().secondaryHeaderColorChanged(color);
-          },
+          onColorChanged:
+              context.read<ColorThemeCubit>().secondaryHeaderColorChanged,
         );
       },
     );
@@ -475,18 +446,17 @@ class _SelectedRowColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_selectedRowColorPicker'),
       buildWhen: (previous, current) {
         return previous.selectedRowColor != current.selectedRowColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_selectedRowColorPicker'),
           title: 'Selected row color',
           tooltip: ColorThemeDocs.selectedRowColor,
           color: state.selectedRowColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().selectedRowColorChanged(color);
-          },
+          onColorChanged:
+              context.read<ColorThemeCubit>().selectedRowColorChanged,
         );
       },
     );
@@ -497,18 +467,16 @@ class _ShadowColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_shadowColorPicker'),
       buildWhen: (previous, current) {
         return previous.shadowColor != current.shadowColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_shadowColorPicker'),
           title: 'Shadow color',
           tooltip: ColorThemeDocs.shadowColor,
           color: state.shadowColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().shadowColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().shadowColorChanged,
         );
       },
     );
@@ -519,18 +487,16 @@ class _SplashColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_splashColorPicker'),
       buildWhen: (previous, current) {
         return previous.splashColor != current.splashColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_splashColorPicker'),
           title: 'Splash color',
           tooltip: ColorThemeDocs.splashColor,
           color: state.splashColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().splashColorChanged(color);
-          },
+          onColorChanged: context.read<ColorThemeCubit>().splashColorChanged,
         );
       },
     );
@@ -541,18 +507,17 @@ class _ToggleableActiveColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_toggleableActiveColorPicker'),
       buildWhen: (previous, current) {
         return previous.toggleableActiveColor != current.toggleableActiveColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_toggleableActiveColorPicker'),
           title: 'Toggleable active color',
           tooltip: ColorThemeDocs.toggleableActiveColor,
           color: state.toggleableActiveColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().toggleableActiveColorChanged(color);
-          },
+          onColorChanged:
+              context.read<ColorThemeCubit>().toggleableActiveColorChanged,
         );
       },
     );
@@ -563,18 +528,17 @@ class _UnselectedWidgetColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
+      key: const Key('colorThemeEditor_unselectedWidgetColorPicker'),
       buildWhen: (previous, current) {
         return previous.unselectedWidgetColor != current.unselectedWidgetColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('colorThemeEditor_unselectedWidgetColorPicker'),
           title: 'Unselected widget color',
           tooltip: ColorThemeDocs.unselectedWidgetColor,
           color: state.unselectedWidgetColor,
-          onColorChanged: (color) {
-            context.read<ColorThemeCubit>().unselectedWidgetColorChanged(color);
-          },
+          onColorChanged:
+              context.read<ColorThemeCubit>().unselectedWidgetColorChanged,
         );
       },
     );

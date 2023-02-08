@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
+import 'package:appainter/services/services.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
-import 'package:appainter/services/services.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../mocks.dart';
@@ -30,7 +30,7 @@ void main() {
   });
 
   blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-    'should emit theme',
+    'emit theme',
     setUp: () {
       final colorScheme = randomColorSchemeLight(shouldPrint: false);
       theme = ThemeData.from(colorScheme: colorScheme).inputDecorationTheme;
@@ -43,48 +43,40 @@ void main() {
   group('test floating label behavior', () {
     for (var behavior in FloatingLabelBehavior.values) {
       blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-        'should emit $behavior',
+        'emit $behavior',
         build: () => inputDecorationThemeCubit,
         act: (cubit) => cubit.floatingLabelBehaviorChanged(
           UtilService.enumToString(behavior),
         ),
         expect: () => [
-          InputDecorationThemeState(
-            theme: InputDecorationTheme(floatingLabelBehavior: behavior),
-          ),
+          InputDecorationThemeState.withTheme(floatingLabelBehavior: behavior),
         ],
       );
     }
   });
 
   blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-    'should emit fill color',
+    'emit fill color',
     build: () => inputDecorationThemeCubit,
     act: (cubit) => cubit.fillColorChanged(color),
-    expect: () => [
-      InputDecorationThemeState(theme: InputDecorationTheme(fillColor: color)),
-    ],
+    expect: () => [InputDecorationThemeState.withTheme(fillColor: color)],
   );
 
   blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-    'should emit hover color',
+    'emit hover color',
     build: () => inputDecorationThemeCubit,
     act: (cubit) => cubit.hoverColorChanged(color),
-    expect: () => [
-      InputDecorationThemeState(theme: InputDecorationTheme(hoverColor: color)),
-    ],
+    expect: () => [InputDecorationThemeState.withTheme(hoverColor: color)],
   );
 
   group('test align label with hint', () {
     for (var value in [true, false]) {
       blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-        'should emit $value',
+        'emit $value',
         build: () => inputDecorationThemeCubit,
         act: (cubit) => cubit.alignLabelWithHintChanged(value),
         expect: () => [
-          InputDecorationThemeState(
-            theme: InputDecorationTheme(alignLabelWithHint: value),
-          ),
+          InputDecorationThemeState.withTheme(alignLabelWithHint: value),
         ],
       );
     }
@@ -93,12 +85,10 @@ void main() {
   group('test filled', () {
     for (var value in [true, false]) {
       blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-        'should emit $value',
+        'emit $value',
         build: () => inputDecorationThemeCubit,
         act: (cubit) => cubit.filledChanged(value),
-        expect: () => [
-          InputDecorationThemeState(theme: InputDecorationTheme(filled: value)),
-        ],
+        expect: () => [InputDecorationThemeState.withTheme(filled: value)],
       );
     }
   });
@@ -106,14 +96,10 @@ void main() {
   group('test is collapsed', () {
     for (var value in [true, false]) {
       blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-        'should emit $value',
+        'emit $value',
         build: () => inputDecorationThemeCubit,
         act: (cubit) => cubit.isCollapsedChanged(value),
-        expect: () => [
-          InputDecorationThemeState(
-            theme: InputDecorationTheme(isCollapsed: value),
-          ),
-        ],
+        expect: () => [InputDecorationThemeState.withTheme(isCollapsed: value)],
       );
     }
   });
@@ -121,72 +107,54 @@ void main() {
   group('test is dense', () {
     for (var value in [true, false]) {
       blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-        'should emit $value',
+        'emit $value',
         build: () => inputDecorationThemeCubit,
         act: (cubit) => cubit.isDenseChanged(value),
-        expect: () => [
-          InputDecorationThemeState(
-            theme: InputDecorationTheme(isDense: value),
-          ),
-        ],
+        expect: () => [InputDecorationThemeState.withTheme(isDense: value)],
       );
     }
   });
 
   blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-    'should emit error max lines',
+    'emit error max lines',
     build: () => inputDecorationThemeCubit,
     act: (cubit) => cubit.errorMaxLinesChanged(intNum.toString()),
-    expect: () => [
-      InputDecorationThemeState(
-        theme: InputDecorationTheme(errorMaxLines: intNum),
-      ),
-    ],
+    expect: () => [InputDecorationThemeState.withTheme(errorMaxLines: intNum)],
   );
 
   blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-    'should emit helper max lines',
+    'emit helper max lines',
     build: () => inputDecorationThemeCubit,
     act: (cubit) => cubit.helperMaxLinesChanged(intNum.toString()),
-    expect: () => [
-      InputDecorationThemeState(
-        theme: InputDecorationTheme(helperMaxLines: intNum),
-      ),
-    ],
+    expect: () => [InputDecorationThemeState.withTheme(helperMaxLines: intNum)],
   );
 
   group('test border', () {
     final inputBorderEnum = InputBorderEnum();
     for (var border in inputBorderEnum.values) {
       blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-        'should emit border with isOutline=${border.isOutline}',
+        'emit border with isOutline=${border.isOutline}',
         build: () => inputDecorationThemeCubit,
         act: (cubit) => cubit.borderChanged(
           inputBorderEnum.convertToString(border)!,
         ),
-        expect: () => [
-          InputDecorationThemeState(
-            theme: InputDecorationTheme(border: border),
-          ),
-        ],
+        expect: () => [InputDecorationThemeState.withTheme(border: border)],
       );
     }
   });
 
   group('test border radius', () {
     blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-      'should emit border radius for outline input border',
+      'emit border radius for outline input border',
       build: () => inputDecorationThemeCubit,
       seed: () => const InputDecorationThemeState(
         theme: InputDecorationTheme(border: OutlineInputBorder()),
       ),
       act: (cubit) => cubit.borderRadiusChanged(doubleNum.toString()),
       expect: () => [
-        InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(doubleNum),
-            ),
+        InputDecorationThemeState.withTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(doubleNum),
           ),
         ),
       ],
@@ -202,30 +170,26 @@ void main() {
 
   group('test enabled border side', () {
     blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-      'should emit color',
+      'emit color',
       build: () => inputDecorationThemeCubit,
       act: (cubit) => cubit.enabledBorderSideColorChanged(color),
       expect: () => [
-        InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: color),
-            ),
+        InputDecorationThemeState.withTheme(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: color),
           ),
         ),
       ],
     );
 
     blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-      'should emit width',
+      'emit width',
       build: () => inputDecorationThemeCubit,
       act: (cubit) => cubit.enabledBorderSideWidthChanged(doubleNum.toString()),
       expect: () => [
-        InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(width: doubleNum),
-            ),
+        InputDecorationThemeState.withTheme(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(width: doubleNum),
           ),
         ),
       ],
@@ -234,32 +198,28 @@ void main() {
 
   group('test disabled border side', () {
     blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-      'should emit color',
+      'emit color',
       build: () => inputDecorationThemeCubit,
       act: (cubit) => cubit.disabledBorderSideColorChanged(color),
       expect: () => [
-        InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            disabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: color),
-            ),
+        InputDecorationThemeState.withTheme(
+          disabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: color),
           ),
         ),
       ],
     );
 
     blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-      'should emit width',
+      'emit width',
       build: () => inputDecorationThemeCubit,
       act: (cubit) => cubit.disabledBorderSideWidthChanged(
         doubleNum.toString(),
       ),
       expect: () => [
-        InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            disabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(width: doubleNum),
-            ),
+        InputDecorationThemeState.withTheme(
+          disabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(width: doubleNum),
           ),
         ),
       ],
@@ -268,32 +228,28 @@ void main() {
 
   group('test error border side', () {
     blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-      'should emit color',
+      'emit color',
       build: () => inputDecorationThemeCubit,
       act: (cubit) => cubit.errorBorderSideColorChanged(color),
       expect: () => [
-        InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            errorBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: color),
-            ),
+        InputDecorationThemeState.withTheme(
+          errorBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: color),
           ),
         ),
       ],
     );
 
     blocTest<InputDecorationThemeCubit, InputDecorationThemeState>(
-      'should emit width',
+      'emit width',
       build: () => inputDecorationThemeCubit,
       act: (cubit) => cubit.errorBorderSideWidthChanged(
         doubleNum.toString(),
       ),
       expect: () => [
-        InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            errorBorder: UnderlineInputBorder(
-              borderSide: BorderSide(width: doubleNum),
-            ),
+        InputDecorationThemeState.withTheme(
+          errorBorder: UnderlineInputBorder(
+            borderSide: BorderSide(width: doubleNum),
           ),
         ),
       ],

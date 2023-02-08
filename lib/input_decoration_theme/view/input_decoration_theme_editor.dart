@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InputDecorationThemeEditor extends ExpansionPanelItem {
   const InputDecorationThemeEditor({Key? key}) : super(key: key);
@@ -47,6 +47,9 @@ class _FloatingLabelBehaviorDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      key: const Key(
+        'inputDecorationThemeEditor_floatingLabelBehaviorDropdown',
+      ),
       buildWhen: (previous, current) {
         return previous.theme.floatingLabelBehavior !=
             current.theme.floatingLabelBehavior;
@@ -54,18 +57,13 @@ class _FloatingLabelBehaviorDropdown extends StatelessWidget {
       builder: (context, state) {
         final behavior = state.theme.floatingLabelBehavior;
         return DropdownListTile(
-          key: const Key(
-            'inputDecorationThemeEditor_floatingLabelBehaviorDropdown',
-          ),
           title: 'Floating label behavior',
           tooltip: InputDecorationThemeDocs.floatingLabelBehavior,
           value: UtilService.enumToString(behavior),
           values: UtilService.getEnumStrings(FloatingLabelBehavior.values),
-          onChanged: (value) {
-            context
-                .read<InputDecorationThemeCubit>()
-                .floatingLabelBehaviorChanged(value!);
-          },
+          onChanged: context
+              .read<InputDecorationThemeCubit>()
+              .floatingLabelBehaviorChanged,
         );
       },
     );
@@ -80,18 +78,17 @@ class _FillColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      key: const Key('inputDecorationThemeEditor_fillColorPicker'),
       buildWhen: (previous, current) {
         return previous.theme.fillColor != current.theme.fillColor;
       },
       builder: (context, state) {
         return ColorListTile(
-          key: const Key('inputDecorationThemeEditor_fillColorPicker'),
           title: 'Fill color',
           tooltip: InputDecorationThemeDocs.fillColor,
           color: state.theme.fillColor ?? _fillColor,
-          onColorChanged: (color) {
-            context.read<InputDecorationThemeCubit>().fillColorChanged(color);
-          },
+          onColorChanged:
+              context.read<InputDecorationThemeCubit>().fillColorChanged,
         );
       },
     );
@@ -112,9 +109,8 @@ class _HoverColorPicker extends StatelessWidget {
       title: 'Hover color',
       tooltip: InputDecorationThemeDocs.hoverColor,
       color: hoverColor ?? themeHoverColor,
-      onColorChanged: (color) {
-        context.read<InputDecorationThemeCubit>().hoverColorChanged(color);
-      },
+      onColorChanged:
+          context.read<InputDecorationThemeCubit>().hoverColorChanged,
     );
   }
 }
@@ -125,21 +121,19 @@ class _AlignLabelWithHintSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      key: const Key('inputDecorationThemeEditor_alignLabelWithHintSwitch'),
       buildWhen: (previous, current) {
         return previous.theme.alignLabelWithHint !=
             current.theme.alignLabelWithHint;
       },
       builder: (context, state) {
         return MySwitchListTile(
-          key: const Key('inputDecorationThemeEditor_alignLabelWithHintSwitch'),
           title: 'Align label with hint',
           tooltip: InputDecorationThemeDocs.alignLabelWithHint,
           value: state.theme.alignLabelWithHint,
-          onChanged: (value) {
-            context
-                .read<InputDecorationThemeCubit>()
-                .alignLabelWithHintChanged(value);
-          },
+          onChanged: context
+              .read<InputDecorationThemeCubit>()
+              .alignLabelWithHintChanged,
         );
       },
     );
@@ -152,18 +146,16 @@ class _FilledSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      key: const Key('inputDecorationThemeEditor_filledSwitch'),
       buildWhen: (previous, current) {
         return previous.theme.filled != current.theme.filled;
       },
       builder: (context, state) {
         return MySwitchListTile(
-          key: const Key('inputDecorationThemeEditor_filledSwitch'),
           title: 'Filled',
           tooltip: InputDecorationThemeDocs.filled,
           value: state.theme.filled,
-          onChanged: (value) {
-            context.read<InputDecorationThemeCubit>().filledChanged(value);
-          },
+          onChanged: context.read<InputDecorationThemeCubit>().filledChanged,
         );
       },
     );
@@ -176,18 +168,17 @@ class _IsCollapsedSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      key: const Key('inputDecorationThemeEditor_isCollapsedSwitch'),
       buildWhen: (previous, current) {
         return previous.theme.isCollapsed != current.theme.isCollapsed;
       },
       builder: (context, state) {
         return MySwitchListTile(
-          key: const Key('inputDecorationThemeEditor_isCollapsedSwitch'),
           title: 'Is collapsed',
           tooltip: InputDecorationThemeDocs.isCollapsed,
           value: state.theme.isCollapsed,
-          onChanged: (value) {
-            context.read<InputDecorationThemeCubit>().isCollapsedChanged(value);
-          },
+          onChanged:
+              context.read<InputDecorationThemeCubit>().isCollapsedChanged,
         );
       },
     );
@@ -200,18 +191,16 @@ class _IsDenseSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      key: const Key('inputDecorationThemeEditor_isDenseSwitch'),
       buildWhen: (previous, current) {
         return previous.theme.isDense != current.theme.isDense;
       },
       builder: (context, state) {
         return MySwitchListTile(
-          key: const Key('inputDecorationThemeEditor_isDenseSwitch'),
           title: 'Is dense',
           tooltip: InputDecorationThemeDocs.isDense,
           value: state.theme.isDense,
-          onChanged: (value) {
-            context.read<InputDecorationThemeCubit>().isDenseChanged(value);
-          },
+          onChanged: context.read<InputDecorationThemeCubit>().isDenseChanged,
         );
       },
     );
@@ -224,22 +213,19 @@ class _ErrorMaxLinesTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      key: const Key('inputDecorationThemeEditor_errorMaxLinesTextField'),
       buildWhen: (previous, current) {
         return previous.theme.errorMaxLines != current.theme.errorMaxLines;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key('inputDecorationThemeEditor_errorMaxLinesTextField'),
           labelText: 'Error max lines',
           tooltip: InputDecorationThemeDocs.errorMaxLines,
           initialValue:
               (state.theme.errorMaxLines ?? kInputDecorationThemeErrorMaxLines)
                   .toString(),
-          onChanged: (value) {
-            context
-                .read<InputDecorationThemeCubit>()
-                .errorMaxLinesChanged(value);
-          },
+          onChanged:
+              context.read<InputDecorationThemeCubit>().errorMaxLinesChanged,
         );
       },
     );
@@ -252,22 +238,19 @@ class _HelperMaxLinesTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      key: const Key('inputDecorationThemeEditor_helperMaxLinesTextField'),
       buildWhen: (previous, current) {
         return previous.theme.helperMaxLines != current.theme.helperMaxLines;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key('inputDecorationThemeEditor_helperMaxLinesTextField'),
           labelText: 'Helper max lines',
           tooltip: InputDecorationThemeDocs.helperMaxLines,
           initialValue: (state.theme.helperMaxLines ??
                   kInputDecorationThemeHelperMaxLines)
               .toString(),
-          onChanged: (value) {
-            context
-                .read<InputDecorationThemeCubit>()
-                .helperMaxLinesChanged(value);
-          },
+          onChanged:
+              context.read<InputDecorationThemeCubit>().helperMaxLinesChanged,
         );
       },
     );
@@ -280,21 +263,17 @@ class _BorderDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      key: const Key('inputDecorationThemeEditor_borderDropdown'),
       buildWhen: (previous, current) {
         return previous.theme.border != current.theme.border;
       },
       builder: (context, state) {
         final border = state.theme.border ?? const UnderlineInputBorder();
         return DropdownListTile(
-          key: const Key(
-            'inputDecorationThemeEditor_borderDropdown',
-          ),
           title: 'Border',
           value: _enum.convertToString(border)!,
           values: _enum.names,
-          onChanged: (value) {
-            context.read<InputDecorationThemeCubit>().borderChanged(value!);
-          },
+          onChanged: context.read<InputDecorationThemeCubit>().borderChanged,
         );
       },
     );
@@ -309,7 +288,17 @@ class _BorderRadiusTextField extends StatefulWidget {
 }
 
 class _BorderRadiusTextFieldState extends State<_BorderRadiusTextField> {
-  final _controller = TextEditingController();
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    _controller = TextEditingController();
+    final border = context.read<InputDecorationThemeCubit>().state.theme.border;
+    if (border is OutlineInputBorder) {
+      _controller.text = border.borderRadius.bottomLeft.x.toString();
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -336,21 +325,18 @@ class _BorderRadiusTextFieldState extends State<_BorderRadiusTextField> {
         )
       ],
       child: BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+        key: const Key('inputDecorationThemeEditor_borderRadiusTextField'),
         buildWhen: (previous, current) {
           return previous.theme.border != current.theme.border;
         },
         builder: (context, state) {
           final border = state.theme.border ?? const UnderlineInputBorder();
           return MyTextFormField(
-            key: const Key('inputDecorationThemeEditor_borderRadiusTextField'),
             controller: _controller,
             labelText: 'Border Radius',
             enabled: border is OutlineInputBorder,
-            onChanged: (value) {
-              context
-                  .read<InputDecorationThemeCubit>()
-                  .borderRadiusChanged(value);
-            },
+            onChanged:
+                context.read<InputDecorationThemeCubit>().borderRadiusChanged,
           );
         },
       ),
@@ -364,21 +350,19 @@ class _EnabledBorderSideFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
+      key: const Key('inputDecorationThemeEditor_enabledBorderSideFields'),
       buildWhen: (previous, current) {
         return previous.theme.enabledBorder?.borderSide !=
             current.theme.enabledBorder?.borderSide;
       },
       builder: (context, state) {
+        final cubit = context.read<InputDecorationThemeCubit>();
         return BorderSideFields(
           headerPrefix: 'Enabled',
           borderSide:
               state.theme.enabledBorder?.borderSide ?? const BorderSide(),
-          onColorChanged: context
-              .read<InputDecorationThemeCubit>()
-              .enabledBorderSideColorChanged,
-          onWidthChanged: context
-              .read<InputDecorationThemeCubit>()
-              .enabledBorderSideWidthChanged,
+          onColorChanged: cubit.enabledBorderSideColorChanged,
+          onWidthChanged: cubit.enabledBorderSideWidthChanged,
         );
       },
     );
@@ -390,6 +374,7 @@ class _DisabledBorderSideFields extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<InputDecorationThemeCubit>();
     final borderSide = context
         .watch<InputDecorationThemeCubit>()
         .state
@@ -401,12 +386,8 @@ class _DisabledBorderSideFields extends StatelessWidget {
     return BorderSideFields(
       headerPrefix: 'Disabled',
       borderSide: borderSide ?? BorderSide(color: disabledColor),
-      onColorChanged: context
-          .read<InputDecorationThemeCubit>()
-          .disabledBorderSideColorChanged,
-      onWidthChanged: context
-          .read<InputDecorationThemeCubit>()
-          .disabledBorderSideWidthChanged,
+      onColorChanged: cubit.disabledBorderSideColorChanged,
+      onWidthChanged: cubit.disabledBorderSideWidthChanged,
     );
   }
 }
@@ -416,6 +397,7 @@ class _ErrorBorderSideFields extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<InputDecorationThemeCubit>();
     final borderSide = context
         .watch<InputDecorationThemeCubit>()
         .state
@@ -427,10 +409,8 @@ class _ErrorBorderSideFields extends StatelessWidget {
     return BorderSideFields(
       headerPrefix: 'Error',
       borderSide: borderSide ?? BorderSide(color: errorColor),
-      onColorChanged:
-          context.read<InputDecorationThemeCubit>().errorBorderSideColorChanged,
-      onWidthChanged:
-          context.read<InputDecorationThemeCubit>().errorBorderSideWidthChanged,
+      onColorChanged: cubit.errorBorderSideColorChanged,
+      onWidthChanged: cubit.errorBorderSideWidthChanged,
     );
   }
 }

@@ -4,7 +4,6 @@ import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,463 +11,511 @@ import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
 import '../utils.dart';
-import '../widget_testers.dart';
+import '../utils/widget_tester_utils.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Input decoration');
+  const expandText = 'Input decoration';
+  const decoState = InputDecorationThemeState();
 
-  late InputDecorationThemeCubit inputDecorationThemeCubit;
-  late ColorThemeCubit colorThemeCubit;
+  late InputDecorationThemeCubit decoCubit;
+  late ColorThemeCubit colorCubit;
+
   late Color color;
   late double doubleNum;
+  late String doubleStr;
 
   setUp(() {
-    inputDecorationThemeCubit = MockInputDecorationThemeCubit();
-    colorThemeCubit = MockColorThemeCubit();
+    decoCubit = MockInputDecorationThemeCubit();
+    colorCubit = MockColorThemeCubit();
+
     color = getRandomColor();
     doubleNum = Random().nextDouble();
+    doubleStr = doubleNum.toString();
 
-    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
+    when(() => colorCubit.state).thenReturn(ColorThemeState());
   });
 
   Future<void> pumpApp(
-    WidgetTester tester,
-    InputDecorationThemeState state,
-  ) async {
-    whenListen(
-      inputDecorationThemeCubit,
-      Stream.fromIterable([state]),
-      initialState: const InputDecorationThemeState(),
-    );
+    WidgetTester tester, [
+    InputDecorationThemeState? state,
+  ]) async {
+    when(() => decoCubit.state).thenReturn(state ?? decoState);
 
     await tester.pumpWidget(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider.value(value: inputDecorationThemeCubit),
-          BlocProvider.value(value: colorThemeCubit),
-        ],
-        child: MaterialApp(
-          home: MyExpansionPanelList(item: const InputDecorationThemeEditor()),
+      MaterialApp(
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: decoCubit),
+            BlocProvider.value(value: colorCubit),
+          ],
+          child: Scaffold(
+            body: MyExpansionPanelList(
+              item: const InputDecorationThemeEditor(),
+            ),
+          ),
         ),
       ),
     );
+    await tester.expandWidget(expandText);
   }
 
-  testWidgets(
-    'fill color picker should update with color',
-    (tester) async {
-      final state = InputDecorationThemeState(
-        theme: InputDecorationTheme(fillColor: color),
-      );
+  void expectBlocBuilder(
+    WidgetTester tester,
+    String key,
+    InputDecorationThemeState state,
+  ) {
+    tester.expectBlocBuilder<InputDecorationThemeCubit,
+        InputDecorationThemeState>(
+      key,
+      decoState,
+      state,
+    );
+  }
+
+  group('fill color picker', () {
+    const key = 'inputDecorationThemeEditor_fillColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = InputDecorationThemeState.withTheme(fillColor: color);
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'inputDecorationThemeEditor_fillColorPicker',
-        color,
-      );
-      verify(() => inputDecorationThemeCubit.fillColorChanged(color)).called(1);
-    },
-  );
+      await tester.expectColorIndicator(key, color);
+      expectBlocBuilder(tester, key, state);
+    });
 
-  testWidgets(
-    'hover color picker should update with color',
-    (tester) async {
-      final state = InputDecorationThemeState(
-        theme: InputDecorationTheme(hoverColor: color),
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.04);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        decoCubit.fillColorChanged,
       );
+    });
+  });
 
+  group('hover color picker', () {
+    const key = 'inputDecorationThemeEditor_hoverColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = InputDecorationThemeState.withTheme(hoverColor: color);
       await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'inputDecorationThemeEditor_hoverColorPicker',
-        color,
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.04);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        decoCubit.hoverColorChanged,
       );
-      verify(
-        () => inputDecorationThemeCubit.hoverColorChanged(color),
-      ).called(1);
-    },
-  );
+    });
+  });
 
-  group('test align label with hint switch', () {
-    for (var shouldAlign in [true, false]) {
-      testWidgets(
-        'should be toggled to $shouldAlign',
-        (tester) async {
-          final state = InputDecorationThemeState(
-            theme: InputDecorationTheme(alignLabelWithHint: shouldAlign),
-          );
+  group('align label with hint switch', () {
+    const key = 'inputDecorationThemeEditor_alignLabelWithHintSwitch';
 
-          await pumpApp(tester, state);
+    for (var isAligned in [true, false]) {
+      testWidgets('render isAligned=$isAligned', (tester) async {
+        final state = InputDecorationThemeState.withTheme(
+          alignLabelWithHint: isAligned,
+        );
 
-          await widgetTesters.checkSwitch(
-            tester,
-            'inputDecorationThemeEditor_alignLabelWithHintSwitch',
-            shouldAlign,
-          );
-          verify(() {
-            inputDecorationThemeCubit.alignLabelWithHintChanged(!shouldAlign);
-          }).called(1);
-        },
-      );
+        await pumpApp(tester, state);
+
+        tester.expectSwitch(key, isAligned);
+        if (isAligned != decoState.theme.alignLabelWithHint) {
+          expectBlocBuilder(tester, key, state);
+        }
+      });
+
+      testWidgets('change isAligned=$isAligned', (tester) async {
+        final state = InputDecorationThemeState.withTheme(
+          alignLabelWithHint: !isAligned,
+        );
+        await pumpApp(tester, state);
+        await tester.verifySwitch(
+          key,
+          isAligned,
+          decoCubit.alignLabelWithHintChanged,
+        );
+      });
     }
   });
 
-  group('test filled switch', () {
+  group('filled switch', () {
+    const key = 'inputDecorationThemeEditor_filledSwitch';
+
     for (var isFilled in [true, false]) {
-      testWidgets(
-        'should be toggled to $isFilled',
-        (tester) async {
-          final state = InputDecorationThemeState(
-            theme: InputDecorationTheme(filled: isFilled),
-          );
+      testWidgets('render isFilled=$isFilled', (tester) async {
+        final state = InputDecorationThemeState.withTheme(filled: isFilled);
 
-          await pumpApp(tester, state);
+        await pumpApp(tester, state);
 
-          await widgetTesters.checkSwitch(
-            tester,
-            'inputDecorationThemeEditor_filledSwitch',
-            isFilled,
-          );
-          verify(
-            () => inputDecorationThemeCubit.filledChanged(!isFilled),
-          ).called(1);
-        },
-      );
+        tester.expectSwitch(key, isFilled);
+        if (isFilled != decoState.theme.filled) {
+          expectBlocBuilder(tester, key, state);
+        }
+      });
+
+      testWidgets('change isFilled=$isFilled', (tester) async {
+        final state = InputDecorationThemeState.withTheme(filled: !isFilled);
+        await pumpApp(tester, state);
+        await tester.verifySwitch(
+          key,
+          isFilled,
+          decoCubit.filledChanged,
+        );
+      });
     }
   });
 
-  group('test is collapsed switch', () {
+  group('is collapsed switch', () {
+    const key = 'inputDecorationThemeEditor_isCollapsedSwitch';
+
     for (var isCollapsed in [true, false]) {
-      testWidgets(
-        'should be toggled to $isCollapsed',
-        (tester) async {
-          final state = InputDecorationThemeState(
-            theme: InputDecorationTheme(isCollapsed: isCollapsed),
-          );
+      testWidgets('render isCollapsed=$isCollapsed', (tester) async {
+        final state =
+            InputDecorationThemeState.withTheme(isCollapsed: isCollapsed);
 
-          await pumpApp(tester, state);
+        await pumpApp(tester, state);
 
-          await widgetTesters.checkSwitch(
-            tester,
-            'inputDecorationThemeEditor_isCollapsedSwitch',
-            isCollapsed,
-          );
-          verify(
-            () => inputDecorationThemeCubit.isCollapsedChanged(!isCollapsed),
-          ).called(1);
-        },
-      );
+        tester.expectSwitch(key, isCollapsed);
+        if (isCollapsed != decoState.theme.isCollapsed) {
+          expectBlocBuilder(tester, key, state);
+        }
+      });
+
+      testWidgets('change isCollapsed=$isCollapsed', (tester) async {
+        final state =
+            InputDecorationThemeState.withTheme(isCollapsed: !isCollapsed);
+        await pumpApp(tester, state);
+        await tester.verifySwitch(
+          key,
+          isCollapsed,
+          decoCubit.isCollapsedChanged,
+        );
+      });
     }
   });
 
-  group('test is dense switch', () {
+  group('is dense switch', () {
+    const key = 'inputDecorationThemeEditor_isDenseSwitch';
+
     for (var isDense in [true, false]) {
-      testWidgets(
-        'should be toggled to $isDense',
-        (tester) async {
-          final state = InputDecorationThemeState(
-            theme: InputDecorationTheme(isDense: isDense),
-          );
+      testWidgets('render isDense=$isDense', (tester) async {
+        final state = InputDecorationThemeState.withTheme(isDense: isDense);
 
-          await pumpApp(tester, state);
+        await pumpApp(tester, state);
 
-          await widgetTesters.checkSwitch(
-            tester,
-            'inputDecorationThemeEditor_isDenseSwitch',
-            isDense,
-          );
-          verify(
-            () => inputDecorationThemeCubit.isDenseChanged(!isDense),
-          ).called(1);
-        },
-      );
+        tester.expectSwitch(key, isDense);
+        if (isDense != decoState.theme.isDense) {
+          expectBlocBuilder(tester, key, state);
+        }
+      });
+
+      testWidgets('change isDense=$isDense', (tester) async {
+        final state = InputDecorationThemeState.withTheme(isDense: !isDense);
+        await pumpApp(tester, state);
+        await tester.verifySwitch(
+          key,
+          isDense,
+          decoCubit.isDenseChanged,
+        );
+      });
     }
   });
 
-  testWidgets(
-    'error max lines should update with value',
-    (tester) async {
-      const value = kInputDecorationThemeErrorMaxLines + 1;
-      const state = InputDecorationThemeState(
-        theme: InputDecorationTheme(errorMaxLines: value),
-      );
+  group('error max lines text field', () {
+    const key = 'inputDecorationThemeEditor_errorMaxLinesTextField';
+    const valInt = kInputDecorationThemeErrorMaxLines + 1;
+    final valStr = valInt.toString();
+
+    testWidgets('render widget', (tester) async {
+      final state = InputDecorationThemeState.withTheme(errorMaxLines: valInt);
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'inputDecorationThemeEditor_errorMaxLinesTextField',
-        value,
-      );
-      verify(
-        () => inputDecorationThemeCubit.errorMaxLinesChanged(value.toString()),
-      ).called(1);
-    },
-  );
+      await tester.expectTextField(key, valStr);
+      expectBlocBuilder(tester, key, state);
+    });
 
-  testWidgets(
-    'helper max lines should update with value',
-    (tester) async {
-      const value = kInputDecorationThemeHelperMaxLines + 1;
-      const state = InputDecorationThemeState(
-        theme: InputDecorationTheme(helperMaxLines: value),
+    testWidgets('change value', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        valStr,
+        decoCubit.errorMaxLinesChanged,
       );
+    });
+  });
+
+  group('helper max lines text field', () {
+    const key = 'inputDecorationThemeEditor_helperMaxLinesTextField';
+    const valInt = kInputDecorationThemeHelperMaxLines + 1;
+    final valStr = valInt.toString();
+
+    testWidgets('render widget', (tester) async {
+      final state = InputDecorationThemeState.withTheme(helperMaxLines: valInt);
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'inputDecorationThemeEditor_helperMaxLinesTextField',
-        value,
-      );
-      verify(
-        () => inputDecorationThemeCubit.helperMaxLinesChanged(value.toString()),
-      ).called(1);
-    },
-  );
+      await tester.expectTextField(key, valStr);
+      expectBlocBuilder(tester, key, state);
+    });
 
-  group('test floating label behavior dropdown', () {
+    testWidgets('change value', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        valStr,
+        decoCubit.helperMaxLinesChanged,
+      );
+    });
+  });
+
+  group('floating label behavior dropdown', () {
+    const key = 'inputDecorationThemeEditor_floatingLabelBehaviorDropdown';
+
     for (var behavior in FloatingLabelBehavior.values) {
       final behaviorStr = UtilService.enumToString(behavior);
 
-      testWidgets(
-        'should update to $behavior',
-        (tester) async {
-          final state = InputDecorationThemeState(
-            theme: InputDecorationTheme(floatingLabelBehavior: behavior),
-          );
+      testWidgets('render $behavior', (tester) async {
+        final state = InputDecorationThemeState.withTheme(
+          floatingLabelBehavior: behavior,
+        );
 
-          await pumpApp(tester, state);
+        await pumpApp(tester, state);
 
-          await widgetTesters.checkDropbox(
-            tester,
-            'inputDecorationThemeEditor_floatingLabelBehaviorDropdown',
-            behaviorStr,
-          );
-          verify(
-            () {
-              inputDecorationThemeCubit.floatingLabelBehaviorChanged(
-                behaviorStr,
-              );
-            },
-          ).called(1);
-        },
-      );
+        await tester.expectDropdown(key, behaviorStr);
+        if (behavior != decoState.theme.floatingLabelBehavior) {
+          expectBlocBuilder(tester, key, state);
+        }
+      });
+
+      testWidgets('change $behavior', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyDropdown(
+          key,
+          behaviorStr,
+          decoCubit.floatingLabelBehaviorChanged,
+        );
+      });
     }
   });
 
-  group('test border dropdown', () {
+  group('border dropdown', () {
+    const key = 'inputDecorationThemeEditor_borderDropdown';
     final inputBorderEnum = InputBorderEnum();
+
     for (var border in inputBorderEnum.values) {
       final borderStr = inputBorderEnum.convertToString(border)!;
 
-      testWidgets(
-        'should update to border with isOutline=${border.isOutline}',
-        (tester) async {
-          final state = InputDecorationThemeState(
-            theme: InputDecorationTheme(border: border),
-          );
+      testWidgets('render $border', (tester) async {
+        final state = InputDecorationThemeState.withTheme(border: border);
 
-          await pumpApp(tester, state);
+        await pumpApp(tester, state);
 
-          await widgetTesters.checkDropbox(
-            tester,
-            'inputDecorationThemeEditor_borderDropdown',
-            borderStr,
-          );
-          verify(
-            () => inputDecorationThemeCubit.borderChanged(borderStr),
-          ).called(1);
-        },
-      );
+        await tester.expectDropdown(key, borderStr);
+        expectBlocBuilder(tester, key, state);
+      });
+
+      testWidgets('change $border', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyDropdown(
+          key,
+          borderStr,
+          decoCubit.borderChanged,
+        );
+      });
     }
   });
 
-  testWidgets(
-    'border radius text field should update with value',
-    (tester) async {
-      final state = InputDecorationThemeState(
-        theme: InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(0),
-          ),
+  group('border radius text field', () {
+    const key = 'inputDecorationThemeEditor_borderRadiusTextField';
+
+    testWidgets('render widget', (tester) async {
+      final state = InputDecorationThemeState.withTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(doubleNum),
         ),
       );
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'inputDecorationThemeEditor_borderRadiusTextField',
-        doubleNum,
-      );
-      verify(
-        () => inputDecorationThemeCubit.borderRadiusChanged(
-          doubleNum.toString(),
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
+
+    testWidgets('change value', (tester) async {
+      final state = InputDecorationThemeState.withTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(doubleNum + 1),
         ),
-      ).called(1);
-    },
-  );
-
-  group('test enabled border side fields', () {
-    const key = 'enabled';
-    testWidgets(
-      'color picker should update with color',
-      (tester) async {
-        final state = InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: color),
-            ),
-          ),
-        );
-
-        await pumpApp(tester, state);
-
-        await widgetTesters.checkColorPicker(
-          tester,
-          'borderSideFields_colorPicker_$key',
-          color,
-        );
-        verify(
-          () => inputDecorationThemeCubit.enabledBorderSideColorChanged(color),
-        ).called(1);
-      },
-    );
-
-    testWidgets(
-      'width text field should update with value',
-      (tester) async {
-        final state = InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            border: UnderlineInputBorder(
-              borderSide: BorderSide(width: doubleNum),
-            ),
-          ),
-        );
-
-        await pumpApp(tester, state);
-
-        await widgetTesters.checkTextField(
-          tester,
-          'borderSideFields_widthTextField_$key',
-          doubleNum,
-        );
-        verify(
-          () => inputDecorationThemeCubit.enabledBorderSideWidthChanged(
-            doubleNum.toString(),
-          ),
-        ).called(1);
-      },
-    );
+      );
+      await pumpApp(tester, state);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        decoCubit.borderRadiusChanged,
+      );
+    });
   });
 
-  group('test disabled border side fields', () {
-    const key = 'disabled';
-    testWidgets(
-      'color picker should update with color',
-      (tester) async {
-        final state = InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            disabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: color),
-            ),
+  group('enabled border side', () {
+    group('color picker', () {
+      testWidgets('render widget', (tester) async {
+        const key = 'inputDecorationThemeEditor_enabledBorderSideFields';
+        final state = InputDecorationThemeState.withTheme(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: color),
           ),
         );
 
         await pumpApp(tester, state);
 
-        await widgetTesters.checkColorPicker(
-          tester,
-          'borderSideFields_colorPicker_$key',
+        await tester.expectColorIndicator(key, color);
+        expectBlocBuilder(tester, key, state);
+      });
+
+      testWidgets('change color', (tester) async {
+        const key = 'borderSideFields_colorPicker_enabled';
+        await pumpApp(tester);
+        await tester.verifyColorPicker(
+          key,
           color,
+          decoCubit.enabledBorderSideColorChanged,
         );
-        verify(
-          () => inputDecorationThemeCubit.disabledBorderSideColorChanged(color),
-        ).called(1);
-      },
-    );
+      });
+    });
 
-    testWidgets(
-      'width text field should update with value',
-      (tester) async {
-        final state = InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            disabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(width: doubleNum),
-            ),
+    group('width text field', () {
+      const key = 'borderSideFields_widthTextField_enabled';
+
+      testWidgets('render widget', (tester) async {
+        final state = InputDecorationThemeState.withTheme(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(width: doubleNum),
           ),
         );
 
         await pumpApp(tester, state);
 
-        await widgetTesters.checkTextField(
-          tester,
-          'borderSideFields_widthTextField_$key',
-          doubleNum,
+        await tester.expectTextField(key, doubleStr);
+      });
+
+      testWidgets('change value', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyTextField(
+          key,
+          doubleStr,
+          decoCubit.enabledBorderSideWidthChanged,
         );
-        verify(
-          () => inputDecorationThemeCubit.disabledBorderSideWidthChanged(
-            doubleNum.toString(),
-          ),
-        ).called(1);
-      },
-    );
+      });
+    });
   });
 
-  group('test error border side fields', () {
-    const key = 'error';
-    testWidgets(
-      'color picker should update with color',
-      (tester) async {
-        final state = InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            errorBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: color),
-            ),
+  group('disabled border side', () {
+    group('color picker', () {
+      const key = 'borderSideFields_colorPicker_disabled';
+
+      testWidgets('render widget', (tester) async {
+        final state = InputDecorationThemeState.withTheme(
+          disabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: color),
+          ),
+        );
+        await pumpApp(tester, state);
+        await tester.expectColorIndicator(key, color);
+      });
+
+      testWidgets('change color', (tester) async {
+        final opaqueColor = color.withOpacity(0.38);
+        await pumpApp(tester);
+        await tester.verifyColorPicker(
+          key,
+          opaqueColor,
+          decoCubit.disabledBorderSideColorChanged,
+        );
+      });
+    });
+
+    group('width text field', () {
+      const key = 'borderSideFields_widthTextField_disabled';
+
+      testWidgets('render widget', (tester) async {
+        final state = InputDecorationThemeState.withTheme(
+          disabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(width: doubleNum),
           ),
         );
 
         await pumpApp(tester, state);
 
-        await widgetTesters.checkColorPicker(
-          tester,
-          'borderSideFields_colorPicker_$key',
+        await tester.expectTextField(key, doubleStr);
+      });
+
+      testWidgets('change value', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyTextField(
+          key,
+          doubleStr,
+          decoCubit.disabledBorderSideWidthChanged,
+        );
+      });
+    });
+  });
+
+  group('error border side', () {
+    group('color picker', () {
+      const key = 'borderSideFields_colorPicker_error';
+
+      testWidgets('render widget', (tester) async {
+        final state = InputDecorationThemeState.withTheme(
+          errorBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: color),
+          ),
+        );
+        await pumpApp(tester, state);
+        await tester.expectColorIndicator(key, color);
+      });
+
+      testWidgets('change color', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyColorPicker(
+          key,
           color,
+          decoCubit.errorBorderSideColorChanged,
         );
-        verify(
-          () => inputDecorationThemeCubit.errorBorderSideColorChanged(color),
-        ).called(1);
-      },
-    );
+      });
+    });
 
-    testWidgets(
-      'width text field should update with value',
-      (tester) async {
-        final state = InputDecorationThemeState(
-          theme: InputDecorationTheme(
-            errorBorder: UnderlineInputBorder(
-              borderSide: BorderSide(width: doubleNum),
-            ),
+    group('width text field', () {
+      const key = 'borderSideFields_widthTextField_error';
+
+      testWidgets('render widget', (tester) async {
+        final state = InputDecorationThemeState.withTheme(
+          errorBorder: UnderlineInputBorder(
+            borderSide: BorderSide(width: doubleNum),
           ),
         );
 
         await pumpApp(tester, state);
 
-        await widgetTesters.checkTextField(
-          tester,
-          'borderSideFields_widthTextField_$key',
-          doubleNum,
+        await tester.expectTextField(key, doubleStr);
+      });
+
+      testWidgets('change value', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyTextField(
+          key,
+          doubleStr,
+          decoCubit.errorBorderSideWidthChanged,
         );
-        verify(
-          () => inputDecorationThemeCubit.errorBorderSideWidthChanged(
-            doubleNum.toString(),
-          ),
-        ).called(1);
-      },
-    );
+      });
+    });
   });
 }

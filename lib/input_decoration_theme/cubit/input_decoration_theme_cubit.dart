@@ -1,11 +1,11 @@
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
+import 'package:appainter/services/services.dart';
 import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/services/services.dart';
 
 part 'input_decoration_theme_cubit.g.dart';
 part 'input_decoration_theme_state.dart';
@@ -24,7 +24,7 @@ class InputDecorationThemeCubit extends Cubit<InputDecorationThemeState> {
     emit(state.copyWith(theme: theme));
   }
 
-  void floatingLabelBehaviorChanged(String value) {
+  void floatingLabelBehaviorChanged(String? value) {
     final behavior = UtilService.stringToEnum(
       FloatingLabelBehavior.values,
       value,

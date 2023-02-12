@@ -4,8 +4,8 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "flutter.js": "f85e6fb278b0fd20c349186fb46ae36d",
-"index.html": "f29e5cc00960ec90c3441c877c4477be",
-"/": "f29e5cc00960ec90c3441c877c4477be",
+"index.html": "c925100263c07c49cd55275e3e92262f",
+"/": "c925100263c07c49cd55275e3e92262f",
 "main.dart.js": "3e8caf8042b1bb84d35d2bf5270f0d1e",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75",
 "favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
@@ -15,7 +15,7 @@ const RESOURCES = {
 "icons/favicon-32x32.png": "878572d6d16bbaa08290988302449306",
 "icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
 "assets/FontManifest.json": "1b1e7812d9eb9f666db8444d7dde1b20",
-"assets/NOTICES": "44f59067a5b68ec8c4019ddb7466156c",
+"assets/NOTICES": "2841ce1fd8da34dfd18121bca8f8965e",
 "assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
 "assets/shaders/ink_sparkle.frag": "ab4751ef630837e294889ca64470bb70",
 "assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
@@ -27,7 +27,7 @@ const RESOURCES = {
 "canvaskit/canvaskit.js": "2bc454a691c631b07a9307ac4ca47797",
 "canvaskit/profiling/canvaskit.wasm": "95a45378b69e77af5ed2bc72b2209b94",
 "canvaskit/profiling/canvaskit.js": "38164e5a72bdad0faa4ce740c9b8e564",
-"version.json": "1e354713351c46297ad6fefe641ff94f"
+"version.json": "68f9874dafd6d651cf41bde9389a6572"
 };
 
 // The application shell files that are downloaded before a service worker can

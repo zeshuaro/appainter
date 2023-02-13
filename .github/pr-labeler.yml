@@ -12,6 +12,9 @@ enhancement:
   - feature/*
 refactor:
   - refactor/*
+revert:
+  - revert/*
+  - revert-*
 style:
   - style/*
 test:

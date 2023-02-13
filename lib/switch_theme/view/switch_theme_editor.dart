@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SwitchThemeEditor extends ExpansionPanelItem {
   const SwitchThemeEditor({Key? key}) : super(key: key);
@@ -30,6 +30,7 @@ class SwitchThemeEditor extends ExpansionPanelItem {
 class _ThumbColorPickers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<SwitchThemeCubit>();
     final thumbColor = context.watch<SwitchThemeCubit>().state.theme.thumbColor;
     final toggleableActiveColor =
         context.watch<ColorThemeCubit>().state.toggleableActiveColor;
@@ -42,27 +43,21 @@ class _ThumbColorPickers extends StatelessWidget {
           key: const Key('switchThemeEditor_thumbColor_default'),
           title: 'Default',
           value: thumbColor?.resolve({}) ?? Colors.grey.shade50,
-          onValueChanged: (color) {
-            context.read<SwitchThemeCubit>().thumbDefaultColorChanged(color);
-          },
+          onValueChanged: cubit.thumbDefaultColorChanged,
         ),
         MaterialStateItem(
           key: const Key('switchThemeEditor_thumbColor_selected'),
           title: 'Selected',
           value: thumbColor?.resolve({MaterialState.selected}) ??
               toggleableActiveColor,
-          onValueChanged: (color) {
-            context.read<SwitchThemeCubit>().thumbSelectedColorChanged(color);
-          },
+          onValueChanged: cubit.thumbSelectedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('switchThemeEditor_thumbColor_disabled'),
           title: 'Disabled',
           value: thumbColor?.resolve({MaterialState.disabled}) ??
               Colors.grey.shade400,
-          onValueChanged: (color) {
-            context.read<SwitchThemeCubit>().thumbDisabledColorChanged(color);
-          },
+          onValueChanged: cubit.thumbDisabledColorChanged,
         ),
       ],
     );
@@ -72,6 +67,7 @@ class _ThumbColorPickers extends StatelessWidget {
 class _TrackColorPickers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<SwitchThemeCubit>();
     final trackColor = context.watch<SwitchThemeCubit>().state.theme.trackColor;
     final toggleableActiveColor =
         context.watch<ColorThemeCubit>().state.toggleableActiveColor;
@@ -84,27 +80,21 @@ class _TrackColorPickers extends StatelessWidget {
           key: const Key('switchThemeEditor_trackColor_default'),
           title: 'Default',
           value: trackColor?.resolve({}) ?? const Color(0x52000000),
-          onValueChanged: (color) {
-            context.read<SwitchThemeCubit>().trackDefaultColorChanged(color);
-          },
+          onValueChanged: cubit.trackDefaultColorChanged,
         ),
         MaterialStateItem(
           key: const Key('switchThemeEditor_trackColor_selected'),
           title: 'Selected',
           value: trackColor?.resolve({MaterialState.selected}) ??
               toggleableActiveColor.withAlpha(0x80),
-          onValueChanged: (color) {
-            context.read<SwitchThemeCubit>().trackSelectedColorChanged(color);
-          },
+          onValueChanged: cubit.trackSelectedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('switchThemeEditor_trackColor_disabled'),
           title: 'Disabled',
           value:
               trackColor?.resolve({MaterialState.disabled}) ?? Colors.black12,
-          onValueChanged: (color) {
-            context.read<SwitchThemeCubit>().trackDisabledColorChanged(color);
-          },
+          onValueChanged: cubit.trackDisabledColorChanged,
         ),
       ],
     );
@@ -114,6 +104,7 @@ class _TrackColorPickers extends StatelessWidget {
 class _OverlayColorPickers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<SwitchThemeCubit>();
     final overlayColor =
         context.watch<SwitchThemeCubit>().state.theme.overlayColor;
     final colorThemeState = context.watch<ColorThemeCubit>().state;
@@ -129,27 +120,21 @@ class _OverlayColorPickers extends StatelessWidget {
               colorThemeState.toggleableActiveColor.withAlpha(
                 kRadialReactionAlpha,
               ),
-          onValueChanged: (color) {
-            context.read<SwitchThemeCubit>().overlayPressedColorChanged(color);
-          },
+          onValueChanged: cubit.overlayPressedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('switchThemeEditor_overlayColor_hovered'),
           title: 'Hovered',
           value: overlayColor?.resolve({MaterialState.hovered}) ??
               colorThemeState.hoverColor,
-          onValueChanged: (color) {
-            context.read<SwitchThemeCubit>().overlayHoveredColorChanged(color);
-          },
+          onValueChanged: cubit.overlayHoveredColorChanged,
         ),
         MaterialStateItem(
           key: const Key('switchThemeEditor_overlayColor_focused'),
           title: 'Focused',
           value: overlayColor?.resolve({MaterialState.focused}) ??
               colorThemeState.focusColor,
-          onValueChanged: (color) {
-            context.read<SwitchThemeCubit>().overlayFocusedColorChanged(color);
-          },
+          onValueChanged: cubit.overlayFocusedColorChanged,
         ),
       ],
     );
@@ -160,6 +145,7 @@ class _MaterialTapTargetSizeDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SwitchThemeCubit, SwitchThemeState>(
+      key: const Key('switchThemeEditor_materialTapTargetSizeDropdown'),
       buildWhen: (previous, current) {
         return previous.theme.materialTapTargetSize !=
             current.theme.materialTapTargetSize;
@@ -168,14 +154,11 @@ class _MaterialTapTargetSizeDropdown extends StatelessWidget {
         final size =
             state.theme.materialTapTargetSize ?? MaterialTapTargetSize.padded;
         return DropdownListTile(
-          key: const Key('switchThemeEditor_materialTapTargetSizeDropdown'),
           title: 'Material tap target size',
           tooltip: SwitchThemeDocs.materialTapTargetSize,
           value: UtilService.enumToString(size),
           values: UtilService.getEnumStrings(MaterialTapTargetSize.values),
-          onChanged: (value) {
-            context.read<SwitchThemeCubit>().materialTapTargetSize(value!);
-          },
+          onChanged: context.read<SwitchThemeCubit>().materialTapTargetSize,
         );
       },
     );
@@ -186,12 +169,12 @@ class _SplashRadiusTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SwitchThemeCubit, SwitchThemeState>(
+      key: const Key('switchThemeEditor_splashRadiusTextField'),
       buildWhen: (previous, current) {
         return previous.theme.splashRadius != current.theme.splashRadius;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key('switchThemeEditor_splashRadiusTextField'),
           labelText: 'Splash radius',
           tooltip: SwitchThemeDocs.splashRadius,
           initialValue:

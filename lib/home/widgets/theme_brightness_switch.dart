@@ -1,8 +1,10 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:appainter/advanced_theme/advanced_theme.dart';
+import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:appainter/basic_theme/basic_theme.dart';
 
 class ThemeBrightnessSwitch extends StatelessWidget {
   const ThemeBrightnessSwitch({Key? key}) : super(key: key);

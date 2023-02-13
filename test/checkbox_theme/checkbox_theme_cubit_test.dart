@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:math';
 
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';

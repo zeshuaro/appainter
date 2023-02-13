@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: deprecated_member_use
+
 import 'package:flex_color_picker/flex_color_picker.dart';
+import 'package:flutter/material.dart';
 
 class WidgetService {
   static Future<void> showColorPicker({

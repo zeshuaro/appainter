@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/common/common.dart';
@@ -16,7 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  static const _sdkVersion = '3.3.10';
+  static const _sdkVersion = '3.7.0';
   static final _backgroundColorDark = Colors.grey[900]!;
   static final _backgroundColorLight = Colors.grey[200]!;
 
@@ -166,7 +168,7 @@ class _EditorsContainer extends StatelessWidget {
           length: EditMode.values.length,
           child: Builder(
             builder: (context) {
-              final controller = DefaultTabController.of(context)!;
+              final controller = DefaultTabController.of(context);
               controller.addListener(() {
                 if (!controller.indexIsChanging &&
                     controller.index != controller.previousIndex) {

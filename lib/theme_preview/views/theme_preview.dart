@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/app_bar_theme/cubit/app_bar_theme_cubit.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';

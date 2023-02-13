@@ -39,8 +39,9 @@ void main() {
     WidgetTester tester, [
     InputDecorationThemeState? state,
   ]) async {
-    when(() => inputDecorationThemeCubit.state)
-        .thenReturn(state ?? inputDecorationThemeState);
+    when(
+      () => inputDecorationThemeCubit.state,
+    ).thenReturn(state ?? inputDecorationThemeState);
 
     await tester.pumpWidget(
       MaterialApp(

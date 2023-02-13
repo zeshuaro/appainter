@@ -1,9 +1,9 @@
 import 'dart:math';
 
+import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 import '../utils.dart';
@@ -19,8 +19,9 @@ void main() {
     color = getRandomColor();
     doubleValue = Random().nextDouble();
   });
+
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit theme',
+    'emit theme',
     setUp: () {
       final colorScheme = randomColorSchemeLight(shouldPrint: false);
       theme = ThemeData.from(colorScheme: colorScheme).sliderTheme;
@@ -31,134 +32,108 @@ void main() {
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit track height',
+    'emit track height',
     build: () => cubit,
     act: (cubit) => cubit.trackHeightChanged(doubleValue.toString()),
-    expect: () => [
-      SliderThemeState(theme: SliderThemeData(trackHeight: doubleValue)),
-    ],
+    expect: () => [SliderThemeState.withTheme(trackHeight: doubleValue)],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit active track color',
+    'emit active track color',
     build: () => cubit,
     act: (cubit) => cubit.activeTrackColorChanged(color),
-    expect: () => [
-      SliderThemeState(theme: SliderThemeData(activeTrackColor: color)),
-    ],
+    expect: () => [SliderThemeState.withTheme(activeTrackColor: color)],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit inactive track color',
+    'emit inactive track color',
     build: () => cubit,
     act: (cubit) => cubit.inactiveTrackColorChanged(color),
-    expect: () => [
-      SliderThemeState(theme: SliderThemeData(inactiveTrackColor: color)),
-    ],
+    expect: () => [SliderThemeState.withTheme(inactiveTrackColor: color)],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit disabled active track color',
+    'emit disabled active track color',
     build: () => cubit,
     act: (cubit) => cubit.disabledActiveTrackColorChanged(color),
-    expect: () => [
-      SliderThemeState(theme: SliderThemeData(disabledActiveTrackColor: color)),
-    ],
+    expect: () => [SliderThemeState.withTheme(disabledActiveTrackColor: color)],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit disabled inactive track color',
+    'emit disabled inactive track color',
     build: () => cubit,
     act: (cubit) => cubit.disabledInactiveTrackColorChanged(color),
     expect: () => [
-      SliderThemeState(
-        theme: SliderThemeData(disabledInactiveTrackColor: color),
-      ),
+      SliderThemeState.withTheme(disabledInactiveTrackColor: color),
     ],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit active tick mark color',
+    'emit active tick mark color',
     build: () => cubit,
     act: (cubit) => cubit.activeTickMarkColorChanged(color),
-    expect: () => [
-      SliderThemeState(theme: SliderThemeData(activeTickMarkColor: color)),
-    ],
+    expect: () => [SliderThemeState.withTheme(activeTickMarkColor: color)],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit inactive tick mark color',
+    'emit inactive tick mark color',
     build: () => cubit,
     act: (cubit) => cubit.inactiveTickMarkColorChanged(color),
-    expect: () => [
-      SliderThemeState(theme: SliderThemeData(inactiveTickMarkColor: color)),
-    ],
+    expect: () => [SliderThemeState.withTheme(inactiveTickMarkColor: color)],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit disabled active tick mark color',
+    'emit disabled active tick mark color',
     build: () => cubit,
     act: (cubit) => cubit.disabledActiveTickMarkColorChanged(color),
     expect: () => [
-      SliderThemeState(
-        theme: SliderThemeData(disabledActiveTickMarkColor: color),
-      ),
+      SliderThemeState.withTheme(disabledActiveTickMarkColor: color),
     ],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit disabled inactive tick mark color',
+    'emit disabled inactive tick mark color',
     build: () => cubit,
     act: (cubit) => cubit.disabledInactiveTickMarkColorChanged(color),
     expect: () => [
-      SliderThemeState(
-        theme: SliderThemeData(disabledInactiveTickMarkColor: color),
-      ),
+      SliderThemeState.withTheme(disabledInactiveTickMarkColor: color),
     ],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit thumb color',
+    'emit thumb color',
     build: () => cubit,
     act: (cubit) => cubit.thumbColorChanged(color),
-    expect: () => [SliderThemeState(theme: SliderThemeData(thumbColor: color))],
+    expect: () => [SliderThemeState.withTheme(thumbColor: color)],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit disabled thumb color',
+    'emit disabled thumb color',
     build: () => cubit,
     act: (cubit) => cubit.disabledThumbColorChanged(color),
-    expect: () => [
-      SliderThemeState(theme: SliderThemeData(disabledThumbColor: color)),
-    ],
+    expect: () => [SliderThemeState.withTheme(disabledThumbColor: color)],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit overlapping shape stroke color',
+    'emit overlapping shape stroke color',
     build: () => cubit,
     act: (cubit) => cubit.overlappingShapeStrokeColorChanged(color),
     expect: () => [
-      SliderThemeState(
-        theme: SliderThemeData(overlappingShapeStrokeColor: color),
-      ),
+      SliderThemeState.withTheme(overlappingShapeStrokeColor: color),
     ],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit overlay color',
+    'emit overlay color',
     build: () => cubit,
     act: (cubit) => cubit.overlayColorChanged(color),
-    expect: () => [
-      SliderThemeState(theme: SliderThemeData(overlayColor: color)),
-    ],
+    expect: () => [SliderThemeState.withTheme(overlayColor: color)],
   );
 
   blocTest<SliderThemeCubit, SliderThemeState>(
-    'should emit value indicator color',
+    'emit value indicator color',
     build: () => cubit,
     act: (cubit) => cubit.valueIndicatorColorChanged(color),
-    expect: () => [
-      SliderThemeState(theme: SliderThemeData(valueIndicatorColor: color)),
-    ],
+    expect: () => [SliderThemeState.withTheme(valueIndicatorColor: color)],
   );
 }

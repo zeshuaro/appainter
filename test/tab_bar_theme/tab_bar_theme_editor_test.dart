@@ -3,7 +3,6 @@ import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/util_service.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,10 +10,12 @@ import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
 import '../utils.dart';
-import '../widget_testers.dart';
+import '../utils/widget_tester_utils.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Tab bar');
+  const expandText = 'Tab bar';
+  const tabBarThemeState = TabBarThemeState();
+  final defaultLabelTextStyle = TabBarThemeCubit.defaultLabelTextStyle;
 
   late TabBarThemeCubit tabBarThemeCubit;
   late TabBarLabelTextStyleCubit tabBarLabelTextStyleCubit;
@@ -30,39 +31,53 @@ void main() {
     colorThemeCubit = MockColorThemeCubit();
     color = getRandomColor();
 
-    when(() => tabBarThemeCubit.state).thenReturn(const TabBarThemeState());
-    when(() => tabBarLabelTextStyleCubit.state).thenReturn(
-      TextStyleState(style: TabBarThemeCubit.defaultLabelTextStyle),
-    );
-    when(() => tabBarUnselectedLabelTextStyleCubit.state).thenReturn(
-      TextStyleState(style: TabBarThemeCubit.defaultLabelTextStyle),
-    );
+    when(
+      () => tabBarLabelTextStyleCubit.state,
+    ).thenReturn(TextStyleState(style: defaultLabelTextStyle));
+    when(
+      () => tabBarUnselectedLabelTextStyleCubit.state,
+    ).thenReturn(TextStyleState(style: defaultLabelTextStyle));
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> pumpApp(WidgetTester tester, TabBarThemeState state) async {
-    whenListen(
-      tabBarThemeCubit,
-      Stream.fromIterable([const TabBarThemeState(), state]),
-    );
+  Future<void> pumpApp(WidgetTester tester, [TabBarThemeState? state]) async {
+    when(() => tabBarThemeCubit.state).thenReturn(state ?? tabBarThemeState);
 
     await tester.pumpWidget(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider.value(value: tabBarThemeCubit),
-          BlocProvider.value(value: tabBarLabelTextStyleCubit),
-          BlocProvider.value(value: tabBarUnselectedLabelTextStyleCubit),
-          BlocProvider.value(value: colorThemeCubit),
-        ],
-        child: MaterialApp(
-          home: MyExpansionPanelList(item: const TabBarThemeEditor()),
+      MaterialApp(
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: tabBarThemeCubit),
+            BlocProvider.value(value: tabBarLabelTextStyleCubit),
+            BlocProvider.value(value: tabBarUnselectedLabelTextStyleCubit),
+            BlocProvider.value(value: colorThemeCubit),
+          ],
+          child: Scaffold(
+            body: MyExpansionPanelList(
+              item: const TabBarThemeEditor(),
+            ),
+          ),
         ),
       ),
+    );
+    await tester.expandWidget(expandText);
+  }
+
+  void expectBlocBuilder(
+    WidgetTester tester,
+    String key,
+    TabBarThemeState state,
+  ) {
+    tester.expectBlocBuilder<TabBarThemeCubit, TabBarThemeState>(
+      key,
+      tabBarThemeState,
+      state,
     );
   }
 
   testWidgets('display nested editors', (tester) async {
-    await pumpApp(tester, const TabBarThemeState());
+    await pumpApp(tester);
+
     expect(
       find.byKey(const Key('tabBarThemeEditor_labelTextStyleCard')),
       findsOneWidget,
@@ -73,65 +88,68 @@ void main() {
     );
   });
 
-  testWidgets(
-    'label color picker update with selected color',
-    (tester) async {
-      final state = TabBarThemeState(theme: TabBarTheme(labelColor: color));
+  group('label color picker', () {
+    const key = 'tabBarThemeEditor_labelColorPicker';
 
+    testWidgets('render widget', (tester) async {
+      final state = TabBarThemeState.withTheme(labelColor: color);
       await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'tabBarThemeEditor_labelColorPicker',
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
         color,
+        tabBarThemeCubit.labelColorChanged,
       );
-      verify(() => tabBarThemeCubit.labelColorChanged(color)).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'unselected label color picker update with selected color',
-    (tester) async {
-      final color = getRandomColor();
-      final state = TabBarThemeState(
-        theme: TabBarTheme(unselectedLabelColor: color),
-      );
+  group('unselected label color picker', () {
+    const key = 'tabBarThemeEditor_unselectedLabelColorPicker';
 
+    testWidgets('render widget', (tester) async {
+      final state = TabBarThemeState.withTheme(unselectedLabelColor: color);
       await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'tabBarThemeEditor_unselectedLabelColorPicker',
-        color,
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.70);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        tabBarThemeCubit.unselectedLabelColorChanged,
       );
-      verify(() {
-        tabBarThemeCubit.unselectedLabelColorChanged(color);
-      }).called(1);
-    },
-  );
+    });
+  });
 
-  group('test indicator size dropdown', () {
+  group('indicator size dropdown', () {
+    const key = 'tabBarThemeEditor_indicatorSizeDropdown';
+
     for (var size in TabBarIndicatorSize.values) {
       final sizeStr = UtilService.enumToString(size);
-      testWidgets(
-        'update to $size',
-        (tester) async {
-          final state = TabBarThemeState(
-            theme: TabBarTheme(indicatorSize: size),
-          );
 
-          await pumpApp(tester, state);
+      testWidgets('render $size', (tester) async {
+        final state = TabBarThemeState.withTheme(indicatorSize: size);
 
-          await widgetTesters.checkDropbox(
-            tester,
-            'tabBarThemeEditor_indicatorSizeDropdown',
-            sizeStr,
-          );
-          verify(() {
-            tabBarThemeCubit.indicatorSizeChanged(sizeStr);
-          }).called(1);
-        },
-      );
+        await pumpApp(tester, state);
+
+        await tester.expectDropdown(key, sizeStr);
+        expectBlocBuilder(tester, key, state);
+      });
+
+      testWidgets('change $size', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyDropdown(
+          key,
+          sizeStr,
+          tabBarThemeCubit.indicatorSizeChanged,
+        );
+      });
     }
   });
 }

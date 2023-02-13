@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  static const _sdkVersion = '3.3.10';
+  static const _sdkVersion = '3.7.0';
   static final _backgroundColorDark = Colors.grey[900]!;
   static final _backgroundColorLight = Colors.grey[200]!;
 

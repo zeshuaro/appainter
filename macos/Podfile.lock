@@ -187,7 +187,7 @@ SPEC CHECKSUMS:
   path_provider_macos: 05fb0ef0cedf3e5bd179b9e41a638682b37133ea
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   Sentry: 4c9babff9034785067c896fd580b1f7de44da020
-  sentry_flutter: d3dad547d3db4918a8051a5ef738cc195c427b4b
+  sentry_flutter: b10ae7a5ddcbc7f04648eeb2672b5747230172f1
   shared_preferences_foundation: 297b3ebca31b34ec92be11acd7fb0ba932c822ca
   url_launcher_macos: c04e4fa86382d4f94f6b38f14625708be3ae52e2
   window_size: 339dafa0b27a95a62a843042038fa6c3c48de195

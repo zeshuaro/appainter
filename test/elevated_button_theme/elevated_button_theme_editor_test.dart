@@ -14,37 +14,39 @@ import '../utils/widget_tester_utils.dart';
 
 Future<void> main() async {
   const expandText = 'Elevated button';
-  const btnState = ElevatedButtonThemeState();
+  const elevatedButtonThemeState = ElevatedButtonThemeState();
 
-  late ElevatedButtonThemeCubit btnCubit;
-  late ColorThemeCubit colorCubit;
+  late ElevatedButtonThemeCubit elevatedButtonThemeCubit;
+  late ColorThemeCubit colorThemeCubit;
 
   late Color color;
   late double doubleNum;
   late String doubleStr;
 
   setUp(() {
-    btnCubit = MockElevatedButtonThemeCubit();
-    colorCubit = MockColorThemeCubit();
+    elevatedButtonThemeCubit = MockElevatedButtonThemeCubit();
+    colorThemeCubit = MockColorThemeCubit();
     color = getRandomColor();
     doubleNum = Random().nextDouble();
     doubleStr = doubleNum.toString();
 
-    when(() => colorCubit.state).thenReturn(ColorThemeState());
+    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
   Future<void> pumpApp(
     WidgetTester tester, [
     ElevatedButtonThemeState? state,
   ]) async {
-    when(() => btnCubit.state).thenReturn(state ?? btnState);
+    when(() => elevatedButtonThemeCubit.state).thenReturn(
+      state ?? elevatedButtonThemeState,
+    );
 
     await tester.pumpWidget(
       MaterialApp(
         home: MultiBlocProvider(
           providers: [
-            BlocProvider.value(value: btnCubit),
-            BlocProvider.value(value: colorCubit),
+            BlocProvider.value(value: elevatedButtonThemeCubit),
+            BlocProvider.value(value: colorThemeCubit),
           ],
           child: Scaffold(
             body: MyExpansionPanelList(
@@ -75,7 +77,7 @@ Future<void> main() async {
         await tester.verifyColorPicker(
           key,
           color,
-          btnCubit.backgroundDefaultColorChanged,
+          elevatedButtonThemeCubit.backgroundDefaultColorChanged,
         );
       });
     });
@@ -98,7 +100,7 @@ Future<void> main() async {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          btnCubit.backgroundDisabledColorChanged,
+          elevatedButtonThemeCubit.backgroundDisabledColorChanged,
         );
       });
     });
@@ -122,7 +124,7 @@ Future<void> main() async {
         await tester.verifyColorPicker(
           key,
           color,
-          btnCubit.foregroundDefaultColorChanged,
+          elevatedButtonThemeCubit.foregroundDefaultColorChanged,
         );
       });
     });
@@ -145,7 +147,7 @@ Future<void> main() async {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          btnCubit.foregroundDisabledColorChanged,
+          elevatedButtonThemeCubit.foregroundDisabledColorChanged,
         );
       });
     });
@@ -170,7 +172,7 @@ Future<void> main() async {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          btnCubit.overlayHoveredColorChanged,
+          elevatedButtonThemeCubit.overlayHoveredColorChanged,
         );
       });
     });
@@ -193,7 +195,7 @@ Future<void> main() async {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          btnCubit.overlayFocusedColorChanged,
+          elevatedButtonThemeCubit.overlayFocusedColorChanged,
         );
       });
     });
@@ -216,7 +218,7 @@ Future<void> main() async {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          btnCubit.overlayPressedColorChanged,
+          elevatedButtonThemeCubit.overlayPressedColorChanged,
         );
       });
     });
@@ -239,7 +241,7 @@ Future<void> main() async {
       await tester.verifyColorPicker(
         key,
         color,
-        btnCubit.shadowColorChanged,
+        elevatedButtonThemeCubit.shadowColorChanged,
       );
     });
   });
@@ -262,7 +264,7 @@ Future<void> main() async {
         await tester.verifyTextField(
           key,
           doubleStr,
-          btnCubit.defaultElevationChanged,
+          elevatedButtonThemeCubit.defaultElevationChanged,
         );
       });
     });
@@ -286,7 +288,7 @@ Future<void> main() async {
         await tester.verifyTextField(
           key,
           doubleStr,
-          btnCubit.disabledElevationChanged,
+          elevatedButtonThemeCubit.disabledElevationChanged,
         );
       });
     });
@@ -310,7 +312,7 @@ Future<void> main() async {
         await tester.verifyTextField(
           key,
           doubleStr,
-          btnCubit.hoveredElevationChanged,
+          elevatedButtonThemeCubit.hoveredElevationChanged,
         );
       });
     });
@@ -334,7 +336,7 @@ Future<void> main() async {
         await tester.verifyTextField(
           key,
           doubleStr,
-          btnCubit.focusedElevationChanged,
+          elevatedButtonThemeCubit.focusedElevationChanged,
         );
       });
     });
@@ -358,7 +360,7 @@ Future<void> main() async {
         await tester.verifyTextField(
           key,
           doubleStr,
-          btnCubit.pressedElevationChanged,
+          elevatedButtonThemeCubit.pressedElevationChanged,
         );
       });
     });

@@ -92,12 +92,12 @@ extension WidgetTesterUtils on WidgetTester {
     String value,
     ValueChanged<String> mockedMethod,
   ) async {
-    await tap(
-      find.descendant(
-        of: find.byKey(Key(key)),
-        matching: find.byKey(const Key('dropdownListTile_dropdownButton')),
-      ),
+    final dropdown = find.descendant(
+      of: find.byKey(Key(key)),
+      matching: find.byKey(const Key('dropdownListTile_dropdownButton')),
     );
+    await ensureVisible(dropdown);
+    await tap(dropdown);
     await pumpAndSettle();
 
     final item = find.byKey(ValueKey(value)).last;

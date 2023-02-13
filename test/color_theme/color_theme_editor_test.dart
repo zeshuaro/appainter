@@ -12,27 +12,27 @@ import '../utils/widget_tester_utils.dart';
 
 void main() {
   const expandText = 'Colors';
-  final colorState = ColorThemeState();
+  final colorThemeState = ColorThemeState();
 
-  late ColorThemeCubit colorCubit;
-  late AdvancedThemeCubit advancedCubit;
+  late ColorThemeCubit colorThemeCubit;
+  late AdvancedThemeCubit advancedThemeCubit;
   late Color color;
 
   setUp(() {
-    colorCubit = MockColorThemeCubit();
-    advancedCubit = MockAdvancedThemeCubit();
+    colorThemeCubit = MockColorThemeCubit();
+    advancedThemeCubit = MockAdvancedThemeCubit();
     color = getRandomColor();
   });
 
   Future<void> pumpApp(WidgetTester tester, [ColorThemeState? state]) async {
-    when(() => colorCubit.state).thenReturn(state ?? colorState);
+    when(() => colorThemeCubit.state).thenReturn(state ?? colorThemeState);
 
     await tester.pumpWidget(
       MaterialApp(
         home: MultiBlocProvider(
           providers: [
-            BlocProvider.value(value: colorCubit),
-            BlocProvider.value(value: advancedCubit),
+            BlocProvider.value(value: colorThemeCubit),
+            BlocProvider.value(value: advancedThemeCubit),
           ],
           child: Scaffold(
             body: MyExpansionPanelList(
@@ -52,7 +52,7 @@ void main() {
   ) {
     tester.expectBlocBuilder<ColorThemeCubit, ColorThemeState>(
       key,
-      colorState,
+      colorThemeState,
       state,
     );
   }
@@ -71,14 +71,16 @@ void main() {
 
     for (var isDark in [true, false]) {
       testWidgets('change color with isDark=$isDark', (tester) async {
-        when(() => advancedCubit.state).thenReturn(
+        when(() => advancedThemeCubit.state).thenReturn(
           AdvancedThemeState(isDark: isDark),
         );
 
         await pumpApp(tester);
 
         await tester.pickColor(key, color);
-        verify(() => colorCubit.primaryColorChanged(color, isDark)).called(1);
+        verify(() => colorThemeCubit.primaryColorChanged(color, isDark)).called(
+          1,
+        );
       });
     }
   });
@@ -99,14 +101,16 @@ void main() {
 
     for (var isDark in [true, false]) {
       testWidgets('change color with isDark=$isDark', (tester) async {
-        when(() => advancedCubit.state).thenReturn(
+        when(() => advancedThemeCubit.state).thenReturn(
           AdvancedThemeState(isDark: isDark),
         );
 
         await pumpApp(tester);
 
         await tester.pickColor(key, color);
-        verify(() => colorCubit.secondaryColorChanged(color, isDark)).called(1);
+        verify(() {
+          colorThemeCubit.secondaryColorChanged(color, isDark);
+        }).called(1);
       });
     }
   });
@@ -128,7 +132,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.primaryColorLightChanged,
+        colorThemeCubit.primaryColorLightChanged,
       );
     });
   });
@@ -150,7 +154,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.primaryColorDarkChanged,
+        colorThemeCubit.primaryColorDarkChanged,
       );
     });
   });
@@ -172,7 +176,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.backgroundColorChanged,
+        colorThemeCubit.backgroundColorChanged,
       );
     });
   });
@@ -194,7 +198,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.bottomAppBarColorChanged,
+        colorThemeCubit.bottomAppBarColorChanged,
       );
     });
   });
@@ -216,7 +220,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.canvasColorChanged,
+        colorThemeCubit.canvasColorChanged,
       );
     });
   });
@@ -238,7 +242,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.cardColorChanged,
+        colorThemeCubit.cardColorChanged,
       );
     });
   });
@@ -260,7 +264,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.dialogBackgroundColorChanged,
+        colorThemeCubit.dialogBackgroundColorChanged,
       );
     });
   });
@@ -283,7 +287,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        colorCubit.disabledColorChanged,
+        colorThemeCubit.disabledColorChanged,
       );
     });
   });
@@ -306,7 +310,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        colorCubit.dividerColorChanged,
+        colorThemeCubit.dividerColorChanged,
       );
     });
   });
@@ -328,7 +332,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.errorColorChanged,
+        colorThemeCubit.errorColorChanged,
       );
     });
   });
@@ -351,7 +355,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        colorCubit.focusColorChanged,
+        colorThemeCubit.focusColorChanged,
       );
     });
   });
@@ -374,7 +378,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        colorCubit.highlightColorChanged,
+        colorThemeCubit.highlightColorChanged,
       );
     });
   });
@@ -397,7 +401,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        colorCubit.hintColorChanged,
+        colorThemeCubit.hintColorChanged,
       );
     });
   });
@@ -420,7 +424,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        colorCubit.hoverColorChanged,
+        colorThemeCubit.hoverColorChanged,
       );
     });
   });
@@ -442,7 +446,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.indicatorColorChanged,
+        colorThemeCubit.indicatorColorChanged,
       );
     });
   });
@@ -464,7 +468,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.scaffoldBackgroundColorChanged,
+        colorThemeCubit.scaffoldBackgroundColorChanged,
       );
     });
   });
@@ -486,7 +490,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.secondaryHeaderColorChanged,
+        colorThemeCubit.secondaryHeaderColorChanged,
       );
     });
   });
@@ -508,7 +512,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.selectedRowColorChanged,
+        colorThemeCubit.selectedRowColorChanged,
       );
     });
   });
@@ -530,7 +534,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.shadowColorChanged,
+        colorThemeCubit.shadowColorChanged,
       );
     });
   });
@@ -553,7 +557,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        colorCubit.splashColorChanged,
+        colorThemeCubit.splashColorChanged,
       );
     });
   });
@@ -575,7 +579,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorCubit.toggleableActiveColorChanged,
+        colorThemeCubit.toggleableActiveColorChanged,
       );
     });
   });
@@ -598,7 +602,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        colorCubit.unselectedWidgetColorChanged,
+        colorThemeCubit.unselectedWidgetColorChanged,
       );
     });
   });

@@ -15,38 +15,39 @@ import '../utils/widget_tester_utils.dart';
 
 void main() {
   const expandText = 'Input decoration';
-  const decoState = InputDecorationThemeState();
+  const inputDecorationThemeState = InputDecorationThemeState();
 
-  late InputDecorationThemeCubit decoCubit;
-  late ColorThemeCubit colorCubit;
+  late InputDecorationThemeCubit inputDecorationThemeCubit;
+  late ColorThemeCubit colorThemeCubit;
 
   late Color color;
   late double doubleNum;
   late String doubleStr;
 
   setUp(() {
-    decoCubit = MockInputDecorationThemeCubit();
-    colorCubit = MockColorThemeCubit();
+    inputDecorationThemeCubit = MockInputDecorationThemeCubit();
+    colorThemeCubit = MockColorThemeCubit();
 
     color = getRandomColor();
     doubleNum = Random().nextDouble();
     doubleStr = doubleNum.toString();
 
-    when(() => colorCubit.state).thenReturn(ColorThemeState());
+    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
   Future<void> pumpApp(
     WidgetTester tester, [
     InputDecorationThemeState? state,
   ]) async {
-    when(() => decoCubit.state).thenReturn(state ?? decoState);
+    when(() => inputDecorationThemeCubit.state)
+        .thenReturn(state ?? inputDecorationThemeState);
 
     await tester.pumpWidget(
       MaterialApp(
         home: MultiBlocProvider(
           providers: [
-            BlocProvider.value(value: decoCubit),
-            BlocProvider.value(value: colorCubit),
+            BlocProvider.value(value: inputDecorationThemeCubit),
+            BlocProvider.value(value: colorThemeCubit),
           ],
           child: Scaffold(
             body: MyExpansionPanelList(
@@ -67,7 +68,7 @@ void main() {
     tester.expectBlocBuilder<InputDecorationThemeCubit,
         InputDecorationThemeState>(
       key,
-      decoState,
+      inputDecorationThemeState,
       state,
     );
   }
@@ -90,7 +91,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        decoCubit.fillColorChanged,
+        inputDecorationThemeCubit.fillColorChanged,
       );
     });
   });
@@ -110,7 +111,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        decoCubit.hoverColorChanged,
+        inputDecorationThemeCubit.hoverColorChanged,
       );
     });
   });
@@ -127,7 +128,7 @@ void main() {
         await pumpApp(tester, state);
 
         tester.expectSwitch(key, isAligned);
-        if (isAligned != decoState.theme.alignLabelWithHint) {
+        if (isAligned != inputDecorationThemeState.theme.alignLabelWithHint) {
           expectBlocBuilder(tester, key, state);
         }
       });
@@ -140,7 +141,7 @@ void main() {
         await tester.verifySwitch(
           key,
           isAligned,
-          decoCubit.alignLabelWithHintChanged,
+          inputDecorationThemeCubit.alignLabelWithHintChanged,
         );
       });
     }
@@ -156,7 +157,7 @@ void main() {
         await pumpApp(tester, state);
 
         tester.expectSwitch(key, isFilled);
-        if (isFilled != decoState.theme.filled) {
+        if (isFilled != inputDecorationThemeState.theme.filled) {
           expectBlocBuilder(tester, key, state);
         }
       });
@@ -167,7 +168,7 @@ void main() {
         await tester.verifySwitch(
           key,
           isFilled,
-          decoCubit.filledChanged,
+          inputDecorationThemeCubit.filledChanged,
         );
       });
     }
@@ -184,7 +185,7 @@ void main() {
         await pumpApp(tester, state);
 
         tester.expectSwitch(key, isCollapsed);
-        if (isCollapsed != decoState.theme.isCollapsed) {
+        if (isCollapsed != inputDecorationThemeState.theme.isCollapsed) {
           expectBlocBuilder(tester, key, state);
         }
       });
@@ -196,7 +197,7 @@ void main() {
         await tester.verifySwitch(
           key,
           isCollapsed,
-          decoCubit.isCollapsedChanged,
+          inputDecorationThemeCubit.isCollapsedChanged,
         );
       });
     }
@@ -212,7 +213,7 @@ void main() {
         await pumpApp(tester, state);
 
         tester.expectSwitch(key, isDense);
-        if (isDense != decoState.theme.isDense) {
+        if (isDense != inputDecorationThemeState.theme.isDense) {
           expectBlocBuilder(tester, key, state);
         }
       });
@@ -223,7 +224,7 @@ void main() {
         await tester.verifySwitch(
           key,
           isDense,
-          decoCubit.isDenseChanged,
+          inputDecorationThemeCubit.isDenseChanged,
         );
       });
     }
@@ -248,7 +249,7 @@ void main() {
       await tester.verifyTextField(
         key,
         valStr,
-        decoCubit.errorMaxLinesChanged,
+        inputDecorationThemeCubit.errorMaxLinesChanged,
       );
     });
   });
@@ -272,7 +273,7 @@ void main() {
       await tester.verifyTextField(
         key,
         valStr,
-        decoCubit.helperMaxLinesChanged,
+        inputDecorationThemeCubit.helperMaxLinesChanged,
       );
     });
   });
@@ -291,7 +292,7 @@ void main() {
         await pumpApp(tester, state);
 
         await tester.expectDropdown(key, behaviorStr);
-        if (behavior != decoState.theme.floatingLabelBehavior) {
+        if (behavior != inputDecorationThemeState.theme.floatingLabelBehavior) {
           expectBlocBuilder(tester, key, state);
         }
       });
@@ -301,7 +302,7 @@ void main() {
         await tester.verifyDropdown(
           key,
           behaviorStr,
-          decoCubit.floatingLabelBehaviorChanged,
+          inputDecorationThemeCubit.floatingLabelBehaviorChanged,
         );
       });
     }
@@ -328,7 +329,7 @@ void main() {
         await tester.verifyDropdown(
           key,
           borderStr,
-          decoCubit.borderChanged,
+          inputDecorationThemeCubit.borderChanged,
         );
       });
     }
@@ -360,7 +361,7 @@ void main() {
       await tester.verifyTextField(
         key,
         doubleStr,
-        decoCubit.borderRadiusChanged,
+        inputDecorationThemeCubit.borderRadiusChanged,
       );
     });
   });
@@ -387,7 +388,7 @@ void main() {
         await tester.verifyColorPicker(
           key,
           color,
-          decoCubit.enabledBorderSideColorChanged,
+          inputDecorationThemeCubit.enabledBorderSideColorChanged,
         );
       });
     });
@@ -412,7 +413,7 @@ void main() {
         await tester.verifyTextField(
           key,
           doubleStr,
-          decoCubit.enabledBorderSideWidthChanged,
+          inputDecorationThemeCubit.enabledBorderSideWidthChanged,
         );
       });
     });
@@ -438,7 +439,7 @@ void main() {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          decoCubit.disabledBorderSideColorChanged,
+          inputDecorationThemeCubit.disabledBorderSideColorChanged,
         );
       });
     });
@@ -463,7 +464,7 @@ void main() {
         await tester.verifyTextField(
           key,
           doubleStr,
-          decoCubit.disabledBorderSideWidthChanged,
+          inputDecorationThemeCubit.disabledBorderSideWidthChanged,
         );
       });
     });
@@ -488,7 +489,7 @@ void main() {
         await tester.verifyColorPicker(
           key,
           color,
-          decoCubit.errorBorderSideColorChanged,
+          inputDecorationThemeCubit.errorBorderSideColorChanged,
         );
       });
     });
@@ -513,7 +514,7 @@ void main() {
         await tester.verifyTextField(
           key,
           doubleStr,
-          decoCubit.errorBorderSideWidthChanged,
+          inputDecorationThemeCubit.errorBorderSideWidthChanged,
         );
       });
     });

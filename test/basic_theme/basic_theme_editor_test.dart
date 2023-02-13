@@ -26,8 +26,10 @@ void main() {
       MaterialApp(
         home: BlocProvider.value(
           value: cubit,
-          child: const SingleChildScrollView(
-            child: BasicThemeEditor(),
+          child: const Scaffold(
+            body: SingleChildScrollView(
+              child: BasicThemeEditor(),
+            ),
           ),
         ),
       ),

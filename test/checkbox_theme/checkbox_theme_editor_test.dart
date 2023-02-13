@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/services.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -13,42 +14,48 @@ import '../utils.dart';
 import '../utils/widget_tester_utils.dart';
 
 void main() {
-  const checkboxState = CheckboxThemeState();
+  const expandText = 'Checkbox';
+  const checkboxThemeState = CheckboxThemeState();
 
-  late CheckboxThemeCubit checkboxCubit;
-  late ColorThemeCubit colorCubit;
+  late CheckboxThemeCubit checkboxThemeCubit;
+  late ColorThemeCubit colorThemeCubit;
 
   late Color color;
   late double doubleNum;
   late String doubleStr;
 
   setUp(() {
-    checkboxCubit = MockCheckboxThemeCubit();
-    colorCubit = MockColorThemeCubit();
+    checkboxThemeCubit = MockCheckboxThemeCubit();
+    colorThemeCubit = MockColorThemeCubit();
 
     color = getRandomColor();
     doubleNum = Random().nextDouble();
     doubleStr = doubleNum.toString();
 
-    when(() => colorCubit.state).thenReturn(ColorThemeState());
+    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
   Future<void> pumpApp(WidgetTester tester, [CheckboxThemeState? state]) async {
-    when(() => checkboxCubit.state).thenReturn(state ?? checkboxState);
+    when(() => checkboxThemeCubit.state).thenReturn(
+      state ?? checkboxThemeState,
+    );
 
     await tester.pumpWidget(
       MaterialApp(
         home: MultiBlocProvider(
           providers: [
-            BlocProvider.value(value: checkboxCubit),
-            BlocProvider.value(value: colorCubit),
+            BlocProvider.value(value: checkboxThemeCubit),
+            BlocProvider.value(value: colorThemeCubit),
           ],
-          child: const Scaffold(
-            body: CheckboxThemeEditor(),
+          child: Scaffold(
+            body: MyExpansionPanelList(
+              item: const CheckboxThemeEditor(),
+            ),
           ),
         ),
       ),
     );
+    await tester.expandWidget(expandText);
   }
 
   void expectBlocBuilder(
@@ -58,7 +65,7 @@ void main() {
   ) {
     tester.expectBlocBuilder<CheckboxThemeCubit, CheckboxThemeState>(
       key,
-      checkboxState,
+      checkboxThemeState,
       state,
     );
   }
@@ -82,7 +89,7 @@ void main() {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          checkboxCubit.fillDefaultColorChanged,
+          checkboxThemeCubit.fillDefaultColorChanged,
         );
       });
     });
@@ -104,7 +111,7 @@ void main() {
         await tester.verifyColorPicker(
           key,
           color,
-          checkboxCubit.fillSelectedColorChanged,
+          checkboxThemeCubit.fillSelectedColorChanged,
         );
       });
     });
@@ -127,7 +134,7 @@ void main() {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          checkboxCubit.fillDisabledColorChanged,
+          checkboxThemeCubit.fillDisabledColorChanged,
         );
       });
     });
@@ -150,7 +157,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        checkboxCubit.checkColorChanged,
+        checkboxThemeCubit.checkColorChanged,
       );
     });
   });
@@ -174,7 +181,7 @@ void main() {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          checkboxCubit.overlayPressedColorChanged,
+          checkboxThemeCubit.overlayPressedColorChanged,
         );
       });
     });
@@ -197,7 +204,7 @@ void main() {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          checkboxCubit.overlayHoveredColorChanged,
+          checkboxThemeCubit.overlayHoveredColorChanged,
         );
       });
     });
@@ -220,7 +227,7 @@ void main() {
         await tester.verifyColorPicker(
           key,
           opaqueColor,
-          checkboxCubit.overlayFocusedColorChanged,
+          checkboxThemeCubit.overlayFocusedColorChanged,
         );
       });
     });
@@ -243,7 +250,7 @@ void main() {
       await tester.verifyTextField(
         key,
         doubleStr,
-        checkboxCubit.splashRadiusChanged,
+        checkboxThemeCubit.splashRadiusChanged,
       );
     });
   });
@@ -268,7 +275,7 @@ void main() {
         await tester.verifyDropdown(
           key,
           sizeStr,
-          checkboxCubit.materialTapTargetSize,
+          checkboxThemeCubit.materialTapTargetSize,
         );
       });
     }

@@ -69,7 +69,7 @@ class TabBarThemeCubit extends Cubit<TabBarThemeState> {
     emit(state.copyWith(theme: theme));
   }
 
-  void indicatorSizeChanged(String value) {
+  void indicatorSizeChanged(String? value) {
     final size = UtilService.stringToEnum(TabBarIndicatorSize.values, value);
     if (size != null) {
       final theme = state.theme.copyWith(indicatorSize: size);

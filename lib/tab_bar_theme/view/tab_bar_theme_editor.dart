@@ -52,9 +52,7 @@ class _LabelColorPicker extends StatelessWidget {
       title: 'Label color',
       tooltip: TabBarThemeDocs.labelColor,
       color: labelColor ?? onPrimaryColor,
-      onColorChanged: (color) {
-        context.read<TabBarThemeCubit>().labelColorChanged(color);
-      },
+      onColorChanged: context.read<TabBarThemeCubit>().labelColorChanged,
     );
   }
 }
@@ -76,9 +74,8 @@ class _UnselectedLabelColorPicker extends StatelessWidget {
       title: 'Unselected label color',
       tooltip: TabBarThemeDocs.unselectedLabelColor,
       color: unselectedLabelColor ?? unselectedColor,
-      onColorChanged: (color) {
-        context.read<TabBarThemeCubit>().unselectedLabelColorChanged(color);
-      },
+      onColorChanged:
+          context.read<TabBarThemeCubit>().unselectedLabelColorChanged,
     );
   }
 }
@@ -87,20 +84,18 @@ class _IndicatorSizeDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TabBarThemeCubit, TabBarThemeState>(
+      key: const Key('tabBarThemeEditor_indicatorSizeDropdown'),
       buildWhen: (previous, current) {
         return previous.theme.indicatorSize != current.theme.indicatorSize;
       },
       builder: (context, state) {
         final size = state.theme.indicatorSize ?? TabBarIndicatorSize.tab;
         return DropdownListTile(
-          key: const Key('tabBarThemeEditor_indicatorSizeDropdown'),
           title: 'Indicator size',
           tooltip: TabBarThemeDocs.indicatorSize,
           value: UtilService.enumToString(size),
           values: UtilService.getEnumStrings(TabBarIndicatorSize.values),
-          onChanged: (value) {
-            context.read<TabBarThemeCubit>().indicatorSizeChanged(value!);
-          },
+          onChanged: context.read<TabBarThemeCubit>().indicatorSizeChanged,
         );
       },
     );

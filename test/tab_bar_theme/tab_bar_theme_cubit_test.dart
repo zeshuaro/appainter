@@ -53,18 +53,14 @@ void main() {
     'emit label color',
     build: () => themeCubit,
     act: (cubit) => cubit.labelColorChanged(color),
-    expect: () => [TabBarThemeState(theme: TabBarTheme(labelColor: color))],
+    expect: () => [TabBarThemeState.withTheme(labelColor: color)],
   );
 
   blocTest<TabBarThemeCubit, TabBarThemeState>(
     'emit unselected label color',
     build: () => themeCubit,
     act: (cubit) => cubit.unselectedLabelColorChanged(color),
-    expect: () {
-      return [
-        TabBarThemeState(theme: TabBarTheme(unselectedLabelColor: color)),
-      ];
-    },
+    expect: () => [TabBarThemeState.withTheme(unselectedLabelColor: color)],
   );
 
   group('test indicator size', () {
@@ -75,9 +71,7 @@ void main() {
         act: (cubit) {
           cubit.indicatorSizeChanged(UtilService.enumToString(size));
         },
-        expect: () {
-          return [TabBarThemeState(theme: TabBarTheme(indicatorSize: size))];
-        },
+        expect: () => [TabBarThemeState.withTheme(indicatorSize: size)],
       );
     }
   });

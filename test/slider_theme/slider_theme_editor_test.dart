@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,310 +10,349 @@ import 'package:mocktail/mocktail.dart';
 
 import '../mocks.dart';
 import '../utils.dart';
-import '../widget_testers.dart';
+import '../utils/widget_tester_utils.dart';
 
 void main() {
-  final widgetTesters = WidgetTesters(expandText: 'Slider');
+  const expandText = 'Slider';
+  const sliderThemeState = SliderThemeState();
 
   late SliderThemeCubit sliderThemeCubit;
   late ColorThemeCubit colorThemeCubit;
+
   late Color color;
-  late double doubleValue;
+  late double doubleNum;
+  late String doubleStr;
 
   setUp(() {
     sliderThemeCubit = MockSliderThemeCubit();
     colorThemeCubit = MockColorThemeCubit();
-    color = getRandomColor();
-    doubleValue = Random().nextDouble();
 
-    when(() => sliderThemeCubit.state).thenReturn(const SliderThemeState());
+    color = getRandomColor();
+    doubleNum = Random().nextDouble();
+    doubleStr = doubleNum.toString();
+
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
-  Future<void> pumpApp(WidgetTester tester, SliderThemeState state) async {
-    whenListen(
-      sliderThemeCubit,
-      Stream.fromIterable([const SliderThemeState(), state]),
-    );
+  Future<void> pumpApp(WidgetTester tester, [SliderThemeState? state]) async {
+    when(() => sliderThemeCubit.state).thenReturn(state ?? sliderThemeState);
 
     await tester.pumpWidget(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider.value(value: sliderThemeCubit),
-          BlocProvider.value(value: colorThemeCubit),
-        ],
-        child: MaterialApp(
-          home: MyExpansionPanelList(item: const SliderThemeEditor()),
+      MaterialApp(
+        home: MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: sliderThemeCubit),
+            BlocProvider.value(value: colorThemeCubit),
+          ],
+          child: Scaffold(
+            body: MyExpansionPanelList(
+              item: const SliderThemeEditor(),
+            ),
+          ),
         ),
       ),
     );
+    await tester.expandWidget(expandText);
   }
 
-  testWidgets(
-    'track height text field should update with value',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(trackHeight: doubleValue),
-      );
+  void expectBlocBuilder(
+    WidgetTester tester,
+    String key,
+    SliderThemeState state,
+  ) {
+    tester.expectBlocBuilder<SliderThemeCubit, SliderThemeState>(
+      key,
+      sliderThemeState,
+      state,
+    );
+  }
+
+  group('track height text field', () {
+    const key = 'sliderThemeEditor_trackHeightTextField';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(trackHeight: doubleNum);
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkTextField(
-        tester,
-        'sliderThemeEditor_trackHeightTextField',
-        doubleValue,
-      );
-      verify(
-        () => sliderThemeCubit.trackHeightChanged(doubleValue.toString()),
-      ).called(1);
-    },
-  );
+      await tester.expectTextField(key, doubleStr);
+      expectBlocBuilder(tester, key, state);
+    });
 
-  testWidgets(
-    'active track color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(activeTrackColor: color),
+    testWidgets('change value', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        sliderThemeCubit.trackHeightChanged,
       );
+    });
+  });
 
+  group('active track color picker', () {
+    const key = 'sliderThemeEditor_activeTrackColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(activeTrackColor: color);
       await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_activeTrackColorPicker',
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
         color,
+        sliderThemeCubit.activeTrackColorChanged,
       );
-      verify(() => sliderThemeCubit.activeTrackColorChanged(color)).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'inactive track color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(inactiveTrackColor: color),
+  group('inactive track color picker', () {
+    const key = 'sliderThemeEditor_inactiveTrackColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(inactiveTrackColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.24);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        sliderThemeCubit.inactiveTrackColorChanged,
+      );
+    });
+  });
+
+  group('disabled active track color picker', () {
+    const key = 'sliderThemeEditor_disabledActiveTrackColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(disabledActiveTrackColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.32);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        sliderThemeCubit.disabledActiveTrackColorChanged,
+      );
+    });
+  });
+
+  group('disabled inactive track color picker', () {
+    const key = 'sliderThemeEditor_disabledInactiveTrackColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(
+        disabledInactiveTrackColor: color,
+      );
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.12);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        sliderThemeCubit.disabledInactiveTrackColorChanged,
+      );
+    });
+  });
+
+  group('active tick mark color picker', () {
+    const key = 'sliderThemeEditor_activeTickMarkColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(activeTickMarkColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.54);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        sliderThemeCubit.activeTickMarkColorChanged,
+      );
+    });
+  });
+
+  group('inactive tick mark color picker', () {
+    const key = 'sliderThemeEditor_inactiveTickMarkColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(inactiveTickMarkColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.54);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        sliderThemeCubit.inactiveTickMarkColorChanged,
+      );
+    });
+  });
+
+  group('disabled active tick mark color picker', () {
+    const key = 'sliderThemeEditor_disabledActiveTickMarkColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(
+        disabledActiveTickMarkColor: color,
+      );
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.12);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        sliderThemeCubit.disabledActiveTickMarkColorChanged,
+      );
+    });
+  });
+
+  group('disabled inactive tick mark color picker', () {
+    const key = 'sliderThemeEditor_disabledInactiveTrackColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(
+        disabledInactiveTrackColor: color,
+      );
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.12);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        sliderThemeCubit.disabledInactiveTrackColorChanged,
+      );
+    });
+  });
+
+  group('thumb color picker', () {
+    const key = 'sliderThemeEditor_thumbColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(thumbColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        color,
+        sliderThemeCubit.thumbColorChanged,
+      );
+    });
+  });
+
+  group('disabled thumb color picker', () {
+    const key = 'sliderThemeEditor_disabledThumbColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(disabledThumbColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.32);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        sliderThemeCubit.disabledThumbColorChanged,
+      );
+    });
+  });
+
+  group('overlapping shapes stroke color picker', () {
+    const key = 'sliderThemeEditor_overlappingShapeStrokeColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(
+        overlappingShapeStrokeColor: color,
       );
 
       await pumpApp(tester, state);
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_inactiveTrackColorPicker',
+      await tester.expectColorIndicator(key, color);
+      expectBlocBuilder(tester, key, state);
+    });
+
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
         color,
+        sliderThemeCubit.overlappingShapeStrokeColorChanged,
       );
-      verify(() => sliderThemeCubit.inactiveTrackColorChanged(color)).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'disabled active track color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(disabledActiveTrackColor: color),
-      );
+  group('overlay color picker', () {
+    const key = 'sliderThemeEditor_overlayColorPicker';
 
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(overlayColor: color);
       await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_disabledActiveTrackColorPicker',
-        color,
+    testWidgets('change color', (tester) async {
+      final opaqueColor = color.withOpacity(0.12);
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
+        opaqueColor,
+        sliderThemeCubit.overlayColorChanged,
       );
-      verify(
-        () => sliderThemeCubit.disabledActiveTrackColorChanged(color),
-      ).called(1);
-    },
-  );
+    });
+  });
 
-  testWidgets(
-    'disabled inactive track color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(disabledInactiveTrackColor: color),
-      );
+  group('valud indicator color picker', () {
+    const key = 'sliderThemeEditor_valueIndicatorColorPicker';
 
+    testWidgets('render widget', (tester) async {
+      final state = SliderThemeState.withTheme(valueIndicatorColor: color);
       await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
 
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_disabledInactiveTrackColorPicker',
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPicker(
+        key,
         color,
+        sliderThemeCubit.valueIndicatorColorChanged,
       );
-      verify(
-        () => sliderThemeCubit.disabledInactiveTrackColorChanged(color),
-      ).called(1);
-    },
-  );
-
-  testWidgets(
-    'active tick mark color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(activeTickMarkColor: color),
-      );
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_activeTickMarkColorPicker',
-        color,
-      );
-      verify(
-        () => sliderThemeCubit.activeTickMarkColorChanged(color),
-      ).called(1);
-    },
-  );
-
-  testWidgets(
-    'inactive tick mark color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(inactiveTickMarkColor: color),
-      );
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_inactiveTickMarkColorPicker',
-        color,
-      );
-      verify(
-        () => sliderThemeCubit.inactiveTickMarkColorChanged(color),
-      ).called(1);
-    },
-  );
-
-  testWidgets(
-    'disabled active tick mark color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(disabledActiveTickMarkColor: color),
-      );
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_disabledActiveTickMarkColorPicker',
-        color,
-      );
-      verify(
-        () => sliderThemeCubit.disabledActiveTickMarkColorChanged(color),
-      ).called(1);
-    },
-  );
-
-  testWidgets(
-    'disabled inactive tick mark color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(disabledInactiveTickMarkColor: color),
-      );
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_disabledInactiveTickMarkColorPicker',
-        color,
-      );
-      verify(
-        () => sliderThemeCubit.disabledInactiveTickMarkColorChanged(color),
-      ).called(1);
-    },
-  );
-
-  testWidgets(
-    'thumb color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(theme: SliderThemeData(thumbColor: color));
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_thumbColorPicker',
-        color,
-      );
-      verify(() => sliderThemeCubit.thumbColorChanged(color)).called(1);
-    },
-  );
-
-  testWidgets(
-    'disabled thumb color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(disabledThumbColor: color),
-      );
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_disabledThumbColorPicker',
-        color,
-      );
-      verify(() => sliderThemeCubit.disabledThumbColorChanged(color)).called(1);
-    },
-  );
-
-  testWidgets(
-    'overlapping shapes stroke color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(overlappingShapeStrokeColor: color),
-      );
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_overlappingShapeStrokeColorPicker',
-        color,
-      );
-      verify(
-        () => sliderThemeCubit.overlappingShapeStrokeColorChanged(color),
-      ).called(1);
-    },
-  );
-
-  testWidgets(
-    'overlay color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(overlayColor: color),
-      );
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_overlayColorPicker',
-        color,
-      );
-      verify(() => sliderThemeCubit.overlayColorChanged(color)).called(1);
-    },
-  );
-
-  testWidgets(
-    'valud indicator color picker should update with selected color',
-    (tester) async {
-      final state = SliderThemeState(
-        theme: SliderThemeData(valueIndicatorColor: color),
-      );
-
-      await pumpApp(tester, state);
-
-      await widgetTesters.checkColorPicker(
-        tester,
-        'sliderThemeEditor_valueIndicatorColorPicker',
-        color,
-      );
-      verify(
-        () => sliderThemeCubit.valueIndicatorColorChanged(color),
-      ).called(1);
-    },
-  );
+    });
+  });
 }

@@ -33,8 +33,10 @@ void main() {
       MaterialApp(
         home: BlocProvider.value(
           value: cubit,
-          child: MyExpansionPanelList(
-            item: const TestIconThemeEditor(),
+          child: Scaffold(
+            body: MyExpansionPanelList(
+              item: const TestIconThemeEditor(),
+            ),
           ),
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:appainter/abstract_text_style/cubit/abstract_text_style_cubit.da
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/util_service.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -14,12 +15,16 @@ import '../utils.dart';
 import '../utils/widget_tester_utils.dart';
 
 void main() {
-  const botState = BottomNavigationBarThemeState();
-  final textStyle = BottomNavigationBarThemeCubit.defaultLabelTextStyle;
+  const expandText = 'Bottom navigation bar';
+  const bottomNavigationBarThemeState = BottomNavigationBarThemeState();
+  final defaultLabelTextStyle =
+      BottomNavigationBarThemeCubit.defaultLabelTextStyle;
 
-  late BottomNavigationBarThemeCubit botCubit;
-  late BottomNavigationBarLabelTextStyleCubit botLabelCubit;
-  late BottomNavigationBarUnselectedLabelTextStyleCubit botUnselectedLabelCubit;
+  late BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
+  late BottomNavigationBarLabelTextStyleCubit
+      bottomNavigationBarLabelTextStyleCubit;
+  late BottomNavigationBarUnselectedLabelTextStyleCubit
+      bottomNavigationBarUnselectedLabelTextStyleCubit;
   late ColorThemeCubit colorThemeCubit;
 
   late Color color;
@@ -27,9 +32,10 @@ void main() {
   late String doubleStr;
 
   setUp(() {
-    botCubit = MockBottomNavigationBarThemeCubit();
-    botLabelCubit = MockBottomNavigationBarLabelTextStyleCubit();
-    botUnselectedLabelCubit =
+    bottomNavigationBarThemeCubit = MockBottomNavigationBarThemeCubit();
+    bottomNavigationBarLabelTextStyleCubit =
+        MockBottomNavigationBarLabelTextStyleCubit();
+    bottomNavigationBarUnselectedLabelTextStyleCubit =
         MockBottomNavigationBarUnselectedLabelTextStyleCubit();
     colorThemeCubit = MockColorThemeCubit();
 
@@ -37,12 +43,12 @@ void main() {
     doubleNum = Random().nextDouble();
     doubleStr = doubleNum.toString();
 
-    when(() => botLabelCubit.state).thenReturn(
-      TextStyleState(style: textStyle),
-    );
-    when(() => botUnselectedLabelCubit.state).thenReturn(
-      TextStyleState(style: textStyle),
-    );
+    when(
+      () => bottomNavigationBarLabelTextStyleCubit.state,
+    ).thenReturn(TextStyleState(style: defaultLabelTextStyle));
+    when(
+      () => bottomNavigationBarUnselectedLabelTextStyleCubit.state,
+    ).thenReturn(TextStyleState(style: defaultLabelTextStyle));
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
@@ -50,23 +56,30 @@ void main() {
     WidgetTester tester, [
     BottomNavigationBarThemeState? state,
   ]) async {
-    when(() => botCubit.state).thenReturn(state ?? botState);
+    when(
+      () => bottomNavigationBarThemeCubit.state,
+    ).thenReturn(state ?? bottomNavigationBarThemeState);
 
     await tester.pumpWidget(
       MaterialApp(
         home: MultiBlocProvider(
           providers: [
-            BlocProvider.value(value: botCubit),
-            BlocProvider.value(value: botLabelCubit),
-            BlocProvider.value(value: botUnselectedLabelCubit),
+            BlocProvider.value(value: bottomNavigationBarThemeCubit),
+            BlocProvider.value(value: bottomNavigationBarLabelTextStyleCubit),
+            BlocProvider.value(
+              value: bottomNavigationBarUnselectedLabelTextStyleCubit,
+            ),
             BlocProvider.value(value: colorThemeCubit),
           ],
-          child: const Scaffold(
-            body: BottomNavigationBarThemeEditor(),
+          child: Scaffold(
+            body: MyExpansionPanelList(
+              item: const BottomNavigationBarThemeEditor(),
+            ),
           ),
         ),
       ),
     );
+    await tester.expandWidget(expandText);
   }
 
   void expectBlocBuilder(
@@ -75,7 +88,11 @@ void main() {
     BottomNavigationBarThemeState state,
   ) {
     tester.expectBlocBuilder<BottomNavigationBarThemeCubit,
-        BottomNavigationBarThemeState>(key, botState, state);
+        BottomNavigationBarThemeState>(
+      key,
+      bottomNavigationBarThemeState,
+      state,
+    );
   }
 
   testWidgets('render nested editors', (tester) async {
@@ -105,7 +122,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        botCubit.backgroundColorChanged,
+        bottomNavigationBarThemeCubit.backgroundColorChanged,
       );
     });
   });
@@ -126,7 +143,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        botCubit.selectedItemColorChanged,
+        bottomNavigationBarThemeCubit.selectedItemColorChanged,
       );
     });
   });
@@ -148,7 +165,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         opaqueColor,
-        botCubit.unselectedItemColorChanged,
+        bottomNavigationBarThemeCubit.unselectedItemColorChanged,
       );
     });
   });
@@ -178,7 +195,7 @@ void main() {
         await tester.verifySwitch(
           key,
           isShow,
-          botCubit.showSelectedLabelsChanged,
+          bottomNavigationBarThemeCubit.showSelectedLabelsChanged,
         );
       });
     }
@@ -209,7 +226,7 @@ void main() {
         await tester.verifySwitch(
           key,
           isShow,
-          botCubit.showUnselectedLabelsChanged,
+          bottomNavigationBarThemeCubit.showUnselectedLabelsChanged,
         );
       });
     }
@@ -234,7 +251,7 @@ void main() {
       await tester.verifyTextField(
         key,
         doubleStr,
-        botCubit.elevationChanged,
+        bottomNavigationBarThemeCubit.elevationChanged,
       );
     });
   });
@@ -259,7 +276,7 @@ void main() {
         await tester.verifyDropdown(
           key,
           typeStr,
-          botCubit.typeChanged,
+          bottomNavigationBarThemeCubit.typeChanged,
         );
       });
     }

@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RadioThemeEditor extends ExpansionPanelItem {
   const RadioThemeEditor({Key? key}) : super(key: key);
@@ -29,6 +29,7 @@ class RadioThemeEditor extends ExpansionPanelItem {
 class _FillColorPickers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<RadioThemeCubit>();
     final fillColor = context.watch<RadioThemeCubit>().state.theme.fillColor;
     final colorThemeState = context.watch<ColorThemeCubit>().state;
 
@@ -41,27 +42,21 @@ class _FillColorPickers extends StatelessWidget {
           title: 'Default',
           value:
               fillColor?.resolve({}) ?? colorThemeState.unselectedWidgetColor,
-          onValueChanged: (color) {
-            context.read<RadioThemeCubit>().fillDefaultColorChanged(color);
-          },
+          onValueChanged: cubit.fillDefaultColorChanged,
         ),
         MaterialStateItem(
           key: const Key('radioThemeEditor_fillColor_selected'),
           title: 'Selected',
           value: fillColor?.resolve({MaterialState.selected}) ??
               colorThemeState.toggleableActiveColor,
-          onValueChanged: (color) {
-            context.read<RadioThemeCubit>().fillSelectedColorChanged(color);
-          },
+          onValueChanged: cubit.fillSelectedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('radioThemeEditor_fillColor_disabled'),
           title: 'Disabled',
           value: fillColor?.resolve({MaterialState.disabled}) ??
               colorThemeState.disabledColor,
-          onValueChanged: (color) {
-            context.read<RadioThemeCubit>().fillDisabledColorChanged(color);
-          },
+          onValueChanged: cubit.fillDisabledColorChanged,
         ),
       ],
     );
@@ -71,6 +66,7 @@ class _FillColorPickers extends StatelessWidget {
 class _OverlayColorPickers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<RadioThemeCubit>();
     final overlayColor =
         context.watch<RadioThemeCubit>().state.theme.overlayColor;
     final colorThemeState = context.watch<ColorThemeCubit>().state;
@@ -86,27 +82,21 @@ class _OverlayColorPickers extends StatelessWidget {
               colorThemeState.toggleableActiveColor.withAlpha(
                 kRadialReactionAlpha,
               ),
-          onValueChanged: (color) {
-            context.read<RadioThemeCubit>().overlayPressedColorChanged(color);
-          },
+          onValueChanged: cubit.overlayPressedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('radioThemeEditor_overlayColor_hovered'),
           title: 'Hovered',
           value: overlayColor?.resolve({MaterialState.hovered}) ??
               colorThemeState.hoverColor,
-          onValueChanged: (color) {
-            context.read<RadioThemeCubit>().overlayHoveredColorChanged(color);
-          },
+          onValueChanged: cubit.overlayHoveredColorChanged,
         ),
         MaterialStateItem(
           key: const Key('radioThemeEditor_overlayColor_focused'),
           title: 'Focused',
           value: overlayColor?.resolve({MaterialState.focused}) ??
               colorThemeState.focusColor,
-          onValueChanged: (color) {
-            context.read<RadioThemeCubit>().overlayFocusedColorChanged(color);
-          },
+          onValueChanged: cubit.overlayFocusedColorChanged,
         ),
       ],
     );
@@ -117,6 +107,7 @@ class _MaterialTapTargetSizeDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RadioThemeCubit, RadioThemeState>(
+      key: const Key('radioThemeEditor_materialTapTargetSizeDropdown'),
       buildWhen: (previous, current) {
         return previous.theme.materialTapTargetSize !=
             current.theme.materialTapTargetSize;
@@ -125,14 +116,11 @@ class _MaterialTapTargetSizeDropdown extends StatelessWidget {
         final size =
             state.theme.materialTapTargetSize ?? MaterialTapTargetSize.padded;
         return DropdownListTile(
-          key: const Key('radioThemeEditor_materialTapTargetSizeDropdown'),
           title: 'Material tap target size',
           tooltip: RadioThemeDocs.materialTapTargetSize,
           value: UtilService.enumToString(size),
           values: UtilService.getEnumStrings(MaterialTapTargetSize.values),
-          onChanged: (value) {
-            context.read<RadioThemeCubit>().materialTapTargetSize(value!);
-          },
+          onChanged: context.read<RadioThemeCubit>().materialTapTargetSize,
         );
       },
     );
@@ -143,19 +131,17 @@ class _SplashRadiusTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RadioThemeCubit, RadioThemeState>(
+      key: const Key('radioThemeEditor_splashRadiusTextField'),
       buildWhen: (previous, current) {
         return previous.theme.splashRadius != current.theme.splashRadius;
       },
       builder: (context, state) {
         return MyTextFormField(
-          key: const Key('radioThemeEditor_splashRadiusTextField'),
           labelText: 'Splash radius',
           tooltip: RadioThemeDocs.splashRadius,
           initialValue:
               (state.theme.splashRadius ?? kRadialReactionRadius).toString(),
-          onChanged: (value) {
-            context.read<RadioThemeCubit>().splashRadiusChanged(value);
-          },
+          onChanged: context.read<RadioThemeCubit>().splashRadiusChanged,
         );
       },
     );

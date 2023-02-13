@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/outlined_button_theme/outlined_button_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OutlinedButtonThemeEditor extends ExpansionPanelItem {
   const OutlinedButtonThemeEditor({Key? key}) : super(key: key);
@@ -43,11 +43,8 @@ class _BackgroundColorPickers extends StatelessWidget {
           key: const Key('outlinedButtonThemeEditor_backgroundColor_default'),
           title: 'Default',
           value: backgroundColor?.resolve({}) ?? Colors.transparent,
-          onValueChanged: (color) {
-            context
-                .read<OutlinedButtonThemeCubit>()
-                .backgroundColorChanged(color);
-          },
+          onValueChanged:
+              context.read<OutlinedButtonThemeCubit>().backgroundColorChanged,
         ),
       ],
     );
@@ -57,6 +54,7 @@ class _BackgroundColorPickers extends StatelessWidget {
 class _ForegroundColorPickers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<OutlinedButtonThemeCubit>();
     final foregroundColor = context
         .watch<OutlinedButtonThemeCubit>()
         .state
@@ -73,20 +71,14 @@ class _ForegroundColorPickers extends StatelessWidget {
           key: const Key('outlinedButtonThemeEditor_foregroundColor_default'),
           title: 'Default',
           value: foregroundColor?.resolve({}) ?? colorScheme.primary,
-          onValueChanged: (color) => context
-              .read<OutlinedButtonThemeCubit>()
-              .foregroundDefaultColorChanged(color),
+          onValueChanged: cubit.foregroundDefaultColorChanged,
         ),
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_foregroundColor_disabled'),
           title: 'Disabled',
           value: foregroundColor?.resolve({MaterialState.disabled}) ??
               colorScheme.onSurface.withOpacity(0.38),
-          onValueChanged: (color) {
-            context
-                .read<OutlinedButtonThemeCubit>()
-                .foregroundDisabledColorChanged(color);
-          },
+          onValueChanged: cubit.foregroundDisabledColorChanged,
         ),
       ],
     );
@@ -96,6 +88,7 @@ class _ForegroundColorPickers extends StatelessWidget {
 class _OverlayColorPickers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<OutlinedButtonThemeCubit>();
     final overlayColor = context
         .watch<OutlinedButtonThemeCubit>()
         .state
@@ -114,33 +107,21 @@ class _OverlayColorPickers extends StatelessWidget {
           title: 'Hovered',
           value: overlayColor?.resolve({MaterialState.hovered}) ??
               primaryColor.withOpacity(0.04),
-          onValueChanged: (color) {
-            context
-                .read<OutlinedButtonThemeCubit>()
-                .overlayHoveredColorChanged(color);
-          },
+          onValueChanged: cubit.overlayHoveredColorChanged,
         ),
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_overlayColor_focused'),
           title: 'Focused',
           value: overlayColor?.resolve({MaterialState.focused}) ??
               primaryColor.withOpacity(0.12),
-          onValueChanged: (color) {
-            context
-                .read<OutlinedButtonThemeCubit>()
-                .overlayFocusedColorChanged(color);
-          },
+          onValueChanged: cubit.overlayFocusedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('outlinedButtonThemeEditor_overlayColor_pressed'),
           title: 'Pressed',
           value: overlayColor?.resolve({MaterialState.pressed}) ??
               primaryColor.withOpacity(0.12),
-          onValueChanged: (color) {
-            context
-                .read<OutlinedButtonThemeCubit>()
-                .overlayPressedColorChanged(color);
-          },
+          onValueChanged: cubit.overlayPressedColorChanged,
         ),
       ],
     );
@@ -166,9 +147,8 @@ class _ShadowColorPickers extends StatelessWidget {
           key: const Key('outlinedButtonThemeEditor_shadowColor_default'),
           title: 'Default',
           value: shadowColor?.resolve({}) ?? themeShadowColor,
-          onValueChanged: (color) {
-            context.read<OutlinedButtonThemeCubit>().shadowColorChanged(color);
-          },
+          onValueChanged:
+              context.read<OutlinedButtonThemeCubit>().shadowColorChanged,
         ),
       ],
     );
@@ -179,10 +159,6 @@ class _ElevationTextFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<OutlinedButtonThemeCubit, OutlinedButtonThemeState>(
-      buildWhen: (previous, current) {
-        return previous.theme.style?.elevation !=
-            current.theme.style?.elevation;
-      },
       builder: (context, state) {
         return MaterialStatesCard<String>(
           header: 'Elevation',
@@ -196,9 +172,8 @@ class _ElevationTextFields extends StatelessWidget {
               value: (state.theme.style?.elevation?.resolve({}) ??
                       kOutlinedButtonElevation)
                   .toString(),
-              onValueChanged: (value) => context
-                  .read<OutlinedButtonThemeCubit>()
-                  .elevationChanged(value),
+              onValueChanged:
+                  context.read<OutlinedButtonThemeCubit>().elevationChanged,
             ),
           ],
         );

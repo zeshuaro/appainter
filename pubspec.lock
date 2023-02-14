@@ -775,10 +775,10 @@ packages:
     dependency: "direct main"
     description:
       name: ndialog
-      sha256: e708c0b6cf669507ec3c0807fb116cf6067d59659087d93934296c7e5068fbfc
+      sha256: "805e7eb1ad654f2d155ec7f343e7c8db5b0d35bfd720c73681906b02f25ffac0"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.3"
+    version: "4.3.0"
   nested:
     dependency: transitive
     description:

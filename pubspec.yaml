@@ -34,7 +34,7 @@ dependencies:
   json_theme: 4.0.3
   material_color_utilities: 0.2.0
   material_design_icons_flutter: 6.0.7096
-  ndialog: 4.2.3
+  ndialog: 4.3.0
   path_provider: 2.0.12
   pretty_json: 2.0.0
   random_color_scheme: 0.1.3

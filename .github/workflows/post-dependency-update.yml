@@ -1,8 +1,7 @@
-name: Update native dependencies
+name: Post dependency update
 
 on:
   pull_request:
-    paths: pubspec.lock
 
 jobs:
   update:
@@ -47,5 +46,4 @@ jobs:
       - name: Commit changes 🆕
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
-          commit_message: "chore(deps): native dependencies maintenance"
-          file_pattern: "**/Podfile.lock **/GeneratedPluginRegistrant.swift"
+          commit_message: "chore(deps): dependencies maintenance"

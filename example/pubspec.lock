@@ -13,10 +13,10 @@ packages:
     dependency: transitive
     description:
       name: args
-      sha256: "139d809800a412ebb26a3892da228b2d0ba36f0ef5d9a82166e5e52ec8d61611"
+      sha256: "4cab82a83ffef80b262ddedf47a0a8e56ee6fbf7fe21e6e768b02792034dd440"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.2"
+    version: "2.4.0"
   async:
     dependency: transitive
     description:
@@ -158,18 +158,18 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "41385d019473e229f2c9b2687568c123861f0b524e74ac70640a2ea0f44c5fc8"
+      sha256: "006d0f349074993bbebe87d827028f8580a6ba7ad1475344f536d8695c9b0523"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.5"
+    version: "2.1.5+2"
   json_schema2:
     dependency: transitive
     description:
       name: json_schema2
-      sha256: "5257fd1c566ba2e8e47cd28a6eb9ea872189a6448cb92d9c38a91d8ab9edb6a1"
+      sha256: "119bdccad2232f07cdbc81a0b1990eb88d0cdf86c3c1b67b38879460ac069d44"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3"
+    version: "2.0.3+3"
   json_theme:
     dependency: "direct main"
     description:
@@ -190,10 +190,10 @@ packages:
     dependency: transitive
     description:
       name: logging
-      sha256: c0bbfe94d46aedf9b8b3e695cf3bd48c8e14b35e3b2c639e0aa7755d589ba946
+      sha256: "04094f2eb032cbb06c6f6e8d3607edcfcb0455e2bb6cbc010cb01171dcb64e6d"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   matcher:
     dependency: transitive
     description:
@@ -254,10 +254,10 @@ packages:
     dependency: transitive
     description:
       name: rest_client
-      sha256: "1d6a7f158cb756d0fd5ecc2bc82e3cb9be384705fe86745b8f7b292ded4ed3b0"
+      sha256: ec46d228c3946f401ee9b3771cdafbc02693f09265fd9aa71f03fbae59767b25
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.1+3"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -379,9 +379,9 @@ packages:
     dependency: transitive
     description:
       name: yaon
-      sha256: d290a18e6c968f7dc4959cad9b7ea44cbf917c8af098dd694e8c968d4ebd99c1
+      sha256: "2fd803f305f6afdd9714c28903c93d724006179ce2503704f42498d2f93d235a"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.2+1"
 sdks:
-  dart: ">=2.19.0 <4.0.0"
+  dart: ">=2.19.0 <3.0.0"

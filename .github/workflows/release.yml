@@ -162,10 +162,10 @@ jobs:
           body: ${{ steps.generate-changelog.outputs.changelog }}
           token: ${{ secrets.PAT }}
 
-  build-web-deploy:
+  build-deploy-web:
     name: Build web app and deploy
     runs-on: ubuntu-latest
-    concurrency: web-deploy
+    concurrency: deploy-web
     needs: release-desktop
 
     steps:

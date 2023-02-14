@@ -87,10 +87,12 @@ jobs:
           flutter format --output=none --set-exit-if-changed .
           flutter analyze
 
-  build-web-deploy:
+  build-deploy-web:
     name: Build web app and deploy
     runs-on: ubuntu-latest
-    concurrency: web-deploy
+    concurrency:
+      group: deploy-web
+      cancel-in-progress: true
     needs: [lint, test]
     if: ${{ github.ref == 'refs/heads/main' }}
 

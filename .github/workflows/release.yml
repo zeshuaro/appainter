@@ -213,3 +213,50 @@ jobs:
         with:
           branch: gh-pages
           folder: build/web
+
+  prepare-next-dev:
+    name: Prepare next development iteration
+    runs-on: ubuntu-latest
+    needs: build-deploy-web
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Get project Flutter version 🏷️
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
+      - name: Setup Flutter 💻
+        uses: subosito/flutter-action@v2.8.0
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+
+      - name: Cache Pub 💾
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ env.PUB_CACHE }}
+            **/.dart_tool
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      - name: Bump app version 🔼
+        id: bump-version
+        run: |
+          flutter pub get
+          flutter pub run cider bump patch --pre=dev
+          echo "version=v$(flutter pub run cider version)" >> $GITHUB_OUTPUT
+
+      - name: Commit new version 🆕
+        uses: stefanzweifel/git-auto-commit-action@v4.16.0
+        env:
+          version: ${{ steps.build-web.outputs.version }}
+        with:
+          commit_message: "chore(dev): ${{ env.version }} [skip ci]"
+          file_pattern: pubspec.yaml
+          push_options: --force

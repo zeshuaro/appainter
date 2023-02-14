@@ -467,10 +467,10 @@ packages:
     dependency: "direct main"
     description:
       name: flex_color_picker
-      sha256: "40c1cbf8426a05c2b418ecf6c0fce386429fd7f9d238abbb2182985e8e6c5596"
+      sha256: "607c9fdb26be84d4a5a0931ab42a7eda725372e4f5ebaa2526ab6b22ead752f9"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.2"
+    version: "3.1.0"
   flex_seed_scheme:
     dependency: transitive
     description:

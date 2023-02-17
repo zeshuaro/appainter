@@ -3,30 +3,30 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "flutter.js": "1cfe996e845b3a8a33f57607e8b09ee4",
-"index.html": "a19df7c7e86194446de965f15f7ee358",
-"/": "a19df7c7e86194446de965f15f7ee358",
-"main.dart.js": "6bbac7c9c0ee98443953e9cf0bef9dcb",
+  "favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75",
-"favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
-"icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292ee3e2bf9",
-"icons/favicon-16x16.png": "6a1a342af170bec15959c265446f9331",
-"icons/android-chrome-192x192.png": "e03f23fd41872367b2ba387b50f87257",
-"icons/favicon-32x32.png": "878572d6d16bbaa08290988302449306",
-"icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
+"version.json": "06afcb07b513307dd72773e6de42f36e",
+"canvaskit/canvaskit.js": "97937cb4c2c2073c968525a3e08c86a3",
+"canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e",
+"canvaskit/profiling/canvaskit.js": "c21852696bc1cc82e8894d851c01921a",
+"canvaskit/profiling/canvaskit.wasm": "371bc4e204443b0d5e774d64a046eb99",
+"flutter.js": "1cfe996e845b3a8a33f57607e8b09ee4",
 "assets/FontManifest.json": "1b1e7812d9eb9f666db8444d7dde1b20",
-"assets/NOTICES": "e24fa0e704422900a1fd009fe75a46a5",
-"assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
-"assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "dd74f11e425603c7adb66100f161b2a5",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
+"assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
+"assets/NOTICES": "e62d8a5c3bf400f268c9a2ace66ee088",
+"assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
 "assets/AssetManifest.json": "ff1eee5d80fd025929453faeff3ab75e",
-"canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e",
-"canvaskit/canvaskit.js": "97937cb4c2c2073c968525a3e08c86a3",
-"canvaskit/profiling/canvaskit.wasm": "371bc4e204443b0d5e774d64a046eb99",
-"canvaskit/profiling/canvaskit.js": "c21852696bc1cc82e8894d851c01921a",
-"version.json": "8788fd6574ee22acc28d33abab3005ab"
+"index.html": "e9edf54a1484704bc7e21c427458d4f4",
+"/": "e9edf54a1484704bc7e21c427458d4f4",
+"main.dart.js": "90ed42a8261db9d5f2022ab2ab5a06f8",
+"icons/android-chrome-192x192.png": "e03f23fd41872367b2ba387b50f87257",
+"icons/favicon-32x32.png": "878572d6d16bbaa08290988302449306",
+"icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
+"icons/favicon-16x16.png": "6a1a342af170bec15959c265446f9331",
+"icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292ee3e2bf9"
 };
 
 // The application shell files that are downloaded before a service worker can

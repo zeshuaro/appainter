@@ -40,7 +40,7 @@ dependencies:
   random_color_scheme: 0.1.3
   sentry_flutter: 6.20.1
   shared_preferences: 2.0.17
-  universal_html: 2.0.8
+  universal_html: 2.0.9
   universal_io: 2.0.4
   url_launcher: 6.1.9
   window_size:

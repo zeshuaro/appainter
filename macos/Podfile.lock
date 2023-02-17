@@ -9,16 +9,16 @@ PODS:
     - FirebaseAnalytics (~> 10.3.0)
   - Firebase/CoreOnly (10.3.0):
     - FirebaseCore (= 10.3.0)
-  - firebase_analytics (10.1.1):
+  - firebase_analytics (10.1.3):
     - Firebase/Analytics (= 10.3.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_auth (4.2.6):
+  - firebase_auth (4.2.8):
     - Firebase/Auth (~> 10.3.0)
     - Firebase/CoreOnly (~> 10.3.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_core (2.5.0):
+  - firebase_core (2.6.1):
     - Firebase/CoreOnly (~> 10.3.0)
     - FlutterMacOS
   - FirebaseAnalytics (10.3.0):
@@ -106,7 +106,7 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - PromisesObjC (2.1.1)
+  - PromisesObjC (2.2.0)
   - Sentry/HybridSDK (7.31.5)
   - sentry_flutter (0.0.1):
     - Flutter
@@ -171,9 +171,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Firebase: f92fc551ead69c94168d36c2b26188263860acd9
-  firebase_analytics: fa88b8376642e5acc2ab2e5037909566a781d4cb
-  firebase_auth: d97f1f971f0c8e368fdd330506c2ffa8d38950df
-  firebase_core: c6858db717f7c37bc48d5647c383008459591e57
+  firebase_analytics: 2c3540ac4c017d628b4baa56da124baace97aa5f
+  firebase_auth: d6a6ead448c11da379b02ccf4fb68908bbc052b8
+  firebase_core: 8bcdc56ca0b558785aa19ac6b56a4753b9169813
   FirebaseAnalytics: 036232b6a1e2918e5f67572417be1173576245f3
   FirebaseAuth: 0e415d29d846c1dce2fb641e46f35e9888d9bec6
   FirebaseCore: 988754646ab3bd4bdcb740f1bfe26b9f6c0d5f2a
@@ -186,7 +186,7 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   package_info_plus: 02d7a575e80f194102bef286361c6c326e4c29ce
   path_provider_foundation: 37748e03f12783f9de2cb2c4eadfaa25fe6d4852
-  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   Sentry: 4c9babff9034785067c896fd580b1f7de44da020
   sentry_flutter: b10ae7a5ddcbc7f04648eeb2672b5747230172f1
   shared_preferences_foundation: 297b3ebca31b34ec92be11acd7fb0ba932c822ca

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
@@ -15,10 +16,11 @@ import 'mocks.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  final fontData = FontData('aBeeZee', GoogleFonts.aBeeZee());
+  HttpOverrides.global = null;
 
   late TestTextStyleCubit cubit;
   late TextStyle style;
+  late FontData fontData;
   late Color color;
   late double doubleNum;
   late String doubleStr;
@@ -231,6 +233,7 @@ void main() {
 
   blocTest<TestTextStyleCubit, TextStyleState>(
     'emit font family',
+    setUp: () => fontData = FontData('ABeeZee', GoogleFonts.getFont('ABeeZee')),
     build: () => cubit,
     act: (cubit) => cubit.fontFamilyChanged(fontData),
     expect: () => [

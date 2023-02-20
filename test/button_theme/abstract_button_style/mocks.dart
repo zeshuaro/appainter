@@ -27,27 +27,8 @@ class MockButtonStyleCubit extends MockCubit<ButtonStyleState>
 class TestButtonStyleEditor
     extends AbstractButtonStyleEditor<TestButtonStyleCubit> {
   static const _color = Colors.blue;
-  static const _elevation = 2.0;
 
   const TestButtonStyleEditor({Key? key}) : super(key: key);
-
-  @override
-  Color fallbackBackgroundDefaultColor(ColorScheme colorScheme) => _color;
-
-  @override
-  Color fallbackBackgroundDisabledColor(ColorScheme colorScheme) => _color;
-
-  @override
-  double get fallbackElevationDefault => _elevation;
-
-  @override
-  double get fallbackElevationFocused => _elevation;
-
-  @override
-  double get fallbackElevationHovered => _elevation;
-
-  @override
-  double get fallbackElevationPressed => _elevation;
 
   @override
   Color fallbackForegroundDefaultColor(ColorScheme colorScheme) => _color;
@@ -66,4 +47,14 @@ class TestButtonStyleEditor
 
   @override
   String get header => 'Test';
+
+  @override
+  Widget buildBackgroundColorPickers(BuildContext context) {
+    return const SizedBox.shrink();
+  }
+
+  @override
+  Widget buildElevationTextFields(BuildContext context) {
+    return const SizedBox.shrink();
+  }
 }

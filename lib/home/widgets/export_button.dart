@@ -3,9 +3,9 @@
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/elevated_button_theme/elevated_button_theme.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:appainter/home/home.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
@@ -63,8 +63,9 @@ class ExportButton extends StatelessWidget {
         context.read<BottomNavigationBarThemeCubit>().state.theme;
     final floatingActionButtonTheme =
         context.read<FloatingActionButtonThemeCubit>().state.theme;
-    final elevatedButtonTheme =
-        context.read<ElevatedButtonThemeCubit>().state.theme;
+    final elevatedButtonTheme = ElevatedButtonThemeData(
+      style: context.read<ElevatedButtonThemeCubit>().state.style,
+    );
     final outlinedButtonTheme =
         context.read<OutlinedButtonThemeCubit>().state.theme;
     final textButtonTheme = context.read<TextButtonThemeCubit>().state.theme;

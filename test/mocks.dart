@@ -5,9 +5,9 @@ import 'package:appainter/analytics/analytics.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/elevated_button_theme/elevated_button_theme.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:appainter/home/home.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
@@ -87,7 +87,7 @@ class MockFloatingActionButtonThemeCubit
     extends MockCubit<FloatingActionButtonThemeState>
     implements FloatingActionButtonThemeCubit {}
 
-class MockElevatedButtonThemeCubit extends MockCubit<ElevatedButtonThemeState>
+class MockElevatedButtonThemeCubit extends MockCubit<ButtonStyleState>
     implements ElevatedButtonThemeCubit {}
 
 class MockOutlinedButtonThemeCubit extends MockCubit<OutlinedButtonThemeState>

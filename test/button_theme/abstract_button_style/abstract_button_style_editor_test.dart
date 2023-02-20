@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
@@ -19,20 +17,15 @@ Future<void> main() async {
 
   late TestButtonStyleCubit buttonStyleCubit;
   late ColorThemeCubit colorThemeCubit;
-
   late Color color;
-  late double doubleNum;
-  late String doubleStr;
 
   setUp(() {
     buttonStyleCubit = MockButtonStyleCubit();
+
     colorThemeCubit = MockColorThemeCubit();
+    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
 
     color = getRandomColor();
-    doubleNum = Random().nextDouble();
-    doubleStr = doubleNum.toString();
-
-    when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
   });
 
   Future<void> pumpApp(
@@ -58,52 +51,6 @@ Future<void> main() async {
     );
     await tester.expandWidget(expandText);
   }
-
-  group('background color pickers', () {
-    group('default', () {
-      const key = 'abstractButtonStyleEditor_backgroundColor_default';
-
-      testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({null: color});
-        final state = ButtonStyleState.withStyle(backgroundColor: prop);
-
-        await pumpApp(tester, state);
-
-        await tester.expectColorIndicator(key, color);
-      });
-
-      testWidgets('change color', (tester) async {
-        await pumpApp(tester);
-        await tester.verifyColorPicker(
-          key,
-          color,
-          buttonStyleCubit.backgroundDefaultColorChanged,
-        );
-      });
-    });
-
-    group('disabled', () {
-      const key = 'abstractButtonStyleEditor_backgroundColor_disabled';
-
-      testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.disabled: color});
-        final state = ButtonStyleState.withStyle(backgroundColor: prop);
-
-        await pumpApp(tester, state);
-
-        await tester.expectColorIndicator(key, color);
-      });
-
-      testWidgets('change color', (tester) async {
-        await pumpApp(tester);
-        await tester.verifyColorPicker(
-          key,
-          color,
-          buttonStyleCubit.backgroundDisabledColorChanged,
-        );
-      });
-    });
-  });
 
   group('foreground color pickers', () {
     group('default', () {
@@ -238,126 +185,6 @@ Future<void> main() async {
         color,
         buttonStyleCubit.shadowColorChanged,
       );
-    });
-  });
-
-  group('elevation text fields', () {
-    group('default', () {
-      const key = 'abstractButtonStyleEditor_elevationTextField_default';
-
-      testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({null: doubleNum});
-        final state = ButtonStyleState.withStyle(elevation: prop);
-
-        await pumpApp(tester, state);
-
-        await tester.expectTextField(key, doubleStr);
-      });
-
-      testWidgets('change value', (tester) async {
-        await pumpApp(tester);
-        await tester.verifyTextField(
-          key,
-          doubleStr,
-          buttonStyleCubit.defaultElevationChanged,
-        );
-      });
-    });
-
-    group('disabled', () {
-      const key = 'abstractButtonStyleEditor_elevationTextField_disabled';
-
-      testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({
-          MaterialState.disabled: doubleNum,
-        });
-        final state = ButtonStyleState.withStyle(elevation: prop);
-
-        await pumpApp(tester, state);
-
-        await tester.expectTextField(key, doubleStr);
-      });
-
-      testWidgets('change value', (tester) async {
-        await pumpApp(tester);
-        await tester.verifyTextField(
-          key,
-          doubleStr,
-          buttonStyleCubit.disabledElevationChanged,
-        );
-      });
-    });
-
-    group('hovered', () {
-      const key = 'abstractButtonStyleEditor_elevationTextField_hovered';
-
-      testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({
-          MaterialState.hovered: doubleNum,
-        });
-        final state = ButtonStyleState.withStyle(elevation: prop);
-
-        await pumpApp(tester, state);
-
-        await tester.expectTextField(key, doubleStr);
-      });
-
-      testWidgets('change value', (tester) async {
-        await pumpApp(tester);
-        await tester.verifyTextField(
-          key,
-          doubleStr,
-          buttonStyleCubit.hoveredElevationChanged,
-        );
-      });
-    });
-
-    group('focused', () {
-      const key = 'abstractButtonStyleEditor_elevationTextField_focused';
-
-      testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({
-          MaterialState.focused: doubleNum,
-        });
-        final state = ButtonStyleState.withStyle(elevation: prop);
-
-        await pumpApp(tester, state);
-
-        await tester.expectTextField(key, doubleStr);
-      });
-
-      testWidgets('change value', (tester) async {
-        await pumpApp(tester);
-        await tester.verifyTextField(
-          key,
-          doubleStr,
-          buttonStyleCubit.focusedElevationChanged,
-        );
-      });
-    });
-
-    group('pressed', () {
-      const key = 'abstractButtonStyleEditor_elevationTextField_pressed';
-
-      testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({
-          MaterialState.pressed: doubleNum,
-        });
-        final state = ButtonStyleState.withStyle(elevation: prop);
-
-        await pumpApp(tester, state);
-
-        await tester.expectTextField(key, doubleStr);
-      });
-
-      testWidgets('change value', (tester) async {
-        await pumpApp(tester);
-        await tester.verifyTextField(
-          key,
-          doubleStr,
-          buttonStyleCubit.pressedElevationChanged,
-        );
-      });
     });
   });
 }

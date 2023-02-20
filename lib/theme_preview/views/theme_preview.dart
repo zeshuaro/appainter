@@ -4,9 +4,9 @@ import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/app_bar_theme/cubit/app_bar_theme_cubit.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/elevated_button_theme/elevated_button_theme.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:appainter/home/home.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
@@ -48,8 +48,9 @@ class ThemePreview extends StatelessWidget {
             context.watch<BottomNavigationBarThemeCubit>().state.theme;
         final floatingActionButtonTheme =
             context.watch<FloatingActionButtonThemeCubit>().state.theme;
-        final elevatedButtonTheme =
-            context.watch<ElevatedButtonThemeCubit>().state.theme;
+        final elevatedButtonTheme = ElevatedButtonThemeData(
+          style: context.watch<ElevatedButtonThemeCubit>().state.style,
+        );
         final outlinedButtonTheme =
             context.watch<OutlinedButtonThemeCubit>().state.theme;
         final textButtonTheme =

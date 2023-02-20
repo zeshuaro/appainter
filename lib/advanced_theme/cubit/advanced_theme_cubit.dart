@@ -1,8 +1,8 @@
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/elevated_button_theme/elevated_button_theme.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
@@ -71,7 +71,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     floatingActionButtonThemeCubit.themeChanged(
       theme.floatingActionButtonTheme,
     );
-    elevatedButtonThemeCubit.themeChanged(theme.elevatedButtonTheme);
+    elevatedButtonThemeCubit.styleChanged(theme.elevatedButtonTheme.style);
     outlinedButtonThemeCubit.themeChanged(theme.outlinedButtonTheme);
     textButtonThemeCubit.themeChanged(theme.textButtonTheme);
     iconThemeCubit.themeChanged(theme.iconTheme);

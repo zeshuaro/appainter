@@ -1,9 +1,9 @@
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
+import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/elevated_button_theme/elevated_button_theme.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
@@ -92,7 +92,9 @@ void main() {
       );
     }).called(1);
     verify(
-      () => elevatedButtonThemeCubit.themeChanged(theme.elevatedButtonTheme),
+      () => elevatedButtonThemeCubit.styleChanged(
+        theme.elevatedButtonTheme.style,
+      ),
     ).called(1);
     verify(
       () => outlinedButtonThemeCubit.themeChanged(theme.outlinedButtonTheme),

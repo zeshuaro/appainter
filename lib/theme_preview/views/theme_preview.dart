@@ -11,7 +11,6 @@ import 'package:appainter/floating_action_button_theme/floating_action_button_th
 import 'package:appainter/home/home.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
-import 'package:appainter/outlined_button_theme/outlined_button_theme.dart';
 import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:appainter/switch_theme/switch_theme.dart';
@@ -51,8 +50,9 @@ class ThemePreview extends StatelessWidget {
         final elevatedButtonTheme = ElevatedButtonThemeData(
           style: context.watch<ElevatedButtonThemeCubit>().state.style,
         );
-        final outlinedButtonTheme =
-            context.watch<OutlinedButtonThemeCubit>().state.theme;
+        final outlinedButtonTheme = OutlinedButtonThemeData(
+          style: context.watch<OutlinedButtonThemeCubit>().state.style,
+        );
         final textButtonTheme =
             context.watch<TextButtonThemeCubit>().state.theme;
         final iconTheme = context.watch<IconThemeCubit>().state.theme;

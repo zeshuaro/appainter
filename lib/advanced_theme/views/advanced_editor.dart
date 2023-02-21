@@ -6,7 +6,6 @@ import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
-import 'package:appainter/outlined_button_theme/outlined_button_theme.dart';
 import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:appainter/switch_theme/switch_theme.dart';

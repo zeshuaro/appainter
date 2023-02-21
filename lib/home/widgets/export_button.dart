@@ -10,7 +10,6 @@ import 'package:appainter/floating_action_button_theme/floating_action_button_th
 import 'package:appainter/home/home.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
-import 'package:appainter/outlined_button_theme/outlined_button_theme.dart';
 import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:appainter/switch_theme/switch_theme.dart';
@@ -66,8 +65,8 @@ class ExportButton extends StatelessWidget {
     final elevatedButtonTheme = ElevatedButtonThemeData(
       style: context.read<ElevatedButtonThemeCubit>().state.style,
     );
-    final outlinedButtonTheme =
-        context.read<OutlinedButtonThemeCubit>().state.theme;
+    final outlinedButtonTheme = OutlinedButtonThemeData(
+        style: context.read<OutlinedButtonThemeCubit>().state.style);
     final textButtonTheme = context.read<TextButtonThemeCubit>().state.theme;
     final iconTheme = context.read<IconThemeCubit>().state.theme;
     final inputDecorationTheme =

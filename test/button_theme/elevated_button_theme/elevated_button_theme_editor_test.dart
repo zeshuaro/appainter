@@ -85,7 +85,7 @@ Future<void> main() async {
   });
 
   test('fallback overlay pressed color', () {
-    final actual = sut.fallbackOverlayFocusedColor(colorScheme);
+    final actual = sut.fallbackOverlayPressedColor(colorScheme);
     expect(actual, equals(colorScheme.onPrimary.withOpacity(0.24)));
   });
 

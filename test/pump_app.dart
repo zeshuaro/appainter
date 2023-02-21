@@ -17,7 +17,6 @@ import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
-import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -171,9 +170,7 @@ extension PumpApp on WidgetTester {
     when(() => outlinedButtonThemeCubit.state).thenReturn(
       const ButtonStyleState(),
     );
-    when(() => textButtonThemeCubit.state).thenReturn(
-      const TextButtonThemeState(),
-    );
+    when(() => textButtonThemeCubit.state).thenReturn(const ButtonStyleState());
     when(() => iconThemeCubit.state).thenReturn(_iconThemeState);
     when(() => inputDecorationThemeCubit.state).thenReturn(
       const InputDecorationThemeState(),

@@ -7,14 +7,14 @@ import '../../mocks.dart';
 
 Future<void> main() async {
   late ColorThemeCubit colorThemeCubit;
-  late OutlinedButtonThemeEditor sut;
+  late TextButtonThemeEditor sut;
 
   setUp(() {
     colorThemeCubit = MockColorThemeCubit();
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
 
-    sut = const OutlinedButtonThemeEditor();
+    sut = const TextButtonThemeEditor();
   });
 
-  test('header', () => expect(sut.header, equals('Outlined button')));
+  test('header', () => expect(sut.header, equals('Text button')));
 }

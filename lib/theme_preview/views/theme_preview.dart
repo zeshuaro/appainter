@@ -15,7 +15,6 @@ import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
-import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:appainter/theme_preview/theme_preview.dart';
 import 'package:device_preview/device_preview.dart';
@@ -53,8 +52,9 @@ class ThemePreview extends StatelessWidget {
         final outlinedButtonTheme = OutlinedButtonThemeData(
           style: context.watch<OutlinedButtonThemeCubit>().state.style,
         );
-        final textButtonTheme =
-            context.watch<TextButtonThemeCubit>().state.theme;
+        final textButtonTheme = TextButtonThemeData(
+          style: context.watch<TextButtonThemeCubit>().state.style,
+        );
         final iconTheme = context.watch<IconThemeCubit>().state.theme;
         final inputDecorationTheme =
             context.watch<InputDecorationThemeCubit>().state.theme;

@@ -25,24 +25,7 @@ class MockFlatButtonStyleCubit extends MockCubit<ButtonStyleState>
 
 class TestFlatButtonStyleEditor
     extends AbstractFlatButtonStyleEditor<TestFlatButtonStyleCubit> {
-  static const _color = Colors.blue;
-
   const TestFlatButtonStyleEditor({Key? key}) : super(key: key);
-
-  @override
-  Color fallbackForegroundDefaultColor(ColorScheme colorScheme) => _color;
-
-  @override
-  Color fallbackForegroundDisabledColor(ColorScheme colorScheme) => _color;
-
-  @override
-  Color fallbackOverlayFocusedColor(ColorScheme colorScheme) => _color;
-
-  @override
-  Color fallbackOverlayHoveredColor(ColorScheme colorScheme) => _color;
-
-  @override
-  Color fallbackOverlayPressedColor(ColorScheme colorScheme) => _color;
 
   @override
   String get header => 'Test';

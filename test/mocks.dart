@@ -16,7 +16,6 @@ import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
-import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +91,7 @@ class MockElevatedButtonThemeCubit extends MockCubit<ButtonStyleState>
 class MockOutlinedButtonThemeCubit extends MockCubit<ButtonStyleState>
     implements OutlinedButtonThemeCubit {}
 
-class MockTextButtonThemeCubit extends MockCubit<TextButtonThemeState>
+class MockTextButtonThemeCubit extends MockCubit<ButtonStyleState>
     implements TextButtonThemeCubit {}
 
 class MockIconThemeCubit extends MockCubit<IconThemeState>

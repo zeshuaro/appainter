@@ -5,3 +5,5 @@ export 'elevated_button_theme/elevated_button_theme_cubit.dart';
 export 'elevated_button_theme/elevated_button_theme_editor.dart';
 export 'outlined_button_theme/outlined_button_theme_cubit.dart';
 export 'outlined_button_theme/outlined_button_theme_editor.dart';
+export 'text_button_theme/text_button_theme_cubit.dart';
+export 'text_button_theme/text_button_theme_editor.dart';

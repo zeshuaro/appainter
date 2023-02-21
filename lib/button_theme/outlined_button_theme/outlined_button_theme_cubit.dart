@@ -1,0 +1,20 @@
+import 'package:appainter/button_theme/button_theme.dart';
+import 'package:appainter/color_theme/color_theme.dart';
+import 'package:flutter/material.dart';
+
+class OutlinedButtonThemeCubit extends AbstractFlatButtonStyleCubit {
+  OutlinedButtonThemeCubit({required ColorThemeCubit colorThemeCubit})
+      : super(colorThemeCubit: colorThemeCubit);
+
+  @override
+  ButtonStyle getDefaultStyle(ColorScheme colorScheme) {
+    return OutlinedButton.styleFrom(
+      foregroundColor: colorScheme.primary,
+      backgroundColor: Colors.transparent,
+      disabledForegroundColor: colorScheme.onSurface.withOpacity(0.38),
+      shadowColor: colorScheme.shadow,
+      elevation: 0,
+      minimumSize: const Size(64, 36),
+    );
+  }
+}

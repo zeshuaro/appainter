@@ -10,7 +10,6 @@ import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
-import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';

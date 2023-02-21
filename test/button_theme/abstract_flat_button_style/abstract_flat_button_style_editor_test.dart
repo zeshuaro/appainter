@@ -16,6 +16,7 @@ import 'mocks.dart';
 Future<void> main() async {
   const expandText = 'Test';
   const buttonStyleState = ButtonStyleState();
+  final colorScheme = ThemeData().colorScheme;
 
   late TestFlatButtonStyleCubit buttonStyleCubit;
   late ColorThemeCubit colorThemeCubit;
@@ -23,6 +24,8 @@ Future<void> main() async {
   late Color color;
   late double doubleNum;
   late String doubleStr;
+
+  late TestFlatButtonStyleEditor sut;
 
   setUp(() {
     buttonStyleCubit = MockFlatButtonStyleCubit();
@@ -33,6 +36,8 @@ Future<void> main() async {
     color = getRandomColor();
     doubleNum = Random().nextDouble();
     doubleStr = doubleNum.toString();
+
+    sut = const TestFlatButtonStyleEditor();
   });
 
   Future<void> pumpApp(
@@ -58,6 +63,31 @@ Future<void> main() async {
     );
     await tester.expandWidget(expandText);
   }
+
+  test('fallback foreground default color', () {
+    final actual = sut.fallbackForegroundDefaultColor(colorScheme);
+    expect(actual, equals(colorScheme.primary));
+  });
+
+  test('fallback foreground disabled color', () {
+    final actual = sut.fallbackForegroundDisabledColor(colorScheme);
+    expect(actual, equals(colorScheme.onSurface.withOpacity(0.38)));
+  });
+
+  test('fallback overlay focused color', () {
+    final actual = sut.fallbackOverlayFocusedColor(colorScheme);
+    expect(actual, equals(colorScheme.primary.withOpacity(0.12)));
+  });
+
+  test('fallback overlay hovered color', () {
+    final actual = sut.fallbackOverlayHoveredColor(colorScheme);
+    expect(actual, equals(colorScheme.primary.withOpacity(0.04)));
+  });
+
+  test('fallback overlay pressed color', () {
+    final actual = sut.fallbackOverlayPressedColor(colorScheme);
+    expect(actual, equals(colorScheme.primary.withOpacity(0.12)));
+  });
 
   group('background default color picker', () {
     const key = 'abstractFlatButtonStyleEditor_backgroundColor_default';

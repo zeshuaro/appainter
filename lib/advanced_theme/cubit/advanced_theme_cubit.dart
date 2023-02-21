@@ -10,7 +10,6 @@ import 'package:appainter/radio_theme/radio_theme.dart';
 import 'package:appainter/slider_theme/slider_theme.dart';
 import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
-import 'package:appainter/text_button_theme/text_button_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
@@ -72,7 +71,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     );
     elevatedButtonThemeCubit.styleChanged(theme.elevatedButtonTheme.style);
     outlinedButtonThemeCubit.styleChanged(theme.outlinedButtonTheme.style);
-    textButtonThemeCubit.themeChanged(theme.textButtonTheme);
+    textButtonThemeCubit.styleChanged(theme.textButtonTheme.style);
     iconThemeCubit.themeChanged(theme.iconTheme);
     inputDecorationThemeCubit.themeChanged(theme.inputDecorationTheme);
     switchThemeCubit.themeChanged(theme.switchTheme);

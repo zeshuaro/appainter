@@ -42,7 +42,7 @@ dependencies:
   shared_preferences: 2.0.18
   universal_html: 2.0.9
   universal_io: 2.2.0
-  url_launcher: 6.1.9
+  url_launcher: 6.1.10
   window_size:
     git:
       url: https://github.com/google/flutter-desktop-embedding.git

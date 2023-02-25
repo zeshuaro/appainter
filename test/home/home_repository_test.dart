@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:appainter/home/home.dart';
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:appainter/home/home.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -34,7 +34,7 @@ void main() {
     final themeStr = file.readAsStringSync();
     final themeJson = jsonDecode(themeStr);
 
-    themeData = ThemeDecoder.decodeThemeData(themeJson)!;
+    themeData = ThemeDecoder.decodeThemeData(themeJson, validate: false)!;
     themeBytes = file.readAsBytesSync();
   });
 

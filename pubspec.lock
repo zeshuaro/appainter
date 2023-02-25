@@ -663,26 +663,26 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: fb7a331d821ed03141f9dace30e51e6fb33ae1b0bff92dc7d88c9d1efdb557c8
+      sha256: "006d0f349074993bbebe87d827028f8580a6ba7ad1475344f536d8695c9b0523"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2+14"
+    version: "2.1.5+2"
   json_schema2:
     dependency: transitive
     description:
       name: json_schema2
-      sha256: "52f05f85809704f693a9b20d5b4e2e1a5b3c25f6be881d4cd48af45547e1b010"
+      sha256: "0b97994d9ce794ff4086ed781745d1616280e851ae1765221c6cb4fc708223f1"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.2+18"
+    version: "2.0.3+4"
   json_theme:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: "07db2a6fb247457246b89ae0cd6349eb097f186e5492dfa9e0c6f6d2e8e12b5e"
+      sha256: "5bd9ce6b68626488d956ae12fe306b20989ad55b830b35e4e7ca647821ff29af"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.3"
+    version: "5.0.0+4"
   klizma:
     dependency: transitive
     description:
@@ -967,10 +967,10 @@ packages:
     dependency: transitive
     description:
       name: rest_client
-      sha256: "2008dcee84d9bb0b099866da6341829d3eb87db5bf63eb325233c6130eb61ff3"
+      sha256: e0aaabcd0dbc10e19e8f21b21da873dc8066e757a876948d9aed8da00460a3f3
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0+4"
+    version: "2.2.1+4"
   rfc_6901:
     dependency: transitive
     description:

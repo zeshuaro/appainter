@@ -166,18 +166,18 @@ packages:
     dependency: transitive
     description:
       name: json_schema2
-      sha256: "119bdccad2232f07cdbc81a0b1990eb88d0cdf86c3c1b67b38879460ac069d44"
+      sha256: "0b97994d9ce794ff4086ed781745d1616280e851ae1765221c6cb4fc708223f1"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3+3"
+    version: "2.0.3+4"
   json_theme:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: "07db2a6fb247457246b89ae0cd6349eb097f186e5492dfa9e0c6f6d2e8e12b5e"
+      sha256: "5bd9ce6b68626488d956ae12fe306b20989ad55b830b35e4e7ca647821ff29af"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.3"
+    version: "5.0.0+4"
   lints:
     dependency: transitive
     description:
@@ -254,10 +254,10 @@ packages:
     dependency: transitive
     description:
       name: rest_client
-      sha256: ec46d228c3946f401ee9b3771cdafbc02693f09265fd9aa71f03fbae59767b25
+      sha256: e0aaabcd0dbc10e19e8f21b21da873dc8066e757a876948d9aed8da00460a3f3
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1+3"
+    version: "2.2.1+4"
   sky_engine:
     dependency: transitive
     description: flutter

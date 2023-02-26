@@ -3,7 +3,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 
 class TestTextStyleCubit extends AbstractTextStyleCubit {
-  TestTextStyleCubit() : super(typeScale: TypeScale.headline1);
+  TestTextStyleCubit() : super(typeScale: TypeScale.displayLarge);
 
   TextStyle get blackTextStyle => kBlackTextStyles[typeScale]!;
 

@@ -179,13 +179,13 @@ void main() {
 
   test('initialise title text style cubit', () {
     final cubit = AppBarTitleTextStyleCubit();
-    expect(cubit.typeScale, equals(TypeScale.headline6));
+    expect(cubit.typeScale, equals(TypeScale.headlineSmall));
     expect(cubit.isBaseStyleBlack, equals(false));
   });
 
   test('initialise toolbar text style cubit', () {
     final cubit = AppBarToolbarTextStyleCubit();
-    expect(cubit.typeScale, equals(TypeScale.bodyText2));
+    expect(cubit.typeScale, equals(TypeScale.labelLarge));
     expect(cubit.isBaseStyleBlack, equals(false));
   });
 }

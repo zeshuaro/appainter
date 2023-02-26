@@ -23,19 +23,21 @@ class TextThemeEditor extends ExpansionPanelItem {
               ? Colors.grey[700]
               : Colors.grey[100],
           items: const [
-            Headline1TextStyleEditor(),
-            Headline2TextStyleEditor(),
-            Headline3TextStyleEditor(),
-            Headline4TextStyleEditor(),
-            Headline5TextStyleEditor(),
-            Headline6TextStyleEditor(),
-            Subtitle1TextStyleEditor(),
-            Subtitle2TextStyleEditor(),
-            BodyText1TextStyleEditor(),
-            BodyText2TextStyleEditor(),
-            ButtonTextStyleEditor(),
-            CaptionTextStyleEditor(),
-            OverlineTextStyleEditor(),
+            DisplayLargeTextStyleEditor(),
+            DisplayMediumTextStyleEditor(),
+            DisplaySmallTextStyleEditor(),
+            HeadlineLargeTextStyleEditor(),
+            HeadlineMediumTextStyleEditor(),
+            HeadlineSmallTextStyleEditor(),
+            TitleLargeTextStyleEditor(),
+            TitleMediumTextStyleEditor(),
+            TitleSmallTextStyleEditor(),
+            LabelLargeTextStyleEditor(),
+            LabelMediumTextStyleEditor(),
+            LabelSmallTextStyleEditor(),
+            BodyLargeTextStyleEditor(),
+            BodyMediumTextStyleEditor(),
+            BodySmallTextStyleEditor(),
           ],
         ),
       ],
@@ -43,106 +45,122 @@ class TextThemeEditor extends ExpansionPanelItem {
   }
 }
 
-class Headline1TextStyleEditor
-    extends AbstractTextStyleEditor<Headline1TextStyleCubit> {
-  const Headline1TextStyleEditor({Key? key}) : super(key: key);
+class DisplayLargeTextStyleEditor
+    extends AbstractTextStyleEditor<DisplayLargeTextStyleCubit> {
+  const DisplayLargeTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Headline 1';
+  String get header => 'Display large';
 }
 
-class Headline2TextStyleEditor
-    extends AbstractTextStyleEditor<Headline2TextStyleCubit> {
-  const Headline2TextStyleEditor({Key? key}) : super(key: key);
+class DisplayMediumTextStyleEditor
+    extends AbstractTextStyleEditor<DisplayMediumTextStyleCubit> {
+  const DisplayMediumTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Headline 2';
+  String get header => 'Display medium';
 }
 
-class Headline3TextStyleEditor
-    extends AbstractTextStyleEditor<Headline3TextStyleCubit> {
-  const Headline3TextStyleEditor({Key? key}) : super(key: key);
+class DisplaySmallTextStyleEditor
+    extends AbstractTextStyleEditor<DisplaySmallTextStyleCubit> {
+  const DisplaySmallTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Headline 3';
+  String get header => 'Display small';
 }
 
-class Headline4TextStyleEditor
-    extends AbstractTextStyleEditor<Headline4TextStyleCubit> {
-  const Headline4TextStyleEditor({Key? key}) : super(key: key);
+class HeadlineLargeTextStyleEditor
+    extends AbstractTextStyleEditor<HeadlineLargeTextStyleCubit> {
+  const HeadlineLargeTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Headline 4';
+  String get header => 'Headline large';
 }
 
-class Headline5TextStyleEditor
-    extends AbstractTextStyleEditor<Headline5TextStyleCubit> {
-  const Headline5TextStyleEditor({Key? key}) : super(key: key);
+class HeadlineMediumTextStyleEditor
+    extends AbstractTextStyleEditor<HeadlineMediumTextStyleCubit> {
+  const HeadlineMediumTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Headline 5';
+  String get header => 'Headline medium';
 }
 
-class Headline6TextStyleEditor
-    extends AbstractTextStyleEditor<Headline6TextStyleCubit> {
-  const Headline6TextStyleEditor({Key? key}) : super(key: key);
+class HeadlineSmallTextStyleEditor
+    extends AbstractTextStyleEditor<HeadlineSmallTextStyleCubit> {
+  const HeadlineSmallTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Headline 6';
+  String get header => 'Headline small';
 }
 
-class Subtitle1TextStyleEditor
-    extends AbstractTextStyleEditor<Subtitle1TextStyleCubit> {
-  const Subtitle1TextStyleEditor({Key? key}) : super(key: key);
+class TitleLargeTextStyleEditor
+    extends AbstractTextStyleEditor<TitleLargeTextStyleCubit> {
+  const TitleLargeTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Subtitle 1';
+  String get header => 'Title large';
 }
 
-class Subtitle2TextStyleEditor
-    extends AbstractTextStyleEditor<Subtitle2TextStyleCubit> {
-  const Subtitle2TextStyleEditor({Key? key}) : super(key: key);
+class TitleMediumTextStyleEditor
+    extends AbstractTextStyleEditor<TitleMediumTextStyleCubit> {
+  const TitleMediumTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Subtitle 2';
+  String get header => 'Title medium';
 }
 
-class BodyText1TextStyleEditor
-    extends AbstractTextStyleEditor<BodyText1TextStyleCubit> {
-  const BodyText1TextStyleEditor({Key? key}) : super(key: key);
+class TitleSmallTextStyleEditor
+    extends AbstractTextStyleEditor<TitleSmallTextStyleCubit> {
+  const TitleSmallTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Body text 1';
+  String get header => 'Title small';
 }
 
-class BodyText2TextStyleEditor
-    extends AbstractTextStyleEditor<BodyText2TextStyleCubit> {
-  const BodyText2TextStyleEditor({Key? key}) : super(key: key);
+class LabelLargeTextStyleEditor
+    extends AbstractTextStyleEditor<LabelLargeTextStyleCubit> {
+  const LabelLargeTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Body text 2';
+  String get header => 'Label large';
 }
 
-class ButtonTextStyleEditor
-    extends AbstractTextStyleEditor<ButtonTextStyleCubit> {
-  const ButtonTextStyleEditor({Key? key}) : super(key: key);
+class LabelMediumTextStyleEditor
+    extends AbstractTextStyleEditor<LabelMediumTextStyleCubit> {
+  const LabelMediumTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Button text';
+  String get header => 'Label medium';
 }
 
-class CaptionTextStyleEditor
-    extends AbstractTextStyleEditor<CaptionTextStyleCubit> {
-  const CaptionTextStyleEditor({Key? key}) : super(key: key);
+class LabelSmallTextStyleEditor
+    extends AbstractTextStyleEditor<LabelSmallTextStyleCubit> {
+  const LabelSmallTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Caption text';
+  String get header => 'Label small';
 }
 
-class OverlineTextStyleEditor
-    extends AbstractTextStyleEditor<OverlineTextStyleCubit> {
-  const OverlineTextStyleEditor({Key? key}) : super(key: key);
+class BodyLargeTextStyleEditor
+    extends AbstractTextStyleEditor<BodyLargeTextStyleCubit> {
+  const BodyLargeTextStyleEditor({Key? key}) : super(key: key);
 
   @override
-  String get header => 'Overline text';
+  String get header => 'Body large';
+}
+
+class BodyMediumTextStyleEditor
+    extends AbstractTextStyleEditor<BodyMediumTextStyleCubit> {
+  const BodyMediumTextStyleEditor({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Body medium';
+}
+
+class BodySmallTextStyleEditor
+    extends AbstractTextStyleEditor<BodySmallTextStyleCubit> {
+  const BodySmallTextStyleEditor({Key? key}) : super(key: key);
+
+  @override
+  String get header => 'Body small';
 }

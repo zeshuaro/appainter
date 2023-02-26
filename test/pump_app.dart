@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/advanced_theme/advanced_theme.dart';
@@ -86,38 +84,44 @@ extension PumpApp on WidgetTester {
     final SliderThemeCubit sliderThemeCubit = MockSliderThemeCubit();
     final TextThemeCubit textThemeCubit = MockTextThemeCubit();
 
-    final Headline1TextStyleCubit headline1textStyleCubit =
-        MockHeadline1TextStyleCubit();
-    final Headline2TextStyleCubit headline2textStyleCubit =
-        MockHeadline2TextStyleCubit();
-    final Headline3TextStyleCubit headline3textStyleCubit =
-        MockHeadline3TextStyleCubit();
-    final Headline4TextStyleCubit headline4textStyleCubit =
-        MockHeadline4TextStyleCubit();
-    final Headline5TextStyleCubit headline5textStyleCubit =
-        MockHeadline5TextStyleCubit();
-    final Headline6TextStyleCubit headline6textStyleCubit =
-        MockHeadline6TextStyleCubit();
+    final DisplayLargeTextStyleCubit displayLargetextStyleCubit =
+        MockDisplayLargeTextStyleCubit();
+    final DisplayMediumTextStyleCubit displayMediumtextStyleCubit =
+        MockDisplayMediumTextStyleCubit();
+    final DisplaySmallTextStyleCubit displaySmalltextStyleCubit =
+        MockDisplaySmallTextStyleCubit();
 
-    final Subtitle1TextStyleCubit subtitle1textStyleCubit =
-        MockSubtitle1TextStyleCubit();
-    final Subtitle2TextStyleCubit subtitle2textStyleCubit =
-        MockSubtitle2TextStyleCubit();
-    final BodyText1TextStyleCubit bodyText1textStyleCubit =
-        MockBodyText1TextStyleCubit();
-    final BodyText2TextStyleCubit bodyText2textStyleCubit =
-        MockBodyText2TextStyleCubit();
+    final HeadlineLargeTextStyleCubit headlineLargetextStyleCubit =
+        MockHeadlineLargeTextStyleCubit();
+    final HeadlineMediumTextStyleCubit headlineMediumtextStyleCubit =
+        MockHeadlineMediumTextStyleCubit();
+    final HeadlineSmallTextStyleCubit headlineSmalltextStyleCubit =
+        MockHeadlineSmallTextStyleCubit();
 
-    final ButtonTextStyleCubit buttontextStyleCubit =
-        MockButtonTextStyleCubit();
-    final CaptionTextStyleCubit captiontextStyleCubit =
-        MockCaptionTextStyleCubit();
-    final OverlineTextStyleCubit overlinetextStyleCubit =
-        MockOverlineTextStyleCubit();
+    final TitleLargeTextStyleCubit titleLargetextStyleCubit =
+        MockTitleLargeTextStyleCubit();
+    final TitleMediumTextStyleCubit titleMediumtextStyleCubit =
+        MockTitleMediumTextStyleCubit();
+    final TitleSmallTextStyleCubit titleSmalltextStyleCubit =
+        MockTitleSmallTextStyleCubit();
+
+    final LabelLargeTextStyleCubit labelLargetextStyleCubit =
+        MockLabelLargeTextStyleCubit();
+    final LabelMediumTextStyleCubit labelMediumtextStyleCubit =
+        MockLabelMediumTextStyleCubit();
+    final LabelSmallTextStyleCubit labelSmalltextStyleCubit =
+        MockLabelSmallTextStyleCubit();
+
+    final BodyLargeTextStyleCubit bodyLargetextStyleCubit =
+        MockBodyLargeTextStyleCubit();
+    final BodyMediumTextStyleCubit bodyMediumTextStyleCubit =
+        MockBodyMediumTextStyleCubit();
+    final BodySmallTextStyleCubit bodySmallTextStyleCubit =
+        MockBodySmallTextStyleCubit();
 
     final textStyle = Typography.englishLike2018
         .merge(Typography.blackMountainView)
-        .bodyText1!;
+        .titleSmall!;
     final textStyleState = TextStyleState(style: textStyle);
 
     when(() => mockHomeCubit.state).thenReturn(const HomeState());
@@ -182,21 +186,25 @@ extension PumpApp on WidgetTester {
 
     when(() => textThemeCubit.state).thenReturn(const TextThemeState());
 
-    when(() => headline1textStyleCubit.state).thenReturn(textStyleState);
-    when(() => headline2textStyleCubit.state).thenReturn(textStyleState);
-    when(() => headline3textStyleCubit.state).thenReturn(textStyleState);
-    when(() => headline4textStyleCubit.state).thenReturn(textStyleState);
-    when(() => headline5textStyleCubit.state).thenReturn(textStyleState);
-    when(() => headline6textStyleCubit.state).thenReturn(textStyleState);
+    when(() => displayLargetextStyleCubit.state).thenReturn(textStyleState);
+    when(() => displayMediumtextStyleCubit.state).thenReturn(textStyleState);
+    when(() => displaySmalltextStyleCubit.state).thenReturn(textStyleState);
 
-    when(() => subtitle1textStyleCubit.state).thenReturn(textStyleState);
-    when(() => subtitle2textStyleCubit.state).thenReturn(textStyleState);
-    when(() => bodyText1textStyleCubit.state).thenReturn(textStyleState);
-    when(() => bodyText2textStyleCubit.state).thenReturn(textStyleState);
+    when(() => headlineLargetextStyleCubit.state).thenReturn(textStyleState);
+    when(() => headlineMediumtextStyleCubit.state).thenReturn(textStyleState);
+    when(() => headlineSmalltextStyleCubit.state).thenReturn(textStyleState);
 
-    when(() => buttontextStyleCubit.state).thenReturn(textStyleState);
-    when(() => captiontextStyleCubit.state).thenReturn(textStyleState);
-    when(() => overlinetextStyleCubit.state).thenReturn(textStyleState);
+    when(() => titleLargetextStyleCubit.state).thenReturn(textStyleState);
+    when(() => titleMediumtextStyleCubit.state).thenReturn(textStyleState);
+    when(() => titleSmalltextStyleCubit.state).thenReturn(textStyleState);
+
+    when(() => labelLargetextStyleCubit.state).thenReturn(textStyleState);
+    when(() => labelMediumtextStyleCubit.state).thenReturn(textStyleState);
+    when(() => labelSmalltextStyleCubit.state).thenReturn(textStyleState);
+
+    when(() => bodyLargetextStyleCubit.state).thenReturn(textStyleState);
+    when(() => bodyMediumTextStyleCubit.state).thenReturn(textStyleState);
+    when(() => bodySmallTextStyleCubit.state).thenReturn(textStyleState);
 
     return pumpWidget(
       RepositoryProvider(
@@ -233,19 +241,21 @@ extension PumpApp on WidgetTester {
             BlocProvider.value(value: radioThemeCubit),
             BlocProvider.value(value: sliderThemeCubit),
             BlocProvider.value(value: textThemeCubit),
-            BlocProvider.value(value: headline1textStyleCubit),
-            BlocProvider.value(value: headline2textStyleCubit),
-            BlocProvider.value(value: headline3textStyleCubit),
-            BlocProvider.value(value: headline4textStyleCubit),
-            BlocProvider.value(value: headline5textStyleCubit),
-            BlocProvider.value(value: headline6textStyleCubit),
-            BlocProvider.value(value: subtitle1textStyleCubit),
-            BlocProvider.value(value: subtitle2textStyleCubit),
-            BlocProvider.value(value: bodyText1textStyleCubit),
-            BlocProvider.value(value: bodyText2textStyleCubit),
-            BlocProvider.value(value: buttontextStyleCubit),
-            BlocProvider.value(value: captiontextStyleCubit),
-            BlocProvider.value(value: overlinetextStyleCubit),
+            BlocProvider.value(value: displayLargetextStyleCubit),
+            BlocProvider.value(value: displayMediumtextStyleCubit),
+            BlocProvider.value(value: displaySmalltextStyleCubit),
+            BlocProvider.value(value: headlineLargetextStyleCubit),
+            BlocProvider.value(value: headlineMediumtextStyleCubit),
+            BlocProvider.value(value: headlineSmalltextStyleCubit),
+            BlocProvider.value(value: titleLargetextStyleCubit),
+            BlocProvider.value(value: titleMediumtextStyleCubit),
+            BlocProvider.value(value: titleSmalltextStyleCubit),
+            BlocProvider.value(value: labelLargetextStyleCubit),
+            BlocProvider.value(value: labelMediumtextStyleCubit),
+            BlocProvider.value(value: labelSmalltextStyleCubit),
+            BlocProvider.value(value: bodyLargetextStyleCubit),
+            BlocProvider.value(value: bodyMediumTextStyleCubit),
+            BlocProvider.value(value: bodySmallTextStyleCubit),
           ],
           child: MaterialApp(
             home: widget,

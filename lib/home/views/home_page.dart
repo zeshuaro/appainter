@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/common/common.dart';
@@ -112,12 +110,12 @@ class HomePageState extends State<HomePage> {
         children: [
           Text(
             'Supported Flutter SDK',
-            style: Theme.of(context).textTheme.subtitle1,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
           const VerticalPadding(),
           Text(
             'Appainter currently supports Flutter SDK: $_sdkVersion',
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.titleSmall,
           )
         ],
       ),
@@ -246,7 +244,7 @@ class _EditModeTabBar extends StatelessWidget {
           key: Key('homePage_editModeTabBar_$text'),
           child: Text(
             text,
-            style: Theme.of(context).textTheme.subtitle2,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
         );
       }).toList(),
@@ -283,7 +281,7 @@ class _ThemeConfigs extends StatelessWidget {
         children: [
           Text(
             'Theme configurations',
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
           Row(
             children: const [

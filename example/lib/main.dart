@@ -11,7 +11,7 @@ void main() async {
   final themeStr = await rootBundle.loadString('assets/appainter_theme.json');
   final themeJson = jsonDecode(themeStr);
 
-  final theme = ThemeDecoder.decodeThemeData(themeJson, validate: false)!;
+  final theme = ThemeDecoder.decodeThemeData(themeJson)!;
   runApp(MyApp(theme: theme));
 }
 
@@ -102,7 +102,7 @@ class MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
           ],
         ),

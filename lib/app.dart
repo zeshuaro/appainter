@@ -89,36 +89,42 @@ class MyApp extends StatelessWidget {
     final radioThemeCubit = RadioThemeCubit(colorThemeCubit: colorThemeCubit);
     final sliderThemeCubit = SliderThemeCubit();
 
-    final headline1TextStyleCubit = Headline1TextStyleCubit();
-    final headline2TextStyleCubit = Headline2TextStyleCubit();
-    final headline3TextStyleCubit = Headline3TextStyleCubit();
-    final headline4TextStyleCubit = Headline4TextStyleCubit();
-    final headline5TextStyleCubit = Headline5TextStyleCubit();
-    final headline6TextStyleCubit = Headline6TextStyleCubit();
+    final displayLargeTextStyleCubit = DisplayLargeTextStyleCubit();
+    final displayMediumTextStyleCubit = DisplayMediumTextStyleCubit();
+    final displaySmallTextStyleCubit = DisplaySmallTextStyleCubit();
 
-    final subtitle1TextStyleCubit = Subtitle1TextStyleCubit();
-    final subtitle2TextStyleCubit = Subtitle2TextStyleCubit();
-    final bodyText1TextStyleCubit = BodyText1TextStyleCubit();
-    final bodyText2TextStyleCubit = BodyText2TextStyleCubit();
+    final headlineLargeTextStyleCubit = HeadlineLargeTextStyleCubit();
+    final headlineMediumTextStyleCubit = HeadlineMediumTextStyleCubit();
+    final headlineSmallTextStyleCubit = HeadlineSmallTextStyleCubit();
 
-    final buttonTextStyleCubit = ButtonTextStyleCubit();
-    final captionTextStyleCubit = CaptionTextStyleCubit();
-    final overlineTextStyleCubit = OverlineTextStyleCubit();
+    final titleLargeTextStyleCubit = TitleLargeTextStyleCubit();
+    final titleMediumTextStyleCubit = TitleMediumTextStyleCubit();
+    final titleSmallTextStyleCubit = TitleSmallTextStyleCubit();
+
+    final labelLargeTextStyleCubit = LabelLargeTextStyleCubit();
+    final labelMediumTextStyleCubit = LabelMediumTextStyleCubit();
+    final labelSmallTextStyleCubit = LabelSmallTextStyleCubit();
+
+    final bodyLargeTextStyleCubit = BodyLargeTextStyleCubit();
+    final bodyMediumTextStyleCubit = BodyMediumTextStyleCubit();
+    final bodySmallTextStyleCubit = BodySmallTextStyleCubit();
 
     final textThemeCubit = TextThemeCubit(
-      headline1TextStyleCubit: headline1TextStyleCubit,
-      headline2TextStyleCubit: headline2TextStyleCubit,
-      headline3TextStyleCubit: headline3TextStyleCubit,
-      headline4TextStyleCubit: headline4TextStyleCubit,
-      headline5TextStyleCubit: headline5TextStyleCubit,
-      headline6TextStyleCubit: headline6TextStyleCubit,
-      subtitle1TextStyleCubit: subtitle1TextStyleCubit,
-      subtitle2TextStyleCubit: subtitle2TextStyleCubit,
-      bodyText1TextStyleCubit: bodyText1TextStyleCubit,
-      bodyText2TextStyleCubit: bodyText2TextStyleCubit,
-      buttonTextStyleCubit: buttonTextStyleCubit,
-      captionTextStyleCubit: captionTextStyleCubit,
-      overlineTextStyleCubit: overlineTextStyleCubit,
+      displayLargeTextStyleCubit: displayLargeTextStyleCubit,
+      displayMediumTextStyleCubit: displayMediumTextStyleCubit,
+      displaySmallTextStyleCubit: displaySmallTextStyleCubit,
+      headlineLargeTextStyleCubit: headlineLargeTextStyleCubit,
+      headlineMediumTextStyleCubit: headlineMediumTextStyleCubit,
+      headlineSmallTextStyleCubit: headlineSmallTextStyleCubit,
+      titleLargeTextStyleCubit: titleLargeTextStyleCubit,
+      titleMediumTextStyleCubit: titleMediumTextStyleCubit,
+      titleSmallTextStyleCubit: titleSmallTextStyleCubit,
+      labelLargeTextStyleCubit: labelLargeTextStyleCubit,
+      labelMediumTextStyleCubit: labelMediumTextStyleCubit,
+      labelSmallTextStyleCubit: labelSmallTextStyleCubit,
+      bodyLargeTextStyleCubit: bodyLargeTextStyleCubit,
+      bodyMediumTextStyleCubit: bodyMediumTextStyleCubit,
+      bodySmallTextStyleCubit: bodySmallTextStyleCubit,
     );
 
     final advancedThemeCubit = AdvancedThemeCubit(
@@ -177,19 +183,21 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (_) => radioThemeCubit),
           BlocProvider(create: (_) => sliderThemeCubit),
           BlocProvider(create: (_) => textThemeCubit),
-          BlocProvider(create: (_) => headline1TextStyleCubit),
-          BlocProvider(create: (_) => headline2TextStyleCubit),
-          BlocProvider(create: (_) => headline3TextStyleCubit),
-          BlocProvider(create: (_) => headline4TextStyleCubit),
-          BlocProvider(create: (_) => headline5TextStyleCubit),
-          BlocProvider(create: (_) => headline6TextStyleCubit),
-          BlocProvider(create: (_) => subtitle1TextStyleCubit),
-          BlocProvider(create: (_) => subtitle2TextStyleCubit),
-          BlocProvider(create: (_) => bodyText1TextStyleCubit),
-          BlocProvider(create: (_) => bodyText2TextStyleCubit),
-          BlocProvider(create: (_) => buttonTextStyleCubit),
-          BlocProvider(create: (_) => captionTextStyleCubit),
-          BlocProvider(create: (_) => overlineTextStyleCubit),
+          BlocProvider(create: (_) => displayLargeTextStyleCubit),
+          BlocProvider(create: (_) => displayMediumTextStyleCubit),
+          BlocProvider(create: (_) => displaySmallTextStyleCubit),
+          BlocProvider(create: (_) => headlineLargeTextStyleCubit),
+          BlocProvider(create: (_) => headlineMediumTextStyleCubit),
+          BlocProvider(create: (_) => headlineSmallTextStyleCubit),
+          BlocProvider(create: (_) => titleLargeTextStyleCubit),
+          BlocProvider(create: (_) => titleMediumTextStyleCubit),
+          BlocProvider(create: (_) => titleSmallTextStyleCubit),
+          BlocProvider(create: (_) => labelLargeTextStyleCubit),
+          BlocProvider(create: (_) => labelMediumTextStyleCubit),
+          BlocProvider(create: (_) => labelSmallTextStyleCubit),
+          BlocProvider(create: (_) => bodyLargeTextStyleCubit),
+          BlocProvider(create: (_) => bodyMediumTextStyleCubit),
+          BlocProvider(create: (_) => bodySmallTextStyleCubit),
         ],
         child: const _MaterialApp(),
       ),

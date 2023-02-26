@@ -1,29 +1,5 @@
 {
-  "appBarTheme": {
-    "titleTextStyle": {
-      "color": "#ffffffff",
-      "decoration": "none",
-      "fontFamily": "Roboto",
-      "fontWeight": "w500",
-      "fontSize": 20.0,
-      "inherit": true,
-      "letterSpacing": 0.15,
-      "textBaseline": "alphabetic"
-    },
-    "toolbarTextStyle": {
-      "color": "#ffffffff",
-      "decoration": "none",
-      "fontFamily": "Roboto",
-      "fontWeight": "w400",
-      "fontSize": 14.0,
-      "inherit": true,
-      "letterSpacing": 0.25,
-      "textBaseline": "alphabetic"
-    }
-  },
   "applyElevationOverlayColor": false,
-  "backgroundColor": "#ff9575cd",
-  "bottomAppBarColor": "#ffffffff",
   "brightness": "light",
   "buttonTheme": {
     "alignedDropdown": false,
@@ -47,9 +23,10 @@
       "onTertiary": "#ff000000",
       "onTertiaryContainer": "#ff000000",
       "outline": "#ff000000",
-      "primary": "#ff673ab7",
+      "outlineVarient": "#ff000000",
+      "primary": "#ff9c27b0",
       "primaryContainer": "#ff6200ee",
-      "secondary": "#ff673ab7",
+      "secondary": "#ff9c27b0",
       "secondaryContainer": "#ff03dac6",
       "shadow": "#ff000000",
       "surface": "#ffffffff",
@@ -93,6 +70,7 @@
       },
       "side": {
         "color": "#ff000000",
+        "strokeAlign": -1.0,
         "style": "none",
         "width": 0.0
       },
@@ -122,9 +100,10 @@
     "onTertiary": "#ff000000",
     "onTertiaryContainer": "#ff000000",
     "outline": "#ff000000",
-    "primary": "#ff673ab7",
+    "outlineVarient": "#ff000000",
+    "primary": "#ff9c27b0",
     "primaryContainer": "#ff6200ee",
-    "secondary": "#ff673ab7",
+    "secondary": "#ff9c27b0",
     "secondaryContainer": "#ff03dac6",
     "shadow": "#ff000000",
     "surface": "#ffffffff",
@@ -136,15 +115,11 @@
   "dialogBackgroundColor": "#ffffffff",
   "disabledColor": "#61000000",
   "dividerColor": "#1f000000",
-  "errorColor": "#ffd32f2f",
   "focusColor": "#1f000000",
   "highlightColor": "#66bcbcbc",
   "hintColor": "#99000000",
   "hoverColor": "#0a000000",
-  "iconTheme": {
-    "color": "#dd000000"
-  },
-  "indicatorColor": "#ff673ab7",
+  "indicatorColor": "#ff9c27b0",
   "inputDecorationTheme": {
     "alignLabelWithHint": false,
     "filled": false,
@@ -155,9 +130,9 @@
   },
   "materialTapTargetSize": "shrinkWrap",
   "platform": "macOS",
-  "primaryColor": "#ff673ab7",
-  "primaryColorDark": "#ff522e92",
-  "primaryColorLight": "#ffa489d4",
+  "primaryColor": "#ff9c27b0",
+  "primaryColorDark": "#ff7d1f8d",
+  "primaryColorLight": "#ffc47dd0",
   "primaryIconTheme": {
     "color": "#ffffffff"
   },
@@ -254,8 +229,7 @@
     }
   },
   "scaffoldBackgroundColor": "#fffafafa",
-  "secondaryHeaderColor": "#ffab93d7",
-  "selectedRowColor": "#fff5f5f5",
+  "secondaryHeaderColor": "#ffc988d4",
   "shadowColor": "#ff000000",
   "splashColor": "#66c8c8c8",
   "splashFactory": "splash",
@@ -267,9 +241,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w400",
       "fontSize": 16.0,
-      "inherit": true,
+      "fontWeight": "w400",
+      "inherit": false,
       "letterSpacing": 0.5,
       "textBaseline": "alphabetic"
     },
@@ -280,9 +254,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w400",
       "fontSize": 14.0,
-      "inherit": true,
+      "fontWeight": "w400",
+      "inherit": false,
       "letterSpacing": 0.25,
       "textBaseline": "alphabetic"
     },
@@ -293,9 +267,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w400",
       "fontSize": 12.0,
-      "inherit": true,
+      "fontWeight": "w400",
+      "inherit": false,
       "letterSpacing": 0.4,
       "textBaseline": "alphabetic"
     },
@@ -306,9 +280,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w300",
       "fontSize": 96.0,
-      "inherit": true,
+      "fontWeight": "w300",
+      "inherit": false,
       "letterSpacing": -1.5,
       "textBaseline": "alphabetic"
     },
@@ -319,9 +293,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w300",
       "fontSize": 60.0,
-      "inherit": true,
+      "fontWeight": "w300",
+      "inherit": false,
       "letterSpacing": -0.5,
       "textBaseline": "alphabetic"
     },
@@ -332,9 +306,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w400",
       "fontSize": 48.0,
-      "inherit": true,
+      "fontWeight": "w400",
+      "inherit": false,
       "letterSpacing": 0.0,
       "textBaseline": "alphabetic"
     },
@@ -345,7 +319,11 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "inherit": true
+      "fontSize": 40.0,
+      "fontWeight": "w400",
+      "inherit": false,
+      "letterSpacing": 0.25,
+      "textBaseline": "alphabetic"
     },
     "headlineMedium": {
       "color": "#8a000000",
@@ -354,9 +332,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w400",
       "fontSize": 34.0,
-      "inherit": true,
+      "fontWeight": "w400",
+      "inherit": false,
       "letterSpacing": 0.25,
       "textBaseline": "alphabetic"
     },
@@ -367,9 +345,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w400",
       "fontSize": 24.0,
-      "inherit": true,
+      "fontWeight": "w400",
+      "inherit": false,
       "letterSpacing": 0.0,
       "textBaseline": "alphabetic"
     },
@@ -380,9 +358,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w500",
       "fontSize": 14.0,
-      "inherit": true,
+      "fontWeight": "w500",
+      "inherit": false,
       "letterSpacing": 1.25,
       "textBaseline": "alphabetic"
     },
@@ -393,7 +371,11 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "inherit": true
+      "fontSize": 11.0,
+      "fontWeight": "w400",
+      "inherit": false,
+      "letterSpacing": 1.5,
+      "textBaseline": "alphabetic"
     },
     "labelSmall": {
       "color": "#ff000000",
@@ -402,9 +384,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w400",
       "fontSize": 10.0,
-      "inherit": true,
+      "fontWeight": "w400",
+      "inherit": false,
       "letterSpacing": 1.5,
       "textBaseline": "alphabetic"
     },
@@ -415,9 +397,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w500",
       "fontSize": 20.0,
-      "inherit": true,
+      "fontWeight": "w500",
+      "inherit": false,
       "letterSpacing": 0.15,
       "textBaseline": "alphabetic"
     },
@@ -428,9 +410,9 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w400",
       "fontSize": 16.0,
-      "inherit": true,
+      "fontWeight": "w400",
+      "inherit": false,
       "letterSpacing": 0.15,
       "textBaseline": "alphabetic"
     },
@@ -441,14 +423,13 @@
       "fontFamilyFallback": [
         "Roboto"
       ],
-      "fontWeight": "w500",
       "fontSize": 14.0,
-      "inherit": true,
+      "fontWeight": "w500",
+      "inherit": false,
       "letterSpacing": 0.1,
       "textBaseline": "alphabetic"
     }
   },
-  "toggleableActiveColor": "#ff5d34a5",
   "typography": {
     "black": {
       "bodyLarge": {
@@ -544,185 +525,185 @@
     },
     "dense": {
       "bodyLarge": {
-        "fontWeight": "w500",
         "fontSize": 15.0,
+        "fontWeight": "w500",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "bodyMedium": {
-        "fontWeight": "w400",
         "fontSize": 15.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "bodySmall": {
-        "fontWeight": "w400",
         "fontSize": 13.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "displayLarge": {
-        "fontWeight": "w100",
         "fontSize": 112.0,
+        "fontWeight": "w100",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "displayMedium": {
-        "fontWeight": "w400",
         "fontSize": 56.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "displaySmall": {
-        "fontWeight": "w400",
         "fontSize": 45.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headlineLarge": {
-        "fontWeight": "w400",
         "fontSize": 40.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headlineMedium": {
-        "fontWeight": "w400",
         "fontSize": 34.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "headlineSmall": {
-        "fontWeight": "w400",
         "fontSize": 24.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "labelLarge": {
-        "fontWeight": "w500",
         "fontSize": 15.0,
+        "fontWeight": "w500",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "labelMedium": {
-        "fontWeight": "w400",
         "fontSize": 12.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "labelSmall": {
-        "fontWeight": "w400",
         "fontSize": 11.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "titleLarge": {
-        "fontWeight": "w500",
         "fontSize": 21.0,
+        "fontWeight": "w500",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "titleMedium": {
-        "fontWeight": "w400",
         "fontSize": 17.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "ideographic"
       },
       "titleSmall": {
-        "fontWeight": "w500",
         "fontSize": 15.0,
+        "fontWeight": "w500",
         "inherit": false,
         "textBaseline": "ideographic"
       }
     },
     "englishLike": {
       "bodyLarge": {
-        "fontWeight": "w500",
         "fontSize": 14.0,
+        "fontWeight": "w500",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "bodyMedium": {
-        "fontWeight": "w400",
         "fontSize": 14.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "bodySmall": {
-        "fontWeight": "w400",
         "fontSize": 12.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "displayLarge": {
-        "fontWeight": "w100",
         "fontSize": 112.0,
+        "fontWeight": "w100",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "displayMedium": {
-        "fontWeight": "w400",
         "fontSize": 56.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "displaySmall": {
-        "fontWeight": "w400",
         "fontSize": 45.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headlineLarge": {
-        "fontWeight": "w400",
         "fontSize": 40.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headlineMedium": {
-        "fontWeight": "w400",
         "fontSize": 34.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headlineSmall": {
-        "fontWeight": "w400",
         "fontSize": 24.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "labelLarge": {
-        "fontWeight": "w500",
         "fontSize": 14.0,
+        "fontWeight": "w500",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "labelMedium": {
-        "fontWeight": "w400",
         "fontSize": 12.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "labelSmall": {
-        "fontWeight": "w400",
         "fontSize": 10.0,
+        "fontWeight": "w400",
         "inherit": false,
         "letterSpacing": 1.5,
         "textBaseline": "alphabetic"
       },
       "titleLarge": {
-        "fontWeight": "w500",
         "fontSize": 20.0,
+        "fontWeight": "w500",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "titleMedium": {
-        "fontWeight": "w400",
         "fontSize": 16.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "titleSmall": {
-        "fontWeight": "w500",
         "fontSize": 14.0,
+        "fontWeight": "w500",
         "inherit": false,
         "letterSpacing": 0.1,
         "textBaseline": "alphabetic"
@@ -730,92 +711,92 @@
     },
     "tall": {
       "bodyLarge": {
-        "fontWeight": "w700",
         "fontSize": 15.0,
+        "fontWeight": "w700",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "bodyMedium": {
-        "fontWeight": "w400",
         "fontSize": 15.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "bodySmall": {
-        "fontWeight": "w400",
         "fontSize": 13.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "displayLarge": {
-        "fontWeight": "w400",
         "fontSize": 112.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "displayMedium": {
-        "fontWeight": "w400",
         "fontSize": 56.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "displaySmall": {
-        "fontWeight": "w400",
         "fontSize": 45.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headlineLarge": {
-        "fontWeight": "w400",
         "fontSize": 40.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headlineMedium": {
-        "fontWeight": "w400",
         "fontSize": 34.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "headlineSmall": {
-        "fontWeight": "w400",
         "fontSize": 24.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "labelLarge": {
-        "fontWeight": "w700",
         "fontSize": 15.0,
+        "fontWeight": "w700",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "labelMedium": {
-        "fontWeight": "w400",
         "fontSize": 12.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "labelSmall": {
-        "fontWeight": "w400",
         "fontSize": 11.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "titleLarge": {
-        "fontWeight": "w700",
         "fontSize": 21.0,
+        "fontWeight": "w700",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "titleMedium": {
-        "fontWeight": "w400",
         "fontSize": 17.0,
+        "fontWeight": "w400",
         "inherit": false,
         "textBaseline": "alphabetic"
       },
       "titleSmall": {
-        "fontWeight": "w500",
         "fontSize": 15.0,
+        "fontWeight": "w500",
         "inherit": false,
         "textBaseline": "alphabetic"
       }

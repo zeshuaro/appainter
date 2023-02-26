@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
@@ -13,54 +11,65 @@ void main() {
   late TextThemeCubit textThemeCubit;
   late TextTheme textTheme;
 
-  late Headline1TextStyleCubit headline1TextStyleCubit;
-  late Headline2TextStyleCubit headline2TextStyleCubit;
-  late Headline3TextStyleCubit headline3TextStyleCubit;
-  late Headline4TextStyleCubit headline4TextStyleCubit;
-  late Headline5TextStyleCubit headline5TextStyleCubit;
-  late Headline6TextStyleCubit headline6TextStyleCubit;
+  late DisplayLargeTextStyleCubit displayLargeTextStyleCubit;
+  late DisplayMediumTextStyleCubit displayMediumTextStyleCubit;
+  late DisplaySmallTextStyleCubit displaySmallTextStyleCubit;
 
-  late Subtitle1TextStyleCubit subtitle1TextStyleCubit;
-  late Subtitle2TextStyleCubit subtitle2TextStyleCubit;
-  late BodyText1TextStyleCubit bodyText1TextStyleCubit;
-  late BodyText2TextStyleCubit bodyText2TextStyleCubit;
+  late HeadlineLargeTextStyleCubit headlineLargeTextStyleCubit;
+  late HeadlineMediumTextStyleCubit headlineMediumTextStyleCubit;
+  late HeadlineSmallTextStyleCubit headlineSmallTextStyleCubit;
 
-  late ButtonTextStyleCubit buttonTextStyleCubit;
-  late CaptionTextStyleCubit captionTextStyleCubit;
-  late OverlineTextStyleCubit overlineTextStyleCubit;
+  late TitleLargeTextStyleCubit titleLargeTextStyleCubit;
+  late TitleMediumTextStyleCubit titleMediumTextStyleCubit;
+  late TitleSmallTextStyleCubit titleSmallTextStyleCubit;
+
+  late LabelLargeTextStyleCubit labelLargeTextStyleCubit;
+  late LabelMediumTextStyleCubit labelMediumTextStyleCubit;
+  late LabelSmallTextStyleCubit labelSmallTextStyleCubit;
+
+  late BodyLargeTextStyleCubit bodyLargeTextStyleCubit;
+  late BodyMediumTextStyleCubit bodyMediumTextStyleCubit;
+  late BodySmallTextStyleCubit bodySmallTextStyleCubit;
 
   setUp(() {
     textTheme = ThemeData().textTheme;
-    headline1TextStyleCubit = MockHeadline1TextStyleCubit();
-    headline2TextStyleCubit = MockHeadline2TextStyleCubit();
-    headline3TextStyleCubit = MockHeadline3TextStyleCubit();
-    headline4TextStyleCubit = MockHeadline4TextStyleCubit();
-    headline5TextStyleCubit = MockHeadline5TextStyleCubit();
-    headline6TextStyleCubit = MockHeadline6TextStyleCubit();
 
-    subtitle1TextStyleCubit = MockSubtitle1TextStyleCubit();
-    subtitle2TextStyleCubit = MockSubtitle2TextStyleCubit();
-    bodyText1TextStyleCubit = MockBodyText1TextStyleCubit();
-    bodyText2TextStyleCubit = MockBodyText2TextStyleCubit();
+    displayLargeTextStyleCubit = MockDisplayLargeTextStyleCubit();
+    displayMediumTextStyleCubit = MockDisplayMediumTextStyleCubit();
+    displaySmallTextStyleCubit = MockDisplaySmallTextStyleCubit();
 
-    buttonTextStyleCubit = MockButtonTextStyleCubit();
-    captionTextStyleCubit = MockCaptionTextStyleCubit();
-    overlineTextStyleCubit = MockOverlineTextStyleCubit();
+    headlineLargeTextStyleCubit = MockHeadlineLargeTextStyleCubit();
+    headlineMediumTextStyleCubit = MockHeadlineMediumTextStyleCubit();
+    headlineSmallTextStyleCubit = MockHeadlineSmallTextStyleCubit();
+
+    titleLargeTextStyleCubit = MockTitleLargeTextStyleCubit();
+    titleMediumTextStyleCubit = MockTitleMediumTextStyleCubit();
+    titleSmallTextStyleCubit = MockTitleSmallTextStyleCubit();
+
+    labelLargeTextStyleCubit = MockLabelLargeTextStyleCubit();
+    labelMediumTextStyleCubit = MockLabelMediumTextStyleCubit();
+    labelSmallTextStyleCubit = MockLabelSmallTextStyleCubit();
+
+    bodyLargeTextStyleCubit = MockBodyLargeTextStyleCubit();
+    bodyMediumTextStyleCubit = MockBodyMediumTextStyleCubit();
+    bodySmallTextStyleCubit = MockBodySmallTextStyleCubit();
 
     textThemeCubit = TextThemeCubit(
-      headline1TextStyleCubit: headline1TextStyleCubit,
-      headline2TextStyleCubit: headline2TextStyleCubit,
-      headline3TextStyleCubit: headline3TextStyleCubit,
-      headline4TextStyleCubit: headline4TextStyleCubit,
-      headline5TextStyleCubit: headline5TextStyleCubit,
-      headline6TextStyleCubit: headline6TextStyleCubit,
-      subtitle1TextStyleCubit: subtitle1TextStyleCubit,
-      subtitle2TextStyleCubit: subtitle2TextStyleCubit,
-      bodyText1TextStyleCubit: bodyText1TextStyleCubit,
-      bodyText2TextStyleCubit: bodyText2TextStyleCubit,
-      buttonTextStyleCubit: buttonTextStyleCubit,
-      captionTextStyleCubit: captionTextStyleCubit,
-      overlineTextStyleCubit: overlineTextStyleCubit,
+      displayLargeTextStyleCubit: displayLargeTextStyleCubit,
+      displayMediumTextStyleCubit: displayMediumTextStyleCubit,
+      displaySmallTextStyleCubit: displaySmallTextStyleCubit,
+      headlineLargeTextStyleCubit: headlineLargeTextStyleCubit,
+      headlineMediumTextStyleCubit: headlineMediumTextStyleCubit,
+      headlineSmallTextStyleCubit: headlineSmallTextStyleCubit,
+      titleLargeTextStyleCubit: titleLargeTextStyleCubit,
+      titleMediumTextStyleCubit: titleMediumTextStyleCubit,
+      titleSmallTextStyleCubit: titleSmallTextStyleCubit,
+      labelLargeTextStyleCubit: labelLargeTextStyleCubit,
+      labelMediumTextStyleCubit: labelMediumTextStyleCubit,
+      labelSmallTextStyleCubit: labelSmallTextStyleCubit,
+      bodyLargeTextStyleCubit: bodyLargeTextStyleCubit,
+      bodyMediumTextStyleCubit: bodyMediumTextStyleCubit,
+      bodySmallTextStyleCubit: bodySmallTextStyleCubit,
     );
   });
 
@@ -72,45 +81,55 @@ void main() {
         act: (cubit) => cubit.themeBrightnessChanged(isDark),
         verify: (cubit) {
           verify(
-            () => headline1TextStyleCubit.styleBrightnessChanged(isDark),
+            () => displayLargeTextStyleCubit.styleBrightnessChanged(isDark),
           ).called(1);
           verify(
-            () => headline2TextStyleCubit.styleBrightnessChanged(isDark),
+            () => displayMediumTextStyleCubit.styleBrightnessChanged(isDark),
           ).called(1);
           verify(
-            () => headline3TextStyleCubit.styleBrightnessChanged(isDark),
-          ).called(1);
-          verify(
-            () => headline4TextStyleCubit.styleBrightnessChanged(isDark),
-          ).called(1);
-          verify(
-            () => headline5TextStyleCubit.styleBrightnessChanged(isDark),
-          ).called(1);
-          verify(
-            () => headline6TextStyleCubit.styleBrightnessChanged(isDark),
+            () => displaySmallTextStyleCubit.styleBrightnessChanged(isDark),
           ).called(1);
 
           verify(
-            () => subtitle1TextStyleCubit.styleBrightnessChanged(isDark),
+            () => headlineLargeTextStyleCubit.styleBrightnessChanged(isDark),
           ).called(1);
           verify(
-            () => subtitle2TextStyleCubit.styleBrightnessChanged(isDark),
+            () => headlineMediumTextStyleCubit.styleBrightnessChanged(isDark),
           ).called(1);
           verify(
-            () => bodyText1TextStyleCubit.styleBrightnessChanged(isDark),
-          ).called(1);
-          verify(
-            () => bodyText2TextStyleCubit.styleBrightnessChanged(isDark),
+            () => headlineSmallTextStyleCubit.styleBrightnessChanged(isDark),
           ).called(1);
 
           verify(
-            () => buttonTextStyleCubit.styleBrightnessChanged(isDark),
+            () => titleLargeTextStyleCubit.styleBrightnessChanged(isDark),
           ).called(1);
           verify(
-            () => captionTextStyleCubit.styleBrightnessChanged(isDark),
+            () => titleMediumTextStyleCubit.styleBrightnessChanged(isDark),
           ).called(1);
           verify(
-            () => overlineTextStyleCubit.styleBrightnessChanged(isDark),
+            () => titleSmallTextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+
+          verify(
+            () => labelLargeTextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => labelMediumTextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+          verify(
+            () => labelSmallTextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+
+          verify(
+            () => bodyLargeTextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+
+          verify(
+            () => bodyMediumTextStyleCubit.styleBrightnessChanged(isDark),
+          ).called(1);
+
+          verify(
+            () => bodySmallTextStyleCubit.styleBrightnessChanged(isDark),
           ).called(1);
         },
       );
@@ -123,45 +142,56 @@ void main() {
     act: (cubit) => cubit.themeChanged(textTheme),
     verify: (cubit) {
       verify(
-        () => headline1TextStyleCubit.styleChanged(textTheme.headline1),
+        () => displayLargeTextStyleCubit.styleChanged(textTheme.displayLarge),
       ).called(1);
       verify(
-        () => headline2TextStyleCubit.styleChanged(textTheme.headline2),
+        () => displayMediumTextStyleCubit.styleChanged(textTheme.displayMedium),
       ).called(1);
       verify(
-        () => headline3TextStyleCubit.styleChanged(textTheme.headline3),
-      ).called(1);
-      verify(
-        () => headline4TextStyleCubit.styleChanged(textTheme.headline4),
-      ).called(1);
-      verify(
-        () => headline5TextStyleCubit.styleChanged(textTheme.headline5),
-      ).called(1);
-      verify(
-        () => headline6TextStyleCubit.styleChanged(textTheme.headline6),
+        () => displaySmallTextStyleCubit.styleChanged(textTheme.displaySmall),
       ).called(1);
 
       verify(
-        () => subtitle1TextStyleCubit.styleChanged(textTheme.subtitle1),
+        () => headlineLargeTextStyleCubit.styleChanged(textTheme.headlineLarge),
       ).called(1);
       verify(
-        () => subtitle2TextStyleCubit.styleChanged(textTheme.subtitle2),
+        () =>
+            headlineMediumTextStyleCubit.styleChanged(textTheme.headlineMedium),
       ).called(1);
       verify(
-        () => bodyText1TextStyleCubit.styleChanged(textTheme.bodyText1),
-      ).called(1);
-      verify(
-        () => bodyText2TextStyleCubit.styleChanged(textTheme.bodyText2),
+        () => headlineSmallTextStyleCubit.styleChanged(textTheme.headlineSmall),
       ).called(1);
 
       verify(
-        () => buttonTextStyleCubit.styleChanged(textTheme.button),
+        () => titleLargeTextStyleCubit.styleChanged(textTheme.titleLarge),
       ).called(1);
       verify(
-        () => captionTextStyleCubit.styleChanged(textTheme.caption),
+        () => titleMediumTextStyleCubit.styleChanged(textTheme.titleMedium),
       ).called(1);
       verify(
-        () => overlineTextStyleCubit.styleChanged(textTheme.overline),
+        () => titleSmallTextStyleCubit.styleChanged(textTheme.titleSmall),
+      ).called(1);
+
+      verify(
+        () => labelLargeTextStyleCubit.styleChanged(textTheme.labelLarge),
+      ).called(1);
+      verify(
+        () => labelMediumTextStyleCubit.styleChanged(textTheme.labelMedium),
+      ).called(1);
+      verify(
+        () => labelSmallTextStyleCubit.styleChanged(textTheme.labelSmall),
+      ).called(1);
+
+      verify(
+        () => bodyLargeTextStyleCubit.styleChanged(textTheme.bodyLarge),
+      ).called(1);
+
+      verify(
+        () => bodyMediumTextStyleCubit.styleChanged(textTheme.bodyMedium),
+      ).called(1);
+
+      verify(
+        () => bodySmallTextStyleCubit.styleChanged(textTheme.bodySmall),
       ).called(1);
     },
   );

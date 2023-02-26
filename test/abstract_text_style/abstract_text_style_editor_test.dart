@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'dart:math';
 
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
@@ -29,7 +27,7 @@ void main() {
     cubit = MockTextStyleCubit();
     style = Typography.englishLike2018
         .merge(Typography.blackMountainView)
-        .bodyText1!;
+        .titleSmall!;
     color = getRandomColor();
     doubleNum = Random().nextDouble();
     doubleStr = doubleNum.toString();

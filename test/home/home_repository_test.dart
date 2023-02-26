@@ -34,7 +34,7 @@ void main() {
     final themeStr = file.readAsStringSync();
     final themeJson = jsonDecode(themeStr);
 
-    themeData = ThemeDecoder.decodeThemeData(themeJson, validate: false)!;
+    themeData = ThemeDecoder.decodeThemeData(themeJson)!;
     themeBytes = file.readAsBytesSync();
   });
 

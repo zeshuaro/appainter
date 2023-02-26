@@ -78,13 +78,13 @@ void main() {
 
   test('initialise label text style cubit', () {
     final cubit = TabBarLabelTextStyleCubit();
-    expect(cubit.typeScale, equals(TypeScale.bodyText1));
+    expect(cubit.typeScale, equals(TypeScale.titleSmall));
     expect(cubit.isBaseStyleBlack, equals(false));
   });
 
   test('initialise unselected label text style cubit', () {
     final cubit = TabBarUnselectedLabelTextStyleCubit();
-    expect(cubit.typeScale, equals(TypeScale.bodyText1));
+    expect(cubit.typeScale, equals(TypeScale.titleSmall));
     expect(cubit.isBaseStyleBlack, equals(false));
   });
 }

@@ -115,44 +115,50 @@ class MockSliderThemeCubit extends MockCubit<SliderThemeState>
 class MockTextThemeCubit extends MockCubit<TextThemeState>
     implements TextThemeCubit {}
 
-class MockHeadline1TextStyleCubit extends MockCubit<TextStyleState>
-    implements Headline1TextStyleCubit {}
+class MockDisplayLargeTextStyleCubit extends MockCubit<TextStyleState>
+    implements DisplayLargeTextStyleCubit {}
 
-class MockHeadline2TextStyleCubit extends MockCubit<TextStyleState>
-    implements Headline2TextStyleCubit {}
+class MockDisplayMediumTextStyleCubit extends MockCubit<TextStyleState>
+    implements DisplayMediumTextStyleCubit {}
 
-class MockHeadline3TextStyleCubit extends MockCubit<TextStyleState>
-    implements Headline3TextStyleCubit {}
+class MockDisplaySmallTextStyleCubit extends MockCubit<TextStyleState>
+    implements DisplaySmallTextStyleCubit {}
 
-class MockHeadline4TextStyleCubit extends MockCubit<TextStyleState>
-    implements Headline4TextStyleCubit {}
+class MockHeadlineLargeTextStyleCubit extends MockCubit<TextStyleState>
+    implements HeadlineLargeTextStyleCubit {}
 
-class MockHeadline5TextStyleCubit extends MockCubit<TextStyleState>
-    implements Headline5TextStyleCubit {}
+class MockHeadlineMediumTextStyleCubit extends MockCubit<TextStyleState>
+    implements HeadlineMediumTextStyleCubit {}
 
-class MockHeadline6TextStyleCubit extends MockCubit<TextStyleState>
-    implements Headline6TextStyleCubit {}
+class MockHeadlineSmallTextStyleCubit extends MockCubit<TextStyleState>
+    implements HeadlineSmallTextStyleCubit {}
 
-class MockSubtitle1TextStyleCubit extends MockCubit<TextStyleState>
-    implements Subtitle1TextStyleCubit {}
+class MockTitleLargeTextStyleCubit extends MockCubit<TextStyleState>
+    implements TitleLargeTextStyleCubit {}
 
-class MockSubtitle2TextStyleCubit extends MockCubit<TextStyleState>
-    implements Subtitle2TextStyleCubit {}
+class MockTitleMediumTextStyleCubit extends MockCubit<TextStyleState>
+    implements TitleMediumTextStyleCubit {}
 
-class MockBodyText1TextStyleCubit extends MockCubit<TextStyleState>
-    implements BodyText1TextStyleCubit {}
+class MockTitleSmallTextStyleCubit extends MockCubit<TextStyleState>
+    implements TitleSmallTextStyleCubit {}
 
-class MockBodyText2TextStyleCubit extends MockCubit<TextStyleState>
-    implements BodyText2TextStyleCubit {}
+class MockLabelLargeTextStyleCubit extends MockCubit<TextStyleState>
+    implements LabelLargeTextStyleCubit {}
 
-class MockButtonTextStyleCubit extends MockCubit<TextStyleState>
-    implements ButtonTextStyleCubit {}
+class MockLabelMediumTextStyleCubit extends MockCubit<TextStyleState>
+    implements LabelMediumTextStyleCubit {}
 
-class MockCaptionTextStyleCubit extends MockCubit<TextStyleState>
-    implements CaptionTextStyleCubit {}
+class MockLabelSmallTextStyleCubit extends MockCubit<TextStyleState>
+    implements LabelSmallTextStyleCubit {}
 
-class MockOverlineTextStyleCubit extends MockCubit<TextStyleState>
-    implements OverlineTextStyleCubit {}
+class MockBodyLargeTextStyleCubit extends MockCubit<TextStyleState>
+    implements BodyLargeTextStyleCubit {}
+
+class MockBodyMediumTextStyleCubit extends MockCubit<TextStyleState>
+    implements BodyMediumTextStyleCubit {}
+
+class MockBodySmallTextStyleCubit extends MockCubit<TextStyleState>
+    implements BodySmallTextStyleCubit {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

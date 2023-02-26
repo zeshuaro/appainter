@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -22,19 +20,19 @@ class WidgetService {
       onColorChanged: onColorChanged,
       heading: Text(
         'Select color',
-        style: Theme.of(context).textTheme.headline5,
+        style: Theme.of(context).textTheme.headlineMedium,
       ),
       subheading: Text(
         'Select color shade',
-        style: Theme.of(context).textTheme.subtitle1,
+        style: Theme.of(context).textTheme.titleLarge,
       ),
       tonalSubheading: Text(
         'Material 3 tonal palette',
-        style: Theme.of(context).textTheme.subtitle1,
+        style: Theme.of(context).textTheme.titleLarge,
       ),
       wheelSubheading: Text(
         'Selected color and its shades',
-        style: Theme.of(context).textTheme.subtitle1,
+        style: Theme.of(context).textTheme.titleLarge,
       ),
       pickersEnabled: const {
         ColorPickerType.primary: true,

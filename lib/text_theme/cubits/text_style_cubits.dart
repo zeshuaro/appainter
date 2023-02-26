@@ -1,53 +1,61 @@
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 
-class Headline1TextStyleCubit extends AbstractTextStyleCubit {
-  Headline1TextStyleCubit() : super(typeScale: TypeScale.headline1);
+class DisplayLargeTextStyleCubit extends AbstractTextStyleCubit {
+  DisplayLargeTextStyleCubit() : super(typeScale: TypeScale.displayLarge);
 }
 
-class Headline2TextStyleCubit extends AbstractTextStyleCubit {
-  Headline2TextStyleCubit() : super(typeScale: TypeScale.headline2);
+class DisplayMediumTextStyleCubit extends AbstractTextStyleCubit {
+  DisplayMediumTextStyleCubit() : super(typeScale: TypeScale.displayMedium);
 }
 
-class Headline3TextStyleCubit extends AbstractTextStyleCubit {
-  Headline3TextStyleCubit() : super(typeScale: TypeScale.headline3);
+class DisplaySmallTextStyleCubit extends AbstractTextStyleCubit {
+  DisplaySmallTextStyleCubit() : super(typeScale: TypeScale.displaySmall);
 }
 
-class Headline4TextStyleCubit extends AbstractTextStyleCubit {
-  Headline4TextStyleCubit() : super(typeScale: TypeScale.headline4);
+class HeadlineLargeTextStyleCubit extends AbstractTextStyleCubit {
+  HeadlineLargeTextStyleCubit() : super(typeScale: TypeScale.headlineLarge);
 }
 
-class Headline5TextStyleCubit extends AbstractTextStyleCubit {
-  Headline5TextStyleCubit() : super(typeScale: TypeScale.headline5);
+class HeadlineMediumTextStyleCubit extends AbstractTextStyleCubit {
+  HeadlineMediumTextStyleCubit() : super(typeScale: TypeScale.headlineMedium);
 }
 
-class Headline6TextStyleCubit extends AbstractTextStyleCubit {
-  Headline6TextStyleCubit() : super(typeScale: TypeScale.headline6);
+class HeadlineSmallTextStyleCubit extends AbstractTextStyleCubit {
+  HeadlineSmallTextStyleCubit() : super(typeScale: TypeScale.headlineSmall);
 }
 
-class Subtitle1TextStyleCubit extends AbstractTextStyleCubit {
-  Subtitle1TextStyleCubit() : super(typeScale: TypeScale.subtitle1);
+class TitleLargeTextStyleCubit extends AbstractTextStyleCubit {
+  TitleLargeTextStyleCubit() : super(typeScale: TypeScale.titleLarge);
 }
 
-class Subtitle2TextStyleCubit extends AbstractTextStyleCubit {
-  Subtitle2TextStyleCubit() : super(typeScale: TypeScale.subtitle2);
+class TitleMediumTextStyleCubit extends AbstractTextStyleCubit {
+  TitleMediumTextStyleCubit() : super(typeScale: TypeScale.titleMedium);
 }
 
-class BodyText1TextStyleCubit extends AbstractTextStyleCubit {
-  BodyText1TextStyleCubit() : super(typeScale: TypeScale.bodyText1);
+class TitleSmallTextStyleCubit extends AbstractTextStyleCubit {
+  TitleSmallTextStyleCubit() : super(typeScale: TypeScale.titleSmall);
 }
 
-class BodyText2TextStyleCubit extends AbstractTextStyleCubit {
-  BodyText2TextStyleCubit() : super(typeScale: TypeScale.bodyText2);
+class LabelLargeTextStyleCubit extends AbstractTextStyleCubit {
+  LabelLargeTextStyleCubit() : super(typeScale: TypeScale.labelLarge);
 }
 
-class ButtonTextStyleCubit extends AbstractTextStyleCubit {
-  ButtonTextStyleCubit() : super(typeScale: TypeScale.button);
+class LabelMediumTextStyleCubit extends AbstractTextStyleCubit {
+  LabelMediumTextStyleCubit() : super(typeScale: TypeScale.labelMedium);
 }
 
-class CaptionTextStyleCubit extends AbstractTextStyleCubit {
-  CaptionTextStyleCubit() : super(typeScale: TypeScale.caption);
+class LabelSmallTextStyleCubit extends AbstractTextStyleCubit {
+  LabelSmallTextStyleCubit() : super(typeScale: TypeScale.labelSmall);
 }
 
-class OverlineTextStyleCubit extends AbstractTextStyleCubit {
-  OverlineTextStyleCubit() : super(typeScale: TypeScale.overline);
+class BodyLargeTextStyleCubit extends AbstractTextStyleCubit {
+  BodyLargeTextStyleCubit() : super(typeScale: TypeScale.bodyLarge);
+}
+
+class BodyMediumTextStyleCubit extends AbstractTextStyleCubit {
+  BodyMediumTextStyleCubit() : super(typeScale: TypeScale.bodyMedium);
+}
+
+class BodySmallTextStyleCubit extends AbstractTextStyleCubit {
+  BodySmallTextStyleCubit() : super(typeScale: TypeScale.bodySmall);
 }

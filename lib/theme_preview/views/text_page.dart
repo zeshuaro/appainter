@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:appainter/common/consts.dart';
 import 'package:appainter/theme_preview/views/views.dart';
 import 'package:appainter/widgets/widgets.dart';
@@ -20,56 +18,64 @@ class TextPage extends PreviewBody {
       padding: kPaddingAll,
       children: [
         Text(
-          'H1',
-          style: Theme.of(context).textTheme.headline1,
+          'Display large',
+          style: Theme.of(context).textTheme.displayLarge,
         ),
         Text(
-          'H2',
-          style: Theme.of(context).textTheme.headline2,
+          'Display medium',
+          style: Theme.of(context).textTheme.displayMedium,
         ),
         Text(
-          'H3',
-          style: Theme.of(context).textTheme.headline3,
+          'Display small',
+          style: Theme.of(context).textTheme.displaySmall,
         ),
         Text(
-          'H4',
-          style: Theme.of(context).textTheme.headline4,
+          'Headline large',
+          style: Theme.of(context).textTheme.headlineLarge,
         ),
         Text(
-          'H5',
-          style: Theme.of(context).textTheme.headline5,
+          'Headline medium',
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
         Text(
-          'H6',
-          style: Theme.of(context).textTheme.headline6,
+          'Headline small',
+          style: Theme.of(context).textTheme.headlineSmall,
         ),
         Text(
-          'Subtitle 1',
-          style: Theme.of(context).textTheme.subtitle1,
+          'Title large',
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         Text(
-          'Subtitle 2',
-          style: Theme.of(context).textTheme.subtitle2,
+          'Title medium',
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         Text(
-          'Body text 1',
-          style: Theme.of(context).textTheme.bodyText1,
+          'Title small',
+          style: Theme.of(context).textTheme.titleSmall,
         ),
         Text(
-          'Body text 2',
-          style: Theme.of(context).textTheme.bodyText2,
+          'Label large',
+          style: Theme.of(context).textTheme.labelLarge,
         ),
         Text(
-          'Caption',
-          style: Theme.of(context).textTheme.caption,
+          'Label medium',
+          style: Theme.of(context).textTheme.labelMedium,
         ),
         Text(
-          'Button',
-          style: Theme.of(context).textTheme.button,
+          'Label small',
+          style: Theme.of(context).textTheme.labelSmall,
         ),
         Text(
-          'Overline',
-          style: Theme.of(context).textTheme.overline,
+          'Body large',
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
+        Text(
+          'Body medium',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+        Text(
+          'Body small',
+          style: Theme.of(context).textTheme.bodySmall,
         ),
       ],
     );

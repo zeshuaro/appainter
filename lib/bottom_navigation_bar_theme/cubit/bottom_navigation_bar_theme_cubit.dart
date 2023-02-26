@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 part 'bottom_navigation_bar_theme_cubit.g.dart';
 part 'bottom_navigation_bar_theme_state.dart';
 
-const _labelTypeScale = TypeScale.bodyText2;
+const _labelTypeScale = TypeScale.labelLarge;
 
 @ThemeDocs(
   apiClassName: 'BottomNavigationBarThemeData',

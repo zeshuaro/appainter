@@ -13,8 +13,8 @@ import 'package:flutter/services.dart';
 part 'app_bar_theme_cubit.g.dart';
 part 'app_bar_theme_state.dart';
 
-const _titleTypeScale = TypeScale.headline6;
-const _toolbarTypeScale = TypeScale.bodyText2;
+const _titleTypeScale = TypeScale.headlineSmall;
+const _toolbarTypeScale = TypeScale.labelLarge;
 
 @ThemeDocs(extraPropertyTypes: {'SystemUiOverlayStyle'})
 class AppBarThemeCubit extends Cubit<AppBarThemeState> {

@@ -64,34 +64,40 @@ class ThemePreview extends StatelessWidget {
         final sliderTheme = context.watch<SliderThemeCubit>().state.theme;
         final fontFamily = context.watch<TextThemeCubit>().state.fontFamily;
 
-        final headline1TextStyle =
-            context.watch<Headline1TextStyleCubit>().state.style;
-        final headline2TextStyle =
-            context.watch<Headline2TextStyleCubit>().state.style;
-        final headline3TextStyle =
-            context.watch<Headline3TextStyleCubit>().state.style;
-        final headline4TextStyle =
-            context.watch<Headline4TextStyleCubit>().state.style;
-        final headline5TextStyle =
-            context.watch<Headline5TextStyleCubit>().state.style;
-        final headline6TextStyle =
-            context.watch<Headline6TextStyleCubit>().state.style;
+        final displayLargeTextStyle =
+            context.watch<DisplayLargeTextStyleCubit>().state.style;
+        final displayMediumTextStyle =
+            context.watch<DisplayMediumTextStyleCubit>().state.style;
+        final displaySmallTextStyle =
+            context.watch<DisplaySmallTextStyleCubit>().state.style;
 
-        final subtitle1TextStyle =
-            context.watch<Subtitle1TextStyleCubit>().state.style;
-        final subtitle2TextStyle =
-            context.watch<Subtitle2TextStyleCubit>().state.style;
-        final bodyText1TextStyle =
-            context.watch<BodyText1TextStyleCubit>().state.style;
-        final bodyText2TextStyle =
-            context.watch<BodyText2TextStyleCubit>().state.style;
+        final headlineLargeTextStyle =
+            context.watch<HeadlineLargeTextStyleCubit>().state.style;
+        final headlineMediumTextStyle =
+            context.watch<HeadlineMediumTextStyleCubit>().state.style;
+        final headlineSmallTextStyle =
+            context.watch<HeadlineSmallTextStyleCubit>().state.style;
 
-        final buttonTextStyle =
-            context.watch<ButtonTextStyleCubit>().state.style;
-        final captionTextStyle =
-            context.watch<CaptionTextStyleCubit>().state.style;
-        final overlineTextStyle =
-            context.watch<OverlineTextStyleCubit>().state.style;
+        final titleLargeTextStyle =
+            context.watch<TitleLargeTextStyleCubit>().state.style;
+        final titleMediumTextStyle =
+            context.watch<TitleMediumTextStyleCubit>().state.style;
+        final titleSmallTextStyle =
+            context.watch<TitleSmallTextStyleCubit>().state.style;
+
+        final labelLargeTextStyle =
+            context.watch<LabelLargeTextStyleCubit>().state.style;
+        final labelMediumTextStyle =
+            context.watch<LabelMediumTextStyleCubit>().state.style;
+        final labelSmallTextStyle =
+            context.watch<LabelSmallTextStyleCubit>().state.style;
+
+        final bodyLargeTextStyle =
+            context.watch<BodyLargeTextStyleCubit>().state.style;
+        final bodyMediumTextStyle =
+            context.watch<BodyMediumTextStyleCubit>().state.style;
+        final bodySmallTextStyle =
+            context.watch<BodySmallTextStyleCubit>().state.style;
 
         final advancedTheme = ThemeData(
           useMaterial3: advancedThemeState.useMaterial3,
@@ -137,19 +143,21 @@ class ThemePreview extends StatelessWidget {
           textTheme: GoogleFonts.getTextTheme(
             fontFamily,
             TextTheme(
-              headline1: headline1TextStyle,
-              headline2: headline2TextStyle,
-              headline3: headline3TextStyle,
-              headline4: headline4TextStyle,
-              headline5: headline5TextStyle,
-              headline6: headline6TextStyle,
-              subtitle1: subtitle1TextStyle,
-              subtitle2: subtitle2TextStyle,
-              bodyText1: bodyText1TextStyle,
-              bodyText2: bodyText2TextStyle,
-              button: buttonTextStyle,
-              caption: captionTextStyle,
-              overline: overlineTextStyle,
+              displayLarge: displayLargeTextStyle,
+              displayMedium: displayMediumTextStyle,
+              displaySmall: displaySmallTextStyle,
+              headlineLarge: headlineLargeTextStyle,
+              headlineMedium: headlineMediumTextStyle,
+              headlineSmall: headlineSmallTextStyle,
+              titleLarge: titleLargeTextStyle,
+              titleMedium: titleMediumTextStyle,
+              titleSmall: titleSmallTextStyle,
+              labelLarge: labelLargeTextStyle,
+              labelMedium: labelMediumTextStyle,
+              labelSmall: labelSmallTextStyle,
+              bodyLarge: bodyLargeTextStyle,
+              bodyMedium: bodyMediumTextStyle,
+              bodySmall: bodySmallTextStyle,
             ),
           ),
         );

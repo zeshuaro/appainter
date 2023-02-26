@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 part 'tab_bar_theme_cubit.g.dart';
 part 'tab_bar_theme_state.dart';
 
-const _labelTypeScale = TypeScale.bodyText1;
+const _labelTypeScale = TypeScale.titleSmall;
 
 @ThemeDocs(extraPropertyTypes: {'TabBarIndicatorSize'})
 class TabBarThemeCubit extends Cubit<TabBarThemeState> {

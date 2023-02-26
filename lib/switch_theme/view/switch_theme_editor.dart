@@ -32,8 +32,7 @@ class _ThumbColorPickers extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<SwitchThemeCubit>();
     final thumbColor = context.watch<SwitchThemeCubit>().state.theme.thumbColor;
-    final toggleableActiveColor =
-        context.watch<ColorThemeCubit>().state.toggleableActiveColor;
+    final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
 
     return MaterialStatesCard<Color>(
       header: 'Thumb color',
@@ -48,8 +47,7 @@ class _ThumbColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('switchThemeEditor_thumbColor_selected'),
           title: 'Selected',
-          value: thumbColor?.resolve({MaterialState.selected}) ??
-              toggleableActiveColor,
+          value: thumbColor?.resolve({MaterialState.selected}) ?? primaryColor,
           onValueChanged: cubit.thumbSelectedColorChanged,
         ),
         MaterialStateItem(
@@ -69,8 +67,7 @@ class _TrackColorPickers extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<SwitchThemeCubit>();
     final trackColor = context.watch<SwitchThemeCubit>().state.theme.trackColor;
-    final toggleableActiveColor =
-        context.watch<ColorThemeCubit>().state.toggleableActiveColor;
+    final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
 
     return MaterialStatesCard<Color>(
       header: 'Track color',
@@ -86,7 +83,7 @@ class _TrackColorPickers extends StatelessWidget {
           key: const Key('switchThemeEditor_trackColor_selected'),
           title: 'Selected',
           value: trackColor?.resolve({MaterialState.selected}) ??
-              toggleableActiveColor.withAlpha(0x80),
+              primaryColor.withAlpha(0x80),
           onValueChanged: cubit.trackSelectedColorChanged,
         ),
         MaterialStateItem(
@@ -117,9 +114,7 @@ class _OverlayColorPickers extends StatelessWidget {
           key: const Key('switchThemeEditor_overlayColor_pressed'),
           title: 'Pressed',
           value: overlayColor?.resolve({MaterialState.pressed}) ??
-              colorThemeState.toggleableActiveColor.withAlpha(
-                kRadialReactionAlpha,
-              ),
+              colorThemeState.primaryColor.withAlpha(kRadialReactionAlpha),
           onValueChanged: cubit.overlayPressedColorChanged,
         ),
         MaterialStateItem(

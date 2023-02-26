@@ -21,7 +21,6 @@ class ColorThemeEditor extends ExpansionPanelItem {
         _PrimaryColorLightPicker(),
         _PrimaryColorDarkPicker(),
         _BackgroundColorPicker(),
-        _BottomAppBarColorPicker(),
         _CanvasColorPicker(),
         _CardColorPicker(),
         _DialogBackgroundColorPicker(),
@@ -35,10 +34,8 @@ class ColorThemeEditor extends ExpansionPanelItem {
         _IndicatorColorPicker(),
         _ScaffoldBackgroundColorPicker(),
         _SecondaryHeaderColorPicker(),
-        _SelectedRowColorPicker(),
         _ShadowColorPicker(),
         _SplashColorPicker(),
-        _ToggleableActiveColorPicker(),
         _UnselectedWidgetColorPicker(),
       ],
     );
@@ -142,36 +139,16 @@ class _BackgroundColorPicker extends StatelessWidget {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
       key: const Key('colorThemeEditor_backgroundColorPicker'),
       buildWhen: (previous, current) {
-        return previous.backgroundColor != current.backgroundColor;
+        return previous.colorScheme.background !=
+            current.colorScheme.background;
       },
       builder: (context, state) {
         return ColorListTile(
           title: 'Background color',
           tooltip: ColorThemeDocs.backgroundColor,
-          color: state.backgroundColor,
+          color: state.colorScheme.background,
           onColorChanged:
               context.read<ColorThemeCubit>().backgroundColorChanged,
-        );
-      },
-    );
-  }
-}
-
-class _BottomAppBarColorPicker extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<ColorThemeCubit, ColorThemeState>(
-      key: const Key('colorThemeEditor_bottomAppBarColorPicker'),
-      buildWhen: (previous, current) {
-        return previous.bottomAppBarColor != current.bottomAppBarColor;
-      },
-      builder: (context, state) {
-        return ColorListTile(
-          title: 'Bottom app bar color',
-          tooltip: ColorThemeDocs.bottomAppBarColor,
-          color: state.bottomAppBarColor,
-          onColorChanged:
-              context.read<ColorThemeCubit>().bottomAppBarColorChanged,
         );
       },
     );
@@ -285,13 +262,13 @@ class _ErrorColorPicker extends StatelessWidget {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
       key: const Key('colorThemeEditor_errorColorPicker'),
       buildWhen: (previous, current) {
-        return previous.errorColor != current.errorColor;
+        return previous.colorScheme.error != current.colorScheme.error;
       },
       builder: (context, state) {
         return ColorListTile(
           title: 'Error color',
           tooltip: ColorThemeDocs.errorColor,
-          color: state.errorColor,
+          color: state.colorScheme.error,
           onColorChanged: context.read<ColorThemeCubit>().errorColorChanged,
         );
       },
@@ -442,27 +419,6 @@ class _SecondaryHeaderColorPicker extends StatelessWidget {
   }
 }
 
-class _SelectedRowColorPicker extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<ColorThemeCubit, ColorThemeState>(
-      key: const Key('colorThemeEditor_selectedRowColorPicker'),
-      buildWhen: (previous, current) {
-        return previous.selectedRowColor != current.selectedRowColor;
-      },
-      builder: (context, state) {
-        return ColorListTile(
-          title: 'Selected row color',
-          tooltip: ColorThemeDocs.selectedRowColor,
-          color: state.selectedRowColor,
-          onColorChanged:
-              context.read<ColorThemeCubit>().selectedRowColorChanged,
-        );
-      },
-    );
-  }
-}
-
 class _ShadowColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -497,27 +453,6 @@ class _SplashColorPicker extends StatelessWidget {
           tooltip: ColorThemeDocs.splashColor,
           color: state.splashColor,
           onColorChanged: context.read<ColorThemeCubit>().splashColorChanged,
-        );
-      },
-    );
-  }
-}
-
-class _ToggleableActiveColorPicker extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<ColorThemeCubit, ColorThemeState>(
-      key: const Key('colorThemeEditor_toggleableActiveColorPicker'),
-      buildWhen: (previous, current) {
-        return previous.toggleableActiveColor != current.toggleableActiveColor;
-      },
-      builder: (context, state) {
-        return ColorListTile(
-          title: 'Toggleable active color',
-          tooltip: ColorThemeDocs.toggleableActiveColor,
-          color: state.toggleableActiveColor,
-          onColorChanged:
-              context.read<ColorThemeCubit>().toggleableActiveColorChanged,
         );
       },
     );

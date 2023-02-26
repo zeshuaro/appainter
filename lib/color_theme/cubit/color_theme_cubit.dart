@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:appainter/services/services.dart';
 import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
@@ -20,14 +18,11 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
       primaryColor: theme.primaryColor,
       primaryColorLight: theme.primaryColorLight,
       primaryColorDark: theme.primaryColorDark,
-      backgroundColor: theme.backgroundColor,
-      bottomAppBarColor: theme.bottomAppBarColor,
       canvasColor: theme.canvasColor,
       cardColor: theme.cardColor,
       dialogBackgroundColor: theme.dialogBackgroundColor,
       disabledColor: theme.disabledColor,
       dividerColor: theme.dividerColor,
-      errorColor: theme.errorColor,
       focusColor: theme.focusColor,
       highlightColor: theme.highlightColor,
       hintColor: theme.hintColor,
@@ -35,10 +30,8 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
       indicatorColor: theme.indicatorColor,
       scaffoldBackgroundColor: theme.scaffoldBackgroundColor,
       secondaryHeaderColor: theme.secondaryHeaderColor,
-      selectedRowColor: theme.selectedRowColor,
       shadowColor: theme.shadowColor,
       splashColor: theme.splashColor,
-      toggleableActiveColor: theme.toggleableActiveColor,
       unselectedWidgetColor: theme.unselectedWidgetColor,
     ));
   }
@@ -57,14 +50,13 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
           onPrimary: onColor,
           secondary: color,
           onSecondary: onColor,
+          background: swatch[200],
         ),
         primaryColor: color,
         primaryColorLight: swatch[100],
         primaryColorDark: primaryColorDark,
-        backgroundColor: swatch[200],
         indicatorColor: color,
         secondaryHeaderColor: swatch[50],
-        toggleableActiveColor: swatch[600],
       ),
     );
   }
@@ -90,11 +82,11 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
   }
 
   void backgroundColorChanged(Color color) {
-    emit(state.copyWith(backgroundColor: color));
-  }
-
-  void bottomAppBarColorChanged(Color color) {
-    emit(state.copyWith(bottomAppBarColor: color));
+    emit(
+      state.copyWith(
+        colorScheme: state.colorScheme.copyWith(background: color),
+      ),
+    );
   }
 
   void canvasColorChanged(Color color) {
@@ -118,7 +110,11 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
   }
 
   void errorColorChanged(Color color) {
-    emit(state.copyWith(errorColor: color));
+    emit(
+      state.copyWith(
+        colorScheme: state.colorScheme.copyWith(error: color),
+      ),
+    );
   }
 
   void focusColorChanged(Color color) {
@@ -149,20 +145,12 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
     emit(state.copyWith(secondaryHeaderColor: color));
   }
 
-  void selectedRowColorChanged(Color color) {
-    emit(state.copyWith(selectedRowColor: color));
-  }
-
   void shadowColorChanged(Color color) {
     emit(state.copyWith(shadowColor: color));
   }
 
   void splashColorChanged(Color color) {
     emit(state.copyWith(splashColor: color));
-  }
-
-  void toggleableActiveColorChanged(Color color) {
-    emit(state.copyWith(toggleableActiveColor: color));
   }
 
   void unselectedWidgetColorChanged(Color color) {

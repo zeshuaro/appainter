@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'dart:math';
 
 import 'package:appainter/color_theme/color_theme.dart';
@@ -37,7 +35,7 @@ void main() {
     final themeData = ThemeData();
 
     thumbDefaultColor = Colors.grey.shade50;
-    thumbSelectedColor = themeData.toggleableActiveColor;
+    thumbSelectedColor = themeData.primaryColor;
     thumbDisabledColor = Colors.grey.shade400;
 
     trackDefaultColor = const Color(0x52000000);

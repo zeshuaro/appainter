@@ -110,7 +110,7 @@ class CheckboxThemeCubit extends Cubit<CheckboxThemeState> {
         return colorThemeState.disabledColor;
       }
       if (states.contains(MaterialState.selected)) {
-        return colorThemeState.toggleableActiveColor;
+        return colorThemeState.colorScheme.secondary;
       }
       return colorThemeState.unselectedWidgetColor;
     });
@@ -120,7 +120,7 @@ class CheckboxThemeCubit extends Cubit<CheckboxThemeState> {
     final colorThemeState = colorThemeCubit.state;
     return MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.pressed)) {
-        return colorThemeState.toggleableActiveColor.withAlpha(
+        return colorThemeState.colorScheme.secondary.withAlpha(
           kRadialReactionAlpha,
         );
       }

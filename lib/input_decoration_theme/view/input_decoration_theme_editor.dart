@@ -404,7 +404,7 @@ class _ErrorBorderSideFields extends StatelessWidget {
         .theme
         .errorBorder
         ?.borderSide;
-    final errorColor = context.watch<ColorThemeCubit>().state.errorColor;
+    final errorColor = context.watch<ColorThemeCubit>().state.colorScheme.error;
 
     return BorderSideFields(
       headerPrefix: 'Error',

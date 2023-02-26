@@ -130,7 +130,7 @@ class SwitchThemeCubit extends Cubit<SwitchThemeState> {
         return Colors.grey.shade400;
       }
       if (states.contains(MaterialState.selected)) {
-        return colorThemeState.toggleableActiveColor;
+        return colorThemeState.primaryColor;
       }
       return Colors.grey.shade50;
     });
@@ -143,7 +143,7 @@ class SwitchThemeCubit extends Cubit<SwitchThemeState> {
         return Colors.black12;
       }
       if (states.contains(MaterialState.selected)) {
-        return colorThemeState.toggleableActiveColor.withAlpha(0x80);
+        return colorThemeState.primaryColor.withAlpha(0x80);
       }
       return const Color(0x52000000);
     });
@@ -153,7 +153,7 @@ class SwitchThemeCubit extends Cubit<SwitchThemeState> {
     final colorThemeState = colorThemeCubit.state;
     return MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.pressed)) {
-        return colorThemeState.toggleableActiveColor.withAlpha(
+        return colorThemeState.primaryColor.withAlpha(
           kRadialReactionAlpha,
         );
       }

@@ -54,7 +54,7 @@ class HomeRepository {
       }
 
       final themeJson = jsonDecode(themeStr);
-      theme = ThemeDecoder.decodeThemeData(themeJson);
+      theme = ThemeDecoder.decodeThemeData(themeJson, validate: false);
     }
 
     return theme;

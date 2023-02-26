@@ -48,7 +48,7 @@ class _FillColorPickers extends StatelessWidget {
           key: const Key('radioThemeEditor_fillColor_selected'),
           title: 'Selected',
           value: fillColor?.resolve({MaterialState.selected}) ??
-              colorThemeState.toggleableActiveColor,
+              colorThemeState.primaryColor,
           onValueChanged: cubit.fillSelectedColorChanged,
         ),
         MaterialStateItem(
@@ -79,7 +79,7 @@ class _OverlayColorPickers extends StatelessWidget {
           key: const Key('radioThemeEditor_overlayColor_pressed'),
           title: 'Pressed',
           value: overlayColor?.resolve({MaterialState.pressed}) ??
-              colorThemeState.toggleableActiveColor.withAlpha(
+              colorThemeState.primaryColor.withAlpha(
                 kRadialReactionAlpha,
               ),
           onValueChanged: cubit.overlayPressedColorChanged,

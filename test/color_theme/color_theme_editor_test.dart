@@ -163,7 +163,9 @@ void main() {
     const key = 'colorThemeEditor_backgroundColorPicker';
 
     testWidgets('render widget', (tester) async {
-      final state = ColorThemeState(backgroundColor: color);
+      final state = ColorThemeState(
+        colorScheme: const ColorScheme.light().copyWith(background: color),
+      );
 
       await pumpApp(tester, state);
 
@@ -177,28 +179,6 @@ void main() {
         key,
         color,
         colorThemeCubit.backgroundColorChanged,
-      );
-    });
-  });
-
-  group('bottom app bar color picker', () {
-    const key = 'colorThemeEditor_bottomAppBarColorPicker';
-
-    testWidgets('render widget', (tester) async {
-      final state = ColorThemeState(bottomAppBarColor: color);
-
-      await pumpApp(tester, state);
-
-      await tester.expectColorIndicator(key, color);
-      expectBlocBuilder(tester, key, state);
-    });
-
-    testWidgets('change color', (tester) async {
-      await pumpApp(tester);
-      await tester.verifyColorPicker(
-        key,
-        color,
-        colorThemeCubit.bottomAppBarColorChanged,
       );
     });
   });
@@ -319,7 +299,9 @@ void main() {
     const key = 'colorThemeEditor_errorColorPicker';
 
     testWidgets('render widget', (tester) async {
-      final state = ColorThemeState(errorColor: color);
+      final state = ColorThemeState(
+        colorScheme: const ColorScheme.light().copyWith(error: color),
+      );
 
       await pumpApp(tester, state);
 
@@ -495,28 +477,6 @@ void main() {
     });
   });
 
-  group('selected row color picker', () {
-    const key = 'colorThemeEditor_selectedRowColorPicker';
-
-    testWidgets('render widget', (tester) async {
-      final state = ColorThemeState(selectedRowColor: color);
-
-      await pumpApp(tester, state);
-
-      await tester.expectColorIndicator(key, color);
-      expectBlocBuilder(tester, key, state);
-    });
-
-    testWidgets('change color', (tester) async {
-      await pumpApp(tester);
-      await tester.verifyColorPicker(
-        key,
-        color,
-        colorThemeCubit.selectedRowColorChanged,
-      );
-    });
-  });
-
   group('shadow color picker', () {
     const key = 'colorThemeEditor_shadowColorPicker';
 
@@ -558,28 +518,6 @@ void main() {
         key,
         opaqueColor,
         colorThemeCubit.splashColorChanged,
-      );
-    });
-  });
-
-  group('toggleable active color picker', () {
-    const key = 'colorThemeEditor_toggleableActiveColorPicker';
-
-    testWidgets('render widget', (tester) async {
-      final state = ColorThemeState(toggleableActiveColor: color);
-
-      await pumpApp(tester, state);
-
-      await tester.expectColorIndicator(key, color);
-      expectBlocBuilder(tester, key, state);
-    });
-
-    testWidgets('change color', (tester) async {
-      await pumpApp(tester);
-      await tester.verifyColorPicker(
-        key,
-        color,
-        colorThemeCubit.toggleableActiveColorChanged,
       );
     });
   });

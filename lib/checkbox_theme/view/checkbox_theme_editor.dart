@@ -49,7 +49,7 @@ class _FillColorPickers extends StatelessWidget {
           key: const Key('checkboxThemeEditor_fillColor_selected'),
           title: 'Selected',
           value: fillColor?.resolve({MaterialState.selected}) ??
-              colorThemeState.toggleableActiveColor,
+              colorThemeState.colorScheme.secondary,
           onValueChanged: cubit.fillSelectedColorChanged,
         ),
         MaterialStateItem(
@@ -104,7 +104,7 @@ class _OverlayColorPickers extends StatelessWidget {
           key: const Key('checkboxThemeEditor_overlayColor_pressed'),
           title: 'Pressed',
           value: overlayColor?.resolve({MaterialState.pressed}) ??
-              colorThemeState.toggleableActiveColor.withAlpha(
+              colorThemeState.colorScheme.secondary.withAlpha(
                 kRadialReactionAlpha,
               ),
           onValueChanged: cubit.overlayPressedColorChanged,

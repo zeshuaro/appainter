@@ -101,7 +101,7 @@ class RadioThemeCubit extends Cubit<RadioThemeState> {
         return colorThemeState.disabledColor;
       }
       if (states.contains(MaterialState.selected)) {
-        return colorThemeState.toggleableActiveColor;
+        return colorThemeState.primaryColor;
       }
       return colorThemeState.unselectedWidgetColor;
     });
@@ -111,7 +111,7 @@ class RadioThemeCubit extends Cubit<RadioThemeState> {
     final colorThemeState = colorThemeCubit.state;
     return MaterialStateProperty.resolveWith((states) {
       if (states.contains(MaterialState.pressed)) {
-        return colorThemeState.toggleableActiveColor.withAlpha(
+        return colorThemeState.primaryColor.withAlpha(
           kRadialReactionAlpha,
         );
       }

@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/services/services.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -36,14 +34,11 @@ void main() {
         primaryColor: theme.primaryColor,
         primaryColorLight: theme.primaryColorLight,
         primaryColorDark: theme.primaryColorDark,
-        backgroundColor: theme.backgroundColor,
-        bottomAppBarColor: theme.bottomAppBarColor,
         canvasColor: theme.canvasColor,
         cardColor: theme.cardColor,
         dialogBackgroundColor: theme.dialogBackgroundColor,
         disabledColor: theme.disabledColor,
         dividerColor: theme.dividerColor,
-        errorColor: theme.errorColor,
         focusColor: theme.focusColor,
         highlightColor: theme.highlightColor,
         hintColor: theme.hintColor,
@@ -51,10 +46,8 @@ void main() {
         indicatorColor: theme.indicatorColor,
         scaffoldBackgroundColor: theme.scaffoldBackgroundColor,
         secondaryHeaderColor: theme.secondaryHeaderColor,
-        selectedRowColor: theme.selectedRowColor,
         shadowColor: theme.shadowColor,
         splashColor: theme.splashColor,
-        toggleableActiveColor: theme.toggleableActiveColor,
         unselectedWidgetColor: theme.unselectedWidgetColor,
       )
     ],
@@ -80,14 +73,13 @@ void main() {
                 onPrimary: onColor,
                 secondary: color,
                 onSecondary: onColor,
+                background: swatch[200],
               ),
               primaryColor: color,
               primaryColorLight: swatch[100],
               primaryColorDark: swatch[700],
-              backgroundColor: swatch[200],
               indicatorColor: color,
               secondaryHeaderColor: swatch[50],
-              toggleableActiveColor: swatch[600],
             )
           ];
         },
@@ -136,14 +128,13 @@ void main() {
     'should emit background color',
     build: () => colorThemeCubit,
     act: (cubit) => cubit.backgroundColorChanged(color),
-    expect: () => [ColorThemeState(backgroundColor: color)],
-  );
-
-  blocTest<ColorThemeCubit, ColorThemeState>(
-    'should emit bottom app bar color',
-    build: () => colorThemeCubit,
-    act: (cubit) => cubit.bottomAppBarColorChanged(color),
-    expect: () => [ColorThemeState(bottomAppBarColor: color)],
+    expect: () => [
+      ColorThemeState(
+        colorScheme: colorThemeCubit.state.colorScheme.copyWith(
+          background: color,
+        ),
+      ),
+    ],
   );
 
   blocTest<ColorThemeCubit, ColorThemeState>(
@@ -185,7 +176,13 @@ void main() {
     'should emit error color',
     build: () => colorThemeCubit,
     act: (cubit) => cubit.errorColorChanged(color),
-    expect: () => [ColorThemeState(errorColor: color)],
+    expect: () => [
+      ColorThemeState(
+        colorScheme: colorThemeCubit.state.colorScheme.copyWith(
+          error: color,
+        ),
+      )
+    ],
   );
 
   blocTest<ColorThemeCubit, ColorThemeState>(
@@ -238,13 +235,6 @@ void main() {
   );
 
   blocTest<ColorThemeCubit, ColorThemeState>(
-    'should emit selected row color',
-    build: () => colorThemeCubit,
-    act: (cubit) => cubit.selectedRowColorChanged(color),
-    expect: () => [ColorThemeState(selectedRowColor: color)],
-  );
-
-  blocTest<ColorThemeCubit, ColorThemeState>(
     'should emit shadow color',
     build: () => colorThemeCubit,
     act: (cubit) => cubit.shadowColorChanged(color),
@@ -256,13 +246,6 @@ void main() {
     build: () => colorThemeCubit,
     act: (cubit) => cubit.splashColorChanged(color),
     expect: () => [ColorThemeState(splashColor: color)],
-  );
-
-  blocTest<ColorThemeCubit, ColorThemeState>(
-    'should emit toggleable active color',
-    build: () => colorThemeCubit,
-    act: (cubit) => cubit.toggleableActiveColorChanged(color),
-    expect: () => [ColorThemeState(toggleableActiveColor: color)],
   );
 
   blocTest<ColorThemeCubit, ColorThemeState>(

@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:appainter/advanced_theme/advanced_theme.dart';
 import 'package:appainter/app_bar_theme/cubit/app_bar_theme_cubit.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
@@ -107,14 +105,11 @@ class ThemePreview extends StatelessWidget {
           primaryColor: colorTheme.primaryColor,
           primaryColorLight: colorTheme.primaryColorLight,
           primaryColorDark: colorTheme.primaryColorDark,
-          backgroundColor: colorTheme.backgroundColor,
-          bottomAppBarColor: colorTheme.bottomAppBarColor,
           canvasColor: colorTheme.canvasColor,
           cardColor: colorTheme.cardColor,
           dialogBackgroundColor: colorTheme.dialogBackgroundColor,
           disabledColor: colorTheme.disabledColor,
           dividerColor: colorTheme.dividerColor,
-          errorColor: colorTheme.errorColor,
           focusColor: colorTheme.focusColor,
           highlightColor: colorTheme.highlightColor,
           hintColor: colorTheme.hintColor,
@@ -122,10 +117,8 @@ class ThemePreview extends StatelessWidget {
           indicatorColor: colorTheme.indicatorColor,
           scaffoldBackgroundColor: colorTheme.scaffoldBackgroundColor,
           secondaryHeaderColor: colorTheme.secondaryHeaderColor,
-          selectedRowColor: colorTheme.selectedRowColor,
           shadowColor: colorTheme.shadowColor,
           splashColor: colorTheme.splashColor,
-          toggleableActiveColor: colorTheme.toggleableActiveColor,
           unselectedWidgetColor: colorTheme.unselectedWidgetColor,
           appBarTheme: appBarTheme,
           tabBarTheme: tabBarTheme,

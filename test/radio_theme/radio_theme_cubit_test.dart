@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'dart:math';
 
 import 'package:appainter/color_theme/color_theme.dart';
@@ -33,7 +31,7 @@ void main() {
     final themeData = ThemeData();
 
     fillDefaultColor = themeData.unselectedWidgetColor;
-    fillSelectedColor = themeData.toggleableActiveColor;
+    fillSelectedColor = themeData.primaryColor;
     fillDisabledColor = themeData.disabledColor;
 
     overlayPressedColor = fillSelectedColor.withAlpha(kRadialReactionAlpha);

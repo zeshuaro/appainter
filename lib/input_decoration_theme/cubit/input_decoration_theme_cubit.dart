@@ -162,7 +162,9 @@ class InputDecorationThemeCubit extends Cubit<InputDecorationThemeState> {
   InputBorder get _errorBorder {
     return state.theme.errorBorder ??
         state.theme.border?.copyWith(
-          borderSide: BorderSide(color: colorThemeCubit.state.errorColor),
+          borderSide: BorderSide(
+            color: colorThemeCubit.state.colorScheme.error,
+          ),
         ) ??
         _defaultBorder;
   }

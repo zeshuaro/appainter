@@ -16,7 +16,7 @@ dependencies:
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
   dio: 5.0.1
-  dropdown_search: 5.0.5
+  dropdown_search: 5.0.6
   enum_to_string: 2.0.1
   equatable: 2.0.5
   expandable: 5.0.1

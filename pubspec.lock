@@ -315,10 +315,10 @@ packages:
     dependency: "direct main"
     description:
       name: dropdown_search
-      sha256: "8862928805520ea7fdf60fee64195a2d460f4bf5ccf224c016c773a873756c5e"
+      sha256: "55106e8290acaa97ed15bea1fdad82c3cf0c248dd410e651f5a8ac6870f783ab"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.5"
+    version: "5.0.6"
   enum_to_string:
     dependency: "direct main"
     description:

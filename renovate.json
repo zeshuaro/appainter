@@ -6,5 +6,12 @@
     "github>zeshuaro/renovate-configs:dart",
     "github>zeshuaro/renovate-configs:flutter",
     "github>zeshuaro/renovate-configs:flutterIgnorePaths"
+  ],
+  "packageRules": [
+    {
+      "groupName": "Common markdown dependencies",
+      "matchPaths": ["**/pubspec.yaml"],
+      "matchPackageNames": ["flutter_markdown", "cider"]
+    }
   ]
 }

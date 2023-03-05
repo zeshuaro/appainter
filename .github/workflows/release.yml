@@ -75,7 +75,7 @@ jobs:
           flutter pub run build_runner build --delete-conflicting-outputs
           # Bump app version, the new version is committed in the release step
           flutter pub run cider bump ${{ github.event.inputs.release-type }}
-          flutter build ${{ matrix.type }}
+          flutter build ${{ matrix.type }} --no-tree-shake-icons
 
       - name: Compress app 🗜️
         run: |

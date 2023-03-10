@@ -15,7 +15,7 @@ dependencies:
   copy_with_extension: 5.0.2
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
-  dio: 5.0.1
+  dio: 5.0.2
   dropdown_search: 5.0.6
   enum_to_string: 2.0.1
   equatable: 2.0.5

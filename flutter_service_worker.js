@@ -16,17 +16,17 @@ const RESOURCES = {
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
 "assets/AssetManifest.json": "ff1eee5d80fd025929453faeff3ab75e",
-"main.dart.js": "07c2e7ff3c0e7b2fbbd6301952d2f5f4",
+"main.dart.js": "edea8903b304bfff595f32e47f8e87a1",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75",
 "flutter.js": "a85fcf6324d3c4d3ae3be1ae4931e9c5",
-"index.html": "f6d806752d77298eee4a26c16f32f9f9",
-"/": "f6d806752d77298eee4a26c16f32f9f9",
+"index.html": "575225b4ff64576a19356940e4b8f861",
+"/": "575225b4ff64576a19356940e4b8f861",
 "icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292ee3e2bf9",
 "icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
 "icons/favicon-32x32.png": "878572d6d16bbaa08290988302449306",
 "icons/android-chrome-192x192.png": "e03f23fd41872367b2ba387b50f87257",
 "icons/favicon-16x16.png": "6a1a342af170bec15959c265446f9331",
-"version.json": "26c0f0f9378aece1e2108c2e3723333a"
+"version.json": "8ca33769310d25c3c092ece3c38430f8"
 };
 
 // The application shell files that are downloaded before a service worker can

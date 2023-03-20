@@ -2,8 +2,6 @@ name: Post dependency update
 
 on:
   pull_request:
-    types:
-      - opened
     paths:
       - "**/pubspec.yaml"
       - "**/pubspec.lock"

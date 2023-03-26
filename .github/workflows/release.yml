@@ -257,8 +257,8 @@ jobs:
       - name: Commit new version 🆕
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         env:
-          version: ${{ steps.build-web.outputs.version }}
+          version: ${{ steps.bump-version.outputs.version }}
         with:
-          commit_message: "chore(dev): ${{ env.version }} [skip ci]"
+          commit_message: "chore(release-next): ${{ env.version }} [skip ci]"
           file_pattern: pubspec.yaml
           push_options: --force

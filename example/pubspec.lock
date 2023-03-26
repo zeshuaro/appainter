@@ -158,10 +158,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "8b29217a33b1e6a46eaf471f47f1bd4bbc6f56a306039d2e7509bb93f4cc57c5"
+      sha256: "7fa5fe30de5be64955569b2a79077c0cd190b7170d207597e076c900f8dbdc6d"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.2.1"
   json_schema2:
     dependency: transitive
     description:

@@ -56,7 +56,7 @@ dev_dependencies:
     path: packages/builder
   bloc_test: 9.1.1
   build_runner: 2.3.0
-  cider: 0.1.4
+  cider: 0.1.5
   copy_with_extension_gen: 5.0.2
   flutter_lints: 2.0.1
   flutter_test:

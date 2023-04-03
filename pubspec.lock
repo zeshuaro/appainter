@@ -663,18 +663,18 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "7fa5fe30de5be64955569b2a79077c0cd190b7170d207597e076c900f8dbdc6d"
+      sha256: "71bacbe9465d23129279dc2c59a46d2df8c94ad959666f842b38e99fafe35662"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.1+1"
   json_schema2:
     dependency: transitive
     description:
       name: json_schema2
-      sha256: "0ae8dbb0803ad85e994314ec1f4e5465766f4b522c16e1e542315c7e50cbd6db"
+      sha256: "2c9e030e098520852fceb1d2a96f5d64268fb6395074c754f786a83831d627f5"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3+6"
+    version: "2.0.3+7"
   json_theme:
     dependency: "direct main"
     description:
@@ -711,10 +711,10 @@ packages:
     dependency: transitive
     description:
       name: markdown
-      sha256: b3c60dee8c2af50ad0e6e90cceba98e47718a6ee0a7a6772c77846a0cc21f78b
+      sha256: d95a9d12954aafc97f984ca29baaa7690ed4d9ec4140a23ad40580bcdb6c87f5
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.1"
+    version: "7.0.2"
   marker:
     dependency: transitive
     description:
@@ -847,10 +847,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_foundation
-      sha256: "12eee51abdf4d34c590f043f45073adbb45514a108bd9db4491547a2fd891059"
+      sha256: "818b2dc38b0f178e0ea3f7cf3b28146faab11375985d815942a68eee11c2d0f7"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.0"
+    version: "2.2.1"
   path_provider_linux:
     dependency: transitive
     description:
@@ -967,10 +967,10 @@ packages:
     dependency: transitive
     description:
       name: rest_client
-      sha256: "7e5174682aa297409b19bf09061d11306be8ee6b69d96ca5bb5f514a043bd088"
+      sha256: ccf0bc0c1145ceb94916a58095bce8f26030653038edd5b4aa995117251ef41f
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1+6"
+    version: "2.2.1+7"
   rfc_6901:
     dependency: transitive
     description:
@@ -1405,10 +1405,10 @@ packages:
     dependency: transitive
     description:
       name: yaon
-      sha256: "2fd803f305f6afdd9714c28903c93d724006179ce2503704f42498d2f93d235a"
+      sha256: "1b0946e7ff0111e10a75ed47c4bdffc56487fd89a870e83786383c7a0bc402b8"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2+1"
+    version: "1.0.2+2"
 sdks:
   dart: ">=2.19.0 <3.0.0"
   flutter: ">=3.7.0"

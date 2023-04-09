@@ -158,18 +158,18 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "71bacbe9465d23129279dc2c59a46d2df8c94ad959666f842b38e99fafe35662"
+      sha256: "6a9cc5edd2ecabdda178572289aa9eb10052aff6836b62b0b6e9983a3a6597ea"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1+1"
+    version: "2.2.1+2"
   json_schema2:
     dependency: transitive
     description:
       name: json_schema2
-      sha256: "2c9e030e098520852fceb1d2a96f5d64268fb6395074c754f786a83831d627f5"
+      sha256: de697119222f4936e6e408dfee2a86aaa2b2fda9e336e2b8a81a6e8ac59dfca5
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3+7"
+    version: "2.0.4+1"
   json_theme:
     dependency: "direct main"
     description:
@@ -254,10 +254,10 @@ packages:
     dependency: transitive
     description:
       name: rest_client
-      sha256: ccf0bc0c1145ceb94916a58095bce8f26030653038edd5b4aa995117251ef41f
+      sha256: "284456cedacbfcf69635ab471b35605343a6ee9559e89c19501d9fbb66c6f18c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1+7"
+    version: "2.2.1+8"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -379,9 +379,9 @@ packages:
     dependency: transitive
     description:
       name: yaon
-      sha256: "1b0946e7ff0111e10a75ed47c4bdffc56487fd89a870e83786383c7a0bc402b8"
+      sha256: "7994b18bec4d7930f8bcbf2052bc008e09a3543012c3cf588f185dbdb84a25cd"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2+2"
+    version: "1.1.0+2"
 sdks:
   dart: ">=2.19.0 <3.0.0"

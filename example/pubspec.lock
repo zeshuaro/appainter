@@ -166,10 +166,10 @@ packages:
     dependency: transitive
     description:
       name: json_schema2
-      sha256: de697119222f4936e6e408dfee2a86aaa2b2fda9e336e2b8a81a6e8ac59dfca5
+      sha256: "7d9dfbaa34200ae7be3c408817f1a497bef6ef72a9455fdc378b9510bfbb1b66"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.4+1"
+    version: "2.0.4+2"
   json_theme:
     dependency: "direct main"
     description:
@@ -254,10 +254,10 @@ packages:
     dependency: transitive
     description:
       name: rest_client
-      sha256: "284456cedacbfcf69635ab471b35605343a6ee9559e89c19501d9fbb66c6f18c"
+      sha256: "7bc13fc4d36cfdcb98b4936fd7871d07cd69b97d98fad8223e8016785ea14b3b"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1+8"
+    version: "2.2.1+9"
   sky_engine:
     dependency: transitive
     description: flutter

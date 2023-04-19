@@ -8,12 +8,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  HttpOverrides.global = null;
 
   late TextStyle expectedStyle;
   late FontRepository repo;
 
   setUpAll(() {
+    HttpOverrides.global = null;
     expectedStyle = GoogleFonts.getFont('ABeeZee');
   });
 

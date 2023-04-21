@@ -371,10 +371,10 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: dcde5ad1a0cebcf3715ea3f24d0db1888bf77027a26c77d7779e8ef63b8ade62
+      sha256: b85eb92b175767fdaa0c543bf3b0d1f610fe966412ea72845fe5ba7801e763ff
       url: "https://pub.dev"
     source: hosted
-    version: "5.2.9"
+    version: "5.2.10"
   file_utils:
     dependency: transitive
     description:

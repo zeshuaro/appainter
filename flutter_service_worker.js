@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "ce4d262963310d5565155e6929e4dfde",
+  "version.json": "9e27c2f25541e1fcdcdae5dc3a6c31c0",
 "assets/FontManifest.json": "1b1e7812d9eb9f666db8444d7dde1b20",
 "assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
 "assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
@@ -19,8 +19,8 @@ const RESOURCES = {
 "canvaskit/canvaskit.js": "97937cb4c2c2073c968525a3e08c86a3",
 "canvaskit/canvaskit.wasm": "3de12d898ec208a5f31362cc00f09b9e",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75",
-"index.html": "a0d1c4266ebcd46829ebb053f0bc0f5f",
-"/": "a0d1c4266ebcd46829ebb053f0bc0f5f",
+"index.html": "ed5420b96811239ff4488aebec60c383",
+"/": "ed5420b96811239ff4488aebec60c383",
 "favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
 "icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292ee3e2bf9",
 "icons/favicon-32x32.png": "878572d6d16bbaa08290988302449306",

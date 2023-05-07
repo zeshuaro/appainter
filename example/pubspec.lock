@@ -13,10 +13,10 @@ packages:
     dependency: transitive
     description:
       name: args
-      sha256: "4cab82a83ffef80b262ddedf47a0a8e56ee6fbf7fe21e6e768b02792034dd440"
+      sha256: c372bb384f273f0c2a8aaaa226dad84dc27c8519a691b888725dec59518ad53a
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.1"
   async:
     dependency: transitive
     description:
@@ -121,10 +121,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: "6aa2946395183537c8b880962d935877325d6a09a2867c3970c05c0fed6ac482"
+      sha256: "5895291c13fa8a3bd82e76d5627f69e0d85ca6a30dcac95c4ea19a5d555879c2"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.5"
+    version: "0.13.6"
   http_parser:
     dependency: transitive
     description:
@@ -166,10 +166,10 @@ packages:
     dependency: transitive
     description:
       name: json_schema2
-      sha256: "3282761c06aae74081e0e9d3189852f3e26ddd47431c26f7d5467aae0a238046"
+      sha256: "17d6f79f343b654f7e0b7e999ca8284e537e618769825f4466b6087e302a33e7"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.4+3"
+    version: "2.0.4+4"
   json_theme:
     dependency: "direct main"
     description:
@@ -254,10 +254,10 @@ packages:
     dependency: transitive
     description:
       name: rest_client
-      sha256: a1a00e2620aed0a2fee2b92a986ffb061df6d6632ea22eadc637116c196d95c5
+      sha256: f788d489471b3c18641cc7ae32cde76ca9806075dda8b98e36bc479f118e6585
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1+10"
+    version: "2.2.1+11"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -371,10 +371,10 @@ packages:
     dependency: transitive
     description:
       name: yaml
-      sha256: "23812a9b125b48d4007117254bca50abb6c712352927eece9e155207b1db2370"
+      sha256: "75769501ea3489fca56601ff33454fe45507ea3bfb014161abc3b43ae25989d5"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.1"
+    version: "3.1.2"
   yaon:
     dependency: transitive
     description:

@@ -168,7 +168,7 @@ class ThemeDocs {
 const expectedOutput = '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of builder_test;
+part of 'test.dart';
 
 // **************************************************************************
 // ThemeDocsGenerator
@@ -201,7 +201,7 @@ descendant widgets.""";
 const expectedOutputExtra = '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of builder_test;
+part of 'test.dart';
 
 // **************************************************************************
 // ThemeDocsGenerator

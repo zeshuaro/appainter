@@ -6,6 +6,7 @@ version: 1.6.12-next
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
+  flutter: 3.7.12
 
 dependencies:
   appainter_annotations:

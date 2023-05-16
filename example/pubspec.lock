@@ -166,10 +166,10 @@ packages:
     dependency: transitive
     description:
       name: json_schema2
-      sha256: "17d6f79f343b654f7e0b7e999ca8284e537e618769825f4466b6087e302a33e7"
+      sha256: "5ee57d67dc7c119d9ec6c59331aedf80e0c9aa8b6c0549be9408a80d35e639d4"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.4+4"
+    version: "2.0.4+5"
   json_theme:
     dependency: "direct main"
     description:
@@ -379,9 +379,9 @@ packages:
     dependency: transitive
     description:
       name: yaon
-      sha256: "6160b1610af95ca3ff7d1e4814dcb1e8df2d12551ce05a4ca70d8a567ffd0de8"
+      sha256: "01ca95714b241aa40853f4119fffd60b56e21cb247d964ed2e9890d23fa1d3e0"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0+3"
+    version: "1.1.1"
 sdks:
   dart: ">=2.19.0 <3.0.0"

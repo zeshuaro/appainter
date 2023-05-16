@@ -16,16 +16,16 @@ const RESOURCES = {
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "dd74f11e425603c7adb66100f161b2a5",
 "assets/FontManifest.json": "1b1e7812d9eb9f666db8444d7dde1b20",
 "assets/AssetManifest.json": "ff1eee5d80fd025929453faeff3ab75e",
-"index.html": "25b3856ccc64936b250e4ab5cdd6a10f",
-"/": "25b3856ccc64936b250e4ab5cdd6a10f",
-"version.json": "f3e17bc6b7de8726ac1f3aadc5c386c9",
+"index.html": "220dfe50aff26bdd2ac28f46486365a2",
+"/": "220dfe50aff26bdd2ac28f46486365a2",
+"version.json": "214e3903ca19d5b008de5d5b184446e0",
 "icons/favicon-32x32.png": "878572d6d16bbaa08290988302449306",
 "icons/favicon-16x16.png": "6a1a342af170bec15959c265446f9331",
 "icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292ee3e2bf9",
 "icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
 "icons/android-chrome-192x192.png": "e03f23fd41872367b2ba387b50f87257",
 "favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
-"main.dart.js": "2fa96f3de82cd9b217654236f7850c43",
+"main.dart.js": "41f236e8c9c14062d3c8cc81b6a9f80f",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75"
 };
 

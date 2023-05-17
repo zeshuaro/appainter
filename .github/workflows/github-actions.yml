@@ -47,7 +47,7 @@ jobs:
           flutter pub run remove_from_coverage -f coverage/lcov.info -r '\.g\.dart$' -r 'extensions\.dart'
 
       - name: Upload coverage report 📡
-        uses: codecov/codecov-action@v3.1.3
+        uses: codecov/codecov-action@v3.1.4
         with:
           files: ./coverage/lcov.info
           flags: appainter

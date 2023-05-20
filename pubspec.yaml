@@ -11,7 +11,7 @@ environment:
 dependencies:
   appainter_annotations:
     path: packages/annotations
-  bloc: 8.1.1
+  bloc: 8.1.2
   collection: 1.17.0
   copy_with_extension: 5.0.2
   cupertino_icons: 1.0.5
@@ -28,7 +28,7 @@ dependencies:
   flex_color_picker: 3.2.2
   flutter:
     sdk: flutter
-  flutter_bloc: 8.1.2
+  flutter_bloc: 8.1.3
   flutter_markdown: 0.6.14
   google_fonts: 4.0.4
   intl: 0.18.1
@@ -55,7 +55,7 @@ dependency_overrides:
 dev_dependencies:
   appainter_builder:
     path: packages/builder
-  bloc_test: 9.1.1
+  bloc_test: 9.1.2
   build_runner: 2.3.0
   cider: 0.1.5
   copy_with_extension_gen: 5.0.2

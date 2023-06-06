@@ -13,7 +13,7 @@ builders:
     target: ":appainter_builder"
     import: "package:appainter_builder/builder.dart"
     builder_factories: ["generateThemeDocs"]
-    build_extensions: { ".dart": [".g.dart"] }
+    build_extensions: { ".dart": ["appainter_builder.g.part"] }
     auto_apply: dependents
     build_to: cache
     applies_builders: ["source_gen|combining_builder"]

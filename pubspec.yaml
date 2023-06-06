@@ -5,14 +5,14 @@ publish_to: "none"
 version: 1.6.14-next
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: 3.7.12
+  sdk: ">=2.15.0 <3.0.0"
+  flutter: 3.10.0
 
 dependencies:
   appainter_annotations:
     path: packages/annotations
   bloc: 8.1.2
-  collection: 1.17.2
+  collection: 1.17.1
   copy_with_extension: 5.0.2
   cupertino_icons: 1.0.5
   device_preview: 1.1.0
@@ -22,9 +22,9 @@ dependencies:
   equatable: 2.0.5
   expandable: 5.0.1
   file_picker: 5.3.1
-  firebase_analytics: 10.2.1
-  firebase_auth: 4.4.2
-  firebase_core: 2.10.0
+  firebase_analytics: 10.4.2
+  firebase_auth: 4.6.2
+  firebase_core: 2.13.1
   flex_color_picker: 3.2.2
   flutter:
     sdk: flutter
@@ -33,7 +33,7 @@ dependencies:
   google_fonts: 4.0.4
   intl: 0.18.1
   json_theme: 5.0.2+1
-  material_color_utilities: 0.5.0
+  material_color_utilities: 0.2.0
   material_design_icons_flutter: 6.0.7096
   ndialog: 4.3.0
   path_provider: 2.0.15
@@ -56,7 +56,7 @@ dev_dependencies:
   appainter_builder:
     path: packages/builder
   bloc_test: 9.1.2
-  build_runner: 2.3.0
+  build_runner: 2.4.4
   cider: 0.1.5
   copy_with_extension_gen: 5.0.2
   flutter_lints: 2.0.1

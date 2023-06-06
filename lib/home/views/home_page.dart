@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  static const _sdkVersion = '3.7.0';
+  static const _sdkVersion = '3.10.0+';
   static final _backgroundColorDark = Colors.grey[900]!;
   static final _backgroundColorLight = Colors.grey[200]!;
 
@@ -198,8 +198,8 @@ class _Editors extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
+    return const Column(
+      children: [
         _EditModeHeader(),
         VerticalPadding(),
         _ThemeConfigs(),
@@ -260,8 +260,8 @@ class _EditModeActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: const [
+    return const Row(
+      children: [
         RandomThemeButton(),
         HorizontalPadding(),
         ResetThemeButton(),
@@ -283,8 +283,8 @@ class _ThemeConfigs extends StatelessWidget {
             'Theme configurations',
             style: Theme.of(context).textTheme.headlineSmall,
           ),
-          Row(
-            children: const [
+          const Row(
+            children: [
               Material3Switch(),
               HorizontalPadding(),
               ThemeBrightnessSwitch(),

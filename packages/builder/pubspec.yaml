@@ -7,9 +7,11 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  analyzer: ^5.13.0
   appainter_annotations:
     path: ../annotations/
   build: ^2.2.1
+  collection: ^1.17.1
   html: ^0.15.0
   http: ^0.13.4
   source_gen: ^1.2.1

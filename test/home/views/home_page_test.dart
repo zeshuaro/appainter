@@ -13,8 +13,7 @@ import '../../mocks.dart';
 import '../../pump_app.dart';
 
 void main() {
-  final TestWidgetsFlutterBinding binding =
-      TestWidgetsFlutterBinding.ensureInitialized();
+  TestWidgetsFlutterBinding.ensureInitialized();
 
   late HomeRepository homeRepo;
   late HomeCubit homeCubit;
@@ -82,7 +81,7 @@ void main() {
           expect(find.byType(editorType), findsOneWidget);
           verify(() => homeCubit.editModeChanged(mode)).called(1);
 
-          addTearDown(binding.window.clearPhysicalSizeTestValue);
+          addTearDown(tester.view.resetPhysicalSize);
         },
       );
     }

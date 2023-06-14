@@ -1,4 +1,4 @@
-package dev.appainter
+package dev.appainter.app
 
 import io.flutter.embedding.android.FlutterActivity
 

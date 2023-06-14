@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="dev.appainter">
+  package="dev.appainter.app">
   <application android:name="${applicationName}"
     android:label="appainter"
     android:icon="@mipmap/ic_launcher">

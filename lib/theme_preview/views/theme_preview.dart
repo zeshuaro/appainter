@@ -164,6 +164,7 @@ class ThemePreview extends StatelessWidget {
               title: 'Appainter',
               theme: theme,
               locale: DevicePreview.locale(context),
+              // ignore: deprecated_member_use
               useInheritedMediaQuery: true,
               home: DefaultTabController(
                 length: _pages.length,

@@ -61,12 +61,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyBvBBZnA2obYYbNPqNVCpjOlZsLQUmIi_k',
-    appId: '1:90034869484:ios:5a4a55aa6ae64a348081c9',
+    appId: '1:90034869484:ios:01be289e59ffd1ac8081c9',
     messagingSenderId: '90034869484',
     projectId: 'appainter-2720d',
     storageBucket: 'appainter-2720d.appspot.com',
     iosClientId:
-        '90034869484-dv46071etje7r98biqqht4701gvqq3mm.apps.googleusercontent.com',
-    iosBundleId: 'dev.appainter',
+        '90034869484-devba5nuepf7pc284eo89snbmpijsnsb.apps.googleusercontent.com',
+    iosBundleId: 'dev.appainter.app',
   );
 }

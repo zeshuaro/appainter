@@ -10,7 +10,7 @@ import '../../mocks.dart';
 
 void main() {
   late HomeRepository homeRepo;
-  late AnalyticsRepository analyticsRepo;
+  late AnalyticsRepositoryImpl analyticsRepo;
   late HomeCubit homeCubit;
   late AdvancedThemeCubit advancedThemeCubit;
   late ThemeUsage themeUsage;

@@ -173,4 +173,4 @@ class FakeThemeData extends Fake
 
 class MockHomeRepository extends Mock implements HomeRepository {}
 
-class MockAnalyticsRepository extends Mock implements AnalyticsRepository {}
+class MockAnalyticsRepository extends Mock implements AnalyticsRepositoryImpl {}

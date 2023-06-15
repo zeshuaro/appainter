@@ -7,12 +7,12 @@ import 'package:mocktail/mocktail.dart';
 class MockFirebaseAnalytics extends Mock implements FirebaseAnalytics {}
 
 void main() {
-  late AnalyticsRepository repo;
+  late AnalyticsRepositoryImpl repo;
   late FirebaseAnalytics firebaseAnalytics;
 
   setUp(() {
     firebaseAnalytics = MockFirebaseAnalytics();
-    repo = AnalyticsRepository(
+    repo = AnalyticsRepositoryImpl(
       firebaseAnalytics: firebaseAnalytics,
     );
     when(

@@ -1,4 +1,4 @@
-import 'package:appainter/analytics/analytics_repository.dart';
+import 'package:appainter/analytics/analytics_repository_impl.dart';
 import 'package:appainter/authentication/authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -10,11 +10,11 @@ class MockUser extends Mock implements User {}
 
 class MockUserCredential extends Mock implements UserCredential {}
 
-class MockAnalyticsRepository extends Mock implements AnalyticsRepository {}
+class MockAnalyticsRepository extends Mock implements AnalyticsRepositoryImpl {}
 
 void main() {
   late AuthenticationRepository authRepo;
-  late AnalyticsRepository analyticsRepo;
+  late AnalyticsRepositoryImpl analyticsRepo;
   late FirebaseAuth firebaseAuth;
   late User user;
   late UserCredential credential;

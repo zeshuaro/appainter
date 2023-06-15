@@ -41,8 +41,8 @@ dependencies:
   random_color_scheme: 0.1.4
   sentry_flutter: 7.7.0
   shared_preferences: 2.1.1
-  universal_html: 2.2.1
-  universal_io: 2.2.0
+  universal_html: 2.2.3
+  universal_io: 2.2.2
   url_launcher: 6.1.11
   window_size:
     git:

@@ -139,7 +139,7 @@ jobs:
           echo "version=v$(flutter pub run cider version)" >> $GITHUB_OUTPUT
 
           # Build web app
-          flutter build web --source-maps --dart-define=FLUTTER_WEB_USE_SKIA=true
+          flutter build web --source-maps --no-tree-shake-icons --dart-define=FLUTTER_WEB_USE_SKIA=true
 
           # Upload source map to Sentry
           flutter packages pub run sentry_dart_plugin

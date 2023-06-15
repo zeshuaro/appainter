@@ -155,10 +155,10 @@ packages:
     dependency: transitive
     description:
       name: change
-      sha256: b4d4aceb94f5081d40a2c08211bd779e55373265ce2304b7b38b5c4c218a9263
+      sha256: b6d35f856cb92c34ac1930669d0447d9b4e5b68b40323989f5ebb78e172d2a40
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.0"
+    version: "0.7.1"
   characters:
     dependency: transitive
     description:
@@ -187,10 +187,10 @@ packages:
     dependency: "direct dev"
     description:
       name: cider
-      sha256: "714a853bf92701b982496df0bd601c0cf2d882cfc1f2d41ae9aff2b20cee016a"
+      sha256: "33ff2a85ca251f098c721c91dd982a65aa09f8dabcaf1aaecd444c12e7d59c76"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.5"
+    version: "0.2.2"
   clock:
     dependency: transitive
     description:
@@ -509,10 +509,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_markdown
-      sha256: "7b25c10de1fea883f3c4f9b8389506b54053cd00807beab69fd65c8653a2711f"
+      sha256: dc6d5258653f6857135b32896ccda7f7af0c54dcec832495ad6835154c6c77c0
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.14"
+    version: "0.6.15"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -683,14 +683,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.2+1"
-  klizma:
-    dependency: transitive
-    description:
-      name: klizma
-      sha256: "3bb0ed5cc183274e39d48fa42a61484e4dda3dc52970aa902379c7403cd7f0f2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1"
   lints:
     dependency: transitive
     description:

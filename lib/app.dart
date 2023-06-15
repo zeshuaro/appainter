@@ -1,5 +1,5 @@
 import 'package:appainter/advanced_theme/advanced_theme.dart';
-import 'package:appainter/analytics/analytics_repository.dart';
+import 'package:appainter/analytics/analytics.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';

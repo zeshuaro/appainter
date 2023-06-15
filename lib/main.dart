@@ -42,11 +42,11 @@ void main() async {
 
 Future<void> _runApp() async {
   late final AnalyticsRepository analyticsRepo;
-  if (kIsWeb || Platform.isMacOS) {
+  if (kIsWeb) {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    analyticsRepo = AnalyticsRepository();
+    analyticsRepo = AnalyticsRepositoryImpl();
     final authRepo = AuthenticationRepository(analyticsRepo: analyticsRepo);
     await authRepo.user.first;
     analyticsRepo.logAppOpen();

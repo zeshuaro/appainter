@@ -70,7 +70,7 @@ jobs:
 
       - name: Write Google service info file for MacOS 📝
         if: ${{ matrix.type == 'macos' }}
-        run: echo ${{ secrets.GOOGLE_SERVICE_INFO_MACOS }} > macos/Runner/GoogleService-Info.plist
+        run: printf ${{ secrets.GOOGLE_SERVICE_INFO_MACOS }} > macos/Runner/GoogleService-Info.plist
 
       - name: Build desktop app 🏗
         run: |

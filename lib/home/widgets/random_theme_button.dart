@@ -14,7 +14,7 @@ class RandomThemeButton extends StatelessWidget {
     return IconButton(
       key: const Key('randomThemeButton'),
       onPressed: () => _onPressed(context),
-      icon: const Icon(MdiIcons.shuffle),
+      icon: Icon(MdiIcons.shuffle),
       splashRadius: kSplashRadius,
     );
   }

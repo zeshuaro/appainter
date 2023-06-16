@@ -14,7 +14,7 @@ class ResetThemeButton extends StatelessWidget {
     return IconButton(
       key: const Key('resetThemeButton'),
       onPressed: () => _onPressed(context),
-      icon: const Icon(MdiIcons.restore),
+      icon: Icon(MdiIcons.restore),
       splashRadius: kSplashRadius,
     );
   }

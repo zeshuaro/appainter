@@ -659,22 +659,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1+3"
-  json_schema:
+  json_schema2:
     dependency: transitive
     description:
-      name: json_schema
-      sha256: d9325bc3033934e6da6f1a2cd592533dc867dd1c0f740c6ae69c31d6756838d9
+      name: json_schema2
+      sha256: d5434c96573089e58986f7e32348ecb7e44b7a72b16fe5fce334abe15bab7a70
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.1"
+    version: "5.1.2+2"
   json_theme:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: "40d524c455287ac019f5d1c370ddd76c5d61c6390b67de149ee0bdb33912c4a5"
+      sha256: "253504864190245b8432def8422d5d176124c8c93ae2c8a4552baea59132998c"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "6.0.1"
   lints:
     dependency: transitive
     description:

@@ -655,10 +655,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: c40fa382860f472e79b18f603e9fe1159c7ed3bfc6998a4bbd331825b42ae17a
+      sha256: "26dc861af85f6894da6346b65875ca9b147a899094dc952a0502f2eb38a2c25d"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1+3"
+    version: "2.2.2"
   json_schema2:
     dependency: transitive
     description:
@@ -1268,10 +1268,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_platform_interface
-      sha256: "6c9ca697a5ae218ce56cece69d46128169a58aa8653c1b01d26fcd4aad8c4370"
+      sha256: bfdfa402f1f3298637d71ca8ecfe840b4696698213d5346e9d12d4ab647ee2ea
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.3"
   url_launcher_web:
     dependency: transitive
     description:

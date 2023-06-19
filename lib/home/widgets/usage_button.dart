@@ -1,11 +1,11 @@
 import 'package:appainter/common/common.dart';
+import 'package:appainter/home/home.dart';
+import 'package:appainter/services/services.dart';
+import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:appainter/home/home.dart';
-import 'package:appainter/services/services.dart';
-import 'package:appainter/widgets/widgets.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class UsageButton extends StatelessWidget {
@@ -14,7 +14,7 @@ class UsageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: const Icon(MdiIcons.helpCircleOutline),
+      icon: Icon(MdiIcons.helpCircleOutline),
       splashRadius: kSplashRadius,
       onPressed: () => _onPressed(context),
     );
@@ -89,7 +89,7 @@ class _UsageFallback extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Icon(
+        Icon(
           MdiIcons.alert,
           color: Colors.yellow,
           size: 48,

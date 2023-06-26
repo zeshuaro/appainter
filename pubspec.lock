@@ -1236,10 +1236,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: eed4e6a1164aa9794409325c3b707ff424d4d1c2a785e7db67f8bbda00e36e51
+      sha256: "15f5acbf0dce90146a0f5a2c4a002b1814a6303c4c5c075aa2623b2d16156f03"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.35"
+    version: "6.0.36"
   url_launcher_ios:
     dependency: transitive
     description:
@@ -1316,10 +1316,10 @@ packages:
     dependency: transitive
     description:
       name: vm_service
-      sha256: c620a6f783fa22436da68e42db7ebbf18b8c44b9a46ab911f666ff09ffd9153f
+      sha256: b8c67f5fa3897b122cf60fe9ff314f7b0ef71eab25c5f8b771480bc338f48823
       url: "https://pub.dev"
     source: hosted
-    version: "11.7.1"
+    version: "11.7.2"
   watcher:
     dependency: transitive
     description:
@@ -1348,10 +1348,10 @@ packages:
     dependency: transitive
     description:
       name: win32
-      sha256: "7dacfda1edcca378031db9905ad7d7bd56b29fd1a90b0908b71a52a12c41e36b"
+      sha256: "1414f27dd781737e51afa9711f2ac2ace6ab4498ee98e20863fa5505aa00c58c"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.3"
+    version: "5.0.4"
   window_size:
     dependency: "direct main"
     description:

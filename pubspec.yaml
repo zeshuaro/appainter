@@ -56,7 +56,7 @@ dev_dependencies:
   appainter_builder:
     path: packages/builder
   bloc_test: 9.1.3
-  build_runner: 2.4.5
+  build_runner: 2.4.6
   cider: 0.2.3
   copy_with_extension_gen: 5.0.3
   flutter_lints: 2.0.1

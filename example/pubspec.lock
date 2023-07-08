@@ -134,10 +134,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: c40fa382860f472e79b18f603e9fe1159c7ed3bfc6998a4bbd331825b42ae17a
+      sha256: fa872148b86bd2b706617e26ed80eeee292c31071b49cc728b368dd9b1fd0959
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1+3"
+    version: "2.2.2+1"
   json_schema2:
     dependency: transitive
     description:
@@ -150,10 +150,18 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: "253504864190245b8432def8422d5d176124c8c93ae2c8a4552baea59132998c"
+      sha256: "5a744e3f72b5f057ae69150e245efcf083400f86c9a3e25646a7d84f878ffc08"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.1"
+    version: "6.0.2+3"
+  json_theme_annotation:
+    dependency: transitive
+    description:
+      name: json_theme_annotation
+      sha256: "63e4680b33e6c1a1f4e5f4cd12d055903aa1ccb3579f7f17643be3b0e697661e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0+1"
   lints:
     dependency: transitive
     description:

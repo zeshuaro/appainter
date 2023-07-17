@@ -3,10 +3,8 @@ import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/common/common.dart';
-import 'package:appainter/models/models.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppBarThemeEditor extends ExpansionPanelItem {
@@ -24,7 +22,6 @@ class AppBarThemeEditor extends ExpansionPanelItem {
             _BackgroundColorPicker(),
             _ForegroundColorPicker(),
             _ShadowColorPicker(),
-            _SystemUiOverlayStyleDropdown(),
             _ElevationTextField(),
             _CenterTitleSwitch(),
             _TitleSpacingTextField(),
@@ -33,10 +30,19 @@ class AppBarThemeEditor extends ExpansionPanelItem {
         ),
         MyExpansionPanelList(
           items: const [
-            IconThemeCard(),
-            ActionsIconThemeCard(),
-            TitleTextStyleCard(),
-            ToolbarTextStyleCard(),
+            SystemOverlayStyleCard(
+              key: Key('appBarThemeEditor_systemOverlayStyleCard'),
+            ),
+            _IconThemeCard(key: Key('appBarThemeEditor_iconThemeCard')),
+            _ActionsIconThemeCard(
+              key: Key('appBarThemeEditor_actionsIconThemeCard'),
+            ),
+            _TitleTextStyleCard(
+              key: Key('appBarThemeEditor_titleTextStyleCard'),
+            ),
+            _ToolbarTextStyleCard(
+              key: Key('appBarThemeEditor_toolbarTextStyleCard'),
+            ),
           ],
         ),
       ],
@@ -207,40 +213,9 @@ class _ToolBarHeightTextField extends StatelessWidget {
   }
 }
 
-class _SystemUiOverlayStyleDropdown extends StatelessWidget {
-  const _SystemUiOverlayStyleDropdown({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<AppBarThemeCubit, AppBarThemeState>(
-      key: const Key('appBarThemeEditor_systemUiOverlayStyleDropdown'),
-      buildWhen: (previous, current) {
-        return previous.theme.systemOverlayStyle !=
-            current.theme.systemOverlayStyle;
-      },
-      builder: (context, state) {
-        return DropdownListTile(
-          title: 'System UI overlay style',
-          tooltip: AppBarThemeDocs.systemOverlayStyle,
-          value: MySystemUiOverlayStyle().convertToString(
-            state.theme.systemOverlayStyle ?? SystemUiOverlayStyle.light,
-          )!,
-          values: MySystemUiOverlayStyle().names,
-          onChanged: (value) {
-            context
-                .read<AppBarThemeCubit>()
-                .systemUiOverlayStyleChanged(value!);
-          },
-        );
-      },
-    );
-  }
-}
-
-@visibleForTesting
-class ActionsIconThemeCard
+class _ActionsIconThemeCard
     extends AbstractIconThemeEditor<AppBarActionsIconThemeCubit> {
-  const ActionsIconThemeCard({Key? key}) : super(key: key);
+  const _ActionsIconThemeCard({Key? key}) : super(key: key);
 
   @override
   String get keyPrefix => 'appBarThemeEditor_actionsIconThemeCard';
@@ -257,9 +232,8 @@ class ActionsIconThemeCard
   }
 }
 
-@visibleForTesting
-class IconThemeCard extends AbstractIconThemeEditor<AppBarIconThemeCubit> {
-  const IconThemeCard({Key? key}) : super(key: key);
+class _IconThemeCard extends AbstractIconThemeEditor<AppBarIconThemeCubit> {
+  const _IconThemeCard({Key? key}) : super(key: key);
 
   @override
   String get keyPrefix => 'appBarThemeEditor_iconThemeCard';
@@ -276,10 +250,9 @@ class IconThemeCard extends AbstractIconThemeEditor<AppBarIconThemeCubit> {
   }
 }
 
-@visibleForTesting
-class TitleTextStyleCard
+class _TitleTextStyleCard
     extends AbstractTextStyleEditor<AppBarTitleTextStyleCubit> {
-  const TitleTextStyleCard({Key? key}) : super(key: key);
+  const _TitleTextStyleCard({Key? key}) : super(key: key);
 
   @override
   String get header => 'Title text style';
@@ -288,10 +261,9 @@ class TitleTextStyleCard
   String? get tooltip => AppBarThemeDocs.titleTextStyle;
 }
 
-@visibleForTesting
-class ToolbarTextStyleCard
+class _ToolbarTextStyleCard
     extends AbstractTextStyleEditor<AppBarToolbarTextStyleCubit> {
-  const ToolbarTextStyleCard({Key? key}) : super(key: key);
+  const _ToolbarTextStyleCard({Key? key}) : super(key: key);
 
   @override
   String get header => 'Toolbar text style';

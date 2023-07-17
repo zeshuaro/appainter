@@ -134,26 +134,26 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: fa872148b86bd2b706617e26ed80eeee292c31071b49cc728b368dd9b1fd0959
+      sha256: "2267087757247326eb4c7eec52b57b6f7d4878635e072f074e67bbff7bd727e8"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.2+1"
-  json_schema2:
+    version: "3.0.0+1"
+  json_schema:
     dependency: transitive
     description:
-      name: json_schema2
-      sha256: d5434c96573089e58986f7e32348ecb7e44b7a72b16fe5fce334abe15bab7a70
+      name: json_schema
+      sha256: "0fa8e7bacc5b690eeaa03d98ac38d676deb95ed645880b7504fcf34be8bdd17b"
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.2+2"
+    version: "5.1.2"
   json_theme:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: "5a744e3f72b5f057ae69150e245efcf083400f86c9a3e25646a7d84f878ffc08"
+      sha256: "6645c2b0ec8b03560e9b6900f2b98190512547e54a6c9a40c24cff361c1b48c4"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.2+3"
+    version: "6.1.0"
   json_theme_annotation:
     dependency: transitive
     description:

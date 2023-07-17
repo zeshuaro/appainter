@@ -3,9 +3,10 @@ import 'dart:math';
 import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
-import 'package:appainter/models/models.dart';
+import 'package:appainter/services/util_service.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
@@ -134,17 +135,49 @@ void main() {
     expect: () => [AppBarThemeState.withTheme(toolbarHeight: doubleNum)],
   );
 
-  group('test system UI overlay style', () {
-    for (var style in MySystemUiOverlayStyle().values) {
+  group('system overlay style', () {
+    const systemOverlayStyle = SystemUiOverlayStyle.light;
+
+    blocTest<AppBarThemeCubit, AppBarThemeState>(
+      'emit status bar color',
+      build: () => themeCubit,
+      act: (cubit) => cubit.statusBarColorChanged(color),
+      expect: () => [
+        AppBarThemeState.withTheme(
+          systemUiOverlayStyle: systemOverlayStyle.copyWith(
+            statusBarColor: color,
+          ),
+        ),
+      ],
+    );
+
+    for (var brightness in Brightness.values) {
+      final brightnessStr = UtilService.enumToString(brightness);
+
       blocTest<AppBarThemeCubit, AppBarThemeState>(
-        'emit ${style.statusBarBrightness}',
+        'emit status bar brightness',
         build: () => themeCubit,
-        act: (cubit) {
-          cubit.systemUiOverlayStyleChanged(
-            MySystemUiOverlayStyle().convertToString(style)!,
-          );
-        },
-        expect: () => [AppBarThemeState.withTheme(systemUiOverlayStyle: style)],
+        act: (cubit) => cubit.statusBarBrightnessChanged(brightnessStr),
+        expect: () => [
+          AppBarThemeState.withTheme(
+            systemUiOverlayStyle: systemOverlayStyle.copyWith(
+              statusBarBrightness: brightness,
+            ),
+          ),
+        ],
+      );
+
+      blocTest<AppBarThemeCubit, AppBarThemeState>(
+        'emit status bar icon brightness',
+        build: () => themeCubit,
+        act: (cubit) => cubit.statusBarIconBrightnessChanged(brightnessStr),
+        expect: () => [
+          AppBarThemeState.withTheme(
+            systemUiOverlayStyle: systemOverlayStyle.copyWith(
+              statusBarIconBrightness: brightness,
+            ),
+          ),
+        ],
       );
     }
   });

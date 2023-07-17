@@ -4,7 +4,6 @@ import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
-import 'package:appainter/models/models.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -101,10 +100,27 @@ void main() {
 
   testWidgets('display nested editors', (tester) async {
     await pumpApp(tester);
-    expect(find.byType(ActionsIconThemeCard), findsOneWidget);
-    expect(find.byType(IconThemeCard), findsOneWidget);
-    expect(find.byType(TitleTextStyleCard), findsOneWidget);
-    expect(find.byType(ToolbarTextStyleCard), findsOneWidget);
+
+    expect(
+      find.byKey(const Key('appBarThemeEditor_systemOverlayStyleCard')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const Key('appBarThemeEditor_iconThemeCard')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const Key('appBarThemeEditor_actionsIconThemeCard')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const Key('appBarThemeEditor_titleTextStyleCard')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const Key('appBarThemeEditor_toolbarTextStyleCard')),
+      findsOneWidget,
+    );
   });
 
   group('background color picker', () {
@@ -254,32 +270,5 @@ void main() {
         appBarThemeCubit.toolBarHeightChanged,
       );
     });
-  });
-
-  group('system UI overlay style dropdown', () {
-    const key = 'appBarThemeEditor_systemUiOverlayStyleDropdown';
-    final myStyle = MySystemUiOverlayStyle();
-
-    for (var style in myStyle.values) {
-      final styleStr = myStyle.convertToString(style)!;
-
-      testWidgets('render ${style.statusBarBrightness}', (tester) async {
-        final state = AppBarThemeState.withTheme(systemUiOverlayStyle: style);
-
-        await pumpApp(tester, state);
-
-        await tester.expectDropdown(key, styleStr);
-        expectBlocBuilder(tester, key, state);
-      });
-
-      testWidgets('change ${style.statusBarBrightness}', (tester) async {
-        await pumpApp(tester);
-        await tester.verifyDropdown(
-          key,
-          styleStr,
-          appBarThemeCubit.systemUiOverlayStyleChanged,
-        );
-      });
-    }
   });
 }

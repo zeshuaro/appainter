@@ -45,7 +45,7 @@ class ElevatedButtonThemeEditor
         context.watch<ElevatedButtonThemeCubit>().state.style?.backgroundColor;
     final colorScheme = context.watch<ColorThemeCubit>().state.colorScheme;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Background color',
       tooltip: AbstractButtonStyleDocs.backgroundColor,
       items: [
@@ -73,7 +73,7 @@ class ElevatedButtonThemeEditor
         final cubit = context.read<ElevatedButtonThemeCubit>();
         final elevation = state.style?.elevation;
 
-        return MaterialStatesCard<String>(
+        return MaterialStatesCard<MaterialStateTextField>(
           header: 'Elevation',
           tooltip: AbstractButtonStyleDocs.elevation,
           items: [

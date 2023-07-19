@@ -37,7 +37,7 @@ abstract class AbstractButtonStyleEditor<T extends AbstractButtonStyleCubit>
     final color = context.watch<T>().state.style?.foregroundColor;
     final colorScheme = context.watch<ColorThemeCubit>().state.colorScheme;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Foreground color',
       tooltip: AbstractButtonStyleDocs.foregroundColor,
       items: [
@@ -64,7 +64,7 @@ abstract class AbstractButtonStyleEditor<T extends AbstractButtonStyleCubit>
     final color = context.watch<T>().state.style?.overlayColor;
     final colorScheme = context.watch<ColorThemeCubit>().state.colorScheme;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Overlay color',
       tooltip: AbstractButtonStyleDocs.overlayColor,
       items: [
@@ -97,7 +97,7 @@ abstract class AbstractButtonStyleEditor<T extends AbstractButtonStyleCubit>
     final shadowColor = context.watch<T>().state.style?.shadowColor;
     final themeShadowColor = context.watch<ColorThemeCubit>().state.shadowColor;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Shadow color',
       tooltip: AbstractButtonStyleDocs.shadowColor,
       items: [

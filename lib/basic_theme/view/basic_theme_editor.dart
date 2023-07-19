@@ -55,7 +55,7 @@ class _PrimaryColorPickers extends StatelessWidget {
     final cubit = context.read<BasicThemeCubit>();
     final colorScheme = context.watch<BasicThemeCubit>().state.colorScheme;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Primary colors',
       items: [
         MaterialStateItem(
@@ -98,7 +98,7 @@ class _SecondaryColorPickers extends StatelessWidget {
     final cubit = context.read<BasicThemeCubit>();
     final colorScheme = context.watch<BasicThemeCubit>().state.colorScheme;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Secondary colors',
       items: [
         MaterialStateItem(
@@ -140,7 +140,7 @@ class _TertiaryColorPickers extends StatelessWidget {
     final cubit = context.read<BasicThemeCubit>();
     final colorScheme = context.watch<BasicThemeCubit>().state.colorScheme;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Tertiary colors',
       items: [
         MaterialStateItem(
@@ -182,7 +182,7 @@ class _ErrorColorPickers extends StatelessWidget {
     final cubit = context.read<BasicThemeCubit>();
     final colorScheme = context.watch<BasicThemeCubit>().state.colorScheme;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Error colors',
       items: [
         MaterialStateItem(
@@ -224,7 +224,7 @@ class _NeutralColorPickers extends StatelessWidget {
     final cubit = context.read<BasicThemeCubit>();
     final colorScheme = context.watch<BasicThemeCubit>().state.colorScheme;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Neutral colors',
       items: [
         MaterialStateItem(
@@ -266,7 +266,7 @@ class _NeutralVariantColorPickers extends StatelessWidget {
     final cubit = context.read<BasicThemeCubit>();
     final colorScheme = context.watch<BasicThemeCubit>().state.colorScheme;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Neutral variant colors',
       items: [
         MaterialStateItem(
@@ -308,7 +308,7 @@ class _InverseColorPickers extends StatelessWidget {
     final cubit = context.read<BasicThemeCubit>();
     final colorScheme = context.watch<BasicThemeCubit>().state.colorScheme;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Inverse colors',
       items: [
         MaterialStateItem(

@@ -34,7 +34,7 @@ class _ThumbColorPickers extends StatelessWidget {
     final thumbColor = context.watch<SwitchThemeCubit>().state.theme.thumbColor;
     final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Thumb color',
       tooltip: SwitchThemeDocs.thumbColor,
       items: [
@@ -69,7 +69,7 @@ class _TrackColorPickers extends StatelessWidget {
     final trackColor = context.watch<SwitchThemeCubit>().state.theme.trackColor;
     final primaryColor = context.watch<ColorThemeCubit>().state.primaryColor;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Track color',
       tooltip: SwitchThemeDocs.trackColor,
       items: [
@@ -106,7 +106,7 @@ class _OverlayColorPickers extends StatelessWidget {
         context.watch<SwitchThemeCubit>().state.theme.overlayColor;
     final colorThemeState = context.watch<ColorThemeCubit>().state;
 
-    return MaterialStatesCard<Color>(
+    return MaterialStatesCard<MaterialStateColorPicker>(
       header: 'Overlay color',
       tooltip: SwitchThemeDocs.overlayColor,
       items: [

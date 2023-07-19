@@ -12,6 +12,11 @@ import '../../utils.dart';
 
 void main() {
   const defaultElevation = 2.0;
+  const shape = RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(4),
+    ),
+  );
   final colorScheme = ThemeData().colorScheme;
 
   late Color color;
@@ -30,6 +35,11 @@ void main() {
     sut = ElevatedButtonThemeCubit(colorThemeCubit: colorThemeCubit);
   });
 
+  test('default shape', () {
+    final actual = sut.defaultShape;
+    expect(actual, equals(shape));
+  });
+
   test('get default style', () {
     final actual = sut.getDefaultStyle(colorScheme);
     final expected = ElevatedButton.styleFrom(
@@ -40,6 +50,7 @@ void main() {
       shadowColor: colorScheme.shadow,
       elevation: 2,
       minimumSize: const Size(64, 36),
+      shape: shape,
     );
 
     verifyMaterialProperty(actual.backgroundColor!, expected.backgroundColor!);
@@ -47,6 +58,7 @@ void main() {
     verifyMaterialProperty(actual.overlayColor!, expected.overlayColor!);
     verifyMaterialProperty(actual.shadowColor!, expected.shadowColor!);
     verifyMaterialProperty(actual.elevation!, expected.elevation!);
+    verifyMaterialProperty(actual.shape!, expected.shape!);
   });
 
   group('background colors', () {

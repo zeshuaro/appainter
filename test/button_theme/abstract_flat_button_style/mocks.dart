@@ -8,6 +8,9 @@ class TestFlatButtonStyleCubit extends AbstractFlatButtonStyleCubit {
       : super(colorThemeCubit: colorThemeCubit);
 
   @override
+  OutlinedBorder get defaultShape => const RoundedRectangleBorder();
+
+  @override
   ButtonStyle getDefaultStyle(ColorScheme colorScheme) {
     return OutlinedButton.styleFrom(
       foregroundColor: colorScheme.primary,

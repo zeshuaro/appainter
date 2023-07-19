@@ -9,6 +9,11 @@ import '../../utils.dart';
 
 void main() {
   final colorScheme = ThemeData().colorScheme;
+  const shape = RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(
+      Radius.circular(4),
+    ),
+  );
 
   late ColorThemeCubit colorThemeCubit;
   late TextButtonThemeCubit sut;
@@ -20,6 +25,11 @@ void main() {
     sut = TextButtonThemeCubit(colorThemeCubit: colorThemeCubit);
   });
 
+  test('default shape', () {
+    final actual = sut.defaultShape;
+    expect(actual, equals(shape));
+  });
+
   test('get default style', () {
     final actual = sut.getDefaultStyle(colorScheme);
     final expected = TextButton.styleFrom(
@@ -29,6 +39,7 @@ void main() {
       shadowColor: colorScheme.shadow,
       elevation: 0,
       minimumSize: const Size(64, 36),
+      shape: shape,
     );
 
     verifyMaterialProperty(actual.backgroundColor!, expected.backgroundColor!);

@@ -171,10 +171,26 @@ extension PumpApp on WidgetTester {
     when(() => elevatedButtonThemeCubit.state).thenReturn(
       const ButtonStyleState(),
     );
+    when(() => elevatedButtonThemeCubit.defaultShape).thenReturn(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+    );
     when(() => outlinedButtonThemeCubit.state).thenReturn(
       const ButtonStyleState(),
     );
+    when(() => outlinedButtonThemeCubit.defaultShape).thenReturn(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+    );
     when(() => textButtonThemeCubit.state).thenReturn(const ButtonStyleState());
+    when(() => textButtonThemeCubit.defaultShape).thenReturn(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+    );
+
     when(() => iconThemeCubit.state).thenReturn(_iconThemeState);
     when(() => inputDecorationThemeCubit.state).thenReturn(
       const InputDecorationThemeState(),

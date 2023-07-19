@@ -23,12 +23,60 @@ abstract class AbstractButtonStyleEditor<T extends AbstractButtonStyleCubit>
   Widget build(BuildContext context) {
     return NestedListView(
       children: [
+        SideBySideList(
+          children: [
+            buildShapeDropdown(context),
+            buildShapeBorderRadiusTextField(context),
+          ],
+        ),
         buildBackgroundColorPickers(context),
         buildForegroundColorPickers(context),
         buildOverlayColorPickers(context),
         buildShadowColorPickers(context),
         buildElevationTextFields(context),
       ],
+    );
+  }
+
+  Widget buildShapeDropdown(BuildContext context) {
+    final outlinedBorderEnum = OutlinedBorderEnum();
+    final shape = context.watch<T>().state.style?.shape?.resolve({}) ??
+        context.read<T>().defaultShape;
+
+    return DropdownListTile(
+      key: const Key('abstractButtonStyleEditor_shapeDropdown'),
+      title: 'Shape',
+      value: outlinedBorderEnum.convertToString(shape)!,
+      values: OutlinedBorderEnum().names,
+      onChanged: context.read<T>().shapeChanged,
+    );
+  }
+
+  Widget buildShapeBorderRadiusTextField(BuildContext context) {
+    final border = context.watch<T>().state.style?.shape?.resolve({}) ??
+        context.read<T>().defaultShape;
+    late final BorderRadiusGeometry? radiusGeomtry;
+
+    if (border is BeveledRectangleBorder) {
+      radiusGeomtry = border.borderRadius;
+    } else if (border is ContinuousRectangleBorder) {
+      radiusGeomtry = border.borderRadius;
+    } else if (border is RoundedRectangleBorder) {
+      radiusGeomtry = border.borderRadius;
+    } else {
+      radiusGeomtry = null;
+    }
+
+    return MyTextFormField(
+      key: const Key('abstractButtonStyleEditor_shapeBorderRadiusTextField'),
+      labelText: 'Border Radius',
+      enabled: border is BeveledRectangleBorder ||
+          border is ContinuousRectangleBorder ||
+          border is RoundedRectangleBorder,
+      initialValue: radiusGeomtry is BorderRadius
+          ? radiusGeomtry.bottomLeft.x.toString()
+          : null,
+      onChanged: context.read<T>().shapeBorderRadiusChanged,
     );
   }
 

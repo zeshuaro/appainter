@@ -7,6 +7,15 @@ class ElevatedButtonThemeCubit extends AbstractButtonStyleCubit {
       : super(colorThemeCubit: colorThemeCubit);
 
   @override
+  OutlinedBorder get defaultShape {
+    return const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(4),
+      ),
+    );
+  }
+
+  @override
   ButtonStyle getDefaultStyle(ColorScheme colorScheme) {
     return ElevatedButton.styleFrom(
       backgroundColor: colorScheme.primary,
@@ -16,6 +25,7 @@ class ElevatedButtonThemeCubit extends AbstractButtonStyleCubit {
       shadowColor: colorScheme.shadow,
       elevation: 2,
       minimumSize: const Size(64, 36),
+      shape: defaultShape,
     );
   }
 

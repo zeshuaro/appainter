@@ -4,8 +4,19 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 
 class TestButtonStyleCubit extends AbstractButtonStyleCubit {
-  TestButtonStyleCubit({required ColorThemeCubit colorThemeCubit})
-      : super(colorThemeCubit: colorThemeCubit);
+  TestButtonStyleCubit({
+    required ColorThemeCubit colorThemeCubit,
+    OutlinedBorder? shape,
+  })  : shape = shape ??
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+            ),
+        super(colorThemeCubit: colorThemeCubit);
+
+  final OutlinedBorder shape;
+
+  @override
+  OutlinedBorder get defaultShape => shape;
 
   @override
   ButtonStyle getDefaultStyle(ColorScheme colorScheme) {
@@ -17,6 +28,7 @@ class TestButtonStyleCubit extends AbstractButtonStyleCubit {
       shadowColor: colorScheme.shadow,
       elevation: 2,
       minimumSize: const Size(64, 36),
+      shape: shape,
     );
   }
 }

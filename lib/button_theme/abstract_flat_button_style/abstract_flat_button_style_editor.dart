@@ -37,7 +37,7 @@ abstract class AbstractFlatButtonStyleEditor<
   Widget buildBackgroundColorPickers(BuildContext context) {
     final color = context.watch<T>().state.style?.backgroundColor;
 
-    return MaterialStatesCard<MaterialStateColorPicker>(
+    return MaterialStatesCard<Color>(
       header: 'Background color',
       tooltip: AbstractButtonStyleDocs.backgroundColor,
       items: [
@@ -57,7 +57,7 @@ abstract class AbstractFlatButtonStyleEditor<
   Widget buildElevationTextFields(BuildContext context) {
     return BlocBuilder<T, ButtonStyleState>(
       builder: (context, state) {
-        return MaterialStatesCard<MaterialStateTextField>(
+        return MaterialStatesCard<String>(
           header: 'Elevation',
           tooltip: AbstractButtonStyleDocs.elevation,
           items: [

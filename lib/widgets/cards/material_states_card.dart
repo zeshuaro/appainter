@@ -1,9 +1,23 @@
-import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:appainter/widgets/widgets.dart';
 
-typedef MaterialStateColorPicker = Color;
-typedef MaterialStateTextField = String;
-typedef MaterialStateDropdown = String;
+class MaterialStateItem<T> {
+  final Key? key;
+  final String title;
+  final String? tooltip;
+  final T value;
+  final ValueChanged<T> onValueChanged;
+  final bool colorEnableOpacity;
+
+  const MaterialStateItem({
+    required this.title,
+    required this.value,
+    required this.onValueChanged,
+    this.key,
+    this.tooltip,
+    this.colorEnableOpacity = true,
+  });
+}
 
 class MaterialStatesCard<T> extends StatelessWidget {
   final String header;
@@ -15,16 +29,13 @@ class MaterialStatesCard<T> extends StatelessWidget {
     required this.header,
     required this.items,
     this.tooltip,
-  })  : assert(T == MaterialStateColorPicker ||
-            T == MaterialStateTextField ||
-            T == MaterialStateDropdown), // coverage:ignore-line
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MyCard(
       color: Theme.of(context).brightness == Brightness.dark
-          ? Colors.grey[700] // coverage:ignore-line
+          ? Colors.grey[700]
           : Colors.grey[100],
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,26 +63,6 @@ class MaterialStatesCard<T> extends StatelessWidget {
       ),
     );
   }
-}
-
-class MaterialStateItem<T> {
-  final Key? key;
-  final String title;
-  final String? tooltip;
-  final T value;
-  final ValueChanged<T> onValueChanged;
-  final bool colorEnableOpacity;
-
-  const MaterialStateItem({
-    required this.title,
-    required this.value,
-    required this.onValueChanged,
-    this.key,
-    this.tooltip,
-    this.colorEnableOpacity = true,
-  }) : assert(T == MaterialStateColorPicker ||
-            T == MaterialStateTextField ||
-            T == MaterialStateDropdown); // coverage:ignore-line
 }
 
 class _Header extends StatelessWidget {
@@ -110,31 +101,27 @@ class _StateListTile<T> extends StatelessWidget {
     required this.onValueChanged,
     this.tooltip,
     this.colorEnableOpacity = true,
-  })  : assert(T == MaterialStateColorPicker ||
-            T == MaterialStateTextField ||
-            T == MaterialStateDropdown), // coverage:ignore-line
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    switch (T) {
-      case MaterialStateColorPicker:
-        return ColorListTile(
-          title: title,
-          tooltip: tooltip,
-          color: value as Color,
-          onColorChanged: onValueChanged as ValueChanged<Color>,
-          enableOpacity: colorEnableOpacity,
-        );
-      case MaterialStateTextField:
-        return MyTextFormField(
-          labelText: title,
-          tooltip: tooltip,
-          initialValue: value as String,
-          onChanged: onValueChanged as ValueChanged<String>,
-        );
-      default:
-        throw Exception('Unsupported type: $T'); // coverage:ignore-line
+    if (T == Color) {
+      return ColorListTile(
+        title: title,
+        tooltip: tooltip,
+        color: value as Color,
+        onColorChanged: onValueChanged as ValueChanged<Color>,
+        enableOpacity: colorEnableOpacity,
+      );
+    } else if (T == String) {
+      return MyTextFormField(
+        labelText: title,
+        tooltip: tooltip,
+        initialValue: value as String,
+        onChanged: onValueChanged as ValueChanged<String>,
+      );
+    } else {
+      throw Exception('Unsupported type: $T');
     }
   }
 }

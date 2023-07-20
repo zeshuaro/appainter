@@ -1,3 +1,4 @@
+import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter_annotations/annotations.dart';
 import 'package:bloc/bloc.dart';
@@ -14,6 +15,9 @@ abstract class AbstractButtonStyleCubit extends Cubit<ButtonStyleState> {
       : super(const ButtonStyleState());
 
   final ColorThemeCubit colorThemeCubit;
+  final OutlinedBorderEnum _outlinedBorderEnum = OutlinedBorderEnum();
+
+  OutlinedBorder get defaultShape;
 
   ButtonStyle getDefaultStyle(ColorScheme colorScheme);
 
@@ -78,6 +82,49 @@ abstract class AbstractButtonStyleCubit extends Cubit<ButtonStyleState> {
     emitWithButtonStyle(
       style.copyWith(shadowColor: MaterialStateProperty.all(color)),
     );
+  }
+
+  void shapeChanged(String? value) {
+    final border = _outlinedBorderEnum.fromString(value);
+    if (border != null) {
+      emitWithButtonStyle(
+        style.copyWith(
+          shape: MaterialStateProperty.all(border),
+        ),
+      );
+    }
+  }
+
+  void shapeBorderRadiusChanged(String value) {
+    final radius = double.tryParse(value);
+    final border = style.shape?.resolve({});
+
+    if (radius != null && border != null) {
+      late final OutlinedBorder? newBorder;
+      if (border is BeveledRectangleBorder) {
+        newBorder = border.copyWith(
+          borderRadius: BorderRadius.circular(radius),
+        );
+      } else if (border is ContinuousRectangleBorder) {
+        newBorder = border.copyWith(
+          borderRadius: BorderRadius.circular(radius),
+        );
+      } else if (border is RoundedRectangleBorder) {
+        newBorder = border.copyWith(
+          borderRadius: BorderRadius.circular(radius),
+        );
+      } else {
+        newBorder = null;
+      }
+
+      if (newBorder != null) {
+        emitWithButtonStyle(
+          style.copyWith(
+            shape: MaterialStateProperty.all(newBorder),
+          ),
+        );
+      }
+    }
   }
 
   void emitWithButtonStyle(ButtonStyle style) {

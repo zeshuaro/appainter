@@ -29,6 +29,11 @@ Future<void> main() async {
 
   setUp(() {
     buttonStyleCubit = MockFlatButtonStyleCubit();
+    when(() => buttonStyleCubit.defaultShape).thenReturn(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+    );
 
     colorThemeCubit = MockColorThemeCubit();
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:bloc_test/bloc_test.dart';
@@ -10,15 +12,25 @@ import '../../utils.dart';
 import 'mocks.dart';
 
 void main() {
+  const beveledRectangleBorder = BeveledRectangleBorder();
+  const continuousRectangleBorder = ContinuousRectangleBorder();
+  const roundedRectangleBorder = RoundedRectangleBorder();
+  const stadiumBorder = StadiumBorder();
+
   const buttonStyle = ButtonStyle();
   final colorScheme = ThemeData().colorScheme;
+  final outlinedBorderEnum = OutlinedBorderEnum();
 
   late Color color;
+  late double doubleNum;
+  late String doubleStr;
   late ColorThemeCubit colorThemeCubit;
   late TestButtonStyleCubit sut;
 
   setUp(() {
     color = getRandomColor();
+    doubleNum = Random().nextDouble();
+    doubleStr = doubleNum.toString();
     colorThemeCubit = MockColorThemeCubit();
 
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
@@ -141,4 +153,85 @@ void main() {
       );
     },
   );
+
+  for (var shape in outlinedBorderEnum.values) {
+    blocTest<TestButtonStyleCubit, ButtonStyleState>(
+      'emit shape ${shape.runtimeType}',
+      build: () => sut,
+      act: (cubit) {
+        cubit.shapeChanged(outlinedBorderEnum.convertToString(shape));
+      },
+      verify: (cubit) {
+        final props = {null: shape};
+        verifyMaterialPropertyByMap(cubit.state.style!.shape!, props);
+      },
+    );
+  }
+
+  group('shape border radius', () {
+    blocTest<TestButtonStyleCubit, ButtonStyleState>(
+      'emit for beveled rectangle border',
+      setUp: () => sut = TestButtonStyleCubit(
+        colorThemeCubit: colorThemeCubit,
+        shape: beveledRectangleBorder,
+      ),
+      build: () => sut,
+      act: (cubit) => cubit.shapeBorderRadiusChanged(doubleStr),
+      verify: (cubit) {
+        final props = {
+          null: beveledRectangleBorder.copyWith(
+            borderRadius: BorderRadius.circular(doubleNum),
+          ),
+        };
+        verifyMaterialPropertyByMap(cubit.state.style!.shape!, props);
+      },
+    );
+
+    blocTest<TestButtonStyleCubit, ButtonStyleState>(
+      'emit for continuous rectangle border',
+      setUp: () => sut = TestButtonStyleCubit(
+        colorThemeCubit: colorThemeCubit,
+        shape: continuousRectangleBorder,
+      ),
+      build: () => sut,
+      act: (cubit) => cubit.shapeBorderRadiusChanged(doubleStr),
+      verify: (cubit) {
+        final props = {
+          null: continuousRectangleBorder.copyWith(
+            borderRadius: BorderRadius.circular(doubleNum),
+          ),
+        };
+        verifyMaterialPropertyByMap(cubit.state.style!.shape!, props);
+      },
+    );
+
+    blocTest<TestButtonStyleCubit, ButtonStyleState>(
+      'emit for rounded rectangle border',
+      setUp: () => sut = TestButtonStyleCubit(
+        colorThemeCubit: colorThemeCubit,
+        shape: roundedRectangleBorder,
+      ),
+      build: () => sut,
+      act: (cubit) => cubit.shapeBorderRadiusChanged(doubleStr),
+      verify: (cubit) {
+        final props = {
+          null: roundedRectangleBorder.copyWith(
+            borderRadius: BorderRadius.circular(doubleNum),
+          ),
+        };
+        verifyMaterialPropertyByMap(cubit.state.style!.shape!, props);
+      },
+    );
+
+    blocTest<TestButtonStyleCubit, ButtonStyleState>(
+      'emit for unknown border',
+      setUp: () => sut = TestButtonStyleCubit(
+        colorThemeCubit: colorThemeCubit,
+        shape: stadiumBorder,
+      ),
+      build: () => sut,
+      act: (cubit) => cubit.shapeBorderRadiusChanged(doubleStr),
+      verify: (cubit) => expect(cubit.state.style, null),
+    );
+  });
 }

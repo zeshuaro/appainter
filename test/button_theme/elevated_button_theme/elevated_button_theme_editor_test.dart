@@ -27,6 +27,11 @@ Future<void> main() async {
 
   setUp(() {
     elevatedButtonThemeCubit = MockElevatedButtonThemeCubit();
+    when(() => elevatedButtonThemeCubit.defaultShape).thenReturn(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+    );
 
     colorThemeCubit = MockColorThemeCubit();
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());

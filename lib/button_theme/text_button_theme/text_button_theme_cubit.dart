@@ -7,6 +7,13 @@ class TextButtonThemeCubit extends AbstractFlatButtonStyleCubit {
       : super(colorThemeCubit: colorThemeCubit);
 
   @override
+  OutlinedBorder get defaultShape {
+    return RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(4),
+    );
+  }
+
+  @override
   ButtonStyle getDefaultStyle(ColorScheme colorScheme) {
     return TextButton.styleFrom(
       foregroundColor: colorScheme.primary,
@@ -15,6 +22,7 @@ class TextButtonThemeCubit extends AbstractFlatButtonStyleCubit {
       shadowColor: colorScheme.shadow,
       elevation: 0,
       minimumSize: const Size(64, 36),
+      shape: defaultShape,
     );
   }
 }

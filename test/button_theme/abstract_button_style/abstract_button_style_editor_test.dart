@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
@@ -18,14 +20,23 @@ Future<void> main() async {
   late TestButtonStyleCubit buttonStyleCubit;
   late ColorThemeCubit colorThemeCubit;
   late Color color;
+  late double doubleNum;
+  late String doubleStr;
 
   setUp(() {
     buttonStyleCubit = MockButtonStyleCubit();
+    when(() => buttonStyleCubit.defaultShape).thenReturn(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+    );
 
     colorThemeCubit = MockColorThemeCubit();
     when(() => colorThemeCubit.state).thenReturn(ColorThemeState());
 
     color = getRandomColor();
+    doubleNum = Random().nextDouble();
+    doubleStr = doubleNum.toString();
   });
 
   Future<void> pumpApp(
@@ -184,6 +195,58 @@ Future<void> main() async {
         key,
         color,
         buttonStyleCubit.shadowColorChanged,
+      );
+    });
+  });
+
+  group('shape dropdown', () {
+    const key = 'abstractButtonStyleEditor_shapeDropdown';
+    final outlinedBorderEnum = OutlinedBorderEnum();
+
+    for (var border in outlinedBorderEnum.values) {
+      final borderStr = outlinedBorderEnum.convertToString(border)!;
+
+      testWidgets('render ${border.runtimeType}', (tester) async {
+        final prop = getMaterialStateProperty({null: border});
+        final state = ButtonStyleState.withStyle(shape: prop);
+
+        await pumpApp(tester, state);
+
+        await tester.expectDropdown(key, borderStr);
+      });
+
+      testWidgets('change ${border.runtimeType}', (tester) async {
+        await pumpApp(tester);
+        await tester.verifyDropdown(
+          key,
+          borderStr,
+          buttonStyleCubit.shapeChanged,
+        );
+      });
+    }
+  });
+
+  group('shape border radius text field', () {
+    const key = 'abstractButtonStyleEditor_shapeBorderRadiusTextField';
+
+    testWidgets('render widget', (tester) async {
+      final border = RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(doubleNum),
+      );
+      final prop = getMaterialStateProperty({null: border});
+      final state = ButtonStyleState.withStyle(shape: prop);
+
+      await pumpApp(tester, state);
+
+      await tester.expectTextField(key, doubleStr);
+    });
+
+    testWidgets('change value', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyTextField(
+        key,
+        doubleStr,
+        buttonStyleCubit.shapeBorderRadiusChanged,
       );
     });
   });

@@ -11,6 +11,7 @@ class ButtonStyleState extends Equatable {
     MaterialStateProperty<Color?>? overlayColor,
     MaterialStateProperty<Color?>? shadowColor,
     MaterialStateProperty<double?>? elevation,
+    MaterialStateProperty<OutlinedBorder?>? shape,
   }) {
     return ButtonStyleState(
       style: ButtonStyle(
@@ -19,6 +20,7 @@ class ButtonStyleState extends Equatable {
         overlayColor: overlayColor,
         shadowColor: shadowColor,
         elevation: elevation,
+        shape: shape,
       ),
     );
   }

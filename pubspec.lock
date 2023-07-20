@@ -615,10 +615,10 @@ packages:
     dependency: transitive
     description:
       name: injector
-      sha256: "2a683124c716e93b45521794f55bfe770e069cb3d871fc4fbc65b5acef78e832"
+      sha256: ed389bed5b48a699d5b9561c985023d0d5cc88dd5ff2237aadcce5a5ab433e4e
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "3.0.0"
   intl:
     dependency: "direct main"
     description:
@@ -975,10 +975,10 @@ packages:
     dependency: "direct dev"
     description:
       name: sentry_dart_plugin
-      sha256: "39626007e465f2fd0fe39540cf2ff053b210773a00b04ff598a506fe3478dda0"
+      sha256: b1474670254d550771da082abcd33ad56d6fd44451282faa99433530fa279256
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.0"
+    version: "1.5.0"
   sentry_flutter:
     dependency: "direct main"
     description:

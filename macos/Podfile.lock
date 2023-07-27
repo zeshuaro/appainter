@@ -109,13 +109,13 @@ PODS:
     - Flutter
     - FlutterMacOS
   - PromisesObjC (2.3.1)
-  - Sentry/HybridSDK (8.8.0):
-    - SentryPrivate (= 8.8.0)
+  - Sentry/HybridSDK (8.9.1):
+    - SentryPrivate (= 8.9.1)
   - sentry_flutter (0.0.1):
     - Flutter
     - FlutterMacOS
-    - Sentry/HybridSDK (= 8.8.0)
-  - SentryPrivate (8.8.0)
+    - Sentry/HybridSDK (= 8.9.1)
+  - SentryPrivate (8.9.1)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -194,9 +194,9 @@ SPEC CHECKSUMS:
   package_info_plus: 02d7a575e80f194102bef286361c6c326e4c29ce
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
-  Sentry: 927dfb29d18a14d924229a59cc2ad149f43349f2
-  sentry_flutter: cf7da03b65520b631330ecb498deb592aa7640be
-  SentryPrivate: 4350d865f898224ab9fa02b37d6ee7fbb623f47e
+  Sentry: e3203780941722a1fcfee99e351de14244c7f806
+  sentry_flutter: 8f0ffd53088e6a4d50c095852c5cad9e4405025c
+  SentryPrivate: 5e3683390f66611fc7c6215e27645873adb55d13
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   url_launcher_macos: d2691c7dd33ed713bf3544850a623080ec693d95
   window_size: 339dafa0b27a95a62a843042038fa6c3c48de195

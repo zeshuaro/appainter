@@ -1,0 +1,9 @@
+name: Scheduled actions
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+
+jobs:
+  scheduled:
+    uses: zeshuaro/github-actions-workflows/.github/workflows/scheduled.yml@9970f6cf32b604e2b63c62f6f4296677f0ec6f22

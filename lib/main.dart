@@ -10,7 +10,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:universal_io/io.dart';
-import 'package:window_size/window_size.dart';
+import 'package:window_manager/window_manager.dart';
 
 import 'app.dart';
 import 'bloc_observer.dart';
@@ -20,10 +20,20 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   EquatableConfig.stringify = kDebugMode;
 
-  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-    setWindowTitle("Appainter");
-    setWindowMinSize(const Size(1350, 850));
-    setWindowMaxSize(Size.infinite);
+  if (!kIsWeb && (Platform.isWindows || Platform.isLinux || Platform.isMacOS)) {
+    await windowManager.ensureInitialized();
+    const windowOptions = WindowOptions(
+      size: Size(1350, 850),
+      center: true,
+      backgroundColor: Colors.transparent,
+      skipTaskbar: false,
+      titleBarStyle: TitleBarStyle.normal,
+    );
+    windowManager.waitUntilReadyToShow(windowOptions, () async {
+      await windowManager.maximize();
+      await windowManager.show();
+      await windowManager.focus();
+    });
   }
 
   if (kDebugMode) {

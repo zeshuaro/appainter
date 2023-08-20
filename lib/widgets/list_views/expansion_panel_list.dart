@@ -1,7 +1,7 @@
+import 'package:appainter/common/common.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/common/common.dart';
 
 abstract class ExpansionPanelItem extends StatelessWidget {
   String get header;
@@ -41,9 +41,9 @@ class _MyExpansionPanelListState extends State<MyExpansionPanelList> {
     return SingleChildScrollView(
       child: ExpansionPanelList(
         expandedHeaderPadding: EdgeInsets.zero,
-        expansionCallback: (int index, bool isExpanded) {
-          setState(() => _expandStates[index] = !isExpanded);
-        },
+        expansionCallback: (int index, bool isExpanded) => setState(
+          () => _expandStates[index] = isExpanded,
+        ),
         children: widget.items.mapIndexed((index, item) {
           return ExpansionPanel(
             headerBuilder: (context, isExpanded) => _Header(item: item),

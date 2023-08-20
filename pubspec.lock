@@ -655,10 +655,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "20942701b84ba11c5109e8a624124238cf3bd443bd00511ffdf45c135d6f0927"
+      sha256: "0b5c2e58f76fcd375b119ab3767f494322e31694d3fbe24e6ff52816fca0b93b"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0+2"
+    version: "3.0.0+3"
   json_schema:
     dependency: transitive
     description:
@@ -871,10 +871,10 @@ packages:
     dependency: transitive
     description:
       name: platform
-      sha256: "4a451831508d7d6ca779f7ac6e212b4023dd5a7d08a27a63da33756410e32b76"
+      sha256: "57c07bf82207aee366dfaa3867b3164e4f03a238a461a11b0e8a3a510d51203d"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
+    version: "3.1.1"
   plugin_platform_interface:
     dependency: transitive
     description:

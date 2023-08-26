@@ -24,14 +24,15 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Get project Flutter version 🏷️
-        uses: kuhnroyal/flutter-fvm-config-action@v1
+        id: fvm-config
+        uses: kuhnroyal/flutter-fvm-config-action@v1.2.0
 
       - name: Setup Flutter 💻
         uses: subosito/flutter-action@v2.10.0
         with:
-          flutter-version: ${{ env.FLUTTER_VERSION }}
+          flutter-version: ${{ steps.fvm-config.outputs.FLUTTER_VERSION }}
           cache: true
-          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+          cache-key: ${{ runner.os }}-flutter-${{ steps.fvm-config.outputs.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Cache Pub 💾
         uses: actions/cache@v3
@@ -67,14 +68,15 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Get project Flutter version 🏷️
-        uses: kuhnroyal/flutter-fvm-config-action@v1
+        id: fvm-config
+        uses: kuhnroyal/flutter-fvm-config-action@v1.2.0
 
       - name: Setup Flutter 💻
         uses: subosito/flutter-action@v2.10.0
         with:
-          flutter-version: ${{ env.FLUTTER_VERSION }}
+          flutter-version: ${{ steps.fvm-config.outputs.FLUTTER_VERSION }}
           cache: true
-          cache-key: ${{ runner.os }}-flutter-${{ env.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
+          cache-key: ${{ runner.os }}-flutter-${{ steps.fvm-config.outputs.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Cache Pub 💾
         uses: actions/cache@v3

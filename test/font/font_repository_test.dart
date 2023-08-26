@@ -5,6 +5,7 @@ import 'package:appainter/text_theme/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -13,6 +14,7 @@ void main() {
   late FontRepository repo;
 
   setUpAll(() {
+    PathProviderPlatform.instance = _MockPathProvider();
     HttpOverrides.global = null;
     expectedStyle = GoogleFonts.getFont('ABeeZee');
   });
@@ -32,4 +34,21 @@ void main() {
     final results = repo.searchFonts('clearlyDoesNotExist');
     expect(results, equals([]));
   });
+}
+
+class _MockPathProvider extends PathProviderPlatform {
+  @override
+  Future<String?> getApplicationDocumentsPath() async {
+    return 'docs';
+  }
+
+  @override
+  Future<String?> getDownloadsPath() async {
+    return 'downloads';
+  }
+
+  @override
+  Future<String?> getTemporaryPath() async {
+    return 'temp';
+  }
 }

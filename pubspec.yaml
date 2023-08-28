@@ -44,7 +44,7 @@ dependencies:
   universal_html: 2.2.3
   universal_io: 2.2.2
   url_launcher: 6.1.12
-  window_manager: 0.3.5
+  window_manager: 0.3.6
 dependency_overrides:
   intl: ^0.18.0
 

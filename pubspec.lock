@@ -371,10 +371,10 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: bdfa035a974a0c080576c4c8ed01cdf9d1b406a04c7daa05443ef0383a97bedc
+      sha256: be325344c1f3070354a1d84a231a1ba75ea85d413774ec4bdf444c023342e030
       url: "https://pub.dev"
     source: hosted
-    version: "5.3.4"
+    version: "5.5.0"
   firebase_analytics:
     dependency: "direct main"
     description:

@@ -54,9 +54,12 @@ jobs:
         with:
           model: "iPhone 12"
 
-      - name: Run end-to-end tests 🧪
+      - name: Run integration tests 🧪
         run: |
           flutter pub get
+          # Build the app first to avoid timing out
+          # https://github.com/flutter/flutter/issues/105913
+          flutter build ios --simulator --target=integration_test/app_test.dart
           flutter test integration_test
 
   lint:

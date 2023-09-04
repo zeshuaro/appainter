@@ -142,18 +142,18 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: a7d96e02c4cdc01361ba4e0c8f6f3ce0f8ea9545e29df6cf152041a3026b008c
+      sha256: a3e8aee3fe9bd7e99da92a956911e941cdb5ef9efa0098a03b1d09afb408447e
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.3"
+    version: "6.2.4"
   json_theme_annotation:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "96d6a5c48772734c1d72339ab3998bc2dfa1d77ca229899123548cd8b8dbd062"
+      sha256: "236c7de8d34353ba2089d39e05404287ead4f210f5f1255d3a65706a06984e4d"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.1+1"
   lints:
     dependency: transitive
     description:

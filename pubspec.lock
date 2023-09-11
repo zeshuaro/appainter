@@ -115,10 +115,10 @@ packages:
     dependency: transitive
     description:
       name: build_resolvers
-      sha256: a7417cc44d9edb3f2c8760000270c99dba8c72ff66d0146772b8326565780745
+      sha256: d912852cce27c9e80a93603db721c267716894462e7033165178b91138587972
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   build_runner:
     dependency: "direct dev"
     description:
@@ -655,10 +655,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "0b5c2e58f76fcd375b119ab3767f494322e31694d3fbe24e6ff52816fca0b93b"
+      sha256: d2b277b2eef3addd26035d1d1479f06ccc465fa3ad29c2f4e7725a83cc448b3b
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0+3"
+    version: "3.0.0+4"
   json_schema2:
     dependency: transitive
     description:

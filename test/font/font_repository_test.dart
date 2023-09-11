@@ -2,22 +2,17 @@ import 'dart:io';
 
 import 'package:appainter/font/font.dart';
 import 'package:appainter/text_theme/text_theme.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  PathProviderPlatform.instance = _MockPathProvider();
+  HttpOverrides.global = null;
 
-  late TextStyle expectedStyle;
+  final expectedStyle = GoogleFonts.getFont('ABeeZee');
   late FontRepository repo;
-
-  setUpAll(() {
-    PathProviderPlatform.instance = _MockPathProvider();
-    HttpOverrides.global = null;
-    expectedStyle = GoogleFonts.getFont('ABeeZee');
-  });
 
   setUp(() {
     repo = FontRepository();

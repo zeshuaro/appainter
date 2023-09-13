@@ -659,11 +659,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0+4"
-  json_schema2:
+  json_schema:
     dependency: transitive
     description:
-      name: json_schema2
-      sha256: "6470116dc3567b766b834d0d83a52685102816426ef45c6cf7a5d1a9a41abc18"
+      name: json_schema
+      sha256: "0a5f510ed29e26f4eea261b192bbee1824b6903e04194f4907fd0207e94f6c7d"
       url: "https://pub.dev"
     source: hosted
     version: "5.1.3"
@@ -671,10 +671,10 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: cf0a1fc5780c848ffd7811154df4862c5782b3d67da1f083b1f650d6c8e12685
+      sha256: "488b4d519bbf654bdecd188fa5e95ae9a4d26914cd43244e660e04150ffc7567"
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.5"
+    version: "6.2.6+1"
   json_theme_annotation:
     dependency: transitive
     description:

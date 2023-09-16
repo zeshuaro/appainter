@@ -149,7 +149,7 @@ jobs:
 
       - name: Generate changelog 📝
         id: generate-changelog
-        uses: mikepenz/release-changelog-builder-action@713885393e391b4ce984457280aba0d24fbf0c87 # v4.0.0
+        uses: mikepenz/release-changelog-builder-action@v3.7.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

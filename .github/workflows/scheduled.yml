@@ -6,4 +6,4 @@ on:
 
 jobs:
   scheduled:
-    uses: zeshuaro/github-actions-workflows/.github/workflows/scheduled.yml@c885847467754cd1256fedf9bebd190fe0aadd25
+    uses: zeshuaro/github-actions-workflows/.github/workflows/scheduled.yml@06fac08a3ae93259730015f9c8eaa75d241828c7

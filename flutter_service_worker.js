@@ -10,7 +10,7 @@ const RESOURCES = {"canvaskit/chromium/canvaskit.js": "96ae916cd2d1b7320fff853ee
 "canvaskit/skwasm.wasm": "1a074e8452fe5e0d02b112e22cdcf455",
 "canvaskit/skwasm.worker.js": "51253d3321b11ddb8d73fa8aa87d3b15",
 "canvaskit/skwasm.js": "95f16c6690f955a45b2317496983dbe9",
-"version.json": "168e73caf3785e310042d0dff72c6fa5",
+"version.json": "42b9c3b7ccaf34f1aae06902d4b292f4",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "d10ac4ee5ebe8c8fff90505150ba2a76",
@@ -31,9 +31,9 @@ const RESOURCES = {"canvaskit/chromium/canvaskit.js": "96ae916cd2d1b7320fff853ee
 "icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
 "icons/favicon-16x16.png": "6a1a342af170bec15959c265446f9331",
 "icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292ee3e2bf9",
-"index.html": "6bf4f0703a406ec17640dd41b092c1ee",
-"/": "6bf4f0703a406ec17640dd41b092c1ee",
-"main.dart.js": "8a47d990710bff56e3434f2ec50fd3a6",
+"index.html": "3630a58b2fa4e7c76fa5890c1ceea8de",
+"/": "3630a58b2fa4e7c76fa5890c1ceea8de",
+"main.dart.js": "14dfe4e116b8b4459710b41bdb82c165",
 "flutter.js": "6fef97aeca90b426343ba6c5c9dc5d4a",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75"};
 // The application shell files that are downloaded before a service worker can

@@ -243,10 +243,10 @@ packages:
     dependency: transitive
     description:
       name: coverage
-      sha256: "2fb815080e44a09b85e0f2ca8a820b15053982b2e714b59267719e8a9ff17097"
+      sha256: "595a29b55ce82d53398e1bcc2cba525d7bd7c59faeb2d2540e9d42c390cfeeeb"
       url: "https://pub.dev"
     source: hosted
-    version: "1.6.3"
+    version: "1.6.4"
   crypto:
     dependency: transitive
     description:
@@ -655,10 +655,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: d2b277b2eef3addd26035d1d1479f06ccc465fa3ad29c2f4e7725a83cc448b3b
+      sha256: "969408b2cc2af666c51fa3dca1bbee79ad6361fb7da801156d248f80d9f46c77"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0+4"
+    version: "3.0.0+5"
   json_schema:
     dependency: transitive
     description:

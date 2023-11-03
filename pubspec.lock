@@ -75,10 +75,10 @@ packages:
     dependency: "direct dev"
     description:
       name: bloc_test
-      sha256: af0de1a1e16a7536e95dcd7491e0a6d6078e11d2d691988e862280b74f5c7968
+      sha256: "02f04270be5abae8df171143e61a0058a7acbce5dcac887612e89bb40cca4c33"
       url: "https://pub.dev"
     source: hosted
-    version: "9.1.4"
+    version: "9.1.5"
   boolean_selector:
     dependency: transitive
     description:

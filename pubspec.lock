@@ -147,10 +147,10 @@ packages:
     dependency: transitive
     description:
       name: built_value
-      sha256: a8de5955205b4d1dbbbc267daddf2178bd737e4bab8987c04a500478c9651e74
+      sha256: "723b4021e903217dfc445ec4cf5b42e27975aece1fc4ebbc1ca6329c2d9fb54e"
       url: "https://pub.dev"
     source: hosted
-    version: "8.6.3"
+    version: "8.7.0"
   change:
     dependency: transitive
     description:
@@ -655,10 +655,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "2b6627ebd86e1523a96803e75ee73732173b81b24877a46870eb667e04c74303"
+      sha256: f7bdfbdff9743a5401d9a79603deb059a14a9b3658219b66179c17c04275ce9a
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0+6"
+    version: "3.0.0+7"
   json_schema:
     dependency: transitive
     description:
@@ -679,10 +679,10 @@ packages:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "236c7de8d34353ba2089d39e05404287ead4f210f5f1255d3a65706a06984e4d"
+      sha256: "62cc1d5332547c9b8a67077e9fba0e13a47295c7aa6c5568c0f97f0561260537"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1+1"
+    version: "1.0.2"
   lints:
     dependency: transitive
     description:
@@ -1120,6 +1120,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.0"
+  sprintf:
+    dependency: transitive
+    description:
+      name: sprintf
+      sha256: "1fc9ffe69d4df602376b52949af107d8f5703b77cda567c4d7d86a0693120f23"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.0"
   stack_trace:
     dependency: transitive
     description:
@@ -1308,10 +1316,10 @@ packages:
     dependency: transitive
     description:
       name: uuid
-      sha256: "648e103079f7c64a36dc7d39369cabb358d377078a051d6ae2ad3aa539519313"
+      sha256: b715b8d3858b6fa9f68f87d20d98830283628014750c2b09b6f516c1da4af2a7
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.7"
+    version: "4.1.0"
   vector_math:
     dependency: transitive
     description:

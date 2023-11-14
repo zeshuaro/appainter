@@ -5,7 +5,7 @@ import 'package:appainter/widgets/widgets.dart';
 class NestedListView extends StatelessWidget {
   final List<Widget> children;
 
-  const NestedListView({Key? key, required this.children}) : super(key: key);
+  const NestedListView({super.key, required this.children});
 
   @override
   Widget build(BuildContext context) {

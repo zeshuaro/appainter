@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomNavigationBarThemeEditor extends ExpansionPanelItem {
-  const BottomNavigationBarThemeEditor({Key? key}) : super(key: key);
+  const BottomNavigationBarThemeEditor({super.key});
 
   @override
   String get header => 'Bottom navigation bar';
@@ -213,7 +213,7 @@ class _ElevationTextField extends StatelessWidget {
 
 class _LabelTextStyleCard
     extends AbstractTextStyleEditor<BottomNavigationBarLabelTextStyleCubit> {
-  const _LabelTextStyleCard({Key? key}) : super(key: key);
+  const _LabelTextStyleCard({super.key});
 
   @override
   String get header => 'Label text style';
@@ -224,7 +224,7 @@ class _LabelTextStyleCard
 
 class _UnselectedLabelTextStyleCard extends AbstractTextStyleEditor<
     BottomNavigationBarUnselectedLabelTextStyleCubit> {
-  const _UnselectedLabelTextStyleCard({Key? key}) : super(key: key);
+  const _UnselectedLabelTextStyleCard({super.key});
 
   @override
   String get header => 'Unselected label text style';

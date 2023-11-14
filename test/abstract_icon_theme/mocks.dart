@@ -8,7 +8,7 @@ class MockIconThemeCubit extends MockCubit<IconThemeState>
     implements TestIconThemeCubit {}
 
 class TestIconThemeEditor extends AbstractIconThemeEditor<TestIconThemeCubit> {
-  const TestIconThemeEditor({Key? key}) : super(key: key);
+  const TestIconThemeEditor({super.key});
 
   @override
   String? get keyPrefix => null;

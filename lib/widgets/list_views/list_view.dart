@@ -8,12 +8,12 @@ class MyListView extends StatelessWidget {
   final EdgeInsets? padding;
 
   const MyListView({
-    Key? key,
+    super.key,
     required this.children,
     this.shrinkwrap = false,
     this.physics,
     this.padding,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class TextPage extends PreviewBody {
-  const TextPage({Key? key}) : super(key: key);
+  const TextPage({super.key});
 
   @override
   IconData get icon => Icons.text_fields;

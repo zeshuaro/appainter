@@ -25,11 +25,11 @@ class MaterialStatesCard<T> extends StatelessWidget {
   final List<MaterialStateItem<T>> items;
 
   const MaterialStatesCard({
-    Key? key,
+    super.key,
     required this.header,
     required this.items,
     this.tooltip,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +69,7 @@ class _Header extends StatelessWidget {
   final String header;
   final String? tooltip;
 
-  const _Header({Key? key, required this.header, this.tooltip})
-      : super(key: key);
+  const _Header({required this.header, this.tooltip});
 
   @override
   Widget build(BuildContext context) {
@@ -95,13 +94,13 @@ class _StateListTile<T> extends StatelessWidget {
   final bool colorEnableOpacity;
 
   const _StateListTile({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
     required this.onValueChanged,
     this.tooltip,
     this.colorEnableOpacity = true,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

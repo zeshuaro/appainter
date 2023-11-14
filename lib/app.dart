@@ -25,11 +25,11 @@ class MyApp extends StatelessWidget {
   final AnalyticsRepository analyticsRepo;
 
   const MyApp({
-    Key? key,
+    super.key,
     required this.homeRepo,
     required this.fontRepo,
     required this.analyticsRepo,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -206,7 +206,7 @@ class MyApp extends StatelessWidget {
 }
 
 class _MaterialApp extends StatefulWidget {
-  const _MaterialApp({Key? key}) : super(key: key);
+  const _MaterialApp();
 
   @override
   State<_MaterialApp> createState() => _MaterialAppState();
@@ -238,7 +238,7 @@ class _MaterialAppState extends State<_MaterialApp> {
 }
 
 class _LoadingPage extends StatelessWidget {
-  const _LoadingPage({Key? key}) : super(key: key);
+  const _LoadingPage();
 
   @override
   Widget build(BuildContext context) {

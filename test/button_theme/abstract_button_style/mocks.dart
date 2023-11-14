@@ -1,17 +1,15 @@
 import 'package:appainter/button_theme/abstract_button_style/abstract_button_style.dart';
-import 'package:appainter/color_theme/cubit/color_theme_cubit.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 
 class TestButtonStyleCubit extends AbstractButtonStyleCubit {
   TestButtonStyleCubit({
-    required ColorThemeCubit colorThemeCubit,
+    required super.colorThemeCubit,
     OutlinedBorder? shape,
-  })  : shape = shape ??
+  }) : shape = shape ??
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(4),
-            ),
-        super(colorThemeCubit: colorThemeCubit);
+            );
 
   final OutlinedBorder shape;
 
@@ -40,7 +38,7 @@ class TestButtonStyleEditor
     extends AbstractButtonStyleEditor<TestButtonStyleCubit> {
   static const _color = Colors.blue;
 
-  const TestButtonStyleEditor({Key? key}) : super(key: key);
+  const TestButtonStyleEditor({super.key});
 
   @override
   Color fallbackForegroundDefaultColor(ColorScheme colorScheme) => _color;

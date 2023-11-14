@@ -9,13 +9,13 @@ class MyListTile extends StatelessWidget {
   final Widget? trailing;
 
   const MyListTile({
-    Key? key,
+    super.key,
     required this.title,
     this.titleColor,
     this.tooltip,
     this.subtitle,
     this.trailing,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +57,7 @@ class _Title extends StatelessWidget {
   final Color? titleColor;
   final String? tooltip;
 
-  const _Title({Key? key, required this.title, this.titleColor, this.tooltip})
-      : super(key: key);
+  const _Title({required this.title, this.titleColor, this.tooltip});
 
   @override
   Widget build(BuildContext context) {

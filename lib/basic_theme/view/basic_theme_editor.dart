@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BasicThemeEditor extends StatelessWidget {
-  const BasicThemeEditor({Key? key}) : super(key: key);
+  const BasicThemeEditor({super.key});
 
   @override
   Widget build(BuildContext context) {

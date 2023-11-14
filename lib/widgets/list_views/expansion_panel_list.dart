@@ -7,7 +7,7 @@ abstract class ExpansionPanelItem extends StatelessWidget {
   String get header;
   String? get tooltip => null;
 
-  const ExpansionPanelItem({Key? key}) : super(key: key);
+  const ExpansionPanelItem({super.key});
 }
 
 class MyExpansionPanelList extends StatefulWidget {
@@ -15,13 +15,12 @@ class MyExpansionPanelList extends StatefulWidget {
   final Color? color;
 
   MyExpansionPanelList({
-    Key? key,
+    super.key,
     List<ExpansionPanelItem>? items,
     ExpansionPanelItem? item,
     this.color,
   })  : assert(items != null || item != null),
-        items = items ?? [item!],
-        super(key: key);
+        items = items ?? [item!];
 
   @override
   State<MyExpansionPanelList> createState() => _MyExpansionPanelListState();
@@ -61,7 +60,7 @@ class _MyExpansionPanelListState extends State<MyExpansionPanelList> {
 class _Header extends StatelessWidget {
   final ExpansionPanelItem item;
 
-  const _Header({Key? key, required this.item}) : super(key: key);
+  const _Header({required this.item});
 
   @override
   Widget build(BuildContext context) {

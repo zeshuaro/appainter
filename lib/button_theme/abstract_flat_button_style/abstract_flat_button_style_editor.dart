@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 abstract class AbstractFlatButtonStyleEditor<
         T extends AbstractFlatButtonStyleCubit>
     extends AbstractButtonStyleEditor<T> {
-  const AbstractFlatButtonStyleEditor({Key? key}) : super(key: key);
+  const AbstractFlatButtonStyleEditor({super.key});
 
   @override
   Color fallbackForegroundDefaultColor(ColorScheme colorScheme) {

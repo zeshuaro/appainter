@@ -6,8 +6,7 @@ enum PaddingSize { small, medium, normal, large, extraLarge }
 class VerticalPadding extends StatelessWidget {
   final PaddingSize size;
 
-  const VerticalPadding({Key? key, this.size = PaddingSize.normal})
-      : super(key: key);
+  const VerticalPadding({super.key, this.size = PaddingSize.normal});
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +17,7 @@ class VerticalPadding extends StatelessWidget {
 class HorizontalPadding extends StatelessWidget {
   final PaddingSize size;
 
-  const HorizontalPadding({Key? key, this.size = PaddingSize.normal})
-      : super(key: key);
+  const HorizontalPadding({super.key, this.size = PaddingSize.normal});
 
   @override
   Widget build(BuildContext context) {

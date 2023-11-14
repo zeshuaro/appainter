@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class AbstractTextStyleEditor<T extends AbstractTextStyleCubit>
     extends ExpansionPanelItem {
-  const AbstractTextStyleEditor({Key? key}) : super(key: key);
+  const AbstractTextStyleEditor({super.key});
 
   @override
   Widget build(BuildContext context) {

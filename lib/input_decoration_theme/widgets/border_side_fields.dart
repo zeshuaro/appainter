@@ -8,12 +8,12 @@ class BorderSideFields extends StatelessWidget {
   final ValueChanged<String> onWidthChanged;
 
   const BorderSideFields({
-    Key? key,
+    super.key,
     required this.headerPrefix,
     required this.borderSide,
     required this.onColorChanged,
     required this.onWidthChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

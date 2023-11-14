@@ -5,7 +5,7 @@ import 'package:appainter/widgets/widgets.dart';
 import 'package:intl/intl.dart';
 
 class SelectionsPage extends PreviewBody {
-  const SelectionsPage({Key? key}) : super(key: key);
+  const SelectionsPage({super.key});
 
   @override
   IconData get icon => Icons.select_all;

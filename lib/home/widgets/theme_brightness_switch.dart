@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ThemeBrightnessSwitch extends StatelessWidget {
-  const ThemeBrightnessSwitch({Key? key}) : super(key: key);
+  const ThemeBrightnessSwitch({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ThemeBrightnessSwitch extends StatelessWidget {
 }
 
 class _Switch extends StatelessWidget {
-  const _Switch({Key? key}) : super(key: key);
+  const _Switch();
 
   @override
   Widget build(BuildContext context) {

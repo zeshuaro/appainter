@@ -14,7 +14,7 @@ class MockTextStyleCubit extends MockCubit<TextStyleState>
     implements TestTextStyleCubit {}
 
 class TestIconThemeEditor extends AbstractTextStyleEditor<TestTextStyleCubit> {
-  const TestIconThemeEditor({Key? key}) : super(key: key);
+  const TestIconThemeEditor({super.key});
 
   @override
   String get header => 'Test';

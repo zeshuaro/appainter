@@ -6,7 +6,7 @@ import 'package:appainter/widgets/widgets.dart';
 const Icon _buttonIcon = Icon(Icons.favorite);
 
 class ButtonsPage extends PreviewBody {
-  const ButtonsPage({Key? key}) : super(key: key);
+  const ButtonsPage({super.key});
 
   @override
   IconData get icon => Icons.touch_app;
@@ -108,7 +108,7 @@ class ButtonsPage extends PreviewBody {
 class _ButtonsRow extends StatelessWidget {
   final List<Widget> children;
 
-  const _ButtonsRow({Key? key, required this.children}) : super(key: key);
+  const _ButtonsRow({required this.children});
 
   @override
   Widget build(BuildContext context) {

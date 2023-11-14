@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class GithubButton extends StatelessWidget {
-  const GithubButton({Key? key}) : super(key: key);
+  const GithubButton({super.key});
 
   static const githubUrl = 'https://github.com/zeshuaro/appainter';
 

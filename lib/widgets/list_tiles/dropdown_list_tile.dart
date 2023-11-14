@@ -10,13 +10,13 @@ class DropdownListTile extends StatelessWidget {
   final void Function(String?) onChanged;
 
   const DropdownListTile({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
     required this.values,
     required this.onChanged,
     this.tooltip,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

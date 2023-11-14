@@ -6,8 +6,7 @@ class SideBySideList extends StatelessWidget {
   final List<Widget> children;
   final EdgeInsets? padding;
 
-  const SideBySideList({Key? key, required this.children, this.padding})
-      : super(key: key);
+  const SideBySideList({super.key, required this.children, this.padding});
 
   static const _chunkSize = 2;
 

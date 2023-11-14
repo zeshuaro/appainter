@@ -8,7 +8,7 @@ class ElevatedButtonThemeEditor
     extends AbstractButtonStyleEditor<ElevatedButtonThemeCubit> {
   static const _baseElevation = 2.0;
 
-  const ElevatedButtonThemeEditor({Key? key}) : super(key: key);
+  const ElevatedButtonThemeEditor({super.key});
 
   @override
   Color fallbackForegroundDefaultColor(ColorScheme colorScheme) {

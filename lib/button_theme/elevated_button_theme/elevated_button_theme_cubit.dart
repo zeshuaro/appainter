@@ -1,10 +1,8 @@
 import 'package:appainter/button_theme/button_theme.dart';
-import 'package:appainter/color_theme/color_theme.dart';
 import 'package:flutter/material.dart';
 
 class ElevatedButtonThemeCubit extends AbstractButtonStyleCubit {
-  ElevatedButtonThemeCubit({required ColorThemeCubit colorThemeCubit})
-      : super(colorThemeCubit: colorThemeCubit);
+  ElevatedButtonThemeCubit({required super.colorThemeCubit});
 
   @override
   OutlinedBorder get defaultShape {

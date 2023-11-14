@@ -9,7 +9,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class UsageButton extends StatelessWidget {
-  const UsageButton({Key? key}) : super(key: key);
+  const UsageButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class UsageButton extends StatelessWidget {
 }
 
 class _UsageDialog extends StatelessWidget {
-  const _UsageDialog({Key? key}) : super(key: key);
+  const _UsageDialog();
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class _UsageDialog extends StatelessWidget {
 class _UsageContent extends StatelessWidget {
   final ThemeUsage usage;
 
-  const _UsageContent({Key? key, required this.usage}) : super(key: key);
+  const _UsageContent({required this.usage});
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +82,7 @@ class _UsageContent extends StatelessWidget {
 }
 
 class _UsageFallback extends StatelessWidget {
-  const _UsageFallback({Key? key}) : super(key: key);
+  const _UsageFallback({super.key});
 
   @override
   Widget build(BuildContext context) {

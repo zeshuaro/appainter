@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FontPicker extends StatelessWidget {
-  const FontPicker({Key? key, required this.onChanged}) : super(key: key);
+  const FontPicker({super.key, required this.onChanged});
 
   final ValueChanged<FontData> onChanged;
 

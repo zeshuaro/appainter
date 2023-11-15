@@ -4,7 +4,7 @@ import 'package:appainter/theme_preview/views/preview_body.dart';
 import 'package:appainter/widgets/widgets.dart';
 
 class InputsPage extends PreviewBody {
-  const InputsPage({Key? key}) : super(key: key);
+  const InputsPage({super.key});
 
   @override
   IconData get icon => Icons.keyboard;

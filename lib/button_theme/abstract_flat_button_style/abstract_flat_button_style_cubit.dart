@@ -1,10 +1,8 @@
 import 'package:appainter/button_theme/button_theme.dart';
-import 'package:appainter/color_theme/color_theme.dart';
 import 'package:flutter/material.dart';
 
 abstract class AbstractFlatButtonStyleCubit extends AbstractButtonStyleCubit {
-  AbstractFlatButtonStyleCubit({required ColorThemeCubit colorThemeCubit})
-      : super(colorThemeCubit: colorThemeCubit);
+  AbstractFlatButtonStyleCubit({required super.colorThemeCubit});
 
   void backgroundColorChanged(Color color) {
     emitWithButtonStyle(

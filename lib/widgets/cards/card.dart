@@ -9,13 +9,13 @@ class MyCard extends StatelessWidget {
   final GestureTapCallback? onTap;
 
   const MyCard({
-    Key? key,
+    super.key,
     required this.child,
     this.padding = kPaddingAll,
     this.color,
     this.margin,
     this.onTap,
-  }) : super(key: key);
+  });
 
   static final colorDark = Colors.grey[800];
   static final colorLight = Colors.grey[50];

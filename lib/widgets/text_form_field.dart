@@ -12,7 +12,7 @@ class MyTextFormField extends StatelessWidget {
   final bool allowNegative;
 
   const MyTextFormField({
-    Key? key,
+    super.key,
     required this.labelText,
     required this.onChanged,
     this.initialValue,
@@ -20,7 +20,7 @@ class MyTextFormField extends StatelessWidget {
     this.controller,
     this.tooltip,
     this.allowNegative = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

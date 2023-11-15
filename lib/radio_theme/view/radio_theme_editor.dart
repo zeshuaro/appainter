@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RadioThemeEditor extends ExpansionPanelItem {
-  const RadioThemeEditor({Key? key}) : super(key: key);
+  const RadioThemeEditor({super.key});
 
   @override
   String get header => 'Radio';

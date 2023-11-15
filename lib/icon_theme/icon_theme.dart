@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class IconThemeCubit extends AbstractIconThemeCubit {}
 
 class IconThemeEditor extends AbstractIconThemeEditor<IconThemeCubit> {
-  const IconThemeEditor({Key? key}) : super(key: key);
+  const IconThemeEditor({super.key});
 
   @override
   String get keyPrefix => 'iconThemeEditor';

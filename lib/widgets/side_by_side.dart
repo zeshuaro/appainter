@@ -4,8 +4,7 @@ class SideBySide extends StatelessWidget {
   final Widget left;
   final Widget right;
 
-  const SideBySide({Key? key, required this.left, required this.right})
-      : super(key: key);
+  const SideBySide({super.key, required this.left, required this.right});
 
   @override
   Widget build(BuildContext context) {

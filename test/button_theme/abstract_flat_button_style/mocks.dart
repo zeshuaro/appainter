@@ -1,11 +1,9 @@
 import 'package:appainter/button_theme/button_theme.dart';
-import 'package:appainter/color_theme/cubit/color_theme_cubit.dart';
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 
 class TestFlatButtonStyleCubit extends AbstractFlatButtonStyleCubit {
-  TestFlatButtonStyleCubit({required ColorThemeCubit colorThemeCubit})
-      : super(colorThemeCubit: colorThemeCubit);
+  TestFlatButtonStyleCubit({required super.colorThemeCubit});
 
   @override
   OutlinedBorder get defaultShape => const RoundedRectangleBorder();
@@ -28,7 +26,7 @@ class MockFlatButtonStyleCubit extends MockCubit<ButtonStyleState>
 
 class TestFlatButtonStyleEditor
     extends AbstractFlatButtonStyleEditor<TestFlatButtonStyleCubit> {
-  const TestFlatButtonStyleEditor({Key? key}) : super(key: key);
+  const TestFlatButtonStyleEditor({super.key});
 
   @override
   String get header => 'Test';

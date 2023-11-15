@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppBarThemeEditor extends ExpansionPanelItem {
-  const AppBarThemeEditor({Key? key}) : super(key: key);
+  const AppBarThemeEditor({super.key});
 
   @override
   String get header => 'App bar';
@@ -51,7 +51,7 @@ class AppBarThemeEditor extends ExpansionPanelItem {
 }
 
 class _BackgroundColorPicker extends StatelessWidget {
-  const _BackgroundColorPicker({Key? key}) : super(key: key);
+  const _BackgroundColorPicker();
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +73,7 @@ class _BackgroundColorPicker extends StatelessWidget {
 }
 
 class _ForegroundColorPicker extends StatelessWidget {
-  const _ForegroundColorPicker({Key? key}) : super(key: key);
+  const _ForegroundColorPicker();
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,7 @@ class _ForegroundColorPicker extends StatelessWidget {
 }
 
 class _ElevationTextField extends StatelessWidget {
-  const _ElevationTextField({Key? key}) : super(key: key);
+  const _ElevationTextField();
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +119,7 @@ class _ElevationTextField extends StatelessWidget {
 }
 
 class _ShadowColorPicker extends StatelessWidget {
-  const _ShadowColorPicker({Key? key}) : super(key: key);
+  const _ShadowColorPicker();
 
   @override
   Widget build(BuildContext context) {
@@ -140,7 +140,7 @@ class _ShadowColorPicker extends StatelessWidget {
 }
 
 class _CenterTitleSwitch extends StatelessWidget {
-  const _CenterTitleSwitch({Key? key}) : super(key: key);
+  const _CenterTitleSwitch();
 
   @override
   Widget build(BuildContext context) {
@@ -164,7 +164,7 @@ class _CenterTitleSwitch extends StatelessWidget {
 }
 
 class _TitleSpacingTextField extends StatelessWidget {
-  const _TitleSpacingTextField({Key? key}) : super(key: key);
+  const _TitleSpacingTextField();
 
   @override
   Widget build(BuildContext context) {
@@ -189,7 +189,7 @@ class _TitleSpacingTextField extends StatelessWidget {
 }
 
 class _ToolBarHeightTextField extends StatelessWidget {
-  const _ToolBarHeightTextField({Key? key}) : super(key: key);
+  const _ToolBarHeightTextField();
 
   @override
   Widget build(BuildContext context) {
@@ -215,7 +215,7 @@ class _ToolBarHeightTextField extends StatelessWidget {
 
 class _ActionsIconThemeCard
     extends AbstractIconThemeEditor<AppBarActionsIconThemeCubit> {
-  const _ActionsIconThemeCard({Key? key}) : super(key: key);
+  const _ActionsIconThemeCard({super.key});
 
   @override
   String get keyPrefix => 'appBarThemeEditor_actionsIconThemeCard';
@@ -233,7 +233,7 @@ class _ActionsIconThemeCard
 }
 
 class _IconThemeCard extends AbstractIconThemeEditor<AppBarIconThemeCubit> {
-  const _IconThemeCard({Key? key}) : super(key: key);
+  const _IconThemeCard({super.key});
 
   @override
   String get keyPrefix => 'appBarThemeEditor_iconThemeCard';
@@ -252,7 +252,7 @@ class _IconThemeCard extends AbstractIconThemeEditor<AppBarIconThemeCubit> {
 
 class _TitleTextStyleCard
     extends AbstractTextStyleEditor<AppBarTitleTextStyleCubit> {
-  const _TitleTextStyleCard({Key? key}) : super(key: key);
+  const _TitleTextStyleCard({super.key});
 
   @override
   String get header => 'Title text style';
@@ -263,7 +263,7 @@ class _TitleTextStyleCard
 
 class _ToolbarTextStyleCard
     extends AbstractTextStyleEditor<AppBarToolbarTextStyleCubit> {
-  const _ToolbarTextStyleCard({Key? key}) : super(key: key);
+  const _ToolbarTextStyleCard({super.key});
 
   @override
   String get header => 'Toolbar text style';

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InputDecorationThemeEditor extends ExpansionPanelItem {
-  const InputDecorationThemeEditor({Key? key}) : super(key: key);
+  const InputDecorationThemeEditor({super.key});
 
   @override
   String get header => 'Input decoration';
@@ -42,7 +42,7 @@ class InputDecorationThemeEditor extends ExpansionPanelItem {
 }
 
 class _FloatingLabelBehaviorDropdown extends StatelessWidget {
-  const _FloatingLabelBehaviorDropdown({Key? key}) : super(key: key);
+  const _FloatingLabelBehaviorDropdown();
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +71,7 @@ class _FloatingLabelBehaviorDropdown extends StatelessWidget {
 }
 
 class _FillColorPicker extends StatelessWidget {
-  const _FillColorPicker({Key? key}) : super(key: key);
+  const _FillColorPicker();
 
   static const _fillColor = Color(0x0A000000);
 
@@ -96,7 +96,7 @@ class _FillColorPicker extends StatelessWidget {
 }
 
 class _HoverColorPicker extends StatelessWidget {
-  const _HoverColorPicker({Key? key}) : super(key: key);
+  const _HoverColorPicker();
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +116,7 @@ class _HoverColorPicker extends StatelessWidget {
 }
 
 class _AlignLabelWithHintSwitch extends StatelessWidget {
-  const _AlignLabelWithHintSwitch({Key? key}) : super(key: key);
+  const _AlignLabelWithHintSwitch();
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +141,7 @@ class _AlignLabelWithHintSwitch extends StatelessWidget {
 }
 
 class _FilledSwitch extends StatelessWidget {
-  const _FilledSwitch({Key? key}) : super(key: key);
+  const _FilledSwitch();
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +163,7 @@ class _FilledSwitch extends StatelessWidget {
 }
 
 class _IsCollapsedSwitch extends StatelessWidget {
-  const _IsCollapsedSwitch({Key? key}) : super(key: key);
+  const _IsCollapsedSwitch();
 
   @override
   Widget build(BuildContext context) {
@@ -186,7 +186,7 @@ class _IsCollapsedSwitch extends StatelessWidget {
 }
 
 class _IsDenseSwitch extends StatelessWidget {
-  const _IsDenseSwitch({Key? key}) : super(key: key);
+  const _IsDenseSwitch();
 
   @override
   Widget build(BuildContext context) {
@@ -208,7 +208,7 @@ class _IsDenseSwitch extends StatelessWidget {
 }
 
 class _ErrorMaxLinesTextField extends StatelessWidget {
-  const _ErrorMaxLinesTextField({Key? key}) : super(key: key);
+  const _ErrorMaxLinesTextField();
 
   @override
   Widget build(BuildContext context) {
@@ -233,7 +233,7 @@ class _ErrorMaxLinesTextField extends StatelessWidget {
 }
 
 class _HelperMaxLinesTextField extends StatelessWidget {
-  const _HelperMaxLinesTextField({Key? key}) : super(key: key);
+  const _HelperMaxLinesTextField();
 
   @override
   Widget build(BuildContext context) {
@@ -281,7 +281,7 @@ class _BorderDropdown extends StatelessWidget {
 }
 
 class _BorderRadiusTextField extends StatefulWidget {
-  const _BorderRadiusTextField({Key? key}) : super(key: key);
+  const _BorderRadiusTextField();
 
   @override
   State<_BorderRadiusTextField> createState() => _BorderRadiusTextFieldState();
@@ -345,7 +345,7 @@ class _BorderRadiusTextFieldState extends State<_BorderRadiusTextField> {
 }
 
 class _EnabledBorderSideFields extends StatelessWidget {
-  const _EnabledBorderSideFields({Key? key}) : super(key: key);
+  const _EnabledBorderSideFields();
 
   @override
   Widget build(BuildContext context) {
@@ -370,7 +370,7 @@ class _EnabledBorderSideFields extends StatelessWidget {
 }
 
 class _DisabledBorderSideFields extends StatelessWidget {
-  const _DisabledBorderSideFields({Key? key}) : super(key: key);
+  const _DisabledBorderSideFields();
 
   @override
   Widget build(BuildContext context) {
@@ -393,7 +393,7 @@ class _DisabledBorderSideFields extends StatelessWidget {
 }
 
 class _ErrorBorderSideFields extends StatelessWidget {
-  const _ErrorBorderSideFields({Key? key}) : super(key: key);
+  const _ErrorBorderSideFields();
 
   @override
   Widget build(BuildContext context) {

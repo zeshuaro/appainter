@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class AbstractButtonStyleEditor<T extends AbstractButtonStyleCubit>
     extends ExpansionPanelItem {
-  const AbstractButtonStyleEditor({Key? key}) : super(key: key);
+  const AbstractButtonStyleEditor({super.key});
 
   Widget buildBackgroundColorPickers(BuildContext context);
 

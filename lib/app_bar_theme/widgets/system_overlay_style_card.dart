@@ -28,7 +28,7 @@ class SystemOverlayStyleCard extends ExpansionPanelItem {
 }
 
 class _StatusBarColorPicker extends StatelessWidget {
-  const _StatusBarColorPicker({Key? key}) : super(key: key);
+  const _StatusBarColorPicker();
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class _StatusBarColorPicker extends StatelessWidget {
 }
 
 class _StatusBarBrightnessDropdown extends StatelessWidget {
-  const _StatusBarBrightnessDropdown({Key? key}) : super(key: key);
+  const _StatusBarBrightnessDropdown();
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class _StatusBarBrightnessDropdown extends StatelessWidget {
 }
 
 class _StatusBarIconBrightnessDropdown extends StatelessWidget {
-  const _StatusBarIconBrightnessDropdown({Key? key}) : super(key: key);
+  const _StatusBarIconBrightnessDropdown();
 
   @override
   Widget build(BuildContext context) {

@@ -28,7 +28,7 @@ class ThemePreview extends StatelessWidget {
     TextPage(),
   ];
 
-  const ThemePreview({Key? key}) : super(key: key);
+  const ThemePreview({super.key});
 
   @override
   Widget build(BuildContext context) {

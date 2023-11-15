@@ -5,7 +5,7 @@ import 'package:appainter/widgets/widgets.dart';
 
 abstract class AbstractIconThemeEditor<T extends AbstractIconThemeCubit>
     extends ExpansionPanelItem {
-  const AbstractIconThemeEditor({Key? key}) : super(key: key);
+  const AbstractIconThemeEditor({super.key});
 
   String? get keyPrefix;
 

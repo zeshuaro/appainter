@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FloatingActionButtonThemeEditor extends ExpansionPanelItem {
-  const FloatingActionButtonThemeEditor({Key? key}) : super(key: key);
+  const FloatingActionButtonThemeEditor({super.key});
 
   @override
   String get header => 'Floating action button';

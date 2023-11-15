@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   HomePageState createState() => HomePageState();
@@ -194,7 +194,7 @@ class _EditorsContainer extends StatelessWidget {
 }
 
 class _Editors extends StatelessWidget {
-  const _Editors({Key? key}) : super(key: key);
+  const _Editors();
 
   @override
   Widget build(BuildContext context) {
@@ -218,7 +218,7 @@ class _Editors extends StatelessWidget {
 }
 
 class _EditModeHeader extends StatelessWidget {
-  const _EditModeHeader({Key? key}) : super(key: key);
+  const _EditModeHeader();
 
   @override
   Widget build(BuildContext context) {
@@ -256,7 +256,7 @@ class _EditModeTabBar extends StatelessWidget {
 }
 
 class _EditModeActions extends StatelessWidget {
-  const _EditModeActions({Key? key}) : super(key: key);
+  const _EditModeActions();
 
   @override
   Widget build(BuildContext context) {
@@ -271,7 +271,7 @@ class _EditModeActions extends StatelessWidget {
 }
 
 class _ThemeConfigs extends StatelessWidget {
-  const _ThemeConfigs({Key? key}) : super(key: key);
+  const _ThemeConfigs();
 
   @override
   Widget build(BuildContext context) {

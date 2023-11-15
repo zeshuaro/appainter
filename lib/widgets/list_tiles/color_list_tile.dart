@@ -12,13 +12,13 @@ class ColorListTile extends StatelessWidget {
   final bool enableOpacity;
 
   const ColorListTile({
-    Key? key,
+    super.key,
     required this.title,
     required this.color,
     required this.onColorChanged,
     this.enableOpacity = true,
     this.tooltip,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

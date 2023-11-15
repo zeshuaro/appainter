@@ -15,15 +15,15 @@ class OutlinedBorderEnum extends EnumModel<OutlinedBorder> {
   @override
   String? convertToString(OutlinedBorder? value) {
     switch (value.runtimeType) {
-      case BeveledRectangleBorder:
+      case const (BeveledRectangleBorder):
         return 'Beveled rectangle';
-      case CircleBorder:
+      case const (CircleBorder):
         return 'Circle';
-      case ContinuousRectangleBorder:
+      case const (ContinuousRectangleBorder):
         return 'Continuous rectangle';
-      case RoundedRectangleBorder:
+      case const (RoundedRectangleBorder):
         return 'Rounded rectangle';
-      case StadiumBorder:
+      case const (StadiumBorder):
         return 'Stadium';
       default:
         return null;

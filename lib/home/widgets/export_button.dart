@@ -21,7 +21,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 class ExportButton extends StatelessWidget {
   final Color color;
 
-  const ExportButton({Key? key, required this.color}) : super(key: key);
+  const ExportButton({super.key, required this.color});
 
   @override
   Widget build(BuildContext context) {

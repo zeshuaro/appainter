@@ -7,7 +7,7 @@ import 'package:ndialog/ndialog.dart';
 class ImportButton extends StatefulWidget {
   final Color color;
 
-  const ImportButton({Key? key, required this.color}) : super(key: key);
+  const ImportButton({super.key, required this.color});
 
   @override
   State<ImportButton> createState() => _ImportButtonState();

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SliderThemeEditor extends ExpansionPanelItem {
-  const SliderThemeEditor({Key? key}) : super(key: key);
+  const SliderThemeEditor({super.key});
 
   @override
   String get header => 'Slider';

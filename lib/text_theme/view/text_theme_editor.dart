@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TextThemeEditor extends ExpansionPanelItem {
-  const TextThemeEditor({Key? key}) : super(key: key);
+  const TextThemeEditor({super.key});
 
   @override
   String get header => 'Text theme';
@@ -47,7 +47,7 @@ class TextThemeEditor extends ExpansionPanelItem {
 
 class DisplayLargeTextStyleEditor
     extends AbstractTextStyleEditor<DisplayLargeTextStyleCubit> {
-  const DisplayLargeTextStyleEditor({Key? key}) : super(key: key);
+  const DisplayLargeTextStyleEditor({super.key});
 
   @override
   String get header => 'Display large';
@@ -55,7 +55,7 @@ class DisplayLargeTextStyleEditor
 
 class DisplayMediumTextStyleEditor
     extends AbstractTextStyleEditor<DisplayMediumTextStyleCubit> {
-  const DisplayMediumTextStyleEditor({Key? key}) : super(key: key);
+  const DisplayMediumTextStyleEditor({super.key});
 
   @override
   String get header => 'Display medium';
@@ -63,7 +63,7 @@ class DisplayMediumTextStyleEditor
 
 class DisplaySmallTextStyleEditor
     extends AbstractTextStyleEditor<DisplaySmallTextStyleCubit> {
-  const DisplaySmallTextStyleEditor({Key? key}) : super(key: key);
+  const DisplaySmallTextStyleEditor({super.key});
 
   @override
   String get header => 'Display small';
@@ -71,7 +71,7 @@ class DisplaySmallTextStyleEditor
 
 class HeadlineLargeTextStyleEditor
     extends AbstractTextStyleEditor<HeadlineLargeTextStyleCubit> {
-  const HeadlineLargeTextStyleEditor({Key? key}) : super(key: key);
+  const HeadlineLargeTextStyleEditor({super.key});
 
   @override
   String get header => 'Headline large';
@@ -79,7 +79,7 @@ class HeadlineLargeTextStyleEditor
 
 class HeadlineMediumTextStyleEditor
     extends AbstractTextStyleEditor<HeadlineMediumTextStyleCubit> {
-  const HeadlineMediumTextStyleEditor({Key? key}) : super(key: key);
+  const HeadlineMediumTextStyleEditor({super.key});
 
   @override
   String get header => 'Headline medium';
@@ -87,7 +87,7 @@ class HeadlineMediumTextStyleEditor
 
 class HeadlineSmallTextStyleEditor
     extends AbstractTextStyleEditor<HeadlineSmallTextStyleCubit> {
-  const HeadlineSmallTextStyleEditor({Key? key}) : super(key: key);
+  const HeadlineSmallTextStyleEditor({super.key});
 
   @override
   String get header => 'Headline small';
@@ -95,7 +95,7 @@ class HeadlineSmallTextStyleEditor
 
 class TitleLargeTextStyleEditor
     extends AbstractTextStyleEditor<TitleLargeTextStyleCubit> {
-  const TitleLargeTextStyleEditor({Key? key}) : super(key: key);
+  const TitleLargeTextStyleEditor({super.key});
 
   @override
   String get header => 'Title large';
@@ -103,7 +103,7 @@ class TitleLargeTextStyleEditor
 
 class TitleMediumTextStyleEditor
     extends AbstractTextStyleEditor<TitleMediumTextStyleCubit> {
-  const TitleMediumTextStyleEditor({Key? key}) : super(key: key);
+  const TitleMediumTextStyleEditor({super.key});
 
   @override
   String get header => 'Title medium';
@@ -111,7 +111,7 @@ class TitleMediumTextStyleEditor
 
 class TitleSmallTextStyleEditor
     extends AbstractTextStyleEditor<TitleSmallTextStyleCubit> {
-  const TitleSmallTextStyleEditor({Key? key}) : super(key: key);
+  const TitleSmallTextStyleEditor({super.key});
 
   @override
   String get header => 'Title small';
@@ -119,7 +119,7 @@ class TitleSmallTextStyleEditor
 
 class LabelLargeTextStyleEditor
     extends AbstractTextStyleEditor<LabelLargeTextStyleCubit> {
-  const LabelLargeTextStyleEditor({Key? key}) : super(key: key);
+  const LabelLargeTextStyleEditor({super.key});
 
   @override
   String get header => 'Label large';
@@ -127,7 +127,7 @@ class LabelLargeTextStyleEditor
 
 class LabelMediumTextStyleEditor
     extends AbstractTextStyleEditor<LabelMediumTextStyleCubit> {
-  const LabelMediumTextStyleEditor({Key? key}) : super(key: key);
+  const LabelMediumTextStyleEditor({super.key});
 
   @override
   String get header => 'Label medium';
@@ -135,7 +135,7 @@ class LabelMediumTextStyleEditor
 
 class LabelSmallTextStyleEditor
     extends AbstractTextStyleEditor<LabelSmallTextStyleCubit> {
-  const LabelSmallTextStyleEditor({Key? key}) : super(key: key);
+  const LabelSmallTextStyleEditor({super.key});
 
   @override
   String get header => 'Label small';
@@ -143,7 +143,7 @@ class LabelSmallTextStyleEditor
 
 class BodyLargeTextStyleEditor
     extends AbstractTextStyleEditor<BodyLargeTextStyleCubit> {
-  const BodyLargeTextStyleEditor({Key? key}) : super(key: key);
+  const BodyLargeTextStyleEditor({super.key});
 
   @override
   String get header => 'Body large';
@@ -151,7 +151,7 @@ class BodyLargeTextStyleEditor
 
 class BodyMediumTextStyleEditor
     extends AbstractTextStyleEditor<BodyMediumTextStyleCubit> {
-  const BodyMediumTextStyleEditor({Key? key}) : super(key: key);
+  const BodyMediumTextStyleEditor({super.key});
 
   @override
   String get header => 'Body medium';
@@ -159,7 +159,7 @@ class BodyMediumTextStyleEditor
 
 class BodySmallTextStyleEditor
     extends AbstractTextStyleEditor<BodySmallTextStyleCubit> {
-  const BodySmallTextStyleEditor({Key? key}) : super(key: key);
+  const BodySmallTextStyleEditor({super.key});
 
   @override
   String get header => 'Body small';

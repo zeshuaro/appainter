@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SwitchThemeEditor extends ExpansionPanelItem {
-  const SwitchThemeEditor({Key? key}) : super(key: key);
+  const SwitchThemeEditor({super.key});
 
   @override
   String get header => 'Switch';

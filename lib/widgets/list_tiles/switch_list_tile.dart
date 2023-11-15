@@ -10,13 +10,13 @@ class MySwitchListTile extends StatelessWidget {
   final String? label;
 
   const MySwitchListTile({
-    Key? key,
+    super.key,
     required this.title,
     required this.value,
     required this.onChanged,
     this.tooltip,
     this.label,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

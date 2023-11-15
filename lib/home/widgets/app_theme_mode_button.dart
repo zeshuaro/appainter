@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class AppThemeModeButton extends StatelessWidget {
-  const AppThemeModeButton({Key? key}) : super(key: key);
+  const AppThemeModeButton({super.key});
 
   @override
   Widget build(BuildContext context) {

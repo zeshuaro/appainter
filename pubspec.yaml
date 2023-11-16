@@ -61,7 +61,7 @@ dev_dependencies:
   mocktail: 1.0.1
   path_provider_platform_interface: 2.1.1
   remove_from_coverage: 2.0.0
-  sentry_dart_plugin: 1.6.2
+  sentry_dart_plugin: 1.6.3
 
 flutter:
   uses-material-design: true

@@ -213,6 +213,8 @@ class _MaterialApp extends StatefulWidget {
 }
 
 class _MaterialAppState extends State<_MaterialApp> {
+  final _seedColor = Colors.blue;
+
   @override
   void initState() {
     super.initState();
@@ -225,8 +227,17 @@ class _MaterialAppState extends State<_MaterialApp> {
       builder: (context, state) {
         return MaterialApp(
           title: 'Appainter',
-          theme: ThemeData(),
-          darkTheme: ThemeData.dark(),
+          theme: ThemeData.from(
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: _seedColor,
+            ),
+          ),
+          darkTheme: ThemeData.from(
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: _seedColor,
+              brightness: Brightness.dark,
+            ),
+          ),
           themeMode: state.themeMode,
           home: state.status == HomeStatus.success
               ? const HomePage()

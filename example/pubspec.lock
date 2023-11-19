@@ -97,10 +97,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: "5895291c13fa8a3bd82e76d5627f69e0d85ca6a30dcac95c4ea19a5d555879c2"
+      sha256: "759d1a329847dd0f39226c688d3e06a6b8679668e350e2891a6474f8b4bb8525"
       url: "https://pub.dev"
     source: hosted
-    version: "0.13.6"
+    version: "1.1.0"
   http_parser:
     dependency: transitive
     description:
@@ -126,10 +126,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "2267087757247326eb4c7eec52b57b6f7d4878635e072f074e67bbff7bd727e8"
+      sha256: "95ae95062f7827ca77b7eb7b4a72db97bf01f71ed22bdbd98a3cc6d2691de961"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0+1"
+    version: "3.0.0+8"
   json_schema:
     dependency: transitive
     description:
@@ -150,10 +150,10 @@ packages:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "236c7de8d34353ba2089d39e05404287ead4f210f5f1255d3a65706a06984e4d"
+      sha256: "3edd04c4a8b44be280769ef9e8ad1838447b7857a80cf18e5afd3eddc56817d8"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1+1"
+    version: "1.0.3"
   lints:
     dependency: transitive
     description:
@@ -230,10 +230,10 @@ packages:
     dependency: transitive
     description:
       name: rfc_6901
-      sha256: "8d97680dada633146cf75ab9382f2ce2b7e4bd63ceecd867416cf43b5832b988"
+      sha256: df1bbfa3d023009598f19636d6114c6ac1e0b7bb7bf6a260f0e6e6ce91416820
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.1"
+    version: "0.2.0"
   sky_engine:
     dependency: transitive
     description: flutter

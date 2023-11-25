@@ -285,11 +285,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.12);
       await pumpApp(tester);
       await tester.verifyColorPicker(
         key,
-        opaqueColor,
+        color,
         colorThemeCubit.dividerColorChanged,
       );
     });

@@ -16,7 +16,7 @@ class BasicThemeState extends Equatable {
     Color? seedColor,
     ColorScheme? colorScheme,
     this.isDark = false,
-    this.useMaterial3 = false,
+    this.useMaterial3 = true,
   })  : seedColor = seedColor ?? defaultSeedColor,
         colorScheme = colorScheme ?? _colorSchemeLight;
 
@@ -96,9 +96,12 @@ class BasicThemeState extends Equatable {
 
   ThemeData get theme {
     return ThemeData.localize(
-      ThemeData.from(colorScheme: colorScheme),
+      ThemeData.from(
+        colorScheme: colorScheme,
+        useMaterial3: useMaterial3,
+      ),
       Typography.englishLike2018,
-    ).copyWith(useMaterial3: useMaterial3);
+    );
   }
 
   Brightness get brightness => isDark ? Brightness.dark : Brightness.light;

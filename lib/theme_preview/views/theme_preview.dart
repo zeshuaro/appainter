@@ -192,6 +192,7 @@ class ThemePreview extends StatelessWidget {
                     ),
                   ),
                   drawer: _Drawer(),
+                  // ignore: prefer_const_constructors
                   body: TabBarView(
                     children: _pages,
                   ),

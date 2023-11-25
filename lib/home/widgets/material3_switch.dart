@@ -12,7 +12,7 @@ class Material3Switch extends StatelessWidget {
     return Row(
       children: [
         Text(
-          'Material 3 (beta)',
+          'Material 3',
           style: Theme.of(context).textTheme.titleMedium,
         ),
         const _Switch(),

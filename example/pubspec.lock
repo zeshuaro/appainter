@@ -142,10 +142,10 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: b0caa894f0dda0f59b468774623ad3231969931572bea653e9a0e5923101b76e
+      sha256: c6ae6a88ccaec32eb04215e56d0099f8d139d5cfc22460aef38258ae46772eff
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.1"
+    version: "6.4.0"
   json_theme_annotation:
     dependency: transitive
     description:
@@ -344,4 +344,4 @@ packages:
     source: hosted
     version: "3.0.2"
 sdks:
-  dart: ">=3.2.0-194.0.dev <4.0.0"
+  dart: ">=3.2.0 <4.0.0"

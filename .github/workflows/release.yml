@@ -30,7 +30,7 @@ jobs:
 
           - type: windows
             os: windows-latest
-            build-path: build\windows\runner
+            build-path: build\windows\x64\runner
             build-output: Release
 
           - type: linux

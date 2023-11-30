@@ -337,7 +337,7 @@ void main() {
     });
   });
 
-  group('valud indicator color picker', () {
+  group('value indicator color picker', () {
     const key = 'sliderThemeEditor_valueIndicatorColorPicker';
 
     testWidgets('render widget', (tester) async {

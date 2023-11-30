@@ -55,16 +55,16 @@ abstract class AbstractButtonStyleEditor<T extends AbstractButtonStyleCubit>
   Widget buildShapeBorderRadiusTextField(BuildContext context) {
     final border = context.watch<T>().state.style?.shape?.resolve({}) ??
         context.read<T>().defaultShape;
-    late final BorderRadiusGeometry? radiusGeomtry;
+    late final BorderRadiusGeometry? radiusGeometry;
 
     if (border is BeveledRectangleBorder) {
-      radiusGeomtry = border.borderRadius;
+      radiusGeometry = border.borderRadius;
     } else if (border is ContinuousRectangleBorder) {
-      radiusGeomtry = border.borderRadius;
+      radiusGeometry = border.borderRadius;
     } else if (border is RoundedRectangleBorder) {
-      radiusGeomtry = border.borderRadius;
+      radiusGeometry = border.borderRadius;
     } else {
-      radiusGeomtry = null;
+      radiusGeometry = null;
     }
 
     return MyTextFormField(
@@ -73,8 +73,8 @@ abstract class AbstractButtonStyleEditor<T extends AbstractButtonStyleCubit>
       enabled: border is BeveledRectangleBorder ||
           border is ContinuousRectangleBorder ||
           border is RoundedRectangleBorder,
-      initialValue: radiusGeomtry is BorderRadius
-          ? radiusGeomtry.bottomLeft.x.toString()
+      initialValue: radiusGeometry is BorderRadius
+          ? radiusGeometry.bottomLeft.x.toString()
           : null,
       onChanged: context.read<T>().shapeBorderRadiusChanged,
     );

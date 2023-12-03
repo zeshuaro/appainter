@@ -7,13 +7,13 @@
   "author": "Joshua Tang <zeshuaro@gmail.com>",
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
-    "@qiwi/semantic-release-gh-pages-plugin": "^5.2.10",
+    "@qiwi/semantic-release-gh-pages-plugin": "5.2.10",
     "@semantic-release/changelog": "6.0.3",
-    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/exec": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "conventional-changelog-conventionalcommits": "7.0.2",
     "semantic-release": "22.0.8",
     "semantic-release-pub": "0.6.1",
-    "semantic-release-stop-before-publish": "^1.0.0"
+    "semantic-release-stop-before-publish": "1.0.0"
   }
 }

@@ -105,8 +105,8 @@ jobs:
         include:
           - type: web
             os: ubuntu-latest
-            build-path: build/web
-            build-output: "."
+            build-path: build
+            build-output: web
 
           - type: macos
             os: macos-latest

@@ -3,7 +3,7 @@
   "version": "1.10.0",
   "description": "A material theme editor and generator for Flutter to configure and preview the overall visual theme of your material app",
   "main": "index.js",
-  "repository": "https://github.com/zeshuaro/google_api_headers.git",
+  "repository": "https://github.com/zeshuaro/appainter.git",
   "author": "Joshua Tang <zeshuaro@gmail.com>",
   "license": "AGPL-3.0-or-later",
   "devDependencies": {

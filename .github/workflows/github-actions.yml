@@ -210,7 +210,8 @@ jobs:
           WEB_OUTPUT: build/web
         run: |
           mkdir -p ${{ env.WEB_OUTPUT }}
-          tar -zxf ${{ steps.download-artifacts.outputs.download-path }}/appainter_web.tar.gz -C ${{ env.WEB_OUTPUT }}
+          ls ${{ steps.download-artifacts.outputs.download-path }}/artifact/
+          tar -zxf ${{ steps.download-artifacts.outputs.download-path }}/artifact/appainter_web.tar.gz -C ${{ env.WEB_OUTPUT }}
 
       - name: Setup Node 💻
         uses: actions/setup-node@v4

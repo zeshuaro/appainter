@@ -14,7 +14,7 @@ module.exports = {
     [
       "@semantic-release/exec",
       {
-        prepareCmd: "./build.sh",
+        prepareCmd: "./scripts/build.sh",
       },
     ],
     "semantic-release-stop-before-publish",

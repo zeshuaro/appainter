@@ -201,6 +201,11 @@ jobs:
       - name: Download artifacts ⬇️
         uses: actions/download-artifact@v3
 
+      - name: Decompress web artifacts 📂
+        run: |
+          cd build
+          tar -zxf appainter_web.tar.gz
+
       - name: Setup Node 💻
         uses: actions/setup-node@v4
         with:

@@ -1,6 +1,6 @@
 name: appainter
 description: A material theme editor and generator for Flutter to configure and
-  preview the overall visual theme of your material app.
+  preview the overall visual theme of your material app
 publish_to: "none"
 version: 1.10.1-next+7
 
@@ -53,7 +53,6 @@ dev_dependencies:
     path: packages/builder
   bloc_test: 9.1.5
   build_runner: 2.4.6
-  cider: 0.2.4
   copy_with_extension_gen: 5.0.4
   flutter_lints: 3.0.1
   flutter_test:

@@ -179,6 +179,9 @@ jobs:
           APP_TYPE: ${{ matrix.type }}
           BUILD_PATH: ${{ matrix.build-path }}
           BUILD_OUTPUT: ${{ matrix.build-output }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
       - name: Upload artifacts ⬆️
         uses: actions/upload-artifact@v3

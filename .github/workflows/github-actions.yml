@@ -156,10 +156,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: pnpm
+          cache: yarn
 
       - name: Install dependencies 📦
-        run: pnpm install
+        run: yarn
 
       - name: Build artifacts 🏗️
         run: npx semantic-release --extends ./build.release.config.js
@@ -194,10 +194,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: pnpm
+          cache: yarn
 
       - name: Install dependencies 📦
-        run: pnpm install
+        run: yarn
 
       - name: Release 🚀
         run: npx semantic-release --extends ./publish.release.config.js

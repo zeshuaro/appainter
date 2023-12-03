@@ -172,6 +172,7 @@ jobs:
         run: yarn
 
       - name: Build artifacts 🏗️
+        shell: bash
         run: npx semantic-release --extends ./build.release.config.js
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}

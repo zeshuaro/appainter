@@ -202,12 +202,15 @@ jobs:
           persist-credentials: false
 
       - name: Download artifacts ⬇️
+        id: download-artifacts
         uses: actions/download-artifact@v3
 
       - name: Decompress web artifacts 📂
+        env:
+          WEB_OUTPUT: build/web
         run: |
-          cd build
-          tar -zxf appainter_web.tar.gz
+          mkdir -p ${{ env.WEB_OUTPUT }}
+          tar -zxf ${{ steps.download-artifacts.outputs.download-path }}/appainter_web.tar.gz -C ${{ env.WEB_OUTPUT }}
 
       - name: Setup Node 💻
         uses: actions/setup-node@v4

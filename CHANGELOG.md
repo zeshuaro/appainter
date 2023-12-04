@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/zeshuaro/appainter/compare/v1.11.1...v1.11.2) (2023-12-04)
+
+
+### Bug Fixes
+
+* web artifacts for github pages ([#977](https://github.com/zeshuaro/appainter/issues/977)) ([18c1597](https://github.com/zeshuaro/appainter/commit/18c159739b70792accf9667cf85ac3857fee8e76))
+
 ## [1.11.1](https://github.com/zeshuaro/appainter/compare/v1.11.0...v1.11.1) (2023-12-04)
 
 

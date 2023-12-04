@@ -20,7 +20,7 @@ module.exports = {
     [
       "@qiwi/semantic-release-gh-pages-plugin",
       {
-        src: "build/web",
+        src: "dist",
         msg: "chore(release): <%= nextRelease.gitTag %>",
       },
     ],

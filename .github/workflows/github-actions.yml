@@ -207,10 +207,9 @@ jobs:
 
       - name: Decompress web artifacts 📂
         env:
-          WEB_OUTPUT: build/web
+          WEB_OUTPUT: dist
         run: |
           mkdir -p ${{ env.WEB_OUTPUT }}
-          ls ${{ steps.download-artifacts.outputs.download-path }}/artifact/build
           tar -zxf ${{ steps.download-artifacts.outputs.download-path }}/artifact/build/appainter_web.tar.gz -C ${{ env.WEB_OUTPUT }}
 
       - name: Setup Node 💻

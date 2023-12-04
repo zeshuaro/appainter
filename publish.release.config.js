@@ -22,6 +22,7 @@ module.exports = {
       {
         src: "build/web",
         msg: "chore(release): <%= nextRelease.gitTag %>",
+        add: true,
       },
     ],
     [

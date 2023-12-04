@@ -1,0 +1,23 @@
+{
+  "name": "Appainter",
+  "short_name": "Appainter",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0175C2",
+  "theme_color": "#0175C2",
+  "description": "A material theme editor and generator for Flutter to configure and preview the overall visual theme of your material app.",
+  "orientation": "landscape-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

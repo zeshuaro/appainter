@@ -15,7 +15,7 @@ import 'package:window_manager/window_manager.dart';
 import 'app.dart';
 import 'bloc_observer.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = MyBlocObserver();
   EquatableConfig.stringify = kDebugMode;

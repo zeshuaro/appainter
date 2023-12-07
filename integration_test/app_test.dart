@@ -9,11 +9,20 @@ void main() {
 
   group('end-to-end test', () {
     testWidgets('render correctly', (tester) async {
-      await tester.binding.setSurfaceSize(const Size(2400, 850));
+      await tester.binding.setSurfaceSize(const Size(2400, 1080));
       await app.main();
-      await tester.pumpAndSettle();
 
-      expect(find.byType(BasicThemeEditor), findsOneWidget);
+      final finder = find.byType(BasicThemeEditor);
+      final end = tester.binding.clock.now().add(const Duration(seconds: 10));
+
+      do {
+        if (tester.binding.clock.now().isAfter(end)) {
+          throw Exception('Timed out waiting for $finder');
+        }
+
+        await tester.pumpAndSettle();
+        await Future.delayed(const Duration(milliseconds: 100));
+      } while (finder.evaluate().isEmpty);
     });
   });
 }

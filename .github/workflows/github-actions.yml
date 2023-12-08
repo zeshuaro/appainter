@@ -63,7 +63,7 @@ jobs:
 
     strategy:
       matrix:
-        type: [macos, windows, linux]
+        type: [macos, windows, linux, web]
         include:
           - type: macos
             os: macos-latest
@@ -73,6 +73,9 @@ jobs:
 
           - type: linux
             os: ubuntu-latest
+
+          - type: web
+            os: macos-latest
 
     steps:
       - name: Checkout 🛎️
@@ -90,11 +93,15 @@ jobs:
           cache: true
           cache-key: ${{ runner.os }}-flutter-${{ steps.fvm-config.outputs.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
+      - name: Setup ChromeDriver 🚘
+        uses: nanasess/setup-chromedriver@v2.2.1
+        if: ${{ matrix.type == 'web' }}
+
       - name: Cache Pub 💾
         uses: actions/cache@v3
         with:
           path: |
-            ${{ env.PUB_CACHE }}
+            **/.pub-cache
             **/.dart_tool
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: |
@@ -118,7 +125,14 @@ jobs:
           flutter build ${{ matrix.type }} --no-tree-shake-icons --target=integration_test/app_test.dart
 
           if [ "${{ matrix.type }}" == "linux" ]; then
-          xvfb-run flutter test integration_test -d ${{ matrix.type }}
+            xvfb-run flutter test integration_test -d ${{ matrix.type }}
+          elif [ "${{ matrix.type }}" == "web" ]; then
+            export DISPLAY=:99
+            chromedriver --port=4444 &
+            flutter drive \
+              --driver=test_driver/integration_test.dart \
+              --target=integration_test/app_test.dart \
+              -d web-server
           else
             flutter test integration_test -d ${{ matrix.type }}
           fi
@@ -162,7 +176,7 @@ jobs:
   build:
     name: Build
     runs-on: ${{ matrix.os }}
-    needs: [test, lint]
+    needs: [test, integration-test, lint]
     if: ${{ (github.ref == 'refs/heads/main') && (contains(fromJSON('["workflow_dispatch", "schedule"]'), github.event_name)) }}
 
     strategy:

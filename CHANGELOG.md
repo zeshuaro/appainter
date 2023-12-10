@@ -1,3 +1,36 @@
+## [1.12.0](https://github.com/zeshuaro/appainter/compare/v1.11.2...v1.12.0) (2023-12-10)
+
+
+### Features
+
+* **sdk:** update dependency flutter to v3.16.3 ([#981](https://github.com/zeshuaro/appainter/issues/981)) ([095e416](https://github.com/zeshuaro/appainter/commit/095e416e153e59005936624ac3e74fd5260a8c2b))
+
+
+### Bug Fixes
+
+* **deps:** update dependency dio to v5.4.0 ([#982](https://github.com/zeshuaro/appainter/issues/982)) ([34762a1](https://github.com/zeshuaro/appainter/commit/34762a1bc84cf2febc201a3fbc499c1bffd55441))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency build_runner to v2.4.7 ([#980](https://github.com/zeshuaro/appainter/issues/980)) ([44ce79b](https://github.com/zeshuaro/appainter/commit/44ce79b1eb072e6350260334ffcd551d4bf2fdfa))
+* **deps:** update dependency semantic-release to v22.0.10 ([#989](https://github.com/zeshuaro/appainter/issues/989)) ([feedb72](https://github.com/zeshuaro/appainter/commit/feedb72d117967959045a1b9d66f73252f8db1ef))
+* **deps:** update dependency semantic-release to v22.0.9 ([#986](https://github.com/zeshuaro/appainter/issues/986)) ([50b352e](https://github.com/zeshuaro/appainter/commit/50b352e854c49e4710b3cb2902177aa4e22a02b2))
+
+
+### Tests
+
+* add basic integration test ([#979](https://github.com/zeshuaro/appainter/issues/979)) ([63575ac](https://github.com/zeshuaro/appainter/commit/63575ac772bdf2093112f209f488757a3f7f3690))
+* add to run integration test for web ([#985](https://github.com/zeshuaro/appainter/issues/985)) ([2279de1](https://github.com/zeshuaro/appainter/commit/2279de1be0e68f52b90c02b2069e4105440230f2))
+
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 3fc2038 ([#984](https://github.com/zeshuaro/appainter/issues/984)) ([670f29c](https://github.com/zeshuaro/appainter/commit/670f29cc07543a14522cf124828ac96a4b398bf9))
+* **deps:** update zeshuaro/github-actions-workflows digest to 4d58104 ([#987](https://github.com/zeshuaro/appainter/issues/987)) ([9d7db1f](https://github.com/zeshuaro/appainter/commit/9d7db1f35fb9ac937b53be38a39f0fd2b1e9f4f5))
+* **deps:** update zeshuaro/github-actions-workflows digest to 6be9096 ([#988](https://github.com/zeshuaro/appainter/issues/988)) ([27c86d4](https://github.com/zeshuaro/appainter/commit/27c86d4b78a67d1c7c3e461188eb9c247f0d2454))
+* fix release github pages step to only add files ([#978](https://github.com/zeshuaro/appainter/issues/978)) ([f2963e8](https://github.com/zeshuaro/appainter/commit/f2963e845e72a92a833256a391deb4fd8d499e7c))
+
 ## [1.11.2](https://github.com/zeshuaro/appainter/compare/v1.11.1...v1.11.2) (2023-12-04)
 
 

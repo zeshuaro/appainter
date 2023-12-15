@@ -3378,10 +3378,10 @@ semantic-release-stop-before-publish@1.0.0:
   resolved "https://registry.yarnpkg.com/semantic-release-stop-before-publish/-/semantic-release-stop-before-publish-1.0.0.tgz#1562c2560cf1e37fd2b6fb10d0d802d524583c2c"
   integrity sha512-LylAHHLcKxLGb0/cADeeS7EhNa35XK0L5Qar3ayNdtutjm4MQcdGV3pxKR0nlDdPpKFn7RZGFIvzDO+hRHj2kA==
 
-semantic-release@22.0.10:
-  version "22.0.10"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-22.0.10.tgz#e1fbef4878a60cd350d036e286e5cfc752cff14d"
-  integrity sha512-4ahPaOX+0UYpYlosjc/tfCzB/cqlnjN0/xSKGryEC4bOpuYSkoK+QHw7xDPmAuiMNBBvkFD+m3aVMENUr++CIg==
+semantic-release@22.0.12:
+  version "22.0.12"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-22.0.12.tgz#b8dd1a096b597080e05f30554ee5d128fe6dac84"
+  integrity sha512-0mhiCR/4sZb00RVFJIUlMuiBkW3NMpVIW2Gse7noqEMoFGkvfPPAImEQbkBV8xga4KOPP4FdTRYuLLy32R1fPw==
   dependencies:
     "@semantic-release/commit-analyzer" "^11.0.0"
     "@semantic-release/error" "^4.0.0"

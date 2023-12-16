@@ -264,7 +264,7 @@ jobs:
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
       - name: Upload artifacts ⬆️
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: "**/appainter_${{ matrix.type }}.tar.gz"
           if-no-files-found: error
@@ -283,7 +283,7 @@ jobs:
 
       - name: Download artifacts ⬇️
         id: download-artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
 
       - name: Decompress web artifacts 📂
         env:

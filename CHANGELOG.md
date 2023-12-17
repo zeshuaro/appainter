@@ -1,3 +1,30 @@
+## [1.13.0](https://github.com/zeshuaro/appainter/compare/v1.12.0...v1.13.0) (2023-12-17)
+
+
+### Features
+
+* **sdk:** update dependency flutter to v3.16.4 ([#991](https://github.com/zeshuaro/appainter/issues/991)) ([0b26811](https://github.com/zeshuaro/appainter/commit/0b26811f6d05b52d0793c9b80d0bd0d25d1b8b9c))
+
+
+### Bug Fixes
+
+* **deps:** update dependency intl to v0.19.0 ([#993](https://github.com/zeshuaro/appainter/issues/993)) ([97c0259](https://github.com/zeshuaro/appainter/commit/97c0259a2a5f52c53384e5f85543026479e612f1))
+* **deps:** update dependency url_launcher to v6.2.2 ([#996](https://github.com/zeshuaro/appainter/issues/996)) ([403182c](https://github.com/zeshuaro/appainter/commit/403182ce406bee7667cc1e11b36cd7a3d9dce552))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release to v22.0.12 ([#992](https://github.com/zeshuaro/appainter/issues/992)) ([ffde004](https://github.com/zeshuaro/appainter/commit/ffde004ebfdcae882a830c7fcf7654d50909c0c6))
+* **deps:** update dependency semantic-release-pub to v0.6.2 ([#990](https://github.com/zeshuaro/appainter/issues/990)) ([89084ba](https://github.com/zeshuaro/appainter/commit/89084ba1230a2e5583013001aad6ff1d3f0847b2))
+
+
+### Continuous Integration
+
+* **deps:** update github actions dependencies to v4 ([#995](https://github.com/zeshuaro/appainter/issues/995)) ([e1371ba](https://github.com/zeshuaro/appainter/commit/e1371ba3c4d996b89a54ecb4317143825689064d))
+* **deps:** update zeshuaro/github-actions-workflows digest to fe18491 ([#994](https://github.com/zeshuaro/appainter/issues/994)) ([f4a2395](https://github.com/zeshuaro/appainter/commit/f4a239561de9fffd2d3b252b6e7905953592e040))
+* fix upload artifacts ([#997](https://github.com/zeshuaro/appainter/issues/997)) ([2ca0533](https://github.com/zeshuaro/appainter/commit/2ca0533e4246b2613e048c0336f7d71d32b3e77c))
+* fix web download artifact path ([#998](https://github.com/zeshuaro/appainter/issues/998)) ([6a03cd9](https://github.com/zeshuaro/appainter/commit/6a03cd9c5d7e3d6a5bb3eec6321d56671338a65b))
+
 ## [1.12.0](https://github.com/zeshuaro/appainter/compare/v1.11.2...v1.12.0) (2023-12-10)
 
 

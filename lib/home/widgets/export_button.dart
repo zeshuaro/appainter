@@ -63,7 +63,8 @@ class ExportButton extends StatelessWidget {
       style: context.read<ElevatedButtonThemeCubit>().state.style,
     );
     final outlinedButtonTheme = OutlinedButtonThemeData(
-        style: context.read<OutlinedButtonThemeCubit>().state.style);
+      style: context.read<OutlinedButtonThemeCubit>().state.style,
+    );
     final textButtonTheme = TextButtonThemeData(
       style: context.read<TextButtonThemeCubit>().state.style,
     );

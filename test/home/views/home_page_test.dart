@@ -144,7 +144,9 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(
-            find.byKey(const Key('usageButton_usageFallback')), findsOneWidget);
+          find.byKey(const Key('usageButton_usageFallback')),
+          findsOneWidget,
+        );
       },
     );
 

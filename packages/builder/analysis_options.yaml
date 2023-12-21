@@ -3,3 +3,7 @@ include: package:flutter_lints/flutter.yaml
 analyzer:
   exclude:
     - "**/*.g.dart"
+
+linter:
+  rules:
+    - require_trailing_commas

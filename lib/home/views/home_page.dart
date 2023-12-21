@@ -116,7 +116,7 @@ class HomePageState extends State<HomePage> {
           Text(
             'Appainter currently supports Flutter SDK: $_sdkVersion',
             style: Theme.of(context).textTheme.titleSmall,
-          )
+          ),
         ],
       ),
     );
@@ -149,7 +149,7 @@ class _EditorPreview extends StatelessWidget {
               child: const ThemePreview(),
             ),
           ),
-        )
+        ),
       ],
     );
   }

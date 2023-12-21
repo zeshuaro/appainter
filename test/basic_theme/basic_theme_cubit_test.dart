@@ -169,7 +169,7 @@ void main() {
         onSecondary: color,
         secondaryContainer: color,
         onSecondaryContainer: color,
-      )
+      ),
     ],
   );
 
@@ -219,7 +219,7 @@ void main() {
         onTertiary: color,
         tertiaryContainer: color,
         onTertiaryContainer: color,
-      )
+      ),
     ],
   );
 

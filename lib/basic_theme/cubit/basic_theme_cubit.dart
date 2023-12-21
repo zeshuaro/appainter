@@ -39,10 +39,12 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
   }
 
   void themeReset() {
-    emit(state.copyWith(
-      seedColor: BasicThemeState.defaultSeedColor,
-      colorScheme: BasicThemeState.getColorScheme(state.isDark),
-    ));
+    emit(
+      state.copyWith(
+        seedColor: BasicThemeState.defaultSeedColor,
+        colorScheme: BasicThemeState.getColorScheme(state.isDark),
+      ),
+    );
   }
 
   void seedColorChanged(Color color) {

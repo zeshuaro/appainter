@@ -322,7 +322,7 @@ class _BorderRadiusTextFieldState extends State<_BorderRadiusTextField> {
                 current.theme.border?.isOutline != true;
           },
           listener: (context, state) => _controller.clear(),
-        )
+        ),
       ],
       child: BlocBuilder<InputDecorationThemeCubit, InputDecorationThemeState>(
         key: const Key('inputDecorationThemeEditor_borderRadiusTextField'),

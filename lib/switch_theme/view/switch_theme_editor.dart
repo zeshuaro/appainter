@@ -21,7 +21,7 @@ class SwitchThemeEditor extends ExpansionPanelItem {
         SideBySide(
           left: _MaterialTapTargetSizeDropdown(),
           right: _SplashRadiusTextField(),
-        )
+        ),
       ],
     );
   }

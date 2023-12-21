@@ -191,7 +191,7 @@ void main() {
         final props = {
           MaterialState.pressed: color,
           MaterialState.hovered: overlayHoveredColor,
-          MaterialState.focused: overlayFocusedColor
+          MaterialState.focused: overlayFocusedColor,
         };
 
         verifyMaterialPropertyByMap(cubit.state.theme.overlayColor!, props);
@@ -206,7 +206,7 @@ void main() {
         final props = {
           MaterialState.pressed: overlayPressedColor,
           MaterialState.hovered: color,
-          MaterialState.focused: overlayFocusedColor
+          MaterialState.focused: overlayFocusedColor,
         };
 
         verifyMaterialPropertyByMap(cubit.state.theme.overlayColor!, props);

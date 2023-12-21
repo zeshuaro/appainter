@@ -43,7 +43,7 @@ void main() {
         expect: () => [
           TextStyleState(
             style: isDark ? cubit.whiteTextStyle : cubit.blackTextStyle,
-          )
+          ),
         ],
       );
     }

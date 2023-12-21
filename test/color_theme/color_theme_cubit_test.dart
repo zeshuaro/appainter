@@ -49,7 +49,7 @@ void main() {
         shadowColor: theme.shadowColor,
         splashColor: theme.splashColor,
         unselectedWidgetColor: theme.unselectedWidgetColor,
-      )
+      ),
     ],
   );
 
@@ -80,7 +80,7 @@ void main() {
               primaryColorDark: swatch[700],
               indicatorColor: color,
               secondaryHeaderColor: swatch[50],
-            )
+            ),
           ];
         },
       );
@@ -103,7 +103,7 @@ void main() {
                 secondary: color,
                 onSecondary: onColor,
               ),
-            )
+            ),
           ];
         },
       );
@@ -181,7 +181,7 @@ void main() {
         colorScheme: colorThemeCubit.state.colorScheme.copyWith(
           error: color,
         ),
-      )
+      ),
     ],
   );
 

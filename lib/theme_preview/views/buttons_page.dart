@@ -155,7 +155,7 @@ class _IconButtons extends StatelessWidget {
               onPressed: null,
             ),
           ],
-        )
+        ),
       ],
     );
   }

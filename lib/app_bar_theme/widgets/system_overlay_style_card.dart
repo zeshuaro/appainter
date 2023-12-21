@@ -66,8 +66,9 @@ class _StatusBarBrightnessDropdown extends StatelessWidget {
         return DropdownListTile(
           title: 'Status bar brightness',
           value: UtilService.enumToString(
-              (state.theme.systemOverlayStyle ?? _defaultSystemOverlayStyle)
-                  .statusBarBrightness),
+            (state.theme.systemOverlayStyle ?? _defaultSystemOverlayStyle)
+                .statusBarBrightness,
+          ),
           values: UtilService.getEnumStrings(Brightness.values),
           onChanged:
               context.read<AppBarThemeCubit>().statusBarBrightnessChanged,
@@ -92,8 +93,9 @@ class _StatusBarIconBrightnessDropdown extends StatelessWidget {
         return DropdownListTile(
           title: 'Status bar icon brightness',
           value: UtilService.enumToString(
-              (state.theme.systemOverlayStyle ?? _defaultSystemOverlayStyle)
-                  .statusBarIconBrightness),
+            (state.theme.systemOverlayStyle ?? _defaultSystemOverlayStyle)
+                .statusBarIconBrightness,
+          ),
           values: UtilService.getEnumStrings(Brightness.values),
           onChanged:
               context.read<AppBarThemeCubit>().statusBarIconBrightnessChanged,

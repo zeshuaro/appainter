@@ -13,27 +13,29 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
   ColorThemeCubit() : super(ColorThemeState());
 
   void themeChanged(ThemeData theme) {
-    emit(state.copyWith(
-      colorScheme: theme.colorScheme,
-      primaryColor: theme.primaryColor,
-      primaryColorLight: theme.primaryColorLight,
-      primaryColorDark: theme.primaryColorDark,
-      canvasColor: theme.canvasColor,
-      cardColor: theme.cardColor,
-      dialogBackgroundColor: theme.dialogBackgroundColor,
-      disabledColor: theme.disabledColor,
-      dividerColor: theme.dividerColor,
-      focusColor: theme.focusColor,
-      highlightColor: theme.highlightColor,
-      hintColor: theme.hintColor,
-      hoverColor: theme.hoverColor,
-      indicatorColor: theme.indicatorColor,
-      scaffoldBackgroundColor: theme.scaffoldBackgroundColor,
-      secondaryHeaderColor: theme.secondaryHeaderColor,
-      shadowColor: theme.shadowColor,
-      splashColor: theme.splashColor,
-      unselectedWidgetColor: theme.unselectedWidgetColor,
-    ));
+    emit(
+      state.copyWith(
+        colorScheme: theme.colorScheme,
+        primaryColor: theme.primaryColor,
+        primaryColorLight: theme.primaryColorLight,
+        primaryColorDark: theme.primaryColorDark,
+        canvasColor: theme.canvasColor,
+        cardColor: theme.cardColor,
+        dialogBackgroundColor: theme.dialogBackgroundColor,
+        disabledColor: theme.disabledColor,
+        dividerColor: theme.dividerColor,
+        focusColor: theme.focusColor,
+        highlightColor: theme.highlightColor,
+        hintColor: theme.hintColor,
+        hoverColor: theme.hoverColor,
+        indicatorColor: theme.indicatorColor,
+        scaffoldBackgroundColor: theme.scaffoldBackgroundColor,
+        secondaryHeaderColor: theme.secondaryHeaderColor,
+        shadowColor: theme.shadowColor,
+        splashColor: theme.splashColor,
+        unselectedWidgetColor: theme.unselectedWidgetColor,
+      ),
+    );
   }
 
   void primaryColorChanged(Color color, bool isDark) {

@@ -40,7 +40,7 @@ class BottomNavigationBarThemeEditor extends ExpansionPanelItem {
               ),
             ),
           ],
-        )
+        ),
       ],
     );
   }

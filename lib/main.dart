@@ -64,9 +64,11 @@ Future<void> _runApp() async {
     analyticsRepo = EmptyAnalyticsRepository();
   }
 
-  runApp(MyApp(
-    homeRepo: HomeRepository(),
-    fontRepo: FontRepository(),
-    analyticsRepo: analyticsRepo,
-  ));
+  runApp(
+    MyApp(
+      homeRepo: HomeRepository(),
+      fontRepo: FontRepository(),
+      analyticsRepo: analyticsRepo,
+    ),
+  );
 }

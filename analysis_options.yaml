@@ -5,3 +5,7 @@ analyzer:
     - example/
     - packages/
     - "**/*.g.dart"
+
+linter:
+  rules:
+    - require_trailing_commas

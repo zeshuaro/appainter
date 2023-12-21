@@ -15,11 +15,13 @@ abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
   AbstractTextStyleCubit({
     required this.typeScale,
     this.isBaseStyleBlack = true,
-  }) : super(TextStyleState(
-          style: isBaseStyleBlack
-              ? kBlackTextStyles[typeScale]!
-              : kWhiteTextStyles[typeScale]!,
-        ));
+  }) : super(
+          TextStyleState(
+            style: isBaseStyleBlack
+                ? kBlackTextStyles[typeScale]!
+                : kWhiteTextStyles[typeScale]!,
+          ),
+        );
 
   final TypeScale typeScale;
   final bool isBaseStyleBlack;

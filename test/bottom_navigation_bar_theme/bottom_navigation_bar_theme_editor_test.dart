@@ -100,7 +100,7 @@ void main() {
 
     for (var key in [
       'bottomNavigationBarThemeEditor_labelTextStyleCard',
-      'bottomNavigationBarThemeEditor_unselectedLabelTextStyleCard'
+      'bottomNavigationBarThemeEditor_unselectedLabelTextStyleCard',
     ]) {
       expect(find.byKey(Key(key)), findsOneWidget);
     }

@@ -20,7 +20,7 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
     'double',
     'bool',
     'IconThemeData',
-    'TextStyle'
+    'TextStyle',
   };
 
   @override
@@ -52,11 +52,13 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
         className: 'ThemeData',
         propertyTypes: propertyTypes,
       ))
-        ..addAll(await _getThemeProperties(
-          className: 'ColorScheme',
-          propertyTypes: propertyTypes,
-          targetPropertyName: 'secondary',
-        ));
+        ..addAll(
+          await _getThemeProperties(
+            className: 'ColorScheme',
+            propertyTypes: propertyTypes,
+            targetPropertyName: 'secondary',
+          ),
+        );
     } else if (className == 'AppBarTheme') {
       props = await _getThemeProperties(
         className: apiClassName,

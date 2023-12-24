@@ -1,3 +1,29 @@
+## [1.14.0](https://github.com/zeshuaro/appainter/compare/v1.13.0...v1.14.0) (2023-12-24)
+
+
+### Features
+
+* **sdk:** update dependency flutter to v3.16.5 ([#1003](https://github.com/zeshuaro/appainter/issues/1003)) ([95586b6](https://github.com/zeshuaro/appainter/commit/95586b6f769467f0e81beaa0f6e482ceea6f6af8))
+
+
+### Bug Fixes
+
+* **deps:** update dependency firebase_auth to v4.15.3 ([#1002](https://github.com/zeshuaro/appainter/issues/1002)) ([943d2fd](https://github.com/zeshuaro/appainter/commit/943d2fd2e6b8725fd033121b4cbc0bdcb766dae9))
+* **deps:** update firebase dependencies ([#891](https://github.com/zeshuaro/appainter/issues/891)) ([762cd53](https://github.com/zeshuaro/appainter/commit/762cd53a964f42dd6ec014da0385ddee75e3cd99))
+
+
+### Styles
+
+* enable linter rule `require_trailing_commas` ([#1004](https://github.com/zeshuaro/appainter/issues/1004)) ([4f8c65b](https://github.com/zeshuaro/appainter/commit/4f8c65b5869cf231eb9a91362a0dd25d0708f342))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1000](https://github.com/zeshuaro/appainter/issues/1000)) ([f607435](https://github.com/zeshuaro/appainter/commit/f6074358b6cc237f2a58f73e1259c0bedd2e3520))
+* **deps:** update dependency mocktail to v1.0.2 ([#1005](https://github.com/zeshuaro/appainter/issues/1005)) ([5d46f01](https://github.com/zeshuaro/appainter/commit/5d46f01b876c1e5fa457d74029c4cf17dac6c90a))
+* **example/deps:** lock file maintenance ([#1001](https://github.com/zeshuaro/appainter/issues/1001)) ([a8d468f](https://github.com/zeshuaro/appainter/commit/a8d468f1b684b64f0841036f0f74e9e05843f226))
+* update typos config to exclude changelog ([#999](https://github.com/zeshuaro/appainter/issues/999)) ([180ca7a](https://github.com/zeshuaro/appainter/commit/180ca7ab17e17e22c622cb441219053bd61f950b))
+
 ## [1.13.0](https://github.com/zeshuaro/appainter/compare/v1.12.0...v1.13.0) (2023-12-17)
 
 

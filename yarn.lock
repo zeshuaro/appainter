@@ -351,14 +351,14 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@qiwi/semantic-release-gh-pages-plugin@5.2.10":
-  version "5.2.10"
-  resolved "https://registry.yarnpkg.com/@qiwi/semantic-release-gh-pages-plugin/-/semantic-release-gh-pages-plugin-5.2.10.tgz#d0d478df9d65ebc863aa86c98407d7344df38802"
-  integrity sha512-GOoHvQRN8hvX6XxuZAPECvlYiwRwKBIcYdBHU8O1dEMDkAa4/8f8JFGa2SEDALQodLBvwH5xdW1TzzTpDfn2aA==
+"@qiwi/semantic-release-gh-pages-plugin@5.2.11":
+  version "5.2.11"
+  resolved "https://registry.yarnpkg.com/@qiwi/semantic-release-gh-pages-plugin/-/semantic-release-gh-pages-plugin-5.2.11.tgz#172b647c0e1f8abf89e94721dc26f2a1458e2c6f"
+  integrity sha512-F35RKLv+edv8sTyLnH+5IJG6ZGBTsewbTetC4sIY0Ajy6ZaASS0CRgZqcA+YoJWHoSHfU0crdW5DUjnNACAUrA==
   dependencies:
     "@qiwi/substrate" "^2.0.4"
     "@types/debug" "^4.1.10"
-    "@types/gh-pages" "^5.0.0"
+    "@types/gh-pages" "^6.0.0"
     "@types/git-url-parse" "^9.0.2"
     "@types/lodash" "^4.14.200"
     "@types/semantic-release" "^20.0.4"
@@ -592,10 +592,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/gh-pages@^5.0.0":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@types/gh-pages/-/gh-pages-5.0.1.tgz#56996ef5006eb0b035e4f2e309c42b2678908a0c"
-  integrity sha512-1TmxtmLXVBH/PmoqUQJNiwNC0Jq64OD3bxaNq91beZaKiYAulzW9OQs9cT/Oz2Nk+BOSLZqvPiRj0/5j3VCFcA==
+"@types/gh-pages@^6.0.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@types/gh-pages/-/gh-pages-6.1.0.tgz#63c33b489f3a7618b136897ffb007076b47fe0b7"
+  integrity sha512-Ma9bmKkE+WUtywENLC1rSLXTW66cJHJMWX2RQrJTMKhYM8o+73bRJ1ebfo3RWXUcG+HW3khky2nhVaN7nCsa3Q==
 
 "@types/git-url-parse@^9.0.2":
   version "9.0.3"

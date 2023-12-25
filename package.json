@@ -7,7 +7,7 @@
   "author": "Joshua Tang <zeshuaro@gmail.com>",
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
-    "@qiwi/semantic-release-gh-pages-plugin": "5.2.10",
+    "@qiwi/semantic-release-gh-pages-plugin": "5.2.11",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/exec": "6.0.3",
     "@semantic-release/git": "10.0.1",

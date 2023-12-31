@@ -1,3 +1,22 @@
+## [1.14.1](https://github.com/zeshuaro/appainter/compare/v1.14.0...v1.14.1) (2023-12-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sentry_flutter to v7.14.0 ([#1009](https://github.com/zeshuaro/appainter/issues/1009)) ([f5b3cc4](https://github.com/zeshuaro/appainter/commit/f5b3cc409b7516b7604b662491720191da8e8782))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1006](https://github.com/zeshuaro/appainter/issues/1006)) ([58d308c](https://github.com/zeshuaro/appainter/commit/58d308cf92a9907462e8e8c9c89cfd16e2ec94c2))
+* **deps:** update dependency @qiwi/semantic-release-gh-pages-plugin to v5.2.11 ([#1008](https://github.com/zeshuaro/appainter/issues/1008)) ([b97e9fa](https://github.com/zeshuaro/appainter/commit/b97e9fa66ce06559e6dabd363850384a4ad08dbf))
+* **example/deps:** lock file maintenance ([#1007](https://github.com/zeshuaro/appainter/issues/1007)) ([960469f](https://github.com/zeshuaro/appainter/commit/960469fe86f9d52a7d9613c8818a48830a270db5))
+
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 6f3f4e9 ([#1012](https://github.com/zeshuaro/appainter/issues/1012)) ([d3efd28](https://github.com/zeshuaro/appainter/commit/d3efd28c6a4fcc66dcd52245c88c7549764067ef))
+
 ## [1.14.0](https://github.com/zeshuaro/appainter/compare/v1.13.0...v1.14.0) (2023-12-24)
 
 

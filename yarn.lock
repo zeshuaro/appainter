@@ -351,10 +351,10 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@qiwi/semantic-release-gh-pages-plugin@5.2.11":
-  version "5.2.11"
-  resolved "https://registry.yarnpkg.com/@qiwi/semantic-release-gh-pages-plugin/-/semantic-release-gh-pages-plugin-5.2.11.tgz#172b647c0e1f8abf89e94721dc26f2a1458e2c6f"
-  integrity sha512-F35RKLv+edv8sTyLnH+5IJG6ZGBTsewbTetC4sIY0Ajy6ZaASS0CRgZqcA+YoJWHoSHfU0crdW5DUjnNACAUrA==
+"@qiwi/semantic-release-gh-pages-plugin@5.2.12":
+  version "5.2.12"
+  resolved "https://registry.yarnpkg.com/@qiwi/semantic-release-gh-pages-plugin/-/semantic-release-gh-pages-plugin-5.2.12.tgz#07fc02fc5f606024bac76059eee33ccd14417ff5"
+  integrity sha512-noXI64+4MFwXy32g2qO+x8v5pXgVeqaIC9RU23zs5hl3qh0dB+8hVXC1vhxPREvhxQHvx6ha8Qy0XhKOKHnwpQ==
   dependencies:
     "@qiwi/substrate" "^2.0.4"
     "@types/debug" "^4.1.10"
@@ -366,7 +366,7 @@
     debug "^4.3.4"
     execa "^5.1.1"
     gh-pages "^6.0.0"
-    git-url-parse "^13.1.0"
+    git-url-parse "^14.0.0"
     lodash "^4.17.21"
     queuefy "^1.2.1"
     read-pkg "^5.2.0"
@@ -1621,10 +1621,10 @@ git-up@^7.0.0:
     is-ssh "^1.4.0"
     parse-url "^8.1.0"
 
-git-url-parse@^13.1.0:
-  version "13.1.1"
-  resolved "https://registry.yarnpkg.com/git-url-parse/-/git-url-parse-13.1.1.tgz#664bddf0857c6a75b3c1f0ae6239abb08a1486d4"
-  integrity sha512-PCFJyeSSdtnbfhSNRw9Wk96dDCNx+sogTe4YNXeXSJxt7xz5hvXekuRn9JX7m+Mf4OscCu8h+mtAl3+h5Fo8lQ==
+git-url-parse@^14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/git-url-parse/-/git-url-parse-14.0.0.tgz#18ce834726d5fbca0c25a4555101aa277017418f"
+  integrity sha512-NnLweV+2A4nCvn4U/m2AoYu0pPKlsmhK9cknG7IMwsjFY1S2jxM+mAhsDxyxfCIGfGaD+dozsyX4b6vkYc83yQ==
   dependencies:
     git-up "^7.0.0"
 

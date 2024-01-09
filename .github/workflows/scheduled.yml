@@ -6,4 +6,6 @@ on:
 
 jobs:
   scheduled:
-    uses: zeshuaro/github-actions-workflows/.github/workflows/scheduled.yml@b8a49739fe580ecb9e8c7d40d4d28548fbf72258
+    uses: zeshuaro/github-actions-workflows/.github/workflows/scheduled.yml@1b78c323613f24b070a4c117d878dbc8c2377eba
+    secrets:
+      PAT: ${{ secrets.PAT }}

@@ -38,7 +38,6 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ${{ env.PUB_CACHE }}
             **/.dart_tool
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: |
@@ -160,7 +159,6 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ${{ env.PUB_CACHE }}
             **/.dart_tool
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: |
@@ -204,6 +202,13 @@ jobs:
             build-output: bundle
 
     steps:
+      - name: Create GitHub App token 🔑
+        id: create-app-token
+        uses: tibdex/github-app-token@v2.1.0
+        with:
+          app_id: ${{ secrets.GH_APP_ID }}
+          private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
       - name: Checkout 🛎️
         uses: actions/checkout@v4
         with:
@@ -226,7 +231,6 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ${{ env.PUB_CACHE }}
             **/.dart_tool
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: |
@@ -255,7 +259,7 @@ jobs:
         shell: bash
         run: npx semantic-release --extends ./build.release.config.js
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ steps.create-app-token.outputs.token }}
           APP_TYPE: ${{ matrix.type }}
           BUILD_PATH: ${{ matrix.build-path }}
           BUILD_OUTPUT: ${{ matrix.build-output }}
@@ -276,6 +280,13 @@ jobs:
     needs: [build]
 
     steps:
+      - name: Create GitHub App token 🔑
+        id: create-app-token
+        uses: tibdex/github-app-token@v2.1.0
+        with:
+          app_id: ${{ secrets.GH_APP_ID }}
+          private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
       - name: Checkout 🛎️
         uses: actions/checkout@v4
         with:
@@ -305,4 +316,4 @@ jobs:
       - name: Release 🚀
         run: npx semantic-release --extends ./publish.release.config.js
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ steps.create-app-token.outputs.token }}

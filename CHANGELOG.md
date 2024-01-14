@@ -1,3 +1,42 @@
+## [1.14.2](https://github.com/zeshuaro/appainter/compare/v1.14.1...v1.14.2) (2024-01-14)
+
+
+### Bug Fixes
+
+* **deps:** update firebase dependencies ([#1030](https://github.com/zeshuaro/appainter/issues/1030)) ([bcbbb46](https://github.com/zeshuaro/appainter/commit/bcbbb464605f8523264308428aaa8915c351803c))
+* **sdk:** update dependency flutter to v3.16.6 ([#1027](https://github.com/zeshuaro/appainter/issues/1027)) ([d2e22f9](https://github.com/zeshuaro/appainter/commit/d2e22f97a52528f7bc0e9eb262d0d7f80d5d4f44))
+* **sdk:** update dependency flutter to v3.16.7 ([#1029](https://github.com/zeshuaro/appainter/issues/1029)) ([a205ac3](https://github.com/zeshuaro/appainter/commit/a205ac33c3e626c550718208647abd932e0ac434))
+
+
+### Documentation
+
+* **license:** add description, year and author ([#1025](https://github.com/zeshuaro/appainter/issues/1025)) ([fdac6e2](https://github.com/zeshuaro/appainter/commit/fdac6e23328f6bfa9fc17033e02bbe9ec92a86da))
+* **license:** update copyright year to 2024 ([#1026](https://github.com/zeshuaro/appainter/issues/1026)) ([52676c8](https://github.com/zeshuaro/appainter/commit/52676c8a4f8f9c0e77f91b162c33ca059b388d22))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1013](https://github.com/zeshuaro/appainter/issues/1013)) ([de9b8cb](https://github.com/zeshuaro/appainter/commit/de9b8cb6f8ef36d322297e97c2d524a001f344b3))
+* **deps:** lock file maintenance ([#1020](https://github.com/zeshuaro/appainter/issues/1020)) ([6f815fb](https://github.com/zeshuaro/appainter/commit/6f815fbe0bd896d2ea32b3c096afb87d24c74461))
+* **deps:** update dependency @qiwi/semantic-release-gh-pages-plugin to v5.2.12 ([#1017](https://github.com/zeshuaro/appainter/issues/1017)) ([eee4e6c](https://github.com/zeshuaro/appainter/commit/eee4e6ca5a5dff2f830914f11f9e1f9dca8b5a49))
+* **deps:** update dependency semantic-release-pub to v0.7.0 ([#1023](https://github.com/zeshuaro/appainter/issues/1023)) ([7423250](https://github.com/zeshuaro/appainter/commit/7423250ac4bb83ae13b90a61c3c67c2d7a1495b1))
+* **node:** update dependency node to v20.11.0 ([#1024](https://github.com/zeshuaro/appainter/issues/1024)) ([b32dabd](https://github.com/zeshuaro/appainter/commit/b32dabd47bb230d9014f2ef36a214525141fbad1))
+
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 04a2125 ([#1016](https://github.com/zeshuaro/appainter/issues/1016)) ([1c49f13](https://github.com/zeshuaro/appainter/commit/1c49f135f73f98d0f5750f6d9582d435d6e6badb))
+* **deps:** update zeshuaro/github-actions-workflows digest to 1b78c32 ([#1022](https://github.com/zeshuaro/appainter/issues/1022)) ([2171857](https://github.com/zeshuaro/appainter/commit/217185762e953a8b234ad8caf8ed0cce37fc8e4e))
+* **deps:** update zeshuaro/github-actions-workflows digest to 29c0760 ([#1014](https://github.com/zeshuaro/appainter/issues/1014)) ([60cfa3d](https://github.com/zeshuaro/appainter/commit/60cfa3d884dc8a1b7770debbde62bca1067e4a1c))
+* **deps:** update zeshuaro/github-actions-workflows digest to 7b25428 ([#1031](https://github.com/zeshuaro/appainter/issues/1031)) ([f40e02a](https://github.com/zeshuaro/appainter/commit/f40e02a0e1c7542d7b91a07a28851e9997a7fc14))
+* **deps:** update zeshuaro/github-actions-workflows digest to 8050038 ([#1015](https://github.com/zeshuaro/appainter/issues/1015)) ([1b5e2dc](https://github.com/zeshuaro/appainter/commit/1b5e2dc7451f4b4b100d509eedb2b2106601c33e))
+* **deps:** update zeshuaro/github-actions-workflows digest to b4bf0b4 ([#1028](https://github.com/zeshuaro/appainter/issues/1028)) ([9ecb7c5](https://github.com/zeshuaro/appainter/commit/9ecb7c5fcb39447f68701d38f3083ad291ebb24c))
+* **deps:** update zeshuaro/github-actions-workflows digest to b8a4973 ([#1019](https://github.com/zeshuaro/appainter/issues/1019)) ([e84cfe7](https://github.com/zeshuaro/appainter/commit/e84cfe7015ff2d77b66d9980788ef674816dbd28))
+* **scheduled:** provide `PAT` to workflow ([#1021](https://github.com/zeshuaro/appainter/issues/1021)) ([a24deb7](https://github.com/zeshuaro/appainter/commit/a24deb7ffc52b650872e98b605a408a34ee2315b))
+* **scheduled:** use github app id and private key ([#1034](https://github.com/zeshuaro/appainter/issues/1034)) ([bce4274](https://github.com/zeshuaro/appainter/commit/bce42749946409bf159804808f5dc20af5f1c0d8))
+* separate `pull_request` and `pull_request_target` actions ([#1018](https://github.com/zeshuaro/appainter/issues/1018)) ([2618f08](https://github.com/zeshuaro/appainter/commit/2618f0807535991206a7e17c2ce9e26fa5d95537))
+* use github app token ([#1032](https://github.com/zeshuaro/appainter/issues/1032)) ([ce28552](https://github.com/zeshuaro/appainter/commit/ce28552a7b762ebdd98f61af717886d5f843604f))
+
 ## [1.14.1](https://github.com/zeshuaro/appainter/compare/v1.14.0...v1.14.1) (2023-12-31)
 
 

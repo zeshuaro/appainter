@@ -5,6 +5,7 @@
 [![GitHub license](https://img.shields.io/github/license/zeshuaro/appainter)](https://github.com/zeshuaro/appainter/blob/main/LICENSE)
 [![GitHub Actions](https://github.com/zeshuaro/appainter/actions/workflows/github-actions.yml/badge.svg)](https://github.com/zeshuaro/appainter/actions/workflows/github-actions.yml)
 [![codecov](https://codecov.io/gh/zeshuaro/appainter/branch/main/graph/badge.svg?token=4YM0WZFH3I)](https://codecov.io/gh/zeshuaro/appainter)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/558114f6d82045e1a319d0c9a3ef72a0)](https://app.codacy.com/gh/zeshuaro/appainter/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![style: flutter_lints](https://img.shields.io/badge/style-flutter__lints-4BC0F5.svg)](https://pub.dev/packages/flutter_lints)
 
 [![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/zeshuaro)

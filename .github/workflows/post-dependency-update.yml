@@ -13,10 +13,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Create GitHub App token 🔑
+        id: create-app-token
+        uses: tibdex/github-app-token@v2.1.0
+        with:
+          app_id: ${{ secrets.GH_APP_ID }}
+          private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+
       - name: Checkout 🛎️
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ steps.create-app-token.outputs.token }}
 
       - name: Get project Flutter version 🏷️
         id: fvm-config
@@ -36,7 +43,6 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ${{ env.PUB_CACHE }}
             **/.dart_tool
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: |

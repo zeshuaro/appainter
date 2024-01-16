@@ -36,7 +36,7 @@ dependencies:
   material_color_utilities: ^0.5.0
   material_design_icons_flutter: 7.0.7296
   ndialog: 4.3.1
-  path_provider: 2.1.1
+  path_provider: 2.1.2
   pretty_json: 2.0.0
   random_color_scheme: 0.1.4
   sentry_flutter: 7.14.0

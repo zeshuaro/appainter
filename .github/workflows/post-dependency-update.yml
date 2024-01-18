@@ -40,7 +40,7 @@ jobs:
         run: sudo gem install cocoapods
 
       - name: Cache Pub 💾
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             **/.dart_tool

@@ -23,8 +23,6 @@ A material theme editor and generator for Flutter to configure and preview the o
 
 Appainter is developed and built with [Flutter](https://flutter.dev/), and is available for both Web and Desktop.
 
-**Disclaimer: I've only tested the app on Web and MacOS as I don't have a Windows or Linux machine. The app may not work on those platforms.**
-
 For Web, you can access it through [here](https://zeshuaro.github.io/appainter/). 
 
 For Mac, Windows and Linux, you can be download it from [here](https://github.com/zeshuaro/appainter/releases).

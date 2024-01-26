@@ -59,7 +59,7 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
-  mocktail: 1.0.2
+  mocktail: 1.0.3
   path_provider_platform_interface: 2.1.2
   remove_from_coverage: 2.0.0
   sentry_dart_plugin: 1.6.3

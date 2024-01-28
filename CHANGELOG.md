@@ -1,3 +1,33 @@
+## [1.14.3](https://github.com/zeshuaro/appainter/compare/v1.14.2...v1.14.3) (2024-01-28)
+
+
+### Bug Fixes
+
+* **sdk:** update dependency flutter to v3.16.9 ([#1057](https://github.com/zeshuaro/appainter/issues/1057)) ([205a3c3](https://github.com/zeshuaro/appainter/commit/205a3c3ea077bd45cd15e0cf2de5233ff72a3f58))
+
+
+### Documentation
+
+* **readme:** update readme ([#1051](https://github.com/zeshuaro/appainter/issues/1051)) ([03ac1ec](https://github.com/zeshuaro/appainter/commit/03ac1ec61be76a1efb2a56b1956f8b3c75f89b9f))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1052](https://github.com/zeshuaro/appainter/issues/1052)) ([6675e40](https://github.com/zeshuaro/appainter/commit/6675e409ac6721d6907b749242f2d13b854b54d0))
+* **deps:** update dependency build_runner to v2.4.8 ([#1049](https://github.com/zeshuaro/appainter/issues/1049)) ([945da24](https://github.com/zeshuaro/appainter/commit/945da2457e051c50fe332aafef7d3ef9f24c7b74))
+* **deps:** update dependency mocktail to v1.0.3 ([#1055](https://github.com/zeshuaro/appainter/issues/1055)) ([b56716f](https://github.com/zeshuaro/appainter/commit/b56716fbd5a17efa9fdc6c62c337912caf910b4c))
+* **deps:** update dependency semantic-release-pub to v0.8.0 ([#1054](https://github.com/zeshuaro/appainter/issues/1054)) ([7e9170f](https://github.com/zeshuaro/appainter/commit/7e9170fefcd74d5ff5d10fb9bc91b112a8f48f71))
+* **example/deps:** lock file maintenance ([#1053](https://github.com/zeshuaro/appainter/issues/1053)) ([ef8c44d](https://github.com/zeshuaro/appainter/commit/ef8c44d682201e943ba0c2823df4663d20c48e42))
+
+
+### Continuous Integration
+
+* **deps:** update actions/cache action to v4 ([#1046](https://github.com/zeshuaro/appainter/issues/1046)) ([f20fbc9](https://github.com/zeshuaro/appainter/commit/f20fbc972b5802072d743fb43797f2af2ced41a6))
+* **deps:** update github actions dependencies ([#1056](https://github.com/zeshuaro/appainter/issues/1056)) ([0113731](https://github.com/zeshuaro/appainter/commit/0113731ec91e7a88ad2e203eb204a6656a1dd928))
+* **deps:** update peter-evans/create-or-update-comment action to v4 ([#1058](https://github.com/zeshuaro/appainter/issues/1058)) ([6756ae3](https://github.com/zeshuaro/appainter/commit/6756ae3c1850841b8f7ebad4d52bf523bca7e90f))
+* **deps:** update zeshuaro/github-actions-workflows digest to 20f223c ([#1048](https://github.com/zeshuaro/appainter/issues/1048)) ([325f4fd](https://github.com/zeshuaro/appainter/commit/325f4fd69a7e1a64db58a9e045af146fe091d210))
+* **deps:** update zeshuaro/github-actions-workflows digest to b93ca44 ([#1050](https://github.com/zeshuaro/appainter/issues/1050)) ([fd61123](https://github.com/zeshuaro/appainter/commit/fd611234b982a391d6933b6c97d385f8a75d227c))
+
 ## [1.14.2](https://github.com/zeshuaro/appainter/compare/v1.14.1...v1.14.2) (2024-01-18)
 
 

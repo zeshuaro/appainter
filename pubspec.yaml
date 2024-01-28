@@ -25,7 +25,7 @@ dependencies:
   firebase_analytics: 10.8.0
   firebase_auth: 4.16.0
   firebase_core: 2.24.2
-  flex_color_picker: 3.3.0
+  flex_color_picker: 3.3.1
   flutter:
     sdk: flutter
   flutter_bloc: 8.1.3

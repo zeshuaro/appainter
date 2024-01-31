@@ -5,4 +5,4 @@ on:
 
 jobs:
   pull-request:
-    uses: zeshuaro/github-actions-workflows/.github/workflows/pull-request-target.yml@aaa252cae935fe75e38a1e97ae84e97423f7e682
+    uses: zeshuaro/github-actions-workflows/.github/workflows/pull-request-target.yml@4e8da86eae8e888d30dc2f9e0eed20adac6b9d09

@@ -1,3 +1,24 @@
+## [1.14.4](https://github.com/zeshuaro/appainter/compare/v1.14.3...v1.14.4) (2024-02-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency flex_color_picker to v3.3.1 ([#1059](https://github.com/zeshuaro/appainter/issues/1059)) ([4329c06](https://github.com/zeshuaro/appainter/commit/4329c063bfcb287d74873bd2617e979763d4dc99))
+* **deps:** update dependency sentry_flutter to v7.15.0 ([#1062](https://github.com/zeshuaro/appainter/issues/1062)) ([1c46ca4](https://github.com/zeshuaro/appainter/commit/1c46ca4f384c2d20ff144b3dddd7a83bab490a70))
+* **deps:** update dependency url_launcher to v6.2.4 ([#1061](https://github.com/zeshuaro/appainter/issues/1061)) ([e9f71f3](https://github.com/zeshuaro/appainter/commit/e9f71f3086b490a93caaed0e3c4da6adb89a08c8))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1060](https://github.com/zeshuaro/appainter/issues/1060)) ([ea2b545](https://github.com/zeshuaro/appainter/commit/ea2b545b4e4858bef68a1a90054d499ad67ba811))
+
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v4 ([#1064](https://github.com/zeshuaro/appainter/issues/1064)) ([ec9f630](https://github.com/zeshuaro/appainter/commit/ec9f6305f789f4919b7c84f697ba45c2c68932ee))
+* **deps:** update github actions dependencies ([#1063](https://github.com/zeshuaro/appainter/issues/1063)) ([04350b3](https://github.com/zeshuaro/appainter/commit/04350b3bd60feb436d2a89dde6ad3d93b478d48b))
+* **deps:** update github actions dependencies ([#1065](https://github.com/zeshuaro/appainter/issues/1065)) ([3fe6960](https://github.com/zeshuaro/appainter/commit/3fe69604aaa3cbf5f0109140d2826ca01e3426d1))
+
 ## [1.14.3](https://github.com/zeshuaro/appainter/compare/v1.14.2...v1.14.3) (2024-01-28)
 
 

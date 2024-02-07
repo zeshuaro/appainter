@@ -1669,10 +1669,10 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-google-auth-library@^9.4.2:
-  version "9.6.2"
-  resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-9.6.2.tgz#c615b9186ee1871eab4703a9d07206c8c73d46a7"
-  integrity sha512-8G5i+uELrRE244PGnTc9UxiWZ2FMWD5jiIe9P2XSxCvXv/0ip/phjeHSE4bhJnLBdJb+Bu/Gj9Lr33TmDnbAiw==
+google-auth-library@^9.6.0:
+  version "9.6.3"
+  resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-9.6.3.tgz#add8935bc5b842a8e80f84fef2b5ed9febb41d48"
+  integrity sha512-4CacM29MLC2eT9Cey5GDVK4Q8t+MMp8+OEdOaqD9MG6b0dOyLORaaeJMPQ7EESVgm/+z5EKYyFLxgzBJlJgyHQ==
   dependencies:
     base64-js "^1.3.0"
     ecdsa-sig-formatter "^1.0.11"
@@ -3306,14 +3306,14 @@ safe-buffer@^5.0.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.0.tgz#1d17081e5d888cbf6e421a8157907d8184cec18d"
-  integrity sha512-siiYDYW1MJQtxmYYwTKq0R1nTdTNDuXMkObEkF2Rm80tZU3s5aPYd0eTJjMDWEycFb36UOt9+tuz/9UUcVX2PA==
+semantic-release-pub@0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.1.tgz#cba1dd47c367b6fbd76eeaa4d4fa4b5d650ac80f"
+  integrity sha512-bAx8LOEJ6BffczS0yJY16y9bXdVtPvRClE2V47C7I2i7tqPBOW60RGxu16vwLe/N1uKSbR16Sgi4ceTkMLEaxw==
   dependencies:
     "@semantic-release/error" "^4.0.0"
     execa "^8.0.1"
-    google-auth-library "^9.4.2"
+    google-auth-library "^9.6.0"
     yaml "^2.3.4"
     zod "^3.22.4"
 

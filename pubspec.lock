@@ -13,10 +13,10 @@ packages:
     dependency: transitive
     description:
       name: _flutterfire_internals
-      sha256: f5628cd9c92ed11083f425fd1f8f1bc60ecdda458c81d73b143aeda036c35fe7
+      sha256: "96592ccc798cbc704d7b1db9e0595121831c4bef1b6fe952d6b55cac07f7b3b7"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.16"
+    version: "1.3.17"
   analyzer:
     dependency: transitive
     description:
@@ -363,26 +363,26 @@ packages:
     dependency: "direct main"
     description:
       name: firebase_analytics
-      sha256: "0240076090d77045d757aecb090616066d23b343840d4c21074094d6fe40a184"
+      sha256: "95ebf6fbf9634abd5343aed011c45d491a347094161ec00bae0c180baa849b9f"
       url: "https://pub.dev"
     source: hosted
-    version: "10.8.0"
+    version: "10.8.1"
   firebase_analytics_platform_interface:
     dependency: transitive
     description:
       name: firebase_analytics_platform_interface
-      sha256: "6d9baa077d16b47ef5f19d982c4fc475597991aa53b0c601216faa3e1cdab45f"
+      sha256: bcdcf7e6f8595a69486ce2e45bb4a1350f89232319e200c6167760afcb284f90
       url: "https://pub.dev"
     source: hosted
-    version: "3.9.0"
+    version: "3.9.1"
   firebase_analytics_web:
     dependency: transitive
     description:
       name: firebase_analytics_web
-      sha256: "89a740249bce9d52a99db4e501be6087ca6749c73c47cff2b174802be10abd81"
+      sha256: "94ce20f5a24b02bc0b219fa109795406bcfb3bd2f0b169899256ca58ca503963"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.5+12"
+    version: "0.5.5+13"
   firebase_auth:
     dependency: "direct main"
     description:
@@ -411,10 +411,10 @@ packages:
     dependency: "direct main"
     description:
       name: firebase_core
-      sha256: "96607c0e829a581c2a483c658f04e8b159964c3bae2730f73297070bc85d40bb"
+      sha256: b6e8e290dcc05739a573591fe71a21af2b50e199242e7460fac36acc4587c623
       url: "https://pub.dev"
     source: hosted
-    version: "2.24.2"
+    version: "2.25.0"
   firebase_core_platform_interface:
     dependency: transitive
     description:

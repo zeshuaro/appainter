@@ -95,7 +95,7 @@ jobs:
           cache-key: ${{ runner.os }}-flutter-${{ steps.fvm-config.outputs.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Setup ChromeDriver 🚘
-        uses: nanasess/setup-chromedriver@v2.2.1
+        uses: nanasess/setup-chromedriver@v2.2.2
         if: ${{ matrix.type == 'web' }}
 
       - name: Cache Pub 💾

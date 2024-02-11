@@ -1,3 +1,28 @@
+## [1.14.5](https://github.com/zeshuaro/appainter/compare/v1.14.4...v1.14.5) (2024-02-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency analyzer to v6 ([#1075](https://github.com/zeshuaro/appainter/issues/1075)) ([c39d6b4](https://github.com/zeshuaro/appainter/commit/c39d6b4c6f855a1ffefd759cc8ea1de5db39b526))
+* **deps:** update dependency sentry_flutter to v7.16.0 ([#1072](https://github.com/zeshuaro/appainter/issues/1072)) ([3a48ae0](https://github.com/zeshuaro/appainter/commit/3a48ae0b6656662882779f289a2c1c22995ee979))
+* **deps:** update dependency window_manager to v0.3.8 ([#1067](https://github.com/zeshuaro/appainter/issues/1067)) ([00f4359](https://github.com/zeshuaro/appainter/commit/00f4359b5d1023bea3919c0c8505ed520eea8a53))
+* **deps:** update firebase dependencies ([#1073](https://github.com/zeshuaro/appainter/issues/1073)) ([75d1e0a](https://github.com/zeshuaro/appainter/commit/75d1e0a71c99e126931ce011209e2ff30986eb96))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1068](https://github.com/zeshuaro/appainter/issues/1068)) ([4c1bde9](https://github.com/zeshuaro/appainter/commit/4c1bde986a489b4aaf41e992fbf8a996c60f5de7))
+* **deps:** update dependency semantic-release to v23.0.1 ([#1077](https://github.com/zeshuaro/appainter/issues/1077)) ([3df4f8f](https://github.com/zeshuaro/appainter/commit/3df4f8f7dad2d40ced373f3db2d21244b4b4e5d6))
+* **deps:** update dependency semantic-release to v23.0.2 ([#1078](https://github.com/zeshuaro/appainter/issues/1078)) ([1000b66](https://github.com/zeshuaro/appainter/commit/1000b66bbf5ea0e6b403dd4c198e36aef22f04b0))
+* **deps:** update dependency semantic-release-pub to v0.8.1 ([#1071](https://github.com/zeshuaro/appainter/issues/1071)) ([3eec8e2](https://github.com/zeshuaro/appainter/commit/3eec8e2d122fd538d828cad6d5e9a90528b1be1a))
+* **example/deps:** lock file maintenance ([#1069](https://github.com/zeshuaro/appainter/issues/1069)) ([e333d88](https://github.com/zeshuaro/appainter/commit/e333d88e5cadf4168e910bd19e1e517fcceb4446))
+
+
+### Continuous Integration
+
+* **deps:** update github actions dependencies ([#1076](https://github.com/zeshuaro/appainter/issues/1076)) ([da9b29a](https://github.com/zeshuaro/appainter/commit/da9b29a0b99780cc708c74c1a5244cfefe870b1e))
+* **deps:** update zeshuaro/github-actions-workflows digest to 8a9940e ([#1070](https://github.com/zeshuaro/appainter/issues/1070)) ([ec73692](https://github.com/zeshuaro/appainter/commit/ec736929bb2fac2aa5709d777b9a02c840ed1b53))
+
 ## [1.14.4](https://github.com/zeshuaro/appainter/compare/v1.14.3...v1.14.4) (2024-02-04)
 
 

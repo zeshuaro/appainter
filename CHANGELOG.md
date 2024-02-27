@@ -1,3 +1,34 @@
+## [1.14.6](https://github.com/zeshuaro/appainter/compare/v1.14.5...v1.14.6) (2024-02-27)
+
+
+### Bug Fixes
+
+* **deps:** update bloc dependencies ([#1088](https://github.com/zeshuaro/appainter/issues/1088)) ([96460eb](https://github.com/zeshuaro/appainter/commit/96460ebe0a25da4b5d2382ab23b5b512949cbf45))
+* **deps:** update dependency dio to v5.4.1 ([#1098](https://github.com/zeshuaro/appainter/issues/1098)) ([910defd](https://github.com/zeshuaro/appainter/commit/910defd5ec2e8fa4a37406ea1422f5ddfc71a0b3))
+* **deps:** update dependency flutter_markdown to v0.6.19 ([#1090](https://github.com/zeshuaro/appainter/issues/1090)) ([513bc95](https://github.com/zeshuaro/appainter/commit/513bc95ff8e6cfe50e0d50fa4cc5f280b87c148e))
+* **deps:** update dependency sentry_flutter to v7.16.1 ([#1091](https://github.com/zeshuaro/appainter/issues/1091)) ([50735b1](https://github.com/zeshuaro/appainter/commit/50735b18d1d9284e58787a34fc365ce345a402e7))
+* **deps:** update firebase dependencies ([#1074](https://github.com/zeshuaro/appainter/issues/1074)) ([ccf1f76](https://github.com/zeshuaro/appainter/commit/ccf1f762f1be7e8c9196a2268836240450e70155))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1079](https://github.com/zeshuaro/appainter/issues/1079)) ([f3962b9](https://github.com/zeshuaro/appainter/commit/f3962b99c7f79a019f3b4c969d70a893fbef93f5))
+* **deps:** update dependency semantic-release-pub to v0.8.2 ([#1083](https://github.com/zeshuaro/appainter/issues/1083)) ([c4bd719](https://github.com/zeshuaro/appainter/commit/c4bd71908141c0e3270feb620f7623fd4aa13c7a))
+* **deps:** update dependency semantic-release-pub to v0.8.3 ([#1089](https://github.com/zeshuaro/appainter/issues/1089)) ([4f4f431](https://github.com/zeshuaro/appainter/commit/4f4f4313eea1b7b84b97824ed7603d190492b341))
+* **deps:** update dependency sentry_dart_plugin to v1.7.0 ([#1080](https://github.com/zeshuaro/appainter/issues/1080)) ([8882c32](https://github.com/zeshuaro/appainter/commit/8882c3217b338d895e78128db7c75e6968f3b386))
+* **deps:** update dependency sentry_dart_plugin to v1.7.1 ([#1092](https://github.com/zeshuaro/appainter/issues/1092)) ([1803d68](https://github.com/zeshuaro/appainter/commit/1803d68618aa1e52a7e1fa8e97b499c209587ff9))
+* **example:** cleanup generated files ([#1086](https://github.com/zeshuaro/appainter/issues/1086)) ([f690520](https://github.com/zeshuaro/appainter/commit/f69052022cb770a1cdbac349929f27985343ccee))
+* **node:** update dependency node to v20.11.1 ([#1084](https://github.com/zeshuaro/appainter/issues/1084)) ([6fd867e](https://github.com/zeshuaro/appainter/commit/6fd867e9048aa1625b06040bfe6f30aecc81ff9f))
+
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v4.0.2 ([#1093](https://github.com/zeshuaro/appainter/issues/1093)) ([a72fb3d](https://github.com/zeshuaro/appainter/commit/a72fb3d074e67c077090abd0ea55eed52c084784))
+* **deps:** update zeshuaro/github-actions-workflows digest to 7c984cd ([#1094](https://github.com/zeshuaro/appainter/issues/1094)) ([27b4756](https://github.com/zeshuaro/appainter/commit/27b475613a4460209443702c8befe0ee50309e93))
+* **deps:** update zeshuaro/github-actions-workflows digest to 830822f ([#1082](https://github.com/zeshuaro/appainter/issues/1082)) ([24ed7f9](https://github.com/zeshuaro/appainter/commit/24ed7f9ad97c03e5bcb6168cc2561c95543babbf))
+* **deps:** update zeshuaro/github-actions-workflows digest to f28cdb4 ([#1081](https://github.com/zeshuaro/appainter/issues/1081)) ([4d38cff](https://github.com/zeshuaro/appainter/commit/4d38cffc6084e994952bc0469dc3c6b2b792a427))
+* **github-actions:** fix build step flutter version ([#1095](https://github.com/zeshuaro/appainter/issues/1095)) ([1c8d872](https://github.com/zeshuaro/appainter/commit/1c8d8724812ca086c174cb5ca0cec25e051425aa))
+
 ## [1.14.5](https://github.com/zeshuaro/appainter/compare/v1.14.4...v1.14.5) (2024-02-11)
 
 

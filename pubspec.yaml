@@ -6,7 +6,7 @@ version: 1.14.6
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
-  flutter: 3.16.9
+  flutter: 3.19.0
 
 dependencies:
   appainter_annotations:
@@ -22,9 +22,9 @@ dependencies:
   equatable: 2.0.5
   expandable: 5.0.1
   file_picker: 6.1.1
-  firebase_analytics: 10.8.5
-  firebase_auth: 4.17.4
-  firebase_core: 2.25.4
+  firebase_analytics: 10.8.7
+  firebase_auth: 4.17.6
+  firebase_core: 2.25.5
   flex_color_picker: 3.3.1
   flutter:
     sdk: flutter
@@ -33,7 +33,7 @@ dependencies:
   google_fonts: 6.1.0
   intl: 0.19.0
   json_theme: 6.4.0
-  material_color_utilities: ^0.5.0
+  material_color_utilities: ^0.8.0
   material_design_icons_flutter: 7.0.7296
   ndialog: 4.3.1
   path_provider: 2.1.2

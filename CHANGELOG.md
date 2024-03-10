@@ -1,3 +1,18 @@
+## [1.15.1](https://github.com/zeshuaro/appainter/compare/v1.15.0...v1.15.1) (2024-03-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency google_fonts to v6.2.0 ([#1113](https://github.com/zeshuaro/appainter/issues/1113)) ([4be1f50](https://github.com/zeshuaro/appainter/commit/4be1f507c9fae17d060e275dd102e207555e5b85))
+* **deps:** update firebase dependencies ([#1099](https://github.com/zeshuaro/appainter/issues/1099)) ([385da9b](https://github.com/zeshuaro/appainter/commit/385da9bc86ff1c022425d42407a3e5af96c97075))
+* **sdk:** update dependency flutter to v3.19.3 ([#1112](https://github.com/zeshuaro/appainter/issues/1112)) ([c23fbda](https://github.com/zeshuaro/appainter/commit/c23fbda820b2fc37cb53cbf74a55354717e9c122))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1110](https://github.com/zeshuaro/appainter/issues/1110)) ([fc1016e](https://github.com/zeshuaro/appainter/commit/fc1016e959f91ecb4f528eca4b1fe9b1e47bd465))
+* **deps:** update dependency semantic-release-pub to v0.8.4 ([#1111](https://github.com/zeshuaro/appainter/issues/1111)) ([676fa1e](https://github.com/zeshuaro/appainter/commit/676fa1eebbd00ee12e0992577720f7f6b211b29c))
+
 ## [1.15.0](https://github.com/zeshuaro/appainter/compare/v1.14.6...v1.15.0) (2024-03-03)
 
 

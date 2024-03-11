@@ -443,10 +443,10 @@ packages:
     dependency: "direct main"
     description:
       name: flex_color_picker
-      sha256: "0871edc170153cfc3de316d30625f40a85daecfa76ce541641f3cc0ec7757cbf"
+      sha256: "904373c7b0531fd4a92d29705a80ab4594b7647da2d93044487aaec4614cb6ed"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.1"
+    version: "3.4.0"
   flex_seed_scheme:
     dependency: transitive
     description:

@@ -1,3 +1,20 @@
+## [1.15.2](https://github.com/zeshuaro/appainter/compare/v1.15.1...v1.15.2) (2024-03-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency file_picker to v6.2.0 ([#1117](https://github.com/zeshuaro/appainter/issues/1117)) ([59d52dd](https://github.com/zeshuaro/appainter/commit/59d52ddb48a363d301ec40a50b348cfaeaaa6b7f))
+* **deps:** update dependency flex_color_picker to v3.4.0 ([#1115](https://github.com/zeshuaro/appainter/issues/1115)) ([abf186b](https://github.com/zeshuaro/appainter/commit/abf186b7d8353348e91fefddf9173234b35b592c))
+* **deps:** update dependency flutter_markdown to v0.6.21 ([#1116](https://github.com/zeshuaro/appainter/issues/1116)) ([7afb1c0](https://github.com/zeshuaro/appainter/commit/7afb1c0e57f5c243e60a9d2749c06a929f74b63b))
+* **deps:** update dependency google_fonts to v6.2.1 ([#1114](https://github.com/zeshuaro/appainter/issues/1114)) ([74183c3](https://github.com/zeshuaro/appainter/commit/74183c3f83c072d3790bedabd5258af6942eb2d4))
+* **deps:** update dependency sentry_flutter to v7.17.0 ([#1119](https://github.com/zeshuaro/appainter/issues/1119)) ([b90b11b](https://github.com/zeshuaro/appainter/commit/b90b11b546119667cfc4493a6ee0c1a88f1c7bbe))
+* **deps:** update firebase dependencies ([#1120](https://github.com/zeshuaro/appainter/issues/1120)) ([0bac28b](https://github.com/zeshuaro/appainter/commit/0bac28b5cfabf14159b145dc8147debcd8e8759b))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release-pub to v0.8.5 ([#1118](https://github.com/zeshuaro/appainter/issues/1118)) ([338e0d4](https://github.com/zeshuaro/appainter/commit/338e0d463e75f87c5d5d46e41df459b33182ac4f))
+
 ## [1.15.1](https://github.com/zeshuaro/appainter/compare/v1.15.0...v1.15.1) (2024-03-10)
 
 

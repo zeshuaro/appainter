@@ -18,7 +18,7 @@ To use the theme JSON file in your app, follow the steps below:
 
     ```yml
     dependencies:
-      json_theme: ^4.0.0
+      json_theme: ^6.4.1
     ```
 
 2. Copy the generated `json` file to your app project and place it under the `assets/` folder.

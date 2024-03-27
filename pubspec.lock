@@ -231,6 +231,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.7.2"
+  cross_file:
+    dependency: transitive
+    description:
+      name: cross_file
+      sha256: "55d7b444feb71301ef6b8838dbc1ae02e63dd48c8773f3810ff53bb1e2945b32"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.4+1"
   crypto:
     dependency: transitive
     description:
@@ -355,10 +363,10 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: "1bbf65dd997458a08b531042ec3794112a6c39c07c37ff22113d2e7e4f81d4e4"
+      sha256: a7965f87b5894605771d8fffd29236f7d697f73bd254d1e599e7075cb7b1f8bf
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.1"
+    version: "7.1.0+1"
   firebase_analytics:
     dependency: "direct main"
     description:

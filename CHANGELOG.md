@@ -1,3 +1,27 @@
+## [1.15.4](https://github.com/zeshuaro/appainter/compare/v1.15.3...v1.15.4) (2024-03-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency file_picker to v6.2.1 ([#1137](https://github.com/zeshuaro/appainter/issues/1137)) ([ea9cf25](https://github.com/zeshuaro/appainter/commit/ea9cf2530e1a35bd8b43f3e5f4b26a317821d1e4))
+* **deps:** update dependency flex_color_picker to v3.4.1 ([#1133](https://github.com/zeshuaro/appainter/issues/1133)) ([21f2c5d](https://github.com/zeshuaro/appainter/commit/21f2c5d809caf31afce99c5f8d772aaa3738eaf9))
+* **deps:** update dependency flutter_markdown to v0.6.22 ([#1138](https://github.com/zeshuaro/appainter/issues/1138)) ([03d6228](https://github.com/zeshuaro/appainter/commit/03d6228c3167fe10b01dd924588bffab1051e69a))
+* **sdk:** update dependency flutter to v3.19.4 ([#1131](https://github.com/zeshuaro/appainter/issues/1131)) ([e7e8fc5](https://github.com/zeshuaro/appainter/commit/e7e8fc50772e28f777a2f9df662291c6029d23d2))
+* **sdk:** update dependency flutter to v3.19.5 ([#1143](https://github.com/zeshuaro/appainter/issues/1143)) ([6c24552](https://github.com/zeshuaro/appainter/commit/6c245522624a604e60d9765b5d2ba25ff72d4dd3))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1134](https://github.com/zeshuaro/appainter/issues/1134)) ([5613907](https://github.com/zeshuaro/appainter/commit/561390701c3d6b731c947fd215ffaeb779d29476))
+* **deps:** update dependency semantic-release to v23.0.6 ([#1141](https://github.com/zeshuaro/appainter/issues/1141)) ([4811110](https://github.com/zeshuaro/appainter/commit/4811110e893794aebc29c34b8e1a52ef05eee939))
+* **node:** update dependency node to v20.12.0 ([#1139](https://github.com/zeshuaro/appainter/issues/1139)) ([186abb5](https://github.com/zeshuaro/appainter/commit/186abb5b117262796603a244b8b17e9b1986c5e9))
+
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v4.1.1 ([#1136](https://github.com/zeshuaro/appainter/issues/1136)) ([54bd9ea](https://github.com/zeshuaro/appainter/commit/54bd9eaa370d1732cc05f672189b3e707fb98b6b))
+* **deps:** update zeshuaro/github-actions-workflows digest to 62153fd ([#1135](https://github.com/zeshuaro/appainter/issues/1135)) ([3f449af](https://github.com/zeshuaro/appainter/commit/3f449afca9d897a15f051a26cc4fa3c50741c4b1))
+
 ## [1.15.3](https://github.com/zeshuaro/appainter/compare/v1.15.2...v1.15.3) (2024-03-24)
 
 

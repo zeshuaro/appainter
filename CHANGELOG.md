@@ -1,3 +1,33 @@
+## [1.15.5](https://github.com/zeshuaro/appainter/compare/v1.15.4...v1.15.5) (2024-04-07)
+
+
+### Bug Fixes
+
+* **deps:** update bloc dependencies ([#1145](https://github.com/zeshuaro/appainter/issues/1145)) ([787f116](https://github.com/zeshuaro/appainter/commit/787f1169397209fd3c83768774386bdff3a06571))
+* **deps:** update dependency dio to v5.4.2+1 ([#1152](https://github.com/zeshuaro/appainter/issues/1152)) ([52c6355](https://github.com/zeshuaro/appainter/commit/52c6355a59d46a8fe96207dacbb2b45cbf50c5fb))
+* **deps:** update dependency file_picker to v7 ([#1140](https://github.com/zeshuaro/appainter/issues/1140)) ([3ab9250](https://github.com/zeshuaro/appainter/commit/3ab9250fea137a49a0503aee2d221183de36016b))
+* **deps:** update dependency file_picker to v8 ([#1142](https://github.com/zeshuaro/appainter/issues/1142)) ([2252f7b](https://github.com/zeshuaro/appainter/commit/2252f7bf2c600fae68cb2d7e415dc9e43f3925c3))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1144](https://github.com/zeshuaro/appainter/issues/1144)) ([99ff9af](https://github.com/zeshuaro/appainter/commit/99ff9afcf58f587a248e144b7bd9dc786b6cedd5))
+* **deps:** update dependency build_runner to v2.4.9 ([#1154](https://github.com/zeshuaro/appainter/issues/1154)) ([07b7bce](https://github.com/zeshuaro/appainter/commit/07b7bce5f6763da03de4c275116e309a7b5dd6e2))
+* **deps:** update dependency flutter_lints to v3.0.2 ([#1148](https://github.com/zeshuaro/appainter/issues/1148)) ([84a3bc7](https://github.com/zeshuaro/appainter/commit/84a3bc7c94077e41cf0e9444d064f88120cc4e52))
+* **deps:** update dependency semantic-release to v23.0.7 ([#1158](https://github.com/zeshuaro/appainter/issues/1158)) ([0001895](https://github.com/zeshuaro/appainter/commit/0001895b6ab091474b5a95a8f25d865db0b2f2ef))
+* **deps:** update dependency semantic-release-pub to v0.8.7 ([#1150](https://github.com/zeshuaro/appainter/issues/1150)) ([e1c6095](https://github.com/zeshuaro/appainter/commit/e1c6095f937345324ee6555652da2ef113baa6e3))
+* **node:** update dependency node to v20.12.1 ([#1151](https://github.com/zeshuaro/appainter/issues/1151)) ([63c895f](https://github.com/zeshuaro/appainter/commit/63c895f2536e2d48bd4f1cefdc1264914a8da026))
+
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v4.2.0 ([#1155](https://github.com/zeshuaro/appainter/issues/1155)) ([9d3ebb7](https://github.com/zeshuaro/appainter/commit/9d3ebb7289aada1aa9f5bdfb16d38d7b5f2e33bb))
+* **deps:** update subosito/flutter-action action to v2.15.0 ([#1146](https://github.com/zeshuaro/appainter/issues/1146)) ([6851556](https://github.com/zeshuaro/appainter/commit/685155688db9e5f79d10ad2332d4f703fc52b344))
+* **deps:** update subosito/flutter-action action to v2.16.0 ([#1156](https://github.com/zeshuaro/appainter/issues/1156)) ([5d71288](https://github.com/zeshuaro/appainter/commit/5d7128861414422a4e9deb44b3276a9d00f18e8c))
+* **deps:** update zeshuaro/github-actions-workflows digest to 00bf43e ([#1147](https://github.com/zeshuaro/appainter/issues/1147)) ([074620f](https://github.com/zeshuaro/appainter/commit/074620f034b4253606bfceebca5eae6de68df234))
+* **deps:** update zeshuaro/github-actions-workflows digest to 0708de0 ([#1153](https://github.com/zeshuaro/appainter/issues/1153)) ([4f56d31](https://github.com/zeshuaro/appainter/commit/4f56d31a89cedfb7511bb7416cd9101e88b4e537))
+* **deps:** update zeshuaro/github-actions-workflows digest to 4929678 ([#1149](https://github.com/zeshuaro/appainter/issues/1149)) ([75527ca](https://github.com/zeshuaro/appainter/commit/75527caad0ebe5e15d8a017e3d4a4a1f72f13e3c))
+
 ## [1.15.4](https://github.com/zeshuaro/appainter/compare/v1.15.3...v1.15.4) (2024-03-31)
 
 

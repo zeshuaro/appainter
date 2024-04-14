@@ -1,3 +1,24 @@
+## [1.15.6](https://github.com/zeshuaro/appainter/compare/v1.15.5...v1.15.6) (2024-04-14)
+
+
+### Bug Fixes
+
+* **deps:** update firebase dependencies ([#1157](https://github.com/zeshuaro/appainter/issues/1157)) ([9a7c06a](https://github.com/zeshuaro/appainter/commit/9a7c06a0a02577c97bf50bc58b8d7583da7c8453))
+
+
+### Miscellaneous Chores
+
+* **node:** update dependency node to v20.12.2 ([#1164](https://github.com/zeshuaro/appainter/issues/1164)) ([a5a6f6d](https://github.com/zeshuaro/appainter/commit/a5a6f6ddca0cf51a41ce1ecd34c8f45345e50119))
+
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v4.3.0 ([#1162](https://github.com/zeshuaro/appainter/issues/1162)) ([c0ecc05](https://github.com/zeshuaro/appainter/commit/c0ecc053dcefa3f45785dc8c6bf79cadf66d68dc))
+* **deps:** update stefanzweifel/git-auto-commit-action action to v5.0.1 ([#1166](https://github.com/zeshuaro/appainter/issues/1166)) ([948e5e8](https://github.com/zeshuaro/appainter/commit/948e5e8ff91b25028b52e8c3acf1c32e19086984))
+* **deps:** update zeshuaro/github-actions-workflows digest to 0df355a ([#1160](https://github.com/zeshuaro/appainter/issues/1160)) ([12f4acf](https://github.com/zeshuaro/appainter/commit/12f4acf7a74eaddb0f498dcaeb7d9e87b4aec3c0))
+* **deps:** update zeshuaro/github-actions-workflows digest to 166ef50 ([#1163](https://github.com/zeshuaro/appainter/issues/1163)) ([340a8d1](https://github.com/zeshuaro/appainter/commit/340a8d15932976e26320a33b92796f8ba9e08c26))
+* **deps:** update zeshuaro/github-actions-workflows digest to 851c863 ([#1167](https://github.com/zeshuaro/appainter/issues/1167)) ([4abdb46](https://github.com/zeshuaro/appainter/commit/4abdb46e2ae1fb74b34f7b67cba233e9e7ba5220))
+
 ## [1.15.5](https://github.com/zeshuaro/appainter/compare/v1.15.4...v1.15.5) (2024-04-07)
 
 

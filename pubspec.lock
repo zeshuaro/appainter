@@ -299,10 +299,10 @@ packages:
     dependency: "direct main"
     description:
       name: dio
-      sha256: "0978e9a3e45305a80a7210dbeaf79d6ee8bee33f70c8e542dc654c952070217f"
+      sha256: "639179e1cc0957779e10dd5b786ce180c477c4c0aca5aaba5d1700fa2e834801"
       url: "https://pub.dev"
     source: hosted
-    version: "5.4.2+1"
+    version: "5.4.3"
   dropdown_search:
     dependency: "direct main"
     description:

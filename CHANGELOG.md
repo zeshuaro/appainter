@@ -1,3 +1,26 @@
+## [1.15.7](https://github.com/zeshuaro/appainter/compare/v1.15.6...v1.15.7) (2024-04-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency path_provider to v2.1.3 ([#1173](https://github.com/zeshuaro/appainter/issues/1173)) ([fa5116d](https://github.com/zeshuaro/appainter/commit/fa5116d35c6998f12ccef3ed9356a49b472ebf3c))
+* **deps:** update dependency shared_preferences to v2.2.3 ([#1174](https://github.com/zeshuaro/appainter/issues/1174)) ([42a34ed](https://github.com/zeshuaro/appainter/commit/42a34ed16a6954172e824105cae94a179be9bce8))
+* **deps:** update dependency url_launcher to v6.2.6 ([#1175](https://github.com/zeshuaro/appainter/issues/1175)) ([aad9d6e](https://github.com/zeshuaro/appainter/commit/aad9d6ed697f0d373324b1abb88149bea105cad9))
+* **deps:** update firebase dependencies ([#1165](https://github.com/zeshuaro/appainter/issues/1165)) ([660342e](https://github.com/zeshuaro/appainter/commit/660342e76e1e6da7b009e8ce13f0f33f637ac533))
+* **sdk:** update dependency flutter to v3.19.6 ([#1172](https://github.com/zeshuaro/appainter/issues/1172)) ([38acae6](https://github.com/zeshuaro/appainter/commit/38acae6f1aa9e2ba0d033b16b35439b06d36af61))
+
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release to v23.0.8 ([#1168](https://github.com/zeshuaro/appainter/issues/1168)) ([15de1fc](https://github.com/zeshuaro/appainter/commit/15de1fc6c8b72a4609b1f4d8d44481e4f3700bff))
+* **deps:** update dependency semantic-release-pub to v0.8.8 ([#1161](https://github.com/zeshuaro/appainter/issues/1161)) ([3695447](https://github.com/zeshuaro/appainter/commit/3695447c4524078c832da061a94febfef8a2724f))
+* **deps:** update dependency semantic-release-pub to v0.8.9 ([#1170](https://github.com/zeshuaro/appainter/issues/1170)) ([acc3a4a](https://github.com/zeshuaro/appainter/commit/acc3a4a47deba93bee80c41779194fdde0565dff))
+
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 4dbef80 ([#1169](https://github.com/zeshuaro/appainter/issues/1169)) ([d43089f](https://github.com/zeshuaro/appainter/commit/d43089fa57e0dc2fc2ae69e944299d49783e8052))
+
 ## [1.15.6](https://github.com/zeshuaro/appainter/compare/v1.15.5...v1.15.6) (2024-04-14)
 
 

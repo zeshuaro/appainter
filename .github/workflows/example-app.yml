@@ -52,7 +52,7 @@ jobs:
       - name: Start iOS simulator 📱
         uses: futureware-tech/simulator-action@v3
         with:
-          model: "iPhone 12"
+          model: "iPhone 15"
 
       - name: Run integration tests 🧪
         run: |

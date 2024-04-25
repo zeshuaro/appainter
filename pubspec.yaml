@@ -21,7 +21,7 @@ dependencies:
   enum_to_string: 2.0.1
   equatable: 2.0.5
   expandable: 5.0.1
-  file_picker: 8.0.0+1
+  file_picker: 8.0.1
   firebase_analytics: 10.10.2
   firebase_auth: 4.19.2
   firebase_core: 2.30.0

@@ -1,3 +1,36 @@
+## [1.15.8](https://github.com/zeshuaro/appainter/compare/v1.15.7...v1.15.8) (2024-04-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency cupertino_icons to v1.0.8 ([#1179](https://github.com/zeshuaro/appainter/issues/1179)) ([0a9cf79](https://github.com/zeshuaro/appainter/commit/0a9cf79371bb0310468c175db306d99a8cec2694))
+* **deps:** update dependency dio to v5.4.3 ([#1176](https://github.com/zeshuaro/appainter/issues/1176)) ([e4b554c](https://github.com/zeshuaro/appainter/commit/e4b554c955626c8835e8a90fce03ffbc2ee22a15))
+* **deps:** update dependency file_picker to v8.0.1 ([#1188](https://github.com/zeshuaro/appainter/issues/1188)) ([47b035a](https://github.com/zeshuaro/appainter/commit/47b035a6a1711c475646fdcf10f8ada914ac68fb))
+* **deps:** update dependency flutter_markdown to v0.6.23 ([#1177](https://github.com/zeshuaro/appainter/issues/1177)) ([3b33349](https://github.com/zeshuaro/appainter/commit/3b333497f00e3dd55c478e312bd160c4163e6704))
+* **deps:** update dependency flutter_markdown to v0.7.0 ([#1190](https://github.com/zeshuaro/appainter/issues/1190)) ([dfd80aa](https://github.com/zeshuaro/appainter/commit/dfd80aab625f469236caf7c0786fee4f0ad4d908))
+* **deps:** update dependency flutter_markdown to v0.7.1 ([#1192](https://github.com/zeshuaro/appainter/issues/1192)) ([27de0b8](https://github.com/zeshuaro/appainter/commit/27de0b8eb2ae3527f0a3a9266110375ed95c7f60))
+* **deps:** update dependency sentry_flutter to v7.19.0 ([#1171](https://github.com/zeshuaro/appainter/issues/1171)) ([e5c2fd3](https://github.com/zeshuaro/appainter/commit/e5c2fd3a1a618c0ee634ff6f1adcae831f904ad7))
+* **deps:** update dependency sentry_flutter to v7.20.0 ([#1183](https://github.com/zeshuaro/appainter/issues/1183)) ([fcebbd8](https://github.com/zeshuaro/appainter/commit/fcebbd8fbe0f258f26271541a71558d603a6feb0))
+* **deps:** update firebase dependencies ([#1182](https://github.com/zeshuaro/appainter/issues/1182)) ([32f3b3c](https://github.com/zeshuaro/appainter/commit/32f3b3c764272cab7bba955415f31683d4aa5da4))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1159](https://github.com/zeshuaro/appainter/issues/1159)) ([3be75d1](https://github.com/zeshuaro/appainter/commit/3be75d14a6b384ecdc97cfb05dea5542562821d8))
+* **deps:** update dependency semantic-release-pub to v0.8.10 ([#1181](https://github.com/zeshuaro/appainter/issues/1181)) ([e6556e4](https://github.com/zeshuaro/appainter/commit/e6556e46ff0caf5de81c72ccbaf8852e6e05e2ef))
+* **deps:** update dependency sentry_dart_plugin to v2 ([#1184](https://github.com/zeshuaro/appainter/issues/1184)) ([4164145](https://github.com/zeshuaro/appainter/commit/4164145de287af3d282369942e9412d57413dbe1))
+
+
+### Continuous Integration
+
+* **deps:** update actions/checkout digest to 0ad4b8f ([#1189](https://github.com/zeshuaro/appainter/issues/1189)) ([0c00dda](https://github.com/zeshuaro/appainter/commit/0c00dda8f9a13a4017c0e5ad31593e42f74e1bef))
+* **deps:** update actions/checkout digest to 1d96c77 ([#1178](https://github.com/zeshuaro/appainter/issues/1178)) ([834cf30](https://github.com/zeshuaro/appainter/commit/834cf307c99e790dbca1ddf49b71c5f81d359b3d))
+* **deps:** update zeshuaro/github-actions-workflows digest to 178a6a5 ([#1180](https://github.com/zeshuaro/appainter/issues/1180)) ([f4b22a0](https://github.com/zeshuaro/appainter/commit/f4b22a0dc97657fa302995ea45904d8aedba1513))
+* **deps:** update zeshuaro/github-actions-workflows digest to 1aad210 ([#1191](https://github.com/zeshuaro/appainter/issues/1191)) ([df73e2d](https://github.com/zeshuaro/appainter/commit/df73e2dd5522f71bfafee382f0771047f7123474))
+* **deps:** update zeshuaro/github-actions-workflows digest to 2df7bb9 ([#1187](https://github.com/zeshuaro/appainter/issues/1187)) ([094294a](https://github.com/zeshuaro/appainter/commit/094294acb6818ec3967dea2190fe68dd778eb58d))
+* **deps:** update zeshuaro/github-actions-workflows digest to 8884b90 ([#1186](https://github.com/zeshuaro/appainter/issues/1186)) ([6febf45](https://github.com/zeshuaro/appainter/commit/6febf454c324eca7c1e3da707e4ab376d7509dd5))
+* **example-app:** update ios simulator to iphone 15 ([#1185](https://github.com/zeshuaro/appainter/issues/1185)) ([6722867](https://github.com/zeshuaro/appainter/commit/6722867467f6f6ec5a57bfa92de9e1d71c79b313))
+
 ## [1.15.7](https://github.com/zeshuaro/appainter/compare/v1.15.6...v1.15.7) (2024-04-21)
 
 

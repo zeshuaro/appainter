@@ -1870,7 +1870,7 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-google-auth-library@^9.8.0:
+google-auth-library@^9.9.0:
   version "9.9.0"
   resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-9.9.0.tgz#71488ef444335ff4ea91611729b88c0f57625fdf"
   integrity sha512-9l+zO07h1tDJdIHN74SpnWIlNR+OuOemXlWJlLP9pXy6vFtizgpEzMuwJa4lqY9UAdiAv5DVd5ql0Am916I+aA==
@@ -3757,16 +3757,16 @@ safe-regex-test@^1.0.3:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.8.10:
-  version "0.8.10"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.10.tgz#9ae7e293a660e8c7b0c87ade835d6eccd315cc92"
-  integrity sha512-r7zEzX5LEHS+/dtjaTy3hdpXO4qQBUyUKeG8AWu+SMVO3JICXlOlmXZs/geT6RpsKFcEmRxw+TjqRlWyh8Uqjg==
+semantic-release-pub@0.8.11:
+  version "0.8.11"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.11.tgz#58487c95d12f4e99b0d0a0f372d76cc0a822e899"
+  integrity sha512-RJRVWnCxRDMmRCt6TbRyZVHe43ew2StngMyj+FP1J6AjJw6HI4qM58o8dTJIGUc6NLa72AQgeZQS0jKYmeo43w==
   dependencies:
     "@semantic-release/error" "^4.0.0"
     execa "^8.0.1"
-    google-auth-library "^9.8.0"
+    google-auth-library "^9.9.0"
     yaml "^2.4.1"
-    zod "^3.22.4"
+    zod "^3.23.4"
 
 semantic-release-stop-before-publish@1.0.0:
   version "1.0.0"
@@ -4646,7 +4646,7 @@ yargs@^17.5.1:
     y18n "^5.0.5"
     yargs-parser "^21.1.1"
 
-zod@^3.22.4:
-  version "3.23.4"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.4.tgz#c63805b2f39e10d4ab3d55eb3c8cdb472c79dfb1"
-  integrity sha512-/AtWOKbBgjzEYYQRNfoGKHObgfAZag6qUJX1VbHo2PRBgS+wfWagEY2mizjfyAPcGesrJOcx/wcl0L9WnVrHFw==
+zod@^3.23.4:
+  version "3.23.5"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.5.tgz#c7b7617d017d4a2f21852f533258d26a9a5ae09f"
+  integrity sha512-fkwiq0VIQTksNNA131rDOsVJcns0pfVUjHzLrNBiF/O/Xxb5lQyEXkhZWcJ7npWsYlvs+h0jFWXXy4X46Em1JA==

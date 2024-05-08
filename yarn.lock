@@ -3668,16 +3668,16 @@ safe-regex-test@^1.0.3:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.8.11:
-  version "0.8.11"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.11.tgz#58487c95d12f4e99b0d0a0f372d76cc0a822e899"
-  integrity sha512-RJRVWnCxRDMmRCt6TbRyZVHe43ew2StngMyj+FP1J6AjJw6HI4qM58o8dTJIGUc6NLa72AQgeZQS0jKYmeo43w==
+semantic-release-pub@0.8.12:
+  version "0.8.12"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.12.tgz#441b202312a95f94abd0c42e33fca33f19430537"
+  integrity sha512-dtlbXomk0hKLYMRw7Cjcw/txot0v/LIQdOz86AccKAhgr/ULStVUODVYCVJokiF2UDMYuIKANPlAwxnqM0izGQ==
   dependencies:
     "@semantic-release/error" "^4.0.0"
     execa "^8.0.1"
     google-auth-library "^9.9.0"
-    yaml "^2.4.1"
-    zod "^3.23.4"
+    yaml "^2.4.2"
+    zod "^3.23.5"
 
 semantic-release-stop-before-publish@1.0.0:
   version "1.0.0"
@@ -4504,7 +4504,7 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-yaml@^2.4.1:
+yaml@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.4.2.tgz#7a2b30f2243a5fc299e1f14ca58d475ed4bc5362"
   integrity sha512-B3VqDZ+JAg1nZpaEmWtTXUlBneoGx6CPM9b0TENK6aoSu5t73dItudwdgmi6tHlIZZId4dZ9skcAQ2UbcyAeVA==
@@ -4545,7 +4545,7 @@ yargs@^17.5.1:
     y18n "^5.0.5"
     yargs-parser "^21.1.1"
 
-zod@^3.23.4:
-  version "3.23.6"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.6.tgz#c08a977e2255dab1fdba933651584a05fcbf19e1"
-  integrity sha512-RTHJlZhsRbuA8Hmp/iNL7jnfc4nZishjsanDAfEY1QpDQZCahUp3xDzl+zfweE9BklxMUcgBgS1b7Lvie/ZVwA==
+zod@^3.23.5:
+  version "3.23.7"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.7.tgz#db33c910c592b8ce13f2f449097d4fb926c84f51"
+  integrity sha512-NBeIoqbtOiUMomACV/y+V3Qfs9+Okr18vR5c/5pHClPpufWOrsx8TENboDPe265lFdfewX2yBtNTLPvnmCxwog==

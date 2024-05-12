@@ -1,3 +1,29 @@
+## [1.15.10](https://github.com/zeshuaro/appainter/compare/v1.15.9...v1.15.10) (2024-05-12)
+
+
+### Bug Fixes
+
+* **deps:** update dependency sentry_flutter to v8.1.0 ([#1208](https://github.com/zeshuaro/appainter/issues/1208)) ([af45211](https://github.com/zeshuaro/appainter/commit/af45211aa9226fe9f38483ab7c9f479123af3ba0))
+
+
+### Reverts
+
+* Revert "chore(deps): update dependency conventional-changelog-conventionalcom…" (#1211) ([89219e8](https://github.com/zeshuaro/appainter/commit/89219e8df58c9bc1cc3e03dfe91a44698f7bd954)), closes [#1211](https://github.com/zeshuaro/appainter/issues/1211)
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1203](https://github.com/zeshuaro/appainter/issues/1203)) ([db94e1a](https://github.com/zeshuaro/appainter/commit/db94e1a16c854530fdeedfe76e971a39abe5a4d3))
+* **deps:** update dependency conventional-changelog-conventionalcommits to v8 ([#1204](https://github.com/zeshuaro/appainter/issues/1204)) ([3030d07](https://github.com/zeshuaro/appainter/commit/3030d07aec02bdc4ec8419ab68f5e71fb9a1070a))
+* **deps:** update dependency semantic-release-pub to v0.8.12 ([#1205](https://github.com/zeshuaro/appainter/issues/1205)) ([0f40452](https://github.com/zeshuaro/appainter/commit/0f40452c24f1cdad64ad11cb7f47a492dde2b69e))
+* **node:** update dependency node to v20.13.0 ([#1206](https://github.com/zeshuaro/appainter/issues/1206)) ([a08b67c](https://github.com/zeshuaro/appainter/commit/a08b67c7b21e1ea33c80393fb91dff2a989c26f0))
+* **node:** update dependency node to v20.13.1 ([#1210](https://github.com/zeshuaro/appainter/issues/1210)) ([00d2efa](https://github.com/zeshuaro/appainter/commit/00d2efaf4bbd4abd1544414e3673a1f46a20ee3b))
+
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to f618163 ([#1209](https://github.com/zeshuaro/appainter/issues/1209)) ([70fc166](https://github.com/zeshuaro/appainter/commit/70fc166fcbc5368ae47710e8cc63e02b0011cd1d))
+
 ## [1.15.9](https://github.com/zeshuaro/appainter/compare/v1.15.8...v1.15.9) (2024-05-05)
 
 

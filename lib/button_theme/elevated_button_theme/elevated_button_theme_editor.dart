@@ -90,8 +90,8 @@ class ElevatedButtonThemeEditor
                 'elevatedButtonThemeEditor_elevationTextField_disabled',
               ),
               title: 'Disabled',
-              value: (elevation?.resolve({WidgetState.disabled}) ?? 0)
-                  .toString(),
+              value:
+                  (elevation?.resolve({WidgetState.disabled}) ?? 0).toString(),
               onValueChanged: cubit.disabledElevationChanged,
             ),
             MaterialStateItem(

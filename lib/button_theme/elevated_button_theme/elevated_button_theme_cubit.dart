@@ -116,8 +116,7 @@ class ElevatedButtonThemeCubit extends AbstractButtonStyleCubit {
     return WidgetStateProperty.resolveWith(
       (states) {
         if (states.contains(WidgetState.disabled)) {
-          return disabledElevation ??
-              elevation.resolve({WidgetState.disabled});
+          return disabledElevation ?? elevation.resolve({WidgetState.disabled});
         }
         if (states.contains(WidgetState.hovered)) {
           return hoveredElevation ?? elevation.resolve({WidgetState.hovered});

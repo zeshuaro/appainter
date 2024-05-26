@@ -89,8 +89,7 @@ class _TrackColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('switchThemeEditor_trackColor_disabled'),
           title: 'Disabled',
-          value:
-              trackColor?.resolve({WidgetState.disabled}) ?? Colors.black12,
+          value: trackColor?.resolve({WidgetState.disabled}) ?? Colors.black12,
           onValueChanged: cubit.trackDisabledColorChanged,
         ),
       ],

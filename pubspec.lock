@@ -678,10 +678,10 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: d2a8b74b041ade9cb29a48fa0db72aadd6d41064a338f57a69a70b9e62376e68
+      sha256: "5e70afe87fbe8519abaa4e4131a1405b567353e1b9074d97a62043e5fced018e"
       url: "https://pub.dev"
     source: hosted
-    version: "6.4.1"
+    version: "6.5.0+1"
   json_theme_annotation:
     dependency: transitive
     description:

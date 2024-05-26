@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
 
       - name: Setup Dart 💻
         uses: dart-lang/setup-dart@v1.4
@@ -43,7 +43,7 @@ jobs:
           dart run coverage:format_coverage --report-on=lib --lcov -o ./coverage/lcov.info -i ./coverage/
 
       - name: Upload coverage report 📡
-        uses: codecov/codecov-action@v4.3.1
+        uses: codecov/codecov-action@v4.4.1
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
@@ -56,7 +56,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4
+        uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
 
       - name: Setup Dart 💻
         uses: dart-lang/setup-dart@v1.4

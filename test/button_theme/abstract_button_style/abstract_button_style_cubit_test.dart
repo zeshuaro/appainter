@@ -59,7 +59,7 @@ void main() {
     verify: (cubit) {
       final props = {
         null: color,
-        MaterialState.disabled: colorScheme.onSurface.withOpacity(0.38),
+        WidgetState.disabled: colorScheme.onSurface.withOpacity(0.38),
       };
 
       verifyMaterialPropertyByMap(
@@ -76,7 +76,7 @@ void main() {
     verify: (cubit) {
       final props = {
         null: colorScheme.onPrimary,
-        MaterialState.disabled: color,
+        WidgetState.disabled: color,
       };
 
       verifyMaterialPropertyByMap(
@@ -92,9 +92,9 @@ void main() {
     act: (cubit) => cubit.overlayHoveredColorChanged(color),
     verify: (cubit) {
       final props = {
-        MaterialState.hovered: color,
-        MaterialState.focused: colorScheme.onPrimary.withOpacity(0.24),
-        MaterialState.pressed: colorScheme.onPrimary.withOpacity(0.24),
+        WidgetState.hovered: color,
+        WidgetState.focused: colorScheme.onPrimary.withOpacity(0.1),
+        WidgetState.pressed: colorScheme.onPrimary.withOpacity(0.1),
       };
 
       verifyMaterialPropertyByMap(
@@ -110,9 +110,9 @@ void main() {
     act: (cubit) => cubit.overlayFocusedColorChanged(color),
     verify: (cubit) {
       final props = {
-        MaterialState.hovered: colorScheme.onPrimary.withOpacity(0.08),
-        MaterialState.focused: color,
-        MaterialState.pressed: colorScheme.onPrimary.withOpacity(0.24),
+        WidgetState.hovered: colorScheme.onPrimary.withOpacity(0.08),
+        WidgetState.focused: color,
+        WidgetState.pressed: colorScheme.onPrimary.withOpacity(0.1),
       };
 
       verifyMaterialPropertyByMap(
@@ -128,9 +128,9 @@ void main() {
     act: (cubit) => cubit.overlayPressedColorChanged(color),
     verify: (cubit) {
       final props = {
-        MaterialState.hovered: colorScheme.onPrimary.withOpacity(0.08),
-        MaterialState.focused: colorScheme.onPrimary.withOpacity(0.24),
-        MaterialState.pressed: color,
+        WidgetState.hovered: colorScheme.onPrimary.withOpacity(0.08),
+        WidgetState.focused: colorScheme.onPrimary.withOpacity(0.1),
+        WidgetState.pressed: color,
       };
 
       verifyMaterialPropertyByMap(

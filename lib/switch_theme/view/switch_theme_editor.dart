@@ -47,13 +47,13 @@ class _ThumbColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('switchThemeEditor_thumbColor_selected'),
           title: 'Selected',
-          value: thumbColor?.resolve({MaterialState.selected}) ?? primaryColor,
+          value: thumbColor?.resolve({WidgetState.selected}) ?? primaryColor,
           onValueChanged: cubit.thumbSelectedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('switchThemeEditor_thumbColor_disabled'),
           title: 'Disabled',
-          value: thumbColor?.resolve({MaterialState.disabled}) ??
+          value: thumbColor?.resolve({WidgetState.disabled}) ??
               Colors.grey.shade400,
           onValueChanged: cubit.thumbDisabledColorChanged,
         ),
@@ -82,7 +82,7 @@ class _TrackColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('switchThemeEditor_trackColor_selected'),
           title: 'Selected',
-          value: trackColor?.resolve({MaterialState.selected}) ??
+          value: trackColor?.resolve({WidgetState.selected}) ??
               primaryColor.withAlpha(0x80),
           onValueChanged: cubit.trackSelectedColorChanged,
         ),
@@ -90,7 +90,7 @@ class _TrackColorPickers extends StatelessWidget {
           key: const Key('switchThemeEditor_trackColor_disabled'),
           title: 'Disabled',
           value:
-              trackColor?.resolve({MaterialState.disabled}) ?? Colors.black12,
+              trackColor?.resolve({WidgetState.disabled}) ?? Colors.black12,
           onValueChanged: cubit.trackDisabledColorChanged,
         ),
       ],
@@ -113,21 +113,21 @@ class _OverlayColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('switchThemeEditor_overlayColor_pressed'),
           title: 'Pressed',
-          value: overlayColor?.resolve({MaterialState.pressed}) ??
+          value: overlayColor?.resolve({WidgetState.pressed}) ??
               colorThemeState.primaryColor.withAlpha(kRadialReactionAlpha),
           onValueChanged: cubit.overlayPressedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('switchThemeEditor_overlayColor_hovered'),
           title: 'Hovered',
-          value: overlayColor?.resolve({MaterialState.hovered}) ??
+          value: overlayColor?.resolve({WidgetState.hovered}) ??
               colorThemeState.hoverColor,
           onValueChanged: cubit.overlayHoveredColorChanged,
         ),
         MaterialStateItem(
           key: const Key('switchThemeEditor_overlayColor_focused'),
           title: 'Focused',
-          value: overlayColor?.resolve({MaterialState.focused}) ??
+          value: overlayColor?.resolve({WidgetState.focused}) ??
               colorThemeState.focusColor,
           onValueChanged: cubit.overlayFocusedColorChanged,
         ),

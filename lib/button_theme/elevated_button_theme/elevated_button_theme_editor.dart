@@ -58,7 +58,7 @@ class ElevatedButtonThemeEditor
         MaterialStateItem(
           key: const Key('elevatedButtonThemeEditor_backgroundColor_disabled'),
           title: 'Disabled',
-          value: color?.resolve({MaterialState.disabled}) ??
+          value: color?.resolve({WidgetState.disabled}) ??
               colorScheme.onSurface.withOpacity(0.12),
           onValueChanged: cubit.backgroundDisabledColorChanged,
         ),
@@ -90,7 +90,7 @@ class ElevatedButtonThemeEditor
                 'elevatedButtonThemeEditor_elevationTextField_disabled',
               ),
               title: 'Disabled',
-              value: (elevation?.resolve({MaterialState.disabled}) ?? 0)
+              value: (elevation?.resolve({WidgetState.disabled}) ?? 0)
                   .toString(),
               onValueChanged: cubit.disabledElevationChanged,
             ),
@@ -99,7 +99,7 @@ class ElevatedButtonThemeEditor
                 'elevatedButtonThemeEditor_elevationTextField_hovered',
               ),
               title: 'Hovered',
-              value: (elevation?.resolve({MaterialState.hovered}) ??
+              value: (elevation?.resolve({WidgetState.hovered}) ??
                       _baseElevation + 2)
                   .toString(),
               onValueChanged: cubit.hoveredElevationChanged,
@@ -109,7 +109,7 @@ class ElevatedButtonThemeEditor
                 'elevatedButtonThemeEditor_elevationTextField_focused',
               ),
               title: 'Focused',
-              value: (elevation?.resolve({MaterialState.focused}) ??
+              value: (elevation?.resolve({WidgetState.focused}) ??
                       _baseElevation + 2)
                   .toString(),
               onValueChanged: cubit.focusedElevationChanged,
@@ -119,7 +119,7 @@ class ElevatedButtonThemeEditor
                 'elevatedButtonThemeEditor_elevationTextField_pressed',
               ),
               title: 'Pressed',
-              value: (elevation?.resolve({MaterialState.pressed}) ??
+              value: (elevation?.resolve({WidgetState.pressed}) ??
                       _baseElevation + 6)
                   .toString(),
               onValueChanged: cubit.pressedElevationChanged,

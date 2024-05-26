@@ -42,12 +42,12 @@ const kTextBtnOverlayOpacity = 0.12;
 const kTextButtonElevation = 0.0;
 
 const kInteractiveStates = {
-  MaterialState.pressed,
-  MaterialState.hovered,
-  MaterialState.focused,
+  WidgetState.pressed,
+  WidgetState.hovered,
+  WidgetState.focused,
 };
-const kFocusState = {MaterialState.focused};
-const kSelectedState = {MaterialState.selected};
+const kFocusState = {WidgetState.focused};
+const kSelectedState = {WidgetState.selected};
 
 const kNone = 'None';
 

@@ -1,4 +1,5 @@
 import 'package:appainter/advanced_theme/advanced_theme.dart';
+import 'package:appainter/basic_theme/basic_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/widgets/widgets.dart';
@@ -137,18 +138,16 @@ class _BackgroundColorPicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ColorThemeCubit, ColorThemeState>(
-      key: const Key('colorThemeEditor_backgroundColorPicker'),
+      key: const Key('colorThemeEditor_surfaceColorPicker'),
       buildWhen: (previous, current) {
-        return previous.colorScheme.background !=
-            current.colorScheme.background;
+        return previous.colorScheme.surface != current.colorScheme.surface;
       },
       builder: (context, state) {
         return ColorListTile(
-          title: 'Background color',
-          tooltip: ColorThemeDocs.backgroundColor,
-          color: state.colorScheme.background,
-          onColorChanged:
-              context.read<ColorThemeCubit>().backgroundColorChanged,
+          title: 'Surface color',
+          tooltip: BasicThemeDocs.surface,
+          color: state.colorScheme.surface,
+          onColorChanged: context.read<ColorThemeCubit>().surfaceColorChanged,
         );
       },
     );
@@ -267,7 +266,7 @@ class _ErrorColorPicker extends StatelessWidget {
       builder: (context, state) {
         return ColorListTile(
           title: 'Error color',
-          tooltip: ColorThemeDocs.errorColor,
+          tooltip: BasicThemeDocs.error,
           color: state.colorScheme.error,
           onColorChanged: context.read<ColorThemeCubit>().errorColorChanged,
         );

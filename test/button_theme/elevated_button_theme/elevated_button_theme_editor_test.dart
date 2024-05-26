@@ -123,7 +123,7 @@ Future<void> main() async {
       const key = 'elevatedButtonThemeEditor_backgroundColor_disabled';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.disabled: color});
+        final prop = getMaterialStateProperty({WidgetState.disabled: color});
         final state = ButtonStyleState.withStyle(backgroundColor: prop);
 
         await pumpApp(tester, state);
@@ -171,7 +171,7 @@ Future<void> main() async {
 
       testWidgets('render widget', (tester) async {
         final prop = getMaterialStateProperty({
-          MaterialState.disabled: doubleNum,
+          WidgetState.disabled: doubleNum,
         });
         final state = ButtonStyleState.withStyle(elevation: prop);
 
@@ -195,7 +195,7 @@ Future<void> main() async {
 
       testWidgets('render widget', (tester) async {
         final prop = getMaterialStateProperty({
-          MaterialState.hovered: doubleNum,
+          WidgetState.hovered: doubleNum,
         });
         final state = ButtonStyleState.withStyle(elevation: prop);
 
@@ -219,7 +219,7 @@ Future<void> main() async {
 
       testWidgets('render widget', (tester) async {
         final prop = getMaterialStateProperty({
-          MaterialState.focused: doubleNum,
+          WidgetState.focused: doubleNum,
         });
         final state = ButtonStyleState.withStyle(elevation: prop);
 
@@ -243,7 +243,7 @@ Future<void> main() async {
 
       testWidgets('render widget', (tester) async {
         final prop = getMaterialStateProperty({
-          MaterialState.pressed: doubleNum,
+          WidgetState.pressed: doubleNum,
         });
         final state = ButtonStyleState.withStyle(elevation: prop);
 

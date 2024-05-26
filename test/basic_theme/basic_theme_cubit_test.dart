@@ -301,23 +301,6 @@ void main() {
   );
 
   blocTest<BasicThemeCubit, BasicThemeState>(
-    'emit background color',
-    setUp: () => when(() => service.getOnNeutralColor(color)).thenReturn(color),
-    build: () => cubit,
-    act: (cubit) => cubit.backgroundColorChanged(color),
-    expect: () => [
-      BasicThemeState.withColorScheme(background: color, onBackground: color),
-    ],
-  );
-
-  blocTest<BasicThemeCubit, BasicThemeState>(
-    'emit on background color',
-    build: () => cubit,
-    act: (cubit) => cubit.onBackgroundColorChanged(color),
-    expect: () => [BasicThemeState.withColorScheme(onBackground: color)],
-  );
-
-  blocTest<BasicThemeCubit, BasicThemeState>(
     'emit surface color',
     setUp: () => when(() => service.getOnNeutralColor(color)).thenReturn(color),
     build: () => cubit,
@@ -340,10 +323,10 @@ void main() {
       color,
     ),
     build: () => cubit,
-    act: (cubit) => cubit.surfaceVariantColorChanged(color),
+    act: (cubit) => cubit.surfaceContainerHighestColorChanged(color),
     expect: () => [
       BasicThemeState.withColorScheme(
-        surfaceVariant: color,
+        surfaceContainerHighest: color,
         onSurfaceVariant: color,
       ),
     ],

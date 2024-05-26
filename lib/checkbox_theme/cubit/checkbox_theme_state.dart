@@ -6,9 +6,9 @@ class CheckboxThemeState extends Equatable {
   const CheckboxThemeState({this.theme = const CheckboxThemeData()});
 
   factory CheckboxThemeState.withTheme({
-    MaterialStateProperty<Color?>? fillColor,
-    MaterialStateProperty<Color?>? checkColor,
-    MaterialStateProperty<Color?>? overlayColor,
+    WidgetStateProperty<Color?>? fillColor,
+    WidgetStateProperty<Color?>? checkColor,
+    WidgetStateProperty<Color?>? overlayColor,
     double? splashRadius,
     MaterialTapTargetSize? materialTapTargetSize,
   }) {

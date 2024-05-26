@@ -90,7 +90,7 @@ Future<void> main() async {
       const key = 'abstractButtonStyleEditor_foregroundColor_disabled';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.disabled: color});
+        final prop = getMaterialStateProperty({WidgetState.disabled: color});
         final state = ButtonStyleState.withStyle(foregroundColor: prop);
 
         await pumpApp(tester, state);
@@ -114,7 +114,7 @@ Future<void> main() async {
       const key = 'abstractButtonStyleEditor_overlayColor_hovered';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.hovered: color});
+        final prop = getMaterialStateProperty({WidgetState.hovered: color});
         final state = ButtonStyleState.withStyle(overlayColor: prop);
 
         await pumpApp(tester, state);
@@ -136,7 +136,7 @@ Future<void> main() async {
       const key = 'abstractButtonStyleEditor_overlayColor_focused';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.focused: color});
+        final prop = getMaterialStateProperty({WidgetState.focused: color});
         final state = ButtonStyleState.withStyle(overlayColor: prop);
 
         await pumpApp(tester, state);
@@ -158,7 +158,7 @@ Future<void> main() async {
       const key = 'abstractButtonStyleEditor_overlayColor_pressed';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.pressed: color});
+        final prop = getMaterialStateProperty({WidgetState.pressed: color});
         final state = ButtonStyleState.withStyle(overlayColor: prop);
 
         await pumpApp(tester, state);

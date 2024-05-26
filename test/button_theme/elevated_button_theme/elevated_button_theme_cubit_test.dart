@@ -71,7 +71,7 @@ void main() {
       verify: (cubit) {
         final props = {
           null: color,
-          MaterialState.disabled: colorScheme.onSurface.withOpacity(0.12),
+          WidgetState.disabled: colorScheme.onSurface.withOpacity(0.12),
         };
 
         verifyMaterialPropertyByMap(
@@ -88,7 +88,7 @@ void main() {
       verify: (cubit) {
         final props = {
           null: colorScheme.primary,
-          MaterialState.disabled: color,
+          WidgetState.disabled: color,
         };
 
         verifyMaterialPropertyByMap(
@@ -107,10 +107,10 @@ void main() {
       verify: (cubit) {
         final props = {
           null: doubleNum,
-          MaterialState.disabled: 0,
-          MaterialState.hovered: defaultElevation + 2,
-          MaterialState.focused: defaultElevation + 2,
-          MaterialState.pressed: defaultElevation + 6,
+          WidgetState.disabled: 0,
+          WidgetState.hovered: defaultElevation + 2,
+          WidgetState.focused: defaultElevation + 2,
+          WidgetState.pressed: defaultElevation + 6,
         };
 
         verifyMaterialPropertyByMap(
@@ -127,10 +127,10 @@ void main() {
       verify: (cubit) {
         final props = {
           null: defaultElevation,
-          MaterialState.disabled: doubleNum,
-          MaterialState.hovered: defaultElevation + 2,
-          MaterialState.focused: defaultElevation + 2,
-          MaterialState.pressed: defaultElevation + 6,
+          WidgetState.disabled: doubleNum,
+          WidgetState.hovered: defaultElevation + 2,
+          WidgetState.focused: defaultElevation + 2,
+          WidgetState.pressed: defaultElevation + 6,
         };
 
         verifyMaterialPropertyByMap(
@@ -147,10 +147,10 @@ void main() {
       verify: (cubit) {
         final props = {
           null: defaultElevation,
-          MaterialState.disabled: 0,
-          MaterialState.hovered: doubleNum,
-          MaterialState.focused: defaultElevation + 2,
-          MaterialState.pressed: defaultElevation + 6,
+          WidgetState.disabled: 0,
+          WidgetState.hovered: doubleNum,
+          WidgetState.focused: defaultElevation + 2,
+          WidgetState.pressed: defaultElevation + 6,
         };
 
         verifyMaterialPropertyByMap(
@@ -167,10 +167,10 @@ void main() {
       verify: (cubit) {
         final props = {
           null: defaultElevation,
-          MaterialState.disabled: 0,
-          MaterialState.hovered: defaultElevation + 2,
-          MaterialState.focused: doubleNum,
-          MaterialState.pressed: defaultElevation + 6,
+          WidgetState.disabled: 0,
+          WidgetState.hovered: defaultElevation + 2,
+          WidgetState.focused: doubleNum,
+          WidgetState.pressed: defaultElevation + 6,
         };
 
         verifyMaterialPropertyByMap(
@@ -189,10 +189,10 @@ void main() {
       verify: (cubit) {
         final props = {
           null: defaultElevation,
-          MaterialState.disabled: 0,
-          MaterialState.hovered: defaultElevation + 2,
-          MaterialState.focused: defaultElevation + 2,
-          MaterialState.pressed: doubleNum,
+          WidgetState.disabled: 0,
+          WidgetState.hovered: defaultElevation + 2,
+          WidgetState.focused: defaultElevation + 2,
+          WidgetState.pressed: doubleNum,
         };
 
         verifyMaterialPropertyByMap(

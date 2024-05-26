@@ -279,14 +279,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-  device_preview:
+  device_preview_plus:
     dependency: "direct main"
     description:
-      name: device_preview
-      sha256: "2f097bf31b929e15e6756dbe0ec1bcb63952ab9ed51c25dc5a2c722d2b21fdaf"
+      name: device_preview_plus
+      sha256: "371df40c906f9d88e206ce83bc1cac045899d2df1464c7bb4a6e8e73dbbe7855"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   diff_match_patch:
     dependency: transitive
     description:

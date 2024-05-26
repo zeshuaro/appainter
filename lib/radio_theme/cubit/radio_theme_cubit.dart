@@ -94,31 +94,31 @@ class RadioThemeCubit extends Cubit<RadioThemeState> {
     emit(state.copyWith(theme: theme));
   }
 
-  MaterialStateProperty<Color> get _defaultFillColor {
+  WidgetStateProperty<Color> get _defaultFillColor {
     final colorThemeState = colorThemeCubit.state;
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
+    return WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
         return colorThemeState.disabledColor;
       }
-      if (states.contains(MaterialState.selected)) {
+      if (states.contains(WidgetState.selected)) {
         return colorThemeState.primaryColor;
       }
       return colorThemeState.unselectedWidgetColor;
     });
   }
 
-  MaterialStateProperty<Color?> get _defaultOverlayColor {
+  WidgetStateProperty<Color?> get _defaultOverlayColor {
     final colorThemeState = colorThemeCubit.state;
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.pressed)) {
+    return WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.pressed)) {
         return colorThemeState.primaryColor.withAlpha(
           kRadialReactionAlpha,
         );
       }
-      if (states.contains(MaterialState.hovered)) {
+      if (states.contains(WidgetState.hovered)) {
         return colorThemeState.hoverColor;
       }
-      if (states.contains(MaterialState.focused)) {
+      if (states.contains(WidgetState.focused)) {
         return colorThemeState.focusColor;
       }
       return null;

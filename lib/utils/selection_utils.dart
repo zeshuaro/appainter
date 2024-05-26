@@ -3,38 +3,38 @@ import 'package:flutter/material.dart';
 class SelectionUtils {
   const SelectionUtils();
 
-  MaterialStateProperty<Color?> getBasicColor(
-    MaterialStateProperty<Color?> color, {
+  WidgetStateProperty<Color?> getBasicColor(
+    WidgetStateProperty<Color?> color, {
     Color? defaultColor,
     Color? selectedColor,
     Color? disabledColor,
   }) {
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.selected)) {
-        return selectedColor ?? color.resolve({MaterialState.selected});
+    return WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.selected)) {
+        return selectedColor ?? color.resolve({WidgetState.selected});
       }
-      if (states.contains(MaterialState.disabled)) {
-        return disabledColor ?? color.resolve({MaterialState.disabled});
+      if (states.contains(WidgetState.disabled)) {
+        return disabledColor ?? color.resolve({WidgetState.disabled});
       }
       return defaultColor ?? color.resolve({});
     });
   }
 
-  MaterialStateProperty<Color?> getOverlayColor(
-    MaterialStateProperty<Color?> color, {
+  WidgetStateProperty<Color?> getOverlayColor(
+    WidgetStateProperty<Color?> color, {
     Color? pressedColor,
     Color? hoveredColor,
     Color? focusedColor,
   }) {
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.pressed)) {
-        return pressedColor ?? color.resolve({MaterialState.pressed});
+    return WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.pressed)) {
+        return pressedColor ?? color.resolve({WidgetState.pressed});
       }
-      if (states.contains(MaterialState.hovered)) {
-        return hoveredColor ?? color.resolve({MaterialState.hovered});
+      if (states.contains(WidgetState.hovered)) {
+        return hoveredColor ?? color.resolve({WidgetState.hovered});
       }
-      if (states.contains(MaterialState.focused)) {
-        return focusedColor ?? color.resolve({MaterialState.focused});
+      if (states.contains(WidgetState.focused)) {
+        return focusedColor ?? color.resolve({WidgetState.focused});
       }
       return null;
     });

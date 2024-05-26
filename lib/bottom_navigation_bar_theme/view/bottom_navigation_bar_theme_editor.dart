@@ -78,7 +78,7 @@ class _BackgroundColorPicker extends StatelessWidget {
         .theme
         .backgroundColor;
     final themeBackgroundColor =
-        context.watch<ColorThemeCubit>().state.colorScheme.background;
+        context.watch<ColorThemeCubit>().state.colorScheme.surface;
 
     return ColorListTile(
       key: const Key('bottomNavigationBarThemeEditor_backgroundColorPicker'),

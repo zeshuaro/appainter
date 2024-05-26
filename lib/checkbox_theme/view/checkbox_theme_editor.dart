@@ -48,14 +48,14 @@ class _FillColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('checkboxThemeEditor_fillColor_selected'),
           title: 'Selected',
-          value: fillColor?.resolve({MaterialState.selected}) ??
+          value: fillColor?.resolve({WidgetState.selected}) ??
               colorThemeState.colorScheme.secondary,
           onValueChanged: cubit.fillSelectedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('checkboxThemeEditor_fillColor_disabled'),
           title: 'Disabled',
-          value: fillColor?.resolve({MaterialState.disabled}) ??
+          value: fillColor?.resolve({WidgetState.disabled}) ??
               colorThemeState.disabledColor,
           onValueChanged: cubit.fillDisabledColorChanged,
         ),
@@ -103,7 +103,7 @@ class _OverlayColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('checkboxThemeEditor_overlayColor_pressed'),
           title: 'Pressed',
-          value: overlayColor?.resolve({MaterialState.pressed}) ??
+          value: overlayColor?.resolve({WidgetState.pressed}) ??
               colorThemeState.colorScheme.secondary.withAlpha(
                 kRadialReactionAlpha,
               ),
@@ -112,14 +112,14 @@ class _OverlayColorPickers extends StatelessWidget {
         MaterialStateItem(
           key: const Key('checkboxThemeEditor_overlayColor_hovered'),
           title: 'Hovered',
-          value: overlayColor?.resolve({MaterialState.hovered}) ??
+          value: overlayColor?.resolve({WidgetState.hovered}) ??
               colorThemeState.hoverColor,
           onValueChanged: cubit.overlayHoveredColorChanged,
         ),
         MaterialStateItem(
           key: const Key('checkboxThemeEditor_overlayColor_focused'),
           title: 'Focused',
-          value: overlayColor?.resolve({MaterialState.focused}) ??
+          value: overlayColor?.resolve({WidgetState.focused}) ??
               colorThemeState.focusColor,
           onValueChanged: cubit.overlayFocusedColorChanged,
         ),

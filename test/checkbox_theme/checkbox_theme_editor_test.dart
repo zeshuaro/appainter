@@ -98,7 +98,7 @@ void main() {
       const key = 'checkboxThemeEditor_fillColor_selected';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.selected: color});
+        final prop = getMaterialStateProperty({WidgetState.selected: color});
         final state = CheckboxThemeState.withTheme(fillColor: prop);
 
         await pumpApp(tester, state);
@@ -120,7 +120,7 @@ void main() {
       const key = 'checkboxThemeEditor_fillColor_disabled';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.disabled: color});
+        final prop = getMaterialStateProperty({WidgetState.disabled: color});
         final state = CheckboxThemeState.withTheme(fillColor: prop);
 
         await pumpApp(tester, state);
@@ -167,7 +167,7 @@ void main() {
       const key = 'checkboxThemeEditor_overlayColor_pressed';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.pressed: color});
+        final prop = getMaterialStateProperty({WidgetState.pressed: color});
         final state = CheckboxThemeState.withTheme(overlayColor: prop);
 
         await pumpApp(tester, state);
@@ -190,7 +190,7 @@ void main() {
       const key = 'checkboxThemeEditor_overlayColor_hovered';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.hovered: color});
+        final prop = getMaterialStateProperty({WidgetState.hovered: color});
         final state = CheckboxThemeState.withTheme(overlayColor: prop);
 
         await pumpApp(tester, state);
@@ -213,7 +213,7 @@ void main() {
       const key = 'checkboxThemeEditor_overlayColor_focused';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.focused: color});
+        final prop = getMaterialStateProperty({WidgetState.focused: color});
         final state = CheckboxThemeState.withTheme(overlayColor: prop);
 
         await pumpApp(tester, state);

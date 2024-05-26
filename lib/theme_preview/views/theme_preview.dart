@@ -15,7 +15,7 @@ import 'package:appainter/switch_theme/switch_theme.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/text_theme/text_theme.dart';
 import 'package:appainter/theme_preview/theme_preview.dart';
-import 'package:device_preview/device_preview.dart';
+import 'package:device_preview_plus/device_preview_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -164,8 +164,6 @@ class ThemePreview extends StatelessWidget {
               title: 'Appainter',
               theme: theme,
               locale: DevicePreview.locale(context),
-              // ignore: deprecated_member_use
-              useInheritedMediaQuery: true,
               home: DefaultTabController(
                 length: _pages.length,
                 child: Scaffold(

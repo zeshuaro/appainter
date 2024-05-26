@@ -52,7 +52,7 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
           onPrimary: onColor,
           secondary: color,
           onSecondary: onColor,
-          background: swatch[200],
+          surface: swatch[200],
         ),
         primaryColor: color,
         primaryColorLight: swatch[100],
@@ -83,10 +83,10 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
     );
   }
 
-  void backgroundColorChanged(Color color) {
+  void surfaceColorChanged(Color color) {
     emit(
       state.copyWith(
-        colorScheme: state.colorScheme.copyWith(background: color),
+        colorScheme: state.colorScheme.copyWith(surface: color),
       ),
     );
   }

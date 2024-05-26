@@ -99,7 +99,7 @@ abstract class AbstractButtonStyleEditor<T extends AbstractButtonStyleCubit>
         MaterialStateItem(
           key: const Key('abstractButtonStyleEditor_foregroundColor_disabled'),
           title: 'Disabled',
-          value: color?.resolve({MaterialState.disabled}) ??
+          value: color?.resolve({WidgetState.disabled}) ??
               fallbackForegroundDisabledColor(colorScheme),
           onValueChanged: cubit.foregroundDisabledColorChanged,
         ),
@@ -119,21 +119,21 @@ abstract class AbstractButtonStyleEditor<T extends AbstractButtonStyleCubit>
         MaterialStateItem(
           key: const Key('abstractButtonStyleEditor_overlayColor_hovered'),
           title: 'Hovered',
-          value: color?.resolve({MaterialState.hovered}) ??
+          value: color?.resolve({WidgetState.hovered}) ??
               fallbackOverlayHoveredColor(colorScheme),
           onValueChanged: cubit.overlayHoveredColorChanged,
         ),
         MaterialStateItem(
           key: const Key('abstractButtonStyleEditor_overlayColor_focused'),
           title: 'Focused',
-          value: color?.resolve({MaterialState.focused}) ??
+          value: color?.resolve({WidgetState.focused}) ??
               fallbackOverlayFocusedColor(colorScheme),
           onValueChanged: cubit.overlayFocusedColorChanged,
         ),
         MaterialStateItem(
           key: const Key('abstractButtonStyleEditor_overlayColor_pressed'),
           title: 'Pressed',
-          value: color?.resolve({MaterialState.pressed}) ??
+          value: color?.resolve({WidgetState.pressed}) ??
               fallbackOverlayPressedColor(colorScheme),
           onValueChanged: cubit.overlayPressedColorChanged,
         ),

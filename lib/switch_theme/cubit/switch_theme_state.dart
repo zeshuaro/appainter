@@ -8,9 +8,9 @@ class SwitchThemeState extends Equatable {
   const SwitchThemeState({this.theme = const SwitchThemeData()});
 
   factory SwitchThemeState.withTheme({
-    MaterialStateProperty<Color?>? thumbColor,
-    MaterialStateProperty<Color?>? trackColor,
-    MaterialStateProperty<Color?>? overlayColor,
+    WidgetStateProperty<Color?>? thumbColor,
+    WidgetStateProperty<Color?>? trackColor,
+    WidgetStateProperty<Color?>? overlayColor,
     double? splashRadius,
     MaterialTapTargetSize? materialTapTargetSize,
   }) {

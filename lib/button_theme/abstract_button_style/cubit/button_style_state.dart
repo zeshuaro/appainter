@@ -6,12 +6,12 @@ class ButtonStyleState extends Equatable {
   const ButtonStyleState({this.style});
 
   factory ButtonStyleState.withStyle({
-    MaterialStateProperty<Color?>? backgroundColor,
-    MaterialStateProperty<Color?>? foregroundColor,
-    MaterialStateProperty<Color?>? overlayColor,
-    MaterialStateProperty<Color?>? shadowColor,
-    MaterialStateProperty<double?>? elevation,
-    MaterialStateProperty<OutlinedBorder?>? shape,
+    WidgetStateProperty<Color?>? backgroundColor,
+    WidgetStateProperty<Color?>? foregroundColor,
+    WidgetStateProperty<Color?>? overlayColor,
+    WidgetStateProperty<Color?>? shadowColor,
+    WidgetStateProperty<double?>? elevation,
+    WidgetStateProperty<OutlinedBorder?>? shape,
   }) {
     return ButtonStyleState(
       style: ButtonStyle(

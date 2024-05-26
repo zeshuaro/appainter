@@ -73,7 +73,7 @@ void main() {
                 onPrimary: onColor,
                 secondary: color,
                 onSecondary: onColor,
-                background: swatch[200],
+                surface: swatch[200],
               ),
               primaryColor: color,
               primaryColorLight: swatch[100],
@@ -125,13 +125,13 @@ void main() {
   );
 
   blocTest<ColorThemeCubit, ColorThemeState>(
-    'should emit background color',
+    'emit surface color',
     build: () => colorThemeCubit,
-    act: (cubit) => cubit.backgroundColorChanged(color),
+    act: (cubit) => cubit.surfaceColorChanged(color),
     expect: () => [
       ColorThemeState(
         colorScheme: colorThemeCubit.state.colorScheme.copyWith(
-          background: color,
+          surface: color,
         ),
       ),
     ],

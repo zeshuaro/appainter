@@ -228,20 +228,6 @@ class _NeutralColorPickers extends StatelessWidget {
       header: 'Neutral colors',
       items: [
         MaterialStateItem(
-          key: const Key('basicThemeEditor_backgroundColorPicker'),
-          title: 'Background',
-          tooltip: BasicThemeDocs.background,
-          value: colorScheme.background,
-          onValueChanged: cubit.backgroundColorChanged,
-        ),
-        MaterialStateItem(
-          key: const Key('basicThemeEditor_onBackgroundColorPicker'),
-          title: 'On background',
-          tooltip: BasicThemeDocs.onBackground,
-          value: colorScheme.onBackground,
-          onValueChanged: cubit.onBackgroundColorChanged,
-        ),
-        MaterialStateItem(
           key: const Key('basicThemeEditor_surfaceColorPicker'),
           title: 'Surface',
           tooltip: BasicThemeDocs.surface,
@@ -270,11 +256,11 @@ class _NeutralVariantColorPickers extends StatelessWidget {
       header: 'Neutral variant colors',
       items: [
         MaterialStateItem(
-          key: const Key('basicThemeEditor_surfaceVariantColorPicker'),
-          title: 'Surface variant',
-          tooltip: BasicThemeDocs.surfaceVariant,
-          value: colorScheme.surfaceVariant,
-          onValueChanged: cubit.surfaceVariantColorChanged,
+          key: const Key('basicThemeEditor_surfaceContainerHighestColorPicker'),
+          title: 'Surface container highest',
+          tooltip: BasicThemeDocs.surfaceContainerHighest,
+          value: colorScheme.surfaceContainerHighest,
+          onValueChanged: cubit.surfaceContainerHighestColorChanged,
         ),
         MaterialStateItem(
           key: const Key('basicThemeEditor_onSurfaceVariantColorPicker'),

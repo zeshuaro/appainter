@@ -1243,10 +1243,10 @@ packages:
     dependency: transitive
     description:
       name: textwrap
-      sha256: "342fb85c503a27c68e0dd21f7be35360acf3231f929e0dcb23cc8593d2919c36"
+      sha256: "780b164d83dfed30b475b1310d288145c5e0109193c3c507cf015d38e4adc844"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "2.0.0"
   timing:
     dependency: transitive
     description:

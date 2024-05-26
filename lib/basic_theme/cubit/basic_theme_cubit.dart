@@ -167,19 +167,6 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  void backgroundColorChanged(Color color) {
-    final colorScheme = state.colorScheme.copyWith(
-      background: color,
-      onBackground: _service.getOnNeutralColor(color),
-    );
-    emit(state.copyWith(colorScheme: colorScheme));
-  }
-
-  void onBackgroundColorChanged(Color color) {
-    final colorScheme = state.colorScheme.copyWith(onBackground: color);
-    emit(state.copyWith(colorScheme: colorScheme));
-  }
-
   void surfaceColorChanged(Color color) {
     final colorScheme = state.colorScheme.copyWith(
       surface: color,
@@ -193,9 +180,9 @@ class BasicThemeCubit extends Cubit<BasicThemeState> {
     emit(state.copyWith(colorScheme: colorScheme));
   }
 
-  void surfaceVariantColorChanged(Color color) {
+  void surfaceContainerHighestColorChanged(Color color) {
     final colorScheme = state.colorScheme.copyWith(
-      surfaceVariant: color,
+      surfaceContainerHighest: color,
       onSurfaceVariant: _service.getOnSurfaceVariantColor(color),
     );
     emit(state.copyWith(colorScheme: colorScheme));

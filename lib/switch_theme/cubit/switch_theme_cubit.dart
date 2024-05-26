@@ -123,44 +123,44 @@ class SwitchThemeCubit extends Cubit<SwitchThemeState> {
     emit(state.copyWith(theme: theme));
   }
 
-  MaterialStateProperty<Color> get _defaultThumbColor {
+  WidgetStateProperty<Color> get _defaultThumbColor {
     final colorThemeState = colorThemeCubit.state;
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
+    return WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
         return Colors.grey.shade400;
       }
-      if (states.contains(MaterialState.selected)) {
+      if (states.contains(WidgetState.selected)) {
         return colorThemeState.primaryColor;
       }
       return Colors.grey.shade50;
     });
   }
 
-  MaterialStateProperty<Color> get _defaultTrackColor {
+  WidgetStateProperty<Color> get _defaultTrackColor {
     final colorThemeState = colorThemeCubit.state;
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
+    return WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
         return Colors.black12;
       }
-      if (states.contains(MaterialState.selected)) {
+      if (states.contains(WidgetState.selected)) {
         return colorThemeState.primaryColor.withAlpha(0x80);
       }
       return const Color(0x52000000);
     });
   }
 
-  MaterialStateProperty<Color?> get _defaultOverlayColor {
+  WidgetStateProperty<Color?> get _defaultOverlayColor {
     final colorThemeState = colorThemeCubit.state;
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.pressed)) {
+    return WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.pressed)) {
         return colorThemeState.primaryColor.withAlpha(
           kRadialReactionAlpha,
         );
       }
-      if (states.contains(MaterialState.hovered)) {
+      if (states.contains(WidgetState.hovered)) {
         return colorThemeState.hoverColor;
       }
-      if (states.contains(MaterialState.focused)) {
+      if (states.contains(WidgetState.focused)) {
         return colorThemeState.focusColor;
       }
       return null;

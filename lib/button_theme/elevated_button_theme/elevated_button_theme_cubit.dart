@@ -105,28 +105,27 @@ class ElevatedButtonThemeCubit extends AbstractButtonStyleCubit {
     }
   }
 
-  MaterialStateProperty<double?> _getElevation(
-    MaterialStateProperty<double?> elevation, {
+  WidgetStateProperty<double?> _getElevation(
+    WidgetStateProperty<double?> elevation, {
     double? defaultElevation,
     double? disabledElevation,
     double? hoveredElevation,
     double? focusedElevation,
     double? pressedElevation,
   }) {
-    return MaterialStateProperty.resolveWith(
+    return WidgetStateProperty.resolveWith(
       (states) {
-        if (states.contains(MaterialState.disabled)) {
-          return disabledElevation ??
-              elevation.resolve({MaterialState.disabled});
+        if (states.contains(WidgetState.disabled)) {
+          return disabledElevation ?? elevation.resolve({WidgetState.disabled});
         }
-        if (states.contains(MaterialState.hovered)) {
-          return hoveredElevation ?? elevation.resolve({MaterialState.hovered});
+        if (states.contains(WidgetState.hovered)) {
+          return hoveredElevation ?? elevation.resolve({WidgetState.hovered});
         }
-        if (states.contains(MaterialState.focused)) {
-          return focusedElevation ?? elevation.resolve({MaterialState.focused});
+        if (states.contains(WidgetState.focused)) {
+          return focusedElevation ?? elevation.resolve({WidgetState.focused});
         }
-        if (states.contains(MaterialState.pressed)) {
-          return pressedElevation ?? elevation.resolve({MaterialState.pressed});
+        if (states.contains(WidgetState.pressed)) {
+          return pressedElevation ?? elevation.resolve({WidgetState.pressed});
         }
 
         return defaultElevation ?? elevation.resolve({});

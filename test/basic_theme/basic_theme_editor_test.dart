@@ -367,44 +367,6 @@ void main() {
     });
   });
 
-  group('background color picker', () {
-    const key = 'basicThemeEditor_backgroundColorPicker';
-
-    testWidgets('render widget', (tester) async {
-      final state = BasicThemeState.withColorScheme(background: color);
-      await pumpApp(tester, state);
-      await tester.expectColorIndicator(key, color);
-    });
-
-    testWidgets('change color', (tester) async {
-      await pumpApp(tester);
-      await tester.verifyColorPicker(
-        key,
-        color,
-        cubit.backgroundColorChanged,
-      );
-    });
-  });
-
-  group('on background color picker', () {
-    const key = 'basicThemeEditor_onBackgroundColorPicker';
-
-    testWidgets('render widget', (tester) async {
-      final state = BasicThemeState.withColorScheme(onBackground: color);
-      await pumpApp(tester, state);
-      await tester.expectColorIndicator(key, color);
-    });
-
-    testWidgets('change color', (tester) async {
-      await pumpApp(tester);
-      await tester.verifyColorPicker(
-        key,
-        color,
-        cubit.onBackgroundColorChanged,
-      );
-    });
-  });
-
   group('surface color picker', () {
     const key = 'basicThemeEditor_surfaceColorPicker';
 
@@ -443,11 +405,12 @@ void main() {
     });
   });
 
-  group('surface variant color picker', () {
-    const key = 'basicThemeEditor_surfaceVariantColorPicker';
+  group('surface container highest color picker', () {
+    const key = 'basicThemeEditor_surfaceContainerHighestColorPicker';
 
     testWidgets('render widget', (tester) async {
-      final state = BasicThemeState.withColorScheme(surfaceVariant: color);
+      final state =
+          BasicThemeState.withColorScheme(surfaceContainerHighest: color);
       await pumpApp(tester, state);
       await tester.expectColorIndicator(key, color);
     });
@@ -457,7 +420,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        cubit.surfaceVariantColorChanged,
+        cubit.surfaceContainerHighestColorChanged,
       );
     });
   });

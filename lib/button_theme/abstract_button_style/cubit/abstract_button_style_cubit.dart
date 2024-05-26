@@ -80,7 +80,7 @@ abstract class AbstractButtonStyleCubit extends Cubit<ButtonStyleState> {
 
   void shadowColorChanged(Color color) {
     emitWithButtonStyle(
-      style.copyWith(shadowColor: MaterialStateProperty.all(color)),
+      style.copyWith(shadowColor: WidgetStateProperty.all(color)),
     );
   }
 
@@ -89,7 +89,7 @@ abstract class AbstractButtonStyleCubit extends Cubit<ButtonStyleState> {
     if (border != null) {
       emitWithButtonStyle(
         style.copyWith(
-          shape: MaterialStateProperty.all(border),
+          shape: WidgetStateProperty.all(border),
         ),
       );
     }
@@ -120,7 +120,7 @@ abstract class AbstractButtonStyleCubit extends Cubit<ButtonStyleState> {
       if (newBorder != null) {
         emitWithButtonStyle(
           style.copyWith(
-            shape: MaterialStateProperty.all(newBorder),
+            shape: WidgetStateProperty.all(newBorder),
           ),
         );
       }
@@ -131,34 +131,34 @@ abstract class AbstractButtonStyleCubit extends Cubit<ButtonStyleState> {
     emit(state.copyWith(style: style));
   }
 
-  MaterialStateProperty<Color?> getBasicColor(
-    MaterialStateProperty<Color?> color, {
+  WidgetStateProperty<Color?> getBasicColor(
+    WidgetStateProperty<Color?> color, {
     Color? defaultColor,
     Color? disabledColor,
   }) {
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.disabled)) {
-        return disabledColor ?? color.resolve({MaterialState.disabled});
+    return WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
+        return disabledColor ?? color.resolve({WidgetState.disabled});
       }
       return defaultColor ?? color.resolve({});
     });
   }
 
-  MaterialStateProperty<Color?> _getOverlayColor(
-    MaterialStateProperty<Color?> overlayColor, {
+  WidgetStateProperty<Color?> _getOverlayColor(
+    WidgetStateProperty<Color?> overlayColor, {
     Color? hoveredColor,
     Color? focusedColor,
     Color? pressedColor,
   }) {
-    return MaterialStateProperty.resolveWith((states) {
-      if (states.contains(MaterialState.hovered)) {
-        return hoveredColor ?? overlayColor.resolve({MaterialState.hovered});
+    return WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.hovered)) {
+        return hoveredColor ?? overlayColor.resolve({WidgetState.hovered});
       }
-      if (states.contains(MaterialState.focused)) {
-        return focusedColor ?? overlayColor.resolve({MaterialState.focused});
+      if (states.contains(WidgetState.focused)) {
+        return focusedColor ?? overlayColor.resolve({WidgetState.focused});
       }
-      if (states.contains(MaterialState.pressed)) {
-        return pressedColor ?? overlayColor.resolve({MaterialState.pressed});
+      if (states.contains(WidgetState.pressed)) {
+        return pressedColor ?? overlayColor.resolve({WidgetState.pressed});
       }
       return null;
     });

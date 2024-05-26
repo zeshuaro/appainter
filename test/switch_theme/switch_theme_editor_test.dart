@@ -95,7 +95,7 @@ void main() {
       const key = 'switchThemeEditor_thumbColor_selected';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.selected: color});
+        final prop = getMaterialStateProperty({WidgetState.selected: color});
         final state = SwitchThemeState.withTheme(thumbColor: prop);
 
         await pumpApp(tester, state);
@@ -117,7 +117,7 @@ void main() {
       const key = 'switchThemeEditor_thumbColor_disabled';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.disabled: color});
+        final prop = getMaterialStateProperty({WidgetState.disabled: color});
         final state = SwitchThemeState.withTheme(thumbColor: prop);
 
         await pumpApp(tester, state);
@@ -164,7 +164,7 @@ void main() {
       const key = 'switchThemeEditor_trackColor_selected';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.selected: color});
+        final prop = getMaterialStateProperty({WidgetState.selected: color});
         final state = SwitchThemeState.withTheme(trackColor: prop);
 
         await pumpApp(tester, state);
@@ -187,7 +187,7 @@ void main() {
       const key = 'switchThemeEditor_trackColor_disabled';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.disabled: color});
+        final prop = getMaterialStateProperty({WidgetState.disabled: color});
         final state = SwitchThemeState.withTheme(trackColor: prop);
 
         await pumpApp(tester, state);
@@ -212,7 +212,7 @@ void main() {
       const key = 'switchThemeEditor_overlayColor_pressed';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.pressed: color});
+        final prop = getMaterialStateProperty({WidgetState.pressed: color});
         final state = SwitchThemeState.withTheme(overlayColor: prop);
 
         await pumpApp(tester, state);
@@ -235,7 +235,7 @@ void main() {
       const key = 'switchThemeEditor_overlayColor_hovered';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.hovered: color});
+        final prop = getMaterialStateProperty({WidgetState.hovered: color});
         final state = SwitchThemeState.withTheme(overlayColor: prop);
 
         await pumpApp(tester, state);
@@ -258,7 +258,7 @@ void main() {
       const key = 'switchThemeEditor_overlayColor_focused';
 
       testWidgets('render widget', (tester) async {
-        final prop = getMaterialStateProperty({MaterialState.focused: color});
+        final prop = getMaterialStateProperty({WidgetState.focused: color});
         final state = SwitchThemeState.withTheme(overlayColor: prop);
 
         await pumpApp(tester, state);

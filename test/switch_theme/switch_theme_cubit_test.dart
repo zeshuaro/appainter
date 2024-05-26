@@ -75,8 +75,8 @@ void main() {
       verify: (cubit) {
         final props = {
           null: color,
-          MaterialState.selected: thumbSelectedColor,
-          MaterialState.disabled: thumbDisabledColor,
+          WidgetState.selected: thumbSelectedColor,
+          WidgetState.disabled: thumbDisabledColor,
         };
 
         verifyMaterialPropertyByMap(cubit.state.theme.thumbColor!, props);
@@ -90,8 +90,8 @@ void main() {
       verify: (cubit) {
         final props = {
           null: thumbDefaultColor,
-          MaterialState.selected: color,
-          MaterialState.disabled: thumbDisabledColor,
+          WidgetState.selected: color,
+          WidgetState.disabled: thumbDisabledColor,
         };
 
         verifyMaterialPropertyByMap(cubit.state.theme.thumbColor!, props);
@@ -105,8 +105,8 @@ void main() {
       verify: (cubit) {
         final props = {
           null: thumbDefaultColor,
-          MaterialState.selected: thumbSelectedColor,
-          MaterialState.disabled: color,
+          WidgetState.selected: thumbSelectedColor,
+          WidgetState.disabled: color,
         };
 
         verifyMaterialPropertyByMap(cubit.state.theme.thumbColor!, props);
@@ -122,8 +122,8 @@ void main() {
       verify: (cubit) {
         final props = {
           null: color,
-          MaterialState.selected: trackSelectedColor,
-          MaterialState.disabled: trackDisabledColor,
+          WidgetState.selected: trackSelectedColor,
+          WidgetState.disabled: trackDisabledColor,
         };
 
         verifyMaterialPropertyByMap(cubit.state.theme.trackColor!, props);
@@ -137,8 +137,8 @@ void main() {
       verify: (cubit) {
         final props = {
           null: trackDefaultColor,
-          MaterialState.selected: color,
-          MaterialState.disabled: trackDisabledColor,
+          WidgetState.selected: color,
+          WidgetState.disabled: trackDisabledColor,
         };
 
         verifyMaterialPropertyByMap(
@@ -155,8 +155,8 @@ void main() {
       verify: (cubit) {
         final props = {
           null: trackDefaultColor,
-          MaterialState.selected: trackSelectedColor,
-          MaterialState.disabled: color,
+          WidgetState.selected: trackSelectedColor,
+          WidgetState.disabled: color,
         };
 
         verifyMaterialPropertyByMap(
@@ -189,9 +189,9 @@ void main() {
       act: (cubit) => cubit.overlayPressedColorChanged(color),
       verify: (cubit) {
         final props = {
-          MaterialState.pressed: color,
-          MaterialState.hovered: overlayHoveredColor,
-          MaterialState.focused: overlayFocusedColor,
+          WidgetState.pressed: color,
+          WidgetState.hovered: overlayHoveredColor,
+          WidgetState.focused: overlayFocusedColor,
         };
 
         verifyMaterialPropertyByMap(cubit.state.theme.overlayColor!, props);
@@ -204,9 +204,9 @@ void main() {
       act: (cubit) => cubit.overlayHoveredColorChanged(color),
       verify: (cubit) {
         final props = {
-          MaterialState.pressed: overlayPressedColor,
-          MaterialState.hovered: color,
-          MaterialState.focused: overlayFocusedColor,
+          WidgetState.pressed: overlayPressedColor,
+          WidgetState.hovered: color,
+          WidgetState.focused: overlayFocusedColor,
         };
 
         verifyMaterialPropertyByMap(cubit.state.theme.overlayColor!, props);
@@ -219,9 +219,9 @@ void main() {
       act: (cubit) => cubit.overlayFocusedColorChanged(color),
       verify: (cubit) {
         final props = {
-          MaterialState.pressed: overlayPressedColor,
-          MaterialState.hovered: overlayHoveredColor,
-          MaterialState.focused: color,
+          WidgetState.pressed: overlayPressedColor,
+          WidgetState.hovered: overlayHoveredColor,
+          WidgetState.focused: color,
         };
 
         verifyMaterialPropertyByMap(cubit.state.theme.overlayColor!, props);

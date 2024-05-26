@@ -6,7 +6,7 @@ abstract class AbstractFlatButtonStyleCubit extends AbstractButtonStyleCubit {
 
   void backgroundColorChanged(Color color) {
     emitWithButtonStyle(
-      style.copyWith(backgroundColor: MaterialStateProperty.all(color)),
+      style.copyWith(backgroundColor: WidgetStateProperty.all(color)),
     );
   }
 
@@ -14,7 +14,7 @@ abstract class AbstractFlatButtonStyleCubit extends AbstractButtonStyleCubit {
     final elevation = double.tryParse(value);
     if (elevation != null) {
       emitWithButtonStyle(
-        style.copyWith(elevation: MaterialStateProperty.all(elevation)),
+        style.copyWith(elevation: WidgetStateProperty.all(elevation)),
       );
     }
   }

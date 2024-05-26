@@ -160,11 +160,11 @@ void main() {
   });
 
   group('background color picker', () {
-    const key = 'colorThemeEditor_backgroundColorPicker';
+    const key = 'colorThemeEditor_surfaceColorPicker';
 
     testWidgets('render widget', (tester) async {
       final state = ColorThemeState(
-        colorScheme: const ColorScheme.light().copyWith(background: color),
+        colorScheme: const ColorScheme.light().copyWith(surface: color),
       );
 
       await pumpApp(tester, state);
@@ -178,7 +178,7 @@ void main() {
       await tester.verifyColorPicker(
         key,
         color,
-        colorThemeCubit.backgroundColorChanged,
+        colorThemeCubit.surfaceColorChanged,
       );
     });
   });

@@ -5,10 +5,10 @@ import 'package:flutter_test/flutter_test.dart';
 
 Color getRandomColor() => Color(Random().nextInt(0xffffffff)).withOpacity(1);
 
-MaterialStateProperty<T?> getMaterialStateProperty<T>(
-  Map<MaterialState?, T?> properties,
+WidgetStateProperty<T?> getMaterialStateProperty<T>(
+  Map<WidgetState?, T?> properties,
 ) {
-  return MaterialStateProperty.resolveWith((states) {
+  return WidgetStateProperty.resolveWith((states) {
     for (var entry in properties.entries) {
       if (states.contains(entry.key)) return entry.value;
     }
@@ -18,26 +18,26 @@ MaterialStateProperty<T?> getMaterialStateProperty<T>(
 }
 
 void verifyMaterialProperty(
-  MaterialStateProperty propA,
-  MaterialStateProperty propB,
+  WidgetStateProperty propA,
+  WidgetStateProperty propB,
 ) {
   expect(checkMaterialProperty(propA, propB), equals(true));
 }
 
 void verifyMaterialPropertyByMap<T>(
-  MaterialStateProperty propA,
-  Map<MaterialState?, T?> properties,
+  WidgetStateProperty propA,
+  Map<WidgetState?, T?> properties,
 ) {
   final propB = getMaterialStateProperty(properties);
   expect(checkMaterialProperty(propA, propB), equals(true));
 }
 
 bool checkMaterialProperty(
-  MaterialStateProperty propA,
-  MaterialStateProperty propB,
+  WidgetStateProperty propA,
+  WidgetStateProperty propB,
 ) {
   if (propA.resolve({}) != propB.resolve({})) return false;
-  for (var state in MaterialState.values) {
+  for (var state in WidgetState.values) {
     final states = {state};
     if (propA.resolve(states) != propB.resolve(states)) return false;
   }

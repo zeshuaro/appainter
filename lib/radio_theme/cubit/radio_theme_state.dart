@@ -8,8 +8,8 @@ class RadioThemeState extends Equatable {
   const RadioThemeState({this.theme = const RadioThemeData()});
 
   factory RadioThemeState.withTheme({
-    MaterialStateProperty<Color?>? fillColor,
-    MaterialStateProperty<Color?>? overlayColor,
+    WidgetStateProperty<Color?>? fillColor,
+    WidgetStateProperty<Color?>? overlayColor,
     double? splashRadius,
     MaterialTapTargetSize? materialTapTargetSize,
   }) {

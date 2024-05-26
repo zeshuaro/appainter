@@ -126,34 +126,34 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: b9dcfc5331b2239ef0195bcce3bd4ca5ea51f4939414cdda8f39c1703310655e
+      sha256: "65f5a57595beade1fdda6458c2eb89738b2651b3a476e52c8fcdefd37c646043"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0+12"
+    version: "3.0.0+13"
   json_schema:
     dependency: transitive
     description:
       name: json_schema
-      sha256: "0a5f510ed29e26f4eea261b192bbee1824b6903e04194f4907fd0207e94f6c7d"
+      sha256: f1bcf81647c347f53281dca9c8ea3e2b7b4d0eee5b4d1e4cee3173a5c162f358
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.3"
+    version: "5.1.7"
   json_theme:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: d2a8b74b041ade9cb29a48fa0db72aadd6d41064a338f57a69a70b9e62376e68
+      sha256: "5e70afe87fbe8519abaa4e4131a1405b567353e1b9074d97a62043e5fced018e"
       url: "https://pub.dev"
     source: hosted
-    version: "6.4.1"
+    version: "6.5.0+1"
   json_theme_annotation:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "2ddd58c256c015326751e2c430038b8fe1932dd3a54d581e0f9e35dd5fae85e3"
+      sha256: "3816f6e6eb44d802919cfbaa3f8a9f19a29e12de1663a2f29a5618f77263a7d1"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3+3"
+    version: "1.0.3+7"
   leak_tracker:
     dependency: transitive
     description:

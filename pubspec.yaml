@@ -22,9 +22,9 @@ dependencies:
   equatable: 2.0.5
   expandable: 5.0.1
   file_picker: 8.0.3
-  firebase_analytics: 10.10.5
-  firebase_auth: 4.19.5
-  firebase_core: 2.31.0
+  firebase_analytics: 10.10.6
+  firebase_auth: 4.19.6
+  firebase_core: 2.31.1
   flex_color_picker: 3.5.0
   flutter:
     sdk: flutter

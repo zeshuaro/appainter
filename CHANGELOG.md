@@ -1,3 +1,28 @@
+## [2.0.1](https://github.com/zeshuaro/appainter/compare/v2.0.0...v2.0.1) (2024-06-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency flex_color_picker to v3.5.0 ([#1226](https://github.com/zeshuaro/appainter/issues/1226)) ([734118c](https://github.com/zeshuaro/appainter/commit/734118cebdc0cdc5250d571cd5bcf64aab08feb8))
+* **deps:** update dependency json_theme to v6.5.0+1 ([#1227](https://github.com/zeshuaro/appainter/issues/1227)) ([d8aadb5](https://github.com/zeshuaro/appainter/commit/d8aadb5f5952f1354f62f9ea637190ddc1aa50d3))
+* **deps:** update dependency textwrap to v2 ([#1105](https://github.com/zeshuaro/appainter/issues/1105)) ([7f8773c](https://github.com/zeshuaro/appainter/commit/7f8773c769cf2de92fa1fa02b7f2744bc1999be1))
+* **deps:** update firebase dependencies ([#1234](https://github.com/zeshuaro/appainter/issues/1234)) ([f2842ee](https://github.com/zeshuaro/appainter/commit/f2842ee6c39b2bd6a7c01342399c688e7f0a81cb))
+* **sdk:** update dependency flutter to v3.22.1 ([#1231](https://github.com/zeshuaro/appainter/issues/1231)) ([a6e6cac](https://github.com/zeshuaro/appainter/commit/a6e6cac816a0d5f4d447d35b1906c009dc4dcac2))
+
+
+### Documentation
+
+* **readme:** update github actions badge to filter push events ([#1233](https://github.com/zeshuaro/appainter/issues/1233)) ([eee46a1](https://github.com/zeshuaro/appainter/commit/eee46a1b7ca56e7ecc7814920c13a6146e64a92b))
+
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1213](https://github.com/zeshuaro/appainter/issues/1213)) ([845a09e](https://github.com/zeshuaro/appainter/commit/845a09eca36f68bb756ef2582e86fe31bda336aa))
+* **deps:** remove dependency override for `intl` with version `^0.18.0` ([#1232](https://github.com/zeshuaro/appainter/issues/1232)) ([75669e2](https://github.com/zeshuaro/appainter/commit/75669e24c7fe3861d0f981504257c1c5cd22f963))
+* **deps:** update dependency build_runner to v2.4.10 ([#1223](https://github.com/zeshuaro/appainter/issues/1223)) ([2041540](https://github.com/zeshuaro/appainter/commit/20415409fc97260fc18e45a7d09d4acd4433f8e4))
+* **deps:** update dependency flutter_lints to v4 ([#1220](https://github.com/zeshuaro/appainter/issues/1220)) ([fea8f46](https://github.com/zeshuaro/appainter/commit/fea8f46e638971eace4cf7dc7e4de90a70e5e5d0))
+* **node:** update dependency node to v20.14.0 ([#1235](https://github.com/zeshuaro/appainter/issues/1235)) ([ff6acea](https://github.com/zeshuaro/appainter/commit/ff6aceadfc85565dc6d53df4bcbb0bd1333deed6))
+
 ## [2.0.0](https://github.com/zeshuaro/appainter/compare/v1.15.10...v2.0.0) (2024-05-26)
 
 

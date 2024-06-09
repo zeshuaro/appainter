@@ -1,3 +1,23 @@
+## [2.0.2](https://github.com/zeshuaro/appainter/compare/v2.0.1...v2.0.2) (2024-06-09)
+
+### Bug Fixes
+
+* **deps:** update firebase dependencies ([#1239](https://github.com/zeshuaro/appainter/issues/1239)) ([0d375c4](https://github.com/zeshuaro/appainter/commit/0d375c45ee3b1ec30fe9be5530c2f012c407468d))
+* **sdk:** update dependency flutter to v3.22.2 ([#1242](https://github.com/zeshuaro/appainter/issues/1242)) ([0cb85ae](https://github.com/zeshuaro/appainter/commit/0cb85aea8a9ba8776f891f1ab744c380e54968d5))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1236](https://github.com/zeshuaro/appainter/issues/1236)) ([f1eec7c](https://github.com/zeshuaro/appainter/commit/f1eec7ca53115a6ad40040842a8c48368c12d12b))
+* **deps:** update dependency conventional-changelog-conventionalcommits to v8 ([#1212](https://github.com/zeshuaro/appainter/issues/1212)) ([8d3c3dd](https://github.com/zeshuaro/appainter/commit/8d3c3dd10cef37bef8395b442e45b069ad5bd20e))
+* **deps:** update dependency semantic-release to v24 ([#1240](https://github.com/zeshuaro/appainter/issues/1240)) ([173c15a](https://github.com/zeshuaro/appainter/commit/173c15a8c2666ad743e9b0c8a5ee1294977a80e8))
+* **deps:** update dependency semantic-release-pub to v0.8.15 ([#1238](https://github.com/zeshuaro/appainter/issues/1238)) ([37f5cc0](https://github.com/zeshuaro/appainter/commit/37f5cc0e21e6dc1d67e74d5c7389e78be46bd2fa))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 4093639 ([#1237](https://github.com/zeshuaro/appainter/issues/1237)) ([e46cd36](https://github.com/zeshuaro/appainter/commit/e46cd364843248c77f4f4104da8152f0a5d19f94))
+* **deps:** update zeshuaro/github-actions-workflows digest to 7d17fef ([#1241](https://github.com/zeshuaro/appainter/issues/1241)) ([78e0ff3](https://github.com/zeshuaro/appainter/commit/78e0ff38e1e442883ba1d5b3a7cf2f3b51ca0150))
+* **deps:** update zeshuaro/github-actions-workflows digest to f2467fb ([#1243](https://github.com/zeshuaro/appainter/issues/1243)) ([4ed806f](https://github.com/zeshuaro/appainter/commit/4ed806f0727788a4eaadc6418d50c05c230bfaf5))
+
 ## [2.0.1](https://github.com/zeshuaro/appainter/compare/v2.0.0...v2.0.1) (2024-06-02)
 
 

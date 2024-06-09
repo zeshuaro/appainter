@@ -131,10 +131,10 @@ packages:
     dependency: transitive
     description:
       name: build_runner_core
-      sha256: "4ae8ffe5ac758da294ecf1802f2aff01558d8b1b00616aa7538ea9a8a5d50799"
+      sha256: e3c79f69a64bdfcd8a776a3c28db4eb6e3fb5356d013ae5eb2e52007706d5dbe
       url: "https://pub.dev"
     source: hosted
-    version: "7.3.0"
+    version: "7.3.1"
   built_collection:
     dependency: transitive
     description:
@@ -435,10 +435,10 @@ packages:
     dependency: transitive
     description:
       name: firebase_core_web
-      sha256: "43d9e951ac52b87ae9cc38ecdcca1e8fa7b52a1dd26a96085ba41ce5108db8e9"
+      sha256: "22fcb352744908224fc7be3caae254836099786acfe5df6e9fe901e9c2575a41"
       url: "https://pub.dev"
     source: hosted
-    version: "2.17.0"
+    version: "2.17.1"
   fixnum:
     dependency: transitive
     description:
@@ -662,10 +662,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "65f5a57595beade1fdda6458c2eb89738b2651b3a476e52c8fcdefd37c646043"
+      sha256: "5edd38122f0f41e383a8f927e8fdcf286d19e80a19198a1c80565b65b74a6997"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0+13"
+    version: "3.0.0+14"
   json_schema:
     dependency: transitive
     description:
@@ -686,10 +686,10 @@ packages:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "3816f6e6eb44d802919cfbaa3f8a9f19a29e12de1663a2f29a5618f77263a7d1"
+      sha256: "78f44cf50bfd45ef42bbd33bfdfb7e8b8cbc0735bb0d7e026535ea3871d395af"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3+7"
+    version: "1.0.3+8"
   leak_tracker:
     dependency: transitive
     description:
@@ -934,10 +934,10 @@ packages:
     dependency: transitive
     description:
       name: properties
-      sha256: "975daa001432c70f5f494b50e4c5c72990d2f026e4a307cb4aaec99562f2d0e4"
+      sha256: "333f427dd4ed07bdbe8c75b9ff864a1e70b5d7a8426a2e8bdd457b65ae5ac598"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   provider:
     dependency: transitive
     description:

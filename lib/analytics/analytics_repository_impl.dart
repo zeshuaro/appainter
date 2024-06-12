@@ -51,7 +51,7 @@ class AnalyticsRepositoryImpl extends AnalyticsRepository {
 
   void _logEvent({
     required String name,
-    required Map<String, Object?> parameters,
+    required Map<String, Object> parameters,
   }) {
     _firebaseAnalytics.logEvent(
       name: name,

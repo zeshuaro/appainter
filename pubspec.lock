@@ -427,18 +427,18 @@ packages:
     dependency: transitive
     description:
       name: firebase_core_platform_interface
-      sha256: c437ae5d17e6b5cc7981cf6fd458a5db4d12979905f9aafd1fea930428a9fe63
+      sha256: "1003a5a03a61fc9a22ef49f37cbcb9e46c86313a7b2e7029b9390cf8c6fc32cb"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.1.0"
   firebase_core_web:
     dependency: transitive
     description:
       name: firebase_core_web
-      sha256: "22fcb352744908224fc7be3caae254836099786acfe5df6e9fe901e9c2575a41"
+      sha256: "6643fe3dbd021e6ccfb751f7882b39df355708afbdeb4130fc50f9305a9d1a3d"
       url: "https://pub.dev"
     source: hosted
-    version: "2.17.1"
+    version: "2.17.2"
   fixnum:
     dependency: transitive
     description:
@@ -662,10 +662,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "5edd38122f0f41e383a8f927e8fdcf286d19e80a19198a1c80565b65b74a6997"
+      sha256: a18f7cae22a8486075c6e448780bf02aad37f1f0418873f7ab92b009e2b5a45d
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0+14"
+    version: "3.0.0+15"
   json_schema:
     dependency: transitive
     description:
@@ -686,10 +686,10 @@ packages:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "78f44cf50bfd45ef42bbd33bfdfb7e8b8cbc0735bb0d7e026535ea3871d395af"
+      sha256: "0672facae096a5f43470de1ae282055f9f1b88ca01ef37563b0b92a227092994"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3+8"
+    version: "1.0.3+9"
   leak_tracker:
     dependency: transitive
     description:

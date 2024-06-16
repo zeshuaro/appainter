@@ -1,3 +1,25 @@
+## [2.0.3](https://github.com/zeshuaro/appainter/compare/v2.0.2...v2.0.3) (2024-06-16)
+
+### Bug Fixes
+
+* **deps:** major version updates for firebase dependencies ([#1251](https://github.com/zeshuaro/appainter/issues/1251)) ([5350a19](https://github.com/zeshuaro/appainter/commit/5350a19bf656a88fe29f28d31c6b471bc9c4d6ab))
+* **deps:** update dependency device_preview_plus to v2 ([#1244](https://github.com/zeshuaro/appainter/issues/1244)) ([01fa96a](https://github.com/zeshuaro/appainter/commit/01fa96aee5b4e375420fd0b54621dfe7ddc072e7))
+* **deps:** update dependency url_launcher to v6.3.0 ([#1246](https://github.com/zeshuaro/appainter/issues/1246)) ([077abc4](https://github.com/zeshuaro/appainter/commit/077abc45540a37b63e21f4826728d3483e5b82bb))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1245](https://github.com/zeshuaro/appainter/issues/1245)) ([41bc0cd](https://github.com/zeshuaro/appainter/commit/41bc0cd1b706899f9b4344df7930a25c447a23ed))
+* **deps:** update dependency build_runner to v2.4.11 ([#1252](https://github.com/zeshuaro/appainter/issues/1252)) ([f441591](https://github.com/zeshuaro/appainter/commit/f441591d8d906be5834e65ba25be7d1208baf488))
+* **deps:** update dependency semantic-release-pub to v0.8.16 ([#1248](https://github.com/zeshuaro/appainter/issues/1248)) ([1f54e4c](https://github.com/zeshuaro/appainter/commit/1f54e4c7369a86b683944f41a23cf9f92de0efd3))
+
+### Continuous Integration
+
+* **deps:** update actions/checkout digest to 692973e ([#1255](https://github.com/zeshuaro/appainter/issues/1255)) ([c4d3749](https://github.com/zeshuaro/appainter/commit/c4d3749a874b0f0bbea27d90d26dde28ed6ce725))
+* **deps:** update codecov/codecov-action action to v4.5.0 ([#1253](https://github.com/zeshuaro/appainter/issues/1253)) ([26fb9c4](https://github.com/zeshuaro/appainter/commit/26fb9c4c6b562d8fe187d9048f024293f16b1042))
+* **deps:** update zeshuaro/github-actions-workflows digest to 214a3ef ([#1254](https://github.com/zeshuaro/appainter/issues/1254)) ([bc42bbf](https://github.com/zeshuaro/appainter/commit/bc42bbf0d9e78b3f4a31ac62b3a65752a0c02074))
+* **deps:** update zeshuaro/github-actions-workflows digest to 3e23531 ([#1256](https://github.com/zeshuaro/appainter/issues/1256)) ([d847fcd](https://github.com/zeshuaro/appainter/commit/d847fcd1b835e31a0c5aa2e88f0b78ed43cbc59e))
+* **deps:** update zeshuaro/github-actions-workflows digest to cc09c79 ([#1247](https://github.com/zeshuaro/appainter/issues/1247)) ([8588aa6](https://github.com/zeshuaro/appainter/commit/8588aa63013bd473b92c0e23e2917cfa695543c4))
+
 ## [2.0.2](https://github.com/zeshuaro/appainter/compare/v2.0.1...v2.0.2) (2024-06-09)
 
 ### Bug Fixes

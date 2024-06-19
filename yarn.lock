@@ -1488,7 +1488,7 @@ execa@^8.0.0:
     signal-exit "^4.1.0"
     strip-final-newline "^3.0.0"
 
-execa@^9.0.0, execa@^9.1.0:
+execa@^9.0.0, execa@^9.2.0:
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/execa/-/execa-9.2.0.tgz#ec5e9de67a714d0f47ce073d37a851fbf0c2f688"
   integrity sha512-vpOyYg7UAVKLAWWtRS2gAdgkT7oJbCn0me3gmUmxZih4kd3MF/oo8kNTBTIbkO3yuuF5uB4ZCZfn8BOolITYhg==
@@ -1864,7 +1864,7 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-google-auth-library@^9.10.0:
+google-auth-library@^9.11.0:
   version "9.11.0"
   resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-9.11.0.tgz#bd6da364bcde4e0cc4ed70a0e0df5112b6a671dd"
   integrity sha512-epX3ww/mNnhl6tL45EQ/oixsY8JLEgUFoT4A5E/5iAR4esld9Kqv6IJGk7EmGuOgDvaarwF95hU2+v7Irql9lw==
@@ -3701,15 +3701,15 @@ safe-regex-test@^1.0.3:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.8.16:
-  version "0.8.16"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.16.tgz#18a5fb3b5accd69bc9e13328c73b2f7ce56edd07"
-  integrity sha512-pOp3fYZUJY0y5ES3LBZzZZXe0j0i2Fnk+XjiYb2NE8GIFXXcAbd7ahauvrQkqB9vPigCVBWMXPeKajKl8u4lBQ==
+semantic-release-pub@0.8.17:
+  version "0.8.17"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.17.tgz#1d46b716387e2c6c49061da7fed0dee0bc50237b"
+  integrity sha512-Mc5Y9E/66AknQzikDnbqXf0R1eAtWtlGG45AlfYXr9ReaCOemJE4O8VVMoRj11PaLSQSH4d4JTGmHeMabZqaUg==
   dependencies:
     "@semantic-release/error" "^4.0.0"
-    execa "^9.1.0"
-    google-auth-library "^9.10.0"
-    yaml "^2.4.3"
+    execa "^9.2.0"
+    google-auth-library "^9.11.0"
+    yaml "^2.4.5"
     zod "^3.23.8"
 
 semantic-release-stop-before-publish@1.0.0:
@@ -4523,7 +4523,7 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-yaml@^2.4.3:
+yaml@^2.4.5:
   version "2.4.5"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.4.5.tgz#60630b206dd6d84df97003d33fc1ddf6296cca5e"
   integrity sha512-aBx2bnqDzVOyNKfsysjA2ms5ZlnjSAW2eG3/L5G/CSujfjLJTJsEw1bGw8kCf04KodQWk1pxlGnZ56CRxiawmg==

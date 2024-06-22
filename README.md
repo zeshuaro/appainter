@@ -3,7 +3,7 @@
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/zeshuaro/appainter?color=orange&label=version)](https://github.com/zeshuaro/appainter/releases)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fzeshuaro.github.io%2Fappainter%2F)](https://zeshuaro.github.io/appainter/)
 [![GitHub license](https://img.shields.io/github/license/zeshuaro/appainter)](https://github.com/zeshuaro/appainter/blob/main/LICENSE)
-[![GitHub Actions](https://github.com/zeshuaro/appainter/actions/workflows/github-actions.yml/badge.svg?event=push)](https://github.com/zeshuaro/appainter/actions/workflows/github-actions.yml?query=event%3Apush)
+[![GitHub Actions](https://github.com/zeshuaro/appainter/actions/workflows/github-actions.yml/badge.svg?branch=main&event=push)](https://github.com/zeshuaro/appainter/actions/workflows/github-actions.yml?query=event%3Apush+branch%3Amain)
 [![codecov](https://codecov.io/gh/zeshuaro/appainter/branch/main/graph/badge.svg?token=4YM0WZFH3I)](https://codecov.io/gh/zeshuaro/appainter)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/558114f6d82045e1a319d0c9a3ef72a0)](https://app.codacy.com/gh/zeshuaro/appainter/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![style: flutter_lints](https://img.shields.io/badge/style-flutter__lints-4BC0F5.svg)](https://pub.dev/packages/flutter_lints)

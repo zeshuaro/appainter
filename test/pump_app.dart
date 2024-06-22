@@ -69,6 +69,8 @@ extension PumpApp on WidgetTester {
         MockFloatingActionButtonThemeCubit();
     final ElevatedButtonThemeCubit elevatedButtonThemeCubit =
         MockElevatedButtonThemeCubit();
+    final FilledButtonThemeCubit filledButtonThemeCubit =
+        MockFilledButtonThemeCubit();
     final OutlinedButtonThemeCubit outlinedButtonThemeCubit =
         MockOutlinedButtonThemeCubit();
     final TextButtonThemeCubit textButtonThemeCubit =
@@ -176,6 +178,12 @@ extension PumpApp on WidgetTester {
         borderRadius: BorderRadius.circular(4),
       ),
     );
+    when(() => filledButtonThemeCubit.state).thenReturn(
+      const ButtonStyleState(),
+    );
+    when(() => filledButtonThemeCubit.defaultShape).thenReturn(
+      const StadiumBorder(),
+    );
     when(() => outlinedButtonThemeCubit.state).thenReturn(
       const ButtonStyleState(),
     );
@@ -248,6 +256,7 @@ extension PumpApp on WidgetTester {
             ),
             BlocProvider.value(value: floatingActionButtonThemeCubit),
             BlocProvider.value(value: elevatedButtonThemeCubit),
+            BlocProvider.value(value: filledButtonThemeCubit),
             BlocProvider.value(value: outlinedButtonThemeCubit),
             BlocProvider.value(value: textButtonThemeCubit),
             BlocProvider.value(value: iconThemeCubit),

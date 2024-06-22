@@ -27,6 +27,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
   final BottomNavigationBarThemeCubit bottomNavigationBarThemeCubit;
   final FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
   final ElevatedButtonThemeCubit elevatedButtonThemeCubit;
+  final FilledButtonThemeCubit filledButtonThemeCubit;
   final OutlinedButtonThemeCubit outlinedButtonThemeCubit;
   final TextButtonThemeCubit textButtonThemeCubit;
   final IconThemeCubit iconThemeCubit;
@@ -44,6 +45,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     required this.bottomNavigationBarThemeCubit,
     required this.floatingActionButtonThemeCubit,
     required this.elevatedButtonThemeCubit,
+    required this.filledButtonThemeCubit,
     required this.outlinedButtonThemeCubit,
     required this.textButtonThemeCubit,
     required this.iconThemeCubit,
@@ -70,6 +72,7 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
       theme.floatingActionButtonTheme,
     );
     elevatedButtonThemeCubit.styleChanged(theme.elevatedButtonTheme.style);
+    filledButtonThemeCubit.styleChanged(theme.filledButtonTheme.style);
     outlinedButtonThemeCubit.styleChanged(theme.outlinedButtonTheme.style);
     textButtonThemeCubit.styleChanged(theme.textButtonTheme.style);
     iconThemeCubit.themeChanged(theme.iconTheme);

@@ -62,6 +62,9 @@ class ExportButton extends StatelessWidget {
     final elevatedButtonTheme = ElevatedButtonThemeData(
       style: context.read<ElevatedButtonThemeCubit>().state.style,
     );
+    final filledButtonTheme = FilledButtonThemeData(
+      style: context.read<FilledButtonThemeCubit>().state.style,
+    );
     final outlinedButtonTheme = OutlinedButtonThemeData(
       style: context.read<OutlinedButtonThemeCubit>().state.style,
     );
@@ -137,6 +140,7 @@ class ExportButton extends StatelessWidget {
       bottomNavigationBarTheme: bottomNavBarTheme,
       floatingActionButtonTheme: floatingActionButtonTheme,
       elevatedButtonTheme: elevatedButtonTheme,
+      filledButtonTheme: filledButtonTheme,
       outlinedButtonTheme: outlinedButtonTheme,
       textButtonTheme: textButtonTheme,
       iconTheme: iconTheme,

@@ -31,6 +31,7 @@ void main() {
   late BottomNavigationBarThemeCubit bottomNavBarThemeCubit;
   late FloatingActionButtonThemeCubit floatingActionButtonThemeCubit;
   late ElevatedButtonThemeCubit elevatedButtonThemeCubit;
+  late FilledButtonThemeCubit filledButtonThemeCubit;
   late OutlinedButtonThemeCubit outlinedButtonThemeCubit;
   late TextButtonThemeCubit textButtonThemeCubit;
   late IconThemeCubit iconThemeCubit;
@@ -48,6 +49,7 @@ void main() {
     bottomNavBarThemeCubit = MockBottomNavigationBarThemeCubit();
     floatingActionButtonThemeCubit = MockFloatingActionButtonThemeCubit();
     elevatedButtonThemeCubit = MockElevatedButtonThemeCubit();
+    filledButtonThemeCubit = MockFilledButtonThemeCubit();
     outlinedButtonThemeCubit = MockOutlinedButtonThemeCubit();
     textButtonThemeCubit = MockTextButtonThemeCubit();
     iconThemeCubit = MockIconThemeCubit();
@@ -65,6 +67,7 @@ void main() {
       bottomNavigationBarThemeCubit: bottomNavBarThemeCubit,
       floatingActionButtonThemeCubit: floatingActionButtonThemeCubit,
       elevatedButtonThemeCubit: elevatedButtonThemeCubit,
+      filledButtonThemeCubit: filledButtonThemeCubit,
       outlinedButtonThemeCubit: outlinedButtonThemeCubit,
       textButtonThemeCubit: textButtonThemeCubit,
       iconThemeCubit: iconThemeCubit,
@@ -93,6 +96,9 @@ void main() {
       () => elevatedButtonThemeCubit.styleChanged(
         theme.elevatedButtonTheme.style,
       ),
+    ).called(1);
+    verify(
+      () => filledButtonThemeCubit.styleChanged(theme.filledButtonTheme.style),
     ).called(1);
     verify(
       () => outlinedButtonThemeCubit.styleChanged(

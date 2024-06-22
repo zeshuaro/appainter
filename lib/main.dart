@@ -42,8 +42,9 @@ Future<void> main() async {
     await SentryFlutter.init(
       (options) {
         options.dsn =
-            'https://47d366aa51604755b3d78635f1e320be@o1248621.ingest.sentry.io/6680781';
-        options.tracesSampleRate = 1.0;
+            'https://5433eccdd090bc38cf6de20c8a5be8c4@o4507475452231680.ingest.us.sentry.io/4507475454590976';
+        options.tracesSampleRate = 0.8;
+        options.profilesSampleRate = 0.8;
       },
       appRunner: _runApp,
     );

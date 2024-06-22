@@ -88,6 +88,9 @@ class MockFloatingActionButtonThemeCubit
 class MockElevatedButtonThemeCubit extends MockCubit<ButtonStyleState>
     implements ElevatedButtonThemeCubit {}
 
+class MockFilledButtonThemeCubit extends MockCubit<ButtonStyleState>
+    implements FilledButtonThemeCubit {}
+
 class MockOutlinedButtonThemeCubit extends MockCubit<ButtonStyleState>
     implements OutlinedButtonThemeCubit {}
 

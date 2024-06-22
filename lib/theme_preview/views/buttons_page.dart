@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:appainter/common/consts.dart';
 import 'package:appainter/theme_preview/views/preview_body.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
 
 const Icon _buttonIcon = Icon(Icons.favorite);
 
@@ -42,6 +42,32 @@ class ButtonsPage extends PreviewBody {
               onPressed: null,
               icon: _buttonIcon,
               label: const Text('Disabled'),
+            ),
+          ],
+        ),
+        _ButtonsRow(
+          children: [
+            FilledButton(
+              onPressed: () {},
+              child: const Text('Filled button'),
+            ),
+            const FilledButton(
+              onPressed: null,
+              child: Text('Disabled'),
+            ),
+          ],
+        ),
+        _ButtonsRow(
+          children: [
+            FilledButton.icon(
+              onPressed: () {},
+              icon: _buttonIcon,
+              label: const Text('Filled button icon'),
+            ),
+            FilledButton.icon(
+              onPressed: null,
+              icon: _buttonIcon,
+              label: const Text('Filled'),
             ),
           ],
         ),

@@ -47,6 +47,9 @@ class ThemePreview extends StatelessWidget {
         final elevatedButtonTheme = ElevatedButtonThemeData(
           style: context.watch<ElevatedButtonThemeCubit>().state.style,
         );
+        final filledButtonTheme = FilledButtonThemeData(
+          style: context.watch<FilledButtonThemeCubit>().state.style,
+        );
         final outlinedButtonTheme = OutlinedButtonThemeData(
           style: context.watch<OutlinedButtonThemeCubit>().state.style,
         );
@@ -125,6 +128,7 @@ class ThemePreview extends StatelessWidget {
           bottomNavigationBarTheme: bottomNavigationBarTheme,
           floatingActionButtonTheme: floatingActionButtonTheme,
           elevatedButtonTheme: elevatedButtonTheme,
+          filledButtonTheme: filledButtonTheme,
           outlinedButtonTheme: outlinedButtonTheme,
           textButtonTheme: textButtonTheme,
           iconTheme: iconTheme,

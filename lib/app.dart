@@ -68,6 +68,9 @@ class MyApp extends StatelessWidget {
     final elevatedButtonThemeCubit = ElevatedButtonThemeCubit(
       colorThemeCubit: colorThemeCubit,
     );
+    final filledButtonThemeCubit = FilledButtonThemeCubit(
+      colorThemeCubit: colorThemeCubit,
+    );
     final outlinedButtonThemeCubit = OutlinedButtonThemeCubit(
       colorThemeCubit: colorThemeCubit,
     );
@@ -134,6 +137,7 @@ class MyApp extends StatelessWidget {
       bottomNavigationBarThemeCubit: bottomNavigationBarThemeCubit,
       floatingActionButtonThemeCubit: floatingActionButtonThemeCubit,
       elevatedButtonThemeCubit: elevatedButtonThemeCubit,
+      filledButtonThemeCubit: filledButtonThemeCubit,
       outlinedButtonThemeCubit: outlinedButtonThemeCubit,
       textButtonThemeCubit: textButtonThemeCubit,
       iconThemeCubit: iconThemeCubit,
@@ -174,6 +178,7 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(create: (_) => floatingActionButtonThemeCubit),
           BlocProvider(create: (_) => elevatedButtonThemeCubit),
+          BlocProvider(create: (_) => filledButtonThemeCubit),
           BlocProvider(create: (_) => outlinedButtonThemeCubit),
           BlocProvider(create: (_) => textButtonThemeCubit),
           BlocProvider(create: (_) => iconThemeCubit),

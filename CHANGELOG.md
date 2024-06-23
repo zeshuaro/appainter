@@ -1,3 +1,37 @@
+## [2.1.0](https://github.com/zeshuaro/appainter/compare/v2.0.3...v2.1.0) (2024-06-23)
+
+### Features
+
+* **AdvancedEditor:** add filled button theme editor ([#1270](https://github.com/zeshuaro/appainter/issues/1270)) ([9962d80](https://github.com/zeshuaro/appainter/commit/9962d80cf8855fbd42d91ea7eeca5631ff313ec0))
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.0.1 ([#1257](https://github.com/zeshuaro/appainter/issues/1257)) ([ba81558](https://github.com/zeshuaro/appainter/commit/ba81558c7acdd28a7b9898eef6d73a14f389abe0))
+* **deps:** update dependency file_picker to v8.0.4 ([#1259](https://github.com/zeshuaro/appainter/issues/1259)) ([7397fc1](https://github.com/zeshuaro/appainter/commit/7397fc19851b1ae5dd9a8d224a85b9d997cdb271))
+* **deps:** update dependency file_picker to v8.0.5 ([#1264](https://github.com/zeshuaro/appainter/issues/1264)) ([750839e](https://github.com/zeshuaro/appainter/commit/750839e1d383a4c47c2bb4520c053ade0af22397))
+* **deps:** update dependency flutter_bloc to v8.1.6 ([#1260](https://github.com/zeshuaro/appainter/issues/1260)) ([4fba356](https://github.com/zeshuaro/appainter/commit/4fba35655fcdfe1caedff53e19ae5d1b957b22c1))
+* **deps:** update dependency flutter_markdown to v0.7.2 ([#1261](https://github.com/zeshuaro/appainter/issues/1261)) ([5a5869f](https://github.com/zeshuaro/appainter/commit/5a5869f5088ebdd8a025f724693677f6525fe5aa))
+* **deps:** update firebase dependencies ([#1265](https://github.com/zeshuaro/appainter/issues/1265)) ([b6c6a6a](https://github.com/zeshuaro/appainter/commit/b6c6a6af0799fa90609eddf36d38a70a44da313d))
+
+### Documentation
+
+* **readme:** update github actions badge to filter on main branch ([#1271](https://github.com/zeshuaro/appainter/issues/1271)) ([79013db](https://github.com/zeshuaro/appainter/commit/79013dbaf0cf836c65e9d56be87f6d90f9f3d578))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1258](https://github.com/zeshuaro/appainter/issues/1258)) ([168e11d](https://github.com/zeshuaro/appainter/commit/168e11d34878ababf864e038b918218a2274b5a1))
+* **deps:** update dependency mocktail to v1.0.4 ([#1262](https://github.com/zeshuaro/appainter/issues/1262)) ([aac719b](https://github.com/zeshuaro/appainter/commit/aac719bf3e24c3a878947a8731c8125a424d0cb8))
+* **deps:** update dependency semantic-release-pub to v0.8.17 ([#1263](https://github.com/zeshuaro/appainter/issues/1263)) ([4997716](https://github.com/zeshuaro/appainter/commit/4997716aa2309d7d4ad5b4a01255d76b629e4235))
+* **node:** update dependency node to v20.15.0 ([#1268](https://github.com/zeshuaro/appainter/issues/1268)) ([bf025c9](https://github.com/zeshuaro/appainter/commit/bf025c9a2037f2fb9e5ed12753128d4968a3ad26))
+* **sentry:** update sentry configs ([#1272](https://github.com/zeshuaro/appainter/issues/1272)) ([dc4b3ff](https://github.com/zeshuaro/appainter/commit/dc4b3ff4638e3602412c009cd1a8a1fec62d2303))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 25964ef ([#1269](https://github.com/zeshuaro/appainter/issues/1269)) ([943a9a4](https://github.com/zeshuaro/appainter/commit/943a9a46d720ae6a255bfe568c8be0ad29ce670b))
+* **deps:** update zeshuaro/github-actions-workflows digest to 3f0fb38 ([#1267](https://github.com/zeshuaro/appainter/issues/1267)) ([f4556a5](https://github.com/zeshuaro/appainter/commit/f4556a51986959e9f5a8389e396d3b7f866a4bbf))
+* **deps:** update zeshuaro/github-actions-workflows digest to d4191e5 ([#1273](https://github.com/zeshuaro/appainter/issues/1273)) ([a635049](https://github.com/zeshuaro/appainter/commit/a635049ccf4f8e3f8cc1c396239176fe6e89b7ae))
+* migrate to official create app token action ([#1266](https://github.com/zeshuaro/appainter/issues/1266)) ([4181438](https://github.com/zeshuaro/appainter/commit/4181438b4dba2400fe9d3c59ed81d1239218632f))
+
 ## [2.0.3](https://github.com/zeshuaro/appainter/compare/v2.0.2...v2.0.3) (2024-06-16)
 
 ### Bug Fixes

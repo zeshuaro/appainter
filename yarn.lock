@@ -3698,10 +3698,10 @@ safe-regex-test@^1.0.3:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.8.17:
-  version "0.8.17"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.17.tgz#1d46b716387e2c6c49061da7fed0dee0bc50237b"
-  integrity sha512-Mc5Y9E/66AknQzikDnbqXf0R1eAtWtlGG45AlfYXr9ReaCOemJE4O8VVMoRj11PaLSQSH4d4JTGmHeMabZqaUg==
+semantic-release-pub@0.8.18:
+  version "0.8.18"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.18.tgz#3e14538db8a5801a8a83b3fe80fdf21eb168d6bc"
+  integrity sha512-a4fut/TlNomhheihcDQNKzBl2wy5GTBaS7oOfEYMw5tsyRi8FgLxHOEGAorc88uVQYj+h488fhEIrgfsmuqbKQ==
   dependencies:
     "@semantic-release/error" "^4.0.0"
     execa "^9.2.0"

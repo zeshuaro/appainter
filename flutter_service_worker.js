@@ -19,9 +19,9 @@ const RESOURCES = {"icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292
 "canvaskit/canvaskit.js": "738255d00768497e86aa4ca510cce1e1",
 "canvaskit/canvaskit.wasm": "9251bb81ae8464c4df3b072f84aa969b",
 "canvaskit/skwasm.wasm": "4051bfc27ba29bf420d17aa0c3a98bce",
-"flutter_bootstrap.js": "cf4e9d12b9c7cccc9563b14b67742f7f",
-"version.json": "6cd6a68356a6fb3fae3908b5289a2e51",
-"main.dart.js": "4ea033bffb716b32655e9079778fd754",
+"flutter_bootstrap.js": "1e7c3052e03bf78624644dc2577ea4fe",
+"version.json": "ce4039e6aab8f609e029a146f743230f",
+"main.dart.js": "d0cb3e8d5efb988f3cbcb90e08553acd",
 "assets/NOTICES": "f5333bea238aa0d6d6d1bffb1d19d77a",
 "assets/AssetManifest.bin": "8e5b96d3b6b6258ada9fb3a569a10b24",
 "assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
@@ -37,8 +37,8 @@ const RESOURCES = {"icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292
 "assets/FontManifest.json": "1b1e7812d9eb9f666db8444d7dde1b20",
 "assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
 "assets/AssetManifest.json": "cee74d8db9de32ddad2a08e68bdff787",
-"index.html": "dbaa80e69671e1e54f5e0f4d9458b6fb",
-"/": "dbaa80e69671e1e54f5e0f4d9458b6fb",
+"index.html": "68fa643327db3e5b4a9ccbf48cdbfe9c",
+"/": "68fa643327db3e5b4a9ccbf48cdbfe9c",
 "favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75"};
 // The application shell files that are downloaded before a service worker can

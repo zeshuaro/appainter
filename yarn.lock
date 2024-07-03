@@ -1488,7 +1488,7 @@ execa@^8.0.0:
     signal-exit "^4.1.0"
     strip-final-newline "^3.0.0"
 
-execa@^9.0.0, execa@^9.2.0:
+execa@^9.0.0, execa@^9.3.0:
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/execa/-/execa-9.3.0.tgz#b10b70f52c1a978985e8492cc1fa74795c59963c"
   integrity sha512-l6JFbqnHEadBoVAVpN5dl2yCyfX28WoBAGaoQcNmLLSedOxTxcn2Qa83s8I/PA5i56vWru2OHOtrwF7Om2vqlg==
@@ -3697,13 +3697,13 @@ safe-regex-test@^1.0.3:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.8.18:
-  version "0.8.18"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.18.tgz#3e14538db8a5801a8a83b3fe80fdf21eb168d6bc"
-  integrity sha512-a4fut/TlNomhheihcDQNKzBl2wy5GTBaS7oOfEYMw5tsyRi8FgLxHOEGAorc88uVQYj+h488fhEIrgfsmuqbKQ==
+semantic-release-pub@0.8.19:
+  version "0.8.19"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.19.tgz#5259d0133461dcd01f27761a2d46e6ba92f5a855"
+  integrity sha512-ebho6rfZa/9hn9Vn/Ed62M1z36cfWK2gOz+HglZSXe5tqLclDT8x1PElii7B9rnZPtyTy49UFElL1aaKmK83dw==
   dependencies:
     "@semantic-release/error" "^4.0.0"
-    execa "^9.2.0"
+    execa "^9.3.0"
     google-auth-library "^9.11.0"
     yaml "^2.4.5"
     zod "^3.23.8"

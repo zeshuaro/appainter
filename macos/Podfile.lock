@@ -9,16 +9,16 @@ PODS:
     - FirebaseAnalytics (~> 10.27.0)
   - Firebase/CoreOnly (10.27.0):
     - FirebaseCore (= 10.27.0)
-  - firebase_analytics (11.0.1):
+  - firebase_analytics (11.1.0):
     - Firebase/Analytics (= 10.27.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_auth (5.1.0):
+  - firebase_auth (5.1.1):
     - Firebase/Auth (~> 10.27.0)
     - Firebase/CoreOnly (~> 10.27.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_core (3.1.0):
+  - firebase_core (3.1.1):
     - Firebase/CoreOnly (~> 10.27.0)
     - FlutterMacOS
   - FirebaseAnalytics (10.27.0):
@@ -107,7 +107,7 @@ PODS:
   - GoogleUtilities/UserDefaults (7.13.3):
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
-  - GTMSessionFetcher/Core (3.4.1)
+  - GTMSessionFetcher/Core (3.5.0)
   - nanopb (2.30910.0):
     - nanopb/decode (= 2.30910.0)
     - nanopb/encode (= 2.30910.0)
@@ -189,9 +189,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Firebase: 26b040b20866a55f55eb3611b9fcf3ae64816b86
-  firebase_analytics: 2370857414db883542ff3cc0cf4634d1de55b37b
-  firebase_auth: 4a2a30c21caf945540f5d0f377c071795fe718d2
-  firebase_core: 3cf30a8be4c850f7192bf9597f5939d0c3af706b
+  firebase_analytics: 79d06f2ac1e2dd7aae0a79cc3ccf708df81424f1
+  firebase_auth: 1271d0f367a33d6f1f755bc18a7315a01426b7d3
+  firebase_core: df33f64432203e675060e475de6ea8127eb8398a
   FirebaseAnalytics: f9211b719db260cc91aebee8bb539cb367d0dfd1
   FirebaseAppCheckInterop: 5315f40293191bfec04b2cfab0215760e441540a
   FirebaseAuth: 77a012b7e08042bf44d0db835ca2e86e6ca7bbd3
@@ -201,7 +201,7 @@ SPEC CHECKSUMS:
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   GoogleAppMeasurement: f65fc137531af9ad647f1c0a42f3b6a4d3a98049
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  GTMSessionFetcher: 8000756fc1c19d2e5697b90311f7832d2e33f6cd
+  GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   package_info_plus: fa739dd842b393193c5ca93c26798dff6e3d0e0c
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46

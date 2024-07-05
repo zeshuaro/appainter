@@ -94,7 +94,7 @@ Future<void> main() async {
     });
   });
 
-  group('foregound color picker', () {
+  group('foreground color picker', () {
     const key = 'floatingActionButtonThemeEditor_foregroundColorPicker';
 
     testWidgets('render widget', (tester) async {

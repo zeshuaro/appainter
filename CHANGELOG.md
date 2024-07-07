@@ -1,3 +1,22 @@
+## [2.1.2](https://github.com/zeshuaro/appainter/compare/v2.1.1...v2.1.2) (2024-07-07)
+
+### Bug Fixes
+
+* **deps:** update dependency flex_color_picker to v3.5.1 ([#1286](https://github.com/zeshuaro/appainter/issues/1286)) ([b40cd88](https://github.com/zeshuaro/appainter/commit/b40cd88ab93ffd0696b45637f985951919266c20))
+* **deps:** update dependency flutter_markdown to v0.7.3 ([#1287](https://github.com/zeshuaro/appainter/issues/1287)) ([7e753b2](https://github.com/zeshuaro/appainter/commit/7e753b203a90b084264421688f6b131443208c3d))
+* **deps:** update firebase dependencies ([#1283](https://github.com/zeshuaro/appainter/issues/1283)) ([19a2f58](https://github.com/zeshuaro/appainter/commit/19a2f5848ef255ba5722211f8841ec431b72783d))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1281](https://github.com/zeshuaro/appainter/issues/1281)) ([50cae55](https://github.com/zeshuaro/appainter/commit/50cae55a271825e67d03dc008224184688d73a37))
+* **deps:** update dependency semantic-release-pub to v0.8.19 ([#1282](https://github.com/zeshuaro/appainter/issues/1282)) ([840dbc2](https://github.com/zeshuaro/appainter/commit/840dbc2aa9c1fc9af507791d0e25fce806521974))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 0e6db77 ([#1285](https://github.com/zeshuaro/appainter/issues/1285)) ([4f04928](https://github.com/zeshuaro/appainter/commit/4f049288ee581662fc02569ffd48546dd3cacf97))
+* **deps:** update zeshuaro/github-actions-workflows digest to 0e6db77 ([#1285](https://github.com/zeshuaro/appainter/issues/1285)) ([44a7013](https://github.com/zeshuaro/appainter/commit/44a70136e99559fc66149a5ef46e2faba8b0e0cf))
+* **deps:** update zeshuaro/github-actions-workflows digest to 56747a3 ([#1284](https://github.com/zeshuaro/appainter/issues/1284)) ([2b480d5](https://github.com/zeshuaro/appainter/commit/2b480d5206677977338ef8c57ee604993680ba98))
+
 ## [2.1.1](https://github.com/zeshuaro/appainter/compare/v2.1.0...v2.1.1) (2024-06-30)
 
 ### Bug Fixes

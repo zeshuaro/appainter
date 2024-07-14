@@ -1,3 +1,19 @@
+## [2.1.3](https://github.com/zeshuaro/appainter/compare/v2.1.2...v2.1.3) (2024-07-14)
+
+### Bug Fixes
+
+* **deps:** update dependency dio to v5.5.0 ([#1291](https://github.com/zeshuaro/appainter/issues/1291)) ([8050f37](https://github.com/zeshuaro/appainter/commit/8050f370b2c4510d6618cbae71116978293dfe22))
+* **deps:** update dependency file_picker to v8.0.6 ([#1290](https://github.com/zeshuaro/appainter/issues/1290)) ([a9d742a](https://github.com/zeshuaro/appainter/commit/a9d742ad9cb627b9e39d2f794fa45e82b16d715b))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1288](https://github.com/zeshuaro/appainter/issues/1288)) ([3a4ffd0](https://github.com/zeshuaro/appainter/commit/3a4ffd07e53bd9338158a976ef267ecb5d382392))
+* **node:** update dependency node to v20.15.1 ([#1289](https://github.com/zeshuaro/appainter/issues/1289)) ([4d13996](https://github.com/zeshuaro/appainter/commit/4d139961805852f65dbdbda0eec4b2b682cb8073))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 149d0b4 ([#1292](https://github.com/zeshuaro/appainter/issues/1292)) ([8dca578](https://github.com/zeshuaro/appainter/commit/8dca5787392237d1bb8c93fde4e1d90df11f0a95))
+
 ## [2.1.2](https://github.com/zeshuaro/appainter/compare/v2.1.1...v2.1.2) (2024-07-07)
 
 ### Bug Fixes

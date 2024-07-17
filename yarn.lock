@@ -3340,10 +3340,10 @@ safe-buffer@^5.0.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.8.19:
-  version "0.8.19"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.19.tgz#5259d0133461dcd01f27761a2d46e6ba92f5a855"
-  integrity sha512-ebho6rfZa/9hn9Vn/Ed62M1z36cfWK2gOz+HglZSXe5tqLclDT8x1PElii7B9rnZPtyTy49UFElL1aaKmK83dw==
+semantic-release-pub@0.8.20:
+  version "0.8.20"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.20.tgz#65a0772672ad1ab1c5ee33be97c2774c09f33aa7"
+  integrity sha512-8Bt8iAT+wwP4vNGxj+LRqkNBXEzozZj7MEzeQdlZ7w6sjKSYAPIGpKDmtCdoOLqCJFjPaHiXClvGTDQYcJUXbg==
   dependencies:
     "@semantic-release/error" "^4.0.0"
     execa "^9.3.0"

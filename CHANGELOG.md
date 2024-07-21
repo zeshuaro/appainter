@@ -1,3 +1,15 @@
+## [2.1.4](https://github.com/zeshuaro/appainter/compare/v2.1.3...v2.1.4) (2024-07-21)
+
+### Bug Fixes
+
+* **deps:** update firebase dependencies ([#1296](https://github.com/zeshuaro/appainter/issues/1296)) ([a0da13b](https://github.com/zeshuaro/appainter/commit/a0da13bb79a88fb26efdc04a07334850d78fff56))
+* **sdk:** update dependency flutter to v3.22.3 ([#1297](https://github.com/zeshuaro/appainter/issues/1297)) ([aac4f9b](https://github.com/zeshuaro/appainter/commit/aac4f9b281c5f1ad58c7c410fee3cf3c6b075376))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1293](https://github.com/zeshuaro/appainter/issues/1293)) ([a22666c](https://github.com/zeshuaro/appainter/commit/a22666ce3c2776338dea976a16f3354973c4a710))
+* **deps:** update dependency semantic-release-pub to v0.8.20 ([#1295](https://github.com/zeshuaro/appainter/issues/1295)) ([f5cb227](https://github.com/zeshuaro/appainter/commit/f5cb227156c7f1eab39a1705a0879b9cea2cbbd4))
+
 ## [2.1.3](https://github.com/zeshuaro/appainter/compare/v2.1.2...v2.1.3) (2024-07-14)
 
 ### Bug Fixes

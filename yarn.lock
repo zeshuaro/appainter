@@ -296,9 +296,9 @@
     bottleneck "^2.15.3"
 
 "@octokit/plugin-throttling@^9.0.0":
-  version "9.3.0"
-  resolved "https://registry.yarnpkg.com/@octokit/plugin-throttling/-/plugin-throttling-9.3.0.tgz#2700963c6f7e0f62de2158a6d67d1b47c19af3d4"
-  integrity sha512-B5YTToSRTzNSeEyssnrT7WwGhpIdbpV9NKIs3KyTWHX6PhpYn7gqF/+lL3BvsASBM3Sg5BAUYk7KZx5p/Ec77w==
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/@octokit/plugin-throttling/-/plugin-throttling-9.3.1.tgz#5648165e1e70e861625f3a16af6c55cafe861061"
+  integrity sha512-Qd91H4liUBhwLB2h6jZ99bsxoQdhgPk6TdwnClPyTBSDAdviGPceViEgUwj+pcQDmB/rfAXAXK7MTochpHM3yQ==
   dependencies:
     "@octokit/types" "^13.0.0"
     bottleneck "^2.15.3"
@@ -311,9 +311,9 @@
     "@octokit/types" "^13.0.0"
 
 "@octokit/request@^9.0.0":
-  version "9.1.2"
-  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-9.1.2.tgz#b52226ae840d86bda805c0bd040adab8885700a0"
-  integrity sha512-ZWRYo7KfV8qc0tW6GmKKYVCmslauxU1wRDJIKdz/DpA5c2pgBScquCiBBD8D0LKa351pLYezWgnwhu/svwzAJg==
+  version "9.1.3"
+  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-9.1.3.tgz#42b693bc06238f43af3c037ebfd35621c6457838"
+  integrity sha512-V+TFhu5fdF3K58rs1pGUJIDH5RZLbZm5BI+MNF+6o/ssFNT4vWlCh/tVpF3NxGtP15HUxTTMUbsG5llAuU2CZA==
   dependencies:
     "@octokit/endpoint" "^10.0.0"
     "@octokit/request-error" "^6.0.1"
@@ -471,9 +471,9 @@
     p-reduce "^2.0.0"
 
 "@semantic-release/github@^10.0.0":
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/@semantic-release/github/-/github-10.1.0.tgz#09c450ea7bd2e90e670d1879545aa534aec84fdf"
-  integrity sha512-g4RHBaCWJjGcEy95TeTdajlmUoP5jAaF5trGkFXHKsT/VpCwawhZbNW66+sUr0c2CIAdfpCxxmK+E7GyWBWJDw==
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/@semantic-release/github/-/github-10.1.1.tgz#670e3fd7da9d294eacb26d027960c92de0831fb5"
+  integrity sha512-sSmsBKGpAlTtXf9rUJf/si16p+FwPEsvsJRjl3KCwFP0WywaSpynvUhlYvE18n5rzkQNbGJnObAKIoo3xFMSjA==
   dependencies:
     "@octokit/core" "^6.0.0"
     "@octokit/plugin-paginate-rest" "^11.0.0"
@@ -633,9 +633,9 @@
   integrity sha512-Wrb8zeghhpKbYuqAOg203g+9YSNlrZWNZYvwxJuDF4dTmerijqpnGbI79yCuPtHSXHPEwv1pAFUB4zsSqn82Og==
 
 "@types/lodash@^4.14.200":
-  version "4.17.6"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.6.tgz#193ced6a40c8006cfc1ca3f4553444fb38f0e543"
-  integrity sha512-OpXEVoCKSS3lQqjx9GGGOapBeuW5eUboYHRlHP9urXPX25IKZ6AnP5ZRxtVf63iieUbsHxLn8NQ5Nlftc6yzAA==
+  version "4.17.7"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.17.7.tgz#2f776bcb53adc9e13b2c0dfd493dfcbd7de43612"
+  integrity sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==
 
 "@types/ms@*":
   version "0.7.34"
@@ -1625,9 +1625,9 @@ git-up@^7.0.0:
     parse-url "^8.1.0"
 
 git-url-parse@^14.0.0:
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/git-url-parse/-/git-url-parse-14.0.0.tgz#18ce834726d5fbca0c25a4555101aa277017418f"
-  integrity sha512-NnLweV+2A4nCvn4U/m2AoYu0pPKlsmhK9cknG7IMwsjFY1S2jxM+mAhsDxyxfCIGfGaD+dozsyX4b6vkYc83yQ==
+  version "14.1.0"
+  resolved "https://registry.yarnpkg.com/git-url-parse/-/git-url-parse-14.1.0.tgz#01cb70000666c11a7230aceec1fd518c416c224c"
+  integrity sha512-8xg65dTxGHST3+zGpycMMFZcoTzAdZ2dOtu4vmgIfkTFnVHBxHMzBC2L1k8To7EmrSiHesT8JgPLT91VKw1B5g==
   dependencies:
     git-up "^7.0.0"
 
@@ -1973,9 +1973,9 @@ is-cidr@^5.1.0:
     cidr-regex "^4.1.1"
 
 is-core-module@^2.13.0:
-  version "2.14.0"
-  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.14.0.tgz#43b8ef9f46a6a08888db67b1ffd4ec9e3dfd59d1"
-  integrity sha512-a5dFJih5ZLYlRtDc0dZWP7RiKr6xIKzmn/oAYCDvdLThadVgyJwlaoQPmRtMSpz+rk0OGAgIu+TcM9HUF0fk1A==
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.15.0.tgz#71c72ec5442ace7e76b306e9d48db361f22699ea"
+  integrity sha512-Dd+Lb2/zvk9SKy1TGCt1wFJFo/MWBPMX5x7KcvLajWTGuomczdQX61PvY5yK6SVACwpoexWo81IfFyoKY2QnTA==
   dependencies:
     hasown "^2.0.2"
 
@@ -3414,9 +3414,9 @@ semver@^6.0.0:
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
 semver@^7.1.1, semver@^7.1.2, semver@^7.3.2, semver@^7.3.5, semver@^7.3.7, semver@^7.5.2, semver@^7.5.3, semver@^7.6.2:
-  version "7.6.2"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.2.tgz#1e3b34759f896e8f14d6134732ce798aeb0c6e13"
-  integrity sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==
+  version "7.6.3"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.3.tgz#980f7b5550bc175fb4dc09403085627f9eb33143"
+  integrity sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==
 
 set-function-length@^1.2.1:
   version "1.2.2"
@@ -3857,9 +3857,9 @@ type-fest@^2.12.2:
   integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
 
 type-fest@^4.6.0, type-fest@^4.7.1:
-  version "4.21.0"
-  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.21.0.tgz#2eec399d9bda4ac686286314d07c6675fef3fdd8"
-  integrity sha512-ADn2w7hVPcK6w1I0uWnM//y1rLXZhzB9mr0a3OirzclKF1Wp6VzevUmzz/NRAWunOT6E8HrnpGY7xOfc6K57fA==
+  version "4.22.1"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.22.1.tgz#cc493ba0c1fb7faecb80d13a70525a75afd9d8d6"
+  integrity sha512-9tHNEa0Ov81YOopiVkcCJVz5TM6AEQ+CHHjFIktqPnE3NV0AHIkx+gh9tiCl58m/66wWxkOC9eltpa75J4lQPA==
 
 typedarray@^0.0.6:
   version "0.0.6"
@@ -3867,9 +3867,9 @@ typedarray@^0.0.6:
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
 uglify-js@^3.1.4:
-  version "3.18.0"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.18.0.tgz#73b576a7e8fda63d2831e293aeead73e0a270deb"
-  integrity sha512-SyVVbcNBCk0dzr9XL/R/ySrmYf0s372K6/hFklzgcp2lBFyXtw4I7BOdDjlLhE1aVqaI/SHWXWmYdlZxuyF38A==
+  version "3.19.0"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.19.0.tgz#6d45f1cad2c54117fa2fabd87fc2713a83e3bf7b"
+  integrity sha512-wNKHUY2hYYkf6oSFfhwwiHo4WCHzHmzcXsqXYTN9ja3iApYIFbb2U6ics9hBcYLHcYGQoAlwnZlTrf3oF+BL/Q==
 
 unicode-emoji-modifier-base@^1.0.0:
   version "1.0.0"

@@ -20,8 +20,8 @@ const RESOURCES = {"icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2
 "canvaskit/skwasm.js": "5d4f9263ec93efeb022bb14a3881d240",
 "canvaskit/skwasm.worker.js": "bfb704a6c714a75da9ef320991e88b03",
 "flutter.js": "383e55f7f3cce5be08fcf1f3881f585c",
-"flutter_bootstrap.js": "5c0d879e7d9d17502a5a6c1545dc741c",
-"version.json": "aea045c89edeeccef89b8fe531a5c326",
+"flutter_bootstrap.js": "28def076fdbd7c3fc15b611639f394fc",
+"version.json": "fecfe597edcbe98b0108ebd76052341a",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "d10ac4ee5ebe8c8fff90505150ba2a76",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b93248a553f9e8bc17f1065929d5934b",
@@ -37,10 +37,10 @@ const RESOURCES = {"icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2
 "assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
 "assets/AssetManifest.json": "cee74d8db9de32ddad2a08e68bdff787",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
-"index.html": "71361bd37416ed4d83422d88de360a93",
-"/": "71361bd37416ed4d83422d88de360a93",
+"index.html": "476905a8f01069e10a05fe4771904f35",
+"/": "476905a8f01069e10a05fe4771904f35",
 "favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
-"main.dart.js": "2ea9e3ce9f35de3587b5adf4d9cb9097"};
+"main.dart.js": "1154450ba6cd3a20c5a98e365fbedf8d"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",

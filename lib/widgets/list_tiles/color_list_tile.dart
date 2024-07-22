@@ -1,6 +1,6 @@
+import 'package:appainter/services/services.dart';
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/services/services.dart';
 
 import 'list_tile.dart';
 
@@ -32,12 +32,19 @@ class ColorListTile extends StatelessWidget {
         borderRadius: 4,
         color: color,
         onSelectFocus: false,
-        onSelect: () => WidgetService.showColorPicker(
-          context: context,
-          color: color,
-          onColorChanged: onColorChanged,
-          enableOpacity: enableOpacity,
-        ),
+        onSelect: () async {
+          final prevColor = color;
+          final colorChanged = await WidgetService.showColorPicker(
+            context: context,
+            color: color,
+            onColorChanged: onColorChanged,
+            enableOpacity: enableOpacity,
+          );
+
+          if (!colorChanged) {
+            onColorChanged(prevColor);
+          }
+        },
       ),
     );
   }

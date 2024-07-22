@@ -2,13 +2,13 @@ import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
 
 class WidgetService {
-  static Future<void> showColorPicker({
+  static Future<bool> showColorPicker({
     required BuildContext context,
     required Color color,
     required ValueChanged<Color> onColorChanged,
     bool enableOpacity = true,
   }) async {
-    ColorPicker(
+    return ColorPicker(
       key: const Key('widgetService_showColorPicker'),
       color: color,
       borderRadius: 4,

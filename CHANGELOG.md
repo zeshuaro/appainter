@@ -1,3 +1,21 @@
+## [2.1.5](https://github.com/zeshuaro/appainter/compare/v2.1.4...v2.1.5) (2024-07-28)
+
+### Bug Fixes
+
+* **colorPicker:** dialog cancel button to restore previous color ([#1300](https://github.com/zeshuaro/appainter/issues/1300)) ([d2a4bbf](https://github.com/zeshuaro/appainter/commit/d2a4bbf4b142ece78a2e3c8423f6461f5f082df6))
+* **deps:** update dependency device_preview_plus to v2.0.2 ([#1298](https://github.com/zeshuaro/appainter/issues/1298)) ([6cd2e0c](https://github.com/zeshuaro/appainter/commit/6cd2e0c247d85aff396f15c3725e207d5f096ccb))
+* **deps:** update dependency sentry_flutter to v8.4.0 ([#1302](https://github.com/zeshuaro/appainter/issues/1302)) ([bfd1270](https://github.com/zeshuaro/appainter/commit/bfd127012f68f2a2dd7f21c6c65d0b25a2ac9444))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1299](https://github.com/zeshuaro/appainter/issues/1299)) ([f5c2164](https://github.com/zeshuaro/appainter/commit/f5c2164dbe8389356d2fc2bd3b7d10c4e035a1e4))
+* **node:** update dependency node to v20.16.0 ([#1303](https://github.com/zeshuaro/appainter/issues/1303)) ([4224f0e](https://github.com/zeshuaro/appainter/commit/4224f0e036e4facfec8bb83aae450ef41ac57179))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 4717eaa ([#1301](https://github.com/zeshuaro/appainter/issues/1301)) ([634d06e](https://github.com/zeshuaro/appainter/commit/634d06ed07c11ec8128665f046954e82a636fc4a))
+* **deps:** update zeshuaro/github-actions-workflows digest to 7de4f87 ([#1304](https://github.com/zeshuaro/appainter/issues/1304)) ([652008c](https://github.com/zeshuaro/appainter/commit/652008c8b92970ecca8d739355c3012c4b61f30b))
+
 ## [2.1.4](https://github.com/zeshuaro/appainter/compare/v2.1.3...v2.1.4) (2024-07-21)
 
 ### Bug Fixes

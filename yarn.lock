@@ -3340,15 +3340,15 @@ safe-buffer@^5.0.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.8.20:
-  version "0.8.20"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.20.tgz#65a0772672ad1ab1c5ee33be97c2774c09f33aa7"
-  integrity sha512-8Bt8iAT+wwP4vNGxj+LRqkNBXEzozZj7MEzeQdlZ7w6sjKSYAPIGpKDmtCdoOLqCJFjPaHiXClvGTDQYcJUXbg==
+semantic-release-pub@0.8.21:
+  version "0.8.21"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.8.21.tgz#e83e3ffe0a9c18c374158c2f546e80b5cd9850b5"
+  integrity sha512-z+7VFZexeM1lhey+WrkGZi0XXTsz+7+FAT4z/eafyPu09kFG1cbrjRnO4Obfts/ii17U/SMnp81hcLUBET44Dg==
   dependencies:
     "@semantic-release/error" "^4.0.0"
     execa "^9.3.0"
     google-auth-library "^9.11.0"
-    yaml "^2.4.5"
+    yaml "^2.5.0"
     zod "^3.23.8"
 
 semantic-release-stop-before-publish@1.0.0:
@@ -4032,7 +4032,7 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-yaml@^2.4.5:
+yaml@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.5.0.tgz#c6165a721cf8000e91c36490a41d7be25176cf5d"
   integrity sha512-2wWLbGbYDiSqqIKoPjar3MPgB94ErzCtrNE1FdqGuaO0pi2JGjmE8aW8TDZwzU7vuxcGRdL/4gPQwQ7hD5AMSw==

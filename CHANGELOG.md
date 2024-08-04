@@ -1,3 +1,19 @@
+## [2.1.6](https://github.com/zeshuaro/appainter/compare/v2.1.5...v2.1.6) (2024-08-04)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.0.3 ([#1305](https://github.com/zeshuaro/appainter/issues/1305)) ([98491fb](https://github.com/zeshuaro/appainter/commit/98491fb79fc202a7ce25b67c6c6aca53bd1d3fcc))
+* **deps:** update dependency sentry_flutter to v8.5.0 ([#1309](https://github.com/zeshuaro/appainter/issues/1309)) ([9a13903](https://github.com/zeshuaro/appainter/commit/9a1390377e8edbe0976ed1275e31aea24f79a052))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1306](https://github.com/zeshuaro/appainter/issues/1306)) ([a58d8ba](https://github.com/zeshuaro/appainter/commit/a58d8ba441a4bf754d8a4182b486631c57851823))
+* **deps:** update dependency semantic-release-pub to v0.8.21 ([#1307](https://github.com/zeshuaro/appainter/issues/1307)) ([0032597](https://github.com/zeshuaro/appainter/commit/0032597ce0532c659152f98a577f0f9ed43eee6a))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 536ff71 ([#1308](https://github.com/zeshuaro/appainter/issues/1308)) ([dcc4d9a](https://github.com/zeshuaro/appainter/commit/dcc4d9ae9d5934cf9f502d1ed6dc8a895ed0d732))
+
 ## [2.1.5](https://github.com/zeshuaro/appainter/compare/v2.1.4...v2.1.5) (2024-07-28)
 
 ### Bug Fixes

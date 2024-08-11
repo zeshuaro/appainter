@@ -97,10 +97,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: a2bbf9d017fcced29139daa8ed2bba4ece450ab222871df93ca9eec6f80c34ba
+      sha256: b9c29a161230ee03d3ccf545097fccd9b87a5264228c5d348202e0f0c28f9010
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.2"
   http_parser:
     dependency: transitive
     description:
@@ -126,18 +126,18 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "65f5a57595beade1fdda6458c2eb89738b2651b3a476e52c8fcdefd37c646043"
+      sha256: "668be1a27c493dd8822fe8c3ce3563ccd788e2b214d77a0b8b3bfad50272e7f9"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0+13"
+    version: "3.0.0+16"
   json_schema:
     dependency: transitive
     description:
       name: json_schema
-      sha256: f1bcf81647c347f53281dca9c8ea3e2b7b4d0eee5b4d1e4cee3173a5c162f358
+      sha256: b183ba828374365a89b81246c06a9a636935897d509cd846998bbc0d9bd0a2cf
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.7"
+    version: "5.2.0"
   json_theme:
     dependency: "direct main"
     description:
@@ -150,10 +150,10 @@ packages:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "3816f6e6eb44d802919cfbaa3f8a9f19a29e12de1663a2f29a5618f77263a7d1"
+      sha256: "1be9def487510c90407dac2bc1ac4c396a4f5857e8e6ce791ebc97a0368706d6"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3+7"
+    version: "1.0.3+10"
   leak_tracker:
     dependency: transitive
     description:
@@ -355,10 +355,10 @@ packages:
     dependency: transitive
     description:
       name: web
-      sha256: afe077240a270dcfd2aafe77602b4113645af95d0ad31128cc02bce5ac5d5152
+      sha256: d43c1d6b787bf0afad444700ae7f4db8827f701bc61c255ac8d328c6f4d52062
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.0"
+    version: "1.0.0"
   webdriver:
     dependency: transitive
     description:
@@ -368,5 +368,5 @@ packages:
     source: hosted
     version: "3.0.3"
 sdks:
-  dart: ">=3.3.0 <4.0.0"
+  dart: ">=3.4.0 <4.0.0"
   flutter: ">=3.18.0-18.0.pre.54"

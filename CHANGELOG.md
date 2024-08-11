@@ -1,3 +1,18 @@
+## [2.1.7](https://github.com/zeshuaro/appainter/compare/v2.1.6...v2.1.7) (2024-08-11)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.0.4 ([#1310](https://github.com/zeshuaro/appainter/issues/1310)) ([64c23e4](https://github.com/zeshuaro/appainter/commit/64c23e453d0000e438512a4ee0e0b6ffa2ad63d2))
+* **deps:** update dependency path_provider to v2.1.4 ([#1314](https://github.com/zeshuaro/appainter/issues/1314)) ([f8e9d3e](https://github.com/zeshuaro/appainter/commit/f8e9d3e9389ffaa92dddad0aff29bbcef981baf6))
+* **deps:** update dependency shared_preferences to v2.3.0 ([#1317](https://github.com/zeshuaro/appainter/issues/1317)) ([fc53ca8](https://github.com/zeshuaro/appainter/commit/fc53ca839e99105023e24cb60b134637d754dea5))
+* **deps:** update dependency shared_preferences to v2.3.1 ([#1318](https://github.com/zeshuaro/appainter/issues/1318)) ([c5cb1f6](https://github.com/zeshuaro/appainter/commit/c5cb1f62bd37aa76a74d9ef50202cd98500417a7))
+* **deps:** update firebase dependencies ([#1315](https://github.com/zeshuaro/appainter/issues/1315)) ([822ed3b](https://github.com/zeshuaro/appainter/commit/822ed3b79e0a4cecb29ce48775f279e9355bf388))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1311](https://github.com/zeshuaro/appainter/issues/1311)) ([48b2955](https://github.com/zeshuaro/appainter/commit/48b29558efab25a31cab351aea37b12d69f372d8))
+* **deps:** update dependency semantic-release-pub to v0.8.22 ([#1313](https://github.com/zeshuaro/appainter/issues/1313)) ([a1360df](https://github.com/zeshuaro/appainter/commit/a1360dfb2c1a6d67fe6bc4f65e54a504953ab6d4))
+
 ## [2.1.6](https://github.com/zeshuaro/appainter/compare/v2.1.5...v2.1.6) (2024-08-04)
 
 ### Bug Fixes

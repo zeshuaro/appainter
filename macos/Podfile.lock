@@ -13,7 +13,7 @@ PODS:
     - Firebase/Analytics (= 10.29.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_auth (5.1.3):
+  - firebase_auth (5.1.4):
     - Firebase/Auth (~> 10.29.0)
     - Firebase/CoreOnly (~> 10.29.0)
     - firebase_core
@@ -190,7 +190,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Firebase: cec914dab6fd7b1bd8ab56ea07ce4e03dd251c2d
   firebase_analytics: e1236d621a5d62d16a706315d198f3cd7f0e2fcb
-  firebase_auth: 71482deb93cef49572e81b6d2e8f9e7f265c0e6f
+  firebase_auth: a1b0972e30634894e8b24bf618b9a5aeb1f86119
   firebase_core: 73185b844efc8a534e5744d68152e75e740922d2
   FirebaseAnalytics: 23717de130b779aa506e757edb9713d24b6ffeda
   FirebaseAppCheckInterop: 6a1757cfd4067d8e00fccd14fcc1b8fd78cfac07

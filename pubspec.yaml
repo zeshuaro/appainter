@@ -44,7 +44,7 @@ dependencies:
   universal_html: 2.2.4
   universal_io: 2.2.2
   url_launcher: 6.3.0
-  window_manager: 0.3.9
+  window_manager: 0.4.0
 
 dev_dependencies:
   appainter_builder:

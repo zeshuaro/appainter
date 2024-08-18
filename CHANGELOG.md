@@ -1,3 +1,15 @@
+## [2.1.8](https://github.com/zeshuaro/appainter/compare/v2.1.7...v2.1.8) (2024-08-18)
+
+### Bug Fixes
+
+* **deps:** update dependency file_picker to v8.0.7 ([#1321](https://github.com/zeshuaro/appainter/issues/1321)) ([9311b70](https://github.com/zeshuaro/appainter/commit/9311b70655dce892e7c6474a43d78e5628bf1ba0))
+* **deps:** update dependency firebase_auth to v5.1.4 ([#1322](https://github.com/zeshuaro/appainter/issues/1322)) ([68a24b8](https://github.com/zeshuaro/appainter/commit/68a24b82dcbaf452af1f63ad08dcef88440a7d04))
+* **deps:** update dependency window_manager to v0.4.0 ([#1323](https://github.com/zeshuaro/appainter/issues/1323)) ([24981c0](https://github.com/zeshuaro/appainter/commit/24981c05072b618674ca7a30d96e0068c35bbd56))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1320](https://github.com/zeshuaro/appainter/issues/1320)) ([86b70a5](https://github.com/zeshuaro/appainter/commit/86b70a5be09432a110cdeedca799e534a8a34f3d))
+
 ## [2.1.7](https://github.com/zeshuaro/appainter/compare/v2.1.6...v2.1.7) (2024-08-11)
 
 ### Bug Fixes

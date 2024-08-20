@@ -35,7 +35,7 @@ To use the theme JSON file in your app, follow the steps below:
 
    ```dart
    import 'package:flutter/material.dart';
-   import 'package:json_theme/json_theme.dart';
+   import 'package:json_theme_plus/json_theme_plus.dart';
 
    import 'package:flutter/services.dart'; // For rootBundle
    import 'dart:convert'; // For jsonDecode

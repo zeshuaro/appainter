@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:json_theme/json_theme.dart';
+import 'package:json_theme_plus/json_theme_plus.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

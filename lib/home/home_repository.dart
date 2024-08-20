@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:json_theme/json_theme.dart';
+import 'package:json_theme_plus/json_theme_plus.dart';
 import 'package:pretty_json/pretty_json.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';

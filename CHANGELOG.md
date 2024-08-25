@@ -1,3 +1,30 @@
+## [2.2.0](https://github.com/zeshuaro/appainter/compare/v2.1.8...v2.2.0) (2024-08-25)
+
+### Features
+
+* **sdk:** update dependency flutter to v3.24.0 ([#1316](https://github.com/zeshuaro/appainter/issues/1316)) ([eb655b2](https://github.com/zeshuaro/appainter/commit/eb655b208ec250704948aedbf6e8ed3f5e4bc381))
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.1.0 ([#1324](https://github.com/zeshuaro/appainter/issues/1324)) ([2036fea](https://github.com/zeshuaro/appainter/commit/2036fea89426b3b172b5fa336612c185f85b6cc1))
+* **deps:** update dependency dio to v5.6.0 ([#1328](https://github.com/zeshuaro/appainter/issues/1328)) ([c43d33a](https://github.com/zeshuaro/appainter/commit/c43d33a8688390e43e0c81635412a3a44884f1b1))
+* **deps:** update dependency sentry_flutter to v8.7.0 ([#1319](https://github.com/zeshuaro/appainter/issues/1319)) ([276192b](https://github.com/zeshuaro/appainter/commit/276192b544c7d05a199a4464bf7df9859a4193a1))
+* **deps:** update dependency shared_preferences to v2.3.2 ([#1332](https://github.com/zeshuaro/appainter/issues/1332)) ([459a8a8](https://github.com/zeshuaro/appainter/commit/459a8a876837d79ca7e1c67869af1161f3377ce5))
+* **sdk:** update dependency flutter to v3.24.1 ([#1330](https://github.com/zeshuaro/appainter/issues/1330)) ([f28bf2e](https://github.com/zeshuaro/appainter/commit/f28bf2e2638bfa42b08d202e9f5cff90528e0856))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1325](https://github.com/zeshuaro/appainter/issues/1325)) ([fa50254](https://github.com/zeshuaro/appainter/commit/fa50254f5dd9a370d15f248f62d3249c519eeff8))
+* **deps:** update dependency build_runner to v2.4.12 ([#1312](https://github.com/zeshuaro/appainter/issues/1312)) ([9b54756](https://github.com/zeshuaro/appainter/commit/9b5475662ef0fce25230d148cedf1d85ee4f7c0e))
+* **deps:** update dependency semantic-release to v24.1.0 ([#1327](https://github.com/zeshuaro/appainter/issues/1327)) ([19c8d6e](https://github.com/zeshuaro/appainter/commit/19c8d6e98ebd226a124ae58499129c3dd2f08a5b))
+* **deps:** update dependency semantic-release-pub to v0.8.23 ([#1329](https://github.com/zeshuaro/appainter/issues/1329)) ([1da1a9d](https://github.com/zeshuaro/appainter/commit/1da1a9def77af8532b7d316d66295fbc27ce723c))
+* **node:** update dependency node to v20.17.0 ([#1331](https://github.com/zeshuaro/appainter/issues/1331)) ([a0524f9](https://github.com/zeshuaro/appainter/commit/a0524f951d2c5db5b61ee0bab103f7981b4b87dc))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 5e6badf ([#1334](https://github.com/zeshuaro/appainter/issues/1334)) ([8cc1593](https://github.com/zeshuaro/appainter/commit/8cc1593046ff3626c2bf505e15f149c475db98b3))
+* **deps:** update zeshuaro/github-actions-workflows digest to e887a1d ([#1333](https://github.com/zeshuaro/appainter/issues/1333)) ([8b21eb6](https://github.com/zeshuaro/appainter/commit/8b21eb6a9515f6321e92cfcc517acd79c97a581f))
+
 ## [2.1.8](https://github.com/zeshuaro/appainter/compare/v2.1.7...v2.1.8) (2024-08-18)
 
 ### Bug Fixes

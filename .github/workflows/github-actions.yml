@@ -96,6 +96,8 @@ jobs:
 
       - name: Setup ChromeDriver 🚘
         uses: nanasess/setup-chromedriver@v2.2.2
+        with:
+          chromedriver-version: "127.0.6533.120"
         if: ${{ matrix.type == 'web' }}
 
       - name: Cache Pub 💾

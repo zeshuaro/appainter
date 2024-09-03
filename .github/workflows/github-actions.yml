@@ -133,7 +133,8 @@ jobs:
             flutter drive \
               --driver=test_driver/integration_test.dart \
               --target=integration_test/app_test.dart \
-              -d web-server
+              -d chrome \
+              --dart-define=CI=true
           else
             flutter test integration_test -d ${{ matrix.type }}
           fi

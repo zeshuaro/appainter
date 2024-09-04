@@ -76,7 +76,7 @@ jobs:
             os: ubuntu-latest
 
           - type: web
-            os: macos-latest
+            os: ubuntu-latest
 
     steps:
       - name: Checkout 🛎️

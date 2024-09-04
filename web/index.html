@@ -50,28 +50,24 @@
 
     <title>Appainter</title>
     <link rel="manifest" href="manifest.json" />
-    <script>
-      var serviceWorkerVersion = null;
-    </script>
-    <script src="flutter.js" defer></script>
   </head>
   <body>
-    <div id="loading"></div>
     <script>
-      window.addEventListener("load", function (ev) {
-        var loading = document.querySelector("#loading");
-        _flutter.loader
-          .loadEntrypoint({
-            serviceWorker: {
-              serviceWorkerVersion: serviceWorkerVersion,
-            },
-          })
-          .then(function (engineInitializer) {
-            return engineInitializer.initializeEngine();
-          })
-          .then(function (appRunner) {
-            return appRunner.runApp();
-          });
+      {{flutter_bootstrap_js}}
+      {{flutter_js}}
+      {{flutter_build_config}}
+
+      const loading = document.createElement('div');
+      document.body.appendChild(loading);
+      loading.textContent = "Loading...";
+      _flutter.loader.load({
+        onEntrypointLoaded: async function(engineInitializer) {
+          loading.textContent = "Loading...";
+          const appRunner = await engineInitializer.initializeEngine();
+
+          loading.textContent = "Starting Appainter...";
+          await appRunner.runApp();
+        }
       });
     </script>
   </body>

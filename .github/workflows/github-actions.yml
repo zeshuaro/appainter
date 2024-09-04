@@ -123,7 +123,6 @@ jobs:
         run: |
           flutter pub get
           flutter pub run build_runner build --delete-conflicting-outputs
-          flutter build ${{ matrix.type }} --no-tree-shake-icons --target=integration_test/app_test.dart
 
           if [ "${{ matrix.type }}" == "linux" ]; then
             xvfb-run flutter test integration_test -d ${{ matrix.type }}

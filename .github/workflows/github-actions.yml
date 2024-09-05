@@ -64,7 +64,12 @@ jobs:
 
     strategy:
       matrix:
-        type: [macos, windows, linux, web]
+        type:
+          - macos
+          - windows
+          - linux
+          # Disabled because forever hanging on GitHub Actions
+          # - web
         include:
           - type: macos
             os: macos-latest

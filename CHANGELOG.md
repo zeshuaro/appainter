@@ -1,3 +1,34 @@
+## [2.2.1](https://github.com/zeshuaro/appainter/compare/v2.2.0...v2.2.1) (2024-09-05)
+
+### Bug Fixes
+
+* **deps:** update dependency json_theme_plus to v6.6.1 ([#1347](https://github.com/zeshuaro/appainter/issues/1347)) ([f96832d](https://github.com/zeshuaro/appainter/commit/f96832d2cfa4f387a760698a5c4c2777890b5269))
+* **deps:** update dependency sentry_flutter to v8.8.0 ([#1348](https://github.com/zeshuaro/appainter/issues/1348)) ([5904815](https://github.com/zeshuaro/appainter/commit/5904815bebef933a90d418746bf1895e78cd41ff))
+* **deps:** update dependency window_manager to v0.4.2 ([#1337](https://github.com/zeshuaro/appainter/issues/1337)) ([7e0d3ea](https://github.com/zeshuaro/appainter/commit/7e0d3eaf975e65ec46e958ce3f2e7d54bf5e748f))
+* **web:** upgrade web `index.html` file ([#1352](https://github.com/zeshuaro/appainter/issues/1352)) ([d75a1f0](https://github.com/zeshuaro/appainter/commit/d75a1f0367a8eae245559f2acb7421394030f8bb))
+
+### Documentation
+
+* **usage:** update to use `json_theme_plus` ([#1343](https://github.com/zeshuaro/appainter/issues/1343)) ([1f8b646](https://github.com/zeshuaro/appainter/commit/1f8b646a4748fb7d9cb47f974f5eabe0d47a15eb))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1338](https://github.com/zeshuaro/appainter/issues/1338)) ([004a329](https://github.com/zeshuaro/appainter/commit/004a329e02aa7ae3e95216b8fbf05306e5a01e1c))
+* **deps:** lock file maintenance ([#1345](https://github.com/zeshuaro/appainter/issues/1345)) ([e3b85dc](https://github.com/zeshuaro/appainter/commit/e3b85dcd6360198ce84a84c9d91843347afacbcd))
+* **deps:** update dependency semantic-release-pub to v0.8.24 ([#1341](https://github.com/zeshuaro/appainter/issues/1341)) ([8a46aa3](https://github.com/zeshuaro/appainter/commit/8a46aa348e96d29df360f0dfa1fe9ef6f859e6b0))
+* **deps:** update dependency semantic-release-pub to v0.8.25 ([#1350](https://github.com/zeshuaro/appainter/issues/1350)) ([91cdfe5](https://github.com/zeshuaro/appainter/commit/91cdfe5d523452d0e7be3a3da9fac4d8074e18d6))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 04d91d5 ([#1336](https://github.com/zeshuaro/appainter/issues/1336)) ([94ebb67](https://github.com/zeshuaro/appainter/commit/94ebb671ec940856ad955610fc4e77da183f3050))
+* **deps:** update zeshuaro/github-actions-workflows digest to 2657b4e ([#1335](https://github.com/zeshuaro/appainter/issues/1335)) ([2864d63](https://github.com/zeshuaro/appainter/commit/2864d6336e1d989fb9f1da6aa28952914adef411))
+* **deps:** update zeshuaro/github-actions-workflows digest to 85a09fd ([#1340](https://github.com/zeshuaro/appainter/issues/1340)) ([2b129a4](https://github.com/zeshuaro/appainter/commit/2b129a41a9ee12192abfc87b2366902d3ff11f79))
+* **deps:** update zeshuaro/github-actions-workflows digest to bf01d5e ([#1339](https://github.com/zeshuaro/appainter/issues/1339)) ([1d99c48](https://github.com/zeshuaro/appainter/commit/1d99c48b0085e24e8b46dd3bac3da95a0b264ee5))
+* **deps:** update zeshuaro/github-actions-workflows digest to f863fab ([#1355](https://github.com/zeshuaro/appainter/issues/1355)) ([b2026ee](https://github.com/zeshuaro/appainter/commit/b2026ee3700d1049222b29a2e5f4747e988b03c9))
+* **deps:** update zeshuaro/github-actions-workflows digest to f8b2b07 ([#1342](https://github.com/zeshuaro/appainter/issues/1342)) ([4a910d2](https://github.com/zeshuaro/appainter/commit/4a910d26689588099d2a46f8319a586d80a319f0))
+* **github-actions:** disable integration tests on web ([#1357](https://github.com/zeshuaro/appainter/issues/1357)) ([05dc27d](https://github.com/zeshuaro/appainter/commit/05dc27d2ff515579c19afc555d4155cb1d240948))
+* **github-actions:** fully disable integration tests on web ([#1358](https://github.com/zeshuaro/appainter/issues/1358)) ([ea3bd66](https://github.com/zeshuaro/appainter/commit/ea3bd667983f6735261202887afcb26dfad7fe62))
+
 ## [2.2.0](https://github.com/zeshuaro/appainter/compare/v2.1.8...v2.2.0) (2024-08-25)
 
 ### Features

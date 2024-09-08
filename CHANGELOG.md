@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/zeshuaro/appainter/compare/v2.2.1...v2.2.2) (2024-09-08)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.1.1 ([#1346](https://github.com/zeshuaro/appainter/issues/1346)) ([77c2745](https://github.com/zeshuaro/appainter/commit/77c27450376ee05ae0d9cacde6c698cb3e71165f))
+* **sdk:** update dependency flutter to v3.24.2 ([#1356](https://github.com/zeshuaro/appainter/issues/1356)) ([dfeb553](https://github.com/zeshuaro/appainter/commit/dfeb5538c4f0341c762f728fd5eec57f08096eee))
+
 ## [2.2.1](https://github.com/zeshuaro/appainter/compare/v2.2.0...v2.2.1) (2024-09-05)
 
 ### Bug Fixes

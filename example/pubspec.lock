@@ -150,10 +150,10 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme_plus
-      sha256: db6d804e653c77c0cf41f576dc73ab3fc0ae7cd5400f41dfe66938bc1b8010da
+      sha256: "8a854919515a7fc13f8e56e80d3082dd95b1565a91c1fda77848830955b22d95"
       url: "https://pub.dev"
     source: hosted
-    version: "6.6.1"
+    version: "6.6.2"
   leak_tracker:
     dependency: transitive
     description:
@@ -368,5 +368,5 @@ packages:
     source: hosted
     version: "3.0.3"
 sdks:
-  dart: ">=3.5.1 <4.0.0"
-  flutter: ">=3.24.1"
+  dart: ">=3.5.2 <4.0.0"
+  flutter: ">=3.24.2"

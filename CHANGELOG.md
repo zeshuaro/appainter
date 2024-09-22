@@ -1,3 +1,19 @@
+## [2.2.4](https://github.com/zeshuaro/appainter/compare/v2.2.3...v2.2.4) (2024-09-22)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.1.2 ([#1364](https://github.com/zeshuaro/appainter/issues/1364)) ([1193040](https://github.com/zeshuaro/appainter/commit/11930402dd89a40388a1ecdaf4fc3fdaae92f786))
+* **deps:** update dependency json_theme_plus to v6.6.2 ([#1365](https://github.com/zeshuaro/appainter/issues/1365)) ([d580cc9](https://github.com/zeshuaro/appainter/commit/d580cc9bc075757b5621898ce41f72e5c67608ec))
+* **deps:** update dependency sentry_flutter to v8.9.0 ([#1368](https://github.com/zeshuaro/appainter/issues/1368)) ([8981c95](https://github.com/zeshuaro/appainter/commit/8981c950fda103c84443d75d080279d786a2af7b))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1366](https://github.com/zeshuaro/appainter/issues/1366)) ([2f67022](https://github.com/zeshuaro/appainter/commit/2f670223f761a0f09d8bdfa232b39427cf19b459))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to b17179f ([#1367](https://github.com/zeshuaro/appainter/issues/1367)) ([7afd450](https://github.com/zeshuaro/appainter/commit/7afd4502c82525ff69a1cf23d90620809bce0e83))
+
 ## [2.2.3](https://github.com/zeshuaro/appainter/compare/v2.2.2...v2.2.3) (2024-09-15)
 
 ### Bug Fixes

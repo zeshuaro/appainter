@@ -1,3 +1,20 @@
+## [2.2.5](https://github.com/zeshuaro/appainter/compare/v2.2.4...v2.2.5) (2024-09-29)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.1.3 ([#1370](https://github.com/zeshuaro/appainter/issues/1370)) ([dfbe947](https://github.com/zeshuaro/appainter/commit/dfbe947ea1ec21c10fe600a0b080f4a91b30830f))
+* **deps:** update dependency json_theme_plus to v6.6.3 ([#1371](https://github.com/zeshuaro/appainter/issues/1371)) ([45a47ce](https://github.com/zeshuaro/appainter/commit/45a47ce1bf802d7dbd31048a394c15763d70d722))
+* **deps:** update firebase dependencies and file_picker ([#1351](https://github.com/zeshuaro/appainter/issues/1351)) ([230e634](https://github.com/zeshuaro/appainter/commit/230e634194888926d3ed9ef4a1c092456b3cda40))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1372](https://github.com/zeshuaro/appainter/issues/1372)) ([55c26c2](https://github.com/zeshuaro/appainter/commit/55c26c2e8e1378bc6111230930301d52d2acb3b2))
+* **deps:** update dependency semantic-release-pub to v0.8.27 ([#1374](https://github.com/zeshuaro/appainter/issues/1374)) ([4dbf487](https://github.com/zeshuaro/appainter/commit/4dbf487539042396aaa8772b13d69032d07634ff))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to c5bb137 ([#1375](https://github.com/zeshuaro/appainter/issues/1375)) ([783ce61](https://github.com/zeshuaro/appainter/commit/783ce61a03851f8cfe4ad71d1dd909b639d928e0))
+
 ## [2.2.4](https://github.com/zeshuaro/appainter/compare/v2.2.3...v2.2.4) (2024-09-22)
 
 ### Bug Fixes

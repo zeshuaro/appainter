@@ -52,7 +52,7 @@ dev_dependencies:
   bloc_test: 9.1.7
   build_runner: 2.4.12
   copy_with_extension_gen: 5.0.4
-  flutter_lints: 4.0.0
+  flutter_lints: 5.0.0
   flutter_test:
     sdk: flutter
   integration_test:

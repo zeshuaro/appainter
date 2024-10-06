@@ -1,3 +1,23 @@
+## [2.2.6](https://github.com/zeshuaro/appainter/compare/v2.2.5...v2.2.6) (2024-10-06)
+
+### Bug Fixes
+
+* **deps:** update dependency flex_color_picker to v3.6.0 ([#1381](https://github.com/zeshuaro/appainter/issues/1381)) ([234f9ce](https://github.com/zeshuaro/appainter/commit/234f9cefb6c7fb10e565d569f315a28555df2dbd))
+* **deps:** update firebase dependencies ([#1383](https://github.com/zeshuaro/appainter/issues/1383)) ([02f1da7](https://github.com/zeshuaro/appainter/commit/02f1da7d3a8cb1872e3f6320e0d9e59b1864b21c))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1377](https://github.com/zeshuaro/appainter/issues/1377)) ([0deb1a7](https://github.com/zeshuaro/appainter/commit/0deb1a755a66def167b5ad455fa8ef24263b32c7))
+* **deps:** update dependency flutter_lints to v5 ([#1382](https://github.com/zeshuaro/appainter/issues/1382)) ([dbb158e](https://github.com/zeshuaro/appainter/commit/dbb158e52823f3123c67c16adde681304e5b9e1d))
+* **deps:** update dependency semantic-release to v24.1.2 ([#1379](https://github.com/zeshuaro/appainter/issues/1379)) ([ea6f224](https://github.com/zeshuaro/appainter/commit/ea6f22418fc0caaeadc3f38996b23c2b6c6ddc06))
+* **node:** update dependency node to v20.18.0 ([#1384](https://github.com/zeshuaro/appainter/issues/1384)) ([c9953a8](https://github.com/zeshuaro/appainter/commit/c9953a8c9f5ce24b8ac0bfbc05776d433ad7c371))
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v4.6.0 ([#1380](https://github.com/zeshuaro/appainter/issues/1380)) ([c731476](https://github.com/zeshuaro/appainter/commit/c731476abfa5251f852cc8f5f8de47a9c0dc2956))
+* **deps:** update zeshuaro/github-actions-workflows digest to 478b37c ([#1385](https://github.com/zeshuaro/appainter/issues/1385)) ([dbaa69f](https://github.com/zeshuaro/appainter/commit/dbaa69f14cfa1f78165f4c3014e466e3154aa204))
+* **deps:** update zeshuaro/github-actions-workflows digest to ce6c1c5 ([#1378](https://github.com/zeshuaro/appainter/issues/1378)) ([aafd1e7](https://github.com/zeshuaro/appainter/commit/aafd1e7664233dad0c38efc2caa9c0ef3876e8c9))
+
 ## [2.2.5](https://github.com/zeshuaro/appainter/compare/v2.2.4...v2.2.5) (2024-09-29)
 
 ### Bug Fixes

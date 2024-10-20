@@ -1,3 +1,23 @@
+## [2.2.7](https://github.com/zeshuaro/appainter/compare/v2.2.6...v2.2.7) (2024-10-20)
+
+### Bug Fixes
+
+* **deps:** update dependency url_launcher to v6.3.1 ([#1393](https://github.com/zeshuaro/appainter/issues/1393)) ([be30842](https://github.com/zeshuaro/appainter/commit/be3084262d30dffce96dcac862c067e10a37f054))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1386](https://github.com/zeshuaro/appainter/issues/1386)) ([1c01e8b](https://github.com/zeshuaro/appainter/commit/1c01e8b8dfb51157f40e6afe7440ac338e86693b))
+* **deps:** lock file maintenance ([#1392](https://github.com/zeshuaro/appainter/issues/1392)) ([d765049](https://github.com/zeshuaro/appainter/commit/d765049836410b311a11f15ed124d43c76376203))
+* **deps:** update dependency build_runner to v2.4.13 ([#1388](https://github.com/zeshuaro/appainter/issues/1388)) ([2a9b89a](https://github.com/zeshuaro/appainter/commit/2a9b89a96a59f2422c94c714a00d814a11aea593))
+* **deps:** update dependency semantic-release-pub to v0.8.28 ([#1391](https://github.com/zeshuaro/appainter/issues/1391)) ([1fd86a2](https://github.com/zeshuaro/appainter/commit/1fd86a25ccda79c90d8b758e41d9a330b53a1625))
+* **deps:** update dependency semantic-release-pub to v0.8.29 ([#1394](https://github.com/zeshuaro/appainter/issues/1394)) ([711c05a](https://github.com/zeshuaro/appainter/commit/711c05ae2027773a1b77244900e85cd519244697))
+
+### Continuous Integration
+
+* **deps:** update actions/checkout digest to eef6144 ([#1387](https://github.com/zeshuaro/appainter/issues/1387)) ([6789a28](https://github.com/zeshuaro/appainter/commit/6789a280816f15ec31763512a85498c9bf79b472))
+* **deps:** update zeshuaro/github-actions-workflows digest to 9faa626 ([#1390](https://github.com/zeshuaro/appainter/issues/1390)) ([2fb47cd](https://github.com/zeshuaro/appainter/commit/2fb47cd33222a90082d054aef7e698c703a7ad33))
+* **deps:** update zeshuaro/github-actions-workflows digest to de12304 ([#1389](https://github.com/zeshuaro/appainter/issues/1389)) ([b2ad39a](https://github.com/zeshuaro/appainter/commit/b2ad39a4a9acc71881da6528d410b32b98e32da5))
+
 ## [2.2.6](https://github.com/zeshuaro/appainter/compare/v2.2.5...v2.2.6) (2024-10-06)
 
 ### Bug Fixes

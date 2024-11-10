@@ -1,3 +1,28 @@
+## [2.2.9](https://github.com/zeshuaro/appainter/compare/v2.2.8...v2.2.9) (2024-11-10)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.1.4 ([#1411](https://github.com/zeshuaro/appainter/issues/1411)) ([3bb054c](https://github.com/zeshuaro/appainter/commit/3bb054c004da2b99c5c8bb7819b6352618034215))
+* **deps:** update dependency json_theme_plus to v6.6.4 ([#1412](https://github.com/zeshuaro/appainter/issues/1412)) ([e0b2c97](https://github.com/zeshuaro/appainter/commit/e0b2c9777317dd86d147c354653a6179c7537150))
+* **deps:** update dependency path_provider to v2.1.5 ([#1415](https://github.com/zeshuaro/appainter/issues/1415)) ([cf249bb](https://github.com/zeshuaro/appainter/commit/cf249bbb276d162005c5e7f001ad1dc3c437f341))
+* **deps:** update dependency window_manager to v0.4.3 ([#1413](https://github.com/zeshuaro/appainter/issues/1413)) ([eb5ec8a](https://github.com/zeshuaro/appainter/commit/eb5ec8ae8b89ab313fb3e322f6af8ee16c416fe9))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1406](https://github.com/zeshuaro/appainter/issues/1406)) ([8c47fdf](https://github.com/zeshuaro/appainter/commit/8c47fdfca912f0702f78e411c42ce39ae893bbe0))
+* **deps:** lock file maintenance ([#1414](https://github.com/zeshuaro/appainter/issues/1414)) ([22fe00d](https://github.com/zeshuaro/appainter/commit/22fe00d4985938874469b490a9a5caa3fe569d16))
+* **deps:** update dependency semantic-release to v24.2.0 ([#1408](https://github.com/zeshuaro/appainter/issues/1408)) ([68f7b9b](https://github.com/zeshuaro/appainter/commit/68f7b9bec1533cc17bf8339fe5ce5ba026a7f0d6))
+* **deps:** update dependency semantic-release-pub to v0.9.0 ([#1416](https://github.com/zeshuaro/appainter/issues/1416)) ([547bae9](https://github.com/zeshuaro/appainter/commit/547bae9d465f837bf70fcc23204fd4244cd5e7dc))
+* **node:** update dependency node to v22 ([#1409](https://github.com/zeshuaro/appainter/issues/1409)) ([569fe8b](https://github.com/zeshuaro/appainter/commit/569fe8bce64682c04a67c146b6d134c58a8701b8))
+
+### Continuous Integration
+
+* **deps:** update futureware-tech/simulator-action action to v4 ([#1401](https://github.com/zeshuaro/appainter/issues/1401)) ([2234907](https://github.com/zeshuaro/appainter/commit/2234907e7a09be4caefaff9ee304447e84811d0d))
+* **deps:** update zeshuaro/github-actions-workflows digest to 242231c ([#1410](https://github.com/zeshuaro/appainter/issues/1410)) ([3a5b4c6](https://github.com/zeshuaro/appainter/commit/3a5b4c6df4bdbf8d2f81c1eea1699b20e0598327))
+* **deps:** update zeshuaro/github-actions-workflows digest to 71a020b ([#1407](https://github.com/zeshuaro/appainter/issues/1407)) ([ed9a66d](https://github.com/zeshuaro/appainter/commit/ed9a66d40cf6af856c85333add175ed79129b356))
+* **deps:** update zeshuaro/github-actions-workflows digest to b28005a ([#1417](https://github.com/zeshuaro/appainter/issues/1417)) ([609ac39](https://github.com/zeshuaro/appainter/commit/609ac3958d97355e47dd20e27e8d1f720dc5ef3a))
+* **deps:** update zeshuaro/github-actions-workflows digest to d138fda ([#1418](https://github.com/zeshuaro/appainter/issues/1418)) ([377cd0d](https://github.com/zeshuaro/appainter/commit/377cd0d42db0a5f9a845909575511c825b0245ee))
+
 ## [2.2.8](https://github.com/zeshuaro/appainter/compare/v2.2.7...v2.2.8) (2024-10-27)
 
 ### Bug Fixes

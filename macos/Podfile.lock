@@ -126,7 +126,7 @@ PODS:
   - screen_retriever_macos (0.0.1):
     - FlutterMacOS
   - Sentry/HybridSDK (8.40.1)
-  - sentry_flutter (8.10.0):
+  - sentry_flutter (8.10.1):
     - Flutter
     - FlutterMacOS
     - Sentry/HybridSDK (= 8.40.1)
@@ -216,7 +216,7 @@ SPEC CHECKSUMS:
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   screen_retriever_macos: 776e0fa5d42c6163d2bf772d22478df4b302b161
   Sentry: e9215d7b17f7902692b4f8700e061e4f853e3521
-  sentry_flutter: bf40d5e34dffa1769ae980d273b93511c0fbd45e
+  sentry_flutter: 927eed60d66951d1b0f1db37fe94ff5cb7c80231
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   url_launcher_macos: c82c93949963e55b228a30115bd219499a6fe404
   window_manager: 3a1844359a6295ab1e47659b1a777e36773cd6e8

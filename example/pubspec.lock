@@ -126,10 +126,10 @@ packages:
     dependency: transitive
     description:
       name: json_class
-      sha256: "668be1a27c493dd8822fe8c3ce3563ccd788e2b214d77a0b8b3bfad50272e7f9"
+      sha256: f27de435c3b47ceea23c13d0516afa98c71c62c7a762a6c8f1df665189eb855e
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0+16"
+    version: "3.0.1"
   json_schema:
     dependency: transitive
     description:
@@ -150,10 +150,10 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme_plus
-      sha256: "34824b7d9aa1b30a50be06a3355ff5abf87c29d7e97b872199586e61185d692a"
+      sha256: "1d1d17e2e978cd8532bd060f54d4d4abe33fd0d3f974f3324f9f87bd31bcf0ce"
       url: "https://pub.dev"
     source: hosted
-    version: "6.6.4"
+    version: "6.6.6"
   leak_tracker:
     dependency: transitive
     description:
@@ -369,4 +369,4 @@ packages:
     version: "3.0.3"
 sdks:
   dart: ">=3.5.4 <4.0.0"
-  flutter: ">=3.24.4"
+  flutter: ">=3.24.5"

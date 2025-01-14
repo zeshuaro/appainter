@@ -1,3 +1,23 @@
+## [2.2.10](https://github.com/zeshuaro/appainter/compare/v2.2.9...v2.2.10) (2025-01-14)
+
+### Bug Fixes
+
+* **deps:** update dependency sentry_flutter to v8.10.0 ([#1423](https://github.com/zeshuaro/appainter/issues/1423)) ([45d88fe](https://github.com/zeshuaro/appainter/commit/45d88fe5393145fc0f610c4ad05032c97adf6c92))
+* **deps:** update dependency sentry_flutter to v8.10.1 ([#1424](https://github.com/zeshuaro/appainter/issues/1424)) ([1d0f67a](https://github.com/zeshuaro/appainter/commit/1d0f67a9fba8c939515a2d86b3572ab7f1b3463a))
+* **deps:** update dependency shared_preferences to v2.3.3 ([#1425](https://github.com/zeshuaro/appainter/issues/1425)) ([4e2ffaa](https://github.com/zeshuaro/appainter/commit/4e2ffaacb4178b287b38cbc79a780f433ab721b7))
+* **deps:** update firebase dependencies ([#1421](https://github.com/zeshuaro/appainter/issues/1421)) ([5a75730](https://github.com/zeshuaro/appainter/commit/5a757305bc1bb7b82852b3efde782e034344fe04))
+* **deps:** update firebase dependencies ([#1432](https://github.com/zeshuaro/appainter/issues/1432)) ([f859cf9](https://github.com/zeshuaro/appainter/commit/f859cf9898a1368d8f7d638cc57b7735c977442a))
+* **sdk:** update dependency flutter to v3.24.5 ([#1420](https://github.com/zeshuaro/appainter/issues/1420)) ([6c09c1a](https://github.com/zeshuaro/appainter/commit/6c09c1a2e06f51f9b4e07ef3d562c5d5ba0f622f))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1419](https://github.com/zeshuaro/appainter/issues/1419)) ([4420f57](https://github.com/zeshuaro/appainter/commit/4420f57eca35a49f337ebb312b0a4089ed996bc4))
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v5 ([#1422](https://github.com/zeshuaro/appainter/issues/1422)) ([5804afc](https://github.com/zeshuaro/appainter/commit/5804afcee1d2f39f3232edf7ce6659f8497ae29c))
+* **deps:** update codecov/codecov-action action to v5.0.6 ([#1429](https://github.com/zeshuaro/appainter/issues/1429)) ([ef948a0](https://github.com/zeshuaro/appainter/commit/ef948a071f90493229a14e847b4c4d516d21da51))
+
 ## [2.2.9](https://github.com/zeshuaro/appainter/compare/v2.2.8...v2.2.9) (2024-11-10)
 
 ### Bug Fixes

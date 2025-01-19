@@ -1,3 +1,28 @@
+## [2.2.11](https://github.com/zeshuaro/appainter/compare/v2.2.10...v2.2.11) (2025-01-19)
+
+### Bug Fixes
+
+* **deps:** update dependency equatable to v2.0.7 ([#1441](https://github.com/zeshuaro/appainter/issues/1441)) ([a454c00](https://github.com/zeshuaro/appainter/commit/a454c00d6cc041e7d824da5f3318eaf5ca81ee83))
+* **deps:** update dependency file_picker to v8.1.7 ([#1428](https://github.com/zeshuaro/appainter/issues/1428)) ([3af5fa1](https://github.com/zeshuaro/appainter/commit/3af5fa1e87c764195ea2f4cbfae12f810a228eee))
+* **deps:** update dependency flutter_markdown to v0.7.5 ([#1442](https://github.com/zeshuaro/appainter/issues/1442)) ([dc79276](https://github.com/zeshuaro/appainter/commit/dc792769f4956a4e2aa0c9171213fa45647a64a4))
+* **deps:** update dependency shared_preferences to v2.3.5 ([#1443](https://github.com/zeshuaro/appainter/issues/1443)) ([e93b2bb](https://github.com/zeshuaro/appainter/commit/e93b2bba1e11e151b8a792a04fc3b44a35a5c50d))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1427](https://github.com/zeshuaro/appainter/issues/1427)) ([f8a7fe7](https://github.com/zeshuaro/appainter/commit/f8a7fe76f31aa997d6cc6eca05fd991ede6d49dc))
+* **deps:** update dependency @qiwi/semantic-release-gh-pages-plugin to v5.4.2 ([#1444](https://github.com/zeshuaro/appainter/issues/1444)) ([cf84852](https://github.com/zeshuaro/appainter/commit/cf84852b29be544da7c5f3ed1e93d1b1458e72bb))
+* **deps:** update dependency semantic-release to v24.2.1 ([#1439](https://github.com/zeshuaro/appainter/issues/1439)) ([0faae27](https://github.com/zeshuaro/appainter/commit/0faae27307189f0cb0aa33cb4726d673f81ba923))
+* **deps:** update dependency semantic-release-pub to v0.9.5 ([#1440](https://github.com/zeshuaro/appainter/issues/1440)) ([b5be5ea](https://github.com/zeshuaro/appainter/commit/b5be5ea1126aedf50bc56aeb0fd78972de107948))
+* **deps:** update dependency sentry_dart_plugin to v2.2.1 ([#1445](https://github.com/zeshuaro/appainter/issues/1445)) ([9a2a78f](https://github.com/zeshuaro/appainter/commit/9a2a78f098cd4f410bdee8fcba59899f54e13011))
+* **node:** update node.js to v22.13.0 ([#1446](https://github.com/zeshuaro/appainter/issues/1446)) ([b10d8fb](https://github.com/zeshuaro/appainter/commit/b10d8fb11efbd8a2af69b0ebcaafcdacc58a24b7))
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v5.1.2 ([#1431](https://github.com/zeshuaro/appainter/issues/1431)) ([6537d50](https://github.com/zeshuaro/appainter/commit/6537d50fd4094477ca2dfc7afe550b991680934d))
+* **deps:** update nanasess/setup-chromedriver action to v2.3.0 ([#1447](https://github.com/zeshuaro/appainter/issues/1447)) ([b95070d](https://github.com/zeshuaro/appainter/commit/b95070d1b0658a31c0afde3b1f531e29950bce7d))
+* **deps:** update subosito/flutter-action action to v2.18.0 ([#1433](https://github.com/zeshuaro/appainter/issues/1433)) ([b491ab6](https://github.com/zeshuaro/appainter/commit/b491ab6652150a6a2c1d2e062c6d4764799dd328))
+* **deps:** update zeshuaro/github-actions-workflows digest to 0e99264 ([#1426](https://github.com/zeshuaro/appainter/issues/1426)) ([ee118a5](https://github.com/zeshuaro/appainter/commit/ee118a513ece87cda0891e348fdd34690bff14e5))
+
 ## [2.2.10](https://github.com/zeshuaro/appainter/compare/v2.2.9...v2.2.10) (2025-01-14)
 
 ### Bug Fixes

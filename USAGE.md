@@ -1,6 +1,6 @@
 # Using the generated theme
 
-Appainter uses the package [json_theme_plus](https://pub.dev/packages/json_theme_plus) (credits to the original package [json_theme](https://pub.dev/packages/json_theme)) to encode and decode the theme JSON file.
+Appainter uses the package [json_theme](https://pub.dev/packages/json_theme) to encode and decode the theme JSON file.
 
 ## Theme compatibility
 
@@ -14,11 +14,11 @@ If you need to use the theme JSON file in a specific Flutter version, you can fi
 
 To use the theme JSON file in your app, follow the steps below:
 
-1. Add `json_theme_plus` as a dependency in your `pubspec.yaml` file.
+1. Add `json_theme` as a dependency in your `pubspec.yaml` file.
 
     ```yml
     dependencies:
-      json_theme_plus: ^6.6.1
+      json_theme: ^7.0.0+3
     ```
 
 2. Copy the generated `json` file to your app project and place it under the `assets/` folder.
@@ -35,7 +35,7 @@ To use the theme JSON file in your app, follow the steps below:
 
    ```dart
    import 'package:flutter/material.dart';
-   import 'package:json_theme_plus/json_theme_plus.dart';
+   import 'package:json_theme/json_theme.dart';
 
    import 'package:flutter/services.dart'; // For rootBundle
    import 'dart:convert'; // For jsonDecode

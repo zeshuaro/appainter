@@ -61,7 +61,7 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(style.color!.opacity);
+      final opaqueColor = color.withValues(alpha: style.color!.a);
 
       await pumpApp(tester);
       await tester.verifyColorPicker(key, opaqueColor, cubit.colorChanged);
@@ -80,7 +80,7 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0);
+      final opaqueColor = color.withValues(alpha: 0);
 
       await pumpApp(tester);
       await tester.verifyColorPicker(
@@ -312,7 +312,7 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0);
+      final opaqueColor = color.withValues(alpha: 0);
 
       await pumpApp(tester);
       await tester.verifyColorPicker(

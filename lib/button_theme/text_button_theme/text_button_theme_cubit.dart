@@ -15,7 +15,7 @@ class TextButtonThemeCubit extends AbstractFlatButtonStyleCubit {
   ButtonStyle getDefaultStyle(ColorScheme colorScheme) {
     return TextButton.styleFrom(
       foregroundColor: colorScheme.primary,
-      disabledForegroundColor: colorScheme.onSurface.withOpacity(0.38),
+      disabledForegroundColor: colorScheme.onSurface.withValues(alpha: 0.38),
       backgroundColor: Colors.transparent,
       shadowColor: colorScheme.shadow,
       elevation: 0,

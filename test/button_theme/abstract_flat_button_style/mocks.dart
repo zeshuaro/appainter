@@ -13,7 +13,7 @@ class TestFlatButtonStyleCubit extends AbstractFlatButtonStyleCubit {
     return OutlinedButton.styleFrom(
       foregroundColor: colorScheme.primary,
       backgroundColor: Colors.transparent,
-      disabledForegroundColor: colorScheme.onSurface.withOpacity(0.38),
+      disabledForegroundColor: colorScheme.onSurface.withValues(alpha: 0.38),
       shadowColor: colorScheme.shadow,
       elevation: 0,
       minimumSize: const Size(64, 36),

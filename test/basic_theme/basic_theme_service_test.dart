@@ -28,6 +28,7 @@ void main() {
     color = getRandomColor();
   });
 
+  // ignore: deprecated_member_use
   TonalPalette getPalette() => CorePalette.of(color.value).primary;
 
   test('should return on key color', () {

@@ -51,7 +51,7 @@ class TabBarThemeCubit extends Cubit<TabBarThemeState> {
     return super.close();
   }
 
-  void themeChanged(TabBarTheme theme) {
+  void themeChanged(TabBarThemeData theme) {
     labelTextStyleCubit.styleChanged(theme.labelStyle ?? defaultLabelTextStyle);
     unselectedLabelTextStyleCubit.styleChanged(
       theme.unselectedLabelStyle ?? defaultLabelTextStyle,

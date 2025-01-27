@@ -160,7 +160,7 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.54);
+      final opaqueColor = color.withValues(alpha: 0.54);
       await pumpApp(tester);
       await tester.verifyColorPicker(
         key,

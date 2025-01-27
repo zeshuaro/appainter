@@ -15,22 +15,22 @@ abstract class AbstractFlatButtonStyleEditor<
 
   @override
   Color fallbackForegroundDisabledColor(ColorScheme colorScheme) {
-    return colorScheme.onSurface.withOpacity(0.38);
+    return colorScheme.onSurface.withValues(alpha: 0.38);
   }
 
   @override
   Color fallbackOverlayFocusedColor(ColorScheme colorScheme) {
-    return colorScheme.primary.withOpacity(0.12);
+    return colorScheme.primary.withValues(alpha: 0.12);
   }
 
   @override
   Color fallbackOverlayHoveredColor(ColorScheme colorScheme) {
-    return colorScheme.primary.withOpacity(0.04);
+    return colorScheme.primary.withValues(alpha: 0.04);
   }
 
   @override
   Color fallbackOverlayPressedColor(ColorScheme colorScheme) {
-    return colorScheme.primary.withOpacity(0.12);
+    return colorScheme.primary.withValues(alpha: 0.12);
   }
 
   @override

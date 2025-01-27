@@ -125,7 +125,7 @@ Future<void> main() async {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.12);
+      final opaqueColor = color.withValues(alpha: 0.12);
       await pumpApp(tester);
       await tester.verifyColorPicker(
         key,
@@ -145,7 +145,7 @@ Future<void> main() async {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.04);
+      final opaqueColor = color.withValues(alpha: 0.04);
       await pumpApp(tester);
       await tester.verifyColorPicker(
         key,
@@ -167,7 +167,7 @@ Future<void> main() async {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.4);
+      final opaqueColor = color.withValues(alpha: 0.4);
       await pumpApp(tester);
       await tester.verifyColorPicker(
         key,

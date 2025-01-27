@@ -59,7 +59,7 @@ void main() {
     verify: (cubit) {
       final props = {
         null: color,
-        WidgetState.disabled: colorScheme.onSurface.withOpacity(0.38),
+        WidgetState.disabled: colorScheme.onSurface.withValues(alpha: 0.38),
       };
 
       verifyMaterialPropertyByMap(
@@ -93,8 +93,8 @@ void main() {
     verify: (cubit) {
       final props = {
         WidgetState.hovered: color,
-        WidgetState.focused: colorScheme.onPrimary.withOpacity(0.1),
-        WidgetState.pressed: colorScheme.onPrimary.withOpacity(0.1),
+        WidgetState.focused: colorScheme.onPrimary.withValues(alpha: 0.1),
+        WidgetState.pressed: colorScheme.onPrimary.withValues(alpha: 0.1),
       };
 
       verifyMaterialPropertyByMap(
@@ -110,9 +110,9 @@ void main() {
     act: (cubit) => cubit.overlayFocusedColorChanged(color),
     verify: (cubit) {
       final props = {
-        WidgetState.hovered: colorScheme.onPrimary.withOpacity(0.08),
+        WidgetState.hovered: colorScheme.onPrimary.withValues(alpha: 0.08),
         WidgetState.focused: color,
-        WidgetState.pressed: colorScheme.onPrimary.withOpacity(0.1),
+        WidgetState.pressed: colorScheme.onPrimary.withValues(alpha: 0.1),
       };
 
       verifyMaterialPropertyByMap(
@@ -128,8 +128,8 @@ void main() {
     act: (cubit) => cubit.overlayPressedColorChanged(color),
     verify: (cubit) {
       final props = {
-        WidgetState.hovered: colorScheme.onPrimary.withOpacity(0.08),
-        WidgetState.focused: colorScheme.onPrimary.withOpacity(0.1),
+        WidgetState.hovered: colorScheme.onPrimary.withValues(alpha: 0.08),
+        WidgetState.focused: colorScheme.onPrimary.withValues(alpha: 0.1),
         WidgetState.pressed: color,
       };
 

@@ -13,7 +13,7 @@ void main() {
   late TabBarLabelTextStyleCubit labelTextStyleCubit;
   late TabBarUnselectedLabelTextStyleCubit unselectedLabelTextStyleCubit;
 
-  late TabBarTheme theme;
+  late TabBarThemeData theme;
   late Color color;
 
   setUp(() {

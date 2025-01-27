@@ -1,13 +1,13 @@
+import 'package:appainter/common/consts.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
-import 'package:appainter/common/consts.dart';
 import 'package:url_launcher/url_launcher.dart' as url_launcher;
 
 class UtilService {
   static Map<int, Color> getColorSwatch(Color color) {
     final swatch = <int, Color>{};
     final strengths = <double>[.05];
-    final r = color.red, g = color.green, b = color.blue;
+    final r = color.r, g = color.g, b = color.b;
 
     for (int i = 1; i < 10; i++) {
       strengths.add(0.1 * i);
@@ -16,9 +16,9 @@ class UtilService {
     for (var strength in strengths) {
       final double ds = 0.5 - strength;
       swatch[(strength * 1000).round()] = Color.fromRGBO(
-        r + ((ds < 0 ? r : (255 - r)) * ds).round(),
-        g + ((ds < 0 ? g : (255 - g)) * ds).round(),
-        b + ((ds < 0 ? b : (255 - b)) * ds).round(),
+        (r + ((ds < 0 ? r : (255 - r)) * ds)).round(),
+        (g + ((ds < 0 ? g : (255 - g)) * ds)).round(),
+        (b + ((ds < 0 ? b : (255 - b)) * ds)).round(),
         1,
       );
     }

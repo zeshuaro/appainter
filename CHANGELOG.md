@@ -1,3 +1,29 @@
+## [2.3.0](https://github.com/zeshuaro/appainter/compare/v2.2.11...v2.3.0) (2025-01-28)
+
+### Features
+
+* **sdk:** update dependency flutter to v3.27.2 ([#1449](https://github.com/zeshuaro/appainter/issues/1449)) ([30e0741](https://github.com/zeshuaro/appainter/commit/30e07410121018e12cda24026e9a113e28822ddf))
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.2.4 ([#1434](https://github.com/zeshuaro/appainter/issues/1434)) ([7587efa](https://github.com/zeshuaro/appainter/commit/7587efa0904d70790129fa369de5bda923468ace))
+* **deps:** update dependency dropdown_search to v6 ([#1369](https://github.com/zeshuaro/appainter/issues/1369)) ([1d80f09](https://github.com/zeshuaro/appainter/commit/1d80f09e82a3259d327661e782b791823c716cc3))
+* **deps:** update dependency flex_color_picker to v3.7.0 ([#1450](https://github.com/zeshuaro/appainter/issues/1450)) ([1ca49ac](https://github.com/zeshuaro/appainter/commit/1ca49ac706256c9a939c185a176623dc653960ed))
+
+### Documentation
+
+* **license:** update copyright year to 2025 ([#1454](https://github.com/zeshuaro/appainter/issues/1454)) ([5f2c1b2](https://github.com/zeshuaro/appainter/commit/5f2c1b22e08ca1b01f1f7414278f772a7387fcc3))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency build_runner to v2.4.14 ([#1438](https://github.com/zeshuaro/appainter/issues/1438)) ([7c43eff](https://github.com/zeshuaro/appainter/commit/7c43efff790de9502358c03cd1bd1765414a27d6))
+* **node:** update node.js to v22.13.1 ([#1456](https://github.com/zeshuaro/appainter/issues/1456)) ([c144afe](https://github.com/zeshuaro/appainter/commit/c144afe57c09dd1bd222077d8d47391155694826))
+
+### Continuous Integration
+
+* **deps:** update stefanzweifel/git-auto-commit-action action to v5.1.0 ([#1448](https://github.com/zeshuaro/appainter/issues/1448)) ([476de18](https://github.com/zeshuaro/appainter/commit/476de18dcd1625fd7c03e851c92fb88800905c56))
+* **deps:** update zeshuaro/github-actions-workflows digest to 10565a3 ([#1455](https://github.com/zeshuaro/appainter/issues/1455)) ([4d7da1a](https://github.com/zeshuaro/appainter/commit/4d7da1ac0ed11cf36bcb28417661b9a918c32e22))
+
 ## [2.2.11](https://github.com/zeshuaro/appainter/compare/v2.2.10...v2.2.11) (2025-01-19)
 
 ### Bug Fixes

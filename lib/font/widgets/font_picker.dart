@@ -15,7 +15,7 @@ class FontPicker extends StatelessWidget {
       key: const Key('fontPicker'),
       popupProps: PopupProps.menu(
         showSearchBox: true,
-        isFilterOnline: true,
+        disableFilter: true,
         searchFieldProps: const TextFieldProps(
           decoration: InputDecoration(
             labelText: 'Search for fonts',
@@ -25,20 +25,21 @@ class FontPicker extends StatelessWidget {
             border: OutlineInputBorder(),
           ),
         ),
-        itemBuilder: (context, item, isSelected) {
+        itemBuilder: (context, item, isSelected, isDisabled) {
           return ListTile(
             key: Key('fontPicker_${item.family}'),
             title: Text(item.family, style: item.style),
           );
         },
       ),
-      dropdownDecoratorProps: const DropDownDecoratorProps(
-        dropdownSearchDecoration: InputDecoration(labelText: 'Font family'),
+      decoratorProps: const DropDownDecoratorProps(
+        decoration: InputDecoration(labelText: 'Font family'),
       ),
       selectedItem: FontData.defaultFontData(),
       itemAsString: (item) => item.family,
-      asyncItems: (query) => _onFind(context, query),
+      items: (query, infiniteScrollProps) => _onFind(context, query),
       onChanged: (data) => _onChanged(context, data),
+      compareFn: (item1, item2) => item1 == item2,
     );
   }
 

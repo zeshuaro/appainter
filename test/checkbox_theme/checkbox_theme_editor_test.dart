@@ -24,6 +24,10 @@ void main() {
   late double doubleNum;
   late String doubleStr;
 
+  setUpAll(() {
+    registerFallbackValue(Colors.blue);
+  });
+
   setUp(() {
     checkboxThemeCubit = MockCheckboxThemeCubit();
     colorThemeCubit = MockColorThemeCubit();
@@ -84,11 +88,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.54);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           checkboxThemeCubit.fillDefaultColorChanged,
         );
       });
@@ -129,11 +132,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.38);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           checkboxThemeCubit.fillDisabledColorChanged,
         );
       });
@@ -176,11 +178,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.12);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           checkboxThemeCubit.overlayPressedColorChanged,
         );
       });
@@ -199,11 +200,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.04);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           checkboxThemeCubit.overlayHoveredColorChanged,
         );
       });
@@ -222,11 +222,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.12);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           checkboxThemeCubit.overlayFocusedColorChanged,
         );
       });

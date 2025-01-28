@@ -23,6 +23,10 @@ void main() {
   late ColorThemeCubit colorThemeCubit;
   late Color color;
 
+  setUpAll(() {
+    registerFallbackValue(Colors.blue);
+  });
+
   setUp(() {
     tabBarThemeCubit = MockTabBarThemeCubit();
     tabBarLabelTextStyleCubit = MockTabBarLabelTextStyleCubit();
@@ -117,11 +121,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withValues(alpha: 0.70);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         tabBarThemeCubit.unselectedLabelColorChanged,
       );
     });

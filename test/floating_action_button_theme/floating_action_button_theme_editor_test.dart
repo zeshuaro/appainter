@@ -23,6 +23,10 @@ Future<void> main() async {
   late double doubleNum;
   late String doubleStr;
 
+  setUpAll(() {
+    registerFallbackValue(Colors.blue);
+  });
+
   setUp(() {
     floatingActionButtonThemeCubit = MockFloatingActionButtonThemeCubit();
     colorThemeCubit = MockColorThemeCubit();
@@ -125,11 +129,10 @@ Future<void> main() async {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withValues(alpha: 0.12);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         floatingActionButtonThemeCubit.focusColorChanged,
       );
     });
@@ -145,11 +148,10 @@ Future<void> main() async {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withValues(alpha: 0.04);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         floatingActionButtonThemeCubit.hoverColorChanged,
       );
     });

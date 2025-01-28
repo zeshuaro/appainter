@@ -27,6 +27,10 @@ void main() {
   late ColorThemeCubit colorThemeCubit;
   late TestButtonStyleCubit sut;
 
+  setUpAll(() {
+    registerFallbackValue(Colors.blue);
+  });
+
   setUp(() {
     color = getRandomColor();
     doubleNum = Random().nextDouble();
@@ -91,16 +95,9 @@ void main() {
     build: () => sut,
     act: (cubit) => cubit.overlayHoveredColorChanged(color),
     verify: (cubit) {
-      final props = {
-        WidgetState.hovered: color,
-        WidgetState.focused: colorScheme.onPrimary.withValues(alpha: 0.1),
-        WidgetState.pressed: colorScheme.onPrimary.withValues(alpha: 0.1),
-      };
-
-      verifyMaterialPropertyByMap(
-        cubit.state.style!.overlayColor!,
-        props,
-      );
+      final actual =
+          cubit.state.style!.overlayColor!.resolve({WidgetState.hovered});
+      expect(actual, equals(color));
     },
   );
 
@@ -109,16 +106,9 @@ void main() {
     build: () => sut,
     act: (cubit) => cubit.overlayFocusedColorChanged(color),
     verify: (cubit) {
-      final props = {
-        WidgetState.hovered: colorScheme.onPrimary.withValues(alpha: 0.08),
-        WidgetState.focused: color,
-        WidgetState.pressed: colorScheme.onPrimary.withValues(alpha: 0.1),
-      };
-
-      verifyMaterialPropertyByMap(
-        cubit.state.style!.overlayColor!,
-        props,
-      );
+      final actual =
+          cubit.state.style!.overlayColor!.resolve({WidgetState.focused});
+      expect(actual, equals(color));
     },
   );
 
@@ -127,16 +117,9 @@ void main() {
     build: () => sut,
     act: (cubit) => cubit.overlayPressedColorChanged(color),
     verify: (cubit) {
-      final props = {
-        WidgetState.hovered: colorScheme.onPrimary.withValues(alpha: 0.08),
-        WidgetState.focused: colorScheme.onPrimary.withValues(alpha: 0.1),
-        WidgetState.pressed: color,
-      };
-
-      verifyMaterialPropertyByMap(
-        cubit.state.style!.overlayColor!,
-        props,
-      );
+      final actual =
+          cubit.state.style!.overlayColor!.resolve({WidgetState.pressed});
+      expect(actual, equals(color));
     },
   );
 

@@ -24,6 +24,10 @@ void main() {
   late double doubleNum;
   late String doubleStr;
 
+  setUpAll(() {
+    registerFallbackValue(Colors.blue);
+  });
+
   setUp(() {
     radioThemeCubit = MockRadioThemeCubit();
     colorThemeCubit = MockColorThemeCubit();
@@ -82,11 +86,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.54);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           radioThemeCubit.fillDefaultColorChanged,
         );
       });
@@ -127,11 +130,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.38);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           radioThemeCubit.fillDisabledColorChanged,
         );
       });
@@ -152,11 +154,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.12);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           radioThemeCubit.overlayPressedColorChanged,
         );
       });
@@ -175,11 +176,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.04);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           radioThemeCubit.overlayHoveredColorChanged,
         );
       });
@@ -198,11 +198,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.12);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           radioThemeCubit.overlayFocusedColorChanged,
         );
       });

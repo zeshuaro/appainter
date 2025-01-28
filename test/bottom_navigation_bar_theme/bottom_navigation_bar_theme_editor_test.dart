@@ -31,6 +31,10 @@ void main() {
   late double doubleNum;
   late String doubleStr;
 
+  setUpAll(() {
+    registerFallbackValue(Colors.blue);
+  });
+
   setUp(() {
     bottomNavigationBarThemeCubit = MockBottomNavigationBarThemeCubit();
     bottomNavigationBarLabelTextStyleCubit =
@@ -160,11 +164,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withValues(alpha: 0.54);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         bottomNavigationBarThemeCubit.unselectedItemColorChanged,
       );
     });

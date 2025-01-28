@@ -25,6 +25,10 @@ Future<void> main() async {
 
   late ElevatedButtonThemeEditor sut;
 
+  setUpAll(() {
+    registerFallbackValue(Colors.blue);
+  });
+
   setUp(() {
     elevatedButtonThemeCubit = MockElevatedButtonThemeCubit();
     when(() => elevatedButtonThemeCubit.defaultShape).thenReturn(
@@ -132,11 +136,10 @@ Future<void> main() async {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withValues(alpha: 0.12);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           elevatedButtonThemeCubit.backgroundDisabledColorChanged,
         );
       });

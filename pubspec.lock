@@ -320,10 +320,10 @@ packages:
     dependency: "direct main"
     description:
       name: dropdown_search
-      sha256: "55106e8290acaa97ed15bea1fdad82c3cf0c248dd410e651f5a8ac6870f783ab"
+      sha256: c29b3e5147a82a06a4a08b3b574c51cb48cc17ad89893d53ee72a6f86643622e
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.6"
+    version: "6.0.2"
   enum_to_string:
     dependency: "direct main"
     description:

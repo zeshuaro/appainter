@@ -76,22 +76,22 @@ Future<void> main() async {
 
   test('fallback foreground disabled color', () {
     final actual = sut.fallbackForegroundDisabledColor(colorScheme);
-    expect(actual, equals(colorScheme.onSurface.withOpacity(0.38)));
+    expect(actual, equals(colorScheme.onSurface.withValues(alpha: 0.38)));
   });
 
   test('fallback overlay focused color', () {
     final actual = sut.fallbackOverlayFocusedColor(colorScheme);
-    expect(actual, equals(colorScheme.primary.withOpacity(0.12)));
+    expect(actual, equals(colorScheme.primary.withValues(alpha: 0.12)));
   });
 
   test('fallback overlay hovered color', () {
     final actual = sut.fallbackOverlayHoveredColor(colorScheme);
-    expect(actual, equals(colorScheme.primary.withOpacity(0.04)));
+    expect(actual, equals(colorScheme.primary.withValues(alpha: 0.04)));
   });
 
   test('fallback overlay pressed color', () {
     final actual = sut.fallbackOverlayPressedColor(colorScheme);
-    expect(actual, equals(colorScheme.primary.withOpacity(0.12)));
+    expect(actual, equals(colorScheme.primary.withValues(alpha: 0.12)));
   });
 
   group('background default color picker', () {
@@ -107,7 +107,7 @@ Future<void> main() async {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0);
+      final opaqueColor = color.withValues(alpha: 0);
       await pumpApp(tester);
       await tester.verifyColorPicker(
         key,

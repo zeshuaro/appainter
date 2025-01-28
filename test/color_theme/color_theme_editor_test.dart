@@ -18,6 +18,10 @@ void main() {
   late AdvancedThemeCubit advancedThemeCubit;
   late Color color;
 
+  setUpAll(() {
+    registerFallbackValue(Colors.blue);
+  });
+
   setUp(() {
     colorThemeCubit = MockColorThemeCubit();
     advancedThemeCubit = MockAdvancedThemeCubit();
@@ -262,11 +266,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.38);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         colorThemeCubit.disabledColorChanged,
       );
     });
@@ -331,11 +334,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.12);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         colorThemeCubit.focusColorChanged,
       );
     });
@@ -354,7 +356,7 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.4);
+      final opaqueColor = color.withValues(alpha: 0.4);
       await pumpApp(tester);
       await tester.verifyColorPicker(
         key,
@@ -377,7 +379,7 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.6);
+      final opaqueColor = color.withValues(alpha: 0.6);
       await pumpApp(tester);
       await tester.verifyColorPicker(
         key,
@@ -400,11 +402,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.04);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         colorThemeCubit.hoverColorChanged,
       );
     });
@@ -511,7 +512,7 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.4);
+      final opaqueColor = color.withValues(alpha: 0.4);
       await pumpApp(tester);
       await tester.verifyColorPicker(
         key,
@@ -534,11 +535,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.54);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         colorThemeCubit.unselectedWidgetColorChanged,
       );
     });

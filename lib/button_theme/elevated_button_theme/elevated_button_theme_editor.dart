@@ -17,22 +17,22 @@ class ElevatedButtonThemeEditor
 
   @override
   Color fallbackForegroundDisabledColor(ColorScheme colorScheme) {
-    return colorScheme.onSurface.withOpacity(0.38);
+    return colorScheme.onSurface.withValues(alpha: 0.38);
   }
 
   @override
   Color fallbackOverlayFocusedColor(ColorScheme colorScheme) {
-    return colorScheme.onPrimary.withOpacity(0.24);
+    return colorScheme.onPrimary.withValues(alpha: 0.24);
   }
 
   @override
   Color fallbackOverlayHoveredColor(ColorScheme colorScheme) {
-    return colorScheme.onPrimary.withOpacity(0.08);
+    return colorScheme.onPrimary.withValues(alpha: 0.08);
   }
 
   @override
   Color fallbackOverlayPressedColor(ColorScheme colorScheme) {
-    return colorScheme.onPrimary.withOpacity(0.24);
+    return colorScheme.onPrimary.withValues(alpha: 0.24);
   }
 
   @override
@@ -59,7 +59,7 @@ class ElevatedButtonThemeEditor
           key: const Key('elevatedButtonThemeEditor_backgroundColor_disabled'),
           title: 'Disabled',
           value: color?.resolve({WidgetState.disabled}) ??
-              colorScheme.onSurface.withOpacity(0.12),
+              colorScheme.onSurface.withValues(alpha: 0.12),
           onValueChanged: cubit.backgroundDisabledColorChanged,
         ),
       ],

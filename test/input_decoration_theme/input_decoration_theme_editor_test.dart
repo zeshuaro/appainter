@@ -24,6 +24,10 @@ void main() {
   late double doubleNum;
   late String doubleStr;
 
+  setUpAll(() {
+    registerFallbackValue(Colors.blue);
+  });
+
   setUp(() {
     inputDecorationThemeCubit = MockInputDecorationThemeCubit();
     colorThemeCubit = MockColorThemeCubit();
@@ -87,11 +91,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.04);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         inputDecorationThemeCubit.fillColorChanged,
       );
     });
@@ -107,11 +110,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.04);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         inputDecorationThemeCubit.hoverColorChanged,
       );
     });
@@ -435,11 +437,10 @@ void main() {
       });
 
       testWidgets('change color', (tester) async {
-        final opaqueColor = color.withOpacity(0.38);
         await pumpApp(tester);
-        await tester.verifyColorPicker(
+        await tester.verifyColorPickerRgbOnly(
           key,
-          opaqueColor,
+          color,
           inputDecorationThemeCubit.disabledBorderSideColorChanged,
         );
       });

@@ -67,7 +67,7 @@ class _UnselectedLabelColorPicker extends StatelessWidget {
         .state
         .colorScheme
         .onPrimary
-        .withOpacity(0.7);
+        .withValues(alpha: 0.7);
 
     return ColorListTile(
       key: const Key('tabBarThemeEditor_unselectedLabelColorPicker'),

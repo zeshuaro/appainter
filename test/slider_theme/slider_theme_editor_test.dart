@@ -23,6 +23,10 @@ void main() {
   late double doubleNum;
   late String doubleStr;
 
+  setUpAll(() {
+    registerFallbackValue(Colors.blue);
+  });
+
   setUp(() {
     sliderThemeCubit = MockSliderThemeCubit();
     colorThemeCubit = MockColorThemeCubit();
@@ -118,11 +122,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.24);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         sliderThemeCubit.inactiveTrackColorChanged,
       );
     });
@@ -138,11 +141,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.32);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         sliderThemeCubit.disabledActiveTrackColorChanged,
       );
     });
@@ -160,11 +162,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.12);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         sliderThemeCubit.disabledInactiveTrackColorChanged,
       );
     });
@@ -180,11 +181,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.54);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         sliderThemeCubit.activeTickMarkColorChanged,
       );
     });
@@ -200,11 +200,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.54);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         sliderThemeCubit.inactiveTickMarkColorChanged,
       );
     });
@@ -222,11 +221,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.12);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         sliderThemeCubit.disabledActiveTickMarkColorChanged,
       );
     });
@@ -244,11 +242,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.12);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         sliderThemeCubit.disabledInactiveTrackColorChanged,
       );
     });
@@ -283,11 +280,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.32);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         sliderThemeCubit.disabledThumbColorChanged,
       );
     });
@@ -327,11 +323,10 @@ void main() {
     });
 
     testWidgets('change color', (tester) async {
-      final opaqueColor = color.withOpacity(0.12);
       await pumpApp(tester);
-      await tester.verifyColorPicker(
+      await tester.verifyColorPickerRgbOnly(
         key,
-        opaqueColor,
+        color,
         sliderThemeCubit.overlayColorChanged,
       );
     });

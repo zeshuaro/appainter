@@ -3,9 +3,9 @@ part of 'tab_bar_theme_cubit.dart';
 @CopyWith()
 @immutable
 class TabBarThemeState extends Equatable {
-  final TabBarTheme theme;
+  final TabBarThemeData theme;
 
-  const TabBarThemeState({this.theme = const TabBarTheme()});
+  const TabBarThemeState({this.theme = const TabBarThemeData()});
 
   factory TabBarThemeState.withTheme({
     TabBarIndicatorSize? indicatorSize,
@@ -13,7 +13,7 @@ class TabBarThemeState extends Equatable {
     Color? unselectedLabelColor,
   }) {
     return TabBarThemeState(
-      theme: TabBarTheme(
+      theme: TabBarThemeData(
         labelColor: labelColor,
         unselectedLabelColor: unselectedLabelColor,
         indicatorSize: indicatorSize,

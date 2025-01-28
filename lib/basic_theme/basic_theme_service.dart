@@ -27,6 +27,7 @@ class BasicThemeService {
   }
 
   Color _getColorFromTone(Color color, int tone) {
+    // ignore: deprecated_member_use
     final palette = CorePalette.of(color.value);
     return Color(palette.primary.get(tone));
   }

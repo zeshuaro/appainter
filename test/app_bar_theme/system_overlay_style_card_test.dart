@@ -74,7 +74,7 @@ void main() {
       await pumpApp(tester);
       await tester.verifyColorPicker(
         key,
-        color.withOpacity(0),
+        color.withValues(alpha: 0),
         appBarThemeCubit.statusBarColorChanged,
       );
     });

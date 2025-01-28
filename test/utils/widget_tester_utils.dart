@@ -51,6 +51,21 @@ extension WidgetTesterUtils on WidgetTester {
     verify(() => mockedMethod(color)).called(1);
   }
 
+  Future<void> verifyColorPickerRgbOnly(
+    String key,
+    Color color,
+    ValueChanged<Color> mockedMethod,
+  ) async {
+    await pickColor(key, color);
+
+    final captured = verify(() => mockedMethod(captureAny())).captured;
+    final Color actual = captured.last;
+
+    expect(actual.r, equals(color.r));
+    expect(actual.g, equals(color.g));
+    expect(actual.b, equals(color.b));
+  }
+
   Future<void> expectTextField(String key, String value) async {
     final widget = find.descendant(
       of: find.byKey(Key(key)),

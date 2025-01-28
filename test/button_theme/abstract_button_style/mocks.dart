@@ -21,8 +21,8 @@ class TestButtonStyleCubit extends AbstractButtonStyleCubit {
     return ElevatedButton.styleFrom(
       backgroundColor: colorScheme.primary,
       foregroundColor: colorScheme.onPrimary,
-      disabledBackgroundColor: colorScheme.onSurface.withOpacity(0.12),
-      disabledForegroundColor: colorScheme.onSurface.withOpacity(0.38),
+      disabledBackgroundColor: colorScheme.onSurface.withValues(alpha: 0.12),
+      disabledForegroundColor: colorScheme.onSurface.withValues(alpha: 0.38),
       shadowColor: colorScheme.shadow,
       elevation: 2,
       minimumSize: const Size(64, 36),

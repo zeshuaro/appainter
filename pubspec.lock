@@ -464,18 +464,18 @@ packages:
     dependency: "direct main"
     description:
       name: flex_color_picker
-      sha256: "12dc855ae8ef5491f529b1fc52c655f06dcdf4114f1f7fdecafa41eec2ec8d79"
+      sha256: c083b79f1c57eaeed9f464368be376951230b3cb1876323b784626152a86e480
       url: "https://pub.dev"
     source: hosted
-    version: "3.6.0"
+    version: "3.7.0"
   flex_seed_scheme:
     dependency: transitive
     description:
       name: flex_seed_scheme
-      sha256: "7639d2c86268eff84a909026eb169f008064af0fb3696a651b24b0fa24a40334"
+      sha256: d3ba3c5c92d2d79d45e94b4c6c71d01fac3c15017da1545880c53864da5dfeb0
       url: "https://pub.dev"
     source: hosted
-    version: "3.4.1"
+    version: "3.5.0"
   flutter:
     dependency: "direct main"
     description: flutter

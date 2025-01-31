@@ -18,7 +18,7 @@ dependencies:
   device_preview_plus: 2.2.4
   dio: 5.7.0
   dropdown_search: 6.0.2
-  enum_to_string: 2.0.1
+  enum_to_string: 2.2.0
   equatable: 2.0.7
   expandable: 5.0.1
   file_picker: 8.1.7

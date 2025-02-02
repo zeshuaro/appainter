@@ -1,3 +1,24 @@
+## [2.3.1](https://github.com/zeshuaro/appainter/compare/v2.3.0...v2.3.1) (2025-02-02)
+
+### Bug Fixes
+
+* **deps:** update dependency enum_to_string to v2.2.0 ([#1463](https://github.com/zeshuaro/appainter/issues/1463)) ([645fc1e](https://github.com/zeshuaro/appainter/commit/645fc1e3446199cb945b42927b11ed9a67a1cca2))
+* **deps:** update dependency sentry_flutter to v8.12.0 ([#1452](https://github.com/zeshuaro/appainter/issues/1452)) ([39fbdab](https://github.com/zeshuaro/appainter/commit/39fbdab3afa1a8afbed55a1f4d8ff8917d105368))
+* **deps:** update dependency shared_preferences to v2.4.0 ([#1464](https://github.com/zeshuaro/appainter/issues/1464)) ([ac35861](https://github.com/zeshuaro/appainter/commit/ac358614e2cbd954ff365688561976a9781b08d9))
+* **deps:** update firebase dependencies ([#1460](https://github.com/zeshuaro/appainter/issues/1460)) ([00f3507](https://github.com/zeshuaro/appainter/commit/00f3507898863ec2454b8dfb6024f81d7975f82f))
+* **sdk:** update dependency flutter to v3.27.3 ([#1457](https://github.com/zeshuaro/appainter/issues/1457)) ([c27fa13](https://github.com/zeshuaro/appainter/commit/c27fa1359f3e54dbcb9d18cf8c6f1c9cd2c0dea8))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release-pub to v0.9.6 ([#1459](https://github.com/zeshuaro/appainter/issues/1459)) ([07ba1b3](https://github.com/zeshuaro/appainter/commit/07ba1b368b4e045fbb5a19acfd5243cccd92e3dd))
+* **deps:** update dependency sentry_dart_plugin to v2.3.0 ([#1458](https://github.com/zeshuaro/appainter/issues/1458)) ([a0e02b8](https://github.com/zeshuaro/appainter/commit/a0e02b8eaa52a7b066e814677b4466ee1dbbaf66))
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v5.3.1 ([#1462](https://github.com/zeshuaro/appainter/issues/1462)) ([04ab0aa](https://github.com/zeshuaro/appainter/commit/04ab0aaa62ee24878245098ba1e9e4d0f1b4694f))
+* **deps:** update zeshuaro/github-actions-workflows digest to bf22f76 ([#1465](https://github.com/zeshuaro/appainter/issues/1465)) ([050cdb1](https://github.com/zeshuaro/appainter/commit/050cdb152fba9de875931ff67f3ba1552b71de56))
+* **deps:** update zeshuaro/github-actions-workflows digest to dbd5e86 ([#1461](https://github.com/zeshuaro/appainter/issues/1461)) ([0b61be1](https://github.com/zeshuaro/appainter/commit/0b61be1acf4a13c22f882d847d6d1656a3502527))
+
 ## [2.3.0](https://github.com/zeshuaro/appainter/compare/v2.2.11...v2.3.0) (2025-01-28)
 
 ### Features

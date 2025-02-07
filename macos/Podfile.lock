@@ -1,4 +1,6 @@
 PODS:
+  - file_picker (0.0.1):
+    - FlutterMacOS
   - Firebase/Analytics (11.6.0):
     - Firebase/Core
   - Firebase/Auth (11.6.0):
@@ -139,6 +141,7 @@ PODS:
     - FlutterMacOS
 
 DEPENDENCIES:
+  - file_picker (from `Flutter/ephemeral/.symlinks/plugins/file_picker/macos`)
   - firebase_analytics (from `Flutter/ephemeral/.symlinks/plugins/firebase_analytics/macos`)
   - firebase_auth (from `Flutter/ephemeral/.symlinks/plugins/firebase_auth/macos`)
   - firebase_core (from `Flutter/ephemeral/.symlinks/plugins/firebase_core/macos`)
@@ -170,6 +173,8 @@ SPEC REPOS:
     - Sentry
 
 EXTERNAL SOURCES:
+  file_picker:
+    :path: Flutter/ephemeral/.symlinks/plugins/file_picker/macos
   firebase_analytics:
     :path: Flutter/ephemeral/.symlinks/plugins/firebase_analytics/macos
   firebase_auth:
@@ -194,6 +199,7 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/window_manager/macos
 
 SPEC CHECKSUMS:
+  file_picker: e716a70a9fe5fd9e09ebc922d7541464289443af
   Firebase: 374a441a91ead896215703a674d58cdb3e9d772b
   firebase_analytics: 91efc58e8e37964469fdd59ad11ba36bc97e75d6
   firebase_auth: 73c100082ec72d01a3d1f27cb08a689fc1eed855

@@ -1,3 +1,23 @@
+## [2.3.2](https://github.com/zeshuaro/appainter/compare/v2.3.1...v2.3.2) (2025-02-09)
+
+### Bug Fixes
+
+* **deps:** update bloc dependencies to v9 (major) ([#1467](https://github.com/zeshuaro/appainter/issues/1467)) ([c12ae3a](https://github.com/zeshuaro/appainter/commit/c12ae3a2a1c3bc59218119ae78a4203be02f9521))
+* **deps:** update dependency device_preview_plus to v2.2.5 ([#1470](https://github.com/zeshuaro/appainter/issues/1470)) ([c39735d](https://github.com/zeshuaro/appainter/commit/c39735d1c82049e2f002f63460dee5e398576e5c))
+* **deps:** update dependency dio to v5.8.0+1 ([#1478](https://github.com/zeshuaro/appainter/issues/1478)) ([1efcad0](https://github.com/zeshuaro/appainter/commit/1efcad077be5988522bf68f0e7575540fb41e73a))
+* **deps:** update dependency file_picker to v8.3.1 ([#1479](https://github.com/zeshuaro/appainter/issues/1479)) ([369d3bc](https://github.com/zeshuaro/appainter/commit/369d3bc0c4cdae9f0c1fcd1271bdec63ebb76297))
+* **deps:** update dependency flutter_markdown to v0.7.6 ([#1477](https://github.com/zeshuaro/appainter/issues/1477)) ([de431b4](https://github.com/zeshuaro/appainter/commit/de431b4951ae9c38e676bebd9fc51e03c2050b4a))
+* **deps:** update dependency shared_preferences to v2.5.1 ([#1480](https://github.com/zeshuaro/appainter/issues/1480)) ([2fa044b](https://github.com/zeshuaro/appainter/commit/2fa044bcd23976c8783d4685aa5e64a0a21c6aa7))
+* **sdk:** update dependency flutter to v3.27.4 ([#1476](https://github.com/zeshuaro/appainter/issues/1476)) ([eb96303](https://github.com/zeshuaro/appainter/commit/eb9630310766e13b9db6ab31a5775c05772994cf))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1472](https://github.com/zeshuaro/appainter/issues/1472)) ([651f8f8](https://github.com/zeshuaro/appainter/commit/651f8f8ba2bb9948d26fad6fefe210688a8209fc))
+* **deps:** update dependency @semantic-release/exec to v7 ([#1474](https://github.com/zeshuaro/appainter/issues/1474)) ([f8f32e6](https://github.com/zeshuaro/appainter/commit/f8f32e6e9fffb84208a76d8b7bd0d40a643cd06b))
+* **deps:** update dependency @semantic-release/exec to v7.0.3 ([#1475](https://github.com/zeshuaro/appainter/issues/1475)) ([88ca9ed](https://github.com/zeshuaro/appainter/commit/88ca9ed89090d3e768bbba9d916037d0b2d83fae))
+* **deps:** update dependency semantic-release-pub to v0.10.1 ([#1471](https://github.com/zeshuaro/appainter/issues/1471)) ([fdd8e12](https://github.com/zeshuaro/appainter/commit/fdd8e12fe1b9798b0ca8c8d75980bbbd1b333d24))
+* **deps:** update dependency sentry_dart_plugin to v2.4.0 ([#1473](https://github.com/zeshuaro/appainter/issues/1473)) ([1124633](https://github.com/zeshuaro/appainter/commit/1124633830d2667c3eaffd8f5a3e3bdee3d1e1a9))
+
 ## [2.3.1](https://github.com/zeshuaro/appainter/compare/v2.3.0...v2.3.1) (2025-02-02)
 
 ### Bug Fixes

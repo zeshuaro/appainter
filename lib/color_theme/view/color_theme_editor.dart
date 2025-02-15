@@ -24,7 +24,6 @@ class ColorThemeEditor extends ExpansionPanelItem {
         _BackgroundColorPicker(),
         _CanvasColorPicker(),
         _CardColorPicker(),
-        _DialogBackgroundColorPicker(),
         _DisabledColorPicker(),
         _DividerColorPicker(),
         _ErrorColorPicker(),
@@ -188,27 +187,6 @@ class _CardColorPicker extends StatelessWidget {
           tooltip: ColorThemeDocs.cardColor,
           color: state.cardColor,
           onColorChanged: context.read<ColorThemeCubit>().cardColorChanged,
-        );
-      },
-    );
-  }
-}
-
-class _DialogBackgroundColorPicker extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<ColorThemeCubit, ColorThemeState>(
-      key: const Key('colorThemeEditor_dialogBackgroundColorPicker'),
-      buildWhen: (previous, current) {
-        return previous.dialogBackgroundColor != current.dialogBackgroundColor;
-      },
-      builder: (context, state) {
-        return ColorListTile(
-          title: 'Dialog background color',
-          tooltip: ColorThemeDocs.dialogBackgroundColor,
-          color: state.dialogBackgroundColor,
-          onColorChanged:
-              context.read<ColorThemeCubit>().dialogBackgroundColorChanged,
         );
       },
     );

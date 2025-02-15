@@ -21,7 +21,6 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
         primaryColorDark: theme.primaryColorDark,
         canvasColor: theme.canvasColor,
         cardColor: theme.cardColor,
-        dialogBackgroundColor: theme.dialogBackgroundColor,
         disabledColor: theme.disabledColor,
         dividerColor: theme.dividerColor,
         focusColor: theme.focusColor,
@@ -97,10 +96,6 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
 
   void cardColorChanged(Color color) {
     emit(state.copyWith(cardColor: color));
-  }
-
-  void dialogBackgroundColorChanged(Color color) {
-    emit(state.copyWith(dialogBackgroundColor: color));
   }
 
   void disabledColorChanged(Color color) {

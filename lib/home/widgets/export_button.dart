@@ -122,7 +122,6 @@ class ExportButton extends StatelessWidget {
       primaryColorDark: colorTheme.primaryColorDark,
       canvasColor: colorTheme.canvasColor,
       cardColor: colorTheme.cardColor,
-      dialogBackgroundColor: colorTheme.dialogBackgroundColor,
       disabledColor: colorTheme.disabledColor,
       dividerColor: colorTheme.dividerColor,
       focusColor: colorTheme.focusColor,

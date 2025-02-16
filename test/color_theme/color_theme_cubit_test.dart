@@ -36,7 +36,6 @@ void main() {
         primaryColorDark: theme.primaryColorDark,
         canvasColor: theme.canvasColor,
         cardColor: theme.cardColor,
-        dialogBackgroundColor: theme.dialogBackgroundColor,
         disabledColor: theme.disabledColor,
         dividerColor: theme.dividerColor,
         focusColor: theme.focusColor,
@@ -149,13 +148,6 @@ void main() {
     build: () => colorThemeCubit,
     act: (cubit) => cubit.cardColorChanged(color),
     expect: () => [ColorThemeState(cardColor: color)],
-  );
-
-  blocTest<ColorThemeCubit, ColorThemeState>(
-    'should emit dialog background color',
-    build: () => colorThemeCubit,
-    act: (cubit) => cubit.dialogBackgroundColorChanged(color),
-    expect: () => [ColorThemeState(dialogBackgroundColor: color)],
   );
 
   blocTest<ColorThemeCubit, ColorThemeState>(

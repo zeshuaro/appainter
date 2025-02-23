@@ -8,7 +8,7 @@ const RESOURCES = {"icons/android-chrome-192x192.png": "e03f23fd41872367b2ba387b
 "icons/favicon-16x16.png": "6a1a342af170bec15959c265446f9331",
 "icons/favicon-32x32.png": "878572d6d16bbaa08290988302449306",
 "icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
-"flutter_bootstrap.js": "e77e9e23962903521a8f7fb7a871c20a",
+"flutter_bootstrap.js": "f27a5221be64453324293429ca58fe53",
 "canvaskit/skwasm.worker.js": "89990e8c92bcb123999aa81f7e203b1c",
 "canvaskit/skwasm.wasm": "828c26a0b1cc8eb1adacbdd0c5e8bcfa",
 "canvaskit/chromium/canvaskit.wasm": "ea5ab288728f7200f398f60089048b48",
@@ -21,7 +21,7 @@ const RESOURCES = {"icons/android-chrome-192x192.png": "e03f23fd41872367b2ba387b
 "canvaskit/canvaskit.js": "26eef3024dbc64886b7f48e1b6fb05cf",
 "favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
 "main.dart.js": "4de151c315bd52b24e3d4fab9108153f",
-"version.json": "315bfd2da958db9f2f31eb2b6c490c92",
+"version.json": "58093cc5fc4c884c214d836d6bac4c2f",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b93248a553f9e8bc17f1065929d5934b",
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "d10ac4ee5ebe8c8fff90505150ba2a76",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
@@ -33,8 +33,8 @@ const RESOURCES = {"icons/android-chrome-192x192.png": "e03f23fd41872367b2ba387b
 "assets/AssetManifest.bin": "6ae956164571e68882dded9972df8bed",
 "assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
 "assets/AssetManifest.bin.json": "ff8a6598fb942d4496995ea29942220a",
-"index.html": "6aaa02c0cd1204ed03d8d2a41eab3283",
-"/": "6aaa02c0cd1204ed03d8d2a41eab3283",
+"index.html": "0d29e20db5c00464acbd468829e8e7c7",
+"/": "0d29e20db5c00464acbd468829e8e7c7",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75",
 "flutter.js": "4b2350e14c6650ba82871f60906437ea"};
 // The application shell files that are downloaded before a service worker can

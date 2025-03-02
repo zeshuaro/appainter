@@ -29,7 +29,6 @@ class ColorThemeState extends Equatable {
     Color? primaryColorDark,
     Color? canvasColor,
     Color? cardColor,
-    Color? dialogBackgroundColor,
     Color? disabledColor,
     Color? dividerColor,
     Color? focusColor,

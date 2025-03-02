@@ -142,10 +142,10 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: "3529d038fec78f745faa80818f797d47a1ba9ef6f7ac99bea9019d66d6ee094c"
+      sha256: "9c4e3441c06739fb438adbe9c78690746f8ef06d0ca41f03a7924a6cfa235303"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.0+3"
+    version: "8.0.0"
   json_theme_annotation:
     dependency: transitive
     description:
@@ -368,5 +368,5 @@ packages:
     source: hosted
     version: "3.0.4"
 sdks:
-  dart: ">=3.7.0-0 <4.0.0"
+  dart: ">=3.7.0 <4.0.0"
   flutter: ">=3.18.0-18.0.pre.54"

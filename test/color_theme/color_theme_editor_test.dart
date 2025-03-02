@@ -231,28 +231,6 @@ void main() {
     });
   });
 
-  group('dialog background color picker', () {
-    const key = 'colorThemeEditor_dialogBackgroundColorPicker';
-
-    testWidgets('render widget', (tester) async {
-      final state = ColorThemeState(dialogBackgroundColor: color);
-
-      await pumpApp(tester, state);
-
-      await tester.expectColorIndicator(key, color);
-      expectBlocBuilder(tester, key, state);
-    });
-
-    testWidgets('change color', (tester) async {
-      await pumpApp(tester);
-      await tester.verifyColorPicker(
-        key,
-        color,
-        colorThemeCubit.dialogBackgroundColorChanged,
-      );
-    });
-  });
-
   group('disabled color picker', () {
     const key = 'colorThemeEditor_disabledColorPicker';
 

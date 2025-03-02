@@ -9,7 +9,6 @@ class ColorThemeState extends Equatable {
   late final Color primaryColorDark;
   late final Color canvasColor;
   late final Color cardColor;
-  late final Color dialogBackgroundColor;
   late final Color disabledColor;
   late final Color dividerColor;
   late final Color focusColor;
@@ -30,7 +29,6 @@ class ColorThemeState extends Equatable {
     Color? primaryColorDark,
     Color? canvasColor,
     Color? cardColor,
-    Color? dialogBackgroundColor,
     Color? disabledColor,
     Color? dividerColor,
     Color? focusColor,
@@ -52,8 +50,6 @@ class ColorThemeState extends Equatable {
     this.primaryColorDark = primaryColorDark ?? theme.primaryColorDark;
     this.canvasColor = canvasColor ?? theme.canvasColor;
     this.cardColor = cardColor ?? theme.cardColor;
-    this.dialogBackgroundColor =
-        dialogBackgroundColor ?? theme.dialogBackgroundColor;
     this.disabledColor = disabledColor ?? theme.disabledColor;
     this.dividerColor = dividerColor ?? theme.dividerColor;
     this.focusColor = focusColor ?? theme.focusColor;
@@ -80,7 +76,6 @@ class ColorThemeState extends Equatable {
       primaryColorDark,
       canvasColor,
       cardColor,
-      dialogBackgroundColor,
       disabledColor,
       dividerColor,
       focusColor,

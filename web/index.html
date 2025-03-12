@@ -1,74 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+<head>
+  <!--
+  If you are serving your web app in a path other than the root, change the
+  href value below to reflect the base path you are serving from.
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+  The path provided below has to start and end with a slash "/" in order for
+  it to work correctly.
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+  For more details:
+  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-    <base href="$FLUTTER_BASE_HREF" />
+  This is a placeholder for base href that will be replaced by the value of
+  the `--base-href` argument provided to `flutter build`.
+-->
+  <base href="$FLUTTER_BASE_HREF" />
 
-    <meta charset="UTF-8" />
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
-    <meta
-      name="description"
-      content="A material theme editor and generator for Flutter to configure and preview the overall visual theme of your material app."
-    />
+  <meta charset="UTF-8" />
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+  <meta
+    name="description"
+    content="A material theme editor and generator for Flutter to configure and preview the overall visual theme of your material app."
+  />
 
-    <!-- iOS meta tags & icons -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="Appainter" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="icons/apple-touch-icon.png"
-    />
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="Appainter" />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="icons/apple-touch-icon.png"
+  />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/icons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/icons/favicon-16x16.png"
-    />
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/icons/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/icons/favicon-16x16.png"
+  />
 
-    <title>Appainter</title>
-    <link rel="manifest" href="manifest.json" />
-  </head>
-  <body>
-    <script>
-      {{flutter_bootstrap_js}}
-      {{flutter_js}}
-      {{flutter_build_config}}
+  <title>Appainter</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
 
-      const loading = document.createElement('div');
-      document.body.appendChild(loading);
-      loading.textContent = "Loading...";
-      _flutter.loader.load({
-        onEntrypointLoaded: async function(engineInitializer) {
-          loading.textContent = "Loading...";
-          const appRunner = await engineInitializer.initializeEngine();
-
-          loading.textContent = "Starting Appainter...";
-          await appRunner.runApp();
+<body>
+  <div id="splash-screen">
+    <div id="logo-container">
+      <img src="icons/android-chrome-192x192.png" alt="Logo">
+      <div class="loader"></div>
+    </div>
+  </div>
+  <script src="flutter_bootstrap.js" defer></script>
+  <script src="js/dynamic_splash.js" defer></script>
+  <script>
+    (function () {
+      window.addEventListener('flutter-first-frame', function () {
+        const splashScreen = document.getElementById('splash-screen');
+        if (splashScreen) {
+          splashScreen.style.display = 'none';
         }
       });
-    </script>
-  </body>
+    })();
+  </script>
+</body>
 </html>

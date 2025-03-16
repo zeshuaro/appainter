@@ -1,3 +1,17 @@
+## [2.4.1](https://github.com/zeshuaro/appainter/compare/v2.4.0...v2.4.1) (2025-03-16)
+
+### Bug Fixes
+
+* **sdk:** update dependency flutter to v3.29.2 ([#1528](https://github.com/zeshuaro/appainter/issues/1528)) ([a59aaf2](https://github.com/zeshuaro/appainter/commit/a59aaf22c0f3e123c69eaf23c2fa8830c1bcb3c3))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1524](https://github.com/zeshuaro/appainter/issues/1524)) ([743b602](https://github.com/zeshuaro/appainter/commit/743b6022913d9e4e5806e35f94e47578e61218b3))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to af0b8e7 ([#1527](https://github.com/zeshuaro/appainter/issues/1527)) ([fabf2c4](https://github.com/zeshuaro/appainter/commit/fabf2c4a48360d0daacff4cc564f7df250d01210))
+
 ## [2.4.0](https://github.com/zeshuaro/appainter/compare/v2.3.5...v2.4.0) (2025-03-09)
 
 ### Features

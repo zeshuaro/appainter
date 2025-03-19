@@ -13,7 +13,7 @@ dependencies:
     path: packages/annotations
   bloc: 9.0.0
   collection: ^1.17.2
-  copy_with_extension: 5.0.4
+  copy_with_extension: 6.0.1
   cupertino_icons: 1.0.8
   device_preview_plus: 2.3.1
   dio: 5.8.0+1
@@ -51,7 +51,7 @@ dev_dependencies:
     path: packages/builder
   bloc_test: 10.0.0
   build_runner: 2.4.15
-  copy_with_extension_gen: 5.0.4
+  copy_with_extension_gen: 6.0.1
   flutter_lints: 5.0.0
   flutter_test:
     sdk: flutter

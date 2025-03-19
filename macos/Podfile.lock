@@ -41,7 +41,7 @@ PODS:
     - GoogleUtilities/Network (~> 8.0)
     - "GoogleUtilities/NSData+zlib (~> 8.0)"
     - nanopb (~> 3.30910.0)
-  - FirebaseAppCheckInterop (11.9.0)
+  - FirebaseAppCheckInterop (11.10.0)
   - FirebaseAuth (11.8.1):
     - FirebaseAppCheckInterop (~> 11.0)
     - FirebaseAuthInterop (~> 11.0)
@@ -51,7 +51,7 @@ PODS:
     - GoogleUtilities/Environment (~> 8.0)
     - GTMSessionFetcher/Core (< 5.0, >= 3.4)
     - RecaptchaInterop (~> 100.0)
-  - FirebaseAuthInterop (11.9.0)
+  - FirebaseAuthInterop (11.10.0)
   - FirebaseCore (11.8.1):
     - FirebaseCoreInternal (~> 11.8.0)
     - GoogleUtilities/Environment (~> 8.0)
@@ -128,7 +128,7 @@ PODS:
   - screen_retriever_macos (0.0.1):
     - FlutterMacOS
   - Sentry/HybridSDK (8.44.0)
-  - sentry_flutter (8.13.2):
+  - sentry_flutter (8.13.3):
     - Flutter
     - FlutterMacOS
     - Sentry/HybridSDK (= 8.44.0)
@@ -205,9 +205,9 @@ SPEC CHECKSUMS:
   firebase_auth: efb15103917fdd30befc12f4049ba8bc34cbc659
   firebase_core: 1b573eac37729348cdc472516991dd7e269ae37e
   FirebaseAnalytics: 4fd42def128146e24e480e89f310e3d8534ea42b
-  FirebaseAppCheckInterop: 9226f7217b43e99dfa0bc9f674ad8108cef89feb
+  FirebaseAppCheckInterop: 9664c858489710f682766ef54e2b6741d3b62070
   FirebaseAuth: ad59a1a7b161e75f74c39f70179d2482d40e2737
-  FirebaseAuthInterop: 2a26ee1bea6d47df8048683cfa071e7da657798f
+  FirebaseAuthInterop: 01a804fb074424fd58b92dd50dd0272277199356
   FirebaseCore: 99fe0c4b44a39f37d99e6404e02009d2db5d718d
   FirebaseCoreExtension: 3d3f2017a00d06e09ab4ebe065391b0bb642565e
   FirebaseCoreInternal: df24ce5af28864660ecbd13596fc8dd3a8c34629
@@ -222,7 +222,7 @@ SPEC CHECKSUMS:
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   screen_retriever_macos: 776e0fa5d42c6163d2bf772d22478df4b302b161
   Sentry: 0f9bc9adfc0b960e7f3bb5ec67e9a3d8193f3bdb
-  sentry_flutter: 64a43fb39ab4c7f67d8a4cad52b49e22439e58b7
+  sentry_flutter: ca0db7b4a42136d77da76d6d8ce14df2293309eb
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   url_launcher_macos: c82c93949963e55b228a30115bd219499a6fe404
   window_manager: 3a1844359a6295ab1e47659b1a777e36773cd6e8

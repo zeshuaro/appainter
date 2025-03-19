@@ -32,7 +32,11 @@ abstract class AbstractTextStyleCubit extends Cubit<TextStyleState> {
     emit(state.copyWith(style: style));
   }
 
-  void styleChanged(TextStyle? style) => emit(state.copyWith(style: style));
+  void styleChanged(TextStyle? style) {
+    if (style != null) {
+      emit(state.copyWith(style: style));
+    }
+  }
 
   void colorChanged(Color color) {
     final style = state.style.copyWith(color: color);

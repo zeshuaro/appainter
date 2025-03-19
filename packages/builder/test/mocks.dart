@@ -166,6 +166,7 @@ class ThemeDocs {
 ''';
 
 const expectedOutput = '''
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'test.dart';
@@ -199,6 +200,7 @@ descendant widgets.""";
 ''';
 
 const expectedOutputExtra = '''
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 'test.dart';

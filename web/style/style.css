@@ -1,0 +1,55 @@
+
+body {
+  margin: 0;
+  background-color: #f8f8f8;
+}
+
+#splash-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#logo-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+#logo-container img {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-top: 8px solid #1E90FF;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+  box-sizing: border-box;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

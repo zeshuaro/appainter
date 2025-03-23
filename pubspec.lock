@@ -271,22 +271,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
-  device_frame:
+  device_frame_plus:
     dependency: transitive
     description:
-      name: device_frame
-      sha256: d031a06f5d6f4750009672db98a5aa1536aa4a231713852469ce394779a23d75
+      name: device_frame_plus
+      sha256: "064e86f71f2721e66e4282c98d475cf9cd1e55d51eca6100183b7f6f2d237463"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.3.0"
   device_preview_plus:
     dependency: "direct main"
     description:
       name: device_preview_plus
-      sha256: cfc33d1a09518a1d3ffa23c73a7bd73c6945ce236408ad4d7b1539855ba3fec9
+      sha256: a319a31788c45ed5e448c5b24dfb0c21220b250bcbc53143934066af6a9a51df
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.3"
   diff_match_patch:
     dependency: transitive
     description:
@@ -532,10 +532,10 @@ packages:
     dependency: transitive
     description:
       name: freezed_annotation
-      sha256: c2e2d632dd9b8a2b7751117abcfc2b4888ecfe181bd9fca7170d9ef02e595fe2
+      sha256: c87ff004c8aa6af2d531668b46a4ea379f7191dc6dfa066acd53d506da6e044b
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.4"
+    version: "3.0.0"
   frontend_server_client:
     dependency: transitive
     description:
@@ -1496,5 +1496,5 @@ packages:
     source: hosted
     version: "3.1.3"
 sdks:
-  dart: ">=3.7.0 <4.0.0"
+  dart: ">=3.7.2 <4.0.0"
   flutter: ">=3.29.2"

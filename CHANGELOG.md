@@ -1,3 +1,21 @@
+## [2.4.2](https://github.com/zeshuaro/appainter/compare/v2.4.1...v2.4.2) (2025-03-23)
+
+### Bug Fixes
+
+* **deps:** update code generation dependencies ([#1532](https://github.com/zeshuaro/appainter/issues/1532)) ([715f011](https://github.com/zeshuaro/appainter/commit/715f011f697281d7bc53ff3155e530020a9847f8))
+* **deps:** update dependency device_preview_plus to v2.3.1 ([#1529](https://github.com/zeshuaro/appainter/issues/1529)) ([544d702](https://github.com/zeshuaro/appainter/commit/544d702b92e2200307676abcfe0ee99433b53328))
+* **deps:** update dependency file_picker to v9.1.0 ([#1534](https://github.com/zeshuaro/appainter/issues/1534)) ([bcf41f1](https://github.com/zeshuaro/appainter/commit/bcf41f106441f86a1eee42878bd8724fbbed340a))
+* **deps:** update dependency sentry_flutter to v8.13.3 ([#1531](https://github.com/zeshuaro/appainter/issues/1531)) ([8e38e76](https://github.com/zeshuaro/appainter/commit/8e38e76adf31c7ff78d5a8920cf128e610b056a2))
+* **deps:** update dependency sentry_flutter to v8.14.0 ([#1533](https://github.com/zeshuaro/appainter/issues/1533)) ([56684c3](https://github.com/zeshuaro/appainter/commit/56684c36e616b625df149c3bc668102f7e308b1e))
+
+### Styles
+
+* **web:** splash screen with custom loader added for web ([#1526](https://github.com/zeshuaro/appainter/issues/1526)) ([57dbfd7](https://github.com/zeshuaro/appainter/commit/57dbfd7d69327bf7a549d9b7c9f60e9d12c6b2f2))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1530](https://github.com/zeshuaro/appainter/issues/1530)) ([3fbad4d](https://github.com/zeshuaro/appainter/commit/3fbad4d4fc82d8af3cccdc6400f65205eab494b7))
+
 ## [2.4.1](https://github.com/zeshuaro/appainter/compare/v2.4.0...v2.4.1) (2025-03-16)
 
 ### Bug Fixes

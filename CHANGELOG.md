@@ -1,3 +1,22 @@
+## [2.4.3](https://github.com/zeshuaro/appainter/compare/v2.4.2...v2.4.3) (2025-03-30)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.3.3 ([#1535](https://github.com/zeshuaro/appainter/issues/1535)) ([bc41d83](https://github.com/zeshuaro/appainter/commit/bc41d8379c8f6b02053f3a4fc648e1d03b7524b3))
+* **deps:** update dependency enum_to_string to v2.2.1 ([#1536](https://github.com/zeshuaro/appainter/issues/1536)) ([3fd272b](https://github.com/zeshuaro/appainter/commit/3fd272b2cb9506ea56716980de9b53da6d50d119))
+* **deps:** update dependency file_picker to v9.2.0 ([#1538](https://github.com/zeshuaro/appainter/issues/1538)) ([515a2bd](https://github.com/zeshuaro/appainter/commit/515a2bdc8705ba7dff5c3eae15da2fccf13e7060))
+* **deps:** update dependency file_picker to v9.2.1 ([#1541](https://github.com/zeshuaro/appainter/issues/1541)) ([6d08f8d](https://github.com/zeshuaro/appainter/commit/6d08f8dc4ef3496307dc062a831cb683bde04650))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1537](https://github.com/zeshuaro/appainter/issues/1537)) ([05f203c](https://github.com/zeshuaro/appainter/commit/05f203cb0691b091550c492831ecffa16fed506b))
+
+### Continuous Integration
+
+* **deps:** update subosito/flutter-action action to v2.19.0 ([#1539](https://github.com/zeshuaro/appainter/issues/1539)) ([9d085e5](https://github.com/zeshuaro/appainter/commit/9d085e574ee737cf3cd9e23ae1b593b8e53e3958))
+* **deps:** update zeshuaro/github-actions-workflows digest to 478aa3f ([#1542](https://github.com/zeshuaro/appainter/issues/1542)) ([83b7117](https://github.com/zeshuaro/appainter/commit/83b71170c81f53aa25b8f6388e78db1ea749e561))
+* **deps:** update zeshuaro/github-actions-workflows digest to aa3c43b ([#1540](https://github.com/zeshuaro/appainter/issues/1540)) ([79258f3](https://github.com/zeshuaro/appainter/commit/79258f3b26c7f03276636b034aabf1820119ba55))
+
 ## [2.4.2](https://github.com/zeshuaro/appainter/compare/v2.4.1...v2.4.2) (2025-03-23)
 
 ### Bug Fixes

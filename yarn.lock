@@ -384,10 +384,10 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@qiwi/semantic-release-gh-pages-plugin@5.4.2":
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/@qiwi/semantic-release-gh-pages-plugin/-/semantic-release-gh-pages-plugin-5.4.2.tgz#513f7c2e84f8b20a997665aeee6dbcc9f018ab74"
-  integrity sha512-9U99ZFIodRM+8esB3DzTwP3RkKleDnQaoPwJQ3R6DlbhekOJFu42Eso+Nd6KaDaIP1xCZs+hAx2LWyTyDrS4NQ==
+"@qiwi/semantic-release-gh-pages-plugin@5.4.3":
+  version "5.4.3"
+  resolved "https://registry.yarnpkg.com/@qiwi/semantic-release-gh-pages-plugin/-/semantic-release-gh-pages-plugin-5.4.3.tgz#042ba443733fcd343b3bfeab03f6a8cc22abf287"
+  integrity sha512-jVYd4NgcJ8gnzhLTxOX2JouJCe54rEzxyzt+uZ9B9b82DphY6YvJsudtP4hNABlu4GCCq2di0fTcoBy32FsFKQ==
   dependencies:
     "@qiwi/substrate-types" "^2.1.0"
     aggregate-error "^3.1.0"
@@ -399,7 +399,7 @@
     read-pkg "^5.2.0"
     then-request "^6.0.2"
     tslib "^2.8.1"
-    zurk "^0.10.0"
+    zurk "^0.11.0"
 
 "@qiwi/substrate-types@^2.1.0":
   version "2.1.0"
@@ -4138,7 +4138,7 @@ zod@^3.24.2:
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.24.2.tgz#8efa74126287c675e92f46871cfc8d15c34372b3"
   integrity sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==
 
-zurk@^0.10.0:
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/zurk/-/zurk-0.10.3.tgz#8de3ce8c2668e417225359151f6fbcb3938c18ba"
-  integrity sha512-X2SYUhb2fSaGiMvuNL6R1L6//wmW986g1uooiPPKxtSlnPtNe0KXsSKPA/O5dP8EC00LBQxILaPbScmTexrRrA==
+zurk@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/zurk/-/zurk-0.11.0.tgz#519b3ecd7524e3f93363fbe037a8624d03066dc8"
+  integrity sha512-sEkJTo+0T9bRhv6c1SDj1geb5lO1CarOJ+vKg67X8W1yXiincOYpsRlAs7v+k7AUWO88r9YMVQAKn+ZEN+IaCQ==

@@ -5,19 +5,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Material3Switch extends StatelessWidget {
-  const Material3Switch({super.key});
+  const Material3Switch({required this.width, super.key});
+  final double width;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          'Material 3',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        const _Switch(),
-      ],
-    );
+    return width < 460
+        ? Column(
+            children: [
+              Text(
+                'Material 3',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const _Switch(),
+            ],
+          )
+        : Row(
+            children: [
+              Text(
+                'Material 3',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const _Switch(),
+            ],
+          );
   }
 }
 

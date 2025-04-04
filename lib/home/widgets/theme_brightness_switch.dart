@@ -5,19 +5,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ThemeBrightnessSwitch extends StatelessWidget {
-  const ThemeBrightnessSwitch({super.key});
+  const ThemeBrightnessSwitch({required this.width, super.key});
+  final double width;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          'Brightness',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        const _Switch(),
-      ],
-    );
+    return width < 460
+        ? Column(
+            children: [
+              Text(
+                'Brightness',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const _Switch(),
+            ],
+          )
+        : Row(
+            children: [
+              Text(
+                'Brightness',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const _Switch(),
+            ],
+          );
   }
 }
 

@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/theme_preview/views/preview_body.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class SelectionsPage extends PreviewBody {
@@ -248,8 +248,10 @@ class _TimePickerState extends State<_TimePicker> {
       title: 'Time picker: ${_timeOfDay.format(context)}',
       trailing: ElevatedButton(
         onPressed: () async {
-          final timeOfDay =
-              await showTimePicker(context: context, initialTime: _timeOfDay);
+          final timeOfDay = await showTimePicker(
+            context: context,
+            initialTime: _timeOfDay,
+          );
 
           if (timeOfDay != null) setState(() => _timeOfDay = timeOfDay);
         },

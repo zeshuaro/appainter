@@ -1,0 +1,162 @@
+[33mcommit 5213ce20fb6115e3a00322d37b60a22513b2ca38[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32moverflow-fix[m[33m, [m[1;31morigin/overflow-fix[m[33m)[m
+Author: DeadVloper <lazzycat27@gmail.com>
+Date:   Fri Apr 4 21:37:09 2025 +0500
+
+    Fixed the overflow issue.
+
+[33mcommit 01909dc46e239a7af8947189c027c1c6cd5a636e[m
+Author: DeadVloper <lazzycat27@gmail.com>
+Date:   Fri Apr 4 20:14:49 2025 +0500
+
+    Fixed Theme configuration's overflow issue.
+
+[33mcommit e89e6ef325a78a92745c56111d9ec49d9beee381[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Fri Apr 4 10:39:08 2025 +0000
+
+    fix(deps): update dependency shared_preferences to v2.5.3 (#1548)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit d962bbf1ad25d335dcc1d3671f476868dbacdec5[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Thu Apr 3 12:09:27 2025 +0000
+
+    fix(deps): update dependency file_picker to v9.2.2 (#1547)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit 17be66ea931a8e30a483ed395e22de6d4be94038[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Thu Apr 3 12:02:47 2025 +0000
+
+    ci(deps): update zeshuaro/github-actions-workflows digest to 27ee334 (#1546)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit 6987e61ab69b1e0022d885e32407cd5db00b7351[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Tue Apr 1 10:59:46 2025 +0000
+
+    fix(deps): update dependency sentry_flutter to v8.14.1 (#1545)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit b897b0f093b9b58acc6d3d255bea281c6ec5e0a6[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Mon Mar 31 12:43:25 2025 +0000
+
+    chore(deps): update dependency @qiwi/semantic-release-gh-pages-plugin to v5.4.3 (#1544)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit 27dd1e0ab43cb885c4c6ae4c9d6db6ca61d1906a[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Mar 30 13:44:56 2025 +0000
+
+    chore(deps): lock file maintenance (#1543)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit a84be3350fb2c3bf22ccefe27a04502aa0ef70a3[m
+Author: semantic-release-bot <semantic-release-bot@martynus.net>
+Date:   Sun Mar 30 00:50:20 2025 +0000
+
+    chore(release): 2.4.3 [skip ci]
+    
+    ## [2.4.3](https://github.com/zeshuaro/appainter/compare/v2.4.2...v2.4.3) (2025-03-30)
+    
+    ### Bug Fixes
+    
+    * **deps:** update dependency device_preview_plus to v2.3.3 ([#1535](https://github.com/zeshuaro/appainter/issues/1535)) ([bc41d83](https://github.com/zeshuaro/appainter/commit/bc41d8379c8f6b02053f3a4fc648e1d03b7524b3))
+    * **deps:** update dependency enum_to_string to v2.2.1 ([#1536](https://github.com/zeshuaro/appainter/issues/1536)) ([3fd272b](https://github.com/zeshuaro/appainter/commit/3fd272b2cb9506ea56716980de9b53da6d50d119))
+    * **deps:** update dependency file_picker to v9.2.0 ([#1538](https://github.com/zeshuaro/appainter/issues/1538)) ([515a2bd](https://github.com/zeshuaro/appainter/commit/515a2bdc8705ba7dff5c3eae15da2fccf13e7060))
+    * **deps:** update dependency file_picker to v9.2.1 ([#1541](https://github.com/zeshuaro/appainter/issues/1541)) ([6d08f8d](https://github.com/zeshuaro/appainter/commit/6d08f8dc4ef3496307dc062a831cb683bde04650))
+    
+    ### Miscellaneous Chores
+    
+    * **deps:** lock file maintenance ([#1537](https://github.com/zeshuaro/appainter/issues/1537)) ([05f203c](https://github.com/zeshuaro/appainter/commit/05f203cb0691b091550c492831ecffa16fed506b))
+    
+    ### Continuous Integration
+    
+    * **deps:** update subosito/flutter-action action to v2.19.0 ([#1539](https://github.com/zeshuaro/appainter/issues/1539)) ([9d085e5](https://github.com/zeshuaro/appainter/commit/9d085e574ee737cf3cd9e23ae1b593b8e53e3958))
+    * **deps:** update zeshuaro/github-actions-workflows digest to 478aa3f ([#1542](https://github.com/zeshuaro/appainter/issues/1542)) ([83b7117](https://github.com/zeshuaro/appainter/commit/83b71170c81f53aa25b8f6388e78db1ea749e561))
+    * **deps:** update zeshuaro/github-actions-workflows digest to aa3c43b ([#1540](https://github.com/zeshuaro/appainter/issues/1540)) ([79258f3](https://github.com/zeshuaro/appainter/commit/79258f3b26c7f03276636b034aabf1820119ba55))
+
+[33mcommit 83b71170c81f53aa25b8f6388e78db1ea749e561[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Fri Mar 28 21:41:35 2025 +0000
+
+    ci(deps): update zeshuaro/github-actions-workflows digest to 478aa3f (#1542)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit 6d08f8dc4ef3496307dc062a831cb683bde04650[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Wed Mar 26 07:41:36 2025 +0000
+
+    fix(deps): update dependency file_picker to v9.2.1 (#1541)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit 79258f3b26c7f03276636b034aabf1820119ba55[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Tue Mar 25 12:06:27 2025 +0000
+
+    ci(deps): update zeshuaro/github-actions-workflows digest to aa3c43b (#1540)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit 9d085e574ee737cf3cd9e23ae1b593b8e53e3958[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Tue Mar 25 07:39:19 2025 +0000
+
+    ci(deps): update subosito/flutter-action action to v2.19.0 (#1539)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit 515a2bdc8705ba7dff5c3eae15da2fccf13e7060[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Mon Mar 24 10:45:45 2025 +0000
+
+    fix(deps): update dependency file_picker to v9.2.0 (#1538)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit 05f203cb0691b091550c492831ecffa16fed506b[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Mar 23 13:57:58 2025 +0000
+
+    chore(deps): lock file maintenance (#1537)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit 3fd272b2cb9506ea56716980de9b53da6d50d119[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Mar 23 06:54:02 2025 +0000
+
+    fix(deps): update dependency enum_to_string to v2.2.1 (#1536)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit bc41d8379c8f6b02053f3a4fc648e1d03b7524b3[m
+Author: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+Date:   Sun Mar 23 06:51:59 2025 +0000
+
+    fix(deps): update dependency device_preview_plus to v2.3.3 (#1535)
+    
+    Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+[33mcommit cefcbfda25fca96578dc56b9aa92dc43bb5c722b[m
+Author: semantic-release-bot <semantic-release-bot@martynus.net>
+Date:   Sun Mar 23 00:57:34 2025 +0000
+
+    chore(release): 2.4.2 [skip ci]
+    
+    ## [2.4.2](https://github.com/zeshuaro/appainter/compare/v2.4.1...v2.4.2) (2025-03-23)
+    
+    ### Bug Fixes
+    
+    * **deps:** update code generation dependencies ([#1532](https://github.com/zeshuaro/appainter/issues/1532)) ([715f011](https://github.com/zeshuaro/appainter/commit/715f011f697281d7bc53ff3155e530020a9847f8))
+    * **deps:** update dependency device_preview_plus to v2.3.1 ([#1529](https://github.com/zeshuaro/appainter/issues/1529)) ([544d702](https://github.com/zeshuaro/appainter/commit/544d702b92e2200307676abcfe0ee99433b53328))
+    * **deps:** update dependency file_picker to v9.1.0 ([#1534](https://github.com/zeshuaro/appainter/issues/1534)) ([bcf41f1](https://git

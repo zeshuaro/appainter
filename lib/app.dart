@@ -231,6 +231,7 @@ class _MaterialAppState extends State<_MaterialApp> {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Appainter',
           theme: ThemeData.from(
             colorScheme: ColorScheme.fromSeed(

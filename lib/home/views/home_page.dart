@@ -275,23 +275,56 @@ class _ThemeConfigs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyCard(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            'Theme configurations',
-            style: Theme.of(context).textTheme.headlineSmall,
-          ),
-          const Row(
-            children: [
-              Material3Switch(),
-              HorizontalPadding(),
-              ThemeBrightnessSwitch(),
-            ],
-          ),
-        ],
-      ),
+    return LayoutBuilder(
+      builder: (ctx, constraints) {
+        final width = constraints.maxWidth;
+
+        return MyCard(
+          child: width < 560
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Theme configurations',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    SizedBox(
+                      width: width * 0.8,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: width * 0.3,
+                            child: Material3Switch(),
+                          ),
+                          SizedBox(
+                            width: width * 0.3,
+                            child: ThemeBrightnessSwitch(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Theme configurations',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    Row(
+                      children: [
+                        Material3Switch(),
+                        HorizontalPadding(),
+                        ThemeBrightnessSwitch(),
+                      ],
+                    ),
+                  ],
+                ),
+        );
+      },
     );
   }
 }

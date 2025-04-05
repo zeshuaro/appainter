@@ -296,15 +296,11 @@ class _ThemeConfigs extends StatelessWidget {
                         children: [
                           SizedBox(
                             width: width * 0.3,
-                            child: Material3Switch(
-                              width: width,
-                            ),
+                            child: Material3Switch(),
                           ),
                           SizedBox(
                             width: width * 0.3,
-                            child: ThemeBrightnessSwitch(
-                              width: width,
-                            ),
+                            child: ThemeBrightnessSwitch(),
                           ),
                         ],
                       ),
@@ -320,13 +316,9 @@ class _ThemeConfigs extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Material3Switch(
-                          width: width,
-                        ),
+                        Material3Switch(),
                         HorizontalPadding(),
-                        ThemeBrightnessSwitch(
-                          width: width,
-                        ),
+                        ThemeBrightnessSwitch(),
                       ],
                     ),
                   ],

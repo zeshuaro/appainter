@@ -9,14 +9,28 @@ class Material3Switch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          'Material 3',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        const _Switch(),
-      ],
+    return LayoutBuilder(
+      builder: (ctx, constraints) {
+        return constraints.maxWidth < 460
+            ? Column(
+                children: [
+                  Text(
+                    'Material 3',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  const _Switch(),
+                ],
+              )
+            : Row(
+                children: [
+                  Text(
+                    'Material 3',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  const _Switch(),
+                ],
+              );
+      },
     );
   }
 }

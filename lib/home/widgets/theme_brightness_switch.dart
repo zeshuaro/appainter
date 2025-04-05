@@ -9,14 +9,28 @@ class ThemeBrightnessSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          'Brightness',
-          style: Theme.of(context).textTheme.titleMedium,
-        ),
-        const _Switch(),
-      ],
+    return LayoutBuilder(
+      builder: (ctx, constraints) {
+        return constraints.maxWidth < 460
+            ? Column(
+                children: [
+                  Text(
+                    'Brightness',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  const _Switch(),
+                ],
+              )
+            : Row(
+                children: [
+                  Text(
+                    'Brightness',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  const _Switch(),
+                ],
+              );
+      },
     );
   }
 }

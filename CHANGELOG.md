@@ -1,3 +1,16 @@
+## [2.4.5](https://github.com/zeshuaro/appainter/compare/v2.4.4...v2.4.5) (2025-04-13)
+
+### Bug Fixes
+
+* **deps:** update dependency file_picker to v10 ([#1556](https://github.com/zeshuaro/appainter/issues/1556)) ([39eb4e2](https://github.com/zeshuaro/appainter/commit/39eb4e272d90a7be3ebaf81689f4380c668627ce))
+* **deps:** update dependency flutter_markdown to v0.7.7 ([#1559](https://github.com/zeshuaro/appainter/issues/1559)) ([983fc18](https://github.com/zeshuaro/appainter/commit/983fc189bb74d65445a3da89004d7bc89eed24c8))
+* **deps:** update firebase dependencies ([#1557](https://github.com/zeshuaro/appainter/issues/1557)) ([63f11db](https://github.com/zeshuaro/appainter/commit/63f11dbbd1fc691183ff3e33c012579ead299ee4))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1555](https://github.com/zeshuaro/appainter/issues/1555)) ([23dd4f6](https://github.com/zeshuaro/appainter/commit/23dd4f6fc96b33c46fbb69dfaab3f1904ff5e624))
+* **deps:** update dependency semantic-release-pub to v0.10.3 ([#1558](https://github.com/zeshuaro/appainter/issues/1558)) ([43fab0f](https://github.com/zeshuaro/appainter/commit/43fab0ffbdaaecded1405b4891428e29325d5e7e))
+
 ## [2.4.4](https://github.com/zeshuaro/appainter/compare/v2.4.3...v2.4.4) (2025-04-06)
 
 ### Bug Fixes

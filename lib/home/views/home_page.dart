@@ -275,23 +275,67 @@ class _ThemeConfigs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MyCard(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            'Theme configurations',
-            style: Theme.of(context).textTheme.headlineSmall,
-          ),
-          const Row(
-            children: [
-              Material3Switch(),
-              HorizontalPadding(),
-              ThemeBrightnessSwitch(),
-            ],
-          ),
-        ],
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = constraints.maxWidth;
+        return MyCard(
+          child: (width < 420
+              ? Column(
+                  mainAxisAlignment: (width < 570
+                      ? MainAxisAlignment.spaceEvenly
+                      : MainAxisAlignment.spaceBetween),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Theme configurations',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    (width < 570
+                        ? const Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Material3Switch(),
+                              HorizontalPadding(),
+                              ThemeBrightnessSwitch(),
+                            ],
+                          )
+                        : const Row(
+                            children: [
+                              Material3Switch(),
+                              HorizontalPadding(),
+                              ThemeBrightnessSwitch(),
+                            ],
+                          )),
+                  ],
+                )
+              : Row(
+                  mainAxisAlignment: (width < 570
+                      ? MainAxisAlignment.spaceEvenly
+                      : MainAxisAlignment.spaceBetween),
+                  children: [
+                    Text(
+                      'Theme configurations',
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    (width < 570
+                        ? const Column(
+                            children: [
+                              Material3Switch(),
+                              HorizontalPadding(),
+                              ThemeBrightnessSwitch(),
+                            ],
+                          )
+                        : const Row(
+                            children: [
+                              Material3Switch(),
+                              HorizontalPadding(),
+                              ThemeBrightnessSwitch(),
+                            ],
+                          )),
+                  ],
+                )),
+        );
+      },
     );
   }
 }

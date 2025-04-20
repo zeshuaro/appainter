@@ -1,3 +1,23 @@
+## [2.4.6](https://github.com/zeshuaro/appainter/compare/v2.4.5...v2.4.6) (2025-04-20)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.3.4 ([#1560](https://github.com/zeshuaro/appainter/issues/1560)) ([d1afa0d](https://github.com/zeshuaro/appainter/commit/d1afa0da10ec05f0946f7e99bbdc6c735f9c7968))
+* **deps:** update dependency file_picker to v10.1.0 ([#1566](https://github.com/zeshuaro/appainter/issues/1566)) ([8516db9](https://github.com/zeshuaro/appainter/commit/8516db910613d97c7ba94e5b5c09fea5cac33d59))
+* **deps:** update dependency file_picker to v10.1.1 ([#1567](https://github.com/zeshuaro/appainter/issues/1567)) ([dcdaaad](https://github.com/zeshuaro/appainter/commit/dcdaaadf1cce72867ee2b5ee4ba07fdebbe62f49))
+* **deps:** update dependency file_picker to v10.1.2 ([#1569](https://github.com/zeshuaro/appainter/issues/1569)) ([a3ec596](https://github.com/zeshuaro/appainter/commit/a3ec5966b420e67075ab323922d125e2f5ff6f16))
+* **sdk:** update dependency flutter to v3.29.3 ([#1563](https://github.com/zeshuaro/appainter/issues/1563)) ([50f4665](https://github.com/zeshuaro/appainter/commit/50f4665169cadcf1ad3e2b33192585b84e98cfc4))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1561](https://github.com/zeshuaro/appainter/issues/1561)) ([ee56b4e](https://github.com/zeshuaro/appainter/commit/ee56b4e93a28c37b2c097e3ab7cb837b4aced329))
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v5.4.2 ([#1562](https://github.com/zeshuaro/appainter/issues/1562)) ([0a5ac3c](https://github.com/zeshuaro/appainter/commit/0a5ac3cfb8ee8041ca699053cc7568e33c1e8853))
+* **deps:** update stefanzweifel/git-auto-commit-action action to v5.2.0 ([#1568](https://github.com/zeshuaro/appainter/issues/1568)) ([6a09803](https://github.com/zeshuaro/appainter/commit/6a098035ac7288cd6c5d8f26222407e05c7dcc70))
+* **deps:** update zeshuaro/github-actions-workflows digest to 7ada519 ([#1565](https://github.com/zeshuaro/appainter/issues/1565)) ([24e5de0](https://github.com/zeshuaro/appainter/commit/24e5de0a7d3930675b845bba795be3d74331161e))
+
 ## [2.4.5](https://github.com/zeshuaro/appainter/compare/v2.4.4...v2.4.5) (2025-04-13)
 
 ### Bug Fixes

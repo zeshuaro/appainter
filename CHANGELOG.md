@@ -1,3 +1,14 @@
+## [2.4.7](https://github.com/zeshuaro/appainter/compare/v2.4.6...v2.4.7) (2025-04-27)
+
+### Bug Fixes
+
+* **deps:** update dependency sentry_flutter to v8.14.2 ([#1572](https://github.com/zeshuaro/appainter/issues/1572)) ([a09c563](https://github.com/zeshuaro/appainter/commit/a09c56370b44a9949074470ed7c68bee73abe088))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1570](https://github.com/zeshuaro/appainter/issues/1570)) ([c5cac94](https://github.com/zeshuaro/appainter/commit/c5cac9464a62975ac2215a250808831d56793ada))
+* **node:** update node.js to v22.15.0 ([#1571](https://github.com/zeshuaro/appainter/issues/1571)) ([2b7a4d7](https://github.com/zeshuaro/appainter/commit/2b7a4d7d4202476ac45e7d45f769b4bc9a72a87e))
+
 ## [2.4.6](https://github.com/zeshuaro/appainter/compare/v2.4.5...v2.4.6) (2025-04-20)
 
 ### Bug Fixes

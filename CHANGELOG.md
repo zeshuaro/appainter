@@ -1,3 +1,18 @@
+## [2.4.8](https://github.com/zeshuaro/appainter/compare/v2.4.7...v2.4.8) (2025-05-04)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.3.5 ([#1573](https://github.com/zeshuaro/appainter/issues/1573)) ([10ea0b1](https://github.com/zeshuaro/appainter/commit/10ea0b1421f1ad5cd2f2b05eb72b4bf2664797cc))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release-pub to v0.10.4 ([#1576](https://github.com/zeshuaro/appainter/issues/1576)) ([5eaeb07](https://github.com/zeshuaro/appainter/commit/5eaeb0702a86331e16f67e5573a94a3fef9ddde6))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 9edb5c8 ([#1575](https://github.com/zeshuaro/appainter/issues/1575)) ([e46eec1](https://github.com/zeshuaro/appainter/commit/e46eec17ba3ece428a437ce093182233b547d60f))
+* **deps:** update zeshuaro/github-actions-workflows digest to aef9453 ([#1577](https://github.com/zeshuaro/appainter/issues/1577)) ([c915587](https://github.com/zeshuaro/appainter/commit/c9155874975a03db245f76601a5daf02e07fcc96))
+
 ## [2.4.7](https://github.com/zeshuaro/appainter/compare/v2.4.6...v2.4.7) (2025-04-27)
 
 ### Bug Fixes

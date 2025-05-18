@@ -1,3 +1,25 @@
+## [2.4.9](https://github.com/zeshuaro/appainter/compare/v2.4.8...v2.4.9) (2025-05-18)
+
+### Bug Fixes
+
+* **deps:** update dependency file_picker to v10.1.5 ([#1584](https://github.com/zeshuaro/appainter/issues/1584)) ([d8db3f2](https://github.com/zeshuaro/appainter/commit/d8db3f2670fde1098b1ccda49b4b1cd07d1312c7))
+* **deps:** update dependency file_picker to v10.1.6 ([#1586](https://github.com/zeshuaro/appainter/issues/1586)) ([433f65a](https://github.com/zeshuaro/appainter/commit/433f65a7b1a4507a2cbbc6cd412edcf8765c9c91))
+* **deps:** update dependency file_picker to v10.1.7 ([#1588](https://github.com/zeshuaro/appainter/issues/1588)) ([0618daf](https://github.com/zeshuaro/appainter/commit/0618daf480bcb054ba4b9a18480c2862053b7265))
+* **deps:** update dependency firebase_auth to v5.5.3 ([#1578](https://github.com/zeshuaro/appainter/issues/1578)) ([f337901](https://github.com/zeshuaro/appainter/commit/f337901652dea51df873a93746a0ff500d778b18))
+* **deps:** update dependency flex_color_picker to v3.7.1 ([#1579](https://github.com/zeshuaro/appainter/issues/1579)) ([61662ec](https://github.com/zeshuaro/appainter/commit/61662ec081782f5db1d33117f62adc73f84f2218))
+* **deps:** update dependency flutter_bloc to v9.1.1 ([#1580](https://github.com/zeshuaro/appainter/issues/1580)) ([c67e8f9](https://github.com/zeshuaro/appainter/commit/c67e8f996913919f262cd735eb01a8705422cdad))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency @semantic-release/exec to v7.1.0 ([#1581](https://github.com/zeshuaro/appainter/issues/1581)) ([34bcce7](https://github.com/zeshuaro/appainter/commit/34bcce70b248415b1171219c95f564ad7845dedd))
+* **deps:** update dependency semantic-release-pub to v0.10.5 ([#1582](https://github.com/zeshuaro/appainter/issues/1582)) ([6b0d2c5](https://github.com/zeshuaro/appainter/commit/6b0d2c54c73b032c4a598f2f17fde478db54b023))
+* **node:** update node.js to v22.15.1 ([#1583](https://github.com/zeshuaro/appainter/issues/1583)) ([4b13dfd](https://github.com/zeshuaro/appainter/commit/4b13dfd0af037ff190497ac8abcb1aed3cb2337e))
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v5.4.3 ([#1585](https://github.com/zeshuaro/appainter/issues/1585)) ([0c8a97d](https://github.com/zeshuaro/appainter/commit/0c8a97dace187e5a985e89d9cccdad85667ad955))
+* **deps:** update zeshuaro/github-actions-workflows digest to 3ff5b2e ([#1587](https://github.com/zeshuaro/appainter/issues/1587)) ([e59683c](https://github.com/zeshuaro/appainter/commit/e59683c35b865dadea732d2937930c32d7f0db39))
+
 ## [2.4.8](https://github.com/zeshuaro/appainter/compare/v2.4.7...v2.4.8) (2025-05-04)
 
 ### Bug Fixes

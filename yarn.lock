@@ -2375,10 +2375,10 @@ marked-terminal@^7.0.0:
     node-emoji "^2.2.0"
     supports-hyperlinks "^3.1.0"
 
-marked@^12.0.0:
-  version "12.0.2"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-12.0.2.tgz#b31578fe608b599944c69807b00f18edab84647e"
-  integrity sha512-qXUm7e/YKFoqFPYPa3Ukg9xlI5cyAtGmyEIzMfW//m6kXwCy2Ps9DYf5ioijFKQ8qyuscrHoY04iJGctu2Kg0Q==
+marked@^15.0.0:
+  version "15.0.12"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-15.0.12.tgz#30722c7346e12d0a2d0207ab9b0c4f0102d86c4e"
+  integrity sha512-8dD6FusOQSrpv9Z1rdNMdlSgQOIP880DHqnohobOmYLElGEqAL/JvxvuxZO16r4HtjTlfPRDC1hbvxC9dPN2nA==
 
 math-intrinsics@^1.1.0:
   version "1.1.0"
@@ -3373,10 +3373,10 @@ semantic-release-stop-before-publish@1.0.0:
   resolved "https://registry.yarnpkg.com/semantic-release-stop-before-publish/-/semantic-release-stop-before-publish-1.0.0.tgz#1562c2560cf1e37fd2b6fb10d0d802d524583c2c"
   integrity sha512-LylAHHLcKxLGb0/cADeeS7EhNa35XK0L5Qar3ayNdtutjm4MQcdGV3pxKR0nlDdPpKFn7RZGFIvzDO+hRHj2kA==
 
-semantic-release@24.2.3:
-  version "24.2.3"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-24.2.3.tgz#fd5ac3b0c27fa7bd994eb89eacc26fa385caa1a6"
-  integrity sha512-KRhQG9cUazPavJiJEFIJ3XAMjgfd0fcK3B+T26qOl8L0UG5aZUjeRfREO0KM5InGtYwxqiiytkJrbcYoLDEv0A==
+semantic-release@24.2.4:
+  version "24.2.4"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-24.2.4.tgz#c4b31b6d47ee28d9cc454edebf871e585cad05a0"
+  integrity sha512-WnzIiRUzEUSHWuCH1S9ifa7eA3g4b5fpCzFQoTA5yZcyTra5P2gaYoCV5iX3VR5xB2h/laQfz3NXTCN4qdK/AQ==
   dependencies:
     "@semantic-release/commit-analyzer" "^13.0.0-beta.1"
     "@semantic-release/error" "^4.0.0"
@@ -3396,7 +3396,7 @@ semantic-release@24.2.3:
     hosted-git-info "^8.0.0"
     import-from-esm "^2.0.0"
     lodash-es "^4.17.21"
-    marked "^12.0.0"
+    marked "^15.0.0"
     marked-terminal "^7.0.0"
     micromatch "^4.0.2"
     p-each-series "^3.0.0"

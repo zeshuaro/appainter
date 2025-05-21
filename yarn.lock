@@ -1329,10 +1329,10 @@ execa@^8.0.0:
     signal-exit "^4.1.0"
     strip-final-newline "^3.0.0"
 
-execa@^9.0.0, execa@^9.5.2:
-  version "9.5.2"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-9.5.2.tgz#a4551034ee0795e241025d2f987dab3f4242dff2"
-  integrity sha512-EHlpxMCpHWSAh1dgS6bVeoLAXGnJNdR93aabr4QCGbzOM73o5XmRfM/e5FUqsw3aagP8S8XEWUWFAxnRBnAF0Q==
+execa@^9.0.0, execa@^9.5.3:
+  version "9.5.3"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-9.5.3.tgz#aa9b6e92ea6692b88a240efc260ca30489b33e2a"
+  integrity sha512-QFNnTvU3UjgWFy8Ef9iDHvIdcgZ344ebkwYx4/KLbR+CKQA4xBaHzv+iRpp86QfMHP8faFQLh8iOc57215y4Rg==
   dependencies:
     "@sindresorhus/merge-streams" "^4.0.0"
     cross-spawn "^7.0.3"
@@ -3356,14 +3356,14 @@ safe-buffer@^5.2.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.10.5:
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.10.5.tgz#01d57a9fa553f9a961f9410b47b698c9083211d0"
-  integrity sha512-WjvpVGCr/dgID1wAaF17YvhsJt4k9NK2YEmafHxIjiiCZmrTd07E5c+naCoNjZSRZusuzLi1KqgU2rKMCy7tJA==
+semantic-release-pub@0.10.6:
+  version "0.10.6"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.10.6.tgz#f24a6b16bce60cbb4f76457011a5c1ee66c44f5a"
+  integrity sha512-zdVnDBJnKlKT/bzZNNXg4voFk8x8I7pDf7+dn/n1keMAoDR6QlOJRCG1aVv3ALVSfGa9ZTFNRf6eT3dmNVQUpg==
   dependencies:
     "@actions/core" "^1.11.1"
     "@semantic-release/error" "^4.0.0"
-    execa "^9.5.2"
+    execa "^9.5.3"
     google-auth-library "^9.15.1"
     yaml "^2.7.1"
     zod "^3.24.4"

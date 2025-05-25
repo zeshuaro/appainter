@@ -1,3 +1,21 @@
+## [2.4.10](https://github.com/zeshuaro/appainter/compare/v2.4.9...v2.4.10) (2025-05-25)
+
+### Bug Fixes
+
+* **deps:** update dependency file_picker to v10.1.8 ([#1590](https://github.com/zeshuaro/appainter/issues/1590)) ([94e9047](https://github.com/zeshuaro/appainter/commit/94e90479f9ccae156e688a8f7bf220f4ca9babf7))
+* **deps:** update dependency file_picker to v10.1.9 ([#1592](https://github.com/zeshuaro/appainter/issues/1592)) ([933f127](https://github.com/zeshuaro/appainter/commit/933f1271c29b10b100d00efce51cd6a475150321))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency conventional-changelog-conventionalcommits to v9 ([#1595](https://github.com/zeshuaro/appainter/issues/1595)) ([3c55416](https://github.com/zeshuaro/appainter/commit/3c554161d821af17be24387a717e2bf4b6203d31))
+* **deps:** update dependency semantic-release to v24.2.4 ([#1589](https://github.com/zeshuaro/appainter/issues/1589)) ([38efc6a](https://github.com/zeshuaro/appainter/commit/38efc6a8343a6f9f08a25f71ad1c7c64af3d85de))
+* **deps:** update dependency semantic-release-pub to v0.10.6 ([#1591](https://github.com/zeshuaro/appainter/issues/1591)) ([b25cbec](https://github.com/zeshuaro/appainter/commit/b25cbecbce087ea407bb6cb9a18754eb4e1ca0be))
+* **node:** update node.js to v22.16.0 ([#1593](https://github.com/zeshuaro/appainter/issues/1593)) ([1adc7f0](https://github.com/zeshuaro/appainter/commit/1adc7f0832b2ca04c65a97a0b3624657a85e8b0a))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 6822a25 ([#1596](https://github.com/zeshuaro/appainter/issues/1596)) ([9665009](https://github.com/zeshuaro/appainter/commit/9665009430bae9b45a49cda8556380fe7d76bb3b))
+
 ## [2.4.9](https://github.com/zeshuaro/appainter/compare/v2.4.8...v2.4.9) (2025-05-18)
 
 ### Bug Fixes

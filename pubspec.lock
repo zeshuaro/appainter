@@ -806,10 +806,10 @@ packages:
     dependency: "direct main"
     description:
       name: ndialog
-      sha256: b383522d40fde2911099715ada63f1c2cb26e021faa48c4320326a085c33e4f6
+      sha256: "6d74b247b0d5d34d57df4489c5ef6fc4e508f03a786068998e6cad3980a154a1"
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.1+1"
+    version: "4.5.0+1"
   nested:
     dependency: transitive
     description:

@@ -1,3 +1,15 @@
+## [2.4.11](https://github.com/zeshuaro/appainter/compare/v2.4.10...v2.4.11) (2025-06-01)
+
+### Bug Fixes
+
+* **deps:** update dependency ndialog to v4.5.0+1 ([#1600](https://github.com/zeshuaro/appainter/issues/1600)) ([903312a](https://github.com/zeshuaro/appainter/commit/903312a5815da25b586f4727e359ab794180cfa9))
+* **deps:** update firebase dependencies ([#1599](https://github.com/zeshuaro/appainter/issues/1599)) ([4d0d027](https://github.com/zeshuaro/appainter/commit/4d0d027cd4cc25e8b8aa2ff253b7074b64d1509a))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release to v24.2.5 ([#1597](https://github.com/zeshuaro/appainter/issues/1597)) ([3bc0112](https://github.com/zeshuaro/appainter/commit/3bc0112b6a350e78d732bf8776ed85828c06be87))
+* **deps:** update dependency semantic-release-pub to v0.10.7 ([#1598](https://github.com/zeshuaro/appainter/issues/1598)) ([dd10660](https://github.com/zeshuaro/appainter/commit/dd1066033d47cb2e24a02fd42509dd38db75d655))
+
 ## [2.4.10](https://github.com/zeshuaro/appainter/compare/v2.4.9...v2.4.10) (2025-05-25)
 
 ### Bug Fixes

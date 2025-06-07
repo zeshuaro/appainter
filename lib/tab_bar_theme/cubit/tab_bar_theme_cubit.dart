@@ -76,6 +76,11 @@ class TabBarThemeCubit extends Cubit<TabBarThemeState> {
       emit(state.copyWith(theme: theme));
     }
   }
+
+  void indicatorColorChanged(Color color) {
+    final theme = state.theme.copyWith(indicatorColor: color);
+    emit(state.copyWith(theme: theme));
+  }
 }
 
 class TabBarLabelTextStyleCubit extends AbstractTextStyleCubit {

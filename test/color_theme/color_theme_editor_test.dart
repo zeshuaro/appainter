@@ -389,28 +389,6 @@ void main() {
     });
   });
 
-  group('indicator color picker', () {
-    const key = 'colorThemeEditor_indicatorColorPicker';
-
-    testWidgets('render widget', (tester) async {
-      final state = ColorThemeState(indicatorColor: color);
-
-      await pumpApp(tester, state);
-
-      await tester.expectColorIndicator(key, color);
-      expectBlocBuilder(tester, key, state);
-    });
-
-    testWidgets('change color', (tester) async {
-      await pumpApp(tester);
-      await tester.verifyColorPicker(
-        key,
-        color,
-        colorThemeCubit.indicatorColorChanged,
-      );
-    });
-  });
-
   group('scaffold background color picker', () {
     const key = 'colorThemeEditor_scaffoldBackgroundColorPicker';
 

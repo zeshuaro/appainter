@@ -31,7 +31,6 @@ class ColorThemeEditor extends ExpansionPanelItem {
         _HighlightColorPicker(),
         _HintColorPicker(),
         _HoverColorPicker(),
-        _IndicatorColorPicker(),
         _ScaffoldBackgroundColorPicker(),
         _SecondaryHeaderColorPicker(),
         _ShadowColorPicker(),
@@ -327,26 +326,6 @@ class _HoverColorPicker extends StatelessWidget {
           tooltip: ColorThemeDocs.hoverColor,
           color: state.hoverColor,
           onColorChanged: context.read<ColorThemeCubit>().hoverColorChanged,
-        );
-      },
-    );
-  }
-}
-
-class _IndicatorColorPicker extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<ColorThemeCubit, ColorThemeState>(
-      key: const Key('colorThemeEditor_indicatorColorPicker'),
-      buildWhen: (previous, current) {
-        return previous.indicatorColor != current.indicatorColor;
-      },
-      builder: (context, state) {
-        return ColorListTile(
-          title: 'Indicator color',
-          tooltip: ColorThemeDocs.indicatorColor,
-          color: state.indicatorColor,
-          onColorChanged: context.read<ColorThemeCubit>().indicatorColorChanged,
         );
       },
     );

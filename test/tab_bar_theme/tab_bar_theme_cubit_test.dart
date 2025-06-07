@@ -76,6 +76,13 @@ void main() {
     }
   });
 
+  blocTest(
+    'emit indicator color',
+    build: () => themeCubit,
+    act: (cubit) => cubit.indicatorColorChanged(color),
+    expect: () => [TabBarThemeState.withTheme(indicatorColor: color)],
+  );
+
   test('initialise label text style cubit', () {
     final cubit = TabBarLabelTextStyleCubit();
     expect(cubit.typeScale, equals(TypeScale.titleSmall));

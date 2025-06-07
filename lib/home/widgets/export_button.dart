@@ -128,7 +128,6 @@ class ExportButton extends StatelessWidget {
       highlightColor: colorTheme.highlightColor,
       hintColor: colorTheme.hintColor,
       hoverColor: colorTheme.hoverColor,
-      indicatorColor: colorTheme.indicatorColor,
       scaffoldBackgroundColor: colorTheme.scaffoldBackgroundColor,
       secondaryHeaderColor: colorTheme.secondaryHeaderColor,
       shadowColor: colorTheme.shadowColor,

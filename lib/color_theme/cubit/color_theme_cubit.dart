@@ -27,7 +27,6 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
         highlightColor: theme.highlightColor,
         hintColor: theme.hintColor,
         hoverColor: theme.hoverColor,
-        indicatorColor: theme.indicatorColor,
         scaffoldBackgroundColor: theme.scaffoldBackgroundColor,
         secondaryHeaderColor: theme.secondaryHeaderColor,
         shadowColor: theme.shadowColor,
@@ -128,10 +127,6 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
 
   void hoverColorChanged(Color color) {
     emit(state.copyWith(hoverColor: color));
-  }
-
-  void indicatorColorChanged(Color color) {
-    emit(state.copyWith(indicatorColor: color));
   }
 
   void scaffoldBackgroundColorChanged(Color color) {

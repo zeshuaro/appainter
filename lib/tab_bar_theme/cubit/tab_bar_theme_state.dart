@@ -11,12 +11,14 @@ class TabBarThemeState extends Equatable {
     TabBarIndicatorSize? indicatorSize,
     Color? labelColor,
     Color? unselectedLabelColor,
+    Color? indicatorColor,
   }) {
     return TabBarThemeState(
       theme: TabBarThemeData(
         labelColor: labelColor,
         unselectedLabelColor: unselectedLabelColor,
         indicatorSize: indicatorSize,
+        indicatorColor: indicatorColor,
       ),
     );
   }

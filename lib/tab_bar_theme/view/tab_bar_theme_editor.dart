@@ -23,6 +23,7 @@ class TabBarThemeEditor extends ExpansionPanelItem {
             _LabelColorPicker(),
             _UnselectedLabelColorPicker(),
             _IndicatorSizeDropdown(),
+            _IndicatorColorPicker(),
           ],
         ),
         MyExpansionPanelList(
@@ -98,6 +99,23 @@ class _IndicatorSizeDropdown extends StatelessWidget {
           onChanged: context.read<TabBarThemeCubit>().indicatorSizeChanged,
         );
       },
+    );
+  }
+}
+
+class _IndicatorColorPicker extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final color = context.watch<TabBarThemeCubit>().state.theme.indicatorColor;
+    final primaryColor =
+        context.watch<ColorThemeCubit>().state.colorScheme.primary;
+
+    return ColorListTile(
+      key: const Key('tabBarThemeEditor_indicatorColorPicker'),
+      title: 'Indicator color',
+      tooltip: TabBarThemeDocs.indicatorColor,
+      color: color ?? primaryColor,
+      onColorChanged: context.read<TabBarThemeCubit>().indicatorColorChanged,
     );
   }
 }

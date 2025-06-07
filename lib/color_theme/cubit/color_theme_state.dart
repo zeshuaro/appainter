@@ -56,7 +56,6 @@ class ColorThemeState extends Equatable {
     this.highlightColor = highlightColor ?? theme.highlightColor;
     this.hintColor = hintColor ?? theme.hintColor;
     this.hoverColor = hoverColor ?? theme.hoverColor;
-    this.indicatorColor = indicatorColor ?? theme.indicatorColor;
     this.scaffoldBackgroundColor =
         scaffoldBackgroundColor ?? theme.scaffoldBackgroundColor;
     this.secondaryHeaderColor =

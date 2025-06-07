@@ -155,4 +155,23 @@ void main() {
       });
     }
   });
+
+  group('indicator color picker', () {
+    const key = 'tabBarThemeEditor_indicatorColorPicker';
+
+    testWidgets('render widget', (tester) async {
+      final state = TabBarThemeState.withTheme(indicatorColor: color);
+      await pumpApp(tester, state);
+      await tester.expectColorIndicator(key, color);
+    });
+
+    testWidgets('change color', (tester) async {
+      await pumpApp(tester);
+      await tester.verifyColorPickerRgbOnly(
+        key,
+        color,
+        tabBarThemeCubit.indicatorColorChanged,
+      );
+    });
+  });
 }

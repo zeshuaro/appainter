@@ -42,7 +42,6 @@ void main() {
         highlightColor: theme.highlightColor,
         hintColor: theme.hintColor,
         hoverColor: theme.hoverColor,
-        indicatorColor: theme.indicatorColor,
         scaffoldBackgroundColor: theme.scaffoldBackgroundColor,
         secondaryHeaderColor: theme.secondaryHeaderColor,
         shadowColor: theme.shadowColor,
@@ -203,13 +202,6 @@ void main() {
     build: () => colorThemeCubit,
     act: (cubit) => cubit.hoverColorChanged(color),
     expect: () => [ColorThemeState(hoverColor: color)],
-  );
-
-  blocTest<ColorThemeCubit, ColorThemeState>(
-    'should emit indicator color',
-    build: () => colorThemeCubit,
-    act: (cubit) => cubit.indicatorColorChanged(color),
-    expect: () => [ColorThemeState(indicatorColor: color)],
   );
 
   blocTest<ColorThemeCubit, ColorThemeState>(

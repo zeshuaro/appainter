@@ -76,7 +76,6 @@ void main() {
               primaryColor: color,
               primaryColorLight: swatch[100],
               primaryColorDark: swatch[700],
-              indicatorColor: color,
               secondaryHeaderColor: swatch[50],
             ),
           ];

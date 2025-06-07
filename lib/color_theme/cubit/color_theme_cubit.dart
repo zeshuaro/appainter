@@ -55,7 +55,6 @@ class ColorThemeCubit extends Cubit<ColorThemeState> {
         primaryColor: color,
         primaryColorLight: swatch[100],
         primaryColorDark: primaryColorDark,
-        indicatorColor: color,
         secondaryHeaderColor: swatch[50],
       ),
     );

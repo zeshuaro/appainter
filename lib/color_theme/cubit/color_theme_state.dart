@@ -15,7 +15,6 @@ class ColorThemeState extends Equatable {
   late final Color highlightColor;
   late final Color hintColor;
   late final Color hoverColor;
-  late final Color indicatorColor;
   late final Color scaffoldBackgroundColor;
   late final Color secondaryHeaderColor;
   late final Color shadowColor;
@@ -35,7 +34,6 @@ class ColorThemeState extends Equatable {
     Color? highlightColor,
     Color? hintColor,
     Color? hoverColor,
-    Color? indicatorColor,
     Color? scaffoldBackgroundColor,
     Color? secondaryHeaderColor,
     Color? shadowColor,
@@ -56,7 +54,6 @@ class ColorThemeState extends Equatable {
     this.highlightColor = highlightColor ?? theme.highlightColor;
     this.hintColor = hintColor ?? theme.hintColor;
     this.hoverColor = hoverColor ?? theme.hoverColor;
-    this.indicatorColor = indicatorColor ?? theme.indicatorColor;
     this.scaffoldBackgroundColor =
         scaffoldBackgroundColor ?? theme.scaffoldBackgroundColor;
     this.secondaryHeaderColor =
@@ -82,7 +79,6 @@ class ColorThemeState extends Equatable {
       highlightColor,
       hintColor,
       hoverColor,
-      indicatorColor,
       scaffoldBackgroundColor,
       secondaryHeaderColor,
       shadowColor,

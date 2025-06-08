@@ -1,3 +1,17 @@
+## [2.4.12](https://github.com/zeshuaro/appainter/compare/v2.4.11...v2.4.12) (2025-06-08)
+
+### Bug Fixes
+
+* **deps:** update dependency window_manager to v0.5.0 ([#1604](https://github.com/zeshuaro/appainter/issues/1604)) ([a9e6b02](https://github.com/zeshuaro/appainter/commit/a9e6b025e82788dc47e96f9343d53570977b6f5b))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release-pub to v0.10.8 ([#1602](https://github.com/zeshuaro/appainter/issues/1602)) ([95d24fb](https://github.com/zeshuaro/appainter/commit/95d24fb6bdfca8fd1233f01beebf85427372b8a8))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 8d1554a ([#1605](https://github.com/zeshuaro/appainter/issues/1605)) ([0a811d2](https://github.com/zeshuaro/appainter/commit/0a811d2121350134daabb8449e4a0b157262cdc2))
+
 ## [2.4.11](https://github.com/zeshuaro/appainter/compare/v2.4.10...v2.4.11) (2025-06-01)
 
 ### Bug Fixes

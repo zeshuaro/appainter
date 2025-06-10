@@ -97,10 +97,10 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: fe7ab022b76f3034adc518fb6ea04a82387620e19977665ea18d30a1cf43442f
+      sha256: "2c11f3f94c687ee9bad77c171151672986360b2b001d109814ee7140b2cf261b"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.0"
+    version: "1.4.0"
   http_parser:
     dependency: transitive
     description:
@@ -150,10 +150,10 @@ packages:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "1cb7b495179bbb9bc76e9a2feab3240db6da474b6d55e94c2fc87a98484c5f60"
+      sha256: "38432c9ffed562851ef142dbeb34f9ac85d73b9b91cfbbcafaa4d5c03c99fc4a"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3+17"
+    version: "1.0.3+18"
   leak_tracker:
     dependency: transitive
     description:

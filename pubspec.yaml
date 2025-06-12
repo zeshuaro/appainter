@@ -6,7 +6,7 @@ version: 2.4.12
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
-  flutter: 3.32.2
+  flutter: 3.32.3
 
 dependencies:
   appainter_annotations:

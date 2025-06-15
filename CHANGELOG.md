@@ -1,3 +1,27 @@
+## [2.5.0](https://github.com/zeshuaro/appainter/compare/v2.4.12...v2.5.0) (2025-06-15)
+
+### Features
+
+* **sdk:** update dependency flutter to v3.32.2 ([#1594](https://github.com/zeshuaro/appainter/issues/1594)) ([99b4092](https://github.com/zeshuaro/appainter/commit/99b4092d92c7cc3519ee4ef969b452b624d07be5))
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.4.1 ([#1601](https://github.com/zeshuaro/appainter/issues/1601)) ([878b459](https://github.com/zeshuaro/appainter/commit/878b459824096e05f7758cd11bbdd7f36f045e82))
+* **sdk:** update dependency flutter to v3.32.2 ([#1606](https://github.com/zeshuaro/appainter/issues/1606)) ([28344c0](https://github.com/zeshuaro/appainter/commit/28344c0cfe308dc0974e9219b183221d901ae820))
+* **sdk:** update dependency flutter to v3.32.3 ([#1609](https://github.com/zeshuaro/appainter/issues/1609)) ([0ce8f4e](https://github.com/zeshuaro/appainter/commit/0ce8f4e149324f97c198471f9f920f27183aeb81))
+* **sdk:** update dependency flutter to v3.32.4 ([#1610](https://github.com/zeshuaro/appainter/issues/1610)) ([3f85225](https://github.com/zeshuaro/appainter/commit/3f852259a153abb3fa81e99148c4233a27f5ca93))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1574](https://github.com/zeshuaro/appainter/issues/1574)) ([db5994e](https://github.com/zeshuaro/appainter/commit/db5994ef9857f55274d2fad6c5a1779ffc1173bc))
+* **deps:** update dependency flutter_lints to v6 ([#1603](https://github.com/zeshuaro/appainter/issues/1603)) ([9ad6c3d](https://github.com/zeshuaro/appainter/commit/9ad6c3de7895ab014dcb7736c266c2de301eca95))
+* **deps:** update dependency semantic-release-pub to v0.10.9 ([#1608](https://github.com/zeshuaro/appainter/issues/1608)) ([0236811](https://github.com/zeshuaro/appainter/commit/0236811d586b0479f2577e49abd09ea7878ebfe0))
+
+### Continuous Integration
+
+* **deps:** update stefanzweifel/git-auto-commit-action action to v6 ([#1611](https://github.com/zeshuaro/appainter/issues/1611)) ([3de5faa](https://github.com/zeshuaro/appainter/commit/3de5faac1ea4c9608345f898b7e66df88af2f3be))
+* **deps:** update subosito/flutter-action action to v2.20.0 ([#1607](https://github.com/zeshuaro/appainter/issues/1607)) ([0b6b333](https://github.com/zeshuaro/appainter/commit/0b6b33318614bb3e2b82d9925683748cdb214719))
+
 ## [2.4.12](https://github.com/zeshuaro/appainter/compare/v2.4.11...v2.4.12) (2025-06-08)
 
 ### Bug Fixes

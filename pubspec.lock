@@ -291,10 +291,10 @@ packages:
     dependency: "direct main"
     description:
       name: device_preview_plus
-      sha256: c624bcc4a120a451958975c1e0657faeea7560514139bafe15dc05a42f3b3181
+      sha256: "0775df1a6d03276648ace88e93fee6183f92450ff55812374ca21ac513cbd38d"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.1"
+    version: "2.4.2"
   diff_match_patch:
     dependency: transitive
     description:

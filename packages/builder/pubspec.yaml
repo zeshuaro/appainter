@@ -18,9 +18,9 @@ dependencies:
   textwrap: ^2.0.0
 
 dev_dependencies:
-  build_runner: ^2.1.8
-  build_test: ^3.0.0
-  coverage: ^1.2.0
-  flutter_lints: ^6.0.0
-  mocktail: ^1.0.0
-  test: ^1.20.2
+  build_runner: 2.5.3
+  build_test: 3.1.1
+  coverage: 1.14.1
+  flutter_lints: 6.0.0
+  mocktail: 1.0.4
+  test: 1.26.2

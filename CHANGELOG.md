@@ -1,3 +1,17 @@
+## [2.5.1](https://github.com/zeshuaro/appainter/compare/v2.5.0...v2.5.1) (2025-06-22)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.4.2 ([#1612](https://github.com/zeshuaro/appainter/issues/1612)) ([ae44838](https://github.com/zeshuaro/appainter/commit/ae448385259ca55e0605fb902003cedead5b1a84))
+* **deps:** update dependency file_picker to v10.2.0 ([#1616](https://github.com/zeshuaro/appainter/issues/1616)) ([7f183ff](https://github.com/zeshuaro/appainter/commit/7f183ffeb60abb88e84043a810c7cf5166db9e4c))
+
+### Miscellaneous Chores
+
+* **builder:** update dependency build_test to ^3.0.0 ([#1618](https://github.com/zeshuaro/appainter/issues/1618)) ([c429527](https://github.com/zeshuaro/appainter/commit/c42952706f08aa46455dea8f74c1a6c7f4b7cb6f))
+* **deps:** lock file maintenance ([#1613](https://github.com/zeshuaro/appainter/issues/1613)) ([f9bbf33](https://github.com/zeshuaro/appainter/commit/f9bbf33e277992e3e218f8de20c3e9d3abcdd155))
+* **deps:** pin dependencies ([#1617](https://github.com/zeshuaro/appainter/issues/1617)) ([498f26b](https://github.com/zeshuaro/appainter/commit/498f26b628b67a2732e92208812db8466c242a30))
+* **deps:** update dependency semantic-release-pub to v0.10.10 ([#1614](https://github.com/zeshuaro/appainter/issues/1614)) ([f76fc0b](https://github.com/zeshuaro/appainter/commit/f76fc0b957419fdec0ea3ef2ec1590525758fa5a))
+
 ## [2.5.0](https://github.com/zeshuaro/appainter/compare/v2.4.12...v2.5.0) (2025-06-15)
 
 ### Features

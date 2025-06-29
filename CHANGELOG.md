@@ -1,3 +1,26 @@
+## [2.5.2](https://github.com/zeshuaro/appainter/compare/v2.5.1...v2.5.2) (2025-06-29)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.4.3 ([#1619](https://github.com/zeshuaro/appainter/issues/1619)) ([3ede389](https://github.com/zeshuaro/appainter/commit/3ede38973b296a697b6f10a94b5b298679ab37c5))
+* **deps:** update dependency json_theme to v9.0.1 ([#1628](https://github.com/zeshuaro/appainter/issues/1628)) ([ce25656](https://github.com/zeshuaro/appainter/commit/ce25656602ccdb1858544ca51b3606262b1ddadd))
+* **sdk:** update dependency flutter to v3.32.5 ([#1629](https://github.com/zeshuaro/appainter/issues/1629)) ([be9c3aa](https://github.com/zeshuaro/appainter/commit/be9c3aac133da5daa62b34ae1def9c4b801f8117))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1620](https://github.com/zeshuaro/appainter/issues/1620)) ([0fd97c9](https://github.com/zeshuaro/appainter/commit/0fd97c9bcf14d5b14ff504a36ceb4a28b5cd432f))
+* **deps:** lock file maintenance ([#1621](https://github.com/zeshuaro/appainter/issues/1621)) ([980cd59](https://github.com/zeshuaro/appainter/commit/980cd59b8075756c316e9e0ae4681af81875b101))
+* **deps:** update dependency build_runner to v2.5.0 ([#1622](https://github.com/zeshuaro/appainter/issues/1622)) ([e4ed6c5](https://github.com/zeshuaro/appainter/commit/e4ed6c5c16d7f6d70a4aa5677aa985ce7f1c8c03))
+* **deps:** update dependency build_runner to v2.5.1 ([#1623](https://github.com/zeshuaro/appainter/issues/1623)) ([eaaffbb](https://github.com/zeshuaro/appainter/commit/eaaffbb9d6f181eb35641071820280222949fc83))
+* **deps:** update dependency build_runner to v2.5.2 ([#1625](https://github.com/zeshuaro/appainter/issues/1625)) ([91b24a5](https://github.com/zeshuaro/appainter/commit/91b24a5b036d043dd178fdeb7ea2a4d1c5d83100))
+* **deps:** update dependency build_runner to v2.5.3 ([#1627](https://github.com/zeshuaro/appainter/issues/1627)) ([62879a5](https://github.com/zeshuaro/appainter/commit/62879a5e7ed2b75fbc4abbc0a80adcf77f360f82))
+* **deps:** update dependency semantic-release-pub to v0.10.11 ([#1626](https://github.com/zeshuaro/appainter/issues/1626)) ([e289510](https://github.com/zeshuaro/appainter/commit/e289510f952fb9c87057b84240c7d974c903a833))
+* **node:** update node.js to v22.17.0 ([#1630](https://github.com/zeshuaro/appainter/issues/1630)) ([ba9955c](https://github.com/zeshuaro/appainter/commit/ba9955cb1debdbf91dce47c20d46c7b7bf6cc6f2))
+
+### Continuous Integration
+
+* **deps:** update subosito/flutter-action action to v2.21.0 ([#1631](https://github.com/zeshuaro/appainter/issues/1631)) ([96a2ec2](https://github.com/zeshuaro/appainter/commit/96a2ec2dd6cc981793635f6ef4be54d06b50b7d4))
+
 ## [2.5.1](https://github.com/zeshuaro/appainter/compare/v2.5.0...v2.5.1) (2025-06-22)
 
 ### Bug Fixes

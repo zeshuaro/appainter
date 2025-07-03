@@ -493,7 +493,7 @@
     p-filter "^4.0.0"
     url-join "^5.0.0"
 
-"@semantic-release/npm@^12.0.0":
+"@semantic-release/npm@^12.0.2":
   version "12.0.2"
   resolved "https://registry.yarnpkg.com/@semantic-release/npm/-/npm-12.0.2.tgz#eaee2de9e543ea86c058b204943d8916a64efb7b"
   integrity sha512-+M9/Lb35IgnlUO6OSJ40Ie+hUsZLuph2fqXC/qrKn0fMvUU/jiCjpoL6zEm69vzcmaZJ8yNKtMBEKHWN49WBbQ==
@@ -3382,15 +3382,15 @@ semantic-release-stop-before-publish@1.0.0:
   resolved "https://registry.yarnpkg.com/semantic-release-stop-before-publish/-/semantic-release-stop-before-publish-1.0.0.tgz#1562c2560cf1e37fd2b6fb10d0d802d524583c2c"
   integrity sha512-LylAHHLcKxLGb0/cADeeS7EhNa35XK0L5Qar3ayNdtutjm4MQcdGV3pxKR0nlDdPpKFn7RZGFIvzDO+hRHj2kA==
 
-semantic-release@24.2.5:
-  version "24.2.5"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-24.2.5.tgz#06765f427b0e94e9e008e96ba7abf6a56ca8e59e"
-  integrity sha512-9xV49HNY8C0/WmPWxTlaNleiXhWb//qfMzG2c5X8/k7tuWcu8RssbuS+sujb/h7PiWSXv53mrQvV9hrO9b7vuQ==
+semantic-release@24.2.6:
+  version "24.2.6"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-24.2.6.tgz#03b098597c2c8d0642c8b5272f545be6ac2c6bf5"
+  integrity sha512-D0cwjlO5RZzHHxAcsoF1HxiRLfC3ehw+ay+zntzFs6PNX6aV0JzKNG15mpxPipBYa/l4fHly88dHvgDyqwb1Ww==
   dependencies:
     "@semantic-release/commit-analyzer" "^13.0.0-beta.1"
     "@semantic-release/error" "^4.0.0"
     "@semantic-release/github" "^11.0.0"
-    "@semantic-release/npm" "^12.0.0"
+    "@semantic-release/npm" "^12.0.2"
     "@semantic-release/release-notes-generator" "^14.0.0-beta.1"
     aggregate-error "^5.0.0"
     cosmiconfig "^9.0.0"

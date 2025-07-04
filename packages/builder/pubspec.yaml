@@ -19,7 +19,7 @@ dependencies:
 
 dev_dependencies:
   build_runner: 2.5.4
-  build_test: 3.2.0
+  build_test: 3.2.1
   coverage: 1.14.1
   flutter_lints: 6.0.0
   mocktail: 1.0.4

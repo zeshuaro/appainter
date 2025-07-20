@@ -14,9 +14,9 @@ const RESOURCES = {"assets/AssetManifest.bin": "6ae956164571e68882dded9972df8bed
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "d10ac4ee5ebe8c8fff90505150ba2a76",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b93248a553f9e8bc17f1065929d5934b",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
-"version.json": "5e397262f7591da2a584207b0d75a9bf",
+"version.json": "b38811700925fe414156a517327a9e34",
 "manifest.json": "447fc2245bc32d7418ff21db53c64d75",
-"flutter_bootstrap.js": "6c62f13e6374a4770e4581759e14b1d7",
+"flutter_bootstrap.js": "eec1b370eecbbb0c9a68a66432f6c908",
 "canvaskit/skwasm.wasm": "39dd80367a4e71582d234948adc521c0",
 "canvaskit/canvaskit.wasm": "7a3f4ae7d65fc1de6a6e7ddd3224bc93",
 "canvaskit/skwasm.js.symbols": "e72c79950c8a8483d826a7f0560573a1",
@@ -37,7 +37,7 @@ const RESOURCES = {"assets/AssetManifest.bin": "6ae956164571e68882dded9972df8bed
 "icons/favicon-16x16.png": "6a1a342af170bec15959c265446f9331",
 "icons/android-chrome-512x512.png": "f397aae3a660e3af9dfee292ee3e2bf9",
 "icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
-"main.dart.js": "7328159535d78d2a4f55b079de5e932c"};
+"main.dart.js": "804b2f07ef4538a809c4d5972be139db"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",

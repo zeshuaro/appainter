@@ -1,3 +1,20 @@
+## [2.5.4](https://github.com/zeshuaro/appainter/compare/v2.5.3...v2.5.4) (2025-07-20)
+
+### Bug Fixes
+
+* **deps:** update dependency url_launcher to v6.3.2 ([#1649](https://github.com/zeshuaro/appainter/issues/1649)) ([2ca9ccd](https://github.com/zeshuaro/appainter/commit/2ca9ccd89738e843bc0a6a47c57951dd406ae949))
+* **deps:** update dependency window_manager to v0.5.1 ([#1652](https://github.com/zeshuaro/appainter/issues/1652)) ([b034f10](https://github.com/zeshuaro/appainter/commit/b034f1029357b9c583337db3c14de1f403a9a7b0))
+* **sdk:** update dependency flutter to v3.32.7 ([#1650](https://github.com/zeshuaro/appainter/issues/1650)) ([0de85d6](https://github.com/zeshuaro/appainter/commit/0de85d6db25b515e34f6bba78f0a1cadfd7deac3))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1644](https://github.com/zeshuaro/appainter/issues/1644)) ([d603e4d](https://github.com/zeshuaro/appainter/commit/d603e4dcc2d72ac076e8d935f6e4d122bba3e76c))
+* **deps:** update dependency conventional-changelog-conventionalcommits to v9.1.0 ([#1645](https://github.com/zeshuaro/appainter/issues/1645)) ([428e830](https://github.com/zeshuaro/appainter/commit/428e830f7aca1404868f3655e55b2e31a850a925))
+* **deps:** update dependency coverage to v1.15.0 ([#1651](https://github.com/zeshuaro/appainter/issues/1651)) ([98b52f9](https://github.com/zeshuaro/appainter/commit/98b52f96135356da289bf6d5d0d0d66444caee6e))
+* **deps:** update dependency semantic-release to v24.2.7 ([#1646](https://github.com/zeshuaro/appainter/issues/1646)) ([a641a1a](https://github.com/zeshuaro/appainter/commit/a641a1a7ec350e7c5405f68a6cc32b812c131802))
+* **deps:** update dependency semantic-release-pub to v0.10.14 ([#1647](https://github.com/zeshuaro/appainter/issues/1647)) ([6439649](https://github.com/zeshuaro/appainter/commit/64396498c05078dfbfb3a6c230a3334abf2b1f03))
+* **node:** update node.js to v22.17.1 ([#1648](https://github.com/zeshuaro/appainter/issues/1648)) ([96d78f6](https://github.com/zeshuaro/appainter/commit/96d78f6cf21543532a70ec10740cd8c82ac7ad88))
+
 ## [2.5.3](https://github.com/zeshuaro/appainter/compare/v2.5.2...v2.5.3) (2025-07-13)
 
 ### Bug Fixes

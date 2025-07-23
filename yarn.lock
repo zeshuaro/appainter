@@ -3365,17 +3365,17 @@ safe-buffer@^5.2.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.10.14:
-  version "0.10.14"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.10.14.tgz#7b3d05ff475ce478de42f7bf663ee3b3fd4b36fd"
-  integrity sha512-HbK/TDtjYCD+gQXoxzuthk253kgg9jL1vZrL4TlhtVWDdK891W2jlYHy9IBvQII8iJ+alYiBzSwAXnUtC5JBJg==
+semantic-release-pub@0.10.15:
+  version "0.10.15"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.10.15.tgz#0f4ad9c67f04bcbef2779189a34f35785c74697a"
+  integrity sha512-Hbom2f5hZb9nI21mHIocZQAqxwtqtsffa7bCzs0FE/K3cEmZEMCyZKleXf/xFga8lFzc4EwiYqXM3PC4sPTSAg==
   dependencies:
     "@actions/core" "^1.11.1"
     "@semantic-release/error" "^4.0.0"
     execa "^9.6.0"
     google-auth-library "^10.1.0"
     yaml "^2.8.0"
-    zod "^3.25.76"
+    zod "^4.0.5"
 
 semantic-release-stop-before-publish@1.0.0:
   version "1.0.0"
@@ -4146,10 +4146,10 @@ yoctocolors@^2.1.1:
   resolved "https://registry.yarnpkg.com/yoctocolors/-/yoctocolors-2.1.1.tgz#e0167474e9fbb9e8b3ecca738deaa61dd12e56fc"
   integrity sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==
 
-zod@^3.25.76:
-  version "3.25.76"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.25.76.tgz#26841c3f6fd22a6a2760e7ccb719179768471e34"
-  integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
+zod@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-4.0.5.tgz#b47825f318e7884d94bcd6f5385a1de805ccfb1c"
+  integrity sha512-/5UuuRPStvHXu7RS+gmvRf4NXrNxpSllGwDnCBcJZtQsKrviYXm54yDGV2KYNLT5kq0lHGcl7lqWJLgSaG+tgA==
 
 zurk@^0.11.0:
   version "0.11.4"

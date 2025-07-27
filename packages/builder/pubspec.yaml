@@ -10,11 +10,11 @@ dependencies:
   analyzer: ^7.0.0
   appainter_annotations:
     path: ../annotations/
-  build: ^2.2.1
+  build: ^3.0.0
   collection: ^1.17.1
   html: ^0.15.0
   http: ^1.0.0
-  source_gen: ^2.0.0
+  source_gen: ^3.0.0
   textwrap: ^2.0.0
 
 dev_dependencies:

@@ -29,16 +29,18 @@ eventListener = (message) => {
 };
 addEventListener("message", eventListener);
 `],{type:"application/javascript"}))}return url},mainScriptUrlOrBlob:t})};var S=class{async loadEntrypoint(e){let{serviceWorker:i,...r}=e||{},t=new y,n=new g;n.setTrustedTypesPolicy(t.policy),await n.loadServiceWorker(i).catch(o=>{console.warn("Exception while loading service worker:",o)});let a=new h;return a.setTrustedTypesPolicy(t.policy),this.didCreateEngineInitializer=a.didCreateEngineInitializer.bind(a),a.loadEntrypoint(r)}async load({serviceWorkerSettings:e,onEntrypointLoaded:i,nonce:r,config:t}={}){t??={};let n=_flutter.buildConfig;if(!n)throw"FlutterLoader.load requires _flutter.buildConfig to be set";let a=m=>{switch(m){case"skwasm":return p.hasChromiumBreakIterators&&p.hasImageCodecs&&p.supportsWasmGC;default:return!0}},o=(m,f)=>m.renderer==f,c=m=>m.compileTarget==="dart2wasm"&&!p.supportsWasmGC||t.renderer&&!o(m,t.renderer)?!1:a(m.renderer),u=n.builds.find(c);if(!u)throw"FlutterLoader could not find a build compatible with configuration and environment.";let d={};d.flutterTT=new y,e&&(d.serviceWorkerLoader=new g,d.serviceWorkerLoader.setTrustedTypesPolicy(d.flutterTT.policy),await d.serviceWorkerLoader.loadServiceWorker(e).catch(m=>{console.warn("Exception while loading service worker:",m)}));let w=L(t,n);u.renderer==="canvaskit"?d.canvasKit=I(d,t,p,w):u.renderer==="skwasm"&&(d.skwasm=b(d,t,p,w));let v=new h;return v.setTrustedTypesPolicy(d.flutterTT.policy),this.didCreateEngineInitializer=v.didCreateEngineInitializer.bind(v),v.load(u,d,t,r,i)}};window._flutter||(window._flutter={});window._flutter.loader||(window._flutter.loader=new S);})();
-//# sourceMappingURL=flutter.js.map
 
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"39d6d6e699e51b2874210e14cddf1a22fb9524b2","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}]};
+_flutter.buildConfig = {"engineRevision":"ef0cd000916d64fa0c5d09cc809fa7ad244a5767","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}]};
 
 
 _flutter.loader.load({
   serviceWorkerSettings: {
-    serviceWorkerVersion: "1422718319"
+    serviceWorkerVersion: "3098436830"
   }
 });
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="bc99ef94-a6be-5d17-905e-22d3d70d2b56")}catch(e){}}();
+//# sourceMappingURL=flutter.js.map
+//# debugId=bc99ef94-a6be-5d17-905e-22d3d70d2b56

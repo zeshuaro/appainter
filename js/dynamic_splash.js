@@ -9,3 +9,5 @@ const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme
 
 window.addEventListener('load', setSplashScreenColor);
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setSplashScreenColor);
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="c81696e1-add6-5101-835a-7627d1ea836b")}catch(e){}}();
+//# debugId=c81696e1-add6-5101-835a-7627d1ea836b

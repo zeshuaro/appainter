@@ -190,3 +190,5 @@ function Nd(a,b,c,e,f,k,n,l,p,v){var w=Yd();try{return N.get(a)(b,c,e,f,k,n,l,p,
 );
 })();
 export default CanvasKitInit;
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="6b83784b-5a6d-54dc-b94a-3de6d3ae35af")}catch(e){}}();
+//# debugId=6b83784b-5a6d-54dc-b94a-3de6d3ae35af

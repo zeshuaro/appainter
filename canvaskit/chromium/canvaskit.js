@@ -190,3 +190,5 @@ function be(){if(!(0<La)){if(!$d&&($d=1,Wa(Ia),0<La))return;Zd||(Zd=1,r.calledRu
 );
 })();
 export default CanvasKitInit;
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="edd66f63-b3a6-5aa6-9645-fd0cb7f55c81")}catch(e){}}();
+//# debugId=edd66f63-b3a6-5aa6-9645-fd0cb7f55c81

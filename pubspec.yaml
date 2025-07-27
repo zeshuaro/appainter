@@ -15,7 +15,7 @@ dependencies:
   collection: ^1.17.2
   copy_with_extension: 6.0.1
   cupertino_icons: 1.0.8
-  device_preview_plus: 2.4.5
+  device_preview_plus: 2.4.6
   dio: 5.8.0+1
   dropdown_search: 6.0.2
   enum_to_string: 2.2.1

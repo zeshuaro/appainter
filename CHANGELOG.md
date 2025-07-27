@@ -1,3 +1,20 @@
+## [2.5.5](https://github.com/zeshuaro/appainter/compare/v2.5.4...v2.5.5) (2025-07-27)
+
+### Bug Fixes
+
+* **deps:** update dependency device_preview_plus to v2.4.5 ([#1653](https://github.com/zeshuaro/appainter/issues/1653)) ([32b2220](https://github.com/zeshuaro/appainter/commit/32b222037df76baba1b86ffac9f62e554a629120))
+* **deps:** update dependency device_preview_plus to v2.4.6 ([#1663](https://github.com/zeshuaro/appainter/issues/1663)) ([d2b8389](https://github.com/zeshuaro/appainter/commit/d2b8389e88f6f58d947b357530817b0dff04e0d4))
+* **sdk:** update dependency flutter to v3.32.8 ([#1660](https://github.com/zeshuaro/appainter/issues/1660)) ([567dfdc](https://github.com/zeshuaro/appainter/commit/567dfdc784901c25cb849c80bd6c1a4316f2ab77))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release-pub to v0.10.15 ([#1654](https://github.com/zeshuaro/appainter/issues/1654)) ([0351d34](https://github.com/zeshuaro/appainter/commit/0351d34d1051188b19d8e8bbf8e8488888101c0d))
+* **deps:** update dependency sentry_dart_plugin to v3 ([#1638](https://github.com/zeshuaro/appainter/issues/1638)) ([57535cd](https://github.com/zeshuaro/appainter/commit/57535cd638b25e99b97e95e0d383b59312781adf))
+
+### Continuous Integration
+
+* fix post dependency update workflow ([#1655](https://github.com/zeshuaro/appainter/issues/1655)) ([a06d60d](https://github.com/zeshuaro/appainter/commit/a06d60d0923daa02edb1036a7b11650ceedb9bb9))
+
 ## [2.5.4](https://github.com/zeshuaro/appainter/compare/v2.5.3...v2.5.4) (2025-07-20)
 
 ### Bug Fixes

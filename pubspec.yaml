@@ -24,7 +24,7 @@ dependencies:
   file_picker: 10.2.1
   firebase_analytics: 11.6.0
   firebase_auth: 5.7.0
-  firebase_core: 3.15.2
+  firebase_core: 4.0.0
   flex_color_picker: 3.7.1
   flutter:
     sdk: flutter

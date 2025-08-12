@@ -228,4 +228,14 @@ void main() {
       },
     );
   });
+  testWidgets(
+    'check layoutWidget',
+    (tester) async {
+      await pumpApp(tester);
+      await tester.pump();
+
+      expect(find.byType(LayoutBuilder), findsOneWidget);
+      expect(find.text('Theme configurations'), findsOne);
+    },
+  );
 }

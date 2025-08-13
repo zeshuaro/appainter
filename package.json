@@ -13,7 +13,7 @@
     "@semantic-release/git": "10.0.1",
     "conventional-changelog-conventionalcommits": "9.1.0",
     "semantic-release": "24.2.7",
-    "semantic-release-pub": "0.10.16",
+    "semantic-release-pub": "0.10.17",
     "semantic-release-stop-before-publish": "1.0.0"
   }
 }

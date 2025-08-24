@@ -2,7 +2,7 @@ name: appainter
 description: A material theme editor and generator for Flutter to configure and
   preview the overall visual theme of your material app
 publish_to: "none"
-version: 2.5.6
+version: 2.5.7
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

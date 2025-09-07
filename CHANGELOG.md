@@ -1,3 +1,19 @@
+## [2.5.8](https://github.com/zeshuaro/appainter/compare/v2.5.7...v2.5.8) (2025-09-07)
+
+### Bug Fixes
+
+* **deps:** update dependency file_picker to v10.3.2 ([#1689](https://github.com/zeshuaro/appainter/issues/1689)) ([46204cc](https://github.com/zeshuaro/appainter/commit/46204ccddc92c7ad21b0e54e315373cada8eada8))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release-pub to v0.10.19 ([#1693](https://github.com/zeshuaro/appainter/issues/1693)) ([0d24592](https://github.com/zeshuaro/appainter/commit/0d245927bd24a1a09563b214323f977f278525e9))
+* **node:** update node.js to v22.19.0 ([#1695](https://github.com/zeshuaro/appainter/issues/1695)) ([8e4f77f](https://github.com/zeshuaro/appainter/commit/8e4f77f8cd512537029ed18d4e2b5f152e5b94ec))
+
+### Continuous Integration
+
+* **deps:** update codecov/codecov-action action to v5.5.1 ([#1694](https://github.com/zeshuaro/appainter/issues/1694)) ([06f8881](https://github.com/zeshuaro/appainter/commit/06f888121faab264b2157a8785a65f0458f48d7f))
+* **example-app:** update ios simulator to iphone 16 pro max ([#1696](https://github.com/zeshuaro/appainter/issues/1696)) ([1a98add](https://github.com/zeshuaro/appainter/commit/1a98add23fb6aa68eaf8302c86cc461b85ebcb02))
+
 ## [2.5.7](https://github.com/zeshuaro/appainter/compare/v2.5.6...v2.5.7) (2025-08-24)
 
 ### Bug Fixes

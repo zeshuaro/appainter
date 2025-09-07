@@ -240,7 +240,7 @@ jobs:
             ${{ runner.os }}-pub-
 
       - name: Setup Node 💻
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
           cache: yarn
@@ -301,7 +301,7 @@ jobs:
           tar -zxf ${{ steps.download-artifacts.outputs.download-path }}/artifact-web/build/appainter_web.tar.gz -C ${{ env.WEB_OUTPUT }}
 
       - name: Setup Node 💻
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
           cache: yarn

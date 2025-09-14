@@ -1773,10 +1773,10 @@ highlight.js@^10.7.1:
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.7.3.tgz#697272e3991356e40c3cac566a74eef681756531"
   integrity sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==
 
-hook-std@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/hook-std/-/hook-std-3.0.0.tgz#47038a01981e07ce9d83a6a3b2eb98cad0f7bd58"
-  integrity sha512-jHRQzjSDzMtFy34AGj1DN+vq54WVuhSvKgrHf0OMiFQTwDD4L/qqofVEWjLOBMTn5+lCD3fPg32W9yOfnEJTTw==
+hook-std@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/hook-std/-/hook-std-4.0.0.tgz#8ad817e2405f0634fa128822a8b27054a8120262"
+  integrity sha512-IHI4bEVOt3vRUDJ+bFA9VUJlo7SzvFARPNLw75pqSmAOP2HmTWfFJtPvLBrDrlgjEYXY9zs7SFdHPQaJShkSCQ==
 
 hosted-git-info@^2.1.4:
   version "2.8.9"
@@ -3375,10 +3375,10 @@ semantic-release-stop-before-publish@1.0.0:
   resolved "https://registry.yarnpkg.com/semantic-release-stop-before-publish/-/semantic-release-stop-before-publish-1.0.0.tgz#1562c2560cf1e37fd2b6fb10d0d802d524583c2c"
   integrity sha512-LylAHHLcKxLGb0/cADeeS7EhNa35XK0L5Qar3ayNdtutjm4MQcdGV3pxKR0nlDdPpKFn7RZGFIvzDO+hRHj2kA==
 
-semantic-release@24.2.7:
-  version "24.2.7"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-24.2.7.tgz#86a0d8331c6200175d0ad6f66a7b26efdef95e12"
-  integrity sha512-g7RssbTAbir1k/S7uSwSVZFfFXwpomUB9Oas0+xi9KStSCmeDXcA7rNhiskjLqvUe/Evhx8fVCT16OSa34eM5g==
+semantic-release@24.2.8:
+  version "24.2.8"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-24.2.8.tgz#9ba7599bf3aa3a4e65208c65fa3583c8628051a2"
+  integrity sha512-uvoLiKEB/AvvA3SCPE78cd90nVJXn220kkEA6sNGzDpas4s7pe4OgYWvhfR0lvWBdBH/T0RFCI6U+GvcT2CypQ==
   dependencies:
     "@semantic-release/commit-analyzer" "^13.0.0-beta.1"
     "@semantic-release/error" "^4.0.0"
@@ -3394,7 +3394,7 @@ semantic-release@24.2.7:
     find-versions "^6.0.0"
     get-stream "^6.0.0"
     git-log-parser "^1.2.0"
-    hook-std "^3.0.0"
+    hook-std "^4.0.0"
     hosted-git-info "^8.0.0"
     import-from-esm "^2.0.0"
     lodash-es "^4.17.21"

@@ -1686,7 +1686,7 @@ globby@^14.0.0:
     slash "^5.1.0"
     unicorn-magic "^0.3.0"
 
-google-auth-library@^10.2.1:
+google-auth-library@^10.3.0:
   version "10.3.0"
   resolved "https://registry.yarnpkg.com/google-auth-library/-/google-auth-library-10.3.0.tgz#d44d005d546bf6b8956529caf0f9e70a07960c04"
   integrity sha512-ylSE3RlCRZfZB56PFJSfUCuiuPq83Fx8hqu1KPWGK8FVdSaxlp/qkeMMX/DT/18xkwXIHvXEXkZsljRwfrdEfQ==
@@ -3358,17 +3358,17 @@ safe-buffer@^5.2.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.10.19:
-  version "0.10.19"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.10.19.tgz#6259f91fe1e6bf65560c20fa6877147479f934cb"
-  integrity sha512-SZQlQXGEvhfuIBlfKm/p4XjusC4WmSv3gWDlcgywGPA8oxMsmskK7ug29gtgGIFq2V6Ur2+oJ/aWXOJfFZZqcQ==
+semantic-release-pub@0.10.20:
+  version "0.10.20"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.10.20.tgz#81a6870f9f5d541d02871df0df5ac4a6db5a23ca"
+  integrity sha512-PQx1jOx/OJTdNqtsX7PHfWjEGBf+i0zzgvk0wo09Ax/rVDVB5a28sP0uyVIEiTGGwTW/89hk+4LnP6NRMLT59w==
   dependencies:
     "@actions/core" "^1.11.1"
     "@semantic-release/error" "^4.0.0"
     execa "^9.6.0"
-    google-auth-library "^10.2.1"
+    google-auth-library "^10.3.0"
     yaml "^2.8.1"
-    zod "^4.1.1"
+    zod "^4.1.5"
 
 semantic-release-stop-before-publish@1.0.0:
   version "1.0.0"
@@ -4134,10 +4134,10 @@ yoctocolors@^2.1.1:
   resolved "https://registry.yarnpkg.com/yoctocolors/-/yoctocolors-2.1.2.tgz#d795f54d173494e7d8db93150cec0ed7f678c83a"
   integrity sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug==
 
-zod@^4.1.1:
-  version "4.1.5"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-4.1.5.tgz#7a21fc3178928ede50a28f7d0db4414c4cdb0161"
-  integrity sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==
+zod@^4.1.5:
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-4.1.8.tgz#54f024adc634dd185006a8415da2bdd495b9d92b"
+  integrity sha512-5R1P+WwQqmmMIEACyzSvo4JXHY5WiAFHRMg+zBZKgKS+Q1viRa0C1hmUKtHltoIFKtIdki3pRxkmpP74jnNYHQ==
 
 zurk@^0.11.0:
   version "0.11.4"

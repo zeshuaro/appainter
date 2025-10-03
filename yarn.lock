@@ -3375,10 +3375,10 @@ semantic-release-stop-before-publish@1.0.0:
   resolved "https://registry.yarnpkg.com/semantic-release-stop-before-publish/-/semantic-release-stop-before-publish-1.0.0.tgz#1562c2560cf1e37fd2b6fb10d0d802d524583c2c"
   integrity sha512-LylAHHLcKxLGb0/cADeeS7EhNa35XK0L5Qar3ayNdtutjm4MQcdGV3pxKR0nlDdPpKFn7RZGFIvzDO+hRHj2kA==
 
-semantic-release@24.2.8:
-  version "24.2.8"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-24.2.8.tgz#9ba7599bf3aa3a4e65208c65fa3583c8628051a2"
-  integrity sha512-uvoLiKEB/AvvA3SCPE78cd90nVJXn220kkEA6sNGzDpas4s7pe4OgYWvhfR0lvWBdBH/T0RFCI6U+GvcT2CypQ==
+semantic-release@24.2.9:
+  version "24.2.9"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-24.2.9.tgz#f65dc3b906b87f5ee249a43ed7dc2d67cf74be54"
+  integrity sha512-phCkJ6pjDi9ANdhuF5ElS10GGdAKY6R1Pvt9lT3SFhOwM4T7QZE7MLpBDbNruUx/Q3gFD92/UOFringGipRqZA==
   dependencies:
     "@semantic-release/commit-analyzer" "^13.0.0-beta.1"
     "@semantic-release/error" "^4.0.0"
@@ -3406,14 +3406,14 @@ semantic-release@24.2.8:
     read-package-up "^11.0.0"
     resolve-from "^5.0.0"
     semver "^7.3.2"
-    semver-diff "^4.0.0"
+    semver-diff "^5.0.0"
     signale "^1.2.1"
     yargs "^17.5.1"
 
-semver-diff@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/semver-diff/-/semver-diff-4.0.0.tgz#3afcf5ed6d62259f5c72d0d5d50dffbdc9680df5"
-  integrity sha512-0Ju4+6A8iOnpL/Thra7dZsSlOHYAHIeMxfhWQRI1/VLcT3WDBZKKtQt/QkBOsiIN9ZpuvHE6cGZ0x4glCMmfiA==
+semver-diff@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/semver-diff/-/semver-diff-5.0.0.tgz#62a8396f44c11386c83d1e57caedc806c6c7755c"
+  integrity sha512-0HbGtOm+S7T6NGQ/pxJSJipJvc4DK3FcRVMRkhsIwJDJ4Jcz5DQC1cPPzB5GhzyHjwttW878HaWQq46CkL3cqg==
   dependencies:
     semver "^7.3.5"
 

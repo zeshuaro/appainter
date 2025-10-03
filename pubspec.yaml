@@ -11,7 +11,7 @@ environment:
 dependencies:
   appainter_annotations:
     path: packages/annotations
-  bloc: 9.0.0
+  bloc: 9.0.1
   collection: ^1.17.2
   copy_with_extension: 6.0.1
   cupertino_icons: 1.0.8

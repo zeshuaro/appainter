@@ -1,3 +1,23 @@
+## [2.5.10](https://github.com/zeshuaro/appainter/compare/v2.5.9...v2.5.10) (2025-10-05)
+
+### Bug Fixes
+
+* **deps:** update dependency bloc to v9.0.1 ([#1713](https://github.com/zeshuaro/appainter/issues/1713)) ([feddb6d](https://github.com/zeshuaro/appainter/commit/feddb6dabf5551aabd2fc4fdcb8de904bf121fd4))
+* **deps:** update dependency google_fonts to v6.3.2 ([#1711](https://github.com/zeshuaro/appainter/issues/1711)) ([ced853d](https://github.com/zeshuaro/appainter/commit/ced853dab997b31d92411bdf2bfc899e93b31bd0))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release to v24.2.9 ([#1706](https://github.com/zeshuaro/appainter/issues/1706)) ([1679bb1](https://github.com/zeshuaro/appainter/commit/1679bb17d1097ff620c21b6f9e33d823197cfa85))
+* **deps:** update dependency semantic-release-pub to v0.10.21 ([#1707](https://github.com/zeshuaro/appainter/issues/1707)) ([a588ab6](https://github.com/zeshuaro/appainter/commit/a588ab69effaba14fe05c654aefaa0749c8535cb))
+* **deps:** update dependency semantic-release-pub to v0.10.22 ([#1710](https://github.com/zeshuaro/appainter/issues/1710)) ([08f0bc8](https://github.com/zeshuaro/appainter/commit/08f0bc8590b0131991ae0ab29d8393c55911791b))
+* **node:** update node.js to v22.20.0 ([#1708](https://github.com/zeshuaro/appainter/issues/1708)) ([f014573](https://github.com/zeshuaro/appainter/commit/f01457396f281cd9c692481ff956d4dd5d1bb229))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 82ff499 ([#1712](https://github.com/zeshuaro/appainter/issues/1712)) ([b51858a](https://github.com/zeshuaro/appainter/commit/b51858a600fbadf17269e3a6cae0447d5d57d24c))
+* **deps:** update zeshuaro/github-actions-workflows digest to 9786936 ([#1715](https://github.com/zeshuaro/appainter/issues/1715)) ([8a77633](https://github.com/zeshuaro/appainter/commit/8a776339210207a199f1d8cac6b40254350d5e1f))
+* **deps:** update zeshuaro/github-actions-workflows digest to eaa9651 ([#1709](https://github.com/zeshuaro/appainter/issues/1709)) ([bdae698](https://github.com/zeshuaro/appainter/commit/bdae698a8626ce84b84fc5e31a8a22f80fe6ddd1))
+
 ## [2.5.9](https://github.com/zeshuaro/appainter/compare/v2.5.8...v2.5.9) (2025-09-21)
 
 ### Bug Fixes

@@ -3370,10 +3370,10 @@ semantic-release-pub@0.10.22:
     yaml "^2.8.1"
     zod "^4.1.11"
 
-semantic-release-stop-before-publish@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/semantic-release-stop-before-publish/-/semantic-release-stop-before-publish-1.0.0.tgz#1562c2560cf1e37fd2b6fb10d0d802d524583c2c"
-  integrity sha512-LylAHHLcKxLGb0/cADeeS7EhNa35XK0L5Qar3ayNdtutjm4MQcdGV3pxKR0nlDdPpKFn7RZGFIvzDO+hRHj2kA==
+semantic-release-stop-before-publish@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/semantic-release-stop-before-publish/-/semantic-release-stop-before-publish-2.0.0.tgz#d2d31875e6d3fcd2a4e0162ce912086281f1c030"
+  integrity sha512-qd1KnHknZtp/1Z8C6fk7QigBC7jJo2MsCbzqFWerwwLYpUfZ/6dEZJJs5WWt8pXEi24J0ijZ4yCjV4m9BC/BRQ==
 
 semantic-release@24.2.9:
   version "24.2.9"

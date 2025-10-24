@@ -271,7 +271,7 @@ jobs:
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
       - name: Upload artifacts ⬆️
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: artifact-${{ matrix.type }}
           path: "**/appainter_${{ matrix.type }}.tar.gz"

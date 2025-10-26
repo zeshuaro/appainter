@@ -1,3 +1,22 @@
+## [2.5.11](https://github.com/zeshuaro/appainter/compare/v2.5.10...v2.5.11) (2025-10-26)
+
+### Bug Fixes
+
+* **deps:** update dependency bloc to v9.1.0 ([#1724](https://github.com/zeshuaro/appainter/issues/1724)) ([9ff6518](https://github.com/zeshuaro/appainter/commit/9ff6518268e1566ac599dc91904a9b788e38ce01))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency semantic-release-pub to v0.10.25 ([#1718](https://github.com/zeshuaro/appainter/issues/1718)) ([8d21b3e](https://github.com/zeshuaro/appainter/commit/8d21b3efbd12ad76faf3625cf8fe04cd702c2a06))
+* **deps:** update dependency semantic-release-stop-before-publish to v2 ([#1719](https://github.com/zeshuaro/appainter/issues/1719)) ([29f90b6](https://github.com/zeshuaro/appainter/commit/29f90b62ac9f2a99fd684641fb42e878e203e078))
+* **node:** update node.js to v22.21.0 ([#1723](https://github.com/zeshuaro/appainter/issues/1723)) ([c9324aa](https://github.com/zeshuaro/appainter/commit/c9324aaf02105f1c9e977b29e19f6cb75ee6e036))
+
+### Continuous Integration
+
+* **deps:** update actions/setup-node action to v6 ([#1720](https://github.com/zeshuaro/appainter/issues/1720)) ([9192731](https://github.com/zeshuaro/appainter/commit/9192731291e0edb71f26a960c70e027421f1694b))
+* **deps:** update peter-evans/create-or-update-comment action to v5 ([#1714](https://github.com/zeshuaro/appainter/issues/1714)) ([80ed9b9](https://github.com/zeshuaro/appainter/commit/80ed9b9dc2c0f7c6f97903a67dfc21c47166550f))
+* **deps:** update zeshuaro/github-actions-workflows digest to 165f3ed ([#1717](https://github.com/zeshuaro/appainter/issues/1717)) ([423f181](https://github.com/zeshuaro/appainter/commit/423f181a6b346583299841b226641d6701ff3cdf))
+* **deps:** update zeshuaro/github-actions-workflows digest to b9daba8 ([#1716](https://github.com/zeshuaro/appainter/issues/1716)) ([7ba9e4b](https://github.com/zeshuaro/appainter/commit/7ba9e4b06437e7d6a6170a981e9ba979e57dd32c))
+
 ## [2.5.10](https://github.com/zeshuaro/appainter/compare/v2.5.9...v2.5.10) (2025-10-05)
 
 ### Bug Fixes

@@ -15,8 +15,13 @@ class TextThemeEditor extends ExpansionPanelItem {
   Widget build(BuildContext context) {
     return NestedListView(
       children: [
-        FontPicker(
-          onChanged: context.read<TextThemeCubit>().fontFamilyChanged,
+        BlocBuilder<TextThemeCubit,TextThemeState>(
+          builder: (context,state) {
+            return FontPicker(
+              onChanged: context.read<TextThemeCubit>().fontFamilyChanged,
+              initial: state.fontFamily,
+            );
+          },
         ),
         MyExpansionPanelList(
           color: Theme.of(context).brightness == Brightness.dark

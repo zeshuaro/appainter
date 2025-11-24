@@ -88,6 +88,15 @@ class TextThemeCubit extends Cubit<TextThemeState> {
     bodyLargeTextStyleCubit.styleChanged(theme.bodyLarge);
     bodyMediumTextStyleCubit.styleChanged(theme.bodyMedium);
     bodySmallTextStyleCubit.styleChanged(theme.bodySmall);
+    _updateFontFamily(theme);
+  }
+
+  void _updateFontFamily(TextTheme theme){
+    final fontFamily = theme.titleLarge?.fontFamilyFallback;
+
+    if (fontFamily !=null && fontFamily.isNotEmpty) {
+      emit(state.copyWith(fontFamily: fontFamily.first));
+    }
   }
 
   void fontFamilyChanged(FontData data) {

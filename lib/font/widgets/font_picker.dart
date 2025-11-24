@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FontPicker extends StatelessWidget {
-  const FontPicker({super.key, required this.onChanged});
+  const FontPicker({super.key, required this.onChanged, this.initial});
 
   final ValueChanged<FontData> onChanged;
 
+  final String? initial;
   @override
   Widget build(BuildContext context) {
     return DropdownSearch<FontData>(
@@ -35,12 +36,16 @@ class FontPicker extends StatelessWidget {
       decoratorProps: const DropDownDecoratorProps(
         decoration: InputDecoration(labelText: 'Font family'),
       ),
-      selectedItem: FontData.defaultFontData(),
+      selectedItem: _initialFontData(context,initial),
       itemAsString: (item) => item.family,
       items: (query, infiniteScrollProps) => _onFind(context, query),
       onChanged: (data) => _onChanged(context, data),
       compareFn: (item1, item2) => item1 == item2,
     );
+  }
+
+  FontData _initialFontData(BuildContext context,String? query){
+    return context.read<FontRepository>().getFont(query);
   }
 
   Future<List<FontData>> _onFind(BuildContext context, String query) {

@@ -21,7 +21,7 @@ abstract class AbstractTextStyleEditor<T extends AbstractTextStyleCubit>
         return SideBySideList(
           padding: kPaddingAll,
           children: [
-            FontPicker(onChanged: cubit.fontFamilyChanged),
+            FontPicker(onChanged: cubit.fontFamilyChanged,initial: style.fontFamilyFallback?.first),
             ColorListTile(
               key: const Key('colorPicker'),
               title: 'Color',

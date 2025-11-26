@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/common/common.dart';
+import 'package:appainter/font/font_repository.dart';
 import 'package:appainter/models/models.dart';
 import 'package:appainter/services/services.dart';
 import 'package:appainter/widgets/widgets.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
+import '../mocks.dart';
 import '../utils.dart';
 import '../utils/widget_tester_utils.dart';
 import 'mocks.dart';
@@ -38,11 +40,14 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-        home: BlocProvider.value(
-          value: cubit,
-          child: Scaffold(
-            body: MyExpansionPanelList(
-              item: const TestIconThemeEditor(),
+        home: RepositoryProvider<FontRepository>(
+          create: (BuildContext context) => MockFontRepository(),
+          child: BlocProvider.value(
+            value: cubit,
+            child: Scaffold(
+              body: MyExpansionPanelList(
+                item: const TestIconThemeEditor(),
+              ),
             ),
           ),
         ),

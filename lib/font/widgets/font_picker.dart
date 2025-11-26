@@ -36,7 +36,7 @@ class FontPicker extends StatelessWidget {
       decoratorProps: const DropDownDecoratorProps(
         decoration: InputDecoration(labelText: 'Font family'),
       ),
-      selectedItem: _initialFontData(context,initial),
+      selectedItem: _initialFontData(context, initial),
       itemAsString: (item) => item.family,
       items: (query, infiniteScrollProps) => _onFind(context, query),
       onChanged: (data) => _onChanged(context, data),
@@ -44,7 +44,10 @@ class FontPicker extends StatelessWidget {
     );
   }
 
-  FontData _initialFontData(BuildContext context,String? query){
+  FontData? _initialFontData(BuildContext context, String? query) {
+    if (query == null || query.isEmpty) {
+      return FontData.defaultFontData();
+    }
     return context.read<FontRepository>().getFont(query);
   }
 

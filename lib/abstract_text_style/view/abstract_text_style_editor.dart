@@ -22,8 +22,9 @@ abstract class AbstractTextStyleEditor<T extends AbstractTextStyleCubit>
           padding: kPaddingAll,
           children: [
             FontPicker(
-                onChanged: cubit.fontFamilyChanged,
-                initial: style.fontFamilyFallback?.first),
+              onChanged: cubit.fontFamilyChanged,
+              initial: style.fontFamilyFallback?.first,
+            ),
             ColorListTile(
               key: const Key('colorPicker'),
               title: 'Color',

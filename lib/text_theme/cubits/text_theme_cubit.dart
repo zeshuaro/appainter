@@ -92,10 +92,12 @@ class TextThemeCubit extends Cubit<TextThemeState> {
   }
 
   void _updateFontFamily(TextTheme theme) {
-    final fontFamily = theme.titleLarge?.fontFamilyFallback;
-
-    if (fontFamily != null && fontFamily.isNotEmpty) {
-      emit(state.copyWith(fontFamily: fontFamily.first));
+    final fallbackFamily = theme.titleLarge?.fontFamilyFallback?.firstOrNull;
+    final fontFamily = theme.titleLarge?.fontFamily;
+    if (fallbackFamily != null) {
+      emit(state.copyWith(fontFamily: fallbackFamily));
+    } else if (fontFamily != null) {
+      emit(state.copyWith(fontFamily: fontFamily));
     }
   }
 

@@ -102,7 +102,9 @@ void main() {
         .widget<DropdownSearch<FontData>>(find.byKey(const Key('fontPicker')));
 
     expect(picker.selectedItems.length, isNot(equals(0)));
-    expect(picker.selectedItems.first.family,
-        equals(FontData.defaultFontData().family));
+    expect(
+      picker.selectedItems.first.family,
+      equals(FontData.defaultFontData().family),
+    );
   });
 }

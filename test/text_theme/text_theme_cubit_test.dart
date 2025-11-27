@@ -8,6 +8,7 @@ import '../mocks.dart';
 
 void main() {
   const fontFamily = 'fontFamily';
+  const font = 'fontFamily_regular';
   late TextThemeCubit textThemeCubit;
   late TextTheme textTheme;
 
@@ -194,6 +195,23 @@ void main() {
         () => bodySmallTextStyleCubit.styleChanged(textTheme.bodySmall),
       ).called(1);
     },
+  );
+
+  blocTest<TextThemeCubit, TextThemeState>(
+    'emits fontFamily from ThemeData.fontFamily when titleLarge uses direct fontFamily',
+    build: () => textThemeCubit,
+    act: (cubit) =>
+        cubit.themeChanged(ThemeData(fontFamily: fontFamily).textTheme),
+    expect: () => [const TextThemeState(fontFamily: fontFamily)],
+  );
+
+  blocTest<TextThemeCubit, TextThemeState>(
+    'prefers fontFamilyFallback.first over fontFamily when both are present',
+    build: () => textThemeCubit,
+    act: (cubit) => cubit.themeChanged(ThemeData(
+        fontFamily: font,
+        fontFamilyFallback: [fontFamily],).textTheme,),
+    expect: () => [const TextThemeState(fontFamily: fontFamily)],
   );
 
   blocTest<TextThemeCubit, TextThemeState>(

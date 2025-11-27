@@ -27,12 +27,14 @@ import 'mocks.dart';
 const _iconThemeState = IconThemeState();
 
 extension PumpApp on WidgetTester {
-  Future<void> pumpApp(Widget widget,
-      {HomeRepository? homeRepo,
-      HomeCubit? homeCubit,
-      BasicThemeCubit? basicThemeCubit,
-      AdvancedThemeCubit? advancedThemeCubit,
-      FontRepository? fontRepo}) async {
+  Future<void> pumpApp(
+    Widget widget, {
+    HomeRepository? homeRepo,
+    HomeCubit? homeCubit,
+    BasicThemeCubit? basicThemeCubit,
+    AdvancedThemeCubit? advancedThemeCubit,
+    FontRepository? fontRepo,
+  }) async {
     final mockHomeCubit = MockHomeCubit();
     final mockBasicThemeCubit = MockBasicThemeCubit();
     final mockAdvancedThemeCubit = MockAdvancedThemeCubit();
@@ -239,7 +241,7 @@ extension PumpApp on WidgetTester {
       MultiRepositoryProvider(
         providers: [
           RepositoryProvider.value(value: homeRepo ?? MockHomeRepository()),
-          RepositoryProvider.value(value: mockFontRepo)
+          RepositoryProvider.value(value: mockFontRepo),
         ],
         child: MultiBlocProvider(
           providers: [

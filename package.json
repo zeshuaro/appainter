@@ -12,7 +12,7 @@
     "@semantic-release/exec": "7.1.0",
     "@semantic-release/git": "10.0.1",
     "conventional-changelog-conventionalcommits": "9.1.0",
-    "semantic-release": "25.0.1",
+    "semantic-release": "25.0.2",
     "semantic-release-pub": "0.11.0",
     "semantic-release-stop-before-publish": "2.0.0"
   }

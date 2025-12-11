@@ -208,9 +208,12 @@ void main() {
   blocTest<TextThemeCubit, TextThemeState>(
     'prefers fontFamilyFallback.first over fontFamily when both are present',
     build: () => textThemeCubit,
-    act: (cubit) => cubit.themeChanged(ThemeData(
+    act: (cubit) => cubit.themeChanged(
+      ThemeData(
         fontFamily: font,
-        fontFamilyFallback: [fontFamily],).textTheme,),
+        fontFamilyFallback: [fontFamily],
+      ).textTheme,
+    ),
     expect: () => [const TextThemeState(fontFamily: fontFamily)],
   );
 

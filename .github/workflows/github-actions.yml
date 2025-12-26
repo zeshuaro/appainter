@@ -35,7 +35,7 @@ jobs:
           cache-key: ${{ runner.os }}-flutter-${{ steps.fvm-config.outputs.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Cache Pub 💾
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             **/.dart_tool
@@ -105,7 +105,7 @@ jobs:
         if: ${{ matrix.type == 'web' }}
 
       - name: Cache Pub 💾
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             **/.pub-cache
@@ -166,7 +166,7 @@ jobs:
           cache-key: ${{ runner.os }}-flutter-${{ steps.fvm-config.outputs.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Cache Pub 💾
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             **/.dart_tool
@@ -231,7 +231,7 @@ jobs:
           cache-key: ${{ runner.os }}-flutter-${{ steps.fvm-config.outputs.FLUTTER_CHANNEL }}
 
       - name: Cache Pub 💾
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             **/.dart_tool

@@ -26,7 +26,7 @@ class MySwitchListTile extends StatelessWidget {
       trailing: Row(
         children: [
           Switch(
-            activeColor: Colors.blueGrey,
+            activeThumbColor: Colors.blueGrey,
             onChanged: onChanged,
             value: value,
           ),

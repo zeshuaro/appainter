@@ -2,9 +2,11 @@ part of 'input_decoration_theme_cubit.dart';
 
 @CopyWith()
 class InputDecorationThemeState extends Equatable {
-  final InputDecorationTheme theme;
+  final InputDecorationThemeData theme;
 
-  const InputDecorationThemeState({this.theme = const InputDecorationTheme()});
+  const InputDecorationThemeState({
+    this.theme = const InputDecorationThemeData(),
+  });
 
   factory InputDecorationThemeState.withTheme({
     int? helperMaxLines,
@@ -22,7 +24,7 @@ class InputDecorationThemeState extends Equatable {
     bool alignLabelWithHint = false,
   }) {
     return InputDecorationThemeState(
-      theme: InputDecorationTheme(
+      theme: InputDecorationThemeData(
         fillColor: fillColor,
         hoverColor: hoverColor,
         alignLabelWithHint: alignLabelWithHint,

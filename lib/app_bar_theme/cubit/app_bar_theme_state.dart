@@ -2,9 +2,9 @@ part of 'app_bar_theme_cubit.dart';
 
 @CopyWith()
 class AppBarThemeState extends Equatable {
-  final AppBarTheme theme;
+  final AppBarThemeData theme;
 
-  const AppBarThemeState({this.theme = const AppBarTheme()});
+  const AppBarThemeState({this.theme = const AppBarThemeData()});
 
   factory AppBarThemeState.withTheme({
     Color? backgroundColor,
@@ -17,7 +17,7 @@ class AppBarThemeState extends Equatable {
     SystemUiOverlayStyle? systemUiOverlayStyle,
   }) {
     return AppBarThemeState(
-      theme: AppBarTheme(
+      theme: AppBarThemeData(
         backgroundColor: backgroundColor,
         foregroundColor: foregroundColor,
         elevation: elevation,

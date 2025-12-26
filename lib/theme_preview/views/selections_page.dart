@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:appainter/common/common.dart';
 import 'package:appainter/theme_preview/views/preview_body.dart';
 import 'package:appainter/widgets/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class SelectionsPage extends PreviewBody {
@@ -120,32 +120,32 @@ class _RadioState extends State<_Radio> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [0, 1, 2].map(
-        (value) {
-          return MyListTile(
-            title: 'Radio ${value + 1}',
-            trailing: Radio(
-              value: value,
-              groupValue: _groupValue,
-              onChanged: (int? newValue) => setState(() {
-                _groupValue = newValue;
-              }),
-            ),
-          );
-        },
-      ).toList()
-        ..add(
-          MyListTile(
-            title: 'Radio disabled',
-            titleColor: Theme.of(context).disabledColor,
-            trailing: const Radio(
-              value: null,
-              groupValue: null,
-              onChanged: null,
+    return RadioGroup(
+      groupValue: _groupValue,
+      onChanged: (int? newValue) => setState(() {
+        _groupValue = newValue;
+      }),
+      child: Column(
+        children: [0, 1, 2].map(
+          (value) {
+            return MyListTile(
+              title: 'Radio ${value + 1}',
+              trailing: Radio(
+                value: value,
+              ),
+            );
+          },
+        ).toList()
+          ..add(
+            MyListTile(
+              title: 'Radio disabled',
+              trailing: Radio(
+                value: 3,
+                enabled: false,
+              ),
             ),
           ),
-        ),
+      ),
     );
   }
 }

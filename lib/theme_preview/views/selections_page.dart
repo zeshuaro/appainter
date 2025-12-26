@@ -140,7 +140,7 @@ class _RadioState extends State<_Radio> {
             MyListTile(
               title: 'Radio disabled',
               trailing: Radio(
-                value: null,
+                value: 3,
                 enabled: false,
               ),
             ),

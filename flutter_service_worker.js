@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter.js": "83d881c1dbb6d6bcd6b42e274605b69c",
+const RESOURCES = {"flutter.js": "888483df48293866f9f41d3d9274a779",
 "icons/favicon-32x32.png": "878572d6d16bbaa08290988302449306",
 "icons/favicon-16x16.png": "6a1a342af170bec15959c265446f9331",
 "icons/apple-touch-icon.png": "b1e4bbb6ad1d9d7f3ae57d46af16d2a9",
@@ -16,27 +16,30 @@ const RESOURCES = {"flutter.js": "83d881c1dbb6d6bcd6b42e274605b69c",
 "assets/AssetManifest.bin.json": "ff8a6598fb942d4496995ea29942220a",
 "assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
 "assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
-"assets/NOTICES": "b3343d7110899a0d6cb6b72f6e18cc18",
+"assets/NOTICES": "64666878b7f4e0d1d0573b2ca394f091",
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "d10ac4ee5ebe8c8fff90505150ba2a76",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b93248a553f9e8bc17f1065929d5934b",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
-"assets/FontManifest.json": "1b1e7812d9eb9f666db8444d7dde1b20",
+"assets/FontManifest.json": "23d5e382cedd20ca8083c7dc0ab27c79",
 "assets/AssetManifest.bin": "6ae956164571e68882dded9972df8bed",
 "assets/AssetManifest.json": "ff1eee5d80fd025929453faeff3ab75e",
-"canvaskit/chromium/canvaskit.wasm": "f504de372e31c8031018a9ec0a9ef5f0",
-"canvaskit/chromium/canvaskit.js": "8191e843020c832c9cf8852a4b909d4c",
-"canvaskit/chromium/canvaskit.js.symbols": "b61b5f4673c9698029fa0a746a9ad581",
-"canvaskit/skwasm.js": "ea559890a088fe28b4ddf70e17e60052",
-"canvaskit/canvaskit.wasm": "7a3f4ae7d65fc1de6a6e7ddd3224bc93",
-"canvaskit/canvaskit.js": "728b2d477d9b8c14593d4f9b82b484f3",
-"canvaskit/skwasm.wasm": "39dd80367a4e71582d234948adc521c0",
-"canvaskit/canvaskit.js.symbols": "bdcd3835edf8586b6d6edfce8749fb77",
-"canvaskit/skwasm.js.symbols": "e72c79950c8a8483d826a7f0560573a1",
+"canvaskit/chromium/canvaskit.wasm": "24c77e750a7fa6d474198905249ff506",
+"canvaskit/chromium/canvaskit.js": "5e27aae346eee469027c80af0751d53d",
+"canvaskit/chromium/canvaskit.js.symbols": "193deaca1a1424049326d4a91ad1d88d",
+"canvaskit/skwasm_heavy.wasm": "8034ad26ba2485dab2fd49bdd786837b",
+"canvaskit/skwasm_heavy.js.symbols": "3c01ec03b5de6d62c34e17014d1decd3",
+"canvaskit/skwasm.js": "1ef3ea3a0fec4569e5d531da25f34095",
+"canvaskit/canvaskit.wasm": "07b9f5853202304d3b0749d9306573cc",
+"canvaskit/skwasm_heavy.js": "413f5b2b2d9345f37de148e2544f584f",
+"canvaskit/canvaskit.js": "140ccb7d34d0a55065fbd422b843add6",
+"canvaskit/skwasm.wasm": "264db41426307cfc7fa44b95a7772109",
+"canvaskit/canvaskit.js.symbols": "58832fbed59e00d2190aa295c4d70360",
+"canvaskit/skwasm.js.symbols": "0088242d10d7e7d6d2649d1fe1bda7c1",
 "style/style.css": "72c0cbcc858deee04ff807cb77d9bd40",
 "favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
-"flutter_bootstrap.js": "64b9edc7e987673dbd18490b93d8cde4",
-"version.json": "30aad804150cd55e18d5c1511d971596",
-"main.dart.js": "491ed6a9d1790d385c3b7fc7c03efee3",
+"flutter_bootstrap.js": "1b61bea9eb9d5a91b94b8e4541480ad9",
+"version.json": "5739b9c3fd26298c104e6cb69be8d636",
+"main.dart.js": "dab826ccd701485ff6e15e91b8ee497a",
 "js/dynamic_splash.js": "3cbfa5ed1006ed7e8a9cb3b701549621"};
 // The application shell files that are downloaded before a service worker can
 // start.
@@ -208,5 +211,5 @@ function onlineFirst(event) {
     })
   );
 }
-!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="adcd541f-6bcb-568f-8a4c-249d3251c7ef")}catch(e){}}();
-//# debugId=adcd541f-6bcb-568f-8a4c-249d3251c7ef
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="f098d764-065a-50b0-a858-ed97e978ca32")}catch(e){}}();
+//# debugId=f098d764-065a-50b0-a858-ed97e978ca32

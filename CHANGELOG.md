@@ -1,3 +1,15 @@
+## [2.6.0](https://github.com/zeshuaro/appainter/compare/v2.5.12...v2.6.0) (2025-12-26)
+
+### Features
+
+* **sdk:** update dependency flutter to v3.35.1 ([#1745](https://github.com/zeshuaro/appainter/issues/1745)) ([a19678a](https://github.com/zeshuaro/appainter/commit/a19678aedbbd28b98d6f6561bdf125dfca3db4b6))
+
+### Bug Fixes
+
+* **deps:** update dependency google_fonts to v6.3.3 ([#1743](https://github.com/zeshuaro/appainter/issues/1743)) ([c1c4da6](https://github.com/zeshuaro/appainter/commit/c1c4da6b3afd696a5bde2f38d48f2e2fd8324083))
+* **deps:** update dependency sentry_flutter to v9.9.1 ([#1721](https://github.com/zeshuaro/appainter/issues/1721)) ([666f4e9](https://github.com/zeshuaro/appainter/commit/666f4e9a6bf55303a74da46c4a28235ad573ed54))
+* **deps:** update firebase dependencies ([#1691](https://github.com/zeshuaro/appainter/issues/1691)) ([30c3500](https://github.com/zeshuaro/appainter/commit/30c35002e71889a6e9ed9ba9e667d25208077d98))
+
 ## [2.5.12](https://github.com/zeshuaro/appainter/compare/v2.5.11...v2.5.12) (2025-12-21)
 
 ### Bug Fixes

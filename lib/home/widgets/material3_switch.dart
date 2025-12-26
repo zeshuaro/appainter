@@ -33,7 +33,7 @@ class _Switch extends StatelessWidget {
         context.watch<AdvancedThemeCubit>().state.useMaterial3;
 
     return Switch(
-      activeColor: Colors.blueGrey,
+      activeThumbColor: Colors.blueGrey,
       onChanged: (value) => _onChanged(context, editMode, value),
       value: editMode == EditMode.basic
           ? basicThemeUseMaterial3

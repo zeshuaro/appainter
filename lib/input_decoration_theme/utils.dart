@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-extension InputDecorationThemeExtension on InputDecorationTheme {
-  InputDecorationTheme copyWithNull({
+extension InputDecorationThemeExtension on InputDecorationThemeData {
+  InputDecorationThemeData copyWithNull({
     bool border = false,
     bool constraints = false,
     bool contentPadding = false,
@@ -27,7 +27,7 @@ extension InputDecorationThemeExtension on InputDecorationTheme {
     bool suffixIconColor = false,
     bool suffixStyle = false,
   }) {
-    return InputDecorationTheme(
+    return InputDecorationThemeData(
       alignLabelWithHint: alignLabelWithHint,
       border: border == true ? null : this.border,
       constraints: constraints == true ? null : this.constraints,

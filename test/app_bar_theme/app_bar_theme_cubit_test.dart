@@ -19,7 +19,7 @@ void main() {
   late AppBarTitleTextStyleCubit titleTextStyleCubit;
   late AppBarToolbarTextStyleCubit toolbarTextStyleCubit;
 
-  late AppBarTheme theme;
+  late AppBarThemeData theme;
   late IconThemeData iconTheme;
 
   late Color color;
@@ -191,7 +191,7 @@ void main() {
     verify: (cubit) => expect(
       themeCubit.state,
       equals(
-        AppBarThemeState(theme: AppBarTheme(actionsIconTheme: iconTheme)),
+        AppBarThemeState(theme: AppBarThemeData(actionsIconTheme: iconTheme)),
       ),
     ),
   );
@@ -205,7 +205,7 @@ void main() {
     verify: (cubit) => expect(
       themeCubit.state,
       equals(
-        AppBarThemeState(theme: AppBarTheme(iconTheme: iconTheme)),
+        AppBarThemeState(theme: AppBarThemeData(iconTheme: iconTheme)),
       ),
     ),
   );

@@ -3896,7 +3896,6 @@ path_provider_platform_interface
 path_provider_windows
 plugin_platform_interface
 process
-shared_preferences
 shared_preferences_android
 shared_preferences_foundation
 shared_preferences_linux
@@ -12020,6 +12019,7 @@ FROM,OUT OF OR IN CONNECTION WITH THE MATERIALS OR THE USE OR OTHER DEALINGS
 IN THE MATERIALS.
 --------------------------------------------------------------------------------
 google_fonts
+shared_preferences
 
 Copyright 2013 The Flutter Authors
 

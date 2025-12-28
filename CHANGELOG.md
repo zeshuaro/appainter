@@ -1,3 +1,19 @@
+## [2.6.1](https://github.com/zeshuaro/appainter/compare/v2.6.0...v2.6.1) (2025-12-28)
+
+### Bug Fixes
+
+* **deps:** update dependency file_picker to v10.3.8 ([#1747](https://github.com/zeshuaro/appainter/issues/1747)) ([ad4eeda](https://github.com/zeshuaro/appainter/commit/ad4eeda526ffc9c5273903108d59a87c1156588f))
+* **deps:** update dependency shared_preferences to v2.5.4 ([#1744](https://github.com/zeshuaro/appainter/issues/1744)) ([1e6e82f](https://github.com/zeshuaro/appainter/commit/1e6e82ff10dd6d3287db229c616160feb40a9aaa))
+* **deps:** update universal dependencies ([#1750](https://github.com/zeshuaro/appainter/issues/1750)) ([9c1ff66](https://github.com/zeshuaro/appainter/commit/9c1ff66c873448eb3be680d95abbdc092c25c77f))
+
+### Miscellaneous Chores
+
+* **node:** update node.js to v24.12.0 ([#1749](https://github.com/zeshuaro/appainter/issues/1749)) ([7f982cf](https://github.com/zeshuaro/appainter/commit/7f982cfc845347dd97d65a3b9d6850946c59699c))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 1687c9d ([#1746](https://github.com/zeshuaro/appainter/issues/1746)) ([6c3041d](https://github.com/zeshuaro/appainter/commit/6c3041d68ea36cb62b21ac41d39948dc63bad5ba))
+
 ## [2.6.0](https://github.com/zeshuaro/appainter/compare/v2.5.12...v2.6.0) (2025-12-26)
 
 ### Features

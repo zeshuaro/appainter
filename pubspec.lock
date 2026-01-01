@@ -299,10 +299,10 @@ packages:
     dependency: "direct main"
     description:
       name: device_preview_plus
-      sha256: "7ee4d1c11427637120559cfe0837b8f862e5346a3502aca889d1ebbfe62b2167"
+      sha256: cfc63149c0457d0e9057694fdcf1d49c33a30422967a74d21f51de17761dbb02
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.7"
+    version: "2.6.0"
   diff_match_patch:
     dependency: transitive
     description:
@@ -1528,5 +1528,5 @@ packages:
     source: hosted
     version: "3.1.3"
 sdks:
-  dart: ">=3.9.0 <4.0.0"
+  dart: ">=3.9.2 <4.0.0"
   flutter: ">=3.38.0"

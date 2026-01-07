@@ -32,7 +32,7 @@ dependencies:
   flutter_markdown: 0.7.7
   google_fonts: 6.3.3
   intl: 0.20.2
-  json_theme: 9.0.3
+  json_theme: 11.0.0
   material_color_utilities: ^0.11.1
   material_design_icons_flutter: 7.0.7296
   ndialog: 4.5.0+1

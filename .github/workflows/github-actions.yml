@@ -68,8 +68,7 @@ jobs:
           - macos
           - windows
           - linux
-          # Disabled because forever hanging on GitHub Actions
-          # - web
+          - web
         include:
           - type: macos
             os: macos-latest
@@ -80,9 +79,8 @@ jobs:
           - type: linux
             os: ubuntu-latest
 
-          # Disabled because forever hanging on GitHub Actions
-          # - type: web
-          #   os: macos-latest
+          - type: web
+            os: ubuntu-latest
 
     steps:
       - name: Checkout 🛎️

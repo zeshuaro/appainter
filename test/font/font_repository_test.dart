@@ -29,6 +29,19 @@ void main() {
     final results = repo.searchFonts('clearlyDoesNotExist');
     expect(results, equals([]));
   });
+
+  test('get font should return default is query is empty or null', () {
+    final results = repo.getFont('');
+    expect(results, equals(FontData.defaultFontData()));
+    final results2 = repo.getFont(null);
+    expect(results2, equals(FontData.defaultFontData()));
+  });
+  for (var family in ['ABeeZee']) {
+    test('get font should return correct results for query $family', () {
+      final results = repo.getFont(family);
+      expect(results, equals(FontData('ABeeZee', expectedStyle)));
+    });
+  }
 }
 
 class _MockPathProvider extends PathProviderPlatform {

@@ -1,5 +1,6 @@
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/font/font_repository.dart';
 import 'package:appainter/services/util_service.dart';
 import 'package:appainter/tab_bar_theme/tab_bar_theme.dart';
 import 'package:appainter/widgets/widgets.dart';
@@ -49,16 +50,19 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-        home: MultiBlocProvider(
-          providers: [
-            BlocProvider.value(value: tabBarThemeCubit),
-            BlocProvider.value(value: tabBarLabelTextStyleCubit),
-            BlocProvider.value(value: tabBarUnselectedLabelTextStyleCubit),
-            BlocProvider.value(value: colorThemeCubit),
-          ],
-          child: Scaffold(
-            body: MyExpansionPanelList(
-              item: const TabBarThemeEditor(),
+        home: RepositoryProvider<FontRepository>(
+          create: (BuildContext context) => MockFontRepository(),
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: tabBarThemeCubit),
+              BlocProvider.value(value: tabBarLabelTextStyleCubit),
+              BlocProvider.value(value: tabBarUnselectedLabelTextStyleCubit),
+              BlocProvider.value(value: colorThemeCubit),
+            ],
+            child: Scaffold(
+              body: MyExpansionPanelList(
+                item: const TabBarThemeEditor(),
+              ),
             ),
           ),
         ),

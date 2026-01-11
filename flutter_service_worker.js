@@ -17,7 +17,7 @@ const RESOURCES = {"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "assets/AssetManifest.bin.json": "ff8a6598fb942d4496995ea29942220a",
 "assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
 "assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
-"assets/NOTICES": "d1a622db490478ee420835339b524186",
+"assets/NOTICES": "5fa45d0c6a209147e58ee0d2e83db731",
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "d10ac4ee5ebe8c8fff90505150ba2a76",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b93248a553f9e8bc17f1065929d5934b",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
@@ -37,8 +37,8 @@ const RESOURCES = {"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",
 "style/style.css": "72c0cbcc858deee04ff807cb77d9bd40",
 "favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
-"flutter_bootstrap.js": "b8015bfa88e8910ededcfbde882bddfd",
-"version.json": "a448ea8ebd805928d9af14e90f53f29a",
+"flutter_bootstrap.js": "e992e32825689e87ebf86ec3f4991512",
+"version.json": "04750dc7f039444b3af02ece12274782",
 "main.dart.js": "8d7119f68cf6ac23a86b62c65af4d854",
 "js/dynamic_splash.js": "3cbfa5ed1006ed7e8a9cb3b701549621"};
 // The application shell files that are downloaded before a service worker can
@@ -211,5 +211,5 @@ function onlineFirst(event) {
     })
   );
 }
-!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="c578a610-62a9-5e85-9ee4-5b3381e4500f")}catch(e){}}();
-//# debugId=c578a610-62a9-5e85-9ee4-5b3381e4500f
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="3da3cdf1-e3b0-5425-aa7d-a243a393dfb0")}catch(e){}}();
+//# debugId=3da3cdf1-e3b0-5425-aa7d-a243a393dfb0

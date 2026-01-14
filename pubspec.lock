@@ -1529,4 +1529,4 @@ packages:
     version: "3.1.3"
 sdks:
   dart: ">=3.9.2 <4.0.0"
-  flutter: ">=3.38.0"
+  flutter: ">=3.38.7"

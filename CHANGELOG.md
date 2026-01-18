@@ -1,3 +1,20 @@
+## [2.7.2](https://github.com/zeshuaro/appainter/compare/v2.7.1...v2.7.2) (2026-01-18)
+
+### Bug Fixes
+
+* **deps:** update dependency equatable to v2.0.8 ([#1766](https://github.com/zeshuaro/appainter/issues/1766)) ([19a9150](https://github.com/zeshuaro/appainter/commit/19a915052658b986f18c16f4b8b2757e09b6271c))
+* **deps:** update dependency sentry_flutter to v9.9.2 ([#1769](https://github.com/zeshuaro/appainter/issues/1769)) ([b3bdb5c](https://github.com/zeshuaro/appainter/commit/b3bdb5c4fe1e2f5298d21661e9c996cac354196e))
+
+### Miscellaneous Chores
+
+* **deps:** lock file maintenance ([#1765](https://github.com/zeshuaro/appainter/issues/1765)) ([e32127e](https://github.com/zeshuaro/appainter/commit/e32127e303ec0f5bc380ca1b60722a27d013c9a6))
+* **deps:** update dependency semantic-release-pub to v0.11.7 ([#1767](https://github.com/zeshuaro/appainter/issues/1767)) ([0e38d00](https://github.com/zeshuaro/appainter/commit/0e38d0034b4bd038c2611ea8095d922e78b7e392))
+* **node:** update node.js to v24.13.0 ([#1768](https://github.com/zeshuaro/appainter/issues/1768)) ([3fe85ea](https://github.com/zeshuaro/appainter/commit/3fe85eac0d728fb995ae86d49d1757d985108465))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to 580b23d ([#1771](https://github.com/zeshuaro/appainter/issues/1771)) ([2a527db](https://github.com/zeshuaro/appainter/commit/2a527dbfac3f6f936b77ab555572792ab1f58643))
+
 ## [2.7.1](https://github.com/zeshuaro/appainter/compare/v2.7.0...v2.7.1) (2026-01-11)
 
 ### Bug Fixes

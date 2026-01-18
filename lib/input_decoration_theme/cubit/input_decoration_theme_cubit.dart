@@ -20,7 +20,7 @@ class InputDecorationThemeCubit extends Cubit<InputDecorationThemeState> {
   final _inputBorderEnum = InputBorderEnum();
   static const _defaultBorder = UnderlineInputBorder();
 
-  void themeChanged(InputDecorationTheme theme) {
+  void themeChanged(InputDecorationThemeData theme) {
     emit(state.copyWith(theme: theme));
   }
 

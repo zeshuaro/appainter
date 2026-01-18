@@ -1,6 +1,6 @@
 {
   "name": "appainter",
-  "version": "2.5.11",
+  "version": "2.7.2",
   "description": "A material theme editor and generator for Flutter to configure and preview the overall visual theme of your material app",
   "main": "index.js",
   "repository": "https://github.com/zeshuaro/appainter.git",
@@ -13,7 +13,7 @@
     "@semantic-release/git": "10.0.1",
     "conventional-changelog-conventionalcommits": "9.1.0",
     "semantic-release": "25.0.2",
-    "semantic-release-pub": "0.11.0",
+    "semantic-release-pub": "0.11.7",
     "semantic-release-stop-before-publish": "2.0.0"
   }
 }

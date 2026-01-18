@@ -2,47 +2,47 @@ name: appainter
 description: A material theme editor and generator for Flutter to configure and
   preview the overall visual theme of your material app
 publish_to: "none"
-version: 2.5.11
+version: 2.7.2
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
-  flutter: 3.32.8
+  flutter: 3.38.0
 
 dependencies:
   appainter_annotations:
     path: packages/annotations
-  bloc: 9.1.0
+  bloc: 9.2.0
   collection: ^1.17.2
   copy_with_extension: 6.0.1
   cupertino_icons: 1.0.8
-  device_preview_plus: 2.4.7
+  device_preview_plus: 2.6.0
   dio: 5.9.0
   dropdown_search: 6.0.2
   enum_to_string: 2.2.1
-  equatable: 2.0.7
+  equatable: 2.0.8
   expandable: 5.0.1
-  file_picker: 10.3.3
-  firebase_analytics: 12.0.0
-  firebase_auth: 6.0.0
-  firebase_core: 4.0.0
-  flex_color_picker: 3.7.1
+  file_picker: 10.3.8
+  firebase_analytics: 12.1.0
+  firebase_auth: 6.1.3
+  firebase_core: 4.3.0
+  flex_color_picker: 3.8.0
   flutter:
     sdk: flutter
   flutter_bloc: 9.1.1
   flutter_markdown: 0.7.7
-  google_fonts: 6.3.2
+  google_fonts: 6.3.3
   intl: 0.20.2
-  json_theme: 9.0.1
+  json_theme: 9.0.3
   material_color_utilities: ^0.11.1
   material_design_icons_flutter: 7.0.7296
   ndialog: 4.5.0+1
   path_provider: 2.1.5
   pretty_json: 2.0.0
   random_color_scheme: 0.1.4
-  sentry_flutter: 9.6.0
-  shared_preferences: 2.5.3
-  universal_html: 2.2.4
-  universal_io: 2.2.2
+  sentry_flutter: 9.9.2
+  shared_preferences: 2.5.4
+  universal_html: 2.3.0
+  universal_io: 2.3.1
   url_launcher: 6.3.2
   window_manager: 0.5.1
 

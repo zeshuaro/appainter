@@ -73,7 +73,7 @@ class AppBarThemeCubit extends Cubit<AppBarThemeState> {
     return super.close();
   }
 
-  void themeChanged(AppBarTheme theme) {
+  void themeChanged(AppBarThemeData theme) {
     actionsIconThemeCubit.themeChanged(
       theme.actionsIconTheme ?? defaultIconTheme,
     );

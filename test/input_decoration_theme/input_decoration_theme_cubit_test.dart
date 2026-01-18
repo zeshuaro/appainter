@@ -14,7 +14,7 @@ import '../utils.dart';
 void main() {
   late InputDecorationThemeCubit inputDecorationThemeCubit;
   late ColorThemeCubit colorThemeCubit;
-  late InputDecorationTheme theme;
+  late InputDecorationThemeData theme;
   late Color color;
   late int intNum;
   late double doubleNum;
@@ -148,7 +148,7 @@ void main() {
       'emit border radius for outline input border',
       build: () => inputDecorationThemeCubit,
       seed: () => const InputDecorationThemeState(
-        theme: InputDecorationTheme(border: OutlineInputBorder()),
+        theme: InputDecorationThemeData(border: OutlineInputBorder()),
       ),
       act: (cubit) => cubit.borderRadiusChanged(doubleNum.toString()),
       expect: () => [

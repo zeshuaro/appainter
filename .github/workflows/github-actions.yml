@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - name: Get project Flutter version 🏷️
         id: fvm-config
@@ -35,7 +35,7 @@ jobs:
           cache-key: ${{ runner.os }}-flutter-${{ steps.fvm-config.outputs.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Cache Pub 💾
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             **/.dart_tool
@@ -51,7 +51,7 @@ jobs:
           flutter pub run remove_from_coverage -f coverage/lcov.info -r '\.g\.dart$' -r 'extensions\.dart'
 
       - name: Upload coverage report 📡
-        uses: codecov/codecov-action@v5.5.1
+        uses: codecov/codecov-action@v5.5.2
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
@@ -86,7 +86,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - name: Get project Flutter version 🏷️
         id: fvm-config
@@ -105,7 +105,7 @@ jobs:
         if: ${{ matrix.type == 'web' }}
 
       - name: Cache Pub 💾
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             **/.pub-cache
@@ -152,7 +152,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
       - name: Get project Flutter version 🏷️
         id: fvm-config
@@ -166,7 +166,7 @@ jobs:
           cache-key: ${{ runner.os }}-flutter-${{ steps.fvm-config.outputs.FLUTTER_VERSION }}-${{ hashFiles('**/pubspec.lock') }}
 
       - name: Cache Pub 💾
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             **/.dart_tool
@@ -213,7 +213,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -231,7 +231,7 @@ jobs:
           cache-key: ${{ runner.os }}-flutter-${{ steps.fvm-config.outputs.FLUTTER_CHANNEL }}
 
       - name: Cache Pub 💾
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             **/.dart_tool
@@ -271,7 +271,7 @@ jobs:
           SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
 
       - name: Upload artifacts ⬆️
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: artifact-${{ matrix.type }}
           path: "**/appainter_${{ matrix.type }}.tar.gz"
@@ -284,14 +284,14 @@ jobs:
 
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: Download artifacts ⬇️
         id: download-artifacts
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
 
       - name: Decompress web artifacts 📂
         env:

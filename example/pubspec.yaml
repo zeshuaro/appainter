@@ -24,7 +24,7 @@ dependencies:
   cupertino_icons: 1.0.8
   flutter:
     sdk: flutter
-  json_theme: 9.0.1
+  json_theme: 9.0.3
 
 dev_dependencies:
   flutter_driver:

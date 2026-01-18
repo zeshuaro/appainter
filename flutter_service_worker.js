@@ -17,7 +17,7 @@ const RESOURCES = {"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "assets/AssetManifest.bin.json": "ff8a6598fb942d4496995ea29942220a",
 "assets/assets/icon.png": "e8e14ab743f1ec248ee3c183f510d1bf",
 "assets/fonts/MaterialIcons-Regular.otf": "e7069dfd19b331be16bed984668fe080",
-"assets/NOTICES": "5fa45d0c6a209147e58ee0d2e83db731",
+"assets/NOTICES": "ad13f4689317115d013e9785d5d47463",
 "assets/packages/material_design_icons_flutter/lib/fonts/materialdesignicons-webfont.ttf": "d10ac4ee5ebe8c8fff90505150ba2a76",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b93248a553f9e8bc17f1065929d5934b",
 "assets/packages/flex_color_picker/assets/opacity.png": "49c4f3bcb1b25364bb4c255edcaaf5b2",
@@ -37,9 +37,9 @@ const RESOURCES = {"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",
 "style/style.css": "72c0cbcc858deee04ff807cb77d9bd40",
 "favicon.ico": "02cc314f1888171f9ec195c1a97d1acb",
-"flutter_bootstrap.js": "e992e32825689e87ebf86ec3f4991512",
-"version.json": "04750dc7f039444b3af02ece12274782",
-"main.dart.js": "8d7119f68cf6ac23a86b62c65af4d854",
+"flutter_bootstrap.js": "8b31ce979001165183769828dc8ee222",
+"version.json": "b9b2cebaf9a7f78e7c7012c73ef2651b",
+"main.dart.js": "a51332890002dc4af20abfaeb3c40f9b",
 "js/dynamic_splash.js": "3cbfa5ed1006ed7e8a9cb3b701549621"};
 // The application shell files that are downloaded before a service worker can
 // start.
@@ -211,5 +211,5 @@ function onlineFirst(event) {
     })
   );
 }
-!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="3da3cdf1-e3b0-5425-aa7d-a243a393dfb0")}catch(e){}}();
-//# debugId=3da3cdf1-e3b0-5425-aa7d-a243a393dfb0
+!function(){try{var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:{},n=(new e.Error).stack;n&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[n]="90c4c75e-61e3-5728-b221-a61a6527fd66")}catch(e){}}();
+//# debugId=90c4c75e-61e3-5728-b221-a61a6527fd66

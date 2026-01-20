@@ -6,7 +6,7 @@ on:
 
 jobs:
   scheduled:
-    uses: zeshuaro/github-actions-workflows/.github/workflows/scheduled.yml@580b23d050ebba5e9f896fa7eaee97b7ff8709bf
+    uses: zeshuaro/github-actions-workflows/.github/workflows/scheduled.yml@398d7ce35acfc3eda1b5567bbf18b937ca7d20e2
     secrets:
       GH_APP_ID: ${{ secrets.GH_APP_ID }}
       GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}

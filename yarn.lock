@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@actions/core@^2.0.0", "@actions/core@^2.0.1":
+"@actions/core@^2.0.0", "@actions/core@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@actions/core/-/core-2.0.2.tgz#81c59e1f3437660d2148a064c1ba8e99931f2cf7"
   integrity sha512-Ast1V7yHbGAhplAsuVlnb/5J8Mtr/Zl6byPPL+Qjq3lmfIgWF1ak1iYfF/079cRERiuTALTXkSuEUdZeDCfGtA==
@@ -3358,12 +3358,12 @@ safe-buffer@^5.2.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.11.7:
-  version "0.11.7"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.11.7.tgz#68bfdb7d3a9c4ca28ef436b8ca193564cc83221c"
-  integrity sha512-qnIjsh7LOZmzJ6CJmip6fM66eE0Fp9ehXkW0crDhv/tKoT3zN2OWpJPWUzXRtZBDn0lMkr0FUxo9I4cnEvdIng==
+semantic-release-pub@0.11.8:
+  version "0.11.8"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.11.8.tgz#11f17857304c3979e6547e6a232d2b2d8085b157"
+  integrity sha512-87cnKRzGaKJfN8J1SSPVnUnZWP+hMJP+ntcNuYTZHVqRkGpkv1Qn/2C8ua1ssnqu6lTOb68jMPPdOH3sGcBJEA==
   dependencies:
-    "@actions/core" "^2.0.1"
+    "@actions/core" "^2.0.2"
     "@semantic-release/error" "^4.0.0"
     execa "^9.6.1"
     google-auth-library "^10.5.0"

@@ -142,18 +142,18 @@ packages:
     dependency: "direct main"
     description:
       name: json_theme
-      sha256: "2ef42145c7f46c93d7886387306fde0c716acd288b988c43124f2ac5256cbb57"
+      sha256: a984e1aaae7e116e5e6cc604c359f391a371cfac9ed4c7c2e6b754c28e7a4df5
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.3"
+    version: "11.0.0"
   json_theme_annotation:
     dependency: transitive
     description:
       name: json_theme_annotation
-      sha256: "38432c9ffed562851ef142dbeb34f9ac85d73b9b91cfbbcafaa4d5c03c99fc4a"
+      sha256: "9f68e1e1e294070c3ab6e929b31fdcb26010f1690bc08830b6a1c3145e99d9ae"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3+18"
+    version: "2.0.0+3"
   leak_tracker:
     dependency: transitive
     description:
@@ -368,5 +368,5 @@ packages:
     source: hosted
     version: "3.1.0"
 sdks:
-  dart: ">=3.8.0 <4.0.0"
+  dart: ">=3.9.0 <4.0.0"
   flutter: ">=3.18.0-18.0.pre.54"

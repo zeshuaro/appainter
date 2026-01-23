@@ -39,7 +39,7 @@ dependencies:
   path_provider: 2.1.5
   pretty_json: 2.0.0
   random_color_scheme: 0.1.4
-  sentry_flutter: 9.9.2
+  sentry_flutter: 9.10.0
   shared_preferences: 2.5.4
   universal_html: 2.3.0
   universal_io: 2.3.1

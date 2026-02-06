@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@actions/core@^2.0.0", "@actions/core@^2.0.2":
+"@actions/core@^2.0.0", "@actions/core@^2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@actions/core/-/core-2.0.3.tgz#b05e8cf407ab393e5d10282357a74e1ee2315eee"
   integrity sha512-Od9Thc3T1mQJYddvVPM4QGiLUewdh+3txmDYHHxoNdkqysR1MbCT+rFOtNUxYAz+7+6RIsqipVahY2GJqGPyxA==
@@ -3353,17 +3353,17 @@ safe-buffer@^5.2.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-semantic-release-pub@0.11.8:
-  version "0.11.8"
-  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.11.8.tgz#11f17857304c3979e6547e6a232d2b2d8085b157"
-  integrity sha512-87cnKRzGaKJfN8J1SSPVnUnZWP+hMJP+ntcNuYTZHVqRkGpkv1Qn/2C8ua1ssnqu6lTOb68jMPPdOH3sGcBJEA==
+semantic-release-pub@0.11.9:
+  version "0.11.9"
+  resolved "https://registry.yarnpkg.com/semantic-release-pub/-/semantic-release-pub-0.11.9.tgz#9ceb3a915b798ccdce8cc0ffc35667e44d0058c1"
+  integrity sha512-exynCqYQ0i5U+qGgy/5Rd3K/nMBDgTHLMkmQcfRyTm3RN9hCLPH9AaX2ILNeJhZ3qf2Kq5VoxCyILXaLaKzwSQ==
   dependencies:
-    "@actions/core" "^2.0.2"
+    "@actions/core" "^2.0.3"
     "@semantic-release/error" "^4.0.0"
     execa "^9.6.1"
     google-auth-library "^10.5.0"
     yaml "^2.8.2"
-    zod "^4.3.5"
+    zod "^4.3.6"
 
 semantic-release-stop-before-publish@2.0.0:
   version "2.0.0"
@@ -4141,7 +4141,7 @@ yoctocolors@^2.1.1:
   resolved "https://registry.yarnpkg.com/yoctocolors/-/yoctocolors-2.1.2.tgz#d795f54d173494e7d8db93150cec0ed7f678c83a"
   integrity sha512-CzhO+pFNo8ajLM2d2IW/R93ipy99LWjtwblvC1RsoSUMZgyLbYFr221TnSNT7GjGdYui6P459mw9JH/g/zW2ug==
 
-zod@^4.3.5:
+zod@^4.3.6:
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/zod/-/zod-4.3.6.tgz#89c56e0aa7d2b05107d894412227087885ab112a"
   integrity sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==

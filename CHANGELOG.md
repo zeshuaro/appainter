@@ -1,3 +1,13 @@
+## [2.7.4](https://github.com/zeshuaro/appainter/compare/v2.7.3...v2.7.4) (2026-02-15)
+
+### Bug Fixes
+
+* **deps:** update dependency google_fonts to v7 ([#1770](https://github.com/zeshuaro/appainter/issues/1770)) ([d79871e](https://github.com/zeshuaro/appainter/commit/d79871ef6199297543c5316b6ccf46b79043c742))
+
+### Continuous Integration
+
+* **deps:** update zeshuaro/github-actions-workflows digest to fe28195 ([#1788](https://github.com/zeshuaro/appainter/issues/1788)) ([d8a5919](https://github.com/zeshuaro/appainter/commit/d8a591956a2ca7ac45f517582e633fcbaceabb0a))
+
 ## [2.7.3](https://github.com/zeshuaro/appainter/compare/v2.7.2...v2.7.3) (2026-02-08)
 
 ### Bug Fixes

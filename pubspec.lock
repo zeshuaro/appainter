@@ -299,10 +299,10 @@ packages:
     dependency: "direct main"
     description:
       name: device_preview_plus
-      sha256: cfc63149c0457d0e9057694fdcf1d49c33a30422967a74d21f51de17761dbb02
+      sha256: "29044c032d94932fc5c0e84a5791bf94c6c8918cce40cd7765e9bca5c9a5d136"
       url: "https://pub.dev"
     source: hosted
-    version: "2.6.0"
+    version: "2.6.1"
   diff_match_patch:
     dependency: transitive
     description:

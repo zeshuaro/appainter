@@ -4,6 +4,7 @@ import 'package:appainter/abstract_icon_theme/abstract_icon_theme.dart';
 import 'package:appainter/abstract_text_style/abstract_text_style.dart';
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/font/font_repository.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -66,18 +67,21 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-        home: MultiBlocProvider(
-          providers: [
-            BlocProvider.value(value: appBarThemeCubit),
-            BlocProvider.value(value: appBarActionsIconThemeCubit),
-            BlocProvider.value(value: appBarIconThemeCubit),
-            BlocProvider.value(value: appBarTitleTextStyleCubit),
-            BlocProvider.value(value: appBarToolbarTextStyleCubit),
-            BlocProvider.value(value: colorThemeCubit),
-          ],
-          child: Scaffold(
-            body: MyExpansionPanelList(
-              item: const AppBarThemeEditor(),
+        home: RepositoryProvider<FontRepository>(
+          create: (BuildContext context) => MockFontRepository(),
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: appBarThemeCubit),
+              BlocProvider.value(value: appBarActionsIconThemeCubit),
+              BlocProvider.value(value: appBarIconThemeCubit),
+              BlocProvider.value(value: appBarTitleTextStyleCubit),
+              BlocProvider.value(value: appBarToolbarTextStyleCubit),
+              BlocProvider.value(value: colorThemeCubit),
+            ],
+            child: Scaffold(
+              body: MyExpansionPanelList(
+                item: const AppBarThemeEditor(),
+              ),
             ),
           ),
         ),

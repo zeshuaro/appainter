@@ -12,4 +12,12 @@ class FontRepository {
         .map((entry) => FontData(entry.key, entry.value()))
         .toList();
   }
+
+  FontData getFont(String? family) {
+    final font = GoogleFonts.asMap()[family];
+    if (font != null) {
+      return FontData(family!, font());
+    }
+    return FontData.defaultFontData();
+  }
 }

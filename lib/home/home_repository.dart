@@ -15,10 +15,18 @@ import 'package:universal_io/io.dart' as io;
 class HomeRepository {
   final Dio _dio;
   final FilePicker _filePicker;
+  final ThemeDecoder _themeDecoder;
+  final ThemeEncoder _themeEncoder;
 
-  HomeRepository({Dio? dio, FilePicker? filePicker})
-      : _dio = dio ?? Dio(),
-        _filePicker = filePicker ?? FilePicker.platform;
+  HomeRepository({
+    Dio? dio,
+    FilePicker? filePicker,
+    ThemeDecoder? themeDecoder,
+    ThemeEncoder? themeEncoder,
+  })  : _dio = dio ?? Dio(),
+        _filePicker = filePicker ?? FilePicker.platform,
+        _themeDecoder = themeDecoder ?? ThemeDecoder(),
+        _themeEncoder = themeEncoder ?? ThemeEncoder();
 
   static const _usageFileUrl =
       'https://raw.githubusercontent.com/zeshuaro/appainter/main/USAGE.md';
@@ -54,14 +62,14 @@ class HomeRepository {
       }
 
       final themeJson = jsonDecode(themeStr);
-      theme = ThemeDecoder.decodeThemeData(themeJson, validate: false);
+      theme = _themeDecoder.decodeThemeData(themeJson, validate: false);
     }
 
     return theme;
   }
 
   Future<bool> exportTheme(ThemeData theme) async {
-    final themeJson = ThemeEncoder.encodeThemeData(theme);
+    final themeJson = _themeEncoder.encodeThemeData(theme);
     final themeStr = prettyJson(themeJson);
     final themeBytes = Uint8List.fromList(themeStr.codeUnits);
 

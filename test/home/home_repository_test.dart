@@ -9,7 +9,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:json_theme/json_theme.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:universal_io/io.dart' as io;
 
 class MockDio extends Mock implements Dio {}
 
@@ -19,29 +18,37 @@ class MockFilePicker extends Mock implements FilePicker {}
 
 class MockPlatformFile extends Mock implements PlatformFile {}
 
+class MockThemeDecoder extends Mock implements ThemeDecoder {}
+
+class MockThemeEncoder extends Mock implements ThemeEncoder {}
+
 void main() {
   late Dio dio;
-  late HomeRepository repo;
   late FilePicker filePicker;
-  late ThemeData themeData;
-  late Uint8List themeBytes;
+  late ThemeDecoder themeDecoder;
+  late ThemeEncoder themeEncoder;
+  late HomeRepository repo;
+
+  final themeData = ThemeData();
+  final themeJson = {'key': 'value'};
+  final themeStr = jsonEncode(themeJson);
+  final themeBytes = Uint8List.fromList(themeStr.codeUnits);
 
   const filePath = './test/home/test_files/theme.json';
   const isDarkThemeKey = 'isDarkTheme';
 
-  setUpAll(() {
-    final file = io.File(filePath);
-    final themeStr = file.readAsStringSync();
-    final themeJson = jsonDecode(themeStr);
-
-    themeData = ThemeDecoder.decodeThemeData(themeJson)!;
-    themeBytes = file.readAsBytesSync();
-  });
-
   setUp(() {
     dio = MockDio();
     filePicker = MockFilePicker();
-    repo = HomeRepository(dio: dio, filePicker: filePicker);
+    themeDecoder = MockThemeDecoder();
+    themeEncoder = MockThemeEncoder();
+
+    repo = HomeRepository(
+      dio: dio,
+      filePicker: filePicker,
+      themeDecoder: themeDecoder,
+      themeEncoder: themeEncoder,
+    );
     SharedPreferences.setMockInitialValues({});
   });
 
@@ -82,6 +89,10 @@ void main() {
         return Future.value(FilePickerResult([file]));
       });
 
+      when(
+        () => themeDecoder.decodeThemeData(themeJson, validate: false),
+      ).thenReturn(themeData);
+
       final actual = await repo.importTheme();
 
       expect(actual, equals(themeData));
@@ -99,6 +110,10 @@ void main() {
       }).thenAnswer((invocation) {
         return Future.value(FilePickerResult([file]));
       });
+
+      when(
+        () => themeDecoder.decodeThemeData(any(), validate: false),
+      ).thenReturn(themeData);
 
       final actual = await repo.importTheme();
 

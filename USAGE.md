@@ -18,7 +18,7 @@ To use the theme JSON file in your app, follow the steps below:
 
     ```yml
     dependencies:
-      json_theme: ^9.0.3
+      json_theme: ^11.0.0
 
 2. Copy the generated `json` file to your app project and place it under the `assets/` folder.
    
@@ -44,7 +44,7 @@ To use the theme JSON file in your app, follow the steps below:
 
      final themeStr = await rootBundle.loadString('assets/appainter_theme.json');
      final themeJson = jsonDecode(themeStr);
-     final theme = ThemeDecoder.decodeThemeData(themeJson)!;
+     final theme = ThemeDecoder().decodeThemeData(themeJson)!;
 
      runApp(MyApp(theme: theme));
    }

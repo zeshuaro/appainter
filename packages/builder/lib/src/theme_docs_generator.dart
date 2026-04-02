@@ -1,4 +1,4 @@
-import 'package:analyzer/dart/element/element.dart' as analyzer;
+import 'package:analyzer/dart/element/element2.dart' as analyzer;
 import 'package:appainter_annotations/annotations.dart';
 import 'package:appainter_builder/src/http_client.dart';
 import 'package:build/build.dart';
@@ -25,11 +25,11 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
 
   @override
   Future<String> generateForAnnotatedElement(
-    analyzer.Element element,
+    analyzer.Element2 element,
     ConstantReader annotation,
     BuildStep buildStep,
   ) async {
-    if (element is! analyzer.ClassElement) {
+    if (element is! analyzer.ClassElement2) {
       throw InvalidGenerationSourceError(
         'Only classes can be annotated with "ThemeDocumentation". "$element" is'
         'not a ClassElement.',
@@ -43,7 +43,14 @@ class ThemeDocsGenerator extends GeneratorForAnnotation<ThemeDocs> {
       propertyTypes.addAll(config.extraPropertyTypes!);
     }
 
-    final className = element.name.replaceFirst(RegExp(r'Cubit$'), '');
+    final className = element.name3?.replaceFirst(RegExp(r'Cubit$'), '');
+    if (className == null) {
+      throw InvalidGenerationSourceError(
+        'Could not determine class name.',
+        element: element,
+      );
+    }
+
     final apiClassName = config.apiClassName ?? className;
     late final Map<String, String> props;
 

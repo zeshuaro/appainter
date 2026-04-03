@@ -14,7 +14,7 @@ dependencies:
   bloc: 9.2.0
   collection: ^1.17.2
   copy_with_extension: 7.1.0
-  cupertino_icons: 1.0.8
+  cupertino_icons: 1.0.9
   device_preview_plus: 2.6.1
   dio: 5.9.1
   dropdown_search: 6.0.2

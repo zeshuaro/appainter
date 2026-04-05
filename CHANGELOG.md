@@ -1,3 +1,25 @@
+## [2.7.6](https://github.com/zeshuaro/appainter/compare/v2.7.5...v2.7.6) (2026-04-05)
+
+### Bug Fixes
+
+* **deps:** update code generation dependencies ([#1800](https://github.com/zeshuaro/appainter/issues/1800)) ([03d683a](https://github.com/zeshuaro/appainter/commit/03d683aa4e382d0d841dec795b1b182f134f3a09))
+* **deps:** update dependency cupertino_icons to v1.0.9 ([#1805](https://github.com/zeshuaro/appainter/issues/1805)) ([67d9c55](https://github.com/zeshuaro/appainter/commit/67d9c558293501bfef7dc7e47cfe771f51dff7bb))
+* **deps:** update dependency dio to v5.9.2 ([#1806](https://github.com/zeshuaro/appainter/issues/1806)) ([857bfdf](https://github.com/zeshuaro/appainter/commit/857bfdf31f9b9670ab0f2d7577dd295e78295eee))
+* **deps:** update dependency google_fonts to v8 ([#1779](https://github.com/zeshuaro/appainter/issues/1779)) ([4ca403d](https://github.com/zeshuaro/appainter/commit/4ca403d0a0bf7fa608c483871fe69dccd59056a2))
+
+### Miscellaneous Chores
+
+* **deps:** update dependency conventional-changelog-conventionalcommits to v9.3.1 ([#1808](https://github.com/zeshuaro/appainter/issues/1808)) ([875beea](https://github.com/zeshuaro/appainter/commit/875beea88d868bc7256526f85d3f5e0edb93adcf))
+* **deps:** update dependency semantic-release-pub to v0.11.12 ([#1802](https://github.com/zeshuaro/appainter/issues/1802)) ([25182a2](https://github.com/zeshuaro/appainter/commit/25182a2730def1a465ad8c018f54722b73eddee3))
+* **node:** update node.js to v24.14.1 ([#1803](https://github.com/zeshuaro/appainter/issues/1803)) ([905dff2](https://github.com/zeshuaro/appainter/commit/905dff2e1e0c79a74294c279c43bf878ca32134a))
+
+### Continuous Integration
+
+* **deps:** update actions/download-artifact action to v8 ([#1796](https://github.com/zeshuaro/appainter/issues/1796)) ([957efbe](https://github.com/zeshuaro/appainter/commit/957efbe06347b96aec24ac5c74709063a8c5946e))
+* **deps:** update actions/upload-artifact action to v7 ([#1797](https://github.com/zeshuaro/appainter/issues/1797)) ([263641d](https://github.com/zeshuaro/appainter/commit/263641d159ef4f21a521294f06095092c1ec9077))
+* **deps:** update codecov/codecov-action action to v5.5.4 ([#1804](https://github.com/zeshuaro/appainter/issues/1804)) ([fccbe52](https://github.com/zeshuaro/appainter/commit/fccbe52e55a82e6c57c589065f11a3c1cee658df))
+* **deps:** update zeshuaro/github-actions-workflows digest to 6b595f8 ([#1801](https://github.com/zeshuaro/appainter/issues/1801)) ([8fbec68](https://github.com/zeshuaro/appainter/commit/8fbec6805fdb30f371c3a9b4fe615a04e34088ef))
+
 ## [2.7.5](https://github.com/zeshuaro/appainter/compare/v2.7.4...v2.7.5) (2026-03-01)
 
 ### Bug Fixes

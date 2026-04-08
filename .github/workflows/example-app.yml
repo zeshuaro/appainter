@@ -50,7 +50,7 @@ jobs:
           cache_key: ${{ runner.os }}-build-example
 
       - name: Start iOS simulator 📱
-        uses: futureware-tech/simulator-action@v4
+        uses: futureware-tech/simulator-action@v5
         with:
           model: "iPhone 16 Pro Max"
 

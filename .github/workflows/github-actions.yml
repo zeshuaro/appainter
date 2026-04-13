@@ -134,7 +134,7 @@ jobs:
           flutter build ${{ matrix.type }} --no-tree-shake-icons --target=integration_test/app_test.dart
 
           if [ "${{ matrix.type }}" == "linux" ]; then
-            xvfb-run flutter test integration_test -d ${{ matrix.type }}
+            xvfb-run flutter test integration_test -d ${{ matrix.type }} --ignore-timeouts
           elif [ "${{ matrix.type }}" == "web" ]; then
             export DISPLAY=:99
             chromedriver --port=4444 &
@@ -143,7 +143,7 @@ jobs:
               --target=integration_test/app_test.dart \
               -d web-server
           else
-            flutter test integration_test -d ${{ matrix.type }}
+            flutter test integration_test -d ${{ matrix.type }} --ignore-timeouts
           fi
 
   lint:

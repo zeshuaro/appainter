@@ -8,6 +8,7 @@ import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
+import 'package:appainter/font/font.dart';
 import 'package:appainter/home/home.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
@@ -32,6 +33,7 @@ extension PumpApp on WidgetTester {
     HomeCubit? homeCubit,
     BasicThemeCubit? basicThemeCubit,
     AdvancedThemeCubit? advancedThemeCubit,
+    FontRepository? fontRepo,
   }) async {
     final mockHomeCubit = MockHomeCubit();
     final mockBasicThemeCubit = MockBasicThemeCubit();
@@ -120,6 +122,8 @@ extension PumpApp on WidgetTester {
         MockBodyMediumTextStyleCubit();
     final BodySmallTextStyleCubit bodySmallTextStyleCubit =
         MockBodySmallTextStyleCubit();
+
+    final mockFontRepo = fontRepo ?? MockFontRepository();
 
     final textStyle = Typography.englishLike2018
         .merge(Typography.blackMountainView)
@@ -230,9 +234,15 @@ extension PumpApp on WidgetTester {
     when(() => bodyMediumTextStyleCubit.state).thenReturn(textStyleState);
     when(() => bodySmallTextStyleCubit.state).thenReturn(textStyleState);
 
+    when(() => mockFontRepo.getFont(any()))
+        .thenReturn(FontData.defaultFontData());
+
     return pumpWidget(
-      RepositoryProvider(
-        create: (context) => homeRepo ?? MockHomeRepository(),
+      MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider.value(value: homeRepo ?? MockHomeRepository()),
+          RepositoryProvider.value(value: mockFontRepo),
+        ],
         child: MultiBlocProvider(
           providers: [
             BlocProvider.value(value: homeCubit ?? mockHomeCubit),

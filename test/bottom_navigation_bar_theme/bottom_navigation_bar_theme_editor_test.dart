@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:appainter/abstract_text_style/cubit/abstract_text_style_cubit.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
+import 'package:appainter/font/font_repository.dart';
 import 'package:appainter/services/util_service.dart';
 import 'package:appainter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -66,18 +67,21 @@ void main() {
 
     await tester.pumpWidget(
       MaterialApp(
-        home: MultiBlocProvider(
-          providers: [
-            BlocProvider.value(value: bottomNavigationBarThemeCubit),
-            BlocProvider.value(value: bottomNavigationBarLabelTextStyleCubit),
-            BlocProvider.value(
-              value: bottomNavigationBarUnselectedLabelTextStyleCubit,
-            ),
-            BlocProvider.value(value: colorThemeCubit),
-          ],
-          child: Scaffold(
-            body: MyExpansionPanelList(
-              item: const BottomNavigationBarThemeEditor(),
+        home: RepositoryProvider<FontRepository>(
+          create: (BuildContext context) => MockFontRepository(),
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider.value(value: bottomNavigationBarThemeCubit),
+              BlocProvider.value(value: bottomNavigationBarLabelTextStyleCubit),
+              BlocProvider.value(
+                value: bottomNavigationBarUnselectedLabelTextStyleCubit,
+              ),
+              BlocProvider.value(value: colorThemeCubit),
+            ],
+            child: Scaffold(
+              body: MyExpansionPanelList(
+                item: const BottomNavigationBarThemeEditor(),
+              ),
             ),
           ),
         ),

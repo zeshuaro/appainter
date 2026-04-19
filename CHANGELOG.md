@@ -1,3 +1,19 @@
+## [2.7.7](https://github.com/zeshuaro/appainter/compare/v2.7.6...v2.7.7) (2026-04-19)
+
+### Bug Fixes
+
+* **deps:** update dependency sentry_flutter to v9.16.0 ([#1776](https://github.com/zeshuaro/appainter/issues/1776)) ([cac8ce2](https://github.com/zeshuaro/appainter/commit/cac8ce27287e5106768a8b6b74b5a854980a11cd))
+* **deps:** update firebase dependencies ([#1777](https://github.com/zeshuaro/appainter/issues/1777)) ([591565e](https://github.com/zeshuaro/appainter/commit/591565ed0807e295b36688921ca02f92f2357100))
+
+### Continuous Integration
+
+* **deps:** update actions/create-github-app-token action to v3 ([#1811](https://github.com/zeshuaro/appainter/issues/1811)) ([8895c49](https://github.com/zeshuaro/appainter/commit/8895c49185e0d92d5854f6d1f58b0f9350a63ade))
+* **deps:** update codecov/codecov-action action to v6 ([#1812](https://github.com/zeshuaro/appainter/issues/1812)) ([2c5db0c](https://github.com/zeshuaro/appainter/commit/2c5db0c92f54480c39d155603e01bdc36ee3ab32))
+* **deps:** update futureware-tech/simulator-action action to v5 ([#1813](https://github.com/zeshuaro/appainter/issues/1813)) ([a486055](https://github.com/zeshuaro/appainter/commit/a48605594ea1a9f9ce0cc013e4a28da292f044b4))
+* **deps:** update nanasess/setup-chromedriver action to v2.4.0 ([#1809](https://github.com/zeshuaro/appainter/issues/1809)) ([c84ee37](https://github.com/zeshuaro/appainter/commit/c84ee377428551c8b78afbef5044c716dbebc93c))
+* **deps:** update subosito/flutter-action action to v2.23.0 ([#1810](https://github.com/zeshuaro/appainter/issues/1810)) ([da9b943](https://github.com/zeshuaro/appainter/commit/da9b9430c7ec34e693ee85ce602c8e20b3be0f72))
+* **github-actions:** add `--ignore-timeouts` when running integration tests ([#1818](https://github.com/zeshuaro/appainter/issues/1818)) ([bf48be7](https://github.com/zeshuaro/appainter/commit/bf48be7b6ff4d979e42286bd91c3296fc78c4c7c))
+
 ## [2.7.6](https://github.com/zeshuaro/appainter/compare/v2.7.5...v2.7.6) (2026-04-05)
 
 ### Bug Fixes
